@@ -1,0 +1,19 @@
+sudo: false
+language: node_js
+node_js:
+  - '11'
+cache:
+  yarn: true
+  directories:
+    - node_modules
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+install:
+  - yarn
+script:
+  - yarn build
+  - yarn ci
+
+after_success:
+  - codecov < coverage/lcov.info
