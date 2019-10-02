@@ -22,8 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "ci": "CI=true yarn test --coverage",
-    "lint": "eslint --ext js,ts,tsx src",
-    "eject": "react-scripts eject"
+    "lint": "eslint --ext js,ts,tsx src"
   },
   "eslintConfig": {
     "extends": "react-app"
