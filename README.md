@@ -27,6 +27,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Docker
+
+`docker-compose up` to start the dockerized dev-environment. Not for production!!!  
+`docker-compose down` stops the container.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
