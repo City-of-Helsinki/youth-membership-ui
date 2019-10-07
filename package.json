@@ -1,6 +1,7 @@
 {
   "name": "youth-membership-ui",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.18",
