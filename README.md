@@ -27,10 +27,40 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Docker
+## Setting up development environment locally with docker
 
-`docker-compose up` to start the dockerized dev-environment. Not for production!!!  
+### Set tunnistamo hostname
+Add the following line to your hosts file (`/etc/hosts` on mac and linux):
+
+    127.0.0.1 tunnistamo-backend
+
+### Create a new OAuth app on GitHub
+Go to https://github.com/settings/developers/ and add a new app with the following settings:
+
+- Application name: can be anything, e.g. local tunnistamo
+- Homepage URL: http://tunnistamo-backend:8000
+- Authorization callback URL: http://tunnistamo-backend:8000/accounts/github/login/callback/
+
+Save. You'll need the created **Client ID** and **Client Secret** for configuring tunnistamo in the next step.
+
+### Install local tunnistamo
+Clone https://github.com/City-of-Helsinki/tunnistamo/. If [this PR](https://github.com/City-of-Helsinki/tunnistamo/pull/94) has not been merged yet, use [this fork](https://github.com/andersinno/tunnistamo/tree/docker-refactor) instead.
+
+Follow the instructions for setting up tunnistamo locally. Before running `docker-compose up` set the following settings in tunnistamo roots `docker-compose.env.yaml`:
+
+- SOCIAL_AUTH_GITHUB_KEY: **Client ID** from the GitHub OAuth app
+- SOCIAL_AUTH_GITHUB_SECRET: **Client Secret** from the GitHub OAuth app
+
+### Install open-city-profile locally
+Clone the repository (https://github.com/City-of-Helsinki/open-city-profile). Follow the instructions for running open-city-profile with docker. Before running `docker-compose up` set the following settings in open-city-profile roots `docker-compose up`:
+
+- OIDC_SECRET: leave empty, it's not needed
+- OIDC_ENDPOINT: http://tunnistamo-backend:8000/openid
+
+### Run youth-membership-ui
+Run `docker-compose up`, now the app should be running at `http://localhost:3000/`!
 `docker-compose down` stops the container.
+
 
 ## Learn More
 
