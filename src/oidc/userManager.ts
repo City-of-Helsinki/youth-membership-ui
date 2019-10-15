@@ -10,7 +10,7 @@ const settings: UserManagerSettings = {
   authority: process.env.REACT_APP_OIDC_AUTHORITY,
   client_id: process.env.REACT_APP_OIDC_CLIENT_ID,
   redirect_uri: `${location}/callback`,
-  response_type: 'id_token',
+  response_type: 'id_token token',
   scope: process.env.REACT_APP_OIDC_SCOPE,
 };
 /* eslint-enable @typescript-eslint/camelcase */
