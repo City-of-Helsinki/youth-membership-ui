@@ -5,8 +5,13 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { OidcProvider, loadUser } from 'redux-oidc';
 
 import userManager from './oidc/userManager';
+import enableOidcLogging from './oidc/enableOidcLogging';
 import Home from './pages/Home';
 import OidcCallback from './pages/OidcCallback';
+
+if (process.env.NODE_ENV !== 'production') {
+  enableOidcLogging();
+}
 
 type Props = {
   store: Store;
