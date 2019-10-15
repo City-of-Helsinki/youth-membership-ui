@@ -18,8 +18,8 @@ function App(props: Props) {
     <ReduxProvider store={props.store}>
       <OidcProvider store={props.store} userManager={userManager}>
         <Switch>
-          <Route path="/" component={Home} />
           <Route path="/callback" component={OidcCallback} />
+          <Route path="/" component={Home} exact />
         </Switch>
       </OidcProvider>
     </ReduxProvider>
