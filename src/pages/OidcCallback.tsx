@@ -9,7 +9,6 @@ type Props = RouteChildrenProps & {};
 
 function OidcCallback(props: Props) {
   const onSuccess = (user: object) => {
-    console.log(user);
     props.history.push('/');
   };
   const onError = (error: object) => {
@@ -22,7 +21,7 @@ function OidcCallback(props: Props) {
       errorCallback={onError}
       userManager={userManager}
     >
-      {t('')}
+      <p>{t('oidc.redirecting')}</p>
     </CallbackComponent>
   );
 }

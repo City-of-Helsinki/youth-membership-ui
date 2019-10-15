@@ -1,3 +1,6 @@
 {
-  "appName": "Youth membership"
+  "appName": "Youth membership",
+  "oidc": {
+    "redirecting": "Redirecting..."
+  }
 }
