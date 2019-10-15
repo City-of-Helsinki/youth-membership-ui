@@ -12,7 +12,8 @@ function OidcCallback(props: Props) {
     props.history.push('/');
   };
   const onError = (error: object) => {
-    console.error(error);
+    // TODO: do something about errors
+    props.history.push('/');
   };
   const { t } = useTranslation();
   return (
