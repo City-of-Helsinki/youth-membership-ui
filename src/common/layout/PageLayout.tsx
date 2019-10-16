@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import Header from '../header/Header';
+import HostingBox from '../hostingBox/HostingBox';
 
 type Props = {
   children: ReactNode;
@@ -8,10 +9,11 @@ type Props = {
 
 function PageLayout(props: Props) {
   return (
-    <>
+    <div>
       <Header />
+      <HostingBox />
       {props.children}
-    </>
+    </div>
   );
 }
 
