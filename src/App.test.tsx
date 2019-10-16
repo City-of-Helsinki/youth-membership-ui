@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router';
 
 import App from './App';
-import configureStore from './redux/store';
-
-const store = configureStore({});
+import store from './redux/store';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

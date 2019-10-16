@@ -1,12 +1,16 @@
 import {
   configureStore,
+  getDefaultMiddleware,
   Store,
   ConfigureStoreOptions,
 } from 'redux-starter-kit';
+import { USER_FOUND } from 'redux-oidc';
 
 import rootReducer from './rootReducer';
 
-export default function configureAppStore(
+const isProd = process.env.NODE_ENV === 'production';
+
+export function configureAppStore(
   options: Partial<ConfigureStoreOptions>
 ): Store {
   const store = configureStore({
@@ -15,7 +19,7 @@ export default function configureAppStore(
   });
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
-  if (process.env.NODE_ENV !== 'production' && (module as any).hot) {
+  if (!isProd && (module as any).hot) {
     (module as any).hot.accept('./rootReducer', () => {
       store.replaceReducer(rootReducer);
     });
@@ -24,3 +28,14 @@ export default function configureAppStore(
 
   return store;
 }
+
+const store = configureAppStore({
+  devTools: !isProd,
+  middleware: getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [USER_FOUND],
+    },
+  }),
+});
+
+export default store;
