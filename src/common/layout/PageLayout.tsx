@@ -12,7 +12,6 @@ function PageLayout(props: Props) {
     <div>
       <Header />
       <HostingBox />
-      {props.children}
     </div>
   );
 }
