@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteChildrenProps } from 'react-router';
 
-import userManager from '../oidc/userManager';
+import authenticate from '../oidc/authenticate';
 import PageLayout from '../common/layout/PageLayout';
 
 type Props = RouteChildrenProps & {};
@@ -9,9 +9,7 @@ type Props = RouteChildrenProps & {};
 function Home(props: Props) {
   return (
     <PageLayout>
-      <button onClick={() => userManager.signinRedirect()}>
-        Authenticate using tunnistamo
-      </button>
+      <button onClick={authenticate}>Authenticate using tunnistamo</button>
     </PageLayout>
   );
 }
