@@ -1,3 +1,6 @@
 {
-  "appName": "Youth membership SV"
+  "appName": "Youth membership SV",
+  "oidc": {
+    "redirecting": "Omdirigerar..."
+  }
 }

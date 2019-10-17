@@ -1,10 +1,11 @@
 import React from 'react';
-import { RouteProps } from 'react-router';
+import { RouteChildrenProps } from 'react-router';
 
+import authenticate from '../oidc/authenticate';
 import PageLayout from '../common/layout/PageLayout';
 import styles from './Home.module.css';
 
-type Props = RouteProps & {};
+type Props = RouteChildrenProps & {};
 
 function Home(props: Props) {
   return (
