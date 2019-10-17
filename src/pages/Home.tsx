@@ -1,12 +1,17 @@
 import React from 'react';
-import { RouteProps } from 'react-router';
+import { RouteChildrenProps } from 'react-router';
 
+import authenticate from '../oidc/authenticate';
 import PageLayout from '../common/layout/PageLayout';
 
-type Props = RouteProps & {};
+type Props = RouteChildrenProps & {};
 
 function Home(props: Props) {
-  return <PageLayout>Home</PageLayout>;
+  return (
+    <PageLayout>
+      <button onClick={authenticate}>Authenticate using tunnistamo</button>
+    </PageLayout>
+  );
 }
 
 export default Home;

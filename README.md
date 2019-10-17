@@ -51,6 +51,10 @@ Follow the instructions for setting up tunnistamo locally. Before running `docke
 - SOCIAL_AUTH_GITHUB_KEY: **Client ID** from the GitHub OAuth app
 - SOCIAL_AUTH_GITHUB_SECRET: **Client Secret** from the GitHub OAuth app
 
+After you've got tunnistamo running locally, login to tunnistamo admin and add the following Redirect URI to the [*Profiles* client](http://tunnistamo-backend:8000/admin/oidc_provider/client/1/change/#id__redirect_uris):
+
+    http://localhost:3000/callback
+
 ### Install open-city-profile locally
 Clone the repository (https://github.com/City-of-Helsinki/open-city-profile). Follow the instructions for running open-city-profile with docker. Before running `docker-compose up` set the following settings in open-city-profile roots `docker-compose up`:
 
