@@ -12,6 +12,7 @@
     "@types/react-redux": "^7.1.4",
     "@types/react-router-dom": "^5.1.0",
     "classnames": "^2.2.6",
+    "graphql": "^14.5.8",
     "i18next": "^17.0.17",
     "oidc-client": "^1.9.1",
     "react": "^16.9.0",
@@ -23,7 +24,8 @@
     "react-scripts": "3.1.2",
     "redux-oidc": "^3.1.5",
     "redux-starter-kit": "^0.7.0",
-    "typescript": "3.6.3"
+    "typescript": "3.6.3",
+    "urql": "^1.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
