@@ -1,6 +1,7 @@
 import React from 'react';
 import { RouteChildrenProps } from 'react-router';
 
+import authenticate from '../oidc/authenticate';
 import PageLayout from '../common/layout/PageLayout';
 import styles from './Home.module.css';
 
@@ -18,7 +19,9 @@ function Home(props: Props) {
           Hanki jäsenyys
         </button>
         <p>
-          <a href="#">Mikäli sinulla on jo jäsenyys, kirjaudu sisään ></a>
+          <span onClick={authenticate} role="button">
+            Mikäli sinulla on jo jäsenyys, kirjaudu sisään >
+          </span>
         </p>
       </div>
     </PageLayout>
