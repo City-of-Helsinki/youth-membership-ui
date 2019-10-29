@@ -1,6 +1,10 @@
 import { createUserManager } from 'redux-oidc';
 import { UserManagerSettings } from 'oidc-client';
 
+import store from '../redux/store';
+import { fetchApiTokenThunk } from './redux';
+import getAuthenticatedUser from './getAuthenticatedUser';
+
 const location = `${window.location.protocol}//${window.location.hostname}${
   window.location.port ? `:${window.location.port}` : ''
 }`;
@@ -16,5 +20,10 @@ const settings: UserManagerSettings = {
 /* eslint-enable @typescript-eslint/camelcase */
 
 const userManager = createUserManager(settings);
+
+userManager.events.addUserLoaded(async () => {
+  const user = await getAuthenticatedUser();
+  store.dispatch(fetchApiTokenThunk(user.access_token));
+});
 
 export default userManager;
