@@ -1,18 +1,19 @@
 import {
   configureStore,
   getDefaultMiddleware,
-  Store,
+  Action,
   ConfigureStoreOptions,
 } from 'redux-starter-kit';
+import { ThunkAction } from 'redux-thunk';
 import { USER_FOUND } from 'redux-oidc';
 
-import rootReducer from './rootReducer';
+import rootReducer, { RootState } from './rootReducer';
 
 const isProd = process.env.NODE_ENV === 'production';
 
-export function configureAppStore(
-  options: Partial<ConfigureStoreOptions>
-): Store {
+export type AppThunk = ThunkAction<void, RootState, null, Action<string>>;
+
+export function configureAppStore(options: Partial<ConfigureStoreOptions>) {
   const store = configureStore({
     reducer: rootReducer,
     ...options,
