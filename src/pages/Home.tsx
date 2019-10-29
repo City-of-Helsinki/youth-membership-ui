@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteChildrenProps } from 'react-router';
 
-import authenticate from '../oidc/authenticate';
+import authenticate from '../auth/authenticate';
 import PageLayout from '../common/layout/PageLayout';
 import styles from './Home.module.css';
 
