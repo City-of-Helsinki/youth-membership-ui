@@ -2,14 +2,18 @@ import { gql } from 'apollo-boost';
 
 import client from '../client';
 
-jest.mock('../../oidc/getAuthenticatedUser');
+jest.mock('../../auth/redux', () => {
+  return {
+    profileApiTokenSelector: () => 'foo.bar.baz',
+  };
+});
 
 describe('graphql client', () => {
   beforeEach(() => {
     global.fetch.resetMocks();
   });
 
-  it('sets Authorization-header to requests from currently authenticated user', async () => {
+  it('sets Authorization-header to requests', async () => {
     global.fetch.mockResponse(
       JSON.stringify({
         data: {

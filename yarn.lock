@@ -1140,6 +1140,12 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/redux-thunk@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/redux-thunk/-/redux-thunk-2.1.0.tgz#bc2b6e972961831afb82a9bf4f06726e351f9416"
+  dependencies:
+    redux-thunk "*"
+
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
@@ -4322,9 +4328,9 @@ immer@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/immer/-/immer-1.10.0.tgz#bad67605ba9c810275d91e1c2a47d4582e98286d"
 
-immer@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/immer/-/immer-2.1.5.tgz#0389947455c5a2c7a47f1e6f415c9d1a62a1ebed"
+immer@^4.0.1:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-4.0.2.tgz#9ff0fcdf88e06f92618a5978ceecb5884e633559"
 
 immutable@>=3.6.0:
   version "3.8.2"
@@ -7504,18 +7510,18 @@ redux-oidc@^3.1.5:
   optionalDependencies:
     immutable ">=3.6.0"
 
-redux-starter-kit@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/redux-starter-kit/-/redux-starter-kit-0.7.0.tgz#5ce75d0520113d12b5227413c514fe5e0364a158"
+redux-starter-kit@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/redux-starter-kit/-/redux-starter-kit-1.0.0.tgz#7c317306755dafd49a1e8f09e4fe36dd0633736f"
   dependencies:
-    immer "^2.1.5"
+    immer "^4.0.1"
     redux "^4.0.0"
     redux-devtools-extension "^2.13.8"
     redux-immutable-state-invariant "^2.1.0"
-    redux-thunk "^2.2.0"
+    redux-thunk "^2.3.0"
     reselect "^4.0.0"
 
-redux-thunk@^2.2.0:
+redux-thunk@*, redux-thunk@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
 

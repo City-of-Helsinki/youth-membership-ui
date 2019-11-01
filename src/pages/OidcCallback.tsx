@@ -3,7 +3,7 @@ import { CallbackComponent } from 'redux-oidc';
 import { RouteChildrenProps } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
-import userManager from '../oidc/userManager';
+import userManager from '../auth/userManager';
 
 type Props = RouteChildrenProps & {};
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteChildrenProps } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
-import authenticate from '../oidc/authenticate';
+import authenticate from '../auth/authenticate';
 import PageLayout from '../common/layout/PageLayout';
 import styles from './Home.module.css';
 
