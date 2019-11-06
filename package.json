@@ -14,6 +14,7 @@
     "@types/react-router-dom": "^5.1.0",
     "apollo-boost": "^0.4.4",
     "classnames": "^2.2.6",
+    "formik": "^2.0.3",
     "graphql": "^14.5.8",
     "hds-react": "^0.2.3",
     "i18next": "^17.0.17",
