@@ -65,6 +65,29 @@ Clone the repository (https://github.com/City-of-Helsinki/open-city-profile). Fo
 Run `docker-compose up`, now the app should be running at `http://localhost:3000/`!
 `docker-compose down` stops the container.
 
+## Test environment
+No test environment yet.
+
+## Production environment
+No production environment yet.
+
+## Jira backlog
+https://helsinkisolutionoffice.atlassian.net/secure/RapidBoard.jspa?rapidView=23&projectKey=OM&view=planning
+
+## How to contribute
+Create a new PR for approval.
+
+## Known issues
+https://github.com/City-of-Helsinki/youth-membership-ui/issues
+
+
+## Plans && Roadmap
+https://helsinkisolutionoffice.atlassian.net/wiki/spaces/DD/pages/622665/omaHelsinki
+
+## Contact
+Helsinki city Slack channel #omahelsinki
+
+
 
 ## Learn More
 
