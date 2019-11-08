@@ -1,6 +1,17 @@
 {
-  "appName": "Youth membership FI",
+  "appName": "Jässäri",
   "oidc": {
     "redirecting": "Ohjataan tunnistautumiseen..."
+  },
+  "home" : {
+    "title": "Hanki Nuta-jäsenyys!"
+  },
+  "registration": {
+    "title": "Täytä tietosi",
+    "firstName": "Etunimi",
+    "lastName": "Sukunimi",
+    "street": "Katuosoite",
+    "postcode": "Postinumero",
+    "city": "Kaupunki"
   }
 }

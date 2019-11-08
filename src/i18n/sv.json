@@ -1,6 +1,17 @@
 {
-  "appName": "Youth membership SV",
+  "appName": "Jässäri SV",
   "oidc": {
     "redirecting": "Omdirigerar..."
+  },
+  "home" : {
+    "title": "Hanki Nuta-jäsenyys! SV"
+  },
+  "registration": {
+    "title": "Täytä tietosi SV",
+    "firstName": "Etunimi SV",
+    "lastName": "Sukunimi SV",
+    "street": "Katuosoite SV",
+    "postcode": "Postinumero SV",
+    "city": "Kaupunki SV"
   }
 }

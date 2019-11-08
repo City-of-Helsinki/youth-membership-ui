@@ -2,3 +2,17 @@
     padding: 10px 50px;
     text-align: left;
 }
+
+.formRow {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.formInput {
+    margin-right: 20px;
+}
+
+.childBirthay {
+    margin-right: 20px;
+}

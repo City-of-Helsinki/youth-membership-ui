@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouteChildrenProps } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 import authenticate from '../oidc/authenticate';
 import PageLayout from '../common/layout/PageLayout';
@@ -8,10 +9,11 @@ import styles from './Home.module.css';
 type Props = RouteChildrenProps & {};
 
 function Home(props: Props) {
+  const { t } = useTranslation();
   return (
     <PageLayout>
       <div className={styles.hostingBox}>
-        <h1>Hanki Nuta-jäsenyys!</h1>
+        <h1>{t('home.title')}</h1>
         <p>
           Tähän lisätietoja, miksi kannattaa hankkia jässäri, miten toimii jne.
         </p>

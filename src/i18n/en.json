@@ -1,6 +1,17 @@
 {
-  "appName": "Youth membership",
+  "appName": "Jässäri EN",
   "oidc": {
     "redirecting": "Redirecting..."
+  },
+  "home" : {
+    "title": "Hanki Nuta-jäsenyys! EN"
+  },
+  "registration": {
+    "title": "Täytä tietosi EN",
+    "firstName": "Etunimi EN",
+    "lastName": "Sukunimi EN",
+    "street": "Katuosoite EN",
+    "postcode": "Postinumero EN",
+    "city": "Kaupunki EN"
   }
 }
