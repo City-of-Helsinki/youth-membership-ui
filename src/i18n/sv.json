@@ -12,6 +12,13 @@
     "lastName": "Sukunimi SV",
     "street": "Katuosoite SV",
     "postcode": "Postinumero SV",
-    "city": "Kaupunki SV"
+    "city": "Kaupunki SV",
+    "childBirthDay": "Syntymäpäivä SV",
+    "childBirthMonth": "Syntymäkuukausi SV",
+    "childBirthYear": "Syntymävuosi SV",
+    "phoneNumber": "Puhelinnumero SV",
+    "email": "Sähköpostiosoite SV",
+    "school": "Koulu SV",
+    "class": "Luokka SV"
   }
 }

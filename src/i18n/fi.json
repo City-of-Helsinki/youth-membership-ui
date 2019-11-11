@@ -12,6 +12,13 @@
     "lastName": "Sukunimi",
     "street": "Katuosoite",
     "postcode": "Postinumero",
-    "city": "Kaupunki"
+    "city": "Kaupunki",
+    "childBirthDay": "Syntymäpäivä",
+    "childBirthMonth": "Syntymäkuukausi",
+    "childBirthYear": "Syntymävuosi",
+    "phoneNumber": "Puhelinnumero",
+    "email": "Sähköpostiosoite",
+    "school": "Koulu",
+    "class": "Luokka"
   }
 }
