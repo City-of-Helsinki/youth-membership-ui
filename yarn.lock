@@ -4085,10 +4085,10 @@ hds-core@^0.2.2:
   resolved "https://registry.yarnpkg.com/hds-core/-/hds-core-0.2.2.tgz#97fa47f45a17de57ff21851a20c5122f8db5b9e8"
   integrity sha512-3N2qL7APZMoweJsCrrg1lotZDK4mpQaKbni9qZ7NU57FhZnIK9CWeYzlGpFjkEXGR6hhSNKzlKGrOryy4jSDUg==
 
-hds-react@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/hds-react/-/hds-react-0.2.3.tgz#9429fc8766ee3df8d357977fbf779ba7aa4d0ce6"
-  integrity sha512-4aO7zEMfeMRr20dkkoagEFTJZqDMW7z7POeuv039fEPfqJESPOyxi40u0DH4PPfBz5RnxetEmIaiPOfenZBAAQ==
+hds-react@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/hds-react/-/hds-react-0.2.4.tgz#d37f3e8e7f02ff6f5beb989adb1ff0c36b13b757"
+  integrity sha512-JSqXoprMXn0nCG9aMMEJj7Fu6ywKCI+qh5h0qAzEMT1Dt6Upw3F9DtKUOeAUvUinbFnrESh8/XyKLrlanjOYYA==
   dependencies:
     hds-core "^0.2.2"
     react "^16.10.2"
