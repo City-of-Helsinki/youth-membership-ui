@@ -3,3 +3,15 @@
     margin-top: 20px;
     width: 1200px;
 }
+
+header {
+    background-color: white;
+}
+
+.adultBackground {
+    background-color: #0072c6;
+}
+
+.youthBackground {
+    background-color: #ffc61e;
+}

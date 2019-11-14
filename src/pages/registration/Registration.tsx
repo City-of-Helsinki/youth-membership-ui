@@ -21,7 +21,7 @@ function Registration(props: Props) {
         }, 1000);
       }}
     >
-      <PageLayout>
+      <PageLayout background="youth">
         <div className={styles.form}>
           <RegistrationForm />
         </div>

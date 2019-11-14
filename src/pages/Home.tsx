@@ -11,7 +11,7 @@ type Props = RouteChildrenProps & {};
 function Home(props: Props) {
   const { t } = useTranslation();
   return (
-    <PageLayout>
+    <PageLayout background="youth">
       <div className={styles.hostingBox}>
         <h1>{t('home.title')}</h1>
         <p>
