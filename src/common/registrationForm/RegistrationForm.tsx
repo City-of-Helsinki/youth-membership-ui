@@ -107,7 +107,10 @@ function RegistrationForm(props: Props) {
         <h3>Kotona puhutut kielet</h3>
         <CheckBox items={languages}></CheckBox>
         <h2>Huoltajan tiedot</h2>
-        <p></p>
+        <p>
+          Vahvistyspyyntö Nuta-jäsenyydestäsi lähetetään tähän osoitteeseen,
+          huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.
+        </p>
       </form>
     </div>
   );
