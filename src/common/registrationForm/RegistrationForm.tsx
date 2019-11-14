@@ -9,7 +9,7 @@ type Props = {};
 
 function RegistrationForm(props: Props) {
   const { t } = useTranslation();
-  const items = ['Suomi', 'Svenska', 'English', 'Other'];
+  const languages = ['Suomi', 'Svenska', 'English', 'Other'];
   return (
     <div>
       <h1>{t('registration.title')}</h1>
@@ -105,7 +105,7 @@ function RegistrationForm(props: Props) {
           />
         </div>
         <h3>Kotona puhutut kielet</h3>
-        <CheckBox items={items}></CheckBox>
+        <CheckBox items={languages}></CheckBox>
         <h2>Huoltajan tiedot</h2>
         <p></p>
       </form>
