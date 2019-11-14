@@ -41,13 +41,13 @@ function RegistrationForm(props: Props) {
             value=""
           />
           <TextInput
-            className={styles.formInput}
+            className={styles.formInputShort}
             id="postcode"
             labelText={t('registration.postcode')}
             value=""
           />
           <TextInput
-            className={styles.formInput}
+            className={styles.formInputShort}
             id="city"
             labelText={t('registration.city')}
             value=""
@@ -55,20 +55,20 @@ function RegistrationForm(props: Props) {
         </div>
         <div className={styles.formRow}>
           <TextInput
-            className={styles.formInput}
+            className={styles.childBirthDayInput}
             id="birthDay"
             labelText={t('registration.childBirthDay')}
             value=""
           />
           <TextInput
-            className={styles.childBirthDayInput}
+            className={styles.childBirthInput}
             id="birthMonth"
             hideLabel={true}
             labelText={t('registration.childBirthMonth')}
             value=""
           />
           <TextInput
-            className={styles.childBirthDayInput}
+            className={styles.childBirthInput}
             id="birthYear"
             hideLabel={true}
             labelText={t('registration.childBirthYear')}

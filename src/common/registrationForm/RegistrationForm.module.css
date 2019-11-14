@@ -11,15 +11,26 @@
 }
 
 .email {
-    margin-right: 145px;
+    margin-right: 170px;
     margin-top: 10px;
 }
 
 .formInput {
     margin-right: 20px;
+    width: 350px;
+}
+
+.formInputShort {
+    margin-right: 20px;   
+    width: 200px;
 }
 
 .childBirthDayInput {
-    margin: 25px 20px 0 0 ;
+    margin: 0 20px 0 0 ;
+    width: 100px;
+}
 
+.childBirthInput {
+    margin: 25px 20px 0 0 ;
+    width: 100px;
 }

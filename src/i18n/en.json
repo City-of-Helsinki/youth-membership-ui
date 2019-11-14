@@ -13,7 +13,7 @@
     "street": "Katuosoite EN",
     "postcode": "Postinumero EN",
     "city": "Kaupunki EN",
-    "childBirthDay": "Syntymäpäivä EN",
+    "childBirthDay": "Syntymäpäivä",
     "childBirthMonth": "Syntymäkuukausi EN",
     "childBirthYear": "Syntymävuosi EN",
     "phoneNumber": "Puhelinnumero EN",
