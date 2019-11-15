@@ -2,10 +2,54 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
 import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 
 import styles from './RegistrationForm.module.css';
 
 type Props = {};
+
+const SignupSchema = Yup.object().shape({
+  firstName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(255, 'Too Long!')
+    .required('Required'),
+  lastName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(255, 'Too Long!')
+    .required('Required'),
+  street: Yup.string()
+    .min(2, 'Too Short!')
+    .max(255, 'Too Long!')
+    .required('Required'),
+  postcode: Yup.string()
+    .min(5, 'Too Short!')
+    .max(5, 'Too Long!')
+    .required('Required'),
+  city: Yup.string()
+    .min(5, 'Too Short!')
+    .max(255, 'Too Long!')
+    .required('Required'),
+  birthDay: Yup.string()
+    .min(5, 'Too Short!')
+    .max(255, 'Too Long!')
+    .required('Required'),
+  birthMonth: Yup.string()
+    .min(5, 'Too Short!')
+    .max(255, 'Too Long!')
+    .required('Required'),
+  birthYear: Yup.string().required('Required'),
+  phoneNumber: Yup.string().required('Required'),
+  guardianFirstName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(255, 'Too Long!')
+    .required('Required'),
+  guardianLastName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(255, 'Too Long!')
+    .required('Required'),
+  guardianPhoneNumber: Yup.string().required('Required'),
+  guardianEmail: Yup.string().required('Required'),
+});
 
 function RegistrationForm(props: Props) {
   const { t } = useTranslation();
@@ -25,12 +69,14 @@ function RegistrationForm(props: Props) {
         school: '',
         class: '',
         language: '',
+        otherLanguages: '',
         guardianFirstName: '',
         guardianLastName: '',
         guardianEmail: '',
         guardianPhoneNumber: '',
         acceptTerms: '',
       }}
+      validationSchema={SignupSchema}
       onSubmit={(values, actions) => {
         console.log(values);
       }}
@@ -85,22 +131,26 @@ function RegistrationForm(props: Props) {
             </div>
             <div className={styles.formRow}>
               <Field
-                className={styles.formInput}
+                className={styles.childBirthDayInput}
                 as={TextInput}
                 id="birthDay"
                 name="birthDay"
                 labelText={t('registration.childBirthDay')}
+                min={1}
+                max={31}
               />
               <Field
-                className={styles.childBirthDayInput}
+                className={styles.childBirthInput}
                 as={TextInput}
                 id="birthMonth"
                 name="birthMonth"
                 hideLabel={true}
                 labelText={t('registration.childBirthMonth')}
+                min={1}
+                max={12}
               />
               <Field
-                className={styles.childBirthDayInput}
+                className={styles.childBirthInput}
                 as={TextInput}
                 id="birthYear"
                 name="birthYear"
@@ -151,6 +201,15 @@ function RegistrationForm(props: Props) {
                 </li>
               ))}
             </ul>
+            <div className={styles.formRow}>
+              <Field
+                className={styles.formInput}
+                as={TextInput}
+                id="otherLanguages"
+                name="otherLanguages"
+                //type="hidden"
+              />
+            </div>
             <h2>Huoltajan tiedot</h2>
             <p>
               Vahvistyspyyntö Nuta-jäsenyydestäsi lähetetään tähän osoitteeseen,
@@ -194,7 +253,11 @@ function RegistrationForm(props: Props) {
               tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.
             </p>
             <ul className={styles.acceptTermsCheckBox}>
-              <Field name="acceptTerms" type="checkbox" value={false} />
+              <Field
+                name="acceptTerms"
+                type="checkbox"
+                value="acceptanceTerms"
+              />
               <span className={styles.checkBoxLabel}>
                 Hyväksyn palvelun ehdot ja että minuun voidaan olla yhteydessä
                 antamaani osoitteeseen.
