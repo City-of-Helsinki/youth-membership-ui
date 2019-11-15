@@ -47,3 +47,7 @@
 .checkBoxLabel {
     margin-left: 5px;
 }
+
+.acceptTermsCheckBox {
+    padding-left: 0;
+}

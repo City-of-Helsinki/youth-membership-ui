@@ -25,6 +25,11 @@ function RegistrationForm(props: Props) {
         school: '',
         class: '',
         language: '',
+        guardianFirstName: '',
+        guardianLastName: '',
+        guardianEmail: '',
+        guardianPhoneNumber: '',
+        acceptTerms: '',
       }}
       onSubmit={(values, actions) => {
         console.log(values);
@@ -151,6 +156,50 @@ function RegistrationForm(props: Props) {
               Vahvistyspyyntö Nuta-jäsenyydestäsi lähetetään tähän osoitteeseen,
               huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.
             </p>
+            <div className={styles.formRow}>
+              <Field
+                className={styles.formInput}
+                as={TextInput}
+                id="guardianFirstName"
+                name="guardianFirstName"
+                labelText={t('registration.firstName')}
+              />
+              <Field
+                className={styles.formInput}
+                as={TextInput}
+                id="guardianLastName"
+                name="guardianLastName"
+                labelText={t('registration.lastName')}
+              />
+            </div>
+            <div className={styles.formRow}>
+              <Field
+                className={styles.formInput}
+                as={TextInput}
+                id="guardianEmail"
+                name="guardianEmail"
+                labelText={t('registration.email')}
+              />
+              <Field
+                className={styles.formInput}
+                as={TextInput}
+                id="guardianPhoneNumber"
+                name="guardianPhoneNumber"
+                labelText={t('registration.phoneNumber')}
+              />
+            </div>
+            <h2>Hyväksy ehdot ja lähetä hakemus</h2>
+            <p>
+              Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on
+              tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.
+            </p>
+            <ul className={styles.acceptTermsCheckBox}>
+              <Field name="acceptTerms" type="checkbox" value={false} />
+              <span className={styles.checkBoxLabel}>
+                Hyväksyn palvelun ehdot ja että minuun voidaan olla yhteydessä
+                antamaani osoitteeseen.
+              </span>
+            </ul>
             <button type="submit">Tallenna</button>
           </Form>
         </div>
