@@ -84,7 +84,7 @@ function RegistrationForm(props: Props) {
       {props => (
         <div>
           <h1>{t('registration.title')}</h1>
-          <p>{t('registration.mempershipInfoText')}</p>
+          <p>{t('registration.membershipInfoText')}</p>
           <h2>{t('registration.basicInfo')}</h2>
           <Form>
             <div className={styles.formRow}>

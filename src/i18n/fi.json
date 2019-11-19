@@ -8,7 +8,7 @@
   },
   "registration": {
     "title": "Täytä tietosi",
-    "mempershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
+    "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
     "basicInfo": "Perustiedot",
     "firstName": "Etunimi",
     "lastName": "Sukunimi",
