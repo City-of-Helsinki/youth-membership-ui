@@ -84,11 +84,8 @@ function RegistrationForm(props: Props) {
       {props => (
         <div>
           <h1>{t('registration.title')}</h1>
-          <p>
-            Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja
-            mihin käytetään.
-          </p>
-          <h2>Perustiedot</h2>
+          <p>{t('registration.mempershipInfoText')}</p>
+          <h2>{t('registration.basicInfo')}</h2>
           <Form>
             <div className={styles.formRow}>
               <Field
@@ -173,7 +170,7 @@ function RegistrationForm(props: Props) {
                 labelText={t('registration.phoneNumber')}
               />
             </div>
-            <h2>Lisätiedot</h2>
+            <h2>{t('registration.addInfo')}</h2>
             <div className={styles.formRow}>
               <Field
                 className={styles.formInput}
@@ -190,7 +187,7 @@ function RegistrationForm(props: Props) {
                 labelText={t('registration.class')}
               />
             </div>
-            <h3>Kotona puhutut kielet</h3>
+            <h3>{t('registration.homeLanguages')}</h3>
             <ul className={styles.checkBoxList}>
               {languages.map(language => (
                 <li className={styles.checkBoxRow} key={language}>
@@ -210,11 +207,8 @@ function RegistrationForm(props: Props) {
                 //type="hidden"
               />
             </div>
-            <h2>Huoltajan tiedot</h2>
-            <p>
-              Vahvistyspyyntö Nuta-jäsenyydestäsi lähetetään tähän osoitteeseen,
-              huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.
-            </p>
+            <h2>{t('registration.guardianInfo')}</h2>
+            <p>{t('registration.acceptanceInfo')}</p>
             <div className={styles.formRow}>
               <Field
                 className={styles.formInput}
@@ -247,23 +241,17 @@ function RegistrationForm(props: Props) {
                 labelText={t('registration.phoneNumber')}
               />
             </div>
-            <h2>Hyväksy ehdot ja lähetä hakemus</h2>
-            <p>
-              Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on
-              tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.
-            </p>
+            <h2>{t('registration.confirmSend')}</h2>
+            <p>{t('registration.processInfoText')}</p>
             <ul className={styles.acceptTermsCheckBox}>
               <Field
                 name="acceptTerms"
                 type="checkbox"
                 value="acceptanceTerms"
               />
-              <span className={styles.checkBoxLabel}>
-                Hyväksyn palvelun ehdot ja että minuun voidaan olla yhteydessä
-                antamaani osoitteeseen.
-              </span>
+              <span className={styles.checkBoxLabel}>{t('registration.acceptTermsText')}</span>
             </ul>
-            <button type="submit">Tallenna</button>
+            <button type="submit">{t('registration.sendButton')}</button>
           </Form>
         </div>
       )}

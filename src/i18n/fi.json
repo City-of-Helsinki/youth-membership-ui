@@ -8,6 +8,8 @@
   },
   "registration": {
     "title": "Täytä tietosi",
+    "mempershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
+    "basicInfo": "Perustiedot",
     "firstName": "Etunimi",
     "lastName": "Sukunimi",
     "street": "Katuosoite",
@@ -18,7 +20,15 @@
     "childBirthYear": "Syntymävuosi",
     "phoneNumber": "Puhelinnumero",
     "email": "Sähköpostiosoite",
+    "addInfo": "Lisätiedot",
     "school": "Koulu",
-    "class": "Luokka"
+    "class": "Luokka",
+    "homeLanguages": "Kotona puhutut kielet",
+    "guardianInfo": "Huoltajan tiedot",
+    "acceptanceInfo": "Vahvistyspyyntö Nuta-jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
+    "confirmSend": "Hyväksy ehdot ja lähetä hakemus",
+    "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
+    "acceptTermsText": "Hyväksyn palvelun ehdot ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö"
   }
 }
