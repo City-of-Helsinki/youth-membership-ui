@@ -133,6 +133,7 @@ function RegistrationForm(props: Props) {
                 id="birthDay"
                 name="birthDay"
                 labelText={t('registration.childBirthDay')}
+                type="number"
                 min={1}
                 max={31}
               />
@@ -143,6 +144,7 @@ function RegistrationForm(props: Props) {
                 name="birthMonth"
                 hideLabel={true}
                 labelText={t('registration.childBirthMonth')}
+                type="number"
                 min={1}
                 max={12}
               />
@@ -153,6 +155,7 @@ function RegistrationForm(props: Props) {
                 name="birthYear"
                 hideLabel={true}
                 labelText={t('registration.childBirthYear')}
+                type="number"
               />
             </div>
             <div className={styles.formRow}>
