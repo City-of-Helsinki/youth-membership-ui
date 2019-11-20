@@ -35,7 +35,7 @@
     width: 100px;
 }
 
-.checkBoxList {
+.list {
     list-style-type: none;  
     padding: 0;
 }
@@ -44,10 +44,21 @@
     margin-bottom: 10px;
 }
 
-.checkBoxLabel {
-    margin-left: 5px;
+.radioButtonRow {
+    float: left;
+    margin-right: 50px;
+}
+
+.listLabel {
+    margin-left: 10px;
 }
 
 .acceptTermsCheckBox {
     padding-left: 0;
+}
+
+button {
+    margin-top: 30px;
+    height: 50px;
+    width: 400px;
 }

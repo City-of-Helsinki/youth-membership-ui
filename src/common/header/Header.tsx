@@ -11,7 +11,7 @@ function Header(props: Props) {
   return (
     <header className={styles.header}>
       <HelsinkiLogo />
-      <h1 className={styles.appName}>{t('appName')}</h1>
+      <h3 className={styles.appName}>{t('appName')}</h3>
     </header>
   );
 }

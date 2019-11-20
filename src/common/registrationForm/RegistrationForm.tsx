@@ -54,6 +54,7 @@ const SignupSchema = Yup.object().shape({
 function RegistrationForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['Suomi', 'Svenska', 'English', 'Other'];
+  const photoPermit = ['Kyllä', 'Ei'];
   return (
     <Formik
       initialValues={{
@@ -191,12 +192,12 @@ function RegistrationForm(props: Props) {
               />
             </div>
             <h3>{t('registration.homeLanguages')}</h3>
-            <ul className={styles.checkBoxList}>
+            <ul className={styles.list}>
               {languages.map(language => (
                 <li className={styles.checkBoxRow} key={language}>
                   <label>
                     <Field name="language" type="checkbox" value={language} />
-                    <span className={styles.checkBoxLabel}>{language}</span>
+                    <span className={styles.listLabel}>{language}</span>
                   </label>
                 </li>
               ))}
@@ -209,6 +210,25 @@ function RegistrationForm(props: Props) {
                 name="otherLanguages"
                 //type="hidden"
               />
+            </div>
+            <h3>{t('registration.photoPermit')}</h3>
+            <p>{t('registration.photoPermitText')}</p>
+            <div className={styles.formRow}>
+              <ul className={styles.list}>
+                {photoPermit.map(value => (
+                  <li className={styles.radioButtonRow} key={value}>
+                    <label>
+                      <input
+                        type="radio"
+                        value=""
+                        //checked={this.state.size === 'large'}
+                        //onChange={this.handleChange}
+                      />
+                      <span className={styles.listLabel}>{value}</span>
+                    </label>
+                  </li>
+                ))}
+              </ul>
             </div>
             <h2>{t('registration.guardianInfo')}</h2>
             <p>{t('registration.acceptanceInfo')}</p>
@@ -252,7 +272,7 @@ function RegistrationForm(props: Props) {
                 type="checkbox"
                 value="acceptanceTerms"
               />
-              <span className={styles.checkBoxLabel}>
+              <span className={styles.listLabel}>
                 {t('registration.acceptTermsText')}
               </span>
             </ul>
