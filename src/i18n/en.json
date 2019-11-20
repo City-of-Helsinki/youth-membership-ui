@@ -7,7 +7,7 @@
     "title": "Hanki Nuta-jäsenyys! EN"
   },
   "registration": {
-    "title": "Täytä tietosi EN",
+    "title": "Täytä tietosi",
     "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
     "basicInfo": "Perustiedot",
     "firstName": "Etunimi EN",
@@ -32,7 +32,9 @@
     "acceptanceInfo": "Vahvistyspyyntö Nuta-jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
     "confirmSend": "Hyväksy ehdot ja lähetä hakemus",
     "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
-    "acceptTermsText": "Hyväksyn palvelun ehdot ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "acceptTermsText_1": "Hyväksyn",
+    "acceptTermsText_link": " palvelun ehdot",
+    "acceptTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö"
   }
 }

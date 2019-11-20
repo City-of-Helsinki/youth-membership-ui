@@ -218,12 +218,7 @@ function RegistrationForm(props: Props) {
                 {photoPermit.map(value => (
                   <li className={styles.radioButtonRow} key={value}>
                     <label>
-                      <input
-                        type="radio"
-                        value=""
-                        //checked={this.state.size === 'large'}
-                        //onChange={this.handleChange}
-                      />
+                      <Field type="radio" value="yes" />
                       <span className={styles.listLabel}>{value}</span>
                     </label>
                   </li>
@@ -273,7 +268,9 @@ function RegistrationForm(props: Props) {
                 value="acceptanceTerms"
               />
               <span className={styles.listLabel}>
-                {t('registration.acceptTermsText')}
+                {t('registration.acceptTermsText_1')}
+                <a href="#">{t('registration.acceptTermsText_link')}</a>
+                {t('registration.acceptTermsText_2')}
               </span>
             </ul>
             <button type="submit">{t('registration.sendButton')}</button>
