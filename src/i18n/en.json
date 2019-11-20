@@ -1,6 +1,34 @@
 {
-  "appName": "Youth membership",
+  "appName": "Jässäri EN",
   "oidc": {
     "redirecting": "Redirecting..."
+  },
+  "home" : {
+    "title": "Hanki Nuta-jäsenyys! EN"
+  },
+  "registration": {
+    "title": "Täytä tietosi EN",
+    "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
+    "basicInfo": "Perustiedot",
+    "firstName": "Etunimi EN",
+    "lastName": "Sukunimi EN",
+    "street": "Katuosoite EN",
+    "postcode": "Postinumero EN",
+    "city": "Kaupunki EN",
+    "childBirthDay": "Syntymäpäivä",
+    "childBirthMonth": "Syntymäkuukausi EN",
+    "childBirthYear": "Syntymävuosi EN",
+    "phoneNumber": "Puhelinnumero EN",
+    "email": "Sähköpostiosoite EN",
+    "addInfo": "Lisätiedot",
+    "school": "Koulu EN",
+    "class": "Luokka EN",
+    "homeLanguages": "Kotona puhutut kielet",
+    "guardianInfo": "Huoltajan tiedot",
+    "acceptanceInfo": "Vahvistyspyyntö Nuta-jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
+    "confirmSend": "Hyväksy ehdot ja lähetä hakemus",
+    "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
+    "acceptTermsText": "Hyväksyn palvelun ehdot ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö"
   }
 }

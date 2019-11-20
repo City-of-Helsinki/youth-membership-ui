@@ -6,11 +6,18 @@ import styles from './PageLayout.module.css';
 
 type Props = {
   children: ReactNode;
+  background: 'youth' | 'adult';
 };
 
 function PageLayout(props: Props) {
   return (
-    <div>
+    <div
+      className={
+        props.background === 'youth'
+          ? styles.youthBackground
+          : styles.adultBackground
+      }
+    >
       <Header />
       <HostingBox className={styles.hostingBox}>{props.children}</HostingBox>
     </div>

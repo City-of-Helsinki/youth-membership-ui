@@ -10,6 +10,7 @@ import enableOidcLogging from './auth/enableOidcLogging';
 import graphqlClient from './graphql/client';
 import Home from './pages/Home';
 import OidcCallback from './pages/OidcCallback';
+import Registration from './pages/registration/Registration';
 import { fetchApiTokenThunk } from './auth/redux';
 
 if (process.env.NODE_ENV !== 'production') {
@@ -39,6 +40,7 @@ function App(props: Props) {
             />
             <Route path="/callback" component={OidcCallback} />
             <Route path="/" component={Home} exact />
+            <Route path="/registration" component={Registration} exact />
           </Switch>
         </ApolloProvider>
       </OidcProvider>

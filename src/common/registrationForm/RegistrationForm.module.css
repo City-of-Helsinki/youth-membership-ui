@@ -1,0 +1,53 @@
+.formRow {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.emailTitle {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.email {
+    margin-right: 170px;
+    margin-top: 10px;
+}
+
+.formInput {
+    margin-right: 20px;
+    width: 350px;
+}
+
+.formInputShort {
+    margin-right: 20px;   
+    width: 200px;
+}
+
+.childBirthDayInput {
+    margin: 0 20px 0 0 ;
+    width: 100px;
+}
+
+.childBirthInput {
+    margin: 25px 20px 0 0 ;
+    width: 100px;
+}
+
+.checkBoxList {
+    list-style-type: none;  
+    padding: 0;
+}
+
+.checkBoxRow {
+    margin-bottom: 10px;
+}
+
+.checkBoxLabel {
+    margin-left: 5px;
+}
+
+.acceptTermsCheckBox {
+    padding-left: 0;
+}
