@@ -252,7 +252,9 @@ function RegistrationForm(props: Props) {
                 type="checkbox"
                 value="acceptanceTerms"
               />
-              <span className={styles.checkBoxLabel}>{t('registration.acceptTermsText')}</span>
+              <span className={styles.checkBoxLabel}>
+                {t('registration.acceptTermsText')}
+              </span>
             </ul>
             <button type="submit">{t('registration.sendButton')}</button>
           </Form>
