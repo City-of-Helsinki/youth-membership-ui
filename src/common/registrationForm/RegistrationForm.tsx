@@ -139,6 +139,7 @@ function RegistrationForm(props: Props) {
                 min={1}
                 max={31}
               />
+              <span className={styles.birthdayMiddleDot}>&#9679;</span>
               <Field
                 className={styles.childBirthInput}
                 as={TextInput}
@@ -150,6 +151,7 @@ function RegistrationForm(props: Props) {
                 min={1}
                 max={12}
               />
+              <span className={styles.birthdayMiddleDot}>&#9679;</span>
               <Field
                 className={styles.childBirthInput}
                 as={TextInput}
