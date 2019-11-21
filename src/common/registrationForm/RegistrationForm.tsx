@@ -55,6 +55,7 @@ function RegistrationForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['Suomi', 'Svenska', 'English', 'Other'];
   const photoPermit = ['Kyllä', 'Ei'];
+
   return (
     <Formik
       initialValues={{
@@ -208,7 +209,7 @@ function RegistrationForm(props: Props) {
                 as={TextInput}
                 id="otherLanguages"
                 name="otherLanguages"
-                //type="hidden"
+                type={props.values.language.includes('Other') ? '' : 'hidden'}
               />
             </div>
             <h3>{t('registration.photoPermit')}</h3>
@@ -218,7 +219,7 @@ function RegistrationForm(props: Props) {
                 {photoPermit.map(value => (
                   <li className={styles.radioButtonRow} key={value}>
                     <label>
-                      <Field type="radio" value="yes" />
+                      <Field type="radio" value={value} />
                       <span className={styles.listLabel}>{value}</span>
                     </label>
                   </li>
@@ -273,7 +274,15 @@ function RegistrationForm(props: Props) {
                 {t('registration.acceptTermsText_2')}
               </span>
             </ul>
-            <button type="submit">{t('registration.sendButton')}</button>
+            <button
+              className={
+                props.values.acceptTerms.length > 0 ? styles.buttonEnabled : ''
+              }
+              disabled={props.values.acceptTerms.length === 0}
+              type="submit"
+            >
+              {t('registration.sendButton')}
+            </button>
           </Form>
         </div>
       )}
