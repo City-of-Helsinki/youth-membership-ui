@@ -302,7 +302,7 @@ function RegistrationForm(props: Props) {
               />
               <span className={styles.listLabel}>
                 {t('registration.acceptTermsText_1')}
-                <a href="#">{t('registration.acceptTermsText_link')}</a>
+                <a href="/#">{t('registration.acceptTermsText_link')}</a>
                 {t('registration.acceptTermsText_2')}
               </span>
             </ul>
