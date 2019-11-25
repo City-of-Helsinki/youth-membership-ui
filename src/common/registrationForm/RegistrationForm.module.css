@@ -57,6 +57,10 @@
     margin-left: 10px;
 }
 
+.hidePhotoPermit {
+    display:none;
+}
+
 .acceptTermsCheckBox {
     padding-left: 0;
 }

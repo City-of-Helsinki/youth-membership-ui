@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
 import { Formik, Form, Field } from 'formik';
+import { differenceInYears } from 'date-fns';
 import * as Yup from 'yup';
 
 import styles from './RegistrationForm.module.css';
@@ -55,6 +56,23 @@ function RegistrationForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['Suomi', 'Svenska', 'English', 'Other'];
   const photoPermit = ['Kyllä', 'Ei'];
+
+  const getYearDiff = (year: string, month: string, day: string) => {
+    if (
+      year !== null &&
+      year !== '' &&
+      Number(year) >= 1900 &&
+      month !== null &&
+      month !== '' &&
+      day !== null &&
+      day !== ''
+    ) {
+      return differenceInYears(
+        new Date(),
+        new Date(Number(year), Number(month) - 1, Number(day))
+      );
+    } else return 0;
+  };
 
   return (
     <Formik
@@ -214,20 +232,32 @@ function RegistrationForm(props: Props) {
                 type={props.values.language.includes('Other') ? '' : 'hidden'}
               />
             </div>
-            <h3>{t('registration.photoPermit')}</h3>
-            <p>{t('registration.photoPermitText')}</p>
-            <div className={styles.formRow}>
-              <ul className={styles.list}>
-                {photoPermit.map(value => (
-                  <li className={styles.radioButtonRow} key={value}>
-                    <label>
-                      <Field type="radio" value={value} />
-                      <span className={styles.listLabel}>{value}</span>
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <span
+              className={
+                getYearDiff(
+                  props.values.birthYear,
+                  props.values.birthMonth,
+                  props.values.birthDay
+                ) > 14
+                  ? ''
+                  : styles.hidePhotoPermit
+              }
+            >
+              <h3>{t('registration.photoPermit')}</h3>
+              <p>{t('registration.photoPermitText')}</p>
+              <div className={styles.formRow}>
+                <ul className={styles.list}>
+                  {photoPermit.map(value => (
+                    <li className={styles.radioButtonRow} key={value}>
+                      <label>
+                        <Field type="radio" value={value} />
+                        <span className={styles.listLabel}>{value}</span>
+                      </label>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </span>
             <h2>{t('registration.guardianInfo')}</h2>
             <p>{t('registration.acceptanceInfo')}</p>
             <div className={styles.formRow}>
