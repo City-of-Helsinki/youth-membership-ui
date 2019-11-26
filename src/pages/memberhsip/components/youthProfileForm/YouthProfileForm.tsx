@@ -81,7 +81,7 @@ function RegistrationForm(props: Props) {
         class: '',
         language: '',
         otherLanguages: '',
-        value: '',
+        photoPermit: '',
         guardianFirstName: '',
         guardianLastName: '',
         guardianEmail: '',
@@ -224,7 +224,7 @@ function RegistrationForm(props: Props) {
                 type={props.values.language.includes('Other') ? '' : 'hidden'}
               />
             </div>
-            <span
+            <div
               className={
                 getYearDiff(
                   props.values.birthYear,
@@ -267,7 +267,7 @@ function RegistrationForm(props: Props) {
                   </li>
                 </ul>
               </div>
-            </span>
+            </div>
             <h2>{t('registration.guardianInfo')}</h2>
             <p>{t('registration.acceptanceInfo')}</p>
             <div className={styles.formRow}>
