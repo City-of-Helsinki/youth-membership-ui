@@ -5,7 +5,7 @@ import { Formik, Form, Field } from 'formik';
 import { differenceInYears } from 'date-fns';
 import * as Yup from 'yup';
 
-import styles from './RegistrationForm.module.css';
+import styles from './YouthProfileForm.module.css';
 
 type Props = {};
 

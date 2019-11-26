@@ -2,8 +2,8 @@ import React from 'react';
 import { RouteChildrenProps } from 'react-router';
 
 import PageLayout from '../../../../common/layout/PageLayout';
-import RegistrationForm from '../registrationForm/RegistrationForm';
-import styles from './Membership.module.css';
+import RegistrationForm from '../youthProfileForm/YouthProfileForm';
+import styles from './YouthProflle.module.css';
 
 type Props = RouteChildrenProps & {};
 
