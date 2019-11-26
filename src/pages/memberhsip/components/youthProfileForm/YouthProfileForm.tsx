@@ -55,18 +55,9 @@ const SignupSchema = Yup.object().shape({
 function RegistrationForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['Suomi', 'Svenska', 'English', 'Other'];
-  const photoPermit = ['Kyllä', 'Ei'];
 
   const getYearDiff = (year: string, month: string, day: string) => {
-    if (
-      year !== null &&
-      year !== '' &&
-      Number(year) >= 1900 &&
-      month !== null &&
-      month !== '' &&
-      day !== null &&
-      day !== ''
-    ) {
+    if (year && Number(year) >= 1900 && month && day) {
       return differenceInYears(
         new Date(),
         new Date(Number(year), Number(month) - 1, Number(day))
@@ -90,6 +81,7 @@ function RegistrationForm(props: Props) {
         class: '',
         language: '',
         otherLanguages: '',
+        value: '',
         guardianFirstName: '',
         guardianLastName: '',
         guardianEmail: '',
@@ -247,14 +239,32 @@ function RegistrationForm(props: Props) {
               <p>{t('registration.photoPermitText')}</p>
               <div className={styles.formRow}>
                 <ul className={styles.list}>
-                  {photoPermit.map(value => (
-                    <li className={styles.radioButtonRow} key={value}>
-                      <label>
-                        <Field type="radio" value={value} />
-                        <span className={styles.listLabel}>{value}</span>
-                      </label>
-                    </li>
-                  ))}
+                  <li className={styles.radioButtonRow}>
+                    <label>
+                      <Field
+                        id="photoPermitYes"
+                        name="photoPermit"
+                        type="radio"
+                        value="Yes"
+                      />
+                      <span className={styles.listLabel}>
+                        {t('registration.photoPermitYes')}
+                      </span>
+                    </label>
+                  </li>
+                  <li className={styles.radioButtonRow}>
+                    <label>
+                      <Field
+                        id="photoPermitNo"
+                        name="photoPermit"
+                        type="radio"
+                        value="No"
+                      />
+                      <span className={styles.listLabel}>
+                        {t('registration.photoPermitNo')}
+                      </span>
+                    </label>
+                  </li>
                 </ul>
               </div>
             </span>
@@ -307,9 +317,6 @@ function RegistrationForm(props: Props) {
               </span>
             </ul>
             <button
-              className={
-                props.values.acceptTerms.length > 0 ? styles.buttonEnabled : ''
-              }
               disabled={props.values.acceptTerms.length === 0}
               type="submit"
             >
