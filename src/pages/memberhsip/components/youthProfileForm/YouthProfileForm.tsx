@@ -2,9 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
 import { Formik, Form, Field } from 'formik';
+import { differenceInYears } from 'date-fns';
 import * as Yup from 'yup';
 
-import styles from './RegistrationForm.module.css';
+import styles from './YouthProfileForm.module.css';
 
 type Props = {};
 
@@ -54,6 +55,16 @@ const SignupSchema = Yup.object().shape({
 function RegistrationForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['Suomi', 'Svenska', 'English', 'Other'];
+
+  const getYearDiff = (year: string, month: string, day: string) => {
+    if (year && Number(year) >= 1900 && month && day) {
+      return differenceInYears(
+        new Date(),
+        new Date(Number(year), Number(month) - 1, Number(day))
+      );
+    } else return 0;
+  };
+
   return (
     <Formik
       initialValues={{
@@ -70,6 +81,7 @@ function RegistrationForm(props: Props) {
         class: '',
         language: '',
         otherLanguages: '',
+        photoPermit: '',
         guardianFirstName: '',
         guardianLastName: '',
         guardianEmail: '',
@@ -137,6 +149,7 @@ function RegistrationForm(props: Props) {
                 min={1}
                 max={31}
               />
+              <span className={styles.birthdayMiddleDot}>&#9679;</span>
               <Field
                 className={styles.childBirthInput}
                 as={TextInput}
@@ -148,6 +161,7 @@ function RegistrationForm(props: Props) {
                 min={1}
                 max={12}
               />
+              <span className={styles.birthdayMiddleDot}>&#9679;</span>
               <Field
                 className={styles.childBirthInput}
                 as={TextInput}
@@ -191,12 +205,12 @@ function RegistrationForm(props: Props) {
               />
             </div>
             <h3>{t('registration.homeLanguages')}</h3>
-            <ul className={styles.checkBoxList}>
+            <ul className={styles.list}>
               {languages.map(language => (
                 <li className={styles.checkBoxRow} key={language}>
                   <label>
                     <Field name="language" type="checkbox" value={language} />
-                    <span className={styles.checkBoxLabel}>{language}</span>
+                    <span className={styles.listLabel}>{language}</span>
                   </label>
                 </li>
               ))}
@@ -207,8 +221,52 @@ function RegistrationForm(props: Props) {
                 as={TextInput}
                 id="otherLanguages"
                 name="otherLanguages"
-                //type="hidden"
+                type={props.values.language.includes('Other') ? '' : 'hidden'}
               />
+            </div>
+            <div
+              className={
+                getYearDiff(
+                  props.values.birthYear,
+                  props.values.birthMonth,
+                  props.values.birthDay
+                ) > 14
+                  ? ''
+                  : styles.hidePhotoPermit
+              }
+            >
+              <h3>{t('registration.photoPermit')}</h3>
+              <p>{t('registration.photoPermitText')}</p>
+              <div className={styles.formRow}>
+                <ul className={styles.list}>
+                  <li className={styles.radioButtonRow}>
+                    <label>
+                      <Field
+                        id="photoPermitYes"
+                        name="photoPermit"
+                        type="radio"
+                        value="Yes"
+                      />
+                      <span className={styles.listLabel}>
+                        {t('registration.photoPermitYes')}
+                      </span>
+                    </label>
+                  </li>
+                  <li className={styles.radioButtonRow}>
+                    <label>
+                      <Field
+                        id="photoPermitNo"
+                        name="photoPermit"
+                        type="radio"
+                        value="No"
+                      />
+                      <span className={styles.listLabel}>
+                        {t('registration.photoPermitNo')}
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
             </div>
             <h2>{t('registration.guardianInfo')}</h2>
             <p>{t('registration.acceptanceInfo')}</p>
@@ -252,11 +310,18 @@ function RegistrationForm(props: Props) {
                 type="checkbox"
                 value="acceptanceTerms"
               />
-              <span className={styles.checkBoxLabel}>
-                {t('registration.acceptTermsText')}
+              <span className={styles.listLabel}>
+                {t('registration.acceptTermsText_1')}
+                <a href="/#">{t('registration.acceptTermsText_link')}</a>
+                {t('registration.acceptTermsText_2')}
               </span>
             </ul>
-            <button type="submit">{t('registration.sendButton')}</button>
+            <button
+              disabled={props.values.acceptTerms.length === 0}
+              type="submit"
+            >
+              {t('registration.sendButton')}
+            </button>
           </Form>
         </div>
       )}

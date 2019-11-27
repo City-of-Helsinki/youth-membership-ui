@@ -1,5 +1,5 @@
 {
-  "appName": "Jässäri",
+  "appName": "Nuorisopalvelut",
   "oidc": {
     "redirecting": "Ohjataan tunnistautumiseen..."
   },
@@ -24,11 +24,17 @@
     "school": "Koulu",
     "class": "Luokka",
     "homeLanguages": "Kotona puhutut kielet",
+    "photoPermit": "Kuvauslupa",
+    "photoPermitText": "Minusta saa ottaa kuvia ja käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä.",
+    "photoPermitYes": "Kyllä",
+    "photoPermitNo": "Ei",
     "guardianInfo": "Huoltajan tiedot",
     "acceptanceInfo": "Vahvistyspyyntö Nuta-jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
     "confirmSend": "Hyväksy ehdot ja lähetä hakemus",
     "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
-    "acceptTermsText": "Hyväksyn palvelun ehdot ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "acceptTermsText_1": "Hyväksyn",
+    "acceptTermsText_link": " palvelun ehdot",
+    "acceptTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö"
   }
 }
