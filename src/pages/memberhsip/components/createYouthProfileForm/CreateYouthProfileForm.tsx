@@ -5,11 +5,9 @@ import { Formik, Form, Field } from 'formik';
 import { differenceInYears } from 'date-fns';
 import * as Yup from 'yup';
 
-import styles from './YouthProfileForm.module.css';
+import styles from './CreateYouthProfileForm.module.css';
 
-type Props = {};
-
-const SignupSchema = Yup.object().shape({
+const schema = Yup.object().shape({
   firstName: Yup.string()
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
@@ -18,6 +16,24 @@ const SignupSchema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
     .required('Required'),
+  phone: Yup.string().min(6, 'validation.phoneMin'),
+  terms: Yup.boolean().oneOf([true], 'validation.required'),
+});
+
+export type FormValues = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+};
+
+type Props = {
+  profile: FormValues;
+  onValues: (values: FormValues) => void;
+  isSubmitting: boolean;
+};
+
+/**const SignupSchema = Yup.object().shape({
   street: Yup.string()
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
@@ -39,7 +55,6 @@ const SignupSchema = Yup.object().shape({
     .max(255, 'Too Long!')
     .required('Required'),
   birthYear: Yup.string().required('Required'),
-  phoneNumber: Yup.string().required('Required'),
   guardianFirstName: Yup.string()
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
@@ -50,9 +65,9 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
   guardianPhoneNumber: Yup.string().required('Required'),
   guardianEmail: Yup.string().required('Required'),
-});
+});*/
 
-function RegistrationForm(props: Props) {
+function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['Suomi', 'Svenska', 'English', 'Other'];
 
@@ -68,8 +83,7 @@ function RegistrationForm(props: Props) {
   return (
     <Formik
       initialValues={{
-        firstName: '',
-        lastName: '',
+        ...props.profile,
         street: '',
         postcode: '',
         city: '',
@@ -86,9 +100,9 @@ function RegistrationForm(props: Props) {
         guardianLastName: '',
         guardianEmail: '',
         guardianPhoneNumber: '',
-        acceptTerms: '',
+        terms: false,
       }}
-      validationSchema={SignupSchema}
+      validationSchema={schema}
       onSubmit={(values, actions) => {
         console.log(values);
       }}
@@ -316,10 +330,7 @@ function RegistrationForm(props: Props) {
                 {t('registration.acceptTermsText_2')}
               </span>
             </ul>
-            <button
-              disabled={props.values.acceptTerms.length === 0}
-              type="submit"
-            >
+            <button disabled={!props.values.terms} type="submit">
               {t('registration.sendButton')}
             </button>
           </Form>
@@ -329,4 +340,4 @@ function RegistrationForm(props: Props) {
   );
 }
 
-export default RegistrationForm;
+export default CreateYouthProfileForm;

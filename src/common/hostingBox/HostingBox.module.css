@@ -1,7 +1,6 @@
 .hostingBox {
   background-color: white;
-  border-radius: 25px;
-  border: 1px solid black;
+  border-radius: 50px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, .5);
   padding: 10px 10px 50px 0;
   text-align: center;

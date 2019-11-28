@@ -19,6 +19,7 @@
     "date-fns": "^2.8.1",
     "formik": "^2.0.3",
     "graphql": "^14.5.8",
+    "graphql.macro": "^1.4.2",
     "hds-react": "^0.2.4",
     "i18next": "^17.0.17",
     "oidc-client": "^1.9.1",

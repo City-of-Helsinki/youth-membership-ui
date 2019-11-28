@@ -6,6 +6,9 @@
   "home" : {
     "title": "Hanki Nuta-jäsenyys! SV"
   },
+  "profile": {
+    "loading": "Ladataan profiilia..."
+  },
   "registration": {
     "title": "Täytä tietosi SV",
     "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
