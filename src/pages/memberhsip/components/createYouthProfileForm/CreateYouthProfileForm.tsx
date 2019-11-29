@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
@@ -18,22 +19,6 @@ const schema = Yup.object().shape({
     .required('Required'),
   phone: Yup.string().min(6, 'validation.phoneMin'),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
-});
-
-export type FormValues = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-};
-
-type Props = {
-  profile: FormValues;
-  onValues: (values: FormValues) => void;
-  isSubmitting: boolean;
-};
-
-/**const SignupSchema = Yup.object().shape({
   street: Yup.string()
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
@@ -65,7 +50,20 @@ type Props = {
     .required('Required'),
   guardianPhoneNumber: Yup.string().required('Required'),
   guardianEmail: Yup.string().required('Required'),
-});*/
+});
+
+export type FormValues = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+};
+
+type Props = {
+  profile: FormValues;
+  onValues: (values: FormValues) => void;
+  isSubmitting: boolean;
+};
 
 function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
@@ -138,14 +136,14 @@ function CreateYouthProfileForm(props: Props) {
                 labelText={t('registration.street')}
               />
               <Field
-                className={styles.formInput}
+                className={styles.formInputShort}
                 as={TextInput}
                 id="postcode"
                 name="postcode"
                 labelText={t('registration.postcode')}
               />
               <Field
-                className={styles.formInput}
+                className={styles.formInputShort}
                 as={TextInput}
                 id="city"
                 name="city"
@@ -191,7 +189,7 @@ function CreateYouthProfileForm(props: Props) {
                 <label className={styles.emailTitle}>
                   {t('registration.email')}
                 </label>
-                <span>maija.meikalainen@gmail.com</span>
+                <span className={styles.email}>{props.values.email}</span>
               </span>
               <Field
                 className={styles.formInput}
@@ -319,11 +317,7 @@ function CreateYouthProfileForm(props: Props) {
             <h2>{t('registration.confirmSend')}</h2>
             <p>{t('registration.processInfoText')}</p>
             <ul className={styles.acceptTermsCheckBox}>
-              <Field
-                name="acceptTerms"
-                type="checkbox"
-                value="acceptanceTerms"
-              />
+              <Field name="terms" type="checkbox"/>
               <span className={styles.listLabel}>
                 {t('registration.acceptTermsText_1')}
                 <a href="/#">{t('registration.acceptTermsText_link')}</a>
