@@ -17,9 +17,7 @@ function Home(props: Props) {
         <p>
           Tähän lisätietoja, miksi kannattaa hankkia jässäri, miten toimii jne.
         </p>
-        <button className={styles.button} type="button">
-          Hanki jäsenyys
-        </button>
+        <button type="button">Hanki jäsenyys</button>
         <p>
           <span onClick={authenticate} role="button">
             Mikäli sinulla on jo jäsenyys, kirjaudu sisään >

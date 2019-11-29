@@ -4,6 +4,16 @@
     margin-bottom: 50px;
 }
 
+.formInput {
+    margin-right: 20px;
+    width: 350px;
+}
+
+.formInputShort {
+    margin-right: 20px;   
+    width: 200px;
+}
+
 .emailTitle {
     display: block;
     font-weight: bold;
@@ -13,16 +23,6 @@
 .email {
     margin-right: 170px;
     margin-top: 10px;
-}
-
-.formInput {
-    margin-right: 20px;
-    width: 350px;
-}
-
-.formInputShort {
-    margin-right: 20px;   
-    width: 200px;
 }
 
 .childBirthDayInput {
