@@ -32,12 +32,12 @@ const schema = Yup.object().shape({
     .max(255, 'Too Long!')
     .required('Required'),
   birthDay: Yup.string()
-    .min(5, 'Too Short!')
-    .max(255, 'Too Long!')
+    .min(1, 'Too Short!')
+    .max(2, 'Too Long!')
     .required('Required'),
   birthMonth: Yup.string()
-    .min(5, 'Too Short!')
-    .max(255, 'Too Long!')
+    .min(1, 'Too Short!')
+    .max(2, 'Too Long!')
     .required('Required'),
   birthYear: Yup.string().required('Required'),
   guardianFirstName: Yup.string()
