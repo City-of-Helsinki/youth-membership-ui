@@ -1,13 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
+import { ApolloProvider } from '@apollo/react-hooks';
 import { Provider as ReduxProvider } from 'react-redux';
 import { OidcProvider, loadUser } from 'redux-oidc';
-import { ApolloProvider } from '@apollo/react-hooks';
 
+import graphqlClient from './graphql/client';
 import store from './redux/store';
 import userManager from './auth/userManager';
 import enableOidcLogging from './auth/enableOidcLogging';
-import graphqlClient from './graphql/client';
 import Home from './pages/Home';
 import OidcCallback from './pages/OidcCallback';
 import YouthProfile from './pages/memberhsip/components/youthProfile/YouthProfile';
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 loadUser(store, userManager).then(async user => {
-  if (user) {
+  if (user && !user.expired) {
     store.dispatch(fetchApiTokenThunk(user.access_token));
   }
 });
@@ -38,9 +38,11 @@ function App(props: Props) {
                 return null;
               }}
             />
-            <Route path="/callback" component={OidcCallback} />
-            <Route path="/" component={Home} exact />
-            <Route path="/profile" component={YouthProfile} exact />
+            <Route path="/callback">
+              <OidcCallback />
+            </Route>
+            <Route path="/profile" component={YouthProfile} />
+            <Route path="/" component={Home} />
           </Switch>
         </ApolloProvider>
       </OidcProvider>
