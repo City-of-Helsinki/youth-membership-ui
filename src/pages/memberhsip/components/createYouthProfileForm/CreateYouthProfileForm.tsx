@@ -100,10 +100,18 @@ function CreateYouthProfileForm(props: Props) {
         guardianPhoneNumber: '',
         terms: false,
       }}
-      validationSchema={schema}
-      onSubmit={(values, actions) => {
-        console.log(values);
+      initialErrors={{
+        terms: 'validation.required',
       }}
+      onSubmit={values => {
+        props.onValues({
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: props.profile.email,
+          phone: values.phone,
+        });
+      }}
+      validationSchema={schema}
     >
       {props => (
         <div>
@@ -317,7 +325,7 @@ function CreateYouthProfileForm(props: Props) {
             <h2>{t('registration.confirmSend')}</h2>
             <p>{t('registration.processInfoText')}</p>
             <ul className={styles.acceptTermsCheckBox}>
-              <Field name="terms" type="checkbox"/>
+              <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
                 {t('registration.acceptTermsText_1')}
                 <a href="/#">{t('registration.acceptTermsText_link')}</a>
