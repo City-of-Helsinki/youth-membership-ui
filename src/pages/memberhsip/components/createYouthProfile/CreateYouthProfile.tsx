@@ -8,6 +8,10 @@ import YouthProfileForm, {
   FormValues,
 } from '../createYouthProfileForm/CreateYouthProfileForm';
 import styles from './CreateYouthProflle.module.css';
+import {
+  CreateProfile as CreateProfileData,
+  CreateProfileVariables,
+} from '../../graphql/__generated__/CreateProfile';
 
 const CREATE_PROFILE = loader('../../graphql/createProfileMutation.graphql');
 
@@ -17,7 +21,10 @@ type Props = {
 };
 
 function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
-  const [createProfile, { loading }] = useMutation(CREATE_PROFILE);
+  const [createProfile, { loading }] = useMutation<
+    CreateProfileData,
+    CreateProfileVariables
+  >(CREATE_PROFILE);
   const handleOnValues = (profileData: FormValues) => {
     createProfile({ variables: { profile: profileData } }).then(result => {
       if (result.data) {
