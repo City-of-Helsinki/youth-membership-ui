@@ -17,8 +17,9 @@ const schema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
     .required('Required'),
-  phone: Yup.string().min(6, 'validation.phoneMin'),
-  terms: Yup.boolean().oneOf([true], 'validation.required'),
+  phone: Yup.string()
+    .min(6, 'validation.phoneMin')
+    .required('Required'),
   street: Yup.string()
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
@@ -31,15 +32,17 @@ const schema = Yup.object().shape({
     .min(5, 'Too Short!')
     .max(255, 'Too Long!')
     .required('Required'),
-  birthDay: Yup.string()
-    .min(1, 'Too Short!')
-    .max(2, 'Too Long!')
+  birthDay: Yup.number()
+    .lessThan(1, 'Check the date')
+    .moreThan(31, 'Check the date')
+    .required('Required!'),
+  birthMonth: Yup.number()
+    .lessThan(1, 'Check the month')
+    .moreThan(12, 'Check the month')
+    .required('Required!'),
+  birthYear: Yup.number()
+    .lessThan(1900, 'Check the year')
     .required('Required'),
-  birthMonth: Yup.string()
-    .min(1, 'Too Short!')
-    .max(2, 'Too Long!')
-    .required('Required'),
-  birthYear: Yup.string().required('Required'),
   guardianFirstName: Yup.string()
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
@@ -48,8 +51,9 @@ const schema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
     .required('Required'),
-  guardianPhoneNumber: Yup.string().required('Required'),
+  guardianPhone: Yup.string().required('Required'),
   guardianEmail: Yup.string().required('Required'),
+  terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
 
 export type FormValues = {
@@ -97,7 +101,7 @@ function CreateYouthProfileForm(props: Props) {
         guardianFirstName: '',
         guardianLastName: '',
         guardianEmail: '',
-        guardianPhoneNumber: '',
+        guardianPhone: '',
         terms: false,
       }}
       initialErrors={{
@@ -125,6 +129,12 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="firstName"
                 name="firstName"
+                invalid={props.submitCount && props.errors.firstName}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.firstName &&
+                  t(props.errors.firstName)
+                }
                 labelText={t('registration.firstName')}
               />
               <Field
@@ -132,6 +142,12 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="lastName"
                 name="lastName"
+                invalid={props.submitCount && props.errors.lastName}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.lastName &&
+                  t(props.errors.lastName)
+                }
                 labelText={t('registration.lastName')}
               />
             </div>
@@ -141,6 +157,12 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="street"
                 name="street"
+                invalid={props.submitCount && props.errors.street}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.street &&
+                  t(props.errors.street)
+                }
                 labelText={t('registration.street')}
               />
               <Field
@@ -148,6 +170,12 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="postcode"
                 name="postcode"
+                invalid={props.submitCount && props.errors.postcode}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.postcode &&
+                  t(props.errors.postcode)
+                }
                 labelText={t('registration.postcode')}
               />
               <Field
@@ -155,6 +183,10 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="city"
                 name="city"
+                invalid={props.submitCount && props.errors.city}
+                invalidText={
+                  props.submitCount && props.errors.city && t(props.errors.city)
+                }
                 labelText={t('registration.city')}
               />
             </div>
@@ -164,10 +196,14 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="birthDay"
                 name="birthDay"
-                labelText={t('registration.childBirthDay')}
                 type="number"
-                min={1}
-                max={31}
+                invalid={props.submitCount && props.errors.birthDay}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.birthDay &&
+                  t(props.errors.birthDay)
+                }
+                labelText={t('registration.childBirthDay')}
               />
               <span className={styles.birthdayMiddleDot}>&#8901;</span>
               <Field
@@ -176,10 +212,14 @@ function CreateYouthProfileForm(props: Props) {
                 id="birthMonth"
                 name="birthMonth"
                 hideLabel={true}
-                labelText={t('registration.childBirthMonth')}
                 type="number"
-                min={1}
-                max={12}
+                invalid={props.submitCount && props.errors.birthMonth}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.birthMonth &&
+                  t(props.errors.birthMonth)
+                }
+                labelText={t('registration.childBirthMonth')}
               />
               <span className={styles.birthdayMiddleDot}>&#8901;</span>
               <Field
@@ -188,8 +228,14 @@ function CreateYouthProfileForm(props: Props) {
                 id="birthYear"
                 name="birthYear"
                 hideLabel={true}
-                labelText={t('registration.childBirthYear')}
                 type="number"
+                invalid={props.submitCount && props.errors.birthYear}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.birthYear &&
+                  t(props.errors.birthYear)
+                }
+                labelText={t('registration.childBirthYear')}
               />
             </div>
             <div className={styles.formRow}>
@@ -202,8 +248,14 @@ function CreateYouthProfileForm(props: Props) {
               <Field
                 className={styles.formInput}
                 as={TextInput}
-                id="phoneNumber"
-                name="phoneNumber"
+                id="phone"
+                name="phone"
+                invalid={props.submitCount && props.errors.phone}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.phone &&
+                  t(props.errors.phone)
+                }
                 labelText={t('registration.phoneNumber')}
               />
             </div>
@@ -296,6 +348,12 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="guardianFirstName"
                 name="guardianFirstName"
+                invalid={props.submitCount && props.errors.guardianFirstName}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.guardianFirstName &&
+                  t(props.errors.guardianFirstName)
+                }
                 labelText={t('registration.firstName')}
               />
               <Field
@@ -303,6 +361,12 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="guardianLastName"
                 name="guardianLastName"
+                invalid={props.submitCount && props.errors.guardianLastName}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.guardianLastName &&
+                  t(props.errors.guardianLastName)
+                }
                 labelText={t('registration.lastName')}
               />
             </div>
@@ -312,13 +376,25 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="guardianEmail"
                 name="guardianEmail"
+                invalid={props.submitCount && props.errors.guardianEmail}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.guardianEmail &&
+                  t(props.errors.guardianEmail)
+                }
                 labelText={t('registration.email')}
               />
               <Field
                 className={styles.formInput}
                 as={TextInput}
-                id="guardianPhoneNumber"
-                name="guardianPhoneNumber"
+                id="guardianPhone"
+                name="guardianPhone"
+                invalid={props.submitCount && props.errors.guardianPhone}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.guardianPhone &&
+                  t(props.errors.guardianPhone)
+                }
                 labelText={t('registration.phoneNumber')}
               />
             </div>
