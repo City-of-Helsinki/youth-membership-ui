@@ -137,7 +137,7 @@ Run `docker-compose up`, now the app should be running at `http://localhost:3000
 `docker-compose down` stops the container.
 
 ## Test environment
-No test environment yet.
+https://jassari.test.kuva.hel.ninja
 
 ## Production environment
 No production environment yet.
@@ -146,7 +146,7 @@ No production environment yet.
 https://helsinkisolutionoffice.atlassian.net/secure/RapidBoard.jspa?rapidView=23&projectKey=OM&view=planning
 
 ## How to contribute
-Create a new PR for approval.
+Make your changes and create a pull request. If your PR isn't getting approved, contact kuva-open-city-profile-developers@googlegroups.com
 
 ## Known issues
 https://github.com/City-of-Helsinki/youth-membership-ui/issues
