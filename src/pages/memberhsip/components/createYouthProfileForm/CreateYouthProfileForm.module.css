@@ -80,3 +80,8 @@ button {
 button:disabled {
     background-color:#cccccc;
 }
+
+.birhtdayErrorMessage {
+    color: var(--hds-ui-color-error);
+    margin-top: 10px;
+}

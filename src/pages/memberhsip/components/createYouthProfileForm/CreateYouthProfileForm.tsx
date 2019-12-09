@@ -411,9 +411,28 @@ function CreateYouthProfileForm(props: Props) {
                 {t('registration.acceptTermsText_2')}
               </span>
             </ul>
-            <button disabled={!props.values.terms} type="submit">
+            <button
+              disabled={
+                !props.values.terms ||
+                !validateDate(
+                  props.values.birthYear,
+                  props.values.birthMonth,
+                  props.values.birthDay
+                )
+              }
+              type="submit"
+            >
               {t('registration.sendButton')}
             </button>
+            <div className={styles.birhtdayErrorMessage}>
+              {!validateDate(
+                props.values.birthYear,
+                props.values.birthMonth,
+                props.values.birthDay
+              )
+                ? t('registration.birthdayInvalid')
+                : ''}
+            </div>
           </Form>
         </div>
       )}

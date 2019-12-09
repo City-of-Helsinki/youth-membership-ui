@@ -38,6 +38,7 @@
     "acceptTermsText_1": "Hyväksyn",
     "acceptTermsText_link": " palvelun ehdot",
     "acceptTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
-    "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö"
+    "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
+    "birthdayInvalid": "Tarkista syntymäpäivä!"
   }
 }
