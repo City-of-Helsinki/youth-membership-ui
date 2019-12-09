@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable sort-keys */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -73,12 +74,11 @@ function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['Suomi', 'Svenska', 'English', 'Other'];
 
-  const getYearDiff = (year: string, month: string, day: string) => {
-    if (year && Number(year) >= 1900 && month && day) {
-      return differenceInYears(
-        new Date(),
-        new Date(Number(year), Number(month) - 1, Number(day))
-      );
+  const validateDate = (year: number, month: number, day: number) => {};
+
+  const getYearDiff = (year: number, month: number, day: number) => {
+    if (year >= 1900 && month && day) {
+      return differenceInYears(new Date(), new Date(year, month, day));
     } else return 0;
   };
 
@@ -197,6 +197,11 @@ function CreateYouthProfileForm(props: Props) {
                 id="birthDay"
                 name="birthDay"
                 type="number"
+                validate={validateDate(
+                  Number(props.values.birthYear),
+                  Number(props.values.birthMonth),
+                  Number(props.values.birthDay)
+                )}
                 invalid={props.submitCount && props.errors.birthDay}
                 invalidText={
                   props.submitCount &&
@@ -299,9 +304,9 @@ function CreateYouthProfileForm(props: Props) {
             <div
               className={
                 getYearDiff(
-                  props.values.birthYear,
-                  props.values.birthMonth,
-                  props.values.birthDay
+                  Number(props.values.birthYear),
+                  Number(props.values.birthMonth),
+                  Number(props.values.birthDay)
                 ) > 14
                   ? ''
                   : styles.hidePhotoPermit
