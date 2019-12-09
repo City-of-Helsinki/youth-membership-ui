@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
 import { Formik, Form, Field } from 'formik';
-import { differenceInYears } from 'date-fns';
+import { differenceInYears, isValid, parse } from 'date-fns';
 import * as Yup from 'yup';
 
 import styles from './CreateYouthProfileForm.module.css';
@@ -30,20 +30,12 @@ const schema = Yup.object().shape({
     .max(5, 'Too Long!')
     .required('Required'),
   city: Yup.string()
-    .min(5, 'Too Short!')
+    .min(2, 'Too Short!')
     .max(255, 'Too Long!')
     .required('Required'),
-  birthDay: Yup.number()
-    .lessThan(1, 'Check the date')
-    .moreThan(31, 'Check the date')
-    .required('Required!'),
-  birthMonth: Yup.number()
-    .lessThan(1, 'Check the month')
-    .moreThan(12, 'Check the month')
-    .required('Required!'),
-  birthYear: Yup.number()
-    .lessThan(1900, 'Check the year')
-    .required('Required'),
+  birthDay: Yup.number().required('Required!'),
+  birthMonth: Yup.number().required('Required!'),
+  birthYear: Yup.number().required('Required'),
   guardianFirstName: Yup.string()
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
@@ -52,7 +44,9 @@ const schema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
     .required('Required'),
-  guardianPhone: Yup.string().required('Required'),
+  guardianPhone: Yup.string()
+    .min(6, 'validation.phoneMin')
+    .required('Required'),
   guardianEmail: Yup.string().required('Required'),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
@@ -74,7 +68,11 @@ function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['Suomi', 'Svenska', 'English', 'Other'];
 
-  const validateDate = (year: number, month: number, day: number) => {};
+  const validateDate = (year: string, month: string, day: string) => {
+    return isValid(
+      parse(day + '/' + month + '/' + year, 'dd/MM/yyyy', new Date())
+    );
+  };
 
   const getYearDiff = (year: number, month: number, day: number) => {
     if (year >= 1900 && month && day) {
@@ -198,9 +196,9 @@ function CreateYouthProfileForm(props: Props) {
                 name="birthDay"
                 type="number"
                 validate={validateDate(
-                  Number(props.values.birthYear),
-                  Number(props.values.birthMonth),
-                  Number(props.values.birthDay)
+                  props.values.birthYear,
+                  props.values.birthMonth,
+                  props.values.birthDay
                 )}
                 invalid={props.submitCount && props.errors.birthDay}
                 invalidText={
