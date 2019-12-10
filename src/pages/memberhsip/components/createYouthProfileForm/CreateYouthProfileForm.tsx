@@ -68,16 +68,45 @@ function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['Suomi', 'Svenska', 'English', 'Other'];
 
+  const isBirhthdayTyped = (year: string, month: string, day: string) => {
+    if (year === '' || month === '' || day === '') {
+      return false;
+    }
+    return true;
+  };
+
   const validateDate = (year: string, month: string, day: string) => {
-    return isValid(
-      parse(day + '/' + month + '/' + year, 'dd/MM/yyyy', new Date())
-    );
+    if (isBirhthdayTyped(year, month, day) && Number(year) >= 1900) {
+      return isValid(
+        parse(day + '/' + month + '/' + year, 'dd/MM/yyyy', new Date())
+      );
+    }
+    return true;
   };
 
   const getYearDiff = (year: number, month: number, day: number) => {
     if (year >= 1900 && month && day) {
       return differenceInYears(new Date(), new Date(year, month, day));
     } else return 0;
+  };
+
+  const validateAge = (year: string, month: string, day: string) => {
+    if (isBirhthdayTyped(year, month, day) && Number(year) > 999) {
+      const age = getYearDiff(Number(year), Number(month), Number(day));
+      if (age < 8 || age > 29) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const isButtonEnabled = (year: string, month: string, day: string) => {
+    if (isBirhthdayTyped(year, month, day)) {
+      if (validateDate(year, month, day) && Number(year) > 1900) {
+        return validateAge(year, month, day);
+      }
+    }
+    return false;
   };
 
   return (
@@ -195,11 +224,6 @@ function CreateYouthProfileForm(props: Props) {
                 id="birthDay"
                 name="birthDay"
                 type="number"
-                validate={validateDate(
-                  props.values.birthYear,
-                  props.values.birthMonth,
-                  props.values.birthDay
-                )}
                 invalid={props.submitCount && props.errors.birthDay}
                 invalidText={
                   props.submitCount &&
@@ -241,6 +265,25 @@ function CreateYouthProfileForm(props: Props) {
                 labelText={t('registration.childBirthYear')}
               />
             </div>
+            {!validateDate(
+              props.values.birthYear,
+              props.values.birthMonth,
+              props.values.birthDay
+            ) ? (
+              <div className={styles.birhtdayErrorMessage}>
+                {t('registration.birthdayInvalid')}
+              </div>
+            ) : !validateAge(
+                props.values.birthYear,
+                props.values.birthMonth,
+                props.values.birthDay
+              ) ? (
+              <div className={styles.birhtdayErrorMessage}>
+                {t('registration.ageRestriction')}
+              </div>
+            ) : (
+              ''
+            )}
             <div className={styles.formRow}>
               <span className={styles.email}>
                 <label className={styles.emailTitle}>
@@ -414,7 +457,7 @@ function CreateYouthProfileForm(props: Props) {
             <button
               disabled={
                 !props.values.terms ||
-                !validateDate(
+                !isButtonEnabled(
                   props.values.birthYear,
                   props.values.birthMonth,
                   props.values.birthDay
@@ -424,15 +467,6 @@ function CreateYouthProfileForm(props: Props) {
             >
               {t('registration.sendButton')}
             </button>
-            <div className={styles.birhtdayErrorMessage}>
-              {!validateDate(
-                props.values.birthYear,
-                props.values.birthMonth,
-                props.values.birthDay
-              )
-                ? t('registration.birthdayInvalid')
-                : ''}
-            </div>
           </Form>
         </div>
       )}
