@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { ProfileInput } from "../../../../graphql/__generated__/globalTypes";
+import { ProfileInput } from "./../../../../graphql/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: CreateProfile

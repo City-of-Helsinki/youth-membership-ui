@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable sort-keys */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
