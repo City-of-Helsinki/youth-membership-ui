@@ -6,6 +6,9 @@
   "home" : {
     "title": "Hanki Nuta-jäsenyys! SV"
   },
+  "profile": {
+    "loading": "Ladataan profiilia..."
+  },
   "registration": {
     "title": "Täytä tietosi SV",
     "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
@@ -35,6 +38,9 @@
     "acceptTermsText_1": "Hyväksyn",
     "acceptTermsText_link": " palvelun ehdot",
     "acceptTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
-    "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö"
+    "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
+    "birthdayInvalid": "Tarkista syntymäpäivä!",
+    "ageRestriction": "Palveluun voi kirjautua iältään 8-29 vuotiaat."
+
   }
 }

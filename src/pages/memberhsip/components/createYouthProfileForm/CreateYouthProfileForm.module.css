@@ -4,17 +4,6 @@
     margin-bottom: 50px;
 }
 
-.emailTitle {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.email {
-    margin-right: 170px;
-    margin-top: 10px;
-}
-
 .formInput {
     margin-right: 20px;
     width: 350px;
@@ -23,6 +12,17 @@
 .formInputShort {
     margin-right: 20px;   
     width: 200px;
+}
+
+.emailTitle {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.email {
+    margin-right: 110px;
+    margin-top: 10px;
 }
 
 .childBirthDayInput {
@@ -79,4 +79,9 @@ button {
 
 button:disabled {
     background-color:#cccccc;
+}
+
+.birhtdayErrorMessage {
+    color: var(--hds-ui-color-error);
+    margin: -40px 0 50px;
 }
