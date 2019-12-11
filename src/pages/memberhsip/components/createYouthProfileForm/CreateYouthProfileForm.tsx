@@ -74,7 +74,7 @@ function CreateYouthProfileForm(props: Props) {
   };
 
   const validateDate = (year: string, month: string, day: string) => {
-    if (isBirhthdayTyped(year, month, day) && Number(year) >= 1900) {
+    if (isBirhthdayTyped(year, month, day)) {
       return isValid(
         parse(day + '/' + month + '/' + year, 'dd/MM/yyyy', new Date())
       );
