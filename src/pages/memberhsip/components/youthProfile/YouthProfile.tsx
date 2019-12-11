@@ -10,6 +10,7 @@ import CreateYouthProfile from '../createYouthProfile/CreateYouthProfile';
 import ViewYouthProfile from '../viewYouthProfile/ViewYouthProfile';
 import Loading from '../../../../common/loading/Loading';
 import styles from './YouthProfile.module.css';
+import { ProfileExistsQuery } from '../../graphql/__generated__/ProfileExistsQuery';
 
 const PROFILE_EXISTS = loader('../../graphql/profileExistsQuery.graphql');
 
@@ -18,7 +19,9 @@ type Props = RouteComponentProps & {};
 function YouthProfile(props: Props) {
   const { t } = useTranslation();
   const history = useHistory();
-  const [checkProfileExists, { data, loading }] = useLazyQuery(PROFILE_EXISTS, {
+  const [checkProfileExists, { data, loading }] = useLazyQuery<
+    ProfileExistsQuery
+  >(PROFILE_EXISTS, {
     fetchPolicy: 'no-cache',
   });
   const [isCheckingAuthState, setIsCheckingAuthState] = useState(true);

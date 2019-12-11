@@ -294,6 +294,7 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="phone"
                 name="phone"
+                type="tel"
                 invalid={props.submitCount && props.errors.phone}
                 invalidText={
                   props.submitCount &&
@@ -420,6 +421,7 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="guardianEmail"
                 name="guardianEmail"
+                type="email"
                 invalid={props.submitCount && props.errors.guardianEmail}
                 invalidText={
                   props.submitCount &&
@@ -433,6 +435,7 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="guardianPhone"
                 name="guardianPhone"
+                type="tel"
                 invalid={props.submitCount && props.errors.guardianPhone}
                 invalidText={
                   props.submitCount &&
