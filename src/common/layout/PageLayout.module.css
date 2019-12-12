@@ -5,6 +5,14 @@
     width: 1200px;
 }
 
+@media (max-width: 1200px) {
+    .hostingBox {
+        margin: 20px 10px 0;
+        width: auto;
+    }
+}
+
+
 header {
     background-color: white;
 }

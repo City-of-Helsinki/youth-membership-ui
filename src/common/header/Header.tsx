@@ -10,7 +10,7 @@ function Header(props: Props) {
   const { t } = useTranslation();
   return (
     <header className={styles.header}>
-      <HelsinkiLogo />
+      <HelsinkiLogo className={styles.logo} aria-label="Helsinki logo" />
       <span className={styles.appName}>{t('appName')}</span>
     </header>
   );

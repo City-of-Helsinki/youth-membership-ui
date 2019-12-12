@@ -2,10 +2,23 @@
   align-items: center;
   border-bottom: 2px solid black;
   display: flex;
-  padding: 10px;
+  padding: 10px 0;
 }
 
-.appName {
-  font-size: 24px;
-  margin-left: 30px;
+
+  .appName {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  @media (max-width: 1200px) {
+    .appName {
+      font-size: 16px;
+      margin-left: 0;
+    }
+  }
+
+.logo {
+  height: 42px;
 }
