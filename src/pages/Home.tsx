@@ -15,10 +15,11 @@ function Home(props: Props) {
       <div className={styles.hostingBox}>
         <h2>{t('home.title')}</h2>
         <p className={styles.helpText}>{t('home.helpText')}</p>
-        <button className={styles.loginButton} type="button"> {t('home.buttonText')}</button>
+        <button type="button">{t('home.buttonText')}</button>
         <p>
           <span onClick={authenticate} role="button">
-            {t('home.linkForMembersText')} >
+            {t('home.linkForMembersText')}
+            <span className={styles.linkArrow}> ></span>
           </span>
         </p>
       </div>

@@ -45,7 +45,9 @@ const schema = Yup.object().shape({
   guardianPhone: Yup.string()
     .min(6, 'validation.phoneMin')
     .required('Required'),
-  guardianEmail: Yup.string().required('Required'),
+  guardianEmail: Yup.string()
+    .required('Required')
+    .email(),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
 
@@ -144,9 +146,11 @@ function CreateYouthProfileForm(props: Props) {
     >
       {props => (
         <div>
-          <h1>{t('registration.title')}</h1>
-          <p>{t('registration.membershipInfoText')}</p>
-          <h2>{t('registration.basicInfo')}</h2>
+          <span className={styles.formTitleText}>
+            <h2>{t('registration.title')}</h2>
+            <p>{t('registration.membershipInfoText')}</p>
+          </span>
+          <h3>{t('registration.basicInfo')}</h3>
           <Form>
             <div className={styles.formRow}>
               <Field
@@ -204,7 +208,7 @@ function CreateYouthProfileForm(props: Props) {
                 labelText={t('registration.postcode')}
               />
               <Field
-                className={styles.formInputShort}
+                className={styles.formInputRes}
                 as={TextInput}
                 id="city"
                 name="city"
@@ -215,7 +219,7 @@ function CreateYouthProfileForm(props: Props) {
                 labelText={t('registration.city')}
               />
             </div>
-            <div className={styles.formRow}>
+            <div className={styles.resRow}>
               <Field
                 className={styles.childBirthDayInput}
                 as={TextInput}
@@ -287,7 +291,7 @@ function CreateYouthProfileForm(props: Props) {
                 <label className={styles.emailTitle}>
                   {t('registration.email')}
                 </label>
-                <span className={styles.email}>{props.values.email}</span>
+                <div className={styles.email}>{props.values.email}</div>
               </span>
               <Field
                 className={styles.formInput}
@@ -304,7 +308,7 @@ function CreateYouthProfileForm(props: Props) {
                 labelText={t('registration.phoneNumber')}
               />
             </div>
-            <h2>{t('registration.addInfo')}</h2>
+            <h3>{t('registration.addInfo')}</h3>
             <div className={styles.formRow}>
               <Field
                 className={styles.formInput}
@@ -321,7 +325,7 @@ function CreateYouthProfileForm(props: Props) {
                 labelText={t('registration.class')}
               />
             </div>
-            <h3>{t('registration.homeLanguages')}</h3>
+            <h4>{t('registration.homeLanguages')}</h4>
             <ul className={styles.list}>
               {languages.map(language => (
                 <li className={styles.checkBoxRow} key={language}>
@@ -352,9 +356,9 @@ function CreateYouthProfileForm(props: Props) {
                   : styles.hidePhotoPermit
               }
             >
-              <h3>{t('registration.photoPermit')}</h3>
+              <h4>{t('registration.photoPermit')}</h4>
               <p>{t('registration.photoPermitText')}</p>
-              <div className={styles.formRow}>
+              <div className={styles.resRow}>
                 <ul className={styles.list}>
                   <li className={styles.radioButtonRow}>
                     <label>
@@ -385,7 +389,7 @@ function CreateYouthProfileForm(props: Props) {
                 </ul>
               </div>
             </div>
-            <h2>{t('registration.guardianInfo')}</h2>
+            <h3>{t('registration.guardianInfo')}</h3>
             <p>{t('registration.acceptanceInfo')}</p>
             <div className={styles.formRow}>
               <Field
@@ -445,7 +449,7 @@ function CreateYouthProfileForm(props: Props) {
                 labelText={t('registration.phoneNumber')}
               />
             </div>
-            <h2>{t('registration.confirmSend')}</h2>
+            <h3>{t('registration.confirmSend')}</h3>
             <p>{t('registration.processInfoText')}</p>
             <ul className={styles.acceptTermsCheckBox}>
               <Field name="terms" type="checkbox" />
@@ -455,19 +459,21 @@ function CreateYouthProfileForm(props: Props) {
                 {t('registration.acceptTermsText_2')}
               </span>
             </ul>
-            <button
-              disabled={
-                !props.values.terms ||
-                !isButtonEnabled(
-                  props.values.birthYear,
-                  props.values.birthMonth,
-                  props.values.birthDay
-                )
-              }
-              type="submit"
-            >
-              {t('registration.sendButton')}
-            </button>
+            <div className={styles.buttonAlign}>
+              <button
+                disabled={
+                  !props.values.terms ||
+                  !isButtonEnabled(
+                    props.values.birthYear,
+                    props.values.birthMonth,
+                    props.values.birthDay
+                  )
+                }
+                type="submit"
+              >
+                {t('registration.sendButton')}
+              </button>
+            </div>
           </Form>
         </div>
       )}

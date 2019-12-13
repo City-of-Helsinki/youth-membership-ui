@@ -6,14 +6,14 @@
   "home" : {
     "title": "Hanki Jässäri!",
     "helpText": "Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässrin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, treenata bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman.",
-    "buttonText": "Hanki jäsenyys",
-    "linkForMembersText": "Oletko jo jäsen? Kirjaudu sisään"
+    "buttonText": "Get membership",
+    "linkForMembersText": "Do you have membership? Log in "
   },
   "profile": {
-    "loading": "Ladataan profiilia..."
+    "loading": "Loading profile..."
   },
   "registration": {
-    "title": "Täytä tietosi",
+    "title": "Fill in your information",
     "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
     "basicInfo": "Perustiedot",
     "firstName": "Etunimi EN",
@@ -43,6 +43,6 @@
     "acceptTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "birthdayInvalid": "Tarkista syntymäpäivä!",
-    "ageRestriction": "Palveluun voi kirjautua iältään 8-29 vuotiaat."
+    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-29 vuotiaat."
   }
 }
