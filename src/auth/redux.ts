@@ -1,4 +1,3 @@
-/* eslint-disable sort-keys */
 import { createSlice } from 'redux-starter-kit';
 import { USER_EXPIRED, LOAD_USER_ERROR, USER_SIGNED_OUT } from 'redux-oidc';
 
