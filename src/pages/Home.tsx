@@ -13,14 +13,13 @@ function Home(props: Props) {
   return (
     <PageLayout background="youth">
       <div className={styles.hostingBox}>
-        <h1>{t('home.title')}</h1>
-        <p>
-          Tähän lisätietoja, miksi kannattaa hankkia jässäri, miten toimii jne.
-        </p>
-        <button type="button">Hanki jäsenyys</button>
+        <h2>{t('home.title')}</h2>
+        <p className={styles.helpText}>{t('home.helpText')}</p>
+        <button type="button">{t('home.buttonText')}</button>
         <p>
           <span onClick={authenticate} role="button">
-            Mikäli sinulla on jo jäsenyys, kirjaudu sisään >
+            {t('home.linkForMembersText')}
+            <span className={styles.linkArrow}> ></span>
           </span>
         </p>
       </div>

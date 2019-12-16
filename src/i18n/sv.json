@@ -4,7 +4,10 @@
     "redirecting": "Omdirigerar..."
   },
   "home" : {
-    "title": "Hanki Nuta-jäsenyys! SV"
+    "title": "Hanki Jässäri!",
+    "helpText": "Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässrin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, treenata bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman.",
+    "buttonText": "Hanki jäsenyys",
+    "linkForMembersText": "Oletko jo jäsen? Kirjaudu sisään"
   },
   "profile": {
     "loading": "Ladataan profiilia..."
@@ -40,7 +43,7 @@
     "acceptTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "birthdayInvalid": "Tarkista syntymäpäivä!",
-    "ageRestriction": "Palveluun voi kirjautua iältään 8-29 vuotiaat."
+    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-29 vuotiaat."
 
   }
 }

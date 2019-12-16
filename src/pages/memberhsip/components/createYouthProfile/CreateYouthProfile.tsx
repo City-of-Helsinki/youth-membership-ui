@@ -12,8 +12,12 @@ import {
   CreateProfile as CreateProfileData,
   CreateProfileVariables,
 } from '../../graphql/__generated__/CreateProfile';
+import {
+  EmailType,
+  PhoneType,
+} from '../../../../graphql/__generated__/globalTypes';
 
-const CREATE_PROFILE = loader('../../graphql/createProfileMutation.graphql');
+const CREATE_PROFILE = loader('../../graphql/CreateProfile.graphql');
 
 type Props = {
   tunnistamoUser: User;
@@ -25,8 +29,30 @@ function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
     CreateProfileData,
     CreateProfileVariables
   >(CREATE_PROFILE);
-  const handleOnValues = (profileData: FormValues) => {
-    createProfile({ variables: { profile: profileData } }).then(result => {
+  const handleOnValues = (formValues: FormValues) => {
+    const variables: CreateProfileVariables = {
+      profile: {
+        firstName: formValues.firstName,
+        lastName: formValues.lastName,
+        addEmails: [
+          {
+            email: formValues.email,
+            primary: true,
+            emailType: EmailType.OTHER,
+          },
+        ],
+        addPhones: [
+          formValues.phone
+            ? {
+                phone: formValues.phone,
+                primary: true,
+                phoneType: PhoneType.OTHER,
+              }
+            : null,
+        ],
+      },
+    };
+    createProfile({ variables }).then(result => {
       if (result.data) {
         onProfileCreated();
       }

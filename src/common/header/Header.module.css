@@ -2,10 +2,29 @@
   align-items: center;
   border-bottom: 2px solid black;
   display: flex;
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .appName {
-  font-size: 24px;
-  margin-left: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: -10px;
+}
+
+@media (min-width: 415px) {
+  .appName {
+    font-size: 24px;
+    margin-left: 10px;
+  }
+}
+
+.logo {
+  height: 42px;
+  margin-left: -10px;
+}
+
+@media (min-width: 415px) {
+  .logo {
+    margin-left: 0;
+  }
 }

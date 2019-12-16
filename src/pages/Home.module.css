@@ -1,8 +1,14 @@
-button {
-    background-color: blue;
-    color: white;
-    font-size: medium;
-    height: 50px;
-    margin-top: 20px;
-    width: 250px;
+.helpText {
+  margin: 0 100px 50px;
+}
+
+@media (max-width: 414px) {
+  .helpText {
+    margin: 0 10px 50px;
   }
+}
+
+.linkArrow{
+  color: #0072c6;
+}
+  
