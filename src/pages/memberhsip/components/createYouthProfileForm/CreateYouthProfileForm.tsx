@@ -66,7 +66,7 @@ type Props = {
 
 function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
-  const languages = ['Suomi', 'Svenska', 'English', 'Other'];
+  const languages = ['Suomi', 'Svenska', 'English'];
 
   const isBirhthdayTyped = (year: string, month: string, day: string) => {
     if (year === '' || month === '' || day === '') {
@@ -330,21 +330,12 @@ function CreateYouthProfileForm(props: Props) {
               {languages.map(language => (
                 <li className={styles.checkBoxRow} key={language}>
                   <label>
-                    <Field name="language" type="checkbox" value={language} />
+                    <Field name="language" type="radio" value={language} />
                     <span className={styles.listLabel}>{language}</span>
                   </label>
                 </li>
               ))}
             </ul>
-            <div className={styles.formRow}>
-              <Field
-                className={styles.formInput}
-                as={TextInput}
-                id="otherLanguages"
-                name="otherLanguages"
-                type={props.values.language.includes('Other') ? '' : 'hidden'}
-              />
-            </div>
             <div
               className={
                 getYearDiff(
