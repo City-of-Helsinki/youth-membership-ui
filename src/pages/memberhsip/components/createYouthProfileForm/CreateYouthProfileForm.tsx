@@ -19,11 +19,11 @@ const schema = Yup.object().shape({
   phone: Yup.string()
     .min(6, 'validation.phoneMin')
     .required('Required'),
-  street: Yup.string()
+  address: Yup.string()
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
     .required('Required'),
-  postcode: Yup.string()
+  postalCode: Yup.string()
     .min(5, 'Too Short!')
     .max(5, 'Too Long!')
     .required('Required'),
@@ -55,6 +55,9 @@ const schema = Yup.object().shape({
 export type FormValues = {
   firstName: string;
   lastName: string;
+  address: string;
+  postalCode: string;
+  city: string;
   email: string;
   phone: string;
   birthDate: string;
@@ -122,8 +125,8 @@ function CreateYouthProfileForm(props: Props) {
     <Formik
       initialValues={{
         ...props.profile,
-        street: '',
-        postcode: '',
+        address: '',
+        postalCode: '',
         city: '',
         birthDay: '',
         birthMonth: '',
@@ -146,6 +149,9 @@ function CreateYouthProfileForm(props: Props) {
         props.onValues({
           firstName: values.firstName,
           lastName: values.lastName,
+          address: values.address,
+          postalCode: values.postalCode,
+          city: values.city,
           email: props.profile.email,
           phone: values.phone,
           birthDate: format(
@@ -207,28 +213,28 @@ function CreateYouthProfileForm(props: Props) {
               <Field
                 className={styles.formInput}
                 as={TextInput}
-                id="street"
-                name="street"
-                invalid={props.submitCount && props.errors.street}
+                id="address"
+                name="address"
+                invalid={props.submitCount && props.errors.address}
                 invalidText={
                   props.submitCount &&
-                  props.errors.street &&
-                  t(props.errors.street)
+                  props.errors.address &&
+                  t(props.errors.address)
                 }
-                labelText={t('registration.street')}
+                labelText={t('registration.address')}
               />
               <Field
                 className={styles.formInputShort}
                 as={TextInput}
-                id="postcode"
-                name="postcode"
-                invalid={props.submitCount && props.errors.postcode}
+                id="postalCode"
+                name="postalCode"
+                invalid={props.submitCount && props.errors.postalCode}
                 invalidText={
                   props.submitCount &&
-                  props.errors.postcode &&
-                  t(props.errors.postcode)
+                  props.errors.postalCode &&
+                  t(props.errors.postalCode)
                 }
-                labelText={t('registration.postcode')}
+                labelText={t('registration.postalCode')}
               />
               <Field
                 className={styles.formInputRes}
