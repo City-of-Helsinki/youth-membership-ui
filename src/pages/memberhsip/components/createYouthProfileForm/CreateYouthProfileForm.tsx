@@ -63,7 +63,8 @@ export type FormValues = {
   approverLastName: string;
   approverPhone: string;
   approverEmail: string;
-  photoUsageApproved: boolean;
+  //TODO: Waiting to be fixed in backend
+  // photoUsageApproved: boolean;
   // languageAtHome: string;
 };
 
@@ -130,8 +131,7 @@ function CreateYouthProfileForm(props: Props) {
         schoolName: '',
         schoolClass: '',
         language: '',
-        otherLanguages: '',
-        photoPermit: false,
+        photoUsageApproved: false,
         approverFirstName: '',
         approverLastName: '',
         guardianEmail: '',
@@ -159,7 +159,8 @@ function CreateYouthProfileForm(props: Props) {
           approverLastName: values.approverLastName,
           approverPhone: values.guardianPhone,
           approverEmail: values.approverEmail,
-          photoUsageApproved: true,
+          //TODO: Waiting to be fixed in backend
+          //photoUsageApproved: true,
         });
       }}
       validationSchema={schema}
@@ -375,7 +376,7 @@ function CreateYouthProfileForm(props: Props) {
                     <label>
                       <Field
                         id="photoPermitYes"
-                        name="photoPermit"
+                        name="photoUsageApproved"
                         type="radio"
                         value={true}
                       />
@@ -388,7 +389,7 @@ function CreateYouthProfileForm(props: Props) {
                     <label>
                       <Field
                         id="photoPermitNo"
-                        name="photoPermit"
+                        name="photoUsageApproved"
                         type="radio"
                         value={false}
                       />
