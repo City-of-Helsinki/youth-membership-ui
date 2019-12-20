@@ -166,13 +166,13 @@ a {
     color: var(--hds-ui-color-error);
 }
 
+.birhtdayErrorMessage {
+    margin: -10px 0 20px;
+
+}
+
 @media (min-width: 768px){
     .birhtdayErrorMessage {
         margin: -40px 0 50px;
     }
-}
-
-.birhtdayErrorMessage {
-    margin: -10px 0 20px;
-
 }

@@ -50,6 +50,16 @@ function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
               }
             : null,
         ],
+        youthProfile: {
+          birthDate: formValues.birthDate,
+          schoolName: formValues.schoolName,
+          schoolClass: formValues.schoolClass,
+          approverFirstName: formValues.approverFirstName,
+          approverLastName: formValues.approverLastName,
+          approverPhone: formValues.approverPhone,
+          approverEmail: formValues.approverEmail,
+          // photoUsageApproved: formValues.photoUsageApproved,
+        },
       },
     };
     createProfile({ variables }).then(result => {
@@ -66,6 +76,14 @@ function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
           lastName: tunnistamoUser.profile.family_name,
           email: tunnistamoUser.profile.email,
           phone: '',
+          birthDate: '',
+          approverEmail: '',
+          schoolName: '',
+          schoolClass: '',
+          approverFirstName: '',
+          approverLastName: '',
+          approverPhone: '',
+          photoUsageApproved: false,
         }}
         isSubmitting={loading}
         onValues={handleOnValues}

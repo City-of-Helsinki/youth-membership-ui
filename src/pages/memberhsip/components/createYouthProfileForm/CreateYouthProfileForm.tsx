@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
 import { Formik, Form, Field } from 'formik';
-import { differenceInYears, isValid, parse } from 'date-fns';
+import { differenceInYears, format, isValid, parse } from 'date-fns';
 import * as Yup from 'yup';
 
 import styles from './CreateYouthProfileForm.module.css';
@@ -34,18 +34,18 @@ const schema = Yup.object().shape({
   birthDay: Yup.number().required('Required!'),
   birthMonth: Yup.number().required('Required!'),
   birthYear: Yup.number().required('Required'),
-  guardianFirstName: Yup.string()
+  approverFirstName: Yup.string()
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
     .required('Required'),
-  guardianLastName: Yup.string()
+  approverLastName: Yup.string()
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
     .required('Required'),
   guardianPhone: Yup.string()
     .min(6, 'validation.phoneMin')
     .required('Required'),
-  guardianEmail: Yup.string()
+  approverEmail: Yup.string()
     .required('Required')
     .email(),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
@@ -56,6 +56,15 @@ export type FormValues = {
   lastName: string;
   email: string;
   phone: string;
+  birthDate: string;
+  schoolName: string;
+  schoolClass: string;
+  approverFirstName: string;
+  approverLastName: string;
+  approverPhone: string;
+  approverEmail: string;
+  photoUsageApproved: boolean;
+  // languageAtHome: string;
 };
 
 type Props = {
@@ -101,10 +110,8 @@ function CreateYouthProfileForm(props: Props) {
   };
 
   const isButtonEnabled = (year: string, month: string, day: string) => {
-    if (isBirhthdayTyped(year, month, day)) {
-      if (validateDate(year, month, day) && Number(year) > 1900) {
-        return validateAge(year, month, day);
-      }
+    if (Number(year) > 1900) {
+      return validateAge(year, month, day);
     }
     return false;
   };
@@ -120,13 +127,13 @@ function CreateYouthProfileForm(props: Props) {
         birthMonth: '',
         birthYear: '',
         phone: '',
-        school: '',
-        class: '',
+        schoolName: '',
+        schoolClass: '',
         language: '',
         otherLanguages: '',
-        photoPermit: '',
-        guardianFirstName: '',
-        guardianLastName: '',
+        photoPermit: false,
+        approverFirstName: '',
+        approverLastName: '',
         guardianEmail: '',
         guardianPhone: '',
         terms: false,
@@ -140,6 +147,19 @@ function CreateYouthProfileForm(props: Props) {
           lastName: values.lastName,
           email: props.profile.email,
           phone: values.phone,
+          birthDate: format(
+            new Date(
+              `${values.birthYear}-${values.birthMonth}-${values.birthDay}`
+            ),
+            'yyy-MM-dd'
+          ),
+          schoolName: values.schoolName,
+          schoolClass: values.schoolClass,
+          approverFirstName: values.approverFirstName,
+          approverLastName: values.approverLastName,
+          approverPhone: values.guardianPhone,
+          approverEmail: values.approverEmail,
+          photoUsageApproved: true,
         });
       }}
       validationSchema={schema}
@@ -313,15 +333,15 @@ function CreateYouthProfileForm(props: Props) {
               <Field
                 className={styles.formInput}
                 as={TextInput}
-                id="school"
-                name="school"
+                id="schoolName"
+                name="schoolName"
                 labelText={t('registration.school')}
               />
               <Field
                 className={styles.formInput}
                 as={TextInput}
-                id="class"
-                name="class"
+                id="schoolClass"
+                name="schoolClass"
                 labelText={t('registration.class')}
               />
             </div>
@@ -366,7 +386,7 @@ function CreateYouthProfileForm(props: Props) {
                         id="photoPermitYes"
                         name="photoPermit"
                         type="radio"
-                        value="Yes"
+                        value={true}
                       />
                       <span className={styles.listLabel}>
                         {t('registration.photoPermitYes')}
@@ -379,7 +399,7 @@ function CreateYouthProfileForm(props: Props) {
                         id="photoPermitNo"
                         name="photoPermit"
                         type="radio"
-                        value="No"
+                        value={false}
                       />
                       <span className={styles.listLabel}>
                         {t('registration.photoPermitNo')}
@@ -395,26 +415,26 @@ function CreateYouthProfileForm(props: Props) {
               <Field
                 className={styles.formInput}
                 as={TextInput}
-                id="guardianFirstName"
-                name="guardianFirstName"
-                invalid={props.submitCount && props.errors.guardianFirstName}
+                id="approverFirstName"
+                name="approverFirstName"
+                invalid={props.submitCount && props.errors.approverFirstName}
                 invalidText={
                   props.submitCount &&
-                  props.errors.guardianFirstName &&
-                  t(props.errors.guardianFirstName)
+                  props.errors.approverFirstName &&
+                  t(props.errors.approverFirstName)
                 }
                 labelText={t('registration.firstName')}
               />
               <Field
                 className={styles.formInput}
                 as={TextInput}
-                id="guardianLastName"
-                name="guardianLastName"
-                invalid={props.submitCount && props.errors.guardianLastName}
+                id="approverLastName"
+                name="approverLastName"
+                invalid={props.submitCount && props.errors.approverLastName}
                 invalidText={
                   props.submitCount &&
-                  props.errors.guardianLastName &&
-                  t(props.errors.guardianLastName)
+                  props.errors.approverLastName &&
+                  t(props.errors.approverLastName)
                 }
                 labelText={t('registration.lastName')}
               />
@@ -423,14 +443,14 @@ function CreateYouthProfileForm(props: Props) {
               <Field
                 className={styles.formInput}
                 as={TextInput}
-                id="guardianEmail"
-                name="guardianEmail"
+                id="approverEmail"
+                name="approverEmail"
                 type="email"
-                invalid={props.submitCount && props.errors.guardianEmail}
+                invalid={props.submitCount && props.errors.approverEmail}
                 invalidText={
                   props.submitCount &&
-                  props.errors.guardianEmail &&
-                  t(props.errors.guardianEmail)
+                  props.errors.approverEmail &&
+                  t(props.errors.approverEmail)
                 }
                 labelText={t('registration.email')}
               />
