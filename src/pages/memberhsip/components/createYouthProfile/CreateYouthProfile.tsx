@@ -60,6 +60,7 @@ function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
           approverEmail: formValues.approverEmail,
           //TODO: Waiting to be fixed in backend
           //photoUsageApproved: formValues.photoUsageApproved,
+          //languageAtHome: formValues.languageAtHome,
         },
       },
     };
@@ -86,6 +87,7 @@ function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
           approverPhone: '',
           //TODO: Waiting to be fixed in backend
           //photoUsageApproved: false,
+          //languageAtHome: '',
         }}
         isSubmitting={loading}
         onValues={handleOnValues}

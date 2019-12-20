@@ -42,12 +42,13 @@ const schema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(255, 'Too Long!')
     .required('Required'),
-  guardianPhone: Yup.string()
+  approverPhone: Yup.string()
     .min(6, 'validation.phoneMin')
     .required('Required'),
   approverEmail: Yup.string()
     .required('Required')
     .email(),
+  photoUsageApproved: Yup.boolean().required('Required'),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
 
@@ -65,7 +66,7 @@ export type FormValues = {
   approverEmail: string;
   //TODO: Waiting to be fixed in backend
   // photoUsageApproved: boolean;
-  // languageAtHome: string;
+  //languageAtHome: string;
 };
 
 type Props = {
@@ -134,8 +135,8 @@ function CreateYouthProfileForm(props: Props) {
         photoUsageApproved: false,
         approverFirstName: '',
         approverLastName: '',
-        guardianEmail: '',
-        guardianPhone: '',
+        approverEmail: '',
+        approverPhone: '',
         terms: false,
       }}
       initialErrors={{
@@ -157,10 +158,11 @@ function CreateYouthProfileForm(props: Props) {
           schoolClass: values.schoolClass,
           approverFirstName: values.approverFirstName,
           approverLastName: values.approverLastName,
-          approverPhone: values.guardianPhone,
+          approverPhone: values.approverPhone,
           approverEmail: values.approverEmail,
           //TODO: Waiting to be fixed in backend
           //photoUsageApproved: true,
+          //languageAtHome: values.languageAtHome,
         });
       }}
       validationSchema={schema}
@@ -336,22 +338,26 @@ function CreateYouthProfileForm(props: Props) {
                 as={TextInput}
                 id="schoolName"
                 name="schoolName"
-                labelText={t('registration.school')}
+                labelText={t('registration.schoolName')}
               />
               <Field
                 className={styles.formInput}
                 as={TextInput}
                 id="schoolClass"
                 name="schoolClass"
-                labelText={t('registration.class')}
+                labelText={t('registration.schoolClass')}
               />
             </div>
-            <h4>{t('registration.homeLanguages')}</h4>
+            <h4>{t('registration.languageAtHome')}</h4>
             <ul className={styles.list}>
               {languages.map(language => (
                 <li className={styles.checkBoxRow} key={language}>
                   <label>
-                    <Field name="language" type="radio" value={language} />
+                    <Field
+                      name="languageAtHome"
+                      type="radio"
+                      value={language}
+                    />
                     <span className={styles.listLabel}>{language}</span>
                   </label>
                 </li>
@@ -368,41 +374,41 @@ function CreateYouthProfileForm(props: Props) {
                   : styles.hidePhotoPermit
               }
             >
-              <h4>{t('registration.photoPermit')}</h4>
-              <p>{t('registration.photoPermitText')}</p>
+              <h4>{t('registration.photoUsageApproved')}</h4>
+              <p>{t('registration.photoUsageApprovedText')}</p>
               <div className={styles.resRow}>
                 <ul className={styles.list}>
                   <li className={styles.radioButtonRow}>
                     <label>
                       <Field
-                        id="photoPermitYes"
+                        id="photoUsageApprovedYes"
                         name="photoUsageApproved"
                         type="radio"
                         value={true}
                       />
                       <span className={styles.listLabel}>
-                        {t('registration.photoPermitYes')}
+                        {t('registration.photoUsageApprovedYes')}
                       </span>
                     </label>
                   </li>
                   <li className={styles.radioButtonRow}>
                     <label>
                       <Field
-                        id="photoPermitNo"
+                        id="pphotoUsageApprovedNo"
                         name="photoUsageApproved"
                         type="radio"
                         value={false}
                       />
                       <span className={styles.listLabel}>
-                        {t('registration.photoPermitNo')}
+                        {t('registration.photoUsageApprovedNo')}
                       </span>
                     </label>
                   </li>
                 </ul>
               </div>
             </div>
-            <h3>{t('registration.guardianInfo')}</h3>
-            <p>{t('registration.acceptanceInfo')}</p>
+            <h3>{t('registration.approver')}</h3>
+            <p>{t('registration.approverInfoText')}</p>
             <div className={styles.formRow}>
               <Field
                 className={styles.formInput}
@@ -449,14 +455,14 @@ function CreateYouthProfileForm(props: Props) {
               <Field
                 className={styles.formInput}
                 as={TextInput}
-                id="guardianPhone"
-                name="guardianPhone"
+                id="approverPhone"
+                name="approverPhone"
                 type="tel"
-                invalid={props.submitCount && props.errors.guardianPhone}
+                invalid={props.submitCount && props.errors.approverPhone}
                 invalidText={
                   props.submitCount &&
-                  props.errors.guardianPhone &&
-                  t(props.errors.guardianPhone)
+                  props.errors.approverPhone &&
+                  t(props.errors.approverPhone)
                 }
                 labelText={t('registration.phoneNumber')}
               />
