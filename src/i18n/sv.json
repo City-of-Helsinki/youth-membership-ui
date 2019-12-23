@@ -1,9 +1,9 @@
 {
-  "appName": "Nuorisopalvelut",
+  "appName": "Jässäri",
   "oidc": {
-    "redirecting": "Omdirigerar..."
+    "authenticating": "Autentiserar..."
   },
-  "home" : {
+  "login" : {
     "title": "Hanki Jässäri!",
     "helpText": "Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässrin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, treenata bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman.",
     "buttonText": "Hanki jäsenyys",

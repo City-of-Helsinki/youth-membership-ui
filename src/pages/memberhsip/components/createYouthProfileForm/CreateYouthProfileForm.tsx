@@ -377,7 +377,7 @@ function CreateYouthProfileForm(props: Props) {
                   Number(props.values.birthDay)
                 ) > 14
                   ? ''
-                  : styles.hidePhotoPermit
+                  : styles.hidePhotoUsageApproved
               }
             >
               <h4>{t('registration.photoUsageApproved')}</h4>
