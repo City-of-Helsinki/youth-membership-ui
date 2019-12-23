@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useHistory, RouteComponentProps } from 'react-router';
+import { useHistory } from 'react-router';
 import { loader } from 'graphql.macro';
 
 import getAuthenticatedUser from '../../../../auth/getAuthenticatedUser';
@@ -14,7 +14,7 @@ import { ProfileExistsQuery } from '../../graphql/__generated__/ProfileExistsQue
 
 const PROFILE_EXISTS = loader('../../graphql/profileExistsQuery.graphql');
 
-type Props = RouteComponentProps & {};
+type Props = {};
 
 function YouthProfile(props: Props) {
   const { t } = useTranslation();
@@ -34,7 +34,7 @@ function YouthProfile(props: Props) {
         setTunnistamoUser(user);
         setIsCheckingAuthState(false);
       })
-      .catch(() => history.push('/'));
+      .catch(() => history.push('/login'));
   }, [checkProfileExists, history]);
 
   const isLoadingAnything = Boolean(isCheckingAuthState || loading);
