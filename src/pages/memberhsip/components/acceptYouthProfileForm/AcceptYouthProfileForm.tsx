@@ -56,6 +56,28 @@ function AcceptYouthProfileForm(props: Props) {
           //value={data....}
           value={props.profile.phone}
         />
+
+        <LabeledValue
+          label={t('acceptance.phone')}
+          //use this below!
+          //value={data....}
+          value="01.01.2006"
+        />
+      </div>
+      <h3>{t('registration.addInfo')}</h3>
+      <div className={styles.formData}>
+        <LabeledValue
+          label={t('acceptance.schoolInfo')}
+          //use this below!
+          //value={data...}
+          value="The Skole, 3 A"
+        />
+        <LabeledValue
+          label={t('acceptance.languagesAtHome')}
+          //use this below!
+          //value={data...}
+          value="Suomi"
+        />
       </div>
     </div>
   );

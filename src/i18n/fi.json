@@ -52,6 +52,8 @@
     "name": "Nimi",
     "profile": "Profiili",
     "address": "Kotioisoite",
-    "phone": "Puhelin"
+    "phone": "Puhelin",
+    "schoolInfo": "Koulu ja luokka",
+    "languagesAtHome": "Kotona puhutut kielet"
   }
 }
