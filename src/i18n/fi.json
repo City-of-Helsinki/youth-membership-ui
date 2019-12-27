@@ -1,5 +1,5 @@
 {
-  "appName": "Jässäri",
+  "appName": "Nuorisopalvelut",
   "oidc": {
     "authenticating": "Tunnistaudutaan..."
   },
@@ -44,5 +44,14 @@
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "birthdayInvalid": "Tarkista syntymäpäivä!",
     "ageRestriction": "Palveluun voi rekisteröityä iältään 8-29 vuotiaat."
+  },
+  "accepetance": {
+    "title": "Hyväksy Nuta-jäsenyys",
+    "formExplanationText_1": "on lähettänyt hyväksyttäväksesi Nuta-jäsenyyshakemuksen. Hyväksymällä jäsenyyden,",
+    "formExplanationText_2": "voi käydä nuokkarilla ja saa etuja. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uuden hyväksymispyynnön.",
+    "name": "Nimi",
+    "profile": "Profiili",
+    "address": "Kotioisoite",
+    "phone": "Puhelin"
   }
 }

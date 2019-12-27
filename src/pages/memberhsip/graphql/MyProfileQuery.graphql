@@ -13,5 +13,8 @@ query MyProfileQuery {
     primaryPhone {
       phone
     }
+    youthProfile {
+      birthDate
+    }
   }
 }

@@ -4937,19 +4937,19 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
-hds-core@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/hds-core/-/hds-core-0.2.2.tgz#97fa47f45a17de57ff21851a20c5122f8db5b9e8"
-  integrity sha512-3N2qL7APZMoweJsCrrg1lotZDK4mpQaKbni9qZ7NU57FhZnIK9CWeYzlGpFjkEXGR6hhSNKzlKGrOryy4jSDUg==
+hds-core@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/hds-core/-/hds-core-0.3.2.tgz#70c5129ae0c4ecd08b70bd69ca5e1a234cc3747f"
+  integrity sha512-L/EeAx+skAjUTkCIZfSBdcG8uqMD9BpyYOYue0ORjH9NCj01ke1dWNu8is+M8k0VHfBrnDuAM4pytdBUx+T3hw==
 
-hds-react@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/hds-react/-/hds-react-0.2.4.tgz#d37f3e8e7f02ff6f5beb989adb1ff0c36b13b757"
-  integrity sha512-JSqXoprMXn0nCG9aMMEJj7Fu6ywKCI+qh5h0qAzEMT1Dt6Upw3F9DtKUOeAUvUinbFnrESh8/XyKLrlanjOYYA==
+hds-react@^0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/hds-react/-/hds-react-0.4.6.tgz#5278dcac98d7767c0d2e0eb5f38ed1ad328f8fa2"
+  integrity sha512-UfPV+ae23H6OH2ti+Xssw6LdfON4JtD66DdgSsxOg+CMgjsgDKMLzKHK0y9Ozffcv5fKmI1KB97VjhjfTAx+oQ==
   dependencies:
-    hds-core "^0.2.2"
-    react "^16.10.2"
-    react-dom "^16.10.2"
+    hds-core "^0.3.2"
+    lodash.uniqueid "^4.0.1"
+    react-spring "^8.0.27"
 
 he@1.2.x:
   version "1.2.0"
@@ -6455,6 +6455,11 @@ lodash.unescape@4.0.1:
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
+
+lodash.uniqueid@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.uniqueid/-/lodash.uniqueid-4.0.1.tgz#3268f26a7c88e4f4b1758d679271814e31fa5b26"
+  integrity sha1-MmjyanyI5PSxdY1nknGBTjH6WyY=
 
 lodash.xorby@^4.7.0:
   version "4.7.0"
@@ -8207,9 +8212,10 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
+  integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
   dependencies:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
@@ -8393,16 +8399,6 @@ react-dev-utils@^9.0.4:
     strip-ansi "5.2.0"
     text-table "0.2.0"
 
-react-dom@^16.10.2:
-  version "16.11.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.11.0.tgz#7e7c4a5a85a569d565c2462f5d345da2dd849af5"
-  integrity sha512-nrRyIUE1e7j8PaXSPtyRKtz+2y9ubW/ghNgqKFHHAHaeP0fpF5uXR+sq8IMRHC+ZUxw7W9NyCDTBtwWxvkb0iA==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "^0.17.0"
-
 react-dom@^16.9.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
@@ -8534,14 +8530,13 @@ react-scripts@3.1.2:
   optionalDependencies:
     fsevents "2.0.7"
 
-react@^16.10.2:
-  version "16.11.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.11.0.tgz#d294545fe62299ccee83363599bf904e4a07fdbb"
-  integrity sha512-M5Y8yITaLmU0ynd0r1Yvfq98Rmll6q8AxaEe88c8e7LxO8fZ2cNgmFt0aGAS9wzf1Ao32NKXtCl+/tVVtkxq6g==
+react-spring@^8.0.27:
+  version "8.0.27"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.27.tgz#97d4dee677f41e0b2adcb696f3839680a3aa356a"
+  integrity sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
   dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
+    "@babel/runtime" "^7.3.1"
+    prop-types "^15.5.8"
 
 react@^16.9.0:
   version "16.9.0"
@@ -9032,14 +9027,6 @@ scheduler@^0.14.0:
 scheduler@^0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
-scheduler@^0.17.0:
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.17.0.tgz#7c9c673e4ec781fac853927916d1c426b6f3ddfe"
-  integrity sha512-7rro8Io3tnCPuY4la/NuI5F2yfESpnfZyT6TtkXnSWVkcu0BCDJ+8gk5ozUaFaxpIyNuWAPXrH0yFcSi28fnDA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

@@ -11,6 +11,7 @@ import enableOidcLogging from './auth/enableOidcLogging';
 import Login from './auth/components/login/Login';
 import OidcCallback from './auth/components/oidcCallback/OidcCallback';
 import YouthProfile from './pages/memberhsip/components/youthProfile/YouthProfile';
+import AcceptYouthProfile from './pages/memberhsip/components/acceptYouthProfile/AcceptYouthProfile';
 import { fetchApiTokenThunk } from './auth/redux';
 
 if (process.env.NODE_ENV !== 'production') {
@@ -46,6 +47,9 @@ function App(props: Props) {
             </Route>
             <Route path="/" exact>
               <YouthProfile />
+            </Route>
+            <Route path="/accept" exact>
+              <AcceptYouthProfile />
             </Route>
             <Route path="*">404 - not found</Route>
           </Switch>

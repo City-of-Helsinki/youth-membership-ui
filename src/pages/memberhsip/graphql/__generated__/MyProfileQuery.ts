@@ -23,6 +23,11 @@ export interface MyProfileQuery_myProfile_primaryPhone {
   readonly phone: string | null;
 }
 
+export interface MyProfileQuery_myProfile_youthProfile {
+  readonly __typename: "YouthProfileType";
+  readonly birthDate: any;
+}
+
 export interface MyProfileQuery_myProfile {
   readonly __typename: "ProfileNode";
   readonly firstName: string;
@@ -30,6 +35,7 @@ export interface MyProfileQuery_myProfile {
   readonly primaryAddress: MyProfileQuery_myProfile_primaryAddress | null;
   readonly primaryEmail: MyProfileQuery_myProfile_primaryEmail | null;
   readonly primaryPhone: MyProfileQuery_myProfile_primaryPhone | null;
+  readonly youthProfile: MyProfileQuery_myProfile_youthProfile | null;
 }
 
 export interface MyProfileQuery {
