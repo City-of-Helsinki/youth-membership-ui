@@ -2,10 +2,20 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
 import { TextInput } from 'hds-react';
+import * as Yup from 'yup';
 
 import styles from './AcceptYouthProfileForm.module.css';
 import LabeledValue from '../../../../common/labeledValue/LabeledValue';
 import Button from '../../../../common/button/Button';
+
+const schema = Yup.object().shape({
+  approverFirstName: Yup.string().max(255, 'validation.maxLength'),
+  approverLastName: Yup.string().max(255, 'validation.maxLength'),
+  approverEmail: Yup.string().max(255, 'validation.maxLength'),
+  phone: Yup.string()
+    .min(6, 'validation.phoneMin')
+    .max(255, 'validation.maxLength'),
+});
 
 export type FormValues = {
   firstName: string;
@@ -32,13 +42,20 @@ function AcceptYouthProfileForm(props: Props) {
   const { t } = useTranslation();
   return (
     <Formik
-      initialValues={{ terms: false }}
+      initialValues={{
+        approverFirstName: props.profile.approverFirstName,
+        approverLastName: props.profile.approverLastName,
+        approverEmail: props.profile.approverEmail,
+        approverPhone: props.profile.approverPhone,
+        terms: false,
+      }}
       onSubmit={(values, actions) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
           actions.setSubmitting(false);
         }, 1000);
       }}
+      validationSchema={schema}
     >
       <div className={styles.content}>
         <span className={styles.formTitleText}>
@@ -121,7 +138,6 @@ function AcceptYouthProfileForm(props: Props) {
               as={TextInput}
               id="approverFirstName"
               name="approverFirstName"
-              value={props.profile.approverFirstName}
               //invalid={props.submitCount && props.errors.approverFirstName}
               //invalidText={
               //  props.submitCount && props.errors.approverFirstName && t(props.errors.approverFirstName)
@@ -133,7 +149,6 @@ function AcceptYouthProfileForm(props: Props) {
               as={TextInput}
               id="approverLastName"
               name="approverLastName"
-              value={props.profile.approverLastName}
               //invalid={props.submitCount && props.errors.approverLastName}
               //invalidText={
               //  props.submitCount && props.errors.approverLastName && t(props.errors.approverLastName)
@@ -146,7 +161,6 @@ function AcceptYouthProfileForm(props: Props) {
               id="approverEmail"
               name="approverEmail"
               type="email"
-              value={props.profile.approverEmail}
               //invalid={props.submitCount && props.errors.phone}
               //invalidText={
               //  props.submitCount && props.errors.phone && t(props.errors.phone)
@@ -159,7 +173,6 @@ function AcceptYouthProfileForm(props: Props) {
               id="approverPhone"
               name="approverPhone"
               type="tel"
-              value={props.profile.approverPhone}
               //invalid={props.submitCount && props.errors.phone}
               //invalidText={
               //  props.submitCount && props.errors.phone && t(props.errors.phone)
