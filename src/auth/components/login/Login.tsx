@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import authenticate from '../../authenticate';
 import PageLayout from '../../../common/layout/PageLayout';
 import styles from './Login.module.css';
+import Button from '../../../common/button/Button';
 
 type Props = {};
 
@@ -14,7 +15,9 @@ function Login(props: Props) {
       <div className={styles.hostingBox}>
         <h2>{t('login.title')}</h2>
         <p className={styles.helpText}>{t('login.helpText')}</p>
-        <button type="button">{t('login.buttonText')}</button>
+        <Button type="button" disabled={false}>
+          {t('login.buttonText')}
+        </Button>
         <p>
           <span onClick={authenticate} role="button">
             {t('login.linkForMembersText')}
