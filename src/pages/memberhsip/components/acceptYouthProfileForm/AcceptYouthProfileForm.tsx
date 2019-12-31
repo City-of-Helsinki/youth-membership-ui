@@ -121,6 +121,7 @@ function AcceptYouthProfileForm(props: Props) {
               as={TextInput}
               id="approverFirstName"
               name="approverFirstName"
+              value={props.profile.approverFirstName}
               //invalid={props.submitCount && props.errors.approverFirstName}
               //invalidText={
               //  props.submitCount && props.errors.approverFirstName && t(props.errors.approverFirstName)
@@ -132,6 +133,7 @@ function AcceptYouthProfileForm(props: Props) {
               as={TextInput}
               id="approverLastName"
               name="approverLastName"
+              value={props.profile.approverLastName}
               //invalid={props.submitCount && props.errors.approverLastName}
               //invalidText={
               //  props.submitCount && props.errors.approverLastName && t(props.errors.approverLastName)
@@ -144,6 +146,7 @@ function AcceptYouthProfileForm(props: Props) {
               id="approverEmail"
               name="approverEmail"
               type="email"
+              value={props.profile.approverEmail}
               //invalid={props.submitCount && props.errors.phone}
               //invalidText={
               //  props.submitCount && props.errors.phone && t(props.errors.phone)
@@ -156,6 +159,7 @@ function AcceptYouthProfileForm(props: Props) {
               id="approverPhone"
               name="approverPhone"
               type="tel"
+              value={props.profile.approverPhone}
               //invalid={props.submitCount && props.errors.phone}
               //invalidText={
               //  props.submitCount && props.errors.phone && t(props.errors.phone)
