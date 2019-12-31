@@ -6,6 +6,7 @@ import { differenceInYears, format, isValid, parse } from 'date-fns';
 import * as Yup from 'yup';
 
 import styles from './CreateYouthProfileForm.module.css';
+import Button from '../../../../common/button/Button';
 
 const schema = Yup.object().shape({
   firstName: Yup.string()
@@ -484,19 +485,19 @@ function CreateYouthProfileForm(props: Props) {
               </span>
             </ul>
             <div className={styles.buttonAlign}>
-              <button
-                disabled={
-                  !props.values.terms ||
-                  !isButtonEnabled(
-                    props.values.birthYear,
-                    props.values.birthMonth,
-                    props.values.birthDay
-                  )
-                }
+              <Button
                 type="submit"
+                disabled={Boolean(
+                  !props.values.terms ||
+                    !isButtonEnabled(
+                      props.values.birthYear,
+                      props.values.birthMonth,
+                      props.values.birthDay
+                    )
+                )}
               >
                 {t('registration.sendButton')}
-              </button>
+              </Button>
             </div>
           </Form>
         </div>
