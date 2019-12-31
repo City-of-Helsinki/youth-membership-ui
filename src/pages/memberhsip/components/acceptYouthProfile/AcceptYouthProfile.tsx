@@ -19,12 +19,23 @@ function AcceptYouthProfile(props: Props) {
     <PageLayout background="adult">
       <AcceptYouthProfileForm
         profile={{
-          //data
-          firstName: 'Terhi',
-          lastName: 'Ollila',
-          address: 'Jokukatu 123, 00100 Helsinki',
-          email: 'terhi.ollila@digia.com',
-          phone:  '040123456',
+          firstName: data?.myProfile?.firstName || '',
+          lastName: data?.myProfile?.lastName || '',
+          address: data?.myProfile?.primaryAddress?.address 
+            + ', ' + data?.myProfile?.primaryAddress?.postalCode
+            + ', ' + data?.myProfile?.primaryAddress?.city || '',
+          email: data?.myProfile?.primaryEmail?.email || '',
+          phone:  data?.myProfile?.primaryPhone?.phone || '',
+          birthDate: data?.myProfile?.youthProfile?.birthDate || '',
+          schoolName: data?.myProfile?.youthProfile?.schoolName || '',
+          schoolClass: data?.myProfile?.youthProfile?.schoolClass || '',
+          approverFirstName: data?.myProfile?.youthProfile?.approverFirstName || '',
+          approverLastName: data?.myProfile?.youthProfile?.approverLastName || '',
+          approverPhone: data?.myProfile?.youthProfile?.approverPhone || '',
+          approverEmail: data?.myProfile?.youthProfile?.approverEmail || '',
+          photoUsageApproved: data?.myProfile?.youthProfile?.photoUsageApproved || false,
+          languageAtHome: data?.myProfile?.youthProfile?.languageAtHome || '',
+
         }}
       />
     </PageLayout>

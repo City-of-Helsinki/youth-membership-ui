@@ -15,6 +15,14 @@ query MyProfileQuery {
     }
     youthProfile {
       birthDate
+      schoolName
+      schoolClass
+      approverFirstName
+      approverLastName
+      approverPhone
+      approverEmail
+      photoUsageApproved
+      languageAtHome
     }
   }
 }

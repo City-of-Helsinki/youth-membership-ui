@@ -357,7 +357,7 @@ function CreateYouthProfileForm(props: Props) {
             <h4>{t('registration.languageAtHome')}</h4>
             <ul className={styles.list}>
               {languages.map(language => (
-                <li className={styles.checkBoxRow} key={language}>
+                <li className={styles.languageRadioBtnRow} key={language}>
                   <label>
                     <Field
                       name="languageAtHome"
@@ -475,7 +475,7 @@ function CreateYouthProfileForm(props: Props) {
             </div>
             <h3>{t('registration.confirmSend')}</h3>
             <p>{t('registration.processInfoText')}</p>
-            <ul className={styles.acceptTermsCheckBox}>
+            <ul className={styles.terms}>
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
                 {t('registration.acceptTermsText_1')}

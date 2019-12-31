@@ -2,6 +2,8 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
+import { YouthLanguage } from "./../../../../graphql/__generated__/globalTypes";
+
 // ====================================================
 // GraphQL query operation: MyProfileQuery
 // ====================================================
@@ -26,6 +28,17 @@ export interface MyProfileQuery_myProfile_primaryPhone {
 export interface MyProfileQuery_myProfile_youthProfile {
   readonly __typename: "YouthProfileType";
   readonly birthDate: any;
+  readonly schoolName: string;
+  readonly schoolClass: string;
+  readonly approverFirstName: string;
+  readonly approverLastName: string;
+  readonly approverPhone: string;
+  readonly approverEmail: string;
+  readonly photoUsageApproved: boolean | null;
+  /**
+   * The language which is spoken in the youth's home.
+   */
+  readonly languageAtHome: YouthLanguage | null;
 }
 
 export interface MyProfileQuery_myProfile {
