@@ -30,7 +30,7 @@ export type FormValues = {
   approverLastName: string;
   approverPhone: string;
   approverEmail: string;
-  photoUsageApproved: boolean;
+  photoUsageApproved: string;
   languageAtHome: string;
 };
 
@@ -115,7 +115,7 @@ function AcceptYouthProfileForm(props: Props) {
                       id="photoUsageApprovedYes"
                       name="photoUsageApproved"
                       type="radio"
-                      value={true}
+                      value="true"
                     />
                     <span className={styles.listLabel}>
                       {t('acceptance.photoUsageApprovedYes')}
@@ -128,7 +128,7 @@ function AcceptYouthProfileForm(props: Props) {
                       id="pphotoUsageApprovedNo"
                       name="photoUsageApproved"
                       type="radio"
-                      value={false}
+                      value="false"
                     />
                     <span className={styles.listLabel}>
                       {t('acceptance.photoUsageApprovedNo')}
