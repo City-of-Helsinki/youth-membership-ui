@@ -1,6 +1,6 @@
-/* eslint-disable */
+/* eslint-disable prettier/prettier */
+
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 
@@ -13,7 +13,6 @@ const MY_PROFILE = loader('../../graphql/MyProfileQuery.graphql');
 type Props = {};
 
 function AcceptYouthProfile(props: Props) {
-  //const { t } = useTranslation();
   const { data } = useQuery<MyProfileQuery>(MY_PROFILE);
   return (
     <PageLayout background="adult">
@@ -35,7 +34,6 @@ function AcceptYouthProfile(props: Props) {
           approverEmail: data?.myProfile?.youthProfile?.approverEmail || '',
           photoUsageApproved: data?.myProfile?.youthProfile?.photoUsageApproved || false,
           languageAtHome: data?.myProfile?.youthProfile?.languageAtHome || '',
-
         }}
       />
     </PageLayout>
