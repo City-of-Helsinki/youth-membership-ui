@@ -1,25 +1,23 @@
-/* eslint-disable */
 
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
+import format from 'date-fns/format';
 
 import PageLayout from '../../../../common/layout/PageLayout';
-import AcceptYouthProfileForm from '../acceptYouthProfileForm/AcceptYouthProfileForm';
+import ApproveYouthProfileForm from '../approveYouthProfileForm/ApproveYouthProfileForm';
 import { MyProfileQuery } from '../../graphql/__generated__/MyProfileQuery';
-import format from 'date-fns/format';
 
 const MY_PROFILE = loader('../../graphql/MyProfileQuery.graphql');
 
 type Props = {};
 
-function AcceptYouthProfile(props: Props) {
+function ApproveYouthProfile(props: Props) {
   const { data } = useQuery<MyProfileQuery>(MY_PROFILE);
   const convertDateFormat = (value: string | null | undefined) => {
     if (value !== undefined && value !== null){
       return format(new Date(value), 'dd.MM.yyyy').toLocaleString();;
-    }
-    else undefined;
+    } else return undefined;
   }
   const convertBooleanToString = (value: boolean | null | undefined) => {
     if (value !== undefined && value !== null) {
@@ -29,7 +27,7 @@ function AcceptYouthProfile(props: Props) {
   }
   return (
     <PageLayout background="adult">
-      <AcceptYouthProfileForm
+      <ApproveYouthProfileForm
         profile={{
           firstName: data?.myProfile?.firstName || '',
           lastName: data?.myProfile?.lastName || '',
@@ -53,4 +51,4 @@ function AcceptYouthProfile(props: Props) {
   );
 }
 
-export default AcceptYouthProfile;
+export default ApproveYouthProfile;

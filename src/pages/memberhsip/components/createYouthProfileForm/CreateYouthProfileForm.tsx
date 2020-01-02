@@ -479,9 +479,9 @@ function CreateYouthProfileForm(props: Props) {
             <ul className={styles.terms}>
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
-                {t('registration.acceptTermsText_1')}
-                <a href="/#">{t('registration.acceptTermsText_link')}</a>
-                {t('registration.acceptTermsText_2')}
+                {t('registration.approveTermsText_1')}
+                <a href="/#">{t('registration.approveTermsText_link')}</a>
+                {t('registration.approveTermsText_2')}
               </span>
             </ul>
             <div className={styles.buttonAlign}>

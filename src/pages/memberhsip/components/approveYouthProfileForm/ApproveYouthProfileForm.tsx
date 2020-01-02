@@ -4,7 +4,7 @@ import { Field, Form, Formik } from 'formik';
 import { TextInput } from 'hds-react';
 import * as Yup from 'yup';
 
-import styles from './AcceptYouthProfileForm.module.css';
+import styles from './ApproveYouthProfileForm.module.css';
 import LabeledValue from '../../../../common/labeledValue/LabeledValue';
 import Button from '../../../../common/button/Button';
 
@@ -38,7 +38,7 @@ type Props = {
   profile: FormValues;
 };
 
-function AcceptYouthProfileForm(props: Props) {
+function ApproveYouthProfileForm(props: Props) {
   const { t } = useTranslation();
 
   return (
@@ -63,49 +63,49 @@ function AcceptYouthProfileForm(props: Props) {
       {props => (
         <div className={styles.content}>
           <span className={styles.formTitleText}>
-            <h2>{t('acceptance.title')}</h2>
+            <h2>{t('approval.title')}</h2>
             <p>
-              {props.values.firstName} {t('acceptance.formExplanationText_1')}{' '}
-              {props.values.firstName} {t('acceptance.formExplanationText_2')}
+              {props.values.firstName} {t('approval.formExplanationText_1')}{' '}
+              {props.values.firstName} {t('approval.formExplanationText_2')}
             </p>
           </span>
-          <h3>{t('acceptance.basicInfo')}</h3>
+          <h3>{t('approval.basicInfo')}</h3>
           <div className={styles.formData}>
             <LabeledValue
-              label={t('acceptance.name')}
+              label={t('approval.name')}
               value={`${props.values.firstName} ${props.values.lastName}`}
             />
             <LabeledValue
-              label={t('acceptance.address')}
+              label={t('approval.address')}
               value={props.values.address}
             />
             <LabeledValue
-              label={t('acceptance.profile')}
+              label={t('approval.profile')}
               value={props.values.email}
             />
             <LabeledValue
-              label={t('acceptance.phone')}
+              label={t('approval.phone')}
               value={props.values.phone}
             />
             <LabeledValue
-              label={t('acceptance.birthDate')}
+              label={t('approval.birthDate')}
               value={props.values.birthDate}
             />
           </div>
-          <h3>{t('acceptance.addInfo')}</h3>
+          <h3>{t('approval.addInfo')}</h3>
           <div className={styles.formData}>
             <LabeledValue
-              label={t('acceptance.schoolInfo')}
+              label={t('approval.schoolInfo')}
               value={`${props.values.schoolName}, ${props.values.schoolClass}`}
             />
             <LabeledValue
-              label={t('acceptance.languagesAtHome')}
+              label={t('approval.languagesAtHome')}
               value={t(`LANGUAGE_OPTIONS.${props.values.languageAtHome}`)}
             />
           </div>
-          <h3>{t('acceptance.approverAcceptance')}</h3>
-          <h4>{t('acceptance.photoUsageApproved')}</h4>
-          <p>{t('acceptance.photoUsageApprovedText')}</p>
+          <h3>{t('approval.approverAcceptance')}</h3>
+          <h4>{t('approval.photoUsageApproved')}</h4>
+          <p>{t('approval.photoUsageApprovedText')}</p>
           <Form>
             <div className={styles.formFields}>
               <ul className={styles.list}>
@@ -118,7 +118,7 @@ function AcceptYouthProfileForm(props: Props) {
                       value="true"
                     />
                     <span className={styles.listLabel}>
-                      {t('acceptance.photoUsageApprovedYes')}
+                      {t('approval.photoUsageApprovedYes')}
                     </span>
                   </label>
                 </li>
@@ -131,14 +131,14 @@ function AcceptYouthProfileForm(props: Props) {
                       value="false"
                     />
                     <span className={styles.listLabel}>
-                      {t('acceptance.photoUsageApprovedNo')}
+                      {t('approval.photoUsageApprovedNo')}
                     </span>
                   </label>
                 </li>
               </ul>
             </div>
-            <h3>{t('acceptance.approverInfo')}</h3>
-            <p>{t('acceptance.approverInfoText')}</p>
+            <h3>{t('approval.approverInfo')}</h3>
+            <p>{t('approval.approverInfoText')}</p>
             <div className={styles.formFields}>
               <Field
                 className={styles.formField}
@@ -151,7 +151,7 @@ function AcceptYouthProfileForm(props: Props) {
                   props.errors.approverFirstName &&
                   t(props.errors.approverFirstName)
                 }
-                labelText={t('acceptance.approverFirstName')}
+                labelText={t('approval.approverFirstName')}
               />
               <Field
                 className={styles.formField}
@@ -164,7 +164,7 @@ function AcceptYouthProfileForm(props: Props) {
                   props.errors.approverLastName &&
                   t(props.errors.approverLastName)
                 }
-                labelText={t('acceptance.approverLastName')}
+                labelText={t('approval.approverLastName')}
               />
               <Field
                 className={styles.formField}
@@ -178,7 +178,7 @@ function AcceptYouthProfileForm(props: Props) {
                   props.errors.phone &&
                   t(props.errors.phone)
                 }
-                labelText={t('acceptance.approverEmail')}
+                labelText={t('approval.approverEmail')}
               />
               <Field
                 className={styles.formField}
@@ -192,20 +192,20 @@ function AcceptYouthProfileForm(props: Props) {
                   props.errors.phone &&
                   t(props.errors.phone)
                 }
-                labelText={t('acceptance.phone')}
+                labelText={t('approval.phone')}
               />
             </div>
             <ul className={styles.terms}>
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
-                {t('acceptance.acceptTermsText_1')}
-                <a href="/#">{t('acceptance.acceptTermsText_link')}</a>
-                {t('acceptance.acceptTermsText_2')}
+                {t('approval.approveTermsText_1')}
+                <a href="/#">{t('approval.approveTermsText_link')}</a>
+                {t('approval.approveTermsText_2')}
               </span>
             </ul>
             <div className={styles.buttonAlign}>
               <Button type="submit" disabled={Boolean(!props.values.terms)}>
-                {t('acceptance.acceptButton')}
+                {t('approval.approveButton')}
               </Button>
             </div>
           </Form>
@@ -215,4 +215,4 @@ function AcceptYouthProfileForm(props: Props) {
   );
 }
 
-export default AcceptYouthProfileForm;
+export default ApproveYouthProfileForm;
