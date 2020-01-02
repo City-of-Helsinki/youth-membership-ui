@@ -72,5 +72,10 @@
     "acceptTermsText_link": " service terms",
     "acceptTermsText_2": " and I can be contacted via address I have given.",
     "acceptButton": "Approve membership"
+  },
+  "LANGUAGE_OPTIONS" :{
+    "ENGLISH": "English",
+    "FINNISH": "Finnish",
+    "SWEDISH": "Swedish"
   }
 }

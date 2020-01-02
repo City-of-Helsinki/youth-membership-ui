@@ -40,6 +40,7 @@ type Props = {
 
 function AcceptYouthProfileForm(props: Props) {
   const { t } = useTranslation();
+
   return (
     <Formik
       initialValues={{
@@ -99,7 +100,7 @@ function AcceptYouthProfileForm(props: Props) {
             />
             <LabeledValue
               label={t('acceptance.languagesAtHome')}
-              value={props.values.languageAtHome}
+              value={t(`LANGUAGE_OPTIONS.${props.values.languageAtHome}`)}
             />
           </div>
           <h3>{t('acceptance.approverAcceptance')}</h3>

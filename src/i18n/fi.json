@@ -72,5 +72,10 @@
     "acceptTermsText_link": "palvelun ehdot",
     "acceptTermsText_2": ", ja että minuun voidaan olla yhteydessä antamieni yhteystietojen kautta.",
     "acceptButton": "Hyväksy jäsenyys"
+  },
+  "LANGUAGE_OPTIONS" :{
+    "ENGLISH": "Englanti",
+    "FINNISH": "Suomi",
+    "SWEDISH": "Ruotsi"
   }
 }
