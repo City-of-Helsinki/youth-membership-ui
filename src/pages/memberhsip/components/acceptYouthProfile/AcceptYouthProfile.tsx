@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
