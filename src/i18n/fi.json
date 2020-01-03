@@ -50,6 +50,12 @@
     "birthdayInvalid": "Tarkista syntymäpäivä!",
     "ageRestriction": "Palveluun voi rekisteröityä iältään 8-29 vuotiaat."
   },
+  "confirmSendingProfile": {
+    "title": "Hakemus on lähetetty huoltajallesi!",
+    "helpText": "Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen ",
+    "buttonText": "Lähetä uusi varmistusviesti",
+    "linkToShowSentData": "Näytä hakemuksen tiedot"
+  },
   "approval": {
     "title": "Hyväksy Nuta-jäsenyys",
     "formExplanationText_1": "on lähettänyt hyväksyttäväksesi Nuta-jäsenyyshakemuksen. Hyväksymällä jäsenyyden,",

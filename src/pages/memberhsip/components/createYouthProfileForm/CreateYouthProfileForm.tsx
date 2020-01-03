@@ -91,6 +91,8 @@ function CreateYouthProfileForm(props: Props) {
   };
 
   const validateDate = (year: string, month: string, day: string) => {
+    if (Number(year) < 0 || Number(month) < 0 || Number(day) < 0) return false;
+
     if (isBirhthdayTyped(year, month, day)) {
       return isValid(
         parse(day + '/' + month + '/' + year, 'dd/MM/yyyy', new Date())
@@ -321,7 +323,7 @@ function CreateYouthProfileForm(props: Props) {
                 <label className={styles.emailTitle}>
                   {t('registration.email')}
                 </label>
-                <div className={styles.email}>{props.values.email}</div>
+                <div>{props.values.email}</div>
               </span>
               <Field
                 className={styles.formInput}
