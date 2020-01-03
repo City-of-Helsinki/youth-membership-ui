@@ -45,10 +45,6 @@ function ApproveYouthProfileForm(props: Props) {
     <Formik
       initialValues={{
         ...props.profile,
-        approverFirstName: props.profile.approverFirstName,
-        approverLastName: props.profile.approverLastName,
-        approverEmail: props.profile.approverEmail,
-        approverPhone: props.profile.approverPhone,
         terms: false,
       }}
       onSubmit={(values, actions) => {
