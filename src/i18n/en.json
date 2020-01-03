@@ -12,6 +12,11 @@
   "profile": {
     "loading": "Loading profile..."
   },
+  "nav": {
+    "information": "Information",
+    "services": "Connected services",
+    "signout": "Sign out"
+  },
   "registration": {
     "title": "Please fill in your information",
     "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",

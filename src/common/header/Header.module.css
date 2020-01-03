@@ -28,3 +28,23 @@
     margin-left: 0;
   }
 }
+
+.end {
+  margin-left: auto;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .mobileNav {
+    display: none;
+  }
+}
+
+.desktopNav {
+  display: none;
+}
+@media (min-width: 768px) {
+  .desktopNav {
+    display: block;
+  }
+}

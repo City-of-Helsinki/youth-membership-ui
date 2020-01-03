@@ -24,26 +24,3 @@ header {
 .youthBackground {
     background-color: #ffc61e;
 }
-
-button {
-    background-color: #0000bf;
-    color: #ffffff;
-    height: 50px;
-    width: 400px;
-}
-
-@media (max-width: 1200px) {
-    button {
-        width: 300px;
-    }
-  }
-
-  @media (max-width: 414px) {
-    button {
-        width: 250px;
-    }
-  }
-
-button:disabled {
-    background-color:#cccccc;
-}

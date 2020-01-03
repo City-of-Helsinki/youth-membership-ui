@@ -12,6 +12,11 @@
   "profile": {
     "loading": "Ladataan profiilia..."
   },
+  "nav": {
+    "information": "Omat tiedot",
+    "services": "Yhdistetyt palvelut",
+    "signout": "Kirjaudu ulos"
+  },
   "registration": {
     "title": "Täytä tietosi",
     "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
@@ -45,7 +50,7 @@
     "birthdayInvalid": "Tarkista syntymäpäivä!",
     "ageRestriction": "Palveluun voi rekisteröityä iältään 8-29 vuotiaat."
   },
-  "accepetance": {
+  "approval": {
     "title": "Hyväksy Nuta-jäsenyys",
     "formExplanationText_1": "on lähettänyt hyväksyttäväksesi Nuta-jäsenyyshakemuksen. Hyväksymällä jäsenyyden,",
     "formExplanationText_2": "voi käydä nuokkarilla ja saa etuja. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uuden hyväksymispyynnön.",
