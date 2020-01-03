@@ -12,6 +12,11 @@
   "profile": {
     "loading": "Loading profile..."
   },
+  "nav": {
+    "information": "Information",
+    "services": "Connected services",
+    "signout": "Sign out"
+  },
   "registration": {
     "title": "Please fill in your information",
     "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
@@ -40,7 +45,7 @@
     "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
     "approveTermsText_1": "Accept",
     "approveTermsText_link": " service terms",
-    "approveTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "approveTermsText_2": ". I can be contacted via address I have given.",
     "sendButton": "Save and send approval request",
     "birthdayInvalid": "Typed date invalid!",
     "ageRestriction": "Only 8-29 years old can create youth profile."

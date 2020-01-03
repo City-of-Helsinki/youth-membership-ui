@@ -1,16 +1,21 @@
 {
   "appName": "Nuorisopalvelut",
   "oidc": {
-    "authenticating": "Authenticating..."
+    "authenticating": "Autentiserar..."
   },
   "login" : {
-    "title": "Get Jässäri!",
+    "title": "Bli Jässäri-medlem!",
     "helpText": "Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässrin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, treenata bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman.",
     "buttonText": "Get membership",
     "linkForMembersText": "Do you have membership? Log in "
   },
   "profile": {
-    "loading": "Loading profile..."
+    "loading": "Laddar profil..."
+  },
+  "nav": {
+    "information": "Mina uppgifter",
+    "services": "Anslutna servicer",
+    "signout": "Logga ut"
   },
   "registration": {
     "title": "Please fill in your information",
@@ -40,7 +45,7 @@
     "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
     "approveTermsText_1": "Accept",
     "approveTermsText_link": " service terms",
-    "approveTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "approveTermsText_2": ". I can be contacted via address I have given.",
     "sendButton": "Save and send approval request",
     "birthdayInvalid": "Typed date invalid!",
     "ageRestriction": "Only 8-29 years old can create youth profile."
