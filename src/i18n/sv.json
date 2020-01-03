@@ -50,6 +50,12 @@
     "birthdayInvalid": "Typed date invalid!",
     "ageRestriction": "Only 8-29 years old can create youth profile."
   },
+  "confirmSendingProfile": {
+    "title": "Ansökan har skickats till...!",
+    "helpText": "Your membership application has been sent to ",
+    "buttonText": "Resend the membership request",
+    "linkToShowSentData": "Display your application"
+  },
   "approval": {
     "title": "Please approve membership of Nuta",
     "formExplanationText_1": "has sent you Nuta membership request for approval. By approving the membership,",

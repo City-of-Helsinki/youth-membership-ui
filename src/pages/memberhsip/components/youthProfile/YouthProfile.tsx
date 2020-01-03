@@ -7,7 +7,7 @@ import { loader } from 'graphql.macro';
 import getAuthenticatedUser from '../../../../auth/getAuthenticatedUser';
 import PageLayout from '../../../../common/layout/PageLayout';
 import CreateYouthProfile from '../createYouthProfile/CreateYouthProfile';
-import ViewYouthProfile from '../viewYouthProfile/ViewYouthProfile';
+import SentYouthProfileScreen from '../confirmSendingYouthProfile/ConfirmSendingYouthProfile';
 import Loading from '../../../../common/loading/Loading';
 import styles from './YouthProfile.module.css';
 import { ProfileExistsQuery } from '../../graphql/__generated__/ProfileExistsQuery';
@@ -48,7 +48,7 @@ function YouthProfile(props: Props) {
         loadingText={t('profile.loading')}
       >
         {isProfileFound ? (
-          <ViewYouthProfile />
+          <SentYouthProfileScreen />
         ) : (
           <CreateYouthProfile
             tunnistamoUser={tunnistamoUser}
