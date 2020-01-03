@@ -6,6 +6,7 @@ import { differenceInYears, format, isValid, parse } from 'date-fns';
 import * as Yup from 'yup';
 
 import styles from './CreateYouthProfileForm.module.css';
+import Button from '../../../../common/button/Button';
 
 const schema = Yup.object().shape({
   firstName: Yup.string()
@@ -357,7 +358,7 @@ function CreateYouthProfileForm(props: Props) {
             <h4>{t('registration.languageAtHome')}</h4>
             <ul className={styles.list}>
               {languages.map(language => (
-                <li className={styles.checkBoxRow} key={language}>
+                <li className={styles.languageRadioBtnRow} key={language}>
                   <label>
                     <Field
                       name="languageAtHome"
@@ -475,28 +476,28 @@ function CreateYouthProfileForm(props: Props) {
             </div>
             <h3>{t('registration.confirmSend')}</h3>
             <p>{t('registration.processInfoText')}</p>
-            <ul className={styles.acceptTermsCheckBox}>
+            <ul className={styles.terms}>
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
-                {t('registration.acceptTermsText_1')}
-                <a href="/#">{t('registration.acceptTermsText_link')}</a>
-                {t('registration.acceptTermsText_2')}
+                {t('registration.approveTermsText_1')}
+                <a href="/#">{t('registration.approveTermsText_link')}</a>
+                {t('registration.approveTermsText_2')}
               </span>
             </ul>
             <div className={styles.buttonAlign}>
-              <button
-                disabled={
-                  !props.values.terms ||
-                  !isButtonEnabled(
-                    props.values.birthYear,
-                    props.values.birthMonth,
-                    props.values.birthDay
-                  )
-                }
+              <Button
                 type="submit"
+                disabled={Boolean(
+                  !props.values.terms ||
+                    !isButtonEnabled(
+                      props.values.birthYear,
+                      props.values.birthMonth,
+                      props.values.birthDay
+                    )
+                )}
               >
                 {t('registration.sendButton')}
-              </button>
+              </Button>
             </div>
           </Form>
         </div>

@@ -11,18 +11,6 @@ import { ProfileInput } from "./../../../../graphql/__generated__/globalTypes";
 export interface CreateProfile_createProfile_profile_youthProfile {
   readonly __typename: "YouthProfileType";
   readonly birthDate: any;
-  readonly schoolName: string;
-  readonly schoolClass: string;
-  readonly approverFirstName: string;
-  readonly approverLastName: string;
-  readonly approverPhone: string;
-  readonly approverEmail: string;
-  readonly approvedTime: any | null;
-  readonly photoUsageApproved: boolean | null;
-  /**
-   * Youth's membership number
-   */
-  readonly membershipNumber: string | null;
 }
 
 export interface CreateProfile_createProfile_profile {
