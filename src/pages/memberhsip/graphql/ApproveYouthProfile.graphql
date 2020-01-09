@@ -1,0 +1,7 @@
+mutation ApproveYouthProfile($approvalData: ApproveYouthProfileInput!, $approvalToken: String!) {
+    approveYouthProfile(approvalData: $approvalData, approvalToken: $approvalToken) {
+        youthProfile {
+            approverEmail
+        }
+    }
+}
