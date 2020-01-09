@@ -1,5 +1,6 @@
 {
   "appName": "Nuorisopalvelut",
+  "loading": "Loading...",
   "oidc": {
     "authenticating": "Authenticating..."
   },

@@ -1,5 +1,6 @@
 {
   "appName": "Nuorisopalvelut",
+  "loading": "Ladataan...",
   "oidc": {
     "authenticating": "Tunnistaudutaan..."
   },
