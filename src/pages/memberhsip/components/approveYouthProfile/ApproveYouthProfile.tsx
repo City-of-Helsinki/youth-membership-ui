@@ -1,30 +1,57 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useParams } from 'react-router';
 import { loader } from 'graphql.macro';
-import format from 'date-fns/format';
 
+import convertBooleanToString from '../../helpers/convertBooleantoString';
+import convertDateToFi from '../../helpers/convertDateToFi';
 import PageLayout from '../../../../common/layout/PageLayout';
-import ApproveYouthProfileForm from '../approveYouthProfileForm/ApproveYouthProfileForm';
+import ApproveYouthProfileForm, {
+  FormValues,
+} from '../approveYouthProfileForm/ApproveYouthProfileForm';
 import { MyProfileQuery } from '../../graphql/__generated__/MyProfileQuery';
+import {
+  ApproveYouthProfile as ApproveYourProfileData,
+  ApproveYouthProfileVariables,
+} from '../../graphql/__generated__/ApproveYouthProfile';
 
 const MY_PROFILE = loader('../../graphql/MyProfileQuery.graphql');
+const APPROVE_PROFILE = loader('../../graphql/ApproveYouthProfile.graphql');
 
 type Props = {};
+type Params = {
+  token: string;
+};
 
 function ApproveYouthProfile(props: Props) {
   const { data } = useQuery<MyProfileQuery>(MY_PROFILE);
-  const convertDateFormat = (value: string | null | undefined) => {
-    if (value !== undefined && value !== null) {
-      return format(new Date(value), 'dd.MM.yyyy').toLocaleString();
-    }
-    return undefined;
+
+  const params = useParams<Params>();
+
+  const [approveProfile, { loading }] = useMutation<
+    ApproveYourProfileData,
+    ApproveYouthProfileVariables
+  >(APPROVE_PROFILE);
+
+  const handleOnValues = (values: FormValues) => {
+    const variables = {
+      approvalData: {
+        approverFirstName: values.approverFirstName,
+        approverLastName: values.approverLastName,
+        approverEmail: values.approverEmail,
+        approverPhone: values.approverPhone,
+        birthDate: data?.myProfile?.youthProfile?.birthDate,
+      },
+      approvalToken: params.token,
+    };
+
+    approveProfile({ variables }).then(result => {
+      // Todo add history.push here to redirect user after successful approve
+      if (result.data) {
+      }
+    });
   };
-  const convertBooleanToString = (value: boolean | null | undefined) => {
-    if (value !== undefined && value !== null) {
-      return value.toString();
-    }
-    return undefined;
-  };
+
   return (
     <PageLayout background="adult">
       <ApproveYouthProfileForm
@@ -40,7 +67,7 @@ function ApproveYouthProfile(props: Props) {
           email: data?.myProfile?.primaryEmail?.email || '',
           phone: data?.myProfile?.primaryPhone?.phone || '',
           birthDate:
-            convertDateFormat(data?.myProfile?.youthProfile?.birthDate) || '',
+            convertDateToFi(data?.myProfile?.youthProfile?.birthDate) || '',
           schoolName: data?.myProfile?.youthProfile?.schoolName || '',
           schoolClass: data?.myProfile?.youthProfile?.schoolClass || '',
           approverFirstName:
@@ -55,6 +82,8 @@ function ApproveYouthProfile(props: Props) {
             ) || 'false',
           languageAtHome: data?.myProfile?.youthProfile?.languageAtHome || '',
         }}
+        isSubmitting={loading}
+        onValues={handleOnValues}
       />
     </PageLayout>
   );
