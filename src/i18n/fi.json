@@ -83,7 +83,9 @@
     "approveTermsText_1": "Hyväksyn",
     "approveTermsText_link": "palvelun ehdot",
     "approveTermsText_2": ", ja että minuun voidaan olla yhteydessä antamieni yhteystietojen kautta.",
-    "approveButton": "Hyväksy jäsenyys"
+    "approveButton": "Hyväksy jäsenyys",
+    "approvedTitle": "Nuta-korttihakemus hyväksytty!",
+    "approvedMessage": "Kiitos kun varmistit nuorisopalveluiden jäsenyyden."
   },
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "Englanti",
