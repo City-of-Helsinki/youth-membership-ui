@@ -14,3 +14,8 @@ it('test function with boolean', () => {
   const testValue = convertBooleanToString(true);
   expect(testValue).toEqual('true');
 });
+
+it('test function with boolean', () => {
+  const testValue = convertBooleanToString(false);
+  expect(testValue).toEqual('false');
+});
