@@ -66,7 +66,7 @@ function ApproveYouthProfile(props: Props) {
     <PageLayout background="adult">
       <Loading
         isLoading={queryLoading}
-        loadingClassName="asd"
+        loadingClassName="loading"
         loadingText={t('loading')}
       >
         {!approvalSuccessful && data && (
@@ -115,9 +115,7 @@ function ApproveYouthProfile(props: Props) {
             onValues={handleOnValues}
           />
         )}
-        {!approvalSuccessful && !data && (
-          <h2>Hakemus on jo hyväksytty / linkki on viallinen</h2>
-        )}
+        {!approvalSuccessful && !data && <h2>{t('approval.approvedLink')}</h2>}
         {approvalSuccessful && <ConfirmApprovingYouthProfile />}
       </Loading>
     </PageLayout>

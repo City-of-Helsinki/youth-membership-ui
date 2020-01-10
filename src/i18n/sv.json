@@ -83,9 +83,10 @@
     "approveTermsText_1": "I accept",
     "approveTermsText_link": " service terms",
     "approveTermsText_2": ". I can be contacted via address I have given.",
-    "approveButton": "Approve membership",
-    "approvedTitle": "Nuta membership approved!",
-    "approvedMessage": "Thank you for confirming youth service membership."
+    "approveButton": "Godkänn medlemskap",
+    "approvedTitle": "Nuta-medlemskap godkänt!",
+    "approvedMessage": "Tack för att du bekräftar medlemskap i ungdomstjänsten.",
+    "approvedLink": "Ansökan är redan godkänd / länken är defekt"
   },
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "English",

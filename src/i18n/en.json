@@ -85,7 +85,8 @@
     "approveTermsText_2": ". I can be contacted via address I have given.",
     "approveButton": "Approve membership",
     "approvedTitle": "Nuta membership approved!",
-    "approvedMessage": "Thank you for confirming youth service membership."
+    "approvedMessage": "Thank you for confirming youth service membership.",
+    "approvedLink": "Application is already approved / link is defective"
   },
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "English",
