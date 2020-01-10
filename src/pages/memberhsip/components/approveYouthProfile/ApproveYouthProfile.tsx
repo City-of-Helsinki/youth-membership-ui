@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import Loading from '../../../../common/loading/Loading';
 import convertBooleanToString from '../../helpers/convertBooleantoString';
-import convertDateToFi from '../../helpers/convertDateToFi';
+import convertDateToLocale from '../../helpers/convertDateToLocale';
 import getAddress from '../../helpers/getAddress';
 import PageLayout from '../../../../common/layout/PageLayout';
 import ConfirmApprovingYouthProfile from '../confirmApprovingYouthProfile/ConfirmApprovingYouthProfile';
@@ -84,7 +84,7 @@ function ApproveYouthProfile(props: Props) {
               phone:
                 data?.youthProfileByApprovalToken?.profile?.primaryPhone
                   ?.phone || '',
-              birthDate: convertDateToFi(
+              birthDate: convertDateToLocale(
                 data?.youthProfileByApprovalToken?.birthDate
               ),
               schoolName: data?.youthProfileByApprovalToken?.schoolName || '',
