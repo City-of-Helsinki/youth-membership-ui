@@ -5,7 +5,7 @@ import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 
 import Loading from '../../../../common/loading/Loading';
-import convertBooleanToString from '../../helpers/convertBooleantoString';
+import convertBooleanToString from '../../helpers/convertBooleanToString';
 import convertDateToLocale from '../../helpers/convertDateToLocale';
 import getAddress from '../../helpers/getAddress';
 import PageLayout from '../../../../common/layout/PageLayout';
