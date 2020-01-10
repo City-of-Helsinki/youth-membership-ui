@@ -10,12 +10,12 @@ it('test function with null', () => {
   expect(testValue).toEqual('false');
 });
 
-it('test function with boolean', () => {
+it('test function with boolean true', () => {
   const testValue = convertBooleanToString(true);
   expect(testValue).toEqual('true');
 });
 
-it('test function with boolean', () => {
+it('test function with boolean false', () => {
   const testValue = convertBooleanToString(false);
   expect(testValue).toEqual('false');
 });
