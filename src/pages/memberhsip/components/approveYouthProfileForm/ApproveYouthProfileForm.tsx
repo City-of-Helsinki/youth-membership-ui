@@ -36,6 +36,8 @@ export type FormValues = {
 
 type Props = {
   profile: FormValues;
+  isSubmitting: boolean;
+  onValues: (values: FormValues) => void;
 };
 
 function ApproveYouthProfileForm(props: Props) {
@@ -47,11 +49,8 @@ function ApproveYouthProfileForm(props: Props) {
         ...props.profile,
         terms: false,
       }}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
-        }, 1000);
+      onSubmit={values => {
+        props.onValues(values);
       }}
       validationSchema={schema}
       enableReinitialize={true}
@@ -200,7 +199,10 @@ function ApproveYouthProfileForm(props: Props) {
               </span>
             </ul>
             <div className={styles.buttonAlign}>
-              <Button type="submit" disabled={Boolean(!props.values.terms)}>
+              <Button
+                type="submit"
+                disabled={props.isSubmitting || Boolean(!props.values.terms)}
+              >
                 {t('approval.approveButton')}
               </Button>
             </div>

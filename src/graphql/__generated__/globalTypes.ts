@@ -65,6 +65,18 @@ export interface AddressInput {
   readonly primary?: boolean | null;
 }
 
+export interface ApproveYouthProfileInput {
+  readonly schoolName?: string | null;
+  readonly schoolClass?: string | null;
+  readonly languageAtHome?: YouthLanguage | null;
+  readonly approverFirstName?: string | null;
+  readonly approverLastName?: string | null;
+  readonly approverPhone?: string | null;
+  readonly approverEmail?: string | null;
+  readonly birthDate: any;
+  readonly photoUsageApproved?: boolean | null;
+}
+
 export interface EmailInput {
   readonly id?: string | null;
   readonly email?: string | null;

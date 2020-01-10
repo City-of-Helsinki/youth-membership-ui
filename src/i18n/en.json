@@ -1,11 +1,12 @@
 {
-  "appName": "Nuorisopalvelut",
+  "appName": "Youth services",
+  "loading": "Loading...",
   "oidc": {
     "authenticating": "Authenticating..."
   },
   "login" : {
     "title": "Get Jässäri!",
-    "helpText": "Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässrin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, treenata bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman.",
+    "helpText": "The membership card gives you access to youth hostels. As a youth membership owner, you can spend an evening in a disco or nightclub, hang out in a youth club, practice in a band camp, do a DJ class, practice dancing, theater or handicrafts, apply for project money, attend summer camps or even create your own event.",
     "buttonText": "Get membership",
     "linkForMembersText": "Do you have membership? Log in "
   },
@@ -19,7 +20,7 @@
   },
   "registration": {
     "title": "Please fill in your information",
-    "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
+    "membershipInfoText": "Add information about what membership can get and what it is used for.",
     "basicInfo": "Basic info",
     "firstName": "Firstname",
     "lastName": "Lastname",
@@ -36,13 +37,13 @@
     "schoolClass": "School name",
     "languageAtHome": "Language at home",
     "photoUsageApproved": "Photo usage approved",
-    "photoUsageApprovedText": "Minusta saa ottaa kuvia ja käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä.",
+    "photoUsageApprovedText": "I can be photographed and photos can be used in internal and external communications in the City of Helsinki.",
     "photoUsageApprovedYes": "Yes",
     "photoUsageApprovedNo": "No",
     "approver": "Approver",
-    "approverInfoText": "Vahvistyspyyntö Nuta-jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
+    "approverInfoText": "A confirmation request for your Nuta membership will be sent to this address, the guardian will verify the information and accept the membership.",
     "confirmSend": "Accept the terms and send the application",
-    "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
+    "processInfoText": "A data verification request will be sent to the parent and once they have reviewed and approved the information, your membership will take effect.",
     "approveTermsText_1": "Accept",
     "approveTermsText_link": " service terms",
     "approveTermsText_2": ". I can be contacted via address I have given.",
@@ -82,7 +83,10 @@
     "approveTermsText_1": "I accept",
     "approveTermsText_link": " service terms",
     "approveTermsText_2": ". I can be contacted via address I have given.",
-    "approveButton": "Approve membership"
+    "approveButton": "Approve membership",
+    "approvedTitle": "Nuta membership approved!",
+    "approvedMessage": "Thank you for confirming youth service membership.",
+    "approvedLink": "Application is already approved / link is defective"
   },
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "English",

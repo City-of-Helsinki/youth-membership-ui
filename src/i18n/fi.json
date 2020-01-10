@@ -1,11 +1,12 @@
 {
   "appName": "Nuorisopalvelut",
+  "loading": "Ladataan...",
   "oidc": {
     "authenticating": "Tunnistaudutaan..."
   },
   "login" : {
     "title": "Hanki Jässäri!",
-    "helpText": "Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässrin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, treenata bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman.",
+    "helpText": "Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässärin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, harjoitella bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman.",
     "buttonText": "Hanki jäsenyys",
     "linkForMembersText": "Oletko jo jäsen? Kirjaudu sisään"
   },
@@ -82,7 +83,10 @@
     "approveTermsText_1": "Hyväksyn",
     "approveTermsText_link": "palvelun ehdot",
     "approveTermsText_2": ", ja että minuun voidaan olla yhteydessä antamieni yhteystietojen kautta.",
-    "approveButton": "Hyväksy jäsenyys"
+    "approveButton": "Hyväksy jäsenyys",
+    "approvedTitle": "Nuta-korttihakemus hyväksytty!",
+    "approvedMessage": "Kiitos kun varmistit nuorisopalveluiden jäsenyyden.",
+    "approvedLink": "Hakemus on jo hyväksytty / linkki on viallinen"
   },
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "Englanti",
