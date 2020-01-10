@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import Loading from '../../../../common/loading/Loading';
 import convertBooleanToString from '../../helpers/convertBooleantoString';
 import convertDateToFi from '../../helpers/convertDateToFi';
+import getAddress from '../../helpers/getAddress';
 import PageLayout from '../../../../common/layout/PageLayout';
 import ConfirmApprovingYouthProfile from '../confirmApprovingYouthProfile/ConfirmApprovingYouthProfile';
 import ApproveYouthProfileForm, {
@@ -76,24 +77,16 @@ function ApproveYouthProfile(props: Props) {
                 data?.youthProfileByApprovalToken?.profile?.firstName || '',
               lastName:
                 data?.youthProfileByApprovalToken?.profile?.lastName || '',
-              address:
-                data?.youthProfileByApprovalToken?.profile?.primaryAddress
-                  ?.address +
-                  ', ' +
-                  data?.youthProfileByApprovalToken?.profile?.primaryAddress
-                    ?.postalCode +
-                  ', ' +
-                  data?.youthProfileByApprovalToken?.profile?.primaryAddress
-                    ?.city || '',
+              address: getAddress(data),
               email:
                 data?.youthProfileByApprovalToken?.profile?.primaryEmail
                   ?.email || '',
               phone:
                 data?.youthProfileByApprovalToken?.profile?.primaryPhone
                   ?.phone || '',
-              birthDate:
-                convertDateToFi(data?.youthProfileByApprovalToken?.birthDate) ||
-                '',
+              birthDate: convertDateToFi(
+                data?.youthProfileByApprovalToken?.birthDate
+              ),
               schoolName: data?.youthProfileByApprovalToken?.schoolName || '',
               schoolClass: data?.youthProfileByApprovalToken?.schoolClass || '',
               approverFirstName:
@@ -104,10 +97,9 @@ function ApproveYouthProfile(props: Props) {
                 data?.youthProfileByApprovalToken?.approverPhone || '',
               approverEmail:
                 data?.youthProfileByApprovalToken?.approverEmail || '',
-              photoUsageApproved:
-                convertBooleanToString(
-                  data?.youthProfileByApprovalToken?.photoUsageApproved
-                ) || 'false',
+              photoUsageApproved: convertBooleanToString(
+                data?.youthProfileByApprovalToken?.photoUsageApproved
+              ),
               languageAtHome:
                 data?.youthProfileByApprovalToken?.languageAtHome || '',
             }}
