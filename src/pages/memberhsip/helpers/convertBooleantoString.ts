@@ -4,5 +4,5 @@ export default function convertBooleanToString(
   if (value !== undefined && value !== null) {
     return value.toString();
   }
-  return undefined;
+  return 'false';
 }
