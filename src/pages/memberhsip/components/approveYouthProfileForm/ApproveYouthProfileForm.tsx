@@ -199,7 +199,10 @@ function ApproveYouthProfileForm(props: Props) {
               </span>
             </ul>
             <div className={styles.buttonAlign}>
-              <Button type="submit" disabled={Boolean(!props.values.terms)}>
+              <Button
+                type="submit"
+                disabled={props.isSubmitting || Boolean(!props.values.terms)}
+              >
                 {t('approval.approveButton')}
               </Button>
             </div>
