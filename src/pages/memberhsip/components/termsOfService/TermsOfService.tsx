@@ -1,10 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import PageLayout from '../../../common/layout/PageLayout';
+import tosConstants from '../../constants/tosConstants';
+import PageLayout from '../../../../common/layout/PageLayout';
 
 function TermsOfService() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const link = Object(tosConstants.REGISTER_DESCRIPTION)[
+    i18n.language.toUpperCase()
+  ];
+  console.log('LINK', link);
 
   return (
     <PageLayout background="youth">
