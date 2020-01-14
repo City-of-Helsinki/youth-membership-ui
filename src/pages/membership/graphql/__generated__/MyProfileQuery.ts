@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { YouthLanguage } from "./../../../../graphql/__generated__/globalTypes";
+import { YouthLanguage } from "../../../../graphql/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL query operation: MyProfileQuery

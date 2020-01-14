@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { ApproveYouthProfileInput } from "./../../../../graphql/__generated__/globalTypes";
+import { ApproveYouthProfileInput } from "../../../../graphql/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: ApproveYouthProfile

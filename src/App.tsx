@@ -10,8 +10,8 @@ import userManager from './auth/userManager';
 import enableOidcLogging from './auth/enableOidcLogging';
 import Login from './auth/components/login/Login';
 import OidcCallback from './auth/components/oidcCallback/OidcCallback';
-import YouthProfile from './pages/memberhsip/components/youthProfile/YouthProfile';
-import ApproveYouthProfile from './pages/memberhsip/components/approveYouthProfile/ApproveYouthProfile';
+import YouthProfile from './pages/membership/components/youthProfile/YouthProfile';
+import ApproveYouthProfile from './pages/membership/components/approveYouthProfile/ApproveYouthProfile';
 import { fetchApiTokenThunk } from './auth/redux';
 
 if (process.env.NODE_ENV !== 'production') {
