@@ -6,7 +6,7 @@ import styles from './PageLayout.module.css';
 
 type Props = {
   children: ReactNode;
-  background: 'youth' | 'adult';
+  background: 'youth' | 'adult' | string;
 };
 
 function PageLayout(props: Props) {

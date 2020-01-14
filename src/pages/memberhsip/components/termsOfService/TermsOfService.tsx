@@ -1,19 +1,28 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 import tosConstants from '../../constants/tosConstants';
 import PageLayout from '../../../../common/layout/PageLayout';
 
+type Background = {
+  user: string;
+};
+
 function TermsOfService() {
   const { t, i18n } = useTranslation();
-
+  const userBackground = useParams<Background>();
+  console.log(userBackground);
+  /*
   const link = Object(tosConstants.REGISTER_DESCRIPTION)[
     i18n.language.toUpperCase()
   ];
   console.log('LINK', link);
 
+   */
+
   return (
-    <PageLayout background="youth">
+    <PageLayout background={userBackground.user}>
       <h1>{t('tos.title')}</h1>
       <p>
         Mensas sunt compaters de raptus adgium. Ire aegre ducunt ad ferox epos.

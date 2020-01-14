@@ -52,7 +52,7 @@ function App(props: Props) {
             <Route path="/approve/:token" exact>
               <ApproveYouthProfile />
             </Route>
-            <Route path="/terms-of-service">
+            <Route path="/terms-of-service/:user" exact>
               <TermsOfService />
             </Route>
             <Route path="*">404 - not found</Route>
