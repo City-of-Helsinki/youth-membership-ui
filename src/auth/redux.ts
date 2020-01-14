@@ -22,7 +22,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: getInitialState(),
   reducers: {
-    startFetching: (state, action) => {
+    startFetching: state => {
       state.loading = true;
     },
     receiveApiToken: (state, action) => {
