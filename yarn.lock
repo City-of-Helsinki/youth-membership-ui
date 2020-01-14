@@ -1893,6 +1893,18 @@
   resolved "https://registry.yarnpkg.com/@oclif/screen/-/screen-1.0.4.tgz#b740f68609dfae8aa71c3a6cab15d816407ba493"
   integrity sha512-60CHpq+eqnTxLZQ4PGHYNwUX572hgpMHGPtTWMjdTMsAvlm69lZV/4ly6O3sAYkomo4NggGcomrDpBe34rxUqw==
 
+"@reduxjs/toolkit@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.2.1.tgz#2a68b608ff377a5409272c0a0ea08d87047007c1"
+  integrity sha512-mVvcjAyPS91wbAG2JoLIVP0JiWoLYHCA5WYevjHBjxhTlBPa3lYbUS9/IqanGPIt9TmSYON42l3BTPfWsfr2wg==
+  dependencies:
+    immer "^4.0.1"
+    redux "^4.0.0"
+    redux-devtools-extension "^2.13.8"
+    redux-immutable-state-invariant "^2.1.0"
+    redux-thunk "^2.3.0"
+    reselect "^4.0.0"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -9677,17 +9689,6 @@ redux-oidc@^3.1.5:
   resolved "https://registry.yarnpkg.com/redux-oidc/-/redux-oidc-3.1.5.tgz#2df923a15855a268c58c02d7bdcb30a99a322b0b"
   optionalDependencies:
     immutable ">=3.6.0"
-
-redux-starter-kit@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/redux-starter-kit/-/redux-starter-kit-1.0.0.tgz#7c317306755dafd49a1e8f09e4fe36dd0633736f"
-  dependencies:
-    immer "^4.0.1"
-    redux "^4.0.0"
-    redux-devtools-extension "^2.13.8"
-    redux-immutable-state-invariant "^2.1.0"
-    redux-thunk "^2.3.0"
-    reselect "^4.0.0"
 
 redux-thunk@*, redux-thunk@^2.3.0:
   version "2.3.0"
