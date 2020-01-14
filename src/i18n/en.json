@@ -88,6 +88,9 @@
     "approvedMessage": "Thank you for confirming youth service membership.",
     "approvedLink": "Application is already approved / link is defective"
   },
+  "tos": {
+    "title": "Terms of Service"
+  },
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "English",
     "FINNISH": "Finnish",

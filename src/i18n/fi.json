@@ -88,6 +88,9 @@
     "approvedMessage": "Kiitos kun varmistit nuorisopalveluiden jäsenyyden.",
     "approvedLink": "Hakemus on jo hyväksytty / linkki on viallinen"
   },
+  "tos": {
+    "title": "Käyttöehdot"
+  },
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "Englanti",
     "FINNISH": "Suomi",

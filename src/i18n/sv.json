@@ -88,6 +88,9 @@
     "approvedMessage": "Tack för att du bekräftar medlemskap i ungdomstjänsten.",
     "approvedLink": "Ansökan är redan godkänd / länken är defekt"
   },
+  "tos": {
+    "title": "Användarvillkor"
+  },
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "English",
     "FINNISH": "Finnish",
