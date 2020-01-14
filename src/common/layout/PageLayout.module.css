@@ -1,8 +1,8 @@
 .hostingBox {
-    margin: auto;
-    margin-top: 20px;
+    margin: 20px auto 0;
     padding-bottom: 50px;
     width: 1200px;
+    flex: 1 0 auto;
 }
 
 @media (max-width: 1200px) {
@@ -17,14 +17,17 @@ header {
     background-color: white;
 }
 
-.adultBackground {
+.background {
     min-height: 100vh;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.adultBackground {
     background-color: #0072c6;
 }
 
 .youthBackground {
-    min-height: 100vh;
-    height: 100%;
     background-color: #ffc61e;
 }
