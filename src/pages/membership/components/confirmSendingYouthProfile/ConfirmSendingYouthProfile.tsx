@@ -21,9 +21,7 @@ function ViewYouthProfile(props: Props) {
         {t('confirmSendingProfile.helpText')}{' '}
         {data?.myProfile?.youthProfile?.approverEmail}.
       </p>
-      <Button type="button" disabled={false}>
-        {t('confirmSendingProfile.buttonText')}
-      </Button>
+      <Button type="button">{t('confirmSendingProfile.buttonText')}</Button>
       <p>
         {t('confirmSendingProfile.linkToShowSentData')}
         <span className={styles.linkArrow}> ></span>
