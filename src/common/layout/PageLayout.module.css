@@ -18,11 +18,13 @@ header {
 }
 
 .adultBackground {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     background-color: #0072c6;
 }
 
 .youthBackground {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     background-color: #ffc61e;
 }
