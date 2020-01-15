@@ -88,6 +88,14 @@
     "approvedMessage": "Thank you for confirming youth service membership.",
     "approvedLink": "Application is already approved / link is defective"
   },
+  "footer": {
+    "copyright": "Copyright 2020",
+    "reserveRights": "All rights reserved",
+    "privacy": "Privacy policy",
+    "accessibility": "Accessibility document",
+    "terms": "Terms of Service",
+    "feedback": "Give feedback"
+  },
   "tos": {
     "title": "Terms of Service"
   },

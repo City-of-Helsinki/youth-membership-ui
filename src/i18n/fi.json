@@ -88,6 +88,14 @@
     "approvedMessage": "Kiitos kun varmistit nuorisopalveluiden jäsenyyden.",
     "approvedLink": "Hakemus on jo hyväksytty / linkki on viallinen"
   },
+  "footer": {
+    "copyright": "Tekijänoikeus 2020",
+    "reserveRights": "Kaikki oikeudet pidätetään",
+    "privacy": "Rekisteriseloste",
+    "accessibility": "Saavutettavuusseloste",
+    "terms": "Palvelun käyttöehdot",
+    "feedback": "Anna palautetta"
+  },
   "tos": {
     "title": "Käyttöehdot"
   },

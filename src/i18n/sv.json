@@ -88,6 +88,14 @@
     "approvedMessage": "Tack för att du bekräftar medlemskap i ungdomstjänsten.",
     "approvedLink": "Ansökan är redan godkänd / länken är defekt"
   },
+  "footer": {
+    "copyright": "Upphovsrätt 2020",
+    "reserveRights": "Alla rättigheter förbehållna",
+    "privacy": "Integritetspolicy",
+    "accessibility": "Tillgänglighetsdokument",
+    "terms": "Användarvillkor",
+    "feedback": "Ge feedback"
+  },
   "tos": {
     "title": "Användarvillkor"
   },

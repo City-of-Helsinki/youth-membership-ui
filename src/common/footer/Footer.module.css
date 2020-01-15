@@ -49,6 +49,7 @@ hr {
 }
 
 .links {
+    color: var(--hds-ui-color-black);
     font-weight: bold;
 }
 
