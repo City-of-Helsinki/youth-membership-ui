@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export default {
   REGISTER_DESCRIPTION: {
     FI:
