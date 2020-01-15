@@ -483,7 +483,7 @@ function CreateYouthProfileForm(props: Props) {
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
                 {t('registration.approveTermsText_1')}
-                <Link to="/terms-of-service/youth" target="_blank">
+                <Link to="/terms-of-service">
                   {t('registration.approveTermsText_link')}
                 </Link>
                 {t('registration.approveTermsText_2')}

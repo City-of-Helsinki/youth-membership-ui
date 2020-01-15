@@ -195,7 +195,7 @@ function ApproveYouthProfileForm(props: Props) {
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
                 {t('approval.approveTermsText_1')}
-                <Link to="/terms-of-service/adult" target="_blank">
+                <Link to="/terms-of-service">
                   {t('approval.approveTermsText_link')}
                 </Link>
                 {t('approval.approveTermsText_2')}
