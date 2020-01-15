@@ -88,6 +88,34 @@
     "approvedMessage": "Thank you for confirming youth service membership.",
     "approvedLink": "Application is already approved / link is defective"
   },
+  "footer": {
+    "copyright": "Copyright {{year}}",
+    "reserveRights": "All rights reserved",
+    "privacy": "Privacy policy",
+    "accessibility": "Accessibility document",
+    "terms": "Terms of Service",
+    "feedback": "Give feedback"
+  },
+  "tos": {
+    "title": "Terms of Service",
+    "updated": "Updated 20.1.2020",
+    "title1": "1. Scope of application",
+    "message1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "title2": "2. Create and disable a profile",
+    "message2": "",
+    "title3": "3. Using a profile",
+    "message3": "",
+    "title4": "4. Availability of the service",
+    "message4": "",
+    "title5": "5. Personal information",
+    "message5": "",
+    "title6": "6. Rights",
+    "message6": "",
+    "title7": "7. Limitation of Liability",
+    "message7": "",
+    "title8": "8. Other terms and conditions",
+    "message8": ""
+  },
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "English",
     "FINNISH": "Finnish",

@@ -15,7 +15,7 @@ function Login(props: Props) {
       <div className={styles.hostingBox}>
         <h2>{t('login.title')}</h2>
         <p className={styles.helpText}>{t('login.helpText')}</p>
-        <Button type="button" disabled={false}>
+        <Button type="button" disabled={false} className={styles.button}>
           {t('login.buttonText')}
         </Button>
         <p>

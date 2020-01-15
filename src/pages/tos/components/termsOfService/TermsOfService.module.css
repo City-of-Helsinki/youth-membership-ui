@@ -1,0 +1,58 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.container {
+    width: auto;
+    margin: 20px 20px 150px;
+    display: flex;
+    flex: 1 0 auto;
+ }
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+        margin: 20px auto 150px;
+    }
+}
+
+.back {
+    padding-top: 30px;
+    width: 20%;
+}
+
+@media (min-width: 767px) {
+    .back {
+        padding-top: 45px;
+    }
+}
+
+.icon {
+    height: 30px;
+    width: 30px;
+}
+
+.content {
+    flex-direction: column;
+    width: 80%;
+}
+
+.updated {
+    opacity: 0.6;
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin:0;
+    padding:0;
+}
