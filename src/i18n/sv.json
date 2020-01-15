@@ -89,7 +89,7 @@
     "approvedLink": "Ansökan är redan godkänd / länken är defekt"
   },
   "footer": {
-    "copyright": "Upphovsrätt 2020",
+    "copyright": "Upphovsrätt {{year}}",
     "reserveRights": "Alla rättigheter förbehållna",
     "privacy": "Integritetspolicy",
     "accessibility": "Tillgänglighetsdokument",

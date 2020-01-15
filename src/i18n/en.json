@@ -89,7 +89,7 @@
     "approvedLink": "Application is already approved / link is defective"
   },
   "footer": {
-    "copyright": "Copyright 2020",
+    "copyright": "Copyright {{year}}",
     "reserveRights": "All rights reserved",
     "privacy": "Privacy policy",
     "accessibility": "Accessibility document",
