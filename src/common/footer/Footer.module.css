@@ -12,15 +12,15 @@
 }
 
 .content {
-    width: 1200px;
+    width: auto;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
     .content {
-        width: auto;
+        width: 1200px;
     }
 }
 
@@ -38,6 +38,7 @@ hr {
 
 .textContainer {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     opacity: 0.8;
 }
@@ -46,6 +47,7 @@ hr {
 .feedback {
     text-decoration: underline var(--hds-ui-color-black);
     font-weight: bold;
+    margin-top: 15px;
 }
 
 .links {
@@ -58,12 +60,12 @@ hr {
     color: var(--hds-ui-color-black);
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
     .textContainer {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .feedback {
-        margin-top: 15px;
+        margin-top: 0;
     }
 }
