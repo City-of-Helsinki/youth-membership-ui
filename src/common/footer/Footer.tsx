@@ -1,5 +1,5 @@
 import React from 'react';
-import { Koros } from 'hds-react';
+import Koros from 'hds-react/lib/components/koros/Koros';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -9,9 +9,9 @@ import styles from './Footer.module.css';
 
 function Footer() {
   const { t, i18n } = useTranslation();
-  const link = Object(tosConstants.REGISTER_DESCRIPTION)[
-    i18n.language.toUpperCase()
-  ];
+  const selectedLanguage =
+    (i18n.language && i18n.language.toUpperCase()) || 'FI';
+  const link = Object(tosConstants.REGISTER_DESCRIPTION)[selectedLanguage];
   return (
     <React.Fragment>
       <Koros className={styles.koros} />
