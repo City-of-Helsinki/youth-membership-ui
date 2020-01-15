@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
 import { Formik, Form, Field } from 'formik';
+import { Link } from 'react-router-dom';
 import { differenceInYears, format, isValid, parse } from 'date-fns';
 import * as Yup from 'yup';
 
@@ -482,7 +483,9 @@ function CreateYouthProfileForm(props: Props) {
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
                 {t('registration.approveTermsText_1')}
-                <a href="/#">{t('registration.approveTermsText_link')}</a>
+                <Link to="/terms-of-service">
+                  {t('registration.approveTermsText_link')}
+                </Link>
                 {t('registration.approveTermsText_2')}
               </span>
             </ul>

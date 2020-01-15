@@ -88,6 +88,34 @@
     "approvedMessage": "Kiitos kun varmistit nuorisopalveluiden jäsenyyden.",
     "approvedLink": "Hakemus on jo hyväksytty / linkki on viallinen"
   },
+  "footer": {
+    "copyright": "Tekijänoikeus {{year}}",
+    "reserveRights": "Kaikki oikeudet pidätetään",
+    "privacy": "Rekisteriseloste",
+    "accessibility": "Saavutettavuusseloste",
+    "terms": "Palvelun käyttöehdot",
+    "feedback": "Anna palautetta"
+  },
+  "tos": {
+    "title": "Käyttöehdot",
+    "updated": "Pävitetty viimeksi 20.1.2020",
+    "title1": "1. Soveltamisala",
+    "message1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "title2": "2. Profiilin luominen ja poistaminen käytöstä",
+    "message2": "",
+    "title3": "3. Profiilin käyttäminen",
+    "message3": "",
+    "title4": "4. Palvelun saatavuus",
+    "message4": "",
+    "title5": "5. Henkilötiedot",
+    "message5": "",
+    "title6": "6. Oikeudet",
+    "message6": "",
+    "title7": "7. Vastuunrajoitus",
+    "message7": "",
+    "title8": "8. Muut ehdot",
+    "message8": ""
+  },
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "Englanti",
     "FINNISH": "Suomi",

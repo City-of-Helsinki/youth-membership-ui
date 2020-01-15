@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
+import { Link } from 'react-router-dom';
 import { TextInput } from 'hds-react';
 import * as Yup from 'yup';
 
@@ -194,7 +195,9 @@ function ApproveYouthProfileForm(props: Props) {
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
                 {t('approval.approveTermsText_1')}
-                <a href="/#">{t('approval.approveTermsText_link')}</a>
+                <Link to="/terms-of-service">
+                  {t('approval.approveTermsText_link')}
+                </Link>
                 {t('approval.approveTermsText_2')}
               </span>
             </ul>
