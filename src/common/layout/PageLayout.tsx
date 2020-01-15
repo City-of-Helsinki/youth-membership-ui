@@ -8,7 +8,7 @@ import styles from './PageLayout.module.css';
 
 type Props = {
   children: ReactNode;
-  background: 'youth' | 'adult' | string;
+  background: 'youth' | 'adult';
 };
 
 function PageLayout(props: Props) {
