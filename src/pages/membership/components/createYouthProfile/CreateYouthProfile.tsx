@@ -82,12 +82,12 @@ function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
     <div className={styles.form}>
       <YouthProfileForm
         profile={{
-          firstName: tunnistamoUser.profile.given_name,
-          lastName: tunnistamoUser.profile.family_name,
+          firstName: tunnistamoUser.profile.given_name || '',
+          lastName: tunnistamoUser.profile.family_name || '',
           address: '',
           postalCode: '',
           city: '',
-          email: tunnistamoUser.profile.email,
+          email: tunnistamoUser.profile.email || '',
           phone: '',
           birthDate: '',
           approverEmail: '',
