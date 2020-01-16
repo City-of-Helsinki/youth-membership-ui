@@ -12,7 +12,7 @@ import Loading from '../../../../common/loading/Loading';
 import styles from './YouthProfile.module.css';
 import { HasYouthProfile } from '../../../../graphql/generatedTypes';
 
-const PROFILE_EXISTS = loader('../../graphql/HasYouthProfile.graphql');
+const HAS_YOUTH_PROFILE = loader('../../graphql/HasYouthProfile.graphql');
 
 type Props = {};
 
@@ -20,7 +20,7 @@ function YouthProfile(props: Props) {
   const { t } = useTranslation();
   const history = useHistory();
   const [checkProfileExists, { data, loading }] = useLazyQuery<HasYouthProfile>(
-    PROFILE_EXISTS,
+    HAS_YOUTH_PROFILE,
     {
       fetchPolicy: 'no-cache',
     }
@@ -39,7 +39,9 @@ function YouthProfile(props: Props) {
   }, [checkProfileExists, history]);
 
   const isLoadingAnything = Boolean(isCheckingAuthState || loading);
-  const isProfileFound = data && data.myProfile;
+  const isYouthProfileFound = Boolean(
+    data?.myProfile?.youthProfile?.expiration
+  );
 
   return (
     <PageLayout background="youth">
@@ -48,7 +50,7 @@ function YouthProfile(props: Props) {
         isLoading={isLoadingAnything}
         loadingText={t('profile.loading')}
       >
-        {isProfileFound ? (
+        {isYouthProfileFound ? (
           <SentYouthProfileScreen />
         ) : (
           <CreateYouthProfile
