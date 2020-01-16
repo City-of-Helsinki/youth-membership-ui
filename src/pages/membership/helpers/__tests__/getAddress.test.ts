@@ -1,5 +1,5 @@
 import getAddress from '../getAddress';
-import { YouthProfileByApprovalToken } from '../../graphql/__generated__/YouthProfileByApprovalToken';
+import { YouthProfileByApprovalToken } from '../../../../graphql/generatedTypes';
 
 it('test function with empty undefined', () => {
   const data = {

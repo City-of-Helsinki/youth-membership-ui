@@ -10,20 +10,21 @@ import CreateYouthProfile from '../createYouthProfile/CreateYouthProfile';
 import SentYouthProfileScreen from '../confirmSendingYouthProfile/ConfirmSendingYouthProfile';
 import Loading from '../../../../common/loading/Loading';
 import styles from './YouthProfile.module.css';
-import { ProfileExistsQuery } from '../../graphql/__generated__/ProfileExistsQuery';
+import { HasYouthProfile } from '../../../../graphql/generatedTypes';
 
-const PROFILE_EXISTS = loader('../../graphql/profileExistsQuery.graphql');
+const PROFILE_EXISTS = loader('../../graphql/HasYouthProfile.graphql');
 
 type Props = {};
 
 function YouthProfile(props: Props) {
   const { t } = useTranslation();
   const history = useHistory();
-  const [checkProfileExists, { data, loading }] = useLazyQuery<
-    ProfileExistsQuery
-  >(PROFILE_EXISTS, {
-    fetchPolicy: 'no-cache',
-  });
+  const [checkProfileExists, { data, loading }] = useLazyQuery<HasYouthProfile>(
+    PROFILE_EXISTS,
+    {
+      fetchPolicy: 'no-cache',
+    }
+  );
   const [isCheckingAuthState, setIsCheckingAuthState] = useState(true);
   const [tunnistamoUser, setTunnistamoUser] = useState();
 

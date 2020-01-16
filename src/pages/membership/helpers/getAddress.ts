@@ -1,4 +1,4 @@
-import { YouthProfileByApprovalToken } from '../graphql/__generated__/YouthProfileByApprovalToken';
+import { YouthProfileByApprovalToken } from '../../../graphql/generatedTypes';
 
 export default function getAddress(data: YouthProfileByApprovalToken) {
   if (data?.youthProfileByApprovalToken?.profile?.primaryAddress) {

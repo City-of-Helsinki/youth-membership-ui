@@ -11,12 +11,10 @@ import styles from './CreateYouthProflle.module.css';
 import {
   CreateProfile as CreateProfileData,
   CreateProfileVariables,
-} from '../../graphql/__generated__/CreateProfile';
-import {
   EmailType,
   PhoneType,
   AddressType,
-} from '../../../../graphql/__generated__/globalTypes';
+} from '../../../../graphql/generatedTypes';
 
 const CREATE_PROFILE = loader('../../graphql/CreateProfile.graphql');
 
