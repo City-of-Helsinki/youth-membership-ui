@@ -2,10 +2,11 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import { MyProfileQuery } from '../../../../graphql/generatedTypes';
 import Button from '../../../../common/button/Button';
-import styles from './ConfirmSendingYouthProfile.module.css';
+import styles from './SentYouthProfile.module.css';
 
 const MY_PROFILE = loader('../../graphql/MyProfileQuery.graphql');
 
@@ -23,8 +24,10 @@ function ViewYouthProfile(props: Props) {
       </p>
       <Button type="button">{t('confirmSendingProfile.buttonText')}</Button>
       <p>
-        {t('confirmSendingProfile.linkToShowSentData')}
-        <span className={styles.linkArrow}> ></span>
+        <Link to="/membership-details">
+          {t('confirmSendingProfile.linkToShowSentData')}
+          <span className={styles.linkArrow}> ></span>
+        </Link>
       </p>
     </div>
   );
