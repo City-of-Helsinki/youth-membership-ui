@@ -9,14 +9,21 @@ import YouthProfileForm, {
 } from '../createYouthProfileForm/CreateYouthProfileForm';
 import styles from './CreateYouthProflle.module.css';
 import {
+<<<<<<< HEAD:src/pages/membership/components/createYouthProfile/CreateYouthProfile.tsx
   CreateProfile as CreateProfileData,
   CreateProfileVariables,
+=======
+  CreateMyProfile as CreateMyProfileData,
+  CreateMyProfileVariables,
+} from '../../graphql/__generated__/CreateMyProfile';
+import {
+>>>>>>> develop:src/pages/memberhsip/components/createYouthProfile/CreateYouthProfile.tsx
   EmailType,
   PhoneType,
   AddressType,
 } from '../../../../graphql/generatedTypes';
 
-const CREATE_PROFILE = loader('../../graphql/CreateProfile.graphql');
+const CREATE_PROFILE = loader('../../graphql/CreateMyProfile.graphql');
 
 type Props = {
   tunnistamoUser: User;
@@ -25,50 +32,52 @@ type Props = {
 
 function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
   const [createProfile, { loading }] = useMutation<
-    CreateProfileData,
-    CreateProfileVariables
+    CreateMyProfileData,
+    CreateMyProfileVariables
   >(CREATE_PROFILE);
   const handleOnValues = (formValues: FormValues) => {
-    const variables: CreateProfileVariables = {
-      profile: {
-        firstName: formValues.firstName,
-        lastName: formValues.lastName,
-        addAddresses: [
-          {
-            address: formValues.address,
-            postalCode: formValues.postalCode,
-            city: formValues.city,
-            primary: true,
-            addressType: AddressType.OTHER,
+    const variables: CreateMyProfileVariables = {
+      input: {
+        profile: {
+          firstName: formValues.firstName,
+          lastName: formValues.lastName,
+          addAddresses: [
+            {
+              address: formValues.address,
+              postalCode: formValues.postalCode,
+              city: formValues.city,
+              primary: true,
+              addressType: AddressType.OTHER,
+            },
+          ],
+          addEmails: [
+            {
+              email: formValues.email,
+              primary: true,
+              emailType: EmailType.OTHER,
+            },
+          ],
+          addPhones: [
+            formValues.phone
+              ? {
+                  phone: formValues.phone,
+                  primary: true,
+                  phoneType: PhoneType.OTHER,
+                }
+              : null,
+          ],
+          youthProfile: {
+            birthDate: formValues.birthDate,
+            schoolName: formValues.schoolName,
+            schoolClass: formValues.schoolClass,
+            approverFirstName: formValues.approverFirstName,
+            approverLastName: formValues.approverLastName,
+            approverPhone: formValues.approverPhone,
+            approverEmail: formValues.approverEmail,
+            //TODO: Waiting to be fixed in backend
+            //photoUsageApproved: formValues.photoUsageApproved,
+            //languageAtHome: formValues.languageAtHome,
           },
-        ],
-        addEmails: [
-          {
-            email: formValues.email,
-            primary: true,
-            emailType: EmailType.OTHER,
-          },
-        ],
-        addPhones: [
-          formValues.phone
-            ? {
-                phone: formValues.phone,
-                primary: true,
-                phoneType: PhoneType.OTHER,
-              }
-            : null,
-        ],
-        youthProfile: {
-          birthDate: formValues.birthDate,
-          schoolName: formValues.schoolName,
-          schoolClass: formValues.schoolClass,
-          approverFirstName: formValues.approverFirstName,
-          approverLastName: formValues.approverLastName,
-          approverPhone: formValues.approverPhone,
-          approverEmail: formValues.approverEmail,
-          //TODO: Waiting to be fixed in backend
-          //photoUsageApproved: formValues.photoUsageApproved,
-          //languageAtHome: formValues.languageAtHome,
         },
       },
     };

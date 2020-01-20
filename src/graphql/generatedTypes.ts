@@ -12,7 +12,7 @@ export interface ApproveYouthProfile_approveYouthProfile_youthProfile {
 }
 
 export interface ApproveYouthProfile_approveYouthProfile {
-  readonly __typename: "ApproveYouthProfile";
+  readonly __typename: "ApproveYouthProfileMutationPayload";
   readonly youthProfile: ApproveYouthProfile_approveYouthProfile_youthProfile | null;
 }
 
@@ -21,8 +21,7 @@ export interface ApproveYouthProfile {
 }
 
 export interface ApproveYouthProfileVariables {
-  readonly approvalData: ApproveYouthProfileInput;
-  readonly approvalToken: string;
+  readonly input: ApproveYouthProfileMutationInput;
 }
 
 /* tslint:disable */
@@ -30,34 +29,30 @@ export interface ApproveYouthProfileVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL mutation operation: CreateProfile
+// GraphQL mutation operation: CreateMyProfile
 // ====================================================
 
-export interface CreateProfile_createProfile_profile_youthProfile {
+export interface CreateMyProfile_createMyProfile_profile_youthProfile {
   readonly __typename: "YouthProfileType";
   readonly birthDate: any;
 }
 
-export interface CreateProfile_createProfile_profile {
+export interface CreateMyProfile_createMyProfile_profile {
   readonly __typename: "ProfileNode";
-  /**
-   * The ID of the object.
-   */
-  readonly id: string;
-  readonly youthProfile: CreateProfile_createProfile_profile_youthProfile | null;
+  readonly youthProfile: CreateMyProfile_createMyProfile_profile_youthProfile | null;
 }
 
-export interface CreateProfile_createProfile {
-  readonly __typename: "CreateProfile";
-  readonly profile: CreateProfile_createProfile_profile | null;
+export interface CreateMyProfile_createMyProfile {
+  readonly __typename: "CreateMyProfileMutationPayload";
+  readonly profile: CreateMyProfile_createMyProfile_profile | null;
 }
 
-export interface CreateProfile {
-  readonly createProfile: CreateProfile_createProfile | null;
+export interface CreateMyProfile {
+  readonly createMyProfile: CreateMyProfile_createMyProfile | null;
 }
 
-export interface CreateProfileVariables {
-  readonly profile: ProfileInput;
+export interface CreateMyProfileVariables {
+  readonly input: CreateMyProfileMutationInput;
 }
 
 /* tslint:disable */
@@ -263,7 +258,7 @@ export interface AddressInput {
   readonly primary?: boolean | null;
 }
 
-export interface ApproveYouthProfileInput {
+export interface ApproveYouthProfileFields {
   readonly schoolName?: string | null;
   readonly schoolClass?: string | null;
   readonly languageAtHome?: YouthLanguage | null;
@@ -271,8 +266,19 @@ export interface ApproveYouthProfileInput {
   readonly approverLastName?: string | null;
   readonly approverPhone?: string | null;
   readonly approverEmail?: string | null;
-  readonly birthDate: any;
+  readonly birthDate?: any | null;
   readonly photoUsageApproved?: boolean | null;
+}
+
+export interface ApproveYouthProfileMutationInput {
+  readonly approvalToken: string;
+  readonly approvalData: ApproveYouthProfileFields;
+  readonly clientMutationId?: string | null;
+}
+
+export interface CreateMyProfileMutationInput {
+  readonly profile: ProfileInput;
+  readonly clientMutationId?: string | null;
 }
 
 export interface EmailInput {
@@ -316,7 +322,7 @@ export interface YouthProfileFields {
   readonly approverLastName?: string | null;
   readonly approverPhone?: string | null;
   readonly approverEmail?: string | null;
-  readonly birthDate: any;
+  readonly birthDate?: any | null;
 }
 
 //==============================================================
