@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { ApproveYouthProfileInput } from "./../../../../graphql/__generated__/globalTypes";
+import { ApproveYouthProfileMutationInput } from "./../../../../graphql/__generated__/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: ApproveYouthProfile
@@ -14,7 +14,7 @@ export interface ApproveYouthProfile_approveYouthProfile_youthProfile {
 }
 
 export interface ApproveYouthProfile_approveYouthProfile {
-  readonly __typename: "ApproveYouthProfile";
+  readonly __typename: "ApproveYouthProfileMutationPayload";
   readonly youthProfile: ApproveYouthProfile_approveYouthProfile_youthProfile | null;
 }
 
@@ -23,6 +23,5 @@ export interface ApproveYouthProfile {
 }
 
 export interface ApproveYouthProfileVariables {
-  readonly approvalData: ApproveYouthProfileInput;
-  readonly approvalToken: string;
+  readonly input: ApproveYouthProfileMutationInput;
 }
