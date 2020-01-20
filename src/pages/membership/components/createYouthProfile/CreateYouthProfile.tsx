@@ -9,15 +9,8 @@ import YouthProfileForm, {
 } from '../createYouthProfileForm/CreateYouthProfileForm';
 import styles from './CreateYouthProflle.module.css';
 import {
-<<<<<<< HEAD:src/pages/membership/components/createYouthProfile/CreateYouthProfile.tsx
-  CreateProfile as CreateProfileData,
-  CreateProfileVariables,
-=======
   CreateMyProfile as CreateMyProfileData,
   CreateMyProfileVariables,
-} from '../../graphql/__generated__/CreateMyProfile';
-import {
->>>>>>> develop:src/pages/memberhsip/components/createYouthProfile/CreateYouthProfile.tsx
   EmailType,
   PhoneType,
   AddressType,
