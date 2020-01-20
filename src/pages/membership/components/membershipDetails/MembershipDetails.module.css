@@ -1,0 +1,11 @@
+.membershipDetails {
+  text-align: left;
+  word-break: break-all;
+}
+
+@media (min-width: 768px) {
+  .membershipDetails {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}

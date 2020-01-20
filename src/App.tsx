@@ -13,6 +13,7 @@ import OidcCallback from './auth/components/oidcCallback/OidcCallback';
 import YouthProfile from './pages/membership/components/youthProfile/YouthProfile';
 import ApproveYouthProfile from './pages/membership/components/approveYouthProfile/ApproveYouthProfile';
 import TermsOfService from './pages/tos/components/termsOfService/TermsOfService';
+import MembershipDetails from './pages/membership/components/membershipDetails/MembershipDetails';
 import { fetchApiTokenThunk } from './auth/redux';
 
 if (process.env.NODE_ENV !== 'production') {
@@ -46,7 +47,7 @@ function App(props: Props) {
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/" exact>
+            <Route path={['/', '/membership-details']} exact>
               <YouthProfile />
             </Route>
             <Route path="/approve/:token" exact>
