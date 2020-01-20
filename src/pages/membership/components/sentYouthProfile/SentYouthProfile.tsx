@@ -4,23 +4,23 @@ import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import { MyProfileQuery } from '../../../../graphql/generatedTypes';
 import Button from '../../../../common/button/Button';
 import styles from './SentYouthProfile.module.css';
+import { ApproverEmail } from '../../../../graphql/generatedTypes';
 
-const MY_PROFILE = loader('../../graphql/MyProfileQuery.graphql');
+const APPROVER_EMAIL = loader('../../graphql/ApproverEmail.graphql');
 
 type Props = {};
 
 function ViewYouthProfile(props: Props) {
-  const { data } = useQuery<MyProfileQuery>(MY_PROFILE);
+  const { data } = useQuery<ApproverEmail>(APPROVER_EMAIL);
   const { t } = useTranslation();
   return (
     <div className={styles.hostingBox}>
       <h2>{t('confirmSendingProfile.title')}</h2>
       <p className={styles.helpText}>
         {t('confirmSendingProfile.helpText')}{' '}
-        {data?.myProfile?.youthProfile?.approverEmail}.
+        {data?.youthProfile?.approverEmail}.
       </p>
       <Button type="button">{t('confirmSendingProfile.buttonText')}</Button>
       <p>

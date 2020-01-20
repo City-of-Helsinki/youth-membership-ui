@@ -1,0 +1,5 @@
+query ApproverEmail {
+  youthProfile {
+    approverEmail
+  }
+}
