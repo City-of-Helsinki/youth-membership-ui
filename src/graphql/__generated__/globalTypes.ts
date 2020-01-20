@@ -65,7 +65,7 @@ export interface AddressInput {
   readonly primary?: boolean | null;
 }
 
-export interface ApproveYouthProfileInput {
+export interface ApproveYouthProfileFields {
   readonly schoolName?: string | null;
   readonly schoolClass?: string | null;
   readonly languageAtHome?: YouthLanguage | null;
@@ -73,8 +73,19 @@ export interface ApproveYouthProfileInput {
   readonly approverLastName?: string | null;
   readonly approverPhone?: string | null;
   readonly approverEmail?: string | null;
-  readonly birthDate: any;
+  readonly birthDate?: any | null;
   readonly photoUsageApproved?: boolean | null;
+}
+
+export interface ApproveYouthProfileMutationInput {
+  readonly approvalToken: string;
+  readonly approvalData: ApproveYouthProfileFields;
+  readonly clientMutationId?: string | null;
+}
+
+export interface CreateMyProfileMutationInput {
+  readonly profile: ProfileInput;
+  readonly clientMutationId?: string | null;
 }
 
 export interface EmailInput {
@@ -98,8 +109,6 @@ export interface ProfileInput {
   readonly image?: string | null;
   readonly language?: Language | null;
   readonly contactMethod?: ContactMethod | null;
-  readonly conceptsOfInterest?: ReadonlyArray<(string | null)> | null;
-  readonly divisionsOfInterest?: ReadonlyArray<(string | null)> | null;
   readonly addEmails?: ReadonlyArray<(EmailInput | null)> | null;
   readonly updateEmails?: ReadonlyArray<(EmailInput | null)> | null;
   readonly removeEmails?: ReadonlyArray<(string | null)> | null;
@@ -120,7 +129,7 @@ export interface YouthProfileFields {
   readonly approverLastName?: string | null;
   readonly approverPhone?: string | null;
   readonly approverEmail?: string | null;
-  readonly birthDate: any;
+  readonly birthDate?: any | null;
 }
 
 //==============================================================
