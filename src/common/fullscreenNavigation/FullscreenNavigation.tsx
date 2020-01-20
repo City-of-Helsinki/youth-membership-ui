@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { ReactComponent as HamburgerMenu } from '../svg/HamburgerMenu.svg';
 import { ReactComponent as Close } from '../svg/Close.svg';
