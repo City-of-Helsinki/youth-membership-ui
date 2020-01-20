@@ -39,12 +39,6 @@ function FullscreenNavigation(props: Props) {
           />
         </div>
         <div className={styles.navItems}>
-          <NavLink to="/" className={styles.navLink}>
-            {t('nav.information')}
-          </NavLink>
-          <NavLink to="/connected-services" className={styles.navLink}>
-            {t('nav.services')}
-          </NavLink>
           <span role="button" className={styles.navLink} onClick={signout}>
             {t('nav.signout')}
           </span>
