@@ -46,14 +46,16 @@ function ApproveYouthProfile(props: Props) {
 
   const handleOnValues = (values: FormValues) => {
     const variables = {
-      approvalData: {
-        approverFirstName: values.approverFirstName,
-        approverLastName: values.approverLastName,
-        approverEmail: values.approverEmail,
-        approverPhone: values.approverPhone,
-        birthDate: data?.youthProfileByApprovalToken?.birthDate,
+      input: {
+        approvalData: {
+          approverFirstName: values.approverFirstName,
+          approverLastName: values.approverLastName,
+          approverEmail: values.approverEmail,
+          approverPhone: values.approverPhone,
+          birthDate: data?.youthProfileByApprovalToken?.birthDate,
+        },
+        approvalToken: params.token,
       },
-      approvalToken: params.token,
     };
 
     approveProfile({ variables }).then(result => {
