@@ -1,0 +1,26 @@
+fragment MembershipDetailsFragment on YouthProfileType {
+  profile {
+    firstName
+    lastName
+    primaryAddress {
+      address
+      postalCode
+      city
+    }
+    primaryEmail {
+      email
+    }
+    primaryPhone {
+      phone
+    }
+  }
+  birthDate
+  schoolName
+  schoolClass
+  languageAtHome
+  photoUsageApproved
+  approverFirstName
+  approverLastName
+  approverEmail
+  approverPhone
+}
