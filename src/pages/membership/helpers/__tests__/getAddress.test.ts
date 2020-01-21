@@ -1,5 +1,8 @@
 import getAddress from '../getAddress';
-import { YouthProfileByApprovalToken } from '../../../../graphql/generatedTypes';
+import {
+  YouthProfileByApprovalToken,
+  MembershipDetails,
+} from '../../../../graphql/generatedTypes';
 
 it('test function with empty undefined', () => {
   const data = {
@@ -43,5 +46,21 @@ it('test function with all values', () => {
   } as YouthProfileByApprovalToken;
 
   const testData = getAddress(data);
-  expect(testData).toEqual('TestAddress, Helsinki 12345');
+  expect(testData).toEqual('TestAddress, 12345 Helsinki');
+});
+
+it('can get address from MembershipDetails', () => {
+  const data = {
+    youthProfile: {
+      profile: {
+        primaryAddress: {
+          address: 'Teststreet Ö 44',
+          postalCode: '00990',
+          city: 'Helsingfors',
+        },
+      },
+    },
+  } as MembershipDetails;
+  const value = getAddress(data);
+  expect(value).toBe('Teststreet Ö 44, 00990 Helsingfors');
 });

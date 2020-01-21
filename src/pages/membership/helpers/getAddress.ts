@@ -1,9 +1,21 @@
-import { YouthProfileByApprovalToken } from '../../../graphql/generatedTypes';
+import {
+  YouthProfileByApprovalToken,
+  MembershipDetails,
+} from '../../../graphql/generatedTypes';
 
-export default function getAddress(data: YouthProfileByApprovalToken) {
-  if (data?.youthProfileByApprovalToken?.profile?.primaryAddress) {
-    const address = data.youthProfileByApprovalToken.profile.primaryAddress;
-    return `${address.address}, ${address.city} ${address.postalCode}`;
+export default function getAddress(
+  data: YouthProfileByApprovalToken | MembershipDetails
+) {
+  let address = null;
+  if ('youthProfile' in data) {
+    // MembershipDetails
+    address = data.youthProfile?.profile.primaryAddress;
+  } else if ('youthProfileByApprovalToken' in data) {
+    // YouthProfileByApprovalToken
+    address = data.youthProfileByApprovalToken?.profile.primaryAddress;
+  }
+  if (address) {
+    return `${address.address}, ${address.postalCode} ${address.city}`;
   }
   return '';
 }
