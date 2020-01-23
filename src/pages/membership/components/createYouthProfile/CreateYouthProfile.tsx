@@ -38,7 +38,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     AddServiceConnectionData,
     AddServiceConnectionVariables
   >(ADD_SERVICE_CONNECTION, {
-    refetchQueries: ['HasYouthProfileQuery'],
+    refetchQueries: ['HasYouthProfile'],
   });
 
   const handleOnValues = (formValues: FormValues) => {
