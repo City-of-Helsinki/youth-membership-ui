@@ -3,6 +3,23 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: ApproverEmail
+// ====================================================
+
+export interface ApproverEmail_youthProfile {
+  readonly __typename: "YouthProfileType";
+  readonly approverEmail: string;
+}
+
+export interface ApproverEmail {
+  readonly youthProfile: ApproverEmail_youthProfile | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: ApproveYouthProfile
 // ====================================================
 
@@ -82,54 +99,54 @@ export interface HasYouthProfile {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: MyProfileQuery
+// GraphQL query operation: MembershipDetails
 // ====================================================
 
-export interface MyProfileQuery_myProfile_primaryAddress {
+export interface MembershipDetails_youthProfile_profile_primaryAddress {
   readonly __typename: "AddressNode";
   readonly address: string;
   readonly postalCode: string;
   readonly city: string;
 }
 
-export interface MyProfileQuery_myProfile_primaryEmail {
+export interface MembershipDetails_youthProfile_profile_primaryEmail {
   readonly __typename: "EmailNode";
   readonly email: string;
 }
 
-export interface MyProfileQuery_myProfile_primaryPhone {
+export interface MembershipDetails_youthProfile_profile_primaryPhone {
   readonly __typename: "PhoneNode";
   readonly phone: string | null;
 }
 
-export interface MyProfileQuery_myProfile_youthProfile {
+export interface MembershipDetails_youthProfile_profile {
+  readonly __typename: "ProfileNode";
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly primaryAddress: MembershipDetails_youthProfile_profile_primaryAddress | null;
+  readonly primaryEmail: MembershipDetails_youthProfile_profile_primaryEmail | null;
+  readonly primaryPhone: MembershipDetails_youthProfile_profile_primaryPhone | null;
+}
+
+export interface MembershipDetails_youthProfile {
   readonly __typename: "YouthProfileType";
+  readonly profile: MembershipDetails_youthProfile_profile;
   readonly birthDate: any;
   readonly schoolName: string;
   readonly schoolClass: string;
-  readonly approverFirstName: string;
-  readonly approverLastName: string;
-  readonly approverPhone: string;
-  readonly approverEmail: string;
-  readonly photoUsageApproved: boolean | null;
   /**
    * The language which is spoken in the youth's home.
    */
   readonly languageAtHome: YouthLanguage | null;
+  readonly photoUsageApproved: boolean | null;
+  readonly approverFirstName: string;
+  readonly approverLastName: string;
+  readonly approverEmail: string;
+  readonly approverPhone: string;
 }
 
-export interface MyProfileQuery_myProfile {
-  readonly __typename: "ProfileNode";
-  readonly firstName: string;
-  readonly lastName: string;
-  readonly primaryAddress: MyProfileQuery_myProfile_primaryAddress | null;
-  readonly primaryEmail: MyProfileQuery_myProfile_primaryEmail | null;
-  readonly primaryPhone: MyProfileQuery_myProfile_primaryPhone | null;
-  readonly youthProfile: MyProfileQuery_myProfile_youthProfile | null;
-}
-
-export interface MyProfileQuery {
-  readonly myProfile: MyProfileQuery_myProfile | null;
+export interface MembershipDetails {
+  readonly youthProfile: MembershipDetails_youthProfile | null;
 }
 
 /* tslint:disable */
@@ -140,16 +157,16 @@ export interface MyProfileQuery {
 // GraphQL query operation: YouthProfileByApprovalToken
 // ====================================================
 
-export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail {
-  readonly __typename: "EmailNode";
-  readonly email: string;
-}
-
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryAddress {
   readonly __typename: "AddressNode";
   readonly address: string;
   readonly postalCode: string;
   readonly city: string;
+}
+
+export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail {
+  readonly __typename: "EmailNode";
+  readonly email: string;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryPhone {
@@ -161,8 +178,8 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
   readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
-  readonly primaryEmail: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail | null;
   readonly primaryAddress: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryAddress | null;
+  readonly primaryEmail: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail | null;
   readonly primaryPhone: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryPhone | null;
 }
 
@@ -172,15 +189,15 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken {
   readonly birthDate: any;
   readonly schoolName: string;
   readonly schoolClass: string;
-  readonly approverFirstName: string;
-  readonly approverLastName: string;
-  readonly approverPhone: string;
-  readonly approverEmail: string;
-  readonly photoUsageApproved: boolean | null;
   /**
    * The language which is spoken in the youth's home.
    */
   readonly languageAtHome: YouthLanguage | null;
+  readonly photoUsageApproved: boolean | null;
+  readonly approverFirstName: string;
+  readonly approverLastName: string;
+  readonly approverEmail: string;
+  readonly approverPhone: string;
 }
 
 export interface YouthProfileByApprovalToken {
@@ -189,6 +206,57 @@ export interface YouthProfileByApprovalToken {
 
 export interface YouthProfileByApprovalTokenVariables {
   readonly token: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL fragment: MembershipDetailsFragment
+// ====================================================
+
+export interface MembershipDetailsFragment_profile_primaryAddress {
+  readonly __typename: "AddressNode";
+  readonly address: string;
+  readonly postalCode: string;
+  readonly city: string;
+}
+
+export interface MembershipDetailsFragment_profile_primaryEmail {
+  readonly __typename: "EmailNode";
+  readonly email: string;
+}
+
+export interface MembershipDetailsFragment_profile_primaryPhone {
+  readonly __typename: "PhoneNode";
+  readonly phone: string | null;
+}
+
+export interface MembershipDetailsFragment_profile {
+  readonly __typename: "ProfileNode";
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly primaryAddress: MembershipDetailsFragment_profile_primaryAddress | null;
+  readonly primaryEmail: MembershipDetailsFragment_profile_primaryEmail | null;
+  readonly primaryPhone: MembershipDetailsFragment_profile_primaryPhone | null;
+}
+
+export interface MembershipDetailsFragment {
+  readonly __typename: "YouthProfileType";
+  readonly profile: MembershipDetailsFragment_profile;
+  readonly birthDate: any;
+  readonly schoolName: string;
+  readonly schoolClass: string;
+  /**
+   * The language which is spoken in the youth's home.
+   */
+  readonly languageAtHome: YouthLanguage | null;
+  readonly photoUsageApproved: boolean | null;
+  readonly approverFirstName: string;
+  readonly approverLastName: string;
+  readonly approverEmail: string;
+  readonly approverPhone: string;
 }
 
 /* tslint:disable */
