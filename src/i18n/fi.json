@@ -35,7 +35,7 @@
     "addInfo": "Lisätiedot",
     "schoolName": "Koulu",
     "schoolClass": "Luokka",
-    "languageAtHome": "Kotona puhutut kielet",
+    "languageAtHome": "Kotona puhuttu kieli",
     "photoUsageApproved": "Kuvauslupa",
     "photoUsageApprovedText": "Minusta saa ottaa kuvia ja käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä.",
     "photoUsageApprovedYes": "Kyllä",
@@ -49,7 +49,8 @@
     "approveTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "birthdayInvalid": "Tarkista syntymäpäivä!",
-    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-29 vuotiaat."
+    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-29 vuotiaat.",
+    "required": "Vaadittu"
   },
   "confirmSendingProfile": {
     "title": "Hakemus on lähetetty huoltajallesi!",

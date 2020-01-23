@@ -197,7 +197,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.firstName &&
                   t(props.errors.firstName)
                 }
-                labelText={t('registration.firstName')}
+                labelText={t('registration.firstName') + ' *'}
               />
               <Field
                 className={styles.formInput}
@@ -210,7 +210,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.lastName &&
                   t(props.errors.lastName)
                 }
-                labelText={t('registration.lastName')}
+                labelText={t('registration.lastName') + ' *'}
               />
             </div>
             <div className={styles.formRow}>
@@ -225,7 +225,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.address &&
                   t(props.errors.address)
                 }
-                labelText={t('registration.address')}
+                labelText={t('registration.address') + ' *'}
               />
               <Field
                 className={styles.formInputShort}
@@ -238,7 +238,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.postalCode &&
                   t(props.errors.postalCode)
                 }
-                labelText={t('registration.postalCode')}
+                labelText={t('registration.postalCode') + ' *'}
               />
               <Field
                 className={styles.formInputRes}
@@ -249,7 +249,7 @@ function CreateYouthProfileForm(props: Props) {
                 invalidText={
                   props.submitCount && props.errors.city && t(props.errors.city)
                 }
-                labelText={t('registration.city')}
+                labelText={t('registration.city') + ' *'}
               />
             </div>
             <div className={styles.resRow}>
@@ -265,7 +265,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.birthDay &&
                   t(props.errors.birthDay)
                 }
-                labelText={t('registration.childBirthDay')}
+                labelText={t('registration.childBirthDay') + ' *'}
               />
               <span className={styles.birthdayMiddleDot}>&#8901;</span>
               <Field
@@ -281,7 +281,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.birthMonth &&
                   t(props.errors.birthMonth)
                 }
-                labelText={t('registration.childBirthMonth')}
+                labelText={t('registration.childBirthMonth') + ' *'}
               />
               <span className={styles.birthdayMiddleDot}>&#8901;</span>
               <Field
@@ -297,7 +297,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.birthYear &&
                   t(props.errors.birthYear)
                 }
-                labelText={t('registration.childBirthYear')}
+                labelText={t('registration.childBirthYear') + ' *'}
               />
             </div>
             {!validateDate(
@@ -338,7 +338,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.phone &&
                   t(props.errors.phone)
                 }
-                labelText={t('registration.phoneNumber')}
+                labelText={t('registration.phoneNumber') + ' *'}
               />
             </div>
             <h3>{t('registration.addInfo')}</h3>
@@ -431,7 +431,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverFirstName &&
                   t(props.errors.approverFirstName)
                 }
-                labelText={t('registration.firstName')}
+                labelText={t('registration.firstName') + ' *'}
               />
               <Field
                 className={styles.formInput}
@@ -444,7 +444,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverLastName &&
                   t(props.errors.approverLastName)
                 }
-                labelText={t('registration.lastName')}
+                labelText={t('registration.lastName') + ' *'}
               />
             </div>
             <div className={styles.formRow}>
@@ -460,7 +460,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverEmail &&
                   t(props.errors.approverEmail)
                 }
-                labelText={t('registration.email')}
+                labelText={t('registration.email') + ' *'}
               />
               <Field
                 className={styles.formInput}
@@ -474,7 +474,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverPhone &&
                   t(props.errors.approverPhone)
                 }
-                labelText={t('registration.phoneNumber')}
+                labelText={t('registration.phoneNumber') + ' *'}
               />
             </div>
             <h3>{t('registration.confirmSend')}</h3>
@@ -486,7 +486,7 @@ function CreateYouthProfileForm(props: Props) {
                 <Link to="/terms-of-service">
                   {t('registration.approveTermsText_link')}
                 </Link>
-                {t('registration.approveTermsText_2')}
+                {t('registration.approveTermsText_2') + ' *'}
               </span>
             </ul>
             <div className={styles.buttonAlign}>

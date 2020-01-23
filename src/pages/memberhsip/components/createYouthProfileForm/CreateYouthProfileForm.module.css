@@ -18,7 +18,7 @@
 }
 
 @media (max-width: 768px) {
-    .formRow {      
+    .formRow {
         flex-direction: column;
     }
 }
@@ -30,13 +30,13 @@
     }
 
     .formInputRes {
-        margin-right: 20px;   
+        margin-right: 20px;
         width: 200px;
     }
 }
 
 .formInputShort {
-    margin-right: 20px;   
+    margin-right: 20px;
     width: 200px;
 }
 
@@ -62,16 +62,16 @@
 
 .childBirthDayInput {
     margin: 0 2px 0 0;
-    width: 80px;
+    width: 100px;
 }
 
 .childBirthInput {
-    margin: 30px 2px 0 0 ;
-    width: 80px;
+    margin: 28px 2px 0 0 ;
+    width: 100px;
 }
 
 .birthdayMiddleDot {
-    margin: 48px 0 0;
+    margin: 72px 5px 0;
 }
 
 
@@ -79,16 +79,14 @@
 
     .childBirthDayInput {
         margin: 0 20px 0 0 ;
-        width: 100px;
     }
 
     .childBirthInput {
         margin: 30px 20px 0 0 ;
-        width: 100px;
     }
 
     .birthdayMiddleDot {
-        margin: 48px 15px 0 0;
+        margin: 72px 15px 0 0;
     }
 }
 
@@ -100,7 +98,8 @@
 .emailTitle {
     display: block;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: var(--hds-text-sm);
 }
 
 @media (max-width: 768px) {
@@ -115,7 +114,7 @@
 
 .email {
     margin-right: 110px;
-    margin-top: 10px;
+    margin-top: 5px;
     display: block;
     text-overflow: ellipsis;
     word-wrap: break-word;
@@ -125,8 +124,8 @@
 }
 
 .list {
-    list-style-type: none;  
-    padding: 0 0 20px;
+    list-style-type: none;
+    padding: 0;
 }
 
 .languageRadioBtnRow {
@@ -162,4 +161,8 @@ a {
     .buttonAlign {
         text-align: left;
     }
+}
+
+h3 {
+    margin-top: 60px;
 }
