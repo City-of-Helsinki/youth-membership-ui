@@ -1,12 +1,12 @@
 .helpText {
-  margin: 0 10px 50px;
-  font-size: var(--hds-text-lg);
+  margin: 20px 10px 50px;
+  font-size: var(--hds-text-md);
   line-height: var(--hds-text-sm-line-height);
 }
 
 @media (min-width: 500px) {
   .helpText {
-    margin: 0 100px 50px;
+    margin: 20px 100px 50px;
   }
 }
 
@@ -15,8 +15,8 @@
 }
 
 .button {
-  margin-top: 100px;
-  margin-bottom: 25px;
+  margin-top: 35px;
+  margin-bottom: 50px;
 }
 
 .hostingBox button {

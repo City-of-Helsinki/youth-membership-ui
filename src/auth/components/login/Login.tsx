@@ -13,7 +13,7 @@ function Login(props: Props) {
   return (
     <PageLayout background="youth">
       <div className={styles.hostingBox}>
-        <h2>{t('login.title')}</h2>
+        <h1>{t('login.title')}</h1>
         <p className={styles.helpText}>{t('login.helpText')}</p>
         <Button
           type="button"

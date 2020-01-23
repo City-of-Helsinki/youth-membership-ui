@@ -16,7 +16,7 @@ function ViewYouthProfile(props: Props) {
   const { t } = useTranslation();
   return (
     <div className={styles.hostingBox}>
-      <h2>{t('confirmSendingProfile.title')}</h2>
+      <h1>{t('confirmSendingProfile.title')}</h1>
       <p className={styles.helpText}>
         {t('confirmSendingProfile.helpText')}{' '}
         {data?.myProfile?.youthProfile?.approverEmail}.

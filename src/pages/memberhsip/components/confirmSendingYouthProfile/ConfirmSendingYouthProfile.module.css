@@ -1,10 +1,10 @@
 .helpText {
-    margin: 40px 0 150px;
+    margin: 40px 0 75px;
   }
 
 @media (max-width: 414px) {
   .helpText {
-    margin: 40px 10px 150px;
+    margin: 40px 10px 75px;
   }
 }
 
@@ -14,7 +14,7 @@
 }
 
 .button {
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 }
 
 .hostingBox button {
