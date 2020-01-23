@@ -19,11 +19,13 @@ function TermsOfService() {
     <div className={styles.footer}>
       <Header />
       <div className={styles.container}>
-        <div className={styles.back}>
-          <button type="button" onClick={handleGoBack}>
-            <IconArrowLeft className={styles.icon} />
-          </button>
-        </div>
+        {history.length > 1 && (
+          <div className={styles.back}>
+            <button type="button" onClick={handleGoBack}>
+              <IconArrowLeft className={styles.icon} />
+            </button>
+          </div>
+        )}
         <div className={styles.content}>
           <h1>{t('tos.title')}</h1>
           <span className={styles.updated}>{t('tos.updated')}</span>

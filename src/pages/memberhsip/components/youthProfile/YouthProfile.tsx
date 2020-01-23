@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLazyQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
 import { loader } from 'graphql.macro';
@@ -19,23 +19,19 @@ type Props = {};
 function YouthProfile(props: Props) {
   const { t } = useTranslation();
   const history = useHistory();
-  const [checkProfileExists, { data, loading }] = useLazyQuery<
-    ProfileExistsQuery
-  >(PROFILE_EXISTS, {
-    fetchPolicy: 'no-cache',
-  });
+
+  const { data, loading } = useQuery<ProfileExistsQuery>(PROFILE_EXISTS);
   const [isCheckingAuthState, setIsCheckingAuthState] = useState(true);
   const [tunnistamoUser, setTunnistamoUser] = useState();
 
   useEffect(() => {
     getAuthenticatedUser()
       .then(user => {
-        checkProfileExists();
         setTunnistamoUser(user);
         setIsCheckingAuthState(false);
       })
       .catch(() => history.push('/login'));
-  }, [checkProfileExists, history]);
+  }, [history]);
 
   const isLoadingAnything = Boolean(isCheckingAuthState || loading);
   const isProfileFound = data && data.myProfile;
@@ -50,10 +46,7 @@ function YouthProfile(props: Props) {
         {isProfileFound ? (
           <SentYouthProfileScreen />
         ) : (
-          <CreateYouthProfile
-            tunnistamoUser={tunnistamoUser}
-            onProfileCreated={() => checkProfileExists()}
-          />
+          <CreateYouthProfile tunnistamoUser={tunnistamoUser} />
         )}
       </Loading>
     </PageLayout>
