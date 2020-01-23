@@ -1,10 +1,10 @@
 .helpText {
-    margin: 30px 0 150px;
+    margin: 40px 0 150px;
   }
 
 @media (max-width: 414px) {
   .helpText {
-    margin: 10px 10px 150px;
+    margin: 40px 10px 150px;
   }
 }
 
