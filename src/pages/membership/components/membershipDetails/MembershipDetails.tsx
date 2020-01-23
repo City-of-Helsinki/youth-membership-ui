@@ -41,7 +41,7 @@ function RegistrationInformation(props: Props) {
               value={data.youthProfile.profile.primaryPhone?.phone}
             />
             <LabeledValue
-              label={t('youthProfile.birthDate')}
+              label={t('youthProfile.birthdate')}
               value={formatDate(data.youthProfile.birthDate)}
             />
           </div>
@@ -57,12 +57,12 @@ function RegistrationInformation(props: Props) {
             />
           </div>
           {/*
-          <h2>{t('youthProfile.requiredPermissionsFromParent')}</h2>
+          <h2>{t('membershipDetails.requiredPermissionsFromParent')}</h2>
           <strong className={styles.subHeading}>
             {t('youthProfile.photoUsage')}
           </strong>
           <p className={styles.paragraph}>
-            {t('youthProfile.photoUsageExplanation')}
+            {t('membershipDetails.photoUsageExplanation')}
           </p>
           <span className={styles.check}>{t('yes')}</span>
           */}
@@ -84,7 +84,7 @@ function RegistrationInformation(props: Props) {
         </>
       )}
       <Link to="/" className={styles.frontLink}>
-        {t('link.returnToFront')}
+        {t('membershipDetails.returnToFront')}
       </Link>
     </div>
   );
