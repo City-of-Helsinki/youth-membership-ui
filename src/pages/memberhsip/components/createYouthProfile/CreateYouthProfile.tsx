@@ -105,6 +105,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
 
     createProfile({ variables }).then(result => {
       if (result.data) {
+        // Todo Add error handling.
         addServiceConnection({ variables: connectionVariables });
       }
     });

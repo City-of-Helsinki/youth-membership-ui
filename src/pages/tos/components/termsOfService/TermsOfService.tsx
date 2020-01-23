@@ -12,6 +12,7 @@ function TermsOfService() {
   const history = useHistory();
 
   const handleGoBack = () => {
+    window.close();
     history.goBack();
   };
 
