@@ -30,10 +30,9 @@ const ADD_SERVICE_CONNECTION = loader(
 
 type Props = {
   tunnistamoUser: User;
-  onProfileCreated: () => void;
 };
 
-function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
+function CreateYouthProflle({ tunnistamoUser }: Props) {
   const [createProfile, { loading }] = useMutation<
     CreateMyProfileData,
     CreateMyProfileVariables
@@ -42,7 +41,9 @@ function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
   const [addServiceConnection] = useMutation<
     AddServiceConnectionData,
     AddServiceConnectionVariables
-  >(ADD_SERVICE_CONNECTION);
+  >(ADD_SERVICE_CONNECTION, {
+    refetchQueries: ['ProfileExistsQuery'],
+  });
 
   const handleOnValues = (formValues: FormValues) => {
     const variables: CreateMyProfileVariables = {
@@ -104,11 +105,7 @@ function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
 
     createProfile({ variables }).then(result => {
       if (result.data) {
-        addServiceConnection({ variables: connectionVariables }).then(res => {
-          if (res.data) {
-            onProfileCreated();
-          }
-        });
+        addServiceConnection({ variables: connectionVariables });
       }
     });
   };
