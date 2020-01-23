@@ -162,11 +162,11 @@ a {
     }
 }
 
-h3 {
+.formWrapper h3 {
     margin-top: 60px;
 }
 
-h6 {
+.birthDayContainer h6 {
     font-size: var(--hds-text-sm);
     margin: 0;
 }

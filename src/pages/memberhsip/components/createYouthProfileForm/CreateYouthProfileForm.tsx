@@ -178,7 +178,7 @@ function CreateYouthProfileForm(props: Props) {
       validationSchema={schema}
     >
       {props => (
-        <div>
+        <div className={styles.formWrapper}>
           <span className={styles.formTitleText}>
             <h2>{t('registration.title')}</h2>
             <p>{t('registration.membershipInfoText')}</p>
