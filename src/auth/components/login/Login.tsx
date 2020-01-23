@@ -15,11 +15,16 @@ function Login(props: Props) {
       <div className={styles.hostingBox}>
         <h2>{t('login.title')}</h2>
         <p className={styles.helpText}>{t('login.helpText')}</p>
-        <Button type="button" disabled={false} className={styles.button}>
+        <Button
+          type="button"
+          disabled={false}
+          className={styles.button}
+          onClick={authenticate}
+        >
           {t('login.buttonText')}
         </Button>
         <p>
-          <span onClick={authenticate} role="button">
+          <span role="button">
             {t('login.linkForMembersText')}
             <span className={styles.linkArrow}> ></span>
           </span>
