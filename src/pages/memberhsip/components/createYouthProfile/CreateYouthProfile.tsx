@@ -92,13 +92,14 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
       },
     };
 
+    // TODO after back end supports editing serviceConnections change enabled from true to false
     const connectionVariables: AddServiceConnectionVariables = {
       input: {
         serviceConnection: {
           service: {
             type: ServiceType.YOUTH_MEMBERSHIP,
           },
-          enabled: false,
+          enabled: true,
         },
       },
     };
