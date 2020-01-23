@@ -11,10 +11,32 @@
     "linkForMembersText": "Do you have membership? Log in "
   },
   "profile": {
-    "loading": "Loading profile..."
+    "loading": "Loading profile...",
+    "name": "Name",
+    "address": "Address",
+    "email": "Email",
+    "phone": "Phone"
+  },
+  "youthProfile": {
+    "birthdate": "Birthdate",
+    "school": "School",
+    "homeLanguages": "Langugages spoken at home",
+    "approverInfo": "Approver information",
+    "approverName": "Name",
+    "approverEmail": "Email",
+    "approverPhone": "Phone"
   },
   "nav": {
     "signout": "Sign out"
+  },
+  "membershipDetails": {
+    "title": "Own information",
+    "text": "Here information about things?",
+    "profileInformation": "Basic information",
+    "additionalInformation": "Additional information",
+    "requiredPermissionsFromParent": "Required permissions from parent",
+    "photoUsageExplanation": "Pictures of my child can be taken and used for internal and external communications in the City of Helsinki",
+    "returnToFront": "Return to frontpage"
   },
   "registration": {
     "title": "Please fill in your information",

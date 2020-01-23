@@ -11,10 +11,32 @@
     "linkForMembersText": "Har du medlemskap? Logga in "
   },
   "profile": {
-    "loading": "Laddar profil..."
+    "loading": "Laddar profil...",
+    "name": "Namn",
+    "address": "Adress",
+    "email": "Epost",
+    "phone": "Telefon"
+  },
+  "youthProfile": {
+    "birthdate": "Födelsedatum",
+    "school": "Skola",
+    "homeLanguages": "Hemspråk",
+    "approverInfo": "Information om vårdnadshavaren",
+    "approverName": "Namn",
+    "approverEmail": "Epost",
+    "approverPhone": "Telefon"
   },
   "nav": {
     "signout": "Logga ut"
+  },
+  "membershipDetails": {
+    "title": "Egen information",
+    "text": "Information om saker?",
+    "profileInformation": "Grundläggande information",
+    "additionalInformation": "Ytterligare information",
+    "requiredPermissionsFromParent": "Tillstånd som krävs av vårdnadshavaren",
+    "photoUsageExplanation": "Bilder av mitt barn kan tas och användas för Helsingfors stads interna och externa kommunikationsyften",
+    "returnToFront": "Tillbaka till framsidan"
   },
   "registration": {
     "title": "Vänligen fyll i din information",
@@ -30,7 +52,7 @@
     "childBirthYear": "Födelseår",
     "phoneNumber": "Telefon",
     "email": "E-post",
-    "addInfo": "Ytterligare info",
+    "addInfo": "Ytterligare information",
     "schoolName": "Skolnamn",
     "schoolClass": "Skolklass",
     "languageAtHome": "Språk hemma",

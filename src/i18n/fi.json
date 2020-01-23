@@ -11,10 +11,32 @@
     "linkForMembersText": "Oletko jo jäsen? Kirjaudu sisään"
   },
   "profile": {
-    "loading": "Ladataan profiilia..."
+    "loading": "Ladataan profiilia...",
+    "name": "Nimi",
+    "address": "Osoite",
+    "email": "Sähköposti",
+    "phone": "Puhelinnumero"
+  },
+  "youthProfile": {
+    "birthdate": "Syntymäpäivä",
+    "school": "Koulu",
+    "homeLanguages": "Kotona puhutut kielet",
+    "approverInfo": "Huoltajan tiedot",
+    "approverName": "Nimi",
+    "approverEmail": "Sähköposti",
+    "approverPhone": "Puhelin"
   },
   "nav": {
     "signout": "Kirjaudu ulos"
+  },
+  "membershipDetails": {
+    "title": "Omat tiedot",
+    "text": "Tähän listätietoa siitä mitä jäsenyydellä saa, mihin tietoja käytetään ja miksi niitä kysytään?",
+    "profileInformation": "Perustiedot",
+    "additionalInformation": "Lisätiedot",
+    "requiredPermissionsFromParent": "Vanhemmalta vaadittavat luvat",
+    "photoUsageExplanation": "Lapsestani saa ottaa kuvia ja niitä saa käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä",
+    "returnToFront": "Takaisin etusivulle"
   },
   "registration": {
     "title": "Täytä tietosi",
