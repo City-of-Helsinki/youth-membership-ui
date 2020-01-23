@@ -114,8 +114,12 @@
     "title8": "8. Andra villkor"
   },
   "LANGUAGE_OPTIONS" :{
-    "ENGLISH": "English",
-    "FINNISH": "Finnish",
-    "SWEDISH": "Swedish"
+    "ENGLISH": "Engelska",
+    "FINNISH": "Finska",
+    "SWEDISH": "Svenska",
+    "ARABIC": "Arabiska",
+    "ESTONIAN": "Estniska",
+    "RUSSIAN": "Ryska",
+    "SOMALI": "Somaliska"
   }
 }

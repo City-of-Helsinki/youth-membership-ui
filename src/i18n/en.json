@@ -117,6 +117,10 @@
   "LANGUAGE_OPTIONS" :{
     "ENGLISH": "English",
     "FINNISH": "Finnish",
-    "SWEDISH": "Swedish"
+    "SWEDISH": "Swedish",
+    "ARABIC": "Arabic",
+    "ESTONIAN": "Estonian",
+    "RUSSIAN": "Russian",
+    "SOMALI": "Somali"
   }
 }
