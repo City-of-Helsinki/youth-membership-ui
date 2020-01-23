@@ -1,6 +1,7 @@
 .helpText {
   margin: 30px 100px 50px;
-  line-height: 1.5;
+  font-size: var(--hds-text-lg);
+  line-height: var(--hds-text-sm-line-height);
 }
 
 @media (max-width: 414px) {
