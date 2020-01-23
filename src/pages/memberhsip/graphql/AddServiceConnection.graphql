@@ -1,0 +1,7 @@
+mutation AddServiceConnection($input: AddServiceConnectionMutationInput!) {
+    addServiceConnection(input: $input) {
+        serviceConnection {
+            enabled
+        }
+    }
+}

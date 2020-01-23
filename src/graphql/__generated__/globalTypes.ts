@@ -45,6 +45,13 @@ export enum PhoneType {
   WORK = "WORK",
 }
 
+export enum ServiceType {
+  BERTH = "BERTH",
+  GODCHILDREN_OF_CULTURE = "GODCHILDREN_OF_CULTURE",
+  HKI_MY_DATA = "HKI_MY_DATA",
+  YOUTH_MEMBERSHIP = "YOUTH_MEMBERSHIP",
+}
+
 export enum YouthLanguage {
   ARABIC = "ARABIC",
   ENGLISH = "ENGLISH",
@@ -53,6 +60,11 @@ export enum YouthLanguage {
   RUSSIAN = "RUSSIAN",
   SOMALI = "SOMALI",
   SWEDISH = "SWEDISH",
+}
+
+export interface AddServiceConnectionMutationInput {
+  readonly serviceConnection: ServiceConnectionInput;
+  readonly clientMutationId?: string | null;
 }
 
 export interface AddressInput {
@@ -119,6 +131,15 @@ export interface ProfileInput {
   readonly updateAddresses?: ReadonlyArray<(AddressInput | null)> | null;
   readonly removeAddresses?: ReadonlyArray<(string | null)> | null;
   readonly youthProfile?: YouthProfileFields | null;
+}
+
+export interface ServiceConnectionInput {
+  readonly service: ServiceInput;
+  readonly enabled?: boolean | null;
+}
+
+export interface ServiceInput {
+  readonly type?: ServiceType | null;
 }
 
 export interface YouthProfileFields {
