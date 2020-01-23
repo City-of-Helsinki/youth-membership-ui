@@ -13,23 +13,38 @@ import {
   CreateMyProfileVariables,
 } from '../../graphql/__generated__/CreateMyProfile';
 import {
+  AddServiceConnection as AddServiceConnectionData,
+  AddServiceConnectionVariables,
+} from '../../graphql/__generated__/AddServiceConnection';
+import {
+  AddressType,
   EmailType,
   PhoneType,
-  AddressType,
+  ServiceType,
 } from '../../../../graphql/__generated__/globalTypes';
 
 const CREATE_PROFILE = loader('../../graphql/CreateMyProfile.graphql');
+const ADD_SERVICE_CONNECTION = loader(
+  '../../graphql/AddServiceConnection.graphql'
+);
 
 type Props = {
   tunnistamoUser: User;
-  onProfileCreated: () => void;
 };
 
-function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
+function CreateYouthProflle({ tunnistamoUser }: Props) {
   const [createProfile, { loading }] = useMutation<
     CreateMyProfileData,
     CreateMyProfileVariables
   >(CREATE_PROFILE);
+
+  const [addServiceConnection] = useMutation<
+    AddServiceConnectionData,
+    AddServiceConnectionVariables
+  >(ADD_SERVICE_CONNECTION, {
+    refetchQueries: ['ProfileExistsQuery'],
+  });
+
   const handleOnValues = (formValues: FormValues) => {
     const variables: CreateMyProfileVariables = {
       input: {
@@ -76,9 +91,23 @@ function CreateYouthProflle({ tunnistamoUser, onProfileCreated }: Props) {
         },
       },
     };
+
+    // TODO after back end supports editing serviceConnections change enabled from true to false
+    const connectionVariables: AddServiceConnectionVariables = {
+      input: {
+        serviceConnection: {
+          service: {
+            type: ServiceType.YOUTH_MEMBERSHIP,
+          },
+          enabled: true,
+        },
+      },
+    };
+
     createProfile({ variables }).then(result => {
       if (result.data) {
-        onProfileCreated();
+        // Todo Add error handling.
+        addServiceConnection({ variables: connectionVariables });
       }
     });
   };
