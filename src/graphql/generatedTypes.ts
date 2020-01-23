@@ -3,6 +3,32 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: AddServiceConnection
+// ====================================================
+
+export interface AddServiceConnection_addServiceConnection_serviceConnection {
+  readonly __typename: "ServiceConnectionType";
+  readonly enabled: boolean;
+}
+
+export interface AddServiceConnection_addServiceConnection {
+  readonly __typename: "AddServiceConnectionMutationPayload";
+  readonly serviceConnection: AddServiceConnection_addServiceConnection_serviceConnection | null;
+}
+
+export interface AddServiceConnection {
+  readonly addServiceConnection: AddServiceConnection_addServiceConnection | null;
+}
+
+export interface AddServiceConnectionVariables {
+  readonly input: AddServiceConnectionMutationInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: ApproverEmail
 // ====================================================
 
@@ -306,6 +332,13 @@ export enum PhoneType {
   WORK = "WORK",
 }
 
+export enum ServiceType {
+  BERTH = "BERTH",
+  GODCHILDREN_OF_CULTURE = "GODCHILDREN_OF_CULTURE",
+  HKI_MY_DATA = "HKI_MY_DATA",
+  YOUTH_MEMBERSHIP = "YOUTH_MEMBERSHIP",
+}
+
 export enum YouthLanguage {
   ARABIC = "ARABIC",
   ENGLISH = "ENGLISH",
@@ -314,6 +347,11 @@ export enum YouthLanguage {
   RUSSIAN = "RUSSIAN",
   SOMALI = "SOMALI",
   SWEDISH = "SWEDISH",
+}
+
+export interface AddServiceConnectionMutationInput {
+  readonly serviceConnection: ServiceConnectionInput;
+  readonly clientMutationId?: string | null;
 }
 
 export interface AddressInput {
@@ -380,6 +418,15 @@ export interface ProfileInput {
   readonly updateAddresses?: ReadonlyArray<(AddressInput | null)> | null;
   readonly removeAddresses?: ReadonlyArray<(string | null)> | null;
   readonly youthProfile?: YouthProfileFields | null;
+}
+
+export interface ServiceConnectionInput {
+  readonly service: ServiceInput;
+  readonly enabled?: boolean | null;
+}
+
+export interface ServiceInput {
+  readonly type?: ServiceType | null;
 }
 
 export interface YouthProfileFields {
