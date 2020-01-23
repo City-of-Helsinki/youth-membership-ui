@@ -16,3 +16,13 @@
 .button {
   margin-bottom: 25px;
 }
+
+.hostingBox button {
+    min-width: auto;
+}
+
+@media (min-width: 300px) {
+    .hostingBox button {
+        min-width: 230px;
+    }
+}
