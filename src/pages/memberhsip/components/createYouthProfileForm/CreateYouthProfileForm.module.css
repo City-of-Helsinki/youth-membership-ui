@@ -60,13 +60,16 @@
     margin-bottom: 10px;
 }
 
-.childBirthDayInput {
-    margin: 0 2px 0 0;
-    width: 100px;
+
+
+.birthDayContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
 }
 
 .childBirthInput {
-    margin: 28px 2px 0 0 ;
+    margin: 5px 2px 0 0 ;
     width: 100px;
 }
 
@@ -77,12 +80,8 @@
 
 @media (min-width: 768px) {
 
-    .childBirthDayInput {
-        margin: 0 20px 0 0 ;
-    }
-
     .childBirthInput {
-        margin: 30px 20px 0 0 ;
+        margin: 5px 20px 0 0 ;
     }
 
     .birthdayMiddleDot {
@@ -165,4 +164,9 @@ a {
 
 h3 {
     margin-top: 60px;
+}
+
+h6 {
+    font-size: var(--hds-text-sm);
+    margin-bottom: 0;
 }

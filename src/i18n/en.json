@@ -30,6 +30,7 @@
     "childBirthDay": "Birthdate",
     "childBirthMonth": "Birthmonth",
     "childBirthYear": "Birthyear",
+    "birthDay": "Birthdate (dd.mm.yyyy) *",
     "phoneNumber": "Phone",
     "email": "Email",
     "addInfo": "Additional info",
@@ -87,6 +88,13 @@
     "approvedTitle": "Nuta membership approved!",
     "approvedMessage": "Thank you for confirming youth service membership.",
     "approvedLink": "Application is already approved / link is defective"
+  },
+  "validation": {
+    "tooLong": "Too long",
+    "tooShort": "Too short",
+    "required": "Required",
+    "phoneMin": "Min length 6 characters",
+    "email": "Invalid email"
   },
   "footer": {
     "copyright": "Copyright {{year}}",

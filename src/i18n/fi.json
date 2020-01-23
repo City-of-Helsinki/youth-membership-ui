@@ -30,6 +30,7 @@
     "childBirthDay": "Syntymäpäivä",
     "childBirthMonth": "Syntymäkuukausi",
     "childBirthYear": "Syntymävuosi",
+    "birthDay": "Syntymäpäivä (pp.kk.vvvvv) *",
     "phoneNumber": "Puhelinnumero",
     "email": "Sähköpostiosoite",
     "addInfo": "Lisätiedot",
@@ -88,6 +89,13 @@
     "approvedTitle": "Nuta-korttihakemus hyväksytty!",
     "approvedMessage": "Kiitos kun varmistit nuorisopalveluiden jäsenyyden.",
     "approvedLink": "Hakemus on jo hyväksytty / linkki on viallinen"
+  },
+  "validation": {
+    "tooLong": "Liian pitkä",
+    "tooShort": "Liian lyhyt",
+    "required": "Vaadittu",
+    "phoneMin": "Vähimmäispituus 6 merkkiä",
+    "email": "Osoitteessa virhe"
   },
   "footer": {
     "copyright": "Tekijänoikeus {{year}}",
