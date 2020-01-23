@@ -56,6 +56,7 @@ function RegistrationInformation(props: Props) {
               value={t(`LANGUAGE_OPTIONS.${data.youthProfile.languageAtHome}`)}
             />
           </div>
+          {/*
           <h2>{t('youthProfile.requiredPermissionsFromParent')}</h2>
           <strong className={styles.subHeading}>
             {t('youthProfile.photoUsage')}
@@ -64,6 +65,7 @@ function RegistrationInformation(props: Props) {
             {t('youthProfile.photoUsageExplanation')}
           </p>
           <span className={styles.check}>{t('yes')}</span>
+          */}
           <h2>{t('youthProfile.approverInfo')}</h2>
           <div className={styles.fieldsGroup}>
             <LabeledValue
