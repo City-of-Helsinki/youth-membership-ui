@@ -14,8 +14,6 @@
     "loading": "Ladataan profiilia..."
   },
   "nav": {
-    "information": "Omat tiedot",
-    "services": "Yhdistetyt palvelut",
     "signout": "Kirjaudu ulos"
   },
   "registration": {

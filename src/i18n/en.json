@@ -14,8 +14,6 @@
     "loading": "Loading profile..."
   },
   "nav": {
-    "information": "Information",
-    "services": "Connected services",
     "signout": "Sign out"
   },
   "registration": {

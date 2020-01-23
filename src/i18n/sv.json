@@ -14,8 +14,6 @@
     "loading": "Laddar profil..."
   },
   "nav": {
-    "information": "Mina uppgifter",
-    "services": "Anslutna servicer",
     "signout": "Logga ut"
   },
   "registration": {
