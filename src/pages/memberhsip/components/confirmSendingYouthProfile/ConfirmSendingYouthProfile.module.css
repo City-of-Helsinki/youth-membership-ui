@@ -1,14 +1,18 @@
 .helpText {
-    margin: 0 100px 50px;
+    margin: 30px 0 150px;
   }
-  
-  @media (max-width: 414px) {
-    .helpText {
-      margin: 0 10px 50px;
-    }
+
+@media (max-width: 414px) {
+  .helpText {
+    margin: 10px 10px 150px;
   }
-  
-  .linkArrow{
-    color: #0072c6;
-  }
-    
+}
+
+.linkArrow{
+  margin-top: 20px;
+  color: #0072c6;
+}
+
+.button {
+  margin-bottom: 25px;
+}
