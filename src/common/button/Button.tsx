@@ -7,11 +7,12 @@ type Props = PropsWithChildren<{
   type?: 'button' | 'submit' | 'reset';
   className?: string;
   disabled?: boolean;
+  onClick?: () => void;
 }>;
 
 function Button(props: Props) {
   const { type = 'button', className = '', disabled = false, ...rest } = props;
-  const classes = classNames(className, styles.button);
+  const classes = classNames(styles.button, className);
   return (
     <button type={type} className={classes} disabled={disabled} {...rest}>
       {props.children}
