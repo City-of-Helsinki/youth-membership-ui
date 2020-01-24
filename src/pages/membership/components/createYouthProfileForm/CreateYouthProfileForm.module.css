@@ -166,7 +166,8 @@ a {
     margin-top: 60px;
 }
 
-.birthDayContainer h6 {
+.birthdayHelper {
+    font-weight: bold;
     font-size: var(--hds-text-sm);
     margin: 0;
 }
