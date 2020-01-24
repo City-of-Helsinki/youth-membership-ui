@@ -253,7 +253,9 @@ function CreateYouthProfileForm(props: Props) {
               />
             </div>
             <div className={styles.birthDayContainer}>
-              <p className={styles.birthdayHelper}>{t('registration.birthdayHelper')}</p>
+              <p className={styles.birthdayHelper}>
+                {t('registration.birthdayHelper')}
+              </p>
               <div className={styles.resRow}>
                 <Field
                   className={styles.childBirthInput}
