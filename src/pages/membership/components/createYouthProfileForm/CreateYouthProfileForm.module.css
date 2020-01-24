@@ -89,7 +89,7 @@
     }
 }
 
-.birhtdayErrorMessage {
+.birthdayErrorMessage {
     color: var(--hds-ui-color-error);
     margin-bottom: 20px;
 }

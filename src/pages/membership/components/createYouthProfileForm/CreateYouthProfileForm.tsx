@@ -305,7 +305,7 @@ function CreateYouthProfileForm(props: Props) {
               props.values.birthMonth,
               props.values.birthDay
             ) ? (
-              <div className={styles.birhtdayErrorMessage}>
+              <div className={styles.birthdayErrorMessage}>
                 {t('registration.birthdayInvalid')}
               </div>
             ) : !validateAge(
@@ -313,7 +313,7 @@ function CreateYouthProfileForm(props: Props) {
                 props.values.birthMonth,
                 props.values.birthDay
               ) ? (
-              <div className={styles.birhtdayErrorMessage}>
+              <div className={styles.birthdayErrorMessage}>
                 {t('registration.ageRestriction')}
               </div>
             ) : (
