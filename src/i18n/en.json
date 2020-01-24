@@ -50,7 +50,7 @@
     "childBirthDay": "Birthdate",
     "childBirthMonth": "Birthmonth",
     "childBirthYear": "Birthyear",
-    "birthDay": "Birthdate (dd.mm.yyyy) *",
+    "birthdayHelper": "Birthdate (dd.mm.yyyy) *",
     "phoneNumber": "Phone",
     "email": "Email",
     "addInfo": "Additional info",

@@ -50,7 +50,7 @@
     "childBirthDay": "Födelsedatum",
     "childBirthMonth": "Födelsemånad",
     "childBirthYear": "Födelseår",
-    "birthDay": "Födelsedatum (dd.mm.yyyy) *",
+    "birthdayHelper": "Födelsedatum (dd.mm.yyyy) *",
     "phoneNumber": "Telefon",
     "email": "E-post",
     "addInfo": "Ytterligare information",

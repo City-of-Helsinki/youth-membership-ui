@@ -50,7 +50,7 @@
     "childBirthDay": "Syntymäpäivä",
     "childBirthMonth": "Syntymäkuukausi",
     "childBirthYear": "Syntymävuosi",
-    "birthDay": "Syntymäpäivä (pp.kk.vvvvv) *",
+    "birthdayHelper": "Syntymäpäivä (pp.kk.vvvvv) *",
     "phoneNumber": "Puhelinnumero",
     "email": "Sähköpostiosoite",
     "addInfo": "Lisätiedot",
@@ -70,8 +70,7 @@
     "approveTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "birthdayInvalid": "Tarkista syntymäpäivä!",
-    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-29 vuotiaat.",
-    "required": "Vaadittu"
+    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-29 vuotiaat."
   },
   "confirmSendingProfile": {
     "title": "Hakemus on lähetetty huoltajallesi!",
@@ -115,7 +114,7 @@
     "tooShort": "Liian lyhyt",
     "required": "Vaadittu",
     "phoneMin": "Vähimmäispituus 6 merkkiä",
-    "email": "Osoitteessa virhe"
+    "email": "Virheellinen sähköpostiosoite"
   },
   "footer": {
     "copyright": "Tekijänoikeus {{year}}",

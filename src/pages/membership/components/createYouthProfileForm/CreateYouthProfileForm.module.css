@@ -91,7 +91,7 @@
 
 .birhtdayErrorMessage {
     color: var(--hds-ui-color-error);
-    margin: 0 0 20px;
+    margin-bottom: 20px;
 }
 
 .emailTitle {
