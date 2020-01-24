@@ -11,17 +11,13 @@ import styles from './CreateYouthProflle.module.css';
 import {
   CreateMyProfile as CreateMyProfileData,
   CreateMyProfileVariables,
-} from '../../graphql/__generated__/CreateMyProfile';
-import {
-  AddServiceConnection as AddServiceConnectionData,
-  AddServiceConnectionVariables,
-} from '../../graphql/__generated__/AddServiceConnection';
-import {
-  AddressType,
   EmailType,
   PhoneType,
+  AddressType,
   ServiceType,
-} from '../../../../graphql/__generated__/globalTypes';
+  AddServiceConnection as AddServiceConnectionData,
+  AddServiceConnectionVariables,
+} from '../../../../graphql/generatedTypes';
 
 const CREATE_PROFILE = loader('../../graphql/CreateMyProfile.graphql');
 const ADD_SERVICE_CONNECTION = loader(
@@ -42,7 +38,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     AddServiceConnectionData,
     AddServiceConnectionVariables
   >(ADD_SERVICE_CONNECTION, {
-    refetchQueries: ['ProfileExistsQuery'],
+    refetchQueries: ['HasYouthProfile'],
   });
 
   const handleOnValues = (formValues: FormValues) => {
@@ -106,7 +102,6 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
 
     createProfile({ variables }).then(result => {
       if (result.data) {
-        // Todo Add error handling.
         addServiceConnection({ variables: connectionVariables });
       }
     });
@@ -115,12 +110,12 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     <div className={styles.form}>
       <YouthProfileForm
         profile={{
-          firstName: tunnistamoUser.profile.given_name,
-          lastName: tunnistamoUser.profile.family_name,
+          firstName: tunnistamoUser.profile.given_name || '',
+          lastName: tunnistamoUser.profile.family_name || '',
           address: '',
           postalCode: '',
           city: '',
-          email: tunnistamoUser.profile.email,
+          email: tunnistamoUser.profile.email || '',
           phone: '',
           birthDate: '',
           approverEmail: '',

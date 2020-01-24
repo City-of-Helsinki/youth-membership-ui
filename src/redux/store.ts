@@ -3,7 +3,7 @@ import {
   getDefaultMiddleware,
   Action,
   ConfigureStoreOptions,
-} from 'redux-starter-kit';
+} from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 
 import rootReducer, { RootState } from './rootReducer';

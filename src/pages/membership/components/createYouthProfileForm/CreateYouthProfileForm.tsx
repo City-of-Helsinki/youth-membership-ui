@@ -9,6 +9,47 @@ import * as Yup from 'yup';
 import styles from './CreateYouthProfileForm.module.css';
 import Button from '../../../../common/button/Button';
 
+const isBirhthdayTyped = (year: string, month: string, day: string) => {
+  if (year === '' || month === '' || day === '') {
+    return false;
+  }
+  return true;
+};
+
+const validateDate = (year: string, month: string, day: string) => {
+  if (Number(year) < 0 || Number(month) < 0 || Number(day) < 0) return false;
+
+  if (isBirhthdayTyped(year, month, day)) {
+    return isValid(
+      parse(day + '/' + month + '/' + year, 'dd/MM/yyyy', new Date())
+    );
+  }
+  return true;
+};
+
+const getYearDiff = (year: number, month: number, day: number) => {
+  if (year >= 1900 && month && day) {
+    return differenceInYears(new Date(), new Date(year, month, day));
+  } else return 0;
+};
+
+const validateAge = (year: string, month: string, day: string) => {
+  if (isBirhthdayTyped(year, month, day) && Number(year) > 999) {
+    const age = getYearDiff(Number(year), Number(month), Number(day));
+    if (age < 8 || age > 29) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const isButtonEnabled = (year: string, month: string, day: string) => {
+  if (Number(year) > 1900) {
+    return validateAge(year, month, day);
+  }
+  return false;
+};
+
 const schema = Yup.object().shape({
   firstName: Yup.string()
     .min(2, 'validation.tooShort')
@@ -83,47 +124,6 @@ type Props = {
 function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['Suomi', 'Svenska', 'English'];
-
-  const isBirhthdayTyped = (year: string, month: string, day: string) => {
-    if (year === '' || month === '' || day === '') {
-      return false;
-    }
-    return true;
-  };
-
-  const validateDate = (year: string, month: string, day: string) => {
-    if (Number(year) < 0 || Number(month) < 0 || Number(day) < 0) return false;
-
-    if (isBirhthdayTyped(year, month, day)) {
-      return isValid(
-        parse(day + '/' + month + '/' + year, 'dd/MM/yyyy', new Date())
-      );
-    }
-    return true;
-  };
-
-  const getYearDiff = (year: number, month: number, day: number) => {
-    if (year >= 1900 && month && day) {
-      return differenceInYears(new Date(), new Date(year, month, day));
-    } else return 0;
-  };
-
-  const validateAge = (year: string, month: string, day: string) => {
-    if (isBirhthdayTyped(year, month, day) && Number(year) > 999) {
-      const age = getYearDiff(Number(year), Number(month), Number(day));
-      if (age < 8 || age > 29) {
-        return false;
-      }
-    }
-    return true;
-  };
-
-  const isButtonEnabled = (year: string, month: string, day: string) => {
-    if (Number(year) > 1900) {
-      return validateAge(year, month, day);
-    }
-    return false;
-  };
 
   return (
     <Formik

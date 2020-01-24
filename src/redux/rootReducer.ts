@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux-starter-kit';
+import { combineReducers } from '@reduxjs/toolkit';
 import { reducer as oidcReducer } from 'redux-oidc';
 
 import authReducer from '../auth/redux';

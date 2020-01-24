@@ -1,4 +1,4 @@
-import { createSlice } from 'redux-starter-kit';
+import { createSlice } from '@reduxjs/toolkit';
 import { USER_EXPIRED, LOAD_USER_ERROR, USER_SIGNED_OUT } from 'redux-oidc';
 
 import { AppThunk } from '../redux/store';
@@ -22,7 +22,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: getInitialState(),
   reducers: {
-    startFetching: (state, action) => {
+    startFetching: state => {
       state.loading = true;
     },
     receiveApiToken: (state, action) => {

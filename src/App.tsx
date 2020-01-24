@@ -10,8 +10,8 @@ import userManager from './auth/userManager';
 import enableOidcLogging from './auth/enableOidcLogging';
 import Login from './auth/components/login/Login';
 import OidcCallback from './auth/components/oidcCallback/OidcCallback';
-import YouthProfile from './pages/memberhsip/components/youthProfile/YouthProfile';
-import ApproveYouthProfile from './pages/memberhsip/components/approveYouthProfile/ApproveYouthProfile';
+import YouthProfile from './pages/membership/components/youthProfile/YouthProfile';
+import ApproveYouthProfile from './pages/membership/components/approveYouthProfile/ApproveYouthProfile';
 import TermsOfService from './pages/tos/components/termsOfService/TermsOfService';
 import { fetchApiTokenThunk } from './auth/redux';
 
@@ -46,7 +46,7 @@ function App(props: Props) {
             <Route path="/login">
               <Login />
             </Route>
-            <Route path="/" exact>
+            <Route path={['/', '/membership-details']} exact>
               <YouthProfile />
             </Route>
             <Route path="/approve/:token" exact>

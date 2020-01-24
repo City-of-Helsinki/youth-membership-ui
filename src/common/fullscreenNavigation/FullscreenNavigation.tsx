@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { ReactComponent as HamburgerMenu } from '../svg/HamburgerMenu.svg';
 import { ReactComponent as Close } from '../svg/Close.svg';
@@ -39,12 +39,6 @@ function FullscreenNavigation(props: Props) {
           />
         </div>
         <div className={styles.navItems}>
-          <NavLink to="/" className={styles.navLink}>
-            {t('nav.information')}
-          </NavLink>
-          <NavLink to="/connected-services" className={styles.navLink}>
-            {t('nav.services')}
-          </NavLink>
           <span role="button" className={styles.navLink} onClick={signout}>
             {t('nav.signout')}
           </span>

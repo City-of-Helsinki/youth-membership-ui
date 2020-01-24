@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router';
+import { useHistory, Switch, Route } from 'react-router';
 import { loader } from 'graphql.macro';
 
 import getAuthenticatedUser from '../../../../auth/getAuthenticatedUser';
 import PageLayout from '../../../../common/layout/PageLayout';
 import CreateYouthProfile from '../createYouthProfile/CreateYouthProfile';
-import SentYouthProfileScreen from '../confirmSendingYouthProfile/ConfirmSendingYouthProfile';
+import SentYouthProfile from '../sentYouthProfile/SentYouthProfile';
+import MembershipDetails from '../membershipDetails/MembershipDetails';
 import Loading from '../../../../common/loading/Loading';
 import styles from './YouthProfile.module.css';
-import { ProfileExistsQuery } from '../../graphql/__generated__/ProfileExistsQuery';
+import { HasYouthProfile } from '../../../../graphql/generatedTypes';
 
-const PROFILE_EXISTS = loader('../../graphql/profileExistsQuery.graphql');
+const HAS_YOUTH_PROFILE = loader('../../graphql/HasYouthProfile.graphql');
 
 type Props = {};
 
 function YouthProfile(props: Props) {
   const { t } = useTranslation();
   const history = useHistory();
-
-  const { data, loading } = useQuery<ProfileExistsQuery>(PROFILE_EXISTS);
+  const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE);
   const [isCheckingAuthState, setIsCheckingAuthState] = useState(true);
   const [tunnistamoUser, setTunnistamoUser] = useState();
 
@@ -34,7 +34,7 @@ function YouthProfile(props: Props) {
   }, [history]);
 
   const isLoadingAnything = Boolean(isCheckingAuthState || loading);
-  const isProfileFound = data && data.myProfile;
+  const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
 
   return (
     <PageLayout background="youth">
@@ -43,8 +43,15 @@ function YouthProfile(props: Props) {
         isLoading={isLoadingAnything}
         loadingText={t('profile.loading')}
       >
-        {isProfileFound ? (
-          <SentYouthProfileScreen />
+        {isYouthProfileFound ? (
+          <Switch>
+            <Route path="/" exact>
+              <SentYouthProfile />
+            </Route>
+            <Route path="/membership-details" exact>
+              <MembershipDetails />
+            </Route>
+          </Switch>
         ) : (
           <CreateYouthProfile tunnistamoUser={tunnistamoUser} />
         )}
