@@ -110,10 +110,10 @@
     "approvedLink": "Ansökan är redan godkänd / länken är defekt"
   },
   "validation": {
-    "tooLong": "För länge",
+    "tooLong": "För lång",
     "tooShort": "För kort",
     "required": "Nödvändig",
-    "phoneMin": "Minsta längd 6 tecken",
+    "phoneMin": "Minst sex tecken",
     "email": "Ogiltig e-postadress"
   },
   "footer": {

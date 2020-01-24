@@ -113,7 +113,7 @@
     "tooLong": "Too long",
     "tooShort": "Too short",
     "required": "Required",
-    "phoneMin": "Min length 6 characters",
+    "phoneMin": "Min length six characters",
     "email": "Invalid email"
   },
   "footer": {

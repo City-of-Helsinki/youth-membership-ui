@@ -113,7 +113,7 @@
     "tooLong": "Liian pitkä",
     "tooShort": "Liian lyhyt",
     "required": "Vaadittu",
-    "phoneMin": "Vähimmäispituus 6 merkkiä",
+    "phoneMin": "Vähimmäispituus kuusi merkkiä",
     "email": "Virheellinen sähköpostiosoite"
   },
   "footer": {
