@@ -15,12 +15,7 @@ function Login(props: Props) {
       <div className={styles.hostingBox}>
         <h1>{t('login.title')}</h1>
         <p className={styles.helpText}>{t('login.helpText')}</p>
-        <Button
-          type="button"
-          disabled={false}
-          className={styles.button}
-          onClick={authenticate}
-        >
+        <Button type="button" className={styles.button} onClick={authenticate}>
           {t('login.buttonText')}
         </Button>
         <p>
