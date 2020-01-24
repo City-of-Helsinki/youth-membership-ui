@@ -50,6 +50,7 @@
     "childBirthDay": "Födelsedatum",
     "childBirthMonth": "Födelsemånad",
     "childBirthYear": "Födelseår",
+    "birthdayHelper": "Födelsedatum (dd.mm.yyyy) *",
     "phoneNumber": "Telefon",
     "email": "E-post",
     "addInfo": "Ytterligare information",
@@ -107,6 +108,13 @@
     "approvedTitle": "Nuta-medlemskap godkänt!",
     "approvedMessage": "Tack för att du bekräftar medlemskap i ungdomstjänsten.",
     "approvedLink": "Ansökan är redan godkänd / länken är defekt"
+  },
+  "validation": {
+    "tooLong": "För lång",
+    "tooShort": "För kort",
+    "required": "Nödvändig",
+    "phoneMin": "Minst sex tecken",
+    "email": "Ogiltig e-postadress"
   },
   "footer": {
     "copyright": "Upphovsrätt {{year}}",

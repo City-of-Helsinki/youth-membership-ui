@@ -12,14 +12,16 @@ function Header(props: Props) {
   const { t } = useTranslation();
   return (
     <header className={styles.header}>
-      <HelsinkiLogo className={styles.logo} aria-label="Helsinki logo" />
-      <span className={styles.appName}>{t('appName')}</span>
-      <section className={styles.end}>
-        <FullscreenNavigation className={styles.mobileNav} />
-        <div className={styles.desktopNav}>
-          <LanguageSwitcher />
-        </div>
-      </section>
+      <div className={styles.centeredContainer}>
+        <HelsinkiLogo className={styles.logo} aria-label="Helsinki logo" />
+        <span className={styles.appName}>{t('appName')}</span>
+        <section className={styles.end}>
+          <FullscreenNavigation className={styles.mobileNav} />
+          <div className={styles.desktopNav}>
+            <LanguageSwitcher />
+          </div>
+        </section>
+      </div>
     </header>
   );
 }

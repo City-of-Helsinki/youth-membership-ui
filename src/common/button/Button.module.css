@@ -1,5 +1,5 @@
 .button {
-  background: var(--hds-brand-color-bus);
+  background: var(--hds-ui-color-black);
   border: none;
   color: var(--hds-ui-color-white);
   display: inline-block;
@@ -11,10 +11,10 @@
 }
 
 .button:hover {
-  background: var(--hds-brand-color-bus-dark-50);
+  background: var(--hds-ui-color-black-80);
 }
 
 .button:disabled {
-  background: var(--hds-brand-color-bus-light-20);
+  background: var(--hds-ui-color-black-40);
   cursor: not-allowed;
 }

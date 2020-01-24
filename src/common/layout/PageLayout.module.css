@@ -1,14 +1,14 @@
 .hostingBox {
-    margin: 20px auto 0;
+    margin: 20px 10px 0;
     padding-bottom: 50px;
-    width: 1200px;
+    width: auto;
     flex: 1 0 auto;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 800px) {
     .hostingBox {
-        margin: 10px 10px 0;
-        width: auto;
+        margin: 20px auto 0;
+        width: 800px;
     }
 }
 

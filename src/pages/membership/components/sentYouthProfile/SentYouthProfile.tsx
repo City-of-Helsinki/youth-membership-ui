@@ -17,12 +17,14 @@ function ViewYouthProfile(props: Props) {
   const { t } = useTranslation();
   return (
     <div className={styles.hostingBox}>
-      <h2>{t('confirmSendingProfile.title')}</h2>
+      <h1>{t('confirmSendingProfile.title')}</h1>
       <p className={styles.helpText}>
         {t('confirmSendingProfile.helpText')}{' '}
         {data?.youthProfile?.approverEmail}.
       </p>
-      <Button type="button">{t('confirmSendingProfile.buttonText')}</Button>
+      <Button type="button" className={styles.button}>
+        {t('confirmSendingProfile.buttonText')}
+      </Button>
       <p>
         <Link to="/membership-details">
           {t('confirmSendingProfile.linkToShowSentData')}

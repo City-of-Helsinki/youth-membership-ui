@@ -40,8 +40,8 @@
 }
 
 .frontLink {
-  border: 2px solid var(--hds-brand-color-bus);
-  color: var(--hds-brand-color-bus);
+  border: 2px solid var(--hds-ui-color-black);
+  color: var(--hds-ui-color-black);
   display: inline-block;
   font-weight: bold;
   margin-top: 40px;

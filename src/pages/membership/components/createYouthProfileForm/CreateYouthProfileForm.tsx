@@ -52,46 +52,46 @@ const isButtonEnabled = (year: string, month: string, day: string) => {
 
 const schema = Yup.object().shape({
   firstName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(255, 'Too Long!')
-    .required('Required'),
+    .min(2, 'validation.tooShort')
+    .max(255, 'validation.tooLong')
+    .required('validation.required'),
   lastName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(255, 'Too Long!')
-    .required('Required'),
+    .min(2, 'validation.tooShort')
+    .max(255, 'validation.tooLong')
+    .required('validation.required'),
   phone: Yup.string()
     .min(6, 'validation.phoneMin')
-    .required('Required'),
+    .required('validation.required'),
   address: Yup.string()
-    .min(2, 'Too Short!')
-    .max(255, 'Too Long!')
-    .required('Required'),
+    .min(2, 'validation.tooShort')
+    .max(255, 'validation.tooLong')
+    .required('validation.required'),
   postalCode: Yup.string()
-    .min(5, 'Too Short!')
-    .max(5, 'Too Long!')
-    .required('Required'),
+    .min(5, 'validation.tooShort')
+    .max(5, 'validation.tooLong')
+    .required('validation.required'),
   city: Yup.string()
-    .min(2, 'Too Short!')
-    .max(255, 'Too Long!')
-    .required('Required'),
-  birthDay: Yup.number().required('Required!'),
-  birthMonth: Yup.number().required('Required!'),
-  birthYear: Yup.number().required('Required'),
+    .min(2, 'validation.tooShort')
+    .max(255, 'validation.tooLong')
+    .required('validation.required'),
+  birthDay: Yup.number().required('validation.required'),
+  birthMonth: Yup.number().required('validation.required'),
+  birthYear: Yup.number().required('validation.required'),
   approverFirstName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(255, 'Too Long!')
-    .required('Required'),
+    .min(2, 'validation.tooShort')
+    .max(255, 'validation.tooLong')
+    .required('validation.required'),
   approverLastName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(255, 'Too Long!')
-    .required('Required'),
+    .min(2, 'validation.tooShort')
+    .max(255, 'validation.tooLong')
+    .required('validation.required'),
   approverPhone: Yup.string()
     .min(6, 'validation.phoneMin')
-    .required('Required'),
+    .required('validation.required'),
   approverEmail: Yup.string()
-    .required('Required')
-    .email(),
-  photoUsageApproved: Yup.boolean().required('Required'),
+    .required('validation.required')
+    .email('validation.email'),
+  photoUsageApproved: Yup.boolean().required('validation.required'),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
 
@@ -178,7 +178,7 @@ function CreateYouthProfileForm(props: Props) {
       validationSchema={schema}
     >
       {props => (
-        <div>
+        <div className={styles.formWrapper}>
           <span className={styles.formTitleText}>
             <h2>{t('registration.title')}</h2>
             <p>{t('registration.membershipInfoText')}</p>
@@ -197,7 +197,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.firstName &&
                   t(props.errors.firstName)
                 }
-                labelText={t('registration.firstName')}
+                labelText={t('registration.firstName') + ' *'}
               />
               <Field
                 className={styles.formInput}
@@ -210,7 +210,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.lastName &&
                   t(props.errors.lastName)
                 }
-                labelText={t('registration.lastName')}
+                labelText={t('registration.lastName') + ' *'}
               />
             </div>
             <div className={styles.formRow}>
@@ -225,7 +225,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.address &&
                   t(props.errors.address)
                 }
-                labelText={t('registration.address')}
+                labelText={t('registration.address') + ' *'}
               />
               <Field
                 className={styles.formInputShort}
@@ -238,7 +238,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.postalCode &&
                   t(props.errors.postalCode)
                 }
-                labelText={t('registration.postalCode')}
+                labelText={t('registration.postalCode') + ' *'}
               />
               <Field
                 className={styles.formInputRes}
@@ -249,63 +249,65 @@ function CreateYouthProfileForm(props: Props) {
                 invalidText={
                   props.submitCount && props.errors.city && t(props.errors.city)
                 }
-                labelText={t('registration.city')}
+                labelText={t('registration.city') + ' *'}
               />
             </div>
-            <div className={styles.resRow}>
-              <Field
-                className={styles.childBirthDayInput}
-                as={TextInput}
-                id="birthDay"
-                name="birthDay"
-                type="number"
-                invalid={props.submitCount && props.errors.birthDay}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.birthDay &&
-                  t(props.errors.birthDay)
-                }
-                labelText={t('registration.childBirthDay')}
-              />
-              <span className={styles.birthdayMiddleDot}>&#8901;</span>
-              <Field
-                className={styles.childBirthInput}
-                as={TextInput}
-                id="birthMonth"
-                name="birthMonth"
-                hideLabel={true}
-                type="number"
-                invalid={props.submitCount && props.errors.birthMonth}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.birthMonth &&
-                  t(props.errors.birthMonth)
-                }
-                labelText={t('registration.childBirthMonth')}
-              />
-              <span className={styles.birthdayMiddleDot}>&#8901;</span>
-              <Field
-                className={styles.childBirthInput}
-                as={TextInput}
-                id="birthYear"
-                name="birthYear"
-                hideLabel={true}
-                type="number"
-                invalid={props.submitCount && props.errors.birthYear}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.birthYear &&
-                  t(props.errors.birthYear)
-                }
-                labelText={t('registration.childBirthYear')}
-              />
+            <div className={styles.birthDayContainer}>
+              <p className={styles.birthdayHelper}>
+                {t('registration.birthdayHelper')}
+              </p>
+              <div className={styles.resRow}>
+                <Field
+                  className={styles.childBirthInput}
+                  as={TextInput}
+                  id="birthDay"
+                  name="birthDay"
+                  type="number"
+                  invalid={props.submitCount && props.errors.birthDay}
+                  invalidText={
+                    props.submitCount &&
+                    props.errors.birthDay &&
+                    t(props.errors.birthDay)
+                  }
+                />
+                <span className={styles.birthdayMiddleDot}>&#8901;</span>
+                <Field
+                  className={styles.childBirthInput}
+                  as={TextInput}
+                  id="birthMonth"
+                  name="birthMonth"
+                  hideLabel={true}
+                  type="number"
+                  invalid={props.submitCount && props.errors.birthMonth}
+                  invalidText={
+                    props.submitCount &&
+                    props.errors.birthMonth &&
+                    t(props.errors.birthMonth)
+                  }
+                />
+                <span className={styles.birthdayMiddleDot}>&#8901;</span>
+                <Field
+                  className={styles.childBirthInput}
+                  as={TextInput}
+                  id="birthYear"
+                  name="birthYear"
+                  hideLabel={true}
+                  type="number"
+                  invalid={props.submitCount && props.errors.birthYear}
+                  invalidText={
+                    props.submitCount &&
+                    props.errors.birthYear &&
+                    t(props.errors.birthYear)
+                  }
+                />
+              </div>
             </div>
             {!validateDate(
               props.values.birthYear,
               props.values.birthMonth,
               props.values.birthDay
             ) ? (
-              <div className={styles.birhtdayErrorMessage}>
+              <div className={styles.birthdayErrorMessage}>
                 {t('registration.birthdayInvalid')}
               </div>
             ) : !validateAge(
@@ -313,7 +315,7 @@ function CreateYouthProfileForm(props: Props) {
                 props.values.birthMonth,
                 props.values.birthDay
               ) ? (
-              <div className={styles.birhtdayErrorMessage}>
+              <div className={styles.birthdayErrorMessage}>
                 {t('registration.ageRestriction')}
               </div>
             ) : (
@@ -338,7 +340,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.phone &&
                   t(props.errors.phone)
                 }
-                labelText={t('registration.phoneNumber')}
+                labelText={t('registration.phoneNumber') + ' *'}
               />
             </div>
             <h3>{t('registration.addInfo')}</h3>
@@ -431,7 +433,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverFirstName &&
                   t(props.errors.approverFirstName)
                 }
-                labelText={t('registration.firstName')}
+                labelText={t('registration.firstName') + ' *'}
               />
               <Field
                 className={styles.formInput}
@@ -444,7 +446,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverLastName &&
                   t(props.errors.approverLastName)
                 }
-                labelText={t('registration.lastName')}
+                labelText={t('registration.lastName') + ' *'}
               />
             </div>
             <div className={styles.formRow}>
@@ -460,7 +462,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverEmail &&
                   t(props.errors.approverEmail)
                 }
-                labelText={t('registration.email')}
+                labelText={t('registration.email') + ' *'}
               />
               <Field
                 className={styles.formInput}
@@ -474,7 +476,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverPhone &&
                   t(props.errors.approverPhone)
                 }
-                labelText={t('registration.phoneNumber')}
+                labelText={t('registration.phoneNumber') + ' *'}
               />
             </div>
             <h3>{t('registration.confirmSend')}</h3>
@@ -490,7 +492,7 @@ function CreateYouthProfileForm(props: Props) {
                 >
                   {t('registration.approveTermsText_link')}
                 </Link>
-                {t('registration.approveTermsText_2')}
+                {t('registration.approveTermsText_2') + ' *'}
               </span>
             </ul>
             <div className={styles.buttonAlign}>

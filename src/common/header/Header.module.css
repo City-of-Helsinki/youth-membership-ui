@@ -1,7 +1,18 @@
 .header {
+  padding: 10px 0;
+}
+
+.centeredContainer {
+  width: auto;
   align-items: center;
   display: flex;
-  padding: 10px 0;
+}
+
+@media (min-width: 1200px) {
+  .centeredContainer {
+    width: 1200px;
+    margin: 0 auto;
+  }
 }
 
 .appName {
