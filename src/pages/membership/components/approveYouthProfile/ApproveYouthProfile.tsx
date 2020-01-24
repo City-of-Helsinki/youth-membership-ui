@@ -13,11 +13,11 @@ import ConfirmApprovingYouthProfile from '../confirmApprovingYouthProfile/Confir
 import ApproveYouthProfileForm, {
   FormValues,
 } from '../approveYouthProfileForm/ApproveYouthProfileForm';
-import { YouthProfileByApprovalToken } from '../../graphql/__generated__/YouthProfileByApprovalToken';
 import {
+  YouthProfileByApprovalToken,
   ApproveYouthProfile as ApproveYourProfileData,
   ApproveYouthProfileVariables,
-} from '../../graphql/__generated__/ApproveYouthProfile';
+} from '../../../../graphql/generatedTypes';
 
 const PROFILE_BY_TOKEN = loader(
   '../../graphql/YouthProfileByApprovalToken.graphql'

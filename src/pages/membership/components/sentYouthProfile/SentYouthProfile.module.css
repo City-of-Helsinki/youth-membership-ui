@@ -1,0 +1,13 @@
+.helpText {
+  margin: 0 10px 50px;
+}
+
+@media (min-width: 415px) {
+  .helpText {
+    margin: 0 100px 50px;
+  }
+}
+
+.linkArrow{
+  color: #0072c6;
+}
