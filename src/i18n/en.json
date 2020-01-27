@@ -38,6 +38,11 @@
     "photoUsageExplanation": "Pictures of my child can be taken and used for internal and external communications in the City of Helsinki",
     "returnToFront": "Return to frontpage"
   },
+  "membershipInformation": {
+    "title": "Membership card number {{number}}",
+    "showProfileInformation": "Show profile information",
+    "validUntil": "Valid until {{date}}"
+  },
   "registration": {
     "title": "Please fill in your information",
     "membershipInfoText": "Add information about what membership can get and what it is used for.",

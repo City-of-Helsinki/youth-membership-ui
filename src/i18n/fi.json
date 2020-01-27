@@ -38,6 +38,11 @@
     "photoUsageExplanation": "Lapsestani saa ottaa kuvia ja niitä saa käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä",
     "returnToFront": "Takaisin etusivulle"
   },
+  "membershipInformation": {
+    "title": "Jäsenkortin numero {{number}}",
+    "showProfileInformation": "Näytä profiilin tiedot",
+    "validUntil": "Voimassa {{date}} asti"
+  },
   "registration": {
     "title": "Täytä tietosi",
     "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",

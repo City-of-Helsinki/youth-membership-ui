@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detailsLink {
+    margin-top: 250px;
+    display: flex;
+    align-items: center;
+}
+
+.detailsLink:visited {
+    color: var(--hds-ui-color-black);
+}
+
+.icon {
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+}

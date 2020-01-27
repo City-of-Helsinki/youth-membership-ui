@@ -4,9 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { useHistory, Switch, Route } from 'react-router';
 import { loader } from 'graphql.macro';
 
+import isMembershipValid from '../../helpers/isMembershipValid';
 import getAuthenticatedUser from '../../../../auth/getAuthenticatedUser';
 import PageLayout from '../../../../common/layout/PageLayout';
 import CreateYouthProfile from '../createYouthProfile/CreateYouthProfile';
+import MembershipInformation from '../membershipInformation/MembershipInformation';
 import SentYouthProfile from '../sentYouthProfile/SentYouthProfile';
 import MembershipDetails from '../membershipDetails/MembershipDetails';
 import Loading from '../../../../common/loading/Loading';
@@ -36,6 +38,10 @@ function YouthProfile(props: Props) {
   const isLoadingAnything = Boolean(isCheckingAuthState || loading);
   const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
 
+  const approved = isMembershipValid(
+    data?.myProfile?.youthProfile?.expiration,
+    data?.myProfile?.youthProfile?.approvedTime
+  );
   return (
     <PageLayout background="youth">
       <Loading
@@ -46,7 +52,13 @@ function YouthProfile(props: Props) {
         {isYouthProfileFound ? (
           <Switch>
             <Route path="/" exact>
-              <SentYouthProfile />
+              {approved ? (
+                <MembershipInformation
+                  expires={data?.myProfile?.youthProfile?.expiration}
+                />
+              ) : (
+                <SentYouthProfile />
+              )}
             </Route>
             <Route path="/membership-details" exact>
               <MembershipDetails />
