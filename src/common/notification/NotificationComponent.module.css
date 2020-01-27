@@ -1,0 +1,14 @@
+.notification {
+    width: 200px;
+    height: 100px;
+    position: fixed;
+    top: 100px;
+    right: 0;
+}
+
+.notification p {
+    margin: 0;
+}
+
+
+
