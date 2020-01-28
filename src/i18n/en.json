@@ -149,6 +149,10 @@
     "title8": "8. Other terms and conditions",
     "message8": ""
   },
+  "notification": {
+    "defaultErrorTitle": "Error",
+    "defaultErrorText": "Something went wrong. Try again after a while."
+  },
   "LANGUAGE_OPTIONS": {
     "ENGLISH": "English",
     "FINNISH": "Finnish",

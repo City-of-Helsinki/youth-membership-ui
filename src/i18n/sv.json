@@ -149,6 +149,10 @@
     "title8": "8. Andra villkor",
     "message8": ""
   },
+  "notification": {
+    "defaultErrorTitle": "Fel",
+    "defaultErrorText": "Något gick fel. Försök igen efter ett tag."
+  },
   "LANGUAGE_OPTIONS": {
     "ENGLISH": "Engelska",
     "FINNISH": "Finska",
