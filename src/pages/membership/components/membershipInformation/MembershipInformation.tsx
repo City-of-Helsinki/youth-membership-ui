@@ -13,13 +13,13 @@ import convertDateToLocale from '../../helpers/convertDateToLocale';
 const MEMBERSHIP_DETAILS = loader('../../graphql/MembershipDetails.graphql');
 
 type Props = {
-  expires: string;
+  expirationDate: string;
 };
 
 function MembershipInformation(props: Props) {
   const { data, loading } = useQuery<MembershipDetails>(MEMBERSHIP_DETAILS);
   const { t } = useTranslation();
-  const validUntil = convertDateToLocale(props.expires);
+  const validUntil = convertDateToLocale(props.expirationDate);
 
   return (
     <div className={styles.container}>

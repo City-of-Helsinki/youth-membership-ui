@@ -54,7 +54,7 @@ function YouthProfile(props: Props) {
             <Route path="/" exact>
               {approved ? (
                 <MembershipInformation
-                  expires={data?.myProfile?.youthProfile?.expiration}
+                  expirationDate={data?.myProfile?.youthProfile?.expiration}
                 />
               ) : (
                 <SentYouthProfile />
