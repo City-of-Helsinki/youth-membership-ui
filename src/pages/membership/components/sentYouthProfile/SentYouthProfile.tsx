@@ -16,13 +16,9 @@ type Props = {};
 function ViewYouthProfile(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
   const { data } = useQuery<ApproverEmail>(APPROVER_EMAIL, {
-    onError: () => toggleErrorNotification(),
+    onError: () => setShowNotification(true),
   });
   const { t } = useTranslation();
-
-  const toggleErrorNotification = () => {
-    setShowNotification(true);
-  };
 
   return (
     <div className={styles.hostingBox}>
