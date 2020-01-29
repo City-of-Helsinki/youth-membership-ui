@@ -81,6 +81,7 @@
     "title": "Ansökan har skickats till...!",
     "helpText": "Din medlemsansökan har skickats till ",
     "buttonText": "Skicka igen medlemskapsförfrågan",
+    "sendAgainHelpText": "Godkännandemail har skickats igen till",
     "linkToShowSentData": "Visa din ansökan"
   },
   "approval": {
