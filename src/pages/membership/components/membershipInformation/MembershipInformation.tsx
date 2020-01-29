@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { Link } from 'react-router-dom';
 import { IconAngleRight } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
+import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import { MembershipDetails } from '../../../../graphql/generatedTypes';
 import styles from './MembershipInformation.module.css';
 import getFullName from '../../helpers/getFullName';
@@ -17,9 +18,17 @@ type Props = {
 };
 
 function MembershipInformation(props: Props) {
-  const { data, loading } = useQuery<MembershipDetails>(MEMBERSHIP_DETAILS);
+  const [showNotification, setShowNotification] = useState(false);
+
+  const { data, loading } = useQuery<MembershipDetails>(MEMBERSHIP_DETAILS, {
+    onError: () => toggleErrorNotification(),
+  });
   const { t } = useTranslation();
   const validUntil = convertDateToLocale(props.expirationDate);
+
+  const toggleErrorNotification = () => {
+    setShowNotification(true);
+  };
 
   return (
     <div className={styles.container}>
@@ -38,6 +47,11 @@ function MembershipInformation(props: Props) {
             {t('membershipInformation.showProfileInformation')}
             <IconAngleRight className={styles.icon} />
           </Link>
+
+          <NotificationComponent
+            show={showNotification}
+            onClose={() => setShowNotification(false)}
+          />
         </React.Fragment>
       )}
     </div>

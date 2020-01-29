@@ -7,6 +7,7 @@ import { loader } from 'graphql.macro';
 import isMembershipValid from '../../helpers/isMembershipValid';
 import getAuthenticatedUser from '../../../../auth/getAuthenticatedUser';
 import PageLayout from '../../../../common/layout/PageLayout';
+import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import CreateYouthProfile from '../createYouthProfile/CreateYouthProfile';
 import MembershipInformation from '../membershipInformation/MembershipInformation';
 import SentYouthProfile from '../sentYouthProfile/SentYouthProfile';
@@ -22,7 +23,10 @@ type Props = {};
 function YouthProfile(props: Props) {
   const { t } = useTranslation();
   const history = useHistory();
-  const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE);
+  const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
+    onError: () => toggleErrorNotification(),
+  });
+  const [showNotification, setShowNotification] = useState(false);
   const [isCheckingAuthState, setIsCheckingAuthState] = useState(true);
   const [tunnistamoUser, setTunnistamoUser] = useState();
 
@@ -35,6 +39,10 @@ function YouthProfile(props: Props) {
       .catch(() => history.push('/login'));
   }, [history]);
 
+  const toggleErrorNotification = () => {
+    setShowNotification(true);
+  };
+
   const isLoadingAnything = Boolean(isCheckingAuthState || loading);
   const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
 
@@ -42,6 +50,7 @@ function YouthProfile(props: Props) {
     data?.myProfile?.youthProfile?.expiration,
     data?.myProfile?.youthProfile?.approvedTime
   );
+
   return (
     <PageLayout background="youth">
       <Loading
@@ -68,6 +77,10 @@ function YouthProfile(props: Props) {
           <CreateYouthProfile tunnistamoUser={tunnistamoUser} />
         )}
       </Loading>
+      <NotificationComponent
+        show={showNotification}
+        onClose={() => setShowNotification(false)}
+      />
     </PageLayout>
   );
 }
