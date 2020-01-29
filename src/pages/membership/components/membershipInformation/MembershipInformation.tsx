@@ -22,14 +22,10 @@ function MembershipInformation(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
 
   const { data, loading } = useQuery<MembershipDetails>(MEMBERSHIP_DETAILS, {
-    onError: () => toggleErrorNotification(),
+    onError: () => setShowNotification(true),
   });
   const { t } = useTranslation();
   const validUntil = convertDateToLocale(props.expirationDate);
-
-  const toggleErrorNotification = () => {
-    setShowNotification(true);
-  };
 
   return (
     <div className={styles.container}>

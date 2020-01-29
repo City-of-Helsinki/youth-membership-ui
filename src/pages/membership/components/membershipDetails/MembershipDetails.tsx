@@ -21,12 +21,8 @@ function RegistrationInformation(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
   const { t } = useTranslation();
   const { data } = useQuery<MembershipDetailsData>(MEMBERSHIP_DETAILS, {
-    onError: () => toggleErrorNotification(),
+    onError: () => setShowNotification(true),
   });
-
-  const toggleErrorNotification = () => {
-    setShowNotification(true);
-  };
 
   return (
     <div className={styles.membershipDetails}>

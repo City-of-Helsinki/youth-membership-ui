@@ -44,10 +44,6 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     refetchQueries: ['HasYouthProfile'],
   });
 
-  const toggleErrorNotification = () => {
-    setShowNotification(prevState => !prevState);
-  };
-
   const handleOnValues = (formValues: FormValues) => {
     const variables: CreateMyProfileVariables = {
       input: {
@@ -111,11 +107,11 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
       .then(result => {
         if (result.data) {
           addServiceConnection({ variables: connectionVariables }).catch(() =>
-            toggleErrorNotification()
+            setShowNotification(true)
           );
         }
       })
-      .catch(() => toggleErrorNotification());
+      .catch(() => setShowNotification(true));
   };
   return (
     <div className={styles.form}>
@@ -145,7 +141,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
 
       <NotificationComponent
         show={showNotification}
-        onClose={toggleErrorNotification}
+        onClose={() => setShowNotification(false)}
       />
     </div>
   );

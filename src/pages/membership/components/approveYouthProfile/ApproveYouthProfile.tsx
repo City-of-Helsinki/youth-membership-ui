@@ -40,17 +40,13 @@ function ApproveYouthProfile(props: Props) {
     PROFILE_BY_TOKEN,
     {
       variables: { token: params.token },
-      onError: () => toggleErrorNotification(),
+      onError: () => setShowNotification(true),
     }
   );
   const [approveProfile, { loading }] = useMutation<
     ApproveYourProfileData,
     ApproveYouthProfileVariables
   >(APPROVE_PROFILE);
-
-  const toggleErrorNotification = () => {
-    setShowNotification(true);
-  };
 
   const handleOnValues = (values: FormValues) => {
     const variables = {
@@ -72,7 +68,7 @@ function ApproveYouthProfile(props: Props) {
           setApprovalSuccessful(true);
         }
       })
-      .catch(() => toggleErrorNotification());
+      .catch(() => setShowNotification(true));
   };
 
   return (

@@ -24,7 +24,7 @@ function YouthProfile(props: Props) {
   const { t } = useTranslation();
   const history = useHistory();
   const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
-    onError: () => toggleErrorNotification(),
+    onError: () => setShowNotification(true),
   });
   const [showNotification, setShowNotification] = useState(false);
   const [isCheckingAuthState, setIsCheckingAuthState] = useState(true);
@@ -38,10 +38,6 @@ function YouthProfile(props: Props) {
       })
       .catch(() => history.push('/login'));
   }, [history]);
-
-  const toggleErrorNotification = () => {
-    setShowNotification(true);
-  };
 
   const isLoadingAnything = Boolean(isCheckingAuthState || loading);
   const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
