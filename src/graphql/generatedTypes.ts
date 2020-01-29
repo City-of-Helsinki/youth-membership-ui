@@ -109,6 +109,7 @@ export interface CreateMyProfileVariables {
 export interface HasYouthProfile_myProfile_youthProfile {
   readonly __typename: "YouthProfileType";
   readonly expiration: any;
+  readonly approvedTime: any | null;
 }
 
 export interface HasYouthProfile_myProfile {
@@ -169,6 +170,10 @@ export interface MembershipDetails_youthProfile {
   readonly approverLastName: string;
   readonly approverEmail: string;
   readonly approverPhone: string;
+  /**
+   * Youth's membership number
+   */
+  readonly membershipNumber: string | null;
 }
 
 export interface MembershipDetails {
@@ -224,6 +229,10 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken {
   readonly approverLastName: string;
   readonly approverEmail: string;
   readonly approverPhone: string;
+  /**
+   * Youth's membership number
+   */
+  readonly membershipNumber: string | null;
 }
 
 export interface YouthProfileByApprovalToken {
@@ -283,6 +292,10 @@ export interface MembershipDetailsFragment {
   readonly approverLastName: string;
   readonly approverEmail: string;
   readonly approverPhone: string;
+  /**
+   * Youth's membership number
+   */
+  readonly membershipNumber: string | null;
 }
 
 /* tslint:disable */

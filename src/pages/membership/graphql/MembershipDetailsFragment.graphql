@@ -23,4 +23,5 @@ fragment MembershipDetailsFragment on YouthProfileType {
   approverLastName
   approverEmail
   approverPhone
+  membershipNumber
 }

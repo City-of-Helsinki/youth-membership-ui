@@ -38,6 +38,11 @@
     "photoUsageExplanation": "Bilder av mitt barn kan tas och användas för Helsingfors stads interna och externa kommunikationsyften",
     "returnToFront": "Tillbaka till framsidan"
   },
+  "membershipInformation": {
+    "title": "Medlemskortnummer {{number}}",
+    "showProfileInformation": "Visa profilinformation",
+    "validUntil": "Gäller till {{date}}"
+  },
   "registration": {
     "title": "Vänligen fyll i din information",
     "membershipInfoText": "Lägg till information om vad medlemskap kan få och vad det används för.",
@@ -143,6 +148,11 @@
     "message7": "",
     "title8": "8. Andra villkor",
     "message8": ""
+  },
+  "notification": {
+    "defaultErrorTitle": "Fel",
+    "defaultErrorText": "Något gick fel. Försök igen efter ett tag.",
+    "closeButtonText": "Stäng"
   },
   "LANGUAGE_OPTIONS": {
     "ENGLISH": "Engelska",

@@ -38,6 +38,11 @@
     "photoUsageExplanation": "Lapsestani saa ottaa kuvia ja niitä saa käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä",
     "returnToFront": "Takaisin etusivulle"
   },
+  "membershipInformation": {
+    "title": "Jäsenkortin numero {{number}}",
+    "showProfileInformation": "Näytä profiilin tiedot",
+    "validUntil": "Voimassa {{date}} asti"
+  },
   "registration": {
     "title": "Täytä tietosi",
     "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
@@ -143,6 +148,11 @@
     "message7": "",
     "title8": "8. Muut ehdot",
     "message8": ""
+  },
+  "notification": {
+    "defaultErrorTitle": "Virhe",
+    "defaultErrorText": "Jokin meni pieleen. Yritä hetken kuluttua uudelleen.",
+    "closeButtonText": "Sulje"
   },
   "LANGUAGE_OPTIONS": {
     "ENGLISH": "Englanti",

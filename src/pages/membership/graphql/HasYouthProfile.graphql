@@ -2,6 +2,7 @@ query HasYouthProfile {
   myProfile {
     youthProfile {
       expiration
+      approvedTime
     }
   }
 }
