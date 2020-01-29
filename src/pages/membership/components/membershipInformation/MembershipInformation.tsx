@@ -4,6 +4,7 @@ import { loader } from 'graphql.macro';
 import { Link } from 'react-router-dom';
 import { IconAngleRight } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { QRCode } from 'react-qrcode-logo';
 
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import { MembershipDetails } from '../../../../graphql/generatedTypes';
@@ -41,7 +42,14 @@ function MembershipInformation(props: Props) {
             })}
           </h3>
 
-          <p>{t('membershipInformation.validUntil', { date: validUntil })}</p>
+          <p className={styles.validUntil}>
+            {t('membershipInformation.validUntil', { date: validUntil })}
+          </p>
+
+          <QRCode
+            size={175}
+            value="https://helsinkiprofile.test.kuva.hel.ninja/admin/"
+          />
 
           <Link to="/membership-details" className={styles.detailsLink}>
             {t('membershipInformation.showProfileInformation')}
