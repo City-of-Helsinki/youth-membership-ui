@@ -185,6 +185,32 @@ export interface MembershipDetails {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: UpdateMyYouthProfile
+// ====================================================
+
+export interface UpdateMyYouthProfile_updateMyYouthProfile_youthProfile {
+  readonly __typename: "YouthProfileType";
+  readonly approverEmail: string;
+}
+
+export interface UpdateMyYouthProfile_updateMyYouthProfile {
+  readonly __typename: "UpdateMyYouthProfileMutationPayload";
+  readonly youthProfile: UpdateMyYouthProfile_updateMyYouthProfile_youthProfile | null;
+}
+
+export interface UpdateMyYouthProfile {
+  readonly updateMyYouthProfile: UpdateMyYouthProfile_updateMyYouthProfile | null;
+}
+
+export interface UpdateMyYouthProfileVariables {
+  readonly input: UpdateMyYouthProfileMutationInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: YouthProfileByApprovalToken
 // ====================================================
 
@@ -440,6 +466,23 @@ export interface ServiceConnectionInput {
 
 export interface ServiceInput {
   readonly type?: ServiceType | null;
+}
+
+export interface UpdateMyYouthProfileMutationInput {
+  readonly youthProfile: UpdateYouthProfileInput;
+  readonly clientMutationId?: string | null;
+}
+
+export interface UpdateYouthProfileInput {
+  readonly schoolName?: string | null;
+  readonly schoolClass?: string | null;
+  readonly languageAtHome?: YouthLanguage | null;
+  readonly approverFirstName?: string | null;
+  readonly approverLastName?: string | null;
+  readonly approverPhone?: string | null;
+  readonly approverEmail?: string | null;
+  readonly birthDate?: any | null;
+  readonly resendRequestNotification?: boolean | null;
 }
 
 export interface YouthProfileFields {

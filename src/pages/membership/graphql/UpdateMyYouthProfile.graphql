@@ -1,0 +1,7 @@
+mutation UpdateMyYouthProfile($input: UpdateMyYouthProfileMutationInput!) {
+    updateMyYouthProfile(input: $input) {
+        youthProfile {
+            approverEmail
+        }
+    }
+}
