@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { loader } from 'graphql.macro';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import styles from './MembershipDetails.module.css';
+import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import { MembershipDetails as MembershipDetailsData } from '../../../../graphql/generatedTypes';
 import LabeledValue from '../../../../common/labeledValue/LabeledValue';
 import getFullName from '../../helpers/getFullName';
@@ -17,8 +18,12 @@ const MEMBERSHIP_DETAILS = loader('../../graphql/MembershipDetails.graphql');
 type Props = {};
 
 function RegistrationInformation(props: Props) {
+  const [showNotification, setShowNotification] = useState(false);
   const { t } = useTranslation();
-  const { data } = useQuery<MembershipDetailsData>(MEMBERSHIP_DETAILS);
+  const { data } = useQuery<MembershipDetailsData>(MEMBERSHIP_DETAILS, {
+    onError: () => setShowNotification(true),
+  });
+
   return (
     <div className={styles.membershipDetails}>
       {data?.youthProfile && (
@@ -86,6 +91,11 @@ function RegistrationInformation(props: Props) {
       <Link to="/" className={styles.frontLink}>
         {t('membershipDetails.returnToFront')}
       </Link>
+
+      <NotificationComponent
+        show={showNotification}
+        onClose={() => setShowNotification(false)}
+      />
     </div>
   );
 }

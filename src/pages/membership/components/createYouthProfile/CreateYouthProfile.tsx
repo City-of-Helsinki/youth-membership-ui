@@ -1,9 +1,10 @@
 /* eslint-disable sort-keys */
-import React from 'react';
+import React, { useState } from 'react';
 import { User } from 'oidc-client';
 import { useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 
+import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import YouthProfileForm, {
   FormValues,
 } from '../createYouthProfileForm/CreateYouthProfileForm';
@@ -29,6 +30,8 @@ type Props = {
 };
 
 function CreateYouthProflle({ tunnistamoUser }: Props) {
+  const [showNotification, setShowNotification] = useState(false);
+
   const [createProfile, { loading }] = useMutation<
     CreateMyProfileData,
     CreateMyProfileVariables
@@ -100,11 +103,15 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
       },
     };
 
-    createProfile({ variables }).then(result => {
-      if (result.data) {
-        addServiceConnection({ variables: connectionVariables });
-      }
-    });
+    createProfile({ variables })
+      .then(result => {
+        if (result.data) {
+          addServiceConnection({ variables: connectionVariables }).catch(() =>
+            setShowNotification(true)
+          );
+        }
+      })
+      .catch(() => setShowNotification(true));
   };
   return (
     <div className={styles.form}>
@@ -130,6 +137,11 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
         }}
         isSubmitting={loading}
         onValues={handleOnValues}
+      />
+
+      <NotificationComponent
+        show={showNotification}
+        onClose={() => setShowNotification(false)}
       />
     </div>
   );

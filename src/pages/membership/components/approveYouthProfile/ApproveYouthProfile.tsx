@@ -5,6 +5,7 @@ import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 
 import Loading from '../../../../common/loading/Loading';
+import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import convertBooleanToString from '../../helpers/convertBooleanToString';
 import convertDateToLocale from '../../helpers/convertDateToLocale';
 import getAddress from '../../helpers/getAddress';
@@ -31,12 +32,15 @@ type Params = {
 
 function ApproveYouthProfile(props: Props) {
   const [approvalSuccessful, setApprovalSuccessful] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+
   const params = useParams<Params>();
   const { t } = useTranslation();
   const { data, loading: queryLoading } = useQuery<YouthProfileByApprovalToken>(
     PROFILE_BY_TOKEN,
     {
       variables: { token: params.token },
+      onError: () => setShowNotification(true),
     }
   );
   const [approveProfile, { loading }] = useMutation<
@@ -58,11 +62,13 @@ function ApproveYouthProfile(props: Props) {
       },
     };
 
-    approveProfile({ variables }).then(result => {
-      if (result.data) {
-        setApprovalSuccessful(true);
-      }
-    });
+    approveProfile({ variables })
+      .then(result => {
+        if (result.data) {
+          setApprovalSuccessful(true);
+        }
+      })
+      .catch(() => setShowNotification(true));
   };
 
   return (
@@ -112,6 +118,10 @@ function ApproveYouthProfile(props: Props) {
         {!approvalSuccessful && !data && <h2>{t('approval.approvedLink')}</h2>}
         {approvalSuccessful && <ConfirmApprovingYouthProfile />}
       </Loading>
+      <NotificationComponent
+        show={showNotification}
+        onClose={() => setShowNotification(false)}
+      />
     </PageLayout>
   );
 }

@@ -4,8 +4,12 @@
     align-items: center;
 }
 
+.validUntil {
+    margin-bottom: 75px;
+}
+
 .detailsLink {
-    margin-top: 250px;
+    margin-top: 100px;
     display: flex;
     align-items: center;
 }
