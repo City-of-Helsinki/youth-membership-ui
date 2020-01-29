@@ -19,7 +19,7 @@ function NotificationComponent(props: Props) {
       <DismissableNotification
         type={props.type || 'error'}
         labelText={props.labelText || t('notification.defaultErrorTitle')}
-        closeButtonLabelText="Close"
+        closeButtonLabelText={t('notification.closeButtonText')}
         onClose={props.onClose}
       >
         {props.children || t('notification.defaultErrorText')}

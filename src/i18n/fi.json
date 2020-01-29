@@ -151,7 +151,8 @@
   },
   "notification": {
     "defaultErrorTitle": "Virhe",
-    "defaultErrorText": "Jokin meni pieleen. Yritä hetken kuluttua uudelleen."
+    "defaultErrorText": "Jokin meni pieleen. Yritä hetken kuluttua uudelleen.",
+    "closeButtonText": "Sulje"
   },
   "LANGUAGE_OPTIONS": {
     "ENGLISH": "Englanti",

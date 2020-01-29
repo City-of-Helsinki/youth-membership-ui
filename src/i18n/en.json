@@ -151,7 +151,9 @@
   },
   "notification": {
     "defaultErrorTitle": "Error",
-    "defaultErrorText": "Something went wrong. Try again after a while."
+    "defaultErrorText": "Something went wrong. Try again after a while.",
+    "closeButtonText": "Close"
+
   },
   "LANGUAGE_OPTIONS": {
     "ENGLISH": "English",

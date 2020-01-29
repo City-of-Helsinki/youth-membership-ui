@@ -151,7 +151,8 @@
   },
   "notification": {
     "defaultErrorTitle": "Fel",
-    "defaultErrorText": "Något gick fel. Försök igen efter ett tag."
+    "defaultErrorText": "Något gick fel. Försök igen efter ett tag.",
+    "closeButtonText": "Stäng"
   },
   "LANGUAGE_OPTIONS": {
     "ENGLISH": "Engelska",
