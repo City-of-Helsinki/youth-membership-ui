@@ -54,7 +54,7 @@ function ViewYouthProfile(props: Props) {
 
       <p className={styles.helpText}>
         {resendEmail
-          ? 'Lähetetty uudestaan'
+          ? t('confirmSendingProfile.sendAgainHelpText')
           : t('confirmSendingProfile.helpText')}
         {data?.youthProfile?.approverEmail}.
       </p>

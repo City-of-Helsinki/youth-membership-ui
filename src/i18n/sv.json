@@ -80,8 +80,8 @@
   "confirmSendingProfile": {
     "title": "Ansökan har skickats till...!",
     "helpText": "Din medlemsansökan har skickats till ",
+    "sendAgainHelpText": "Godkännandemail har skickats igen till ",
     "buttonText": "Skicka igen medlemskapsförfrågan",
-    "sendAgainHelpText": "Godkännandemail har skickats igen till",
     "linkToShowSentData": "Visa din ansökan"
   },
   "approval": {
