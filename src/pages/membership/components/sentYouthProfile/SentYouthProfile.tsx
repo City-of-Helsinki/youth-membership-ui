@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 import Button from '../../../../common/button/Button';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import styles from './SentYouthProfile.module.css';
-import { ApproverEmail } from '../../../../graphql/generatedTypes';
 import {
+  ApproverEmail,
   UpdateMyYouthProfile as UpdateMyYouthProfileData,
   UpdateMyYouthProfileVariables,
 } from '../../../../graphql/generatedTypes';
