@@ -20,7 +20,7 @@ type Props = {};
 
 function ViewYouthProfile(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
-  const [resendEmail, setResendEmail] = useState(false);
+  const [emailReSent, setEmailReSent] = useState(false);
   const { data } = useQuery<ApproverEmail>(APPROVER_EMAIL, {
     onError: () => setShowNotification(true),
   });
@@ -42,7 +42,7 @@ function ViewYouthProfile(props: Props) {
     resendConfirmationEmail({ variables })
       .then(result => {
         if (result.data) {
-          setResendEmail(true);
+          setEmailReSent(true);
         }
       })
       .catch(() => setShowNotification(true));
@@ -53,7 +53,7 @@ function ViewYouthProfile(props: Props) {
       <h1>{t('confirmSendingProfile.title')}</h1>
 
       <p className={styles.helpText}>
-        {resendEmail
+        {emailReSent
           ? t('confirmSendingProfile.sendAgainHelpText')
           : t('confirmSendingProfile.helpText')}
         {data?.youthProfile?.approverEmail}.
@@ -62,7 +62,7 @@ function ViewYouthProfile(props: Props) {
         type="button"
         className={styles.button}
         onClick={handleEmailResent}
-        disabled={resendEmail}
+        disabled={emailReSent}
       >
         {t('confirmSendingProfile.buttonText')}
       </Button>
