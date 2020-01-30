@@ -41,6 +41,7 @@ function ApproveYouthProfile(props: Props) {
     {
       variables: { token: params.token },
       onError: () => setShowNotification(true),
+      fetchPolicy: 'network-only',
     }
   );
   const [approveProfile, { loading }] = useMutation<
