@@ -78,8 +78,9 @@
     "ageRestriction": "Endast 8-29 år kan skapa ungdomsprofil."
   },
   "confirmSendingProfile": {
-    "title": "Ansökan har skickats till...!",
+    "title": "Ansökan har skickats till din vårdnadshavare för godkännande!",
     "helpText": "Din medlemsansökan har skickats till ",
+    "sendAgainHelpText": "Godkännandemail har skickats igen till ",
     "buttonText": "Skicka igen medlemskapsförfrågan",
     "linkToShowSentData": "Visa din ansökan"
   },

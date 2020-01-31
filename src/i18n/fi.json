@@ -80,6 +80,7 @@
   "confirmSendingProfile": {
     "title": "Hakemus on lähetetty huoltajallesi!",
     "helpText": "Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen ",
+    "sendAgainHelpText": "Varmistusviesti on lähetetty uudestaan osoitteeseen ",
     "buttonText": "Lähetä uusi varmistusviesti",
     "linkToShowSentData": "Näytä hakemuksen tiedot"
   },

@@ -80,6 +80,7 @@
   "confirmSendingProfile": {
     "title": "The application has been sent to your guardian for approval!",
     "helpText": "Your membership application has been sent to ",
+    "sendAgainHelpText": "Approval email has been re-sent to ",
     "buttonText": "Resend the membership request",
     "linkToShowSentData": "Display your application"
   },
