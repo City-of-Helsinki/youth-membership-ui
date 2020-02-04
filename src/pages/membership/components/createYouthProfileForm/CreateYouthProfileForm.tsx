@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { differenceInYears, format, isValid, parse } from 'date-fns';
 import * as Yup from 'yup';
 
+import { YouthLanguage } from '../../../../graphql/generatedTypes';
 import styles from './CreateYouthProfileForm.module.css';
 import Button from '../../../../common/button/Button';
 
@@ -110,9 +111,9 @@ export type FormValues = {
   approverLastName: string;
   approverPhone: string;
   approverEmail: string;
+  languageAtHome: YouthLanguage;
   //TODO: Waiting to be fixed in backend
   // photoUsageApproved: boolean;
-  //languageAtHome: string;
 };
 
 type Props = {
@@ -123,7 +124,7 @@ type Props = {
 
 function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
-  const languages = ['Suomi', 'Svenska', 'English'];
+  const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
   return (
     <Formik
@@ -139,7 +140,7 @@ function CreateYouthProfileForm(props: Props) {
         schoolName: '',
         schoolClass: '',
         language: '',
-        photoUsageApproved: false,
+        photoUsageApproved: 'false',
         approverFirstName: '',
         approverLastName: '',
         approverEmail: '',
@@ -170,9 +171,9 @@ function CreateYouthProfileForm(props: Props) {
           approverLastName: values.approverLastName,
           approverPhone: values.approverPhone,
           approverEmail: values.approverEmail,
+          languageAtHome: values.languageAtHome,
           //TODO: Waiting to be fixed in backend
           //photoUsageApproved: true,
-          //languageAtHome: values.languageAtHome,
         });
       }}
       validationSchema={schema}
@@ -370,7 +371,9 @@ function CreateYouthProfileForm(props: Props) {
                       type="radio"
                       value={language}
                     />
-                    <span className={styles.listLabel}>{language}</span>
+                    <span className={styles.listLabel}>
+                      {t(`LANGUAGE_OPTIONS.${language}`)}
+                    </span>
                   </label>
                 </li>
               ))}
@@ -396,7 +399,7 @@ function CreateYouthProfileForm(props: Props) {
                         id="photoUsageApprovedYes"
                         name="photoUsageApproved"
                         type="radio"
-                        value={true}
+                        value={'true'}
                       />
                       <span className={styles.listLabel}>
                         {t('registration.photoUsageApprovedYes')}
@@ -409,7 +412,7 @@ function CreateYouthProfileForm(props: Props) {
                         id="pphotoUsageApprovedNo"
                         name="photoUsageApproved"
                         type="radio"
-                        value={false}
+                        value={'false'}
                       />
                       <span className={styles.listLabel}>
                         {t('registration.photoUsageApprovedNo')}
