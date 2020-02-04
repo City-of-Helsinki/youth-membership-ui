@@ -5,7 +5,9 @@ import { useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
-import YouthProfileForm, { FormValues } from '../createYouthProfileForm/CreateYouthProfileForm';
+import YouthProfileForm, {
+  FormValues,
+} from '../createYouthProfileForm/CreateYouthProfileForm';
 import styles from './CreateYouthProflle.module.css';
 import {
   AddressType,
@@ -130,7 +132,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
           approverFirstName: '',
           approverLastName: '',
           approverPhone: '',
-          languageAtHome: YouthLanguage.FINNISH
+          languageAtHome: YouthLanguage.FINNISH,
           //TODO: Waiting to be fixed in backend
           //photoUsageApproved: false,
         }}
