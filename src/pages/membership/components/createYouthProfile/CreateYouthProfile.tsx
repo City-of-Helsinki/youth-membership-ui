@@ -10,14 +10,15 @@ import YouthProfileForm, {
 } from '../createYouthProfileForm/CreateYouthProfileForm';
 import styles from './CreateYouthProflle.module.css';
 import {
+  AddressType,
+  AddServiceConnection as AddServiceConnectionData,
+  AddServiceConnectionVariables,
   CreateMyProfile as CreateMyProfileData,
   CreateMyProfileVariables,
   EmailType,
   PhoneType,
-  AddressType,
   ServiceType,
-  AddServiceConnection as AddServiceConnectionData,
-  AddServiceConnectionVariables,
+  YouthLanguage,
 } from '../../../../graphql/generatedTypes';
 
 const CREATE_PROFILE = loader('../../graphql/CreateMyProfile.graphql');
@@ -83,9 +84,9 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
             approverLastName: formValues.approverLastName,
             approverPhone: formValues.approverPhone,
             approverEmail: formValues.approverEmail,
+            languageAtHome: formValues.languageAtHome,
             //TODO: Waiting to be fixed in backend
             //photoUsageApproved: formValues.photoUsageApproved,
-            //languageAtHome: formValues.languageAtHome,
           },
         },
       },
@@ -131,9 +132,9 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
           approverFirstName: '',
           approverLastName: '',
           approverPhone: '',
+          languageAtHome: YouthLanguage.FINNISH,
           //TODO: Waiting to be fixed in backend
           //photoUsageApproved: false,
-          //languageAtHome: '',
         }}
         isSubmitting={loading}
         onValues={handleOnValues}
