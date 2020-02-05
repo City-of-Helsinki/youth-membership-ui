@@ -140,7 +140,7 @@ function CreateYouthProfileForm(props: Props) {
         schoolName: '',
         schoolClass: '',
         language: '',
-        photoUsageApproved: 'false',
+        photoUsageApproved: false,
         approverFirstName: '',
         approverLastName: '',
         approverEmail: '',
@@ -399,7 +399,7 @@ function CreateYouthProfileForm(props: Props) {
                         id="photoUsageApprovedYes"
                         name="photoUsageApproved"
                         type="radio"
-                        value={'true'}
+                        value={true}
                       />
                       <span className={styles.listLabel}>
                         {t('registration.photoUsageApprovedYes')}
@@ -412,7 +412,7 @@ function CreateYouthProfileForm(props: Props) {
                         id="pphotoUsageApprovedNo"
                         name="photoUsageApproved"
                         type="radio"
-                        value={'false'}
+                        value={false}
                       />
                       <span className={styles.listLabel}>
                         {t('registration.photoUsageApprovedNo')}
