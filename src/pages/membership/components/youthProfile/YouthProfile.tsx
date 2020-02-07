@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useHistory, Switch, Route } from 'react-router';
+import { Route, Switch, useHistory } from 'react-router';
 import { loader } from 'graphql.macro';
 
-import isMembershipValid from '../../helpers/isMembershipValid';
 import getAuthenticatedUser from '../../../../auth/getAuthenticatedUser';
 import PageLayout from '../../../../common/layout/PageLayout';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
@@ -14,7 +13,10 @@ import SentYouthProfile from '../sentYouthProfile/SentYouthProfile';
 import MembershipDetails from '../membershipDetails/MembershipDetails';
 import Loading from '../../../../common/loading/Loading';
 import styles from './YouthProfile.module.css';
-import { HasYouthProfile } from '../../../../graphql/generatedTypes';
+import {
+  HasYouthProfile,
+  MembershipStatus,
+} from '../../../../graphql/generatedTypes';
 
 const HAS_YOUTH_PROFILE = loader('../../graphql/HasYouthProfile.graphql');
 
@@ -42,10 +44,9 @@ function YouthProfile(props: Props) {
   const isLoadingAnything = Boolean(isCheckingAuthState || loading);
   const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
 
-  const approved = isMembershipValid(
-    data?.myProfile?.youthProfile?.expiration,
-    data?.myProfile?.youthProfile?.approvedTime
-  );
+  const isMembershipActive =
+    data?.myProfile?.youthProfile?.membershipStatus !==
+    MembershipStatus.PENDING;
 
   return (
     <PageLayout background="youth">
@@ -57,9 +58,10 @@ function YouthProfile(props: Props) {
         {isYouthProfileFound ? (
           <Switch>
             <Route path="/" exact>
-              {approved ? (
+              {isMembershipActive ? (
                 <MembershipInformation
                   expirationDate={data?.myProfile?.youthProfile?.expiration}
+                  status={data?.myProfile?.youthProfile?.membershipStatus}
                 />
               ) : (
                 <SentYouthProfile />
