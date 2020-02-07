@@ -1,0 +1,7 @@
+mutation RenewMyYouthProfile($input: RenewMyYouthProfileMutationInput!) {
+    renewMyYouthProfile(input: $input) {
+        youthProfile {
+            membershipNumber
+        }
+    }
+}
