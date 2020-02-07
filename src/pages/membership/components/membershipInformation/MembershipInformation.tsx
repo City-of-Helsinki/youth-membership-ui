@@ -63,6 +63,11 @@ function MembershipInformation(props: Props) {
             {t('membershipInformation.validUntil', { date: validUntil })}
           </p>
 
+          <QRCode
+            size={175}
+            value="https://helsinkiprofile.test.kuva.hel.ninja/admin/"
+          />
+
           <Button
             type="button"
             onClick={handleRenewMembership}
@@ -70,11 +75,6 @@ function MembershipInformation(props: Props) {
           >
             {t('membershipInformation.renew')}
           </Button>
-
-          <QRCode
-            size={175}
-            value="https://helsinkiprofile.test.kuva.hel.ninja/admin/"
-          />
 
           <Link to="/membership-details" className={styles.detailsLink}>
             {t('membershipInformation.showProfileInformation')}
