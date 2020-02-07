@@ -41,7 +41,8 @@
   "membershipInformation": {
     "title": "Jäsenkortin numero {{number}}",
     "showProfileInformation": "Näytä profiilin tiedot",
-    "validUntil": "Voimassa {{date}} asti"
+    "validUntil": "Voimassa {{date}} asti",
+    "renew": "Uusi jäsenyys"
   },
   "registration": {
     "title": "Täytä tietosi",

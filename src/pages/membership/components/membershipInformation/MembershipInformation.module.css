@@ -5,7 +5,11 @@
 }
 
 .validUntil {
-    margin-bottom: 75px;
+    margin-bottom: 25px;
+}
+
+.renew {
+    margin-bottom: 25px;
 }
 
 .detailsLink {
@@ -22,4 +26,8 @@
     margin-left: 10px;
     width: 15px;
     height: 15px;
+}
+
+.container button {
+    width: 195px;
 }

@@ -41,7 +41,8 @@
   "membershipInformation": {
     "title": "Membership card number {{number}}",
     "showProfileInformation": "Show profile information",
-    "validUntil": "Valid until {{date}}"
+    "validUntil": "Valid until {{date}}",
+    "renew": "Renew membership"
   },
   "registration": {
     "title": "Please fill in your information",
