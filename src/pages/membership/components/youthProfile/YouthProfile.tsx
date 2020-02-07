@@ -44,8 +44,8 @@ function YouthProfile(props: Props) {
   const isLoadingAnything = Boolean(isCheckingAuthState || loading);
   const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
 
-  const isMembershipActive =
-    data?.myProfile?.youthProfile?.membershipStatus !==
+  const isMembershipPending =
+    data?.myProfile?.youthProfile?.membershipStatus ===
     MembershipStatus.PENDING;
 
   return (
@@ -58,13 +58,13 @@ function YouthProfile(props: Props) {
         {isYouthProfileFound ? (
           <Switch>
             <Route path="/" exact>
-              {isMembershipActive ? (
+              {isMembershipPending ? (
+                <SentYouthProfile />
+              ) : (
                 <MembershipInformation
                   expirationDate={data?.myProfile?.youthProfile?.expiration}
                   status={data?.myProfile?.youthProfile?.membershipStatus}
                 />
-              ) : (
-                <SentYouthProfile />
               )}
             </Route>
             <Route path="/membership-details" exact>
