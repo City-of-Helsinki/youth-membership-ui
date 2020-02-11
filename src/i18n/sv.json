@@ -7,6 +7,8 @@
   "login" : {
     "title": "Bli Jässäri-medlem!",
     "helpText": "Medlemskortet ger dig tillgång till vandrarhem. Som ägare till ungdomsmedlemskap kan du spendera en kväll i ett diskotek eller nattklubb, umgås i en ungdomsklubb, träna i ett bandläger, göra en DJ-klass, träna dans, teater eller hantverk, ansöka om projektpengar, delta i sommarläger eller till och med skapa din egen händelse.",
+    "helpTextUnderAge": "På grund av användningsvillkoren för Helsingfors-profilen krävs tyvärr 13 års ålder för att förvärva ungdomar medlemskap digitalt. Du kan få en pappersansökan från stadens ungdomsanläggningar. Fyll i ansökan med dina föräldrar och skicka tillbaka den till Ungdomsanläggningen för att få ditt medlemskort.",
+    "findNearestService": "Hitta närmaste ungdomsanläggning på servicekartan",
     "buttonText": "Få medlemskap",
     "linkForMembersText": "Har du medlemskap? Logga in "
   },

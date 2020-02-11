@@ -7,6 +7,8 @@
   "login" : {
     "title": "Hanki Jässäri!",
     "helpText": "Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässärin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, harjoitella bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman.",
+    "helpTextUnderAge": "Valitettavasti Jässärin hankkiminen digitaalisesti edellyttää vähintään 13 vuoden iän johtuen Helsinkiprofiilin käyttöehdoista. Saat paperisen jässärihakemuksen kaupungin nuorisotiloilta. Täytä hakemus vanhempasi kanssa ja palauta se nuorisotilalle, niin saat oman jäsenkortin.",
+    "findNearestService": "Löydä lähin nuorisotila palvelukartalta",
     "buttonText": "Hanki jäsenyys",
     "linkForMembersText": "Oletko jo jäsen? Kirjaudu sisään"
   },

@@ -3,6 +3,7 @@ import { Field, Form, Formik } from 'formik';
 import { TextInput } from 'hds-react';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
+import { differenceInYears } from 'date-fns';
 
 import styles from './BirthdateForm.module.css';
 import Button from '../../../common/button/Button';
@@ -28,8 +29,35 @@ type Props = {
   checkBirthdate: (birthDate: string) => void;
 };
 
+type FormValues = {
+  birthDay: number | string;
+  birthMonth: number | string;
+  birthYear: number | string;
+};
+
 function BirthdateForm(props: Props) {
   const { t } = useTranslation();
+
+  const isAgeValid = (values: FormValues) => {
+    if (
+      !values.birthDay ||
+      !values.birthMonth ||
+      !values.birthYear ||
+      values.birthYear < 1900
+    ) {
+      return false;
+    }
+    const age = differenceInYears(
+      new Date(),
+      new Date(
+        Number(values.birthYear),
+        Number(values.birthMonth),
+        Number(values.birthDay)
+      )
+    );
+    return age < 8 || age > 25;
+  };
+
   return (
     <Formik
       initialValues={{
@@ -86,8 +114,14 @@ function BirthdateForm(props: Props) {
               </p>
             )}
 
+          {isAgeValid(props.values) && (
+            <p>{t('registration.ageRestriction')}</p>
+          )}
+
           <div className={styles.buttonRow}>
-            <Button type="submit">{t('login.buttonText')}</Button>
+            <Button type="submit" disabled={isAgeValid(props.values)}>
+              {t('login.buttonText')}
+            </Button>
           </div>
         </Form>
       )}
