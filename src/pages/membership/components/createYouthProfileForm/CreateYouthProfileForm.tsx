@@ -206,8 +206,8 @@ function CreateYouthProfileForm(props: Props) {
               />
             </div>
             <div className={styles.formRow}>
-              <span className={styles.email}>
-                <label className={styles.emailTitle}>
+              <span className={styles.label}>
+                <label className={styles.labelTitle}>
                   {t('registration.email')}
                 </label>
                 <div>{props.values.email}</div>
@@ -228,8 +228,8 @@ function CreateYouthProfileForm(props: Props) {
               />
             </div>
             <div className={styles.formRow}>
-              <span className={styles.email}>
-                <label className={styles.emailTitle}>
+              <span className={styles.label}>
+                <label className={styles.labelTitle}>
                   {t('registration.childBirthDay')}
                 </label>
                 <div>
