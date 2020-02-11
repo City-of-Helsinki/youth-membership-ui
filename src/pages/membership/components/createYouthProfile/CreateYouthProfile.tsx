@@ -20,6 +20,7 @@ import {
   ServiceType,
   YouthLanguage,
 } from '../../../../graphql/generatedTypes';
+import getCookie from '../../helpers/getCookie';
 
 const CREATE_PROFILE = loader('../../graphql/CreateMyProfile.graphql');
 const ADD_SERVICE_CONNECTION = loader(
@@ -44,6 +45,8 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
   >(ADD_SERVICE_CONNECTION, {
     refetchQueries: ['HasYouthProfile'],
   });
+
+  const birthDate = getCookie('birthDate');
 
   const handleOnValues = (formValues: FormValues) => {
     const variables: CreateMyProfileVariables = {
@@ -125,7 +128,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
           city: '',
           email: tunnistamoUser.profile.email || '',
           phone: '',
-          birthDate: '',
+          birthDate,
           approverEmail: '',
           schoolName: '',
           schoolClass: '',
