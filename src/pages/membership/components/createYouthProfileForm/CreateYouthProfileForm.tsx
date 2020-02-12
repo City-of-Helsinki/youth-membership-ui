@@ -3,53 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { TextInput } from 'hds-react';
 import { Formik, Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
-import { differenceInYears, format, isValid, parse } from 'date-fns';
+import { differenceInYears, format } from 'date-fns';
 import * as Yup from 'yup';
 
 import { YouthLanguage } from '../../../../graphql/generatedTypes';
 import styles from './CreateYouthProfileForm.module.css';
 import Button from '../../../../common/button/Button';
-
-const isBirhthdayTyped = (year: string, month: string, day: string) => {
-  if (year === '' || month === '' || day === '') {
-    return false;
-  }
-  return true;
-};
-
-const validateDate = (year: string, month: string, day: string) => {
-  if (Number(year) < 0 || Number(month) < 0 || Number(day) < 0) return false;
-
-  if (isBirhthdayTyped(year, month, day)) {
-    return isValid(
-      parse(day + '/' + month + '/' + year, 'dd/MM/yyyy', new Date())
-    );
-  }
-  return true;
-};
-
-const getYearDiff = (year: number, month: number, day: number) => {
-  if (year >= 1900 && month && day) {
-    return differenceInYears(new Date(), new Date(year, month, day));
-  } else return 0;
-};
-
-const validateAge = (year: string, month: string, day: string) => {
-  if (isBirhthdayTyped(year, month, day) && Number(year) > 999) {
-    const age = getYearDiff(Number(year), Number(month), Number(day));
-    if (age < 8 || age > 29) {
-      return false;
-    }
-  }
-  return true;
-};
-
-const isButtonEnabled = (year: string, month: string, day: string) => {
-  if (Number(year) > 1900) {
-    return validateAge(year, month, day);
-  }
-  return false;
-};
 
 const schema = Yup.object().shape({
   firstName: Yup.string()
@@ -75,9 +34,6 @@ const schema = Yup.object().shape({
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
     .required('validation.required'),
-  birthDay: Yup.number().required('validation.required'),
-  birthMonth: Yup.number().required('validation.required'),
-  birthYear: Yup.number().required('validation.required'),
   approverFirstName: Yup.string()
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
@@ -126,6 +82,8 @@ function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
+  const age = differenceInYears(new Date(), new Date(props.profile.birthDate));
+
   return (
     <Formik
       initialValues={{
@@ -133,9 +91,6 @@ function CreateYouthProfileForm(props: Props) {
         address: '',
         postalCode: '',
         city: '',
-        birthDay: '',
-        birthMonth: '',
-        birthYear: '',
         phone: '',
         schoolName: '',
         schoolClass: '',
@@ -159,12 +114,7 @@ function CreateYouthProfileForm(props: Props) {
           city: values.city,
           email: props.profile.email,
           phone: values.phone,
-          birthDate: format(
-            new Date(
-              `${values.birthYear}-${values.birthMonth}-${values.birthDay}`
-            ),
-            'yyy-MM-dd'
-          ),
+          birthDate: format(new Date(props.profile.birthDate), 'yyyy-MM-dd'),
           schoolName: values.schoolName,
           schoolClass: values.schoolClass,
           approverFirstName: values.approverFirstName,
@@ -253,78 +203,9 @@ function CreateYouthProfileForm(props: Props) {
                 labelText={t('registration.city') + ' *'}
               />
             </div>
-            <div className={styles.birthDayContainer}>
-              <p className={styles.birthdayHelper}>
-                {t('registration.birthdayHelper')}
-              </p>
-              <div className={styles.resRow}>
-                <Field
-                  className={styles.childBirthInput}
-                  as={TextInput}
-                  id="birthDay"
-                  name="birthDay"
-                  type="number"
-                  invalid={props.submitCount && props.errors.birthDay}
-                  invalidText={
-                    props.submitCount &&
-                    props.errors.birthDay &&
-                    t(props.errors.birthDay)
-                  }
-                />
-                <span className={styles.birthdayMiddleDot}>&#8901;</span>
-                <Field
-                  className={styles.childBirthInput}
-                  as={TextInput}
-                  id="birthMonth"
-                  name="birthMonth"
-                  hideLabel={true}
-                  type="number"
-                  invalid={props.submitCount && props.errors.birthMonth}
-                  invalidText={
-                    props.submitCount &&
-                    props.errors.birthMonth &&
-                    t(props.errors.birthMonth)
-                  }
-                />
-                <span className={styles.birthdayMiddleDot}>&#8901;</span>
-                <Field
-                  className={styles.childBirthInput}
-                  as={TextInput}
-                  id="birthYear"
-                  name="birthYear"
-                  hideLabel={true}
-                  type="number"
-                  invalid={props.submitCount && props.errors.birthYear}
-                  invalidText={
-                    props.submitCount &&
-                    props.errors.birthYear &&
-                    t(props.errors.birthYear)
-                  }
-                />
-              </div>
-            </div>
-            {!validateDate(
-              props.values.birthYear,
-              props.values.birthMonth,
-              props.values.birthDay
-            ) ? (
-              <div className={styles.birthdayErrorMessage}>
-                {t('registration.birthdayInvalid')}
-              </div>
-            ) : !validateAge(
-                props.values.birthYear,
-                props.values.birthMonth,
-                props.values.birthDay
-              ) ? (
-              <div className={styles.birthdayErrorMessage}>
-                {t('registration.ageRestriction')}
-              </div>
-            ) : (
-              ''
-            )}
             <div className={styles.formRow}>
-              <span className={styles.email}>
-                <label className={styles.emailTitle}>
+              <span className={styles.label}>
+                <label className={styles.labelTitle}>
                   {t('registration.email')}
                 </label>
                 <div>{props.values.email}</div>
@@ -343,6 +224,16 @@ function CreateYouthProfileForm(props: Props) {
                 }
                 labelText={t('registration.phoneNumber') + ' *'}
               />
+            </div>
+            <div className={styles.formRow}>
+              <span className={styles.label}>
+                <label className={styles.labelTitle}>
+                  {t('registration.childBirthDay')}
+                </label>
+                <div>
+                  {format(new Date(props.values.birthDate), 'dd.MM.yyyy')}
+                </div>
+              </span>
             </div>
             <h3>{t('registration.addInfo')}</h3>
             <div className={styles.formRow}>
@@ -378,17 +269,7 @@ function CreateYouthProfileForm(props: Props) {
                 </li>
               ))}
             </ul>
-            <div
-              className={
-                getYearDiff(
-                  Number(props.values.birthYear),
-                  Number(props.values.birthMonth),
-                  Number(props.values.birthDay)
-                ) > 14
-                  ? ''
-                  : styles.hidePhotoUsageApproved
-              }
-            >
+            <div className={age < 15 ? styles.hidePhotoUsageApproved : ''}>
               <h4>{t('registration.photoUsageApproved')}</h4>
               <p>{t('registration.photoUsageApprovedText')}</p>
               <div className={styles.resRow}>
@@ -423,7 +304,7 @@ function CreateYouthProfileForm(props: Props) {
               </div>
             </div>
             <h3>{t('registration.approver')}</h3>
-            <p>{t('registration.approverInfoText')}</p>
+            {age < 18 && <p>{t('registration.approverInfoText')}</p>}
             <div className={styles.formRow}>
               <Field
                 className={styles.formInput}
@@ -483,7 +364,7 @@ function CreateYouthProfileForm(props: Props) {
               />
             </div>
             <h3>{t('registration.confirmSend')}</h3>
-            <p>{t('registration.processInfoText')}</p>
+            {age < 18 && <p>{t('registration.processInfoText')}</p>}
             <ul className={styles.terms}>
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
@@ -499,17 +380,7 @@ function CreateYouthProfileForm(props: Props) {
               </span>
             </ul>
             <div className={styles.buttonAlign}>
-              <Button
-                type="submit"
-                disabled={Boolean(
-                  !props.values.terms ||
-                    !isButtonEnabled(
-                      props.values.birthYear,
-                      props.values.birthMonth,
-                      props.values.birthDay
-                    )
-                )}
-              >
+              <Button type="submit" disabled={Boolean(!props.values.terms)}>
                 {t('registration.sendButton')}
               </Button>
             </div>
