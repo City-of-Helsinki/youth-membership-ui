@@ -82,9 +82,7 @@ function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
-  const getAge = () => {
-    return differenceInYears(new Date(), new Date(props.profile.birthDate));
-  };
+  const age = differenceInYears(new Date(), new Date(props.profile.birthDate));
 
   return (
     <Formik
@@ -271,7 +269,7 @@ function CreateYouthProfileForm(props: Props) {
                 </li>
               ))}
             </ul>
-            <div className={getAge() < 15 ? styles.hidePhotoUsageApproved : ''}>
+            <div className={age < 15 ? styles.hidePhotoUsageApproved : ''}>
               <h4>{t('registration.photoUsageApproved')}</h4>
               <p>{t('registration.photoUsageApprovedText')}</p>
               <div className={styles.resRow}>
@@ -306,7 +304,7 @@ function CreateYouthProfileForm(props: Props) {
               </div>
             </div>
             <h3>{t('registration.approver')}</h3>
-            {getAge() < 18 && <p>{t('registration.approverInfoText')}</p>}
+            {age < 18 && <p>{t('registration.approverInfoText')}</p>}
             <div className={styles.formRow}>
               <Field
                 className={styles.formInput}
@@ -366,7 +364,7 @@ function CreateYouthProfileForm(props: Props) {
               />
             </div>
             <h3>{t('registration.confirmSend')}</h3>
-            {getAge() < 18 && <p>{t('registration.processInfoText')}</p>}
+            {age < 18 && <p>{t('registration.processInfoText')}</p>}
             <ul className={styles.terms}>
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>

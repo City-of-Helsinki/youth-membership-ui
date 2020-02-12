@@ -11,52 +11,43 @@ import Button from '../../../common/button/Button';
 const schema = yup.object().shape({
   birthDay: yup
     .number()
-    .moreThan(-1)
+    .moreThan(0)
     .lessThan(32)
     .required(),
   birthMonth: yup
     .number()
-    .moreThan(-1)
+    .moreThan(0)
     .lessThan(13)
     .required(),
   birthYear: yup
     .number()
-    .moreThan(1000)
+    .moreThan(1900)
     .required(),
+  birthDate: yup
+    .string()
+    .when(
+      ['birthYear', 'birthMonth', 'birthDay'],
+      (
+        birthYear: number,
+        birthMonth: number,
+        birthDay: number,
+        schema: any
+      ) => {
+        const age = differenceInYears(
+          new Date(),
+          new Date(birthYear, birthMonth - 1, birthDay)
+        );
+        return age < 8 || age > 25 ? schema.required() : schema;
+      }
+    ),
 });
 
 type Props = {
-  checkBirthdate: (birthDate: string) => void;
-};
-
-type FormValues = {
-  birthDay: number | string;
-  birthMonth: number | string;
-  birthYear: number | string;
+  redirectBasedOnAge: (birthDate: string) => void;
 };
 
 function BirthdateForm(props: Props) {
   const { t } = useTranslation();
-
-  const isAgeValid = (values: FormValues) => {
-    if (
-      !values.birthDay ||
-      !values.birthMonth ||
-      !values.birthYear ||
-      values.birthYear < 1900
-    ) {
-      return false;
-    }
-    const age = differenceInYears(
-      new Date(),
-      new Date(
-        Number(values.birthYear),
-        Number(values.birthMonth),
-        Number(values.birthDay)
-      )
-    );
-    return age < 8 || age > 25;
-  };
 
   return (
     <Formik
@@ -64,9 +55,10 @@ function BirthdateForm(props: Props) {
         birthDay: '',
         birthMonth: '',
         birthYear: '',
+        birthDate: '',
       }}
       onSubmit={values =>
-        props.checkBirthdate(
+        props.redirectBasedOnAge(
           `${values.birthYear}-${values.birthMonth}-${values.birthDay}`
         )
       }
@@ -114,12 +106,12 @@ function BirthdateForm(props: Props) {
               </p>
             )}
 
-          {isAgeValid(props.values) && (
+          {props.errors.birthDate && !props.errors.birthYear && (
             <p>{t('registration.ageRestriction')}</p>
           )}
 
           <div className={styles.buttonRow}>
-            <Button type="submit" disabled={isAgeValid(props.values)}>
+            <Button type="submit" disabled={Boolean(props.errors.birthDate)}>
               {t('login.buttonText')}
             </Button>
           </div>

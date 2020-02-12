@@ -13,7 +13,7 @@ function Login(props: Props) {
   const [showManualRegistration, setShowManualRegistration] = useState(false);
   const { t } = useTranslation();
 
-  const checkBirthDate = (birthDate: string) => {
+  const redirectBasedOnAge = (birthDate: string) => {
     const age = differenceInYears(new Date(), new Date(birthDate));
 
     if (age < 13) {
@@ -32,7 +32,7 @@ function Login(props: Props) {
         {!showManualRegistration && (
           <React.Fragment>
             <p className={styles.helpText}>{t('login.helpText')}</p>
-            <BirthdateForm checkBirthdate={checkBirthDate} />
+            <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
             <p>
               <span role="button">
                 {t('login.linkForMembersText')}
