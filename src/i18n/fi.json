@@ -77,7 +77,7 @@
     "approveTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "birthdayInvalid": "Tarkista syntymäpäivä!",
-    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-29 vuotiaat."
+    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-25 vuotiaat."
   },
   "confirmSendingProfile": {
     "title": "Hakemus on lähetetty huoltajallesi!",
