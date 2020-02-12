@@ -5,11 +5,15 @@
 }
 
 .validUntil {
-    margin-bottom: 75px;
+    margin-bottom: 50px;
+}
+
+.renew {
+    margin-top: 40px;
 }
 
 .detailsLink {
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     align-items: center;
 }
@@ -22,4 +26,8 @@
     margin-left: 10px;
     width: 15px;
     height: 15px;
+}
+
+.container button {
+    width: 195px;
 }

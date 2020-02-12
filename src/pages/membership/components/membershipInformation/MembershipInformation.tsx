@@ -1,31 +1,52 @@
 import React, { useState } from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { Link } from 'react-router-dom';
 import { IconAngleRight } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { QRCode } from 'react-qrcode-logo';
 
+import Button from '../../../../common/button/Button';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
-import { MembershipDetails } from '../../../../graphql/generatedTypes';
+import {
+  RenewMyYouthProfile as RenewMyYouthProfileData,
+  RenewMyYouthProfileVariables,
+  MembershipStatus,
+  MembershipDetails,
+} from '../../../../graphql/generatedTypes';
 import styles from './MembershipInformation.module.css';
 import getFullName from '../../helpers/getFullName';
 import convertDateToLocale from '../../helpers/convertDateToLocale';
 
 const MEMBERSHIP_DETAILS = loader('../../graphql/MembershipDetails.graphql');
+const RENEW_MEMBERSHIP = loader('../../graphql/RenewMyYouthProfile.graphql');
 
 type Props = {
   expirationDate: string;
+  status: MembershipStatus | undefined | null;
 };
 
 function MembershipInformation(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
+  const { t } = useTranslation();
 
   const { data, loading } = useQuery<MembershipDetails>(MEMBERSHIP_DETAILS, {
     onError: () => setShowNotification(true),
   });
-  const { t } = useTranslation();
+  const [renewMembership] = useMutation<
+    RenewMyYouthProfileData,
+    RenewMyYouthProfileVariables
+  >(RENEW_MEMBERSHIP);
+
   const validUntil = convertDateToLocale(props.expirationDate);
+
+  const handleRenewMembership = () => {
+    const variables: RenewMyYouthProfileVariables = {
+      input: {},
+    };
+
+    renewMembership({ variables }).catch(() => setShowNotification(true));
+  };
 
   return (
     <div className={styles.container}>
@@ -46,6 +67,14 @@ function MembershipInformation(props: Props) {
             size={175}
             value="https://helsinkiprofile.test.kuva.hel.ninja/admin/"
           />
+
+          <Button
+            type="button"
+            onClick={handleRenewMembership}
+            className={styles.renew}
+          >
+            {t('membershipInformation.renew')}
+          </Button>
 
           <Link to="/membership-details" className={styles.detailsLink}>
             {t('membershipInformation.showProfileInformation')}

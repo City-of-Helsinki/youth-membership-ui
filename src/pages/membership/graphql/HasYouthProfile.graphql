@@ -3,6 +3,7 @@ query HasYouthProfile {
     youthProfile {
       expiration
       approvedTime
+      membershipStatus
     }
   }
 }

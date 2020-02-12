@@ -17,6 +17,16 @@ export interface AddServiceConnection_addServiceConnection {
 }
 
 export interface AddServiceConnection {
+  /**
+   * Connect the currently authenticated user's profile to the given service.
+   * 
+   * Requires authentication.
+   * 
+   * Possible error codes:
+   * 
+   * * `SERVICE_CONNECTION_ALREADY_EXISTS_ERROR`: Returned if the currently
+   * authenticated user's profile is already connected to the given service.
+   */
   readonly addServiceConnection: AddServiceConnection_addServiceConnection | null;
 }
 
@@ -38,6 +48,17 @@ export interface ApproverEmail_youthProfile {
 }
 
 export interface ApproverEmail {
+  /**
+   * Get a youth profile by youth profile ID.
+   * 
+   * **NOTE:** Currently this requires `superuser` credentials. This is going to be
+   * changed at one point so that service-specific staff credentials and service
+   * type are used, just like the rest of the admin-type queries.
+   * 
+   * Possible error codes:
+   * 
+   * * `TODO`
+   */
   readonly youthProfile: ApproverEmail_youthProfile | null;
 }
 
@@ -60,6 +81,22 @@ export interface ApproveYouthProfile_approveYouthProfile {
 }
 
 export interface ApproveYouthProfile {
+  /**
+   * Fetches a youth profile using the given token, updates the data based on the
+   * given input data and approves the youth profile so that it is considered
+   * active. A confirmation is sent to the youth profile's email address after a
+   * successful approval.
+   * 
+   * The token is no longer valid after it's been used to approve the youth profile.
+   * 
+   * Requires authentication.
+   * 
+   * Possible error codes:
+   * 
+   * * `PROFILE_HAS_NO_PRIMARY_EMAIL_ERROR`: Returned if the youth profile doesn't have a primary email address.
+   * 
+   * * `TODO`
+   */
   readonly approveYouthProfile: ApproveYouthProfile_approveYouthProfile | null;
 }
 
@@ -82,6 +119,9 @@ export interface CreateMyProfile_createMyProfile_profile_youthProfile {
 
 export interface CreateMyProfile_createMyProfile_profile {
   readonly __typename: "ProfileNode";
+  /**
+   * The Youth membership data of the profile.
+   */
   readonly youthProfile: CreateMyProfile_createMyProfile_profile_youthProfile | null;
 }
 
@@ -91,6 +131,23 @@ export interface CreateMyProfile_createMyProfile {
 }
 
 export interface CreateMyProfile {
+  /**
+   * Creates a new profile based on the given data. The new profile is linked to the currently authenticated user.
+   * 
+   * One or several of the following is possible to add:
+   * 
+   * * Email
+   * * Address
+   * * Phone
+   * 
+   * If youth data is given, a youth profile will also be created and linked to the profile.
+   * 
+   * Requires authentication.
+   * 
+   * Possible error codes:
+   * 
+   * * `TODO`
+   */
   readonly createMyProfile: CreateMyProfile_createMyProfile | null;
 }
 
@@ -110,14 +167,30 @@ export interface HasYouthProfile_myProfile_youthProfile {
   readonly __typename: "YouthProfileType";
   readonly expiration: any;
   readonly approvedTime: any | null;
+  /**
+   * Membership status based on expiration and approved_time fields
+   */
+  readonly membershipStatus: MembershipStatus | null;
 }
 
 export interface HasYouthProfile_myProfile {
   readonly __typename: "ProfileNode";
+  /**
+   * The Youth membership data of the profile.
+   */
   readonly youthProfile: HasYouthProfile_myProfile_youthProfile | null;
 }
 
 export interface HasYouthProfile {
+  /**
+   * Get the profile belonging to the currently authenticated user.
+   * 
+   * Requires authentication.
+   * 
+   * Possible error codes:
+   * 
+   * * `TODO`
+   */
   readonly myProfile: HasYouthProfile_myProfile | null;
 }
 
@@ -150,8 +223,17 @@ export interface MembershipDetails_youthProfile_profile {
   readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
+  /**
+   * Convenience field for the address which is marked as primary.
+   */
   readonly primaryAddress: MembershipDetails_youthProfile_profile_primaryAddress | null;
+  /**
+   * Convenience field for the email which is marked as primary.
+   */
   readonly primaryEmail: MembershipDetails_youthProfile_profile_primaryEmail | null;
+  /**
+   * Convenience field for the phone which is marked as primary.
+   */
   readonly primaryPhone: MembershipDetails_youthProfile_profile_primaryPhone | null;
 }
 
@@ -177,7 +259,58 @@ export interface MembershipDetails_youthProfile {
 }
 
 export interface MembershipDetails {
+  /**
+   * Get a youth profile by youth profile ID.
+   * 
+   * **NOTE:** Currently this requires `superuser` credentials. This is going to be
+   * changed at one point so that service-specific staff credentials and service
+   * type are used, just like the rest of the admin-type queries.
+   * 
+   * Possible error codes:
+   * 
+   * * `TODO`
+   */
   readonly youthProfile: MembershipDetails_youthProfile | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: RenewMyYouthProfile
+// ====================================================
+
+export interface RenewMyYouthProfile_renewMyYouthProfile_youthProfile {
+  readonly __typename: "YouthProfileType";
+  /**
+   * Youth's membership number
+   */
+  readonly membershipNumber: string | null;
+}
+
+export interface RenewMyYouthProfile_renewMyYouthProfile {
+  readonly __typename: "RenewMyYouthProfileMutationPayload";
+  readonly youthProfile: RenewMyYouthProfile_renewMyYouthProfile_youthProfile | null;
+}
+
+export interface RenewMyYouthProfile {
+  /**
+   * Renews the youth profile. Renewing can only be done once per season.
+   * 
+   * Requires Authentication.
+   * 
+   * Possible error codes:
+   * 
+   * * `CANNOT_RENEW_YOUTH_PROFILE_ERROR`: Returned if the youth profile is already renewed or not in the renew window
+   * 
+   * * `TODO`
+   */
+  readonly renewMyYouthProfile: RenewMyYouthProfile_renewMyYouthProfile | null;
+}
+
+export interface RenewMyYouthProfileVariables {
+  readonly input: RenewMyYouthProfileMutationInput;
 }
 
 /* tslint:disable */
@@ -199,6 +332,18 @@ export interface UpdateMyYouthProfile_updateMyYouthProfile {
 }
 
 export interface UpdateMyYouthProfile {
+  /**
+   * Updates the youth profile which belongs to the profile of the currently authenticated user.
+   * 
+   * The `resend_request_notification` parameter may be used to send a notification
+   * to the youth profile's approver whose contact information is in the youth profile.
+   * 
+   * Requires authentication.
+   * 
+   * Possible error codes:
+   * 
+   * * `TODO`
+   */
   readonly updateMyYouthProfile: UpdateMyYouthProfile_updateMyYouthProfile | null;
 }
 
@@ -235,8 +380,17 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
   readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
+  /**
+   * Convenience field for the address which is marked as primary.
+   */
   readonly primaryAddress: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryAddress | null;
+  /**
+   * Convenience field for the email which is marked as primary.
+   */
   readonly primaryEmail: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail | null;
+  /**
+   * Convenience field for the phone which is marked as primary.
+   */
   readonly primaryPhone: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryPhone | null;
 }
 
@@ -262,6 +416,15 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken {
 }
 
 export interface YouthProfileByApprovalToken {
+  /**
+   * Get a youth profile by approval token. 
+   * 
+   * Doesn't require authentication.
+   * 
+   * Possible error codes:
+   * 
+   * * `TODO`
+   */
   readonly youthProfileByApprovalToken: YouthProfileByApprovalToken_youthProfileByApprovalToken | null;
 }
 
@@ -298,8 +461,17 @@ export interface MembershipDetailsFragment_profile {
   readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
+  /**
+   * Convenience field for the address which is marked as primary.
+   */
   readonly primaryAddress: MembershipDetailsFragment_profile_primaryAddress | null;
+  /**
+   * Convenience field for the email which is marked as primary.
+   */
   readonly primaryEmail: MembershipDetailsFragment_profile_primaryEmail | null;
+  /**
+   * Convenience field for the phone which is marked as primary.
+   */
   readonly primaryPhone: MembershipDetailsFragment_profile_primaryPhone | null;
 }
 
@@ -361,6 +533,13 @@ export enum Language {
   ENGLISH = "ENGLISH",
   FINNISH = "FINNISH",
   SWEDISH = "SWEDISH",
+}
+
+export enum MembershipStatus {
+  ACTIVE = "ACTIVE",
+  EXPIRED = "EXPIRED",
+  PENDING = "PENDING",
+  RENEWING = "RENEWING",
 }
 
 export enum PhoneType {
@@ -457,6 +636,10 @@ export interface ProfileInput {
   readonly updateAddresses?: ReadonlyArray<(AddressInput | null)> | null;
   readonly removeAddresses?: ReadonlyArray<(string | null)> | null;
   readonly youthProfile?: YouthProfileFields | null;
+}
+
+export interface RenewMyYouthProfileMutationInput {
+  readonly clientMutationId?: string | null;
 }
 
 export interface ServiceConnectionInput {
