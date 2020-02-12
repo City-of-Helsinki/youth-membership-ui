@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
+import { connect } from 'react-redux';
 
+import { AuthState, resetError } from '../../redux';
+import { RootState } from '../../../redux/rootReducer';
 import authenticate from '../../authenticate';
 import PageLayout from '../../../common/layout/PageLayout';
 import styles from './Login.module.css';
 import BirthdateForm from '../birthdateForm/BirthdateForm';
+import NotificationComponent from '../../../common/notification/NotificationComponent';
 
-type Props = {};
+type Props = {
+  resetError: () => void;
+  auth: AuthState;
+};
 
 function Login(props: Props) {
   const [showManualRegistration, setShowManualRegistration] = useState(false);
@@ -54,8 +61,19 @@ function Login(props: Props) {
           </React.Fragment>
         )}
       </div>
+
+      <NotificationComponent
+        show={Boolean(props.auth.error)}
+        onClose={() => props.resetError()}
+      />
     </PageLayout>
   );
 }
 
-export default Login;
+const mapStateToProps = (state: RootState) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps, { resetError })(Login);
