@@ -4,6 +4,7 @@ import { Field, Form, Formik } from 'formik';
 import { Link } from 'react-router-dom';
 import { TextInput } from 'hds-react';
 import * as Yup from 'yup';
+import { differenceInYears } from 'date-fns';
 
 import styles from './ApproveYouthProfileForm.module.css';
 import LabeledValue from '../../../../common/labeledValue/LabeledValue';
@@ -43,6 +44,8 @@ type Props = {
 
 function ApproveYouthProfileForm(props: Props) {
   const { t } = useTranslation();
+
+  const age = differenceInYears(new Date(), new Date(props.profile.birthDate));
 
   return (
     <Formik
@@ -99,42 +102,49 @@ function ApproveYouthProfileForm(props: Props) {
               value={t(`LANGUAGE_OPTIONS.${props.values.languageAtHome}`)}
             />
           </div>
-          <h3>{t('approval.approverAcceptance')}</h3>
-          <h4>{t('approval.photoUsageApproved')}</h4>
-          <p>{t('approval.photoUsageApprovedText')}</p>
+          {age < 15 && (
+            <React.Fragment>
+              <h3>{t('approval.approverAcceptance')}</h3>
+              <h4>{t('approval.photoUsageApproved')}</h4>
+              <p>{t('approval.photoUsageApprovedText')}</p>
+            </React.Fragment>
+          )}
           <Form>
-            <div className={styles.formFields}>
-              <ul className={styles.list}>
-                <li className={styles.radioButtonRow}>
-                  <label>
-                    <Field
-                      id="photoUsageApprovedYes"
-                      name="photoUsageApproved"
-                      type="radio"
-                      value="true"
-                    />
-                    <span className={styles.listLabel}>
-                      {t('approval.photoUsageApprovedYes')}
-                    </span>
-                  </label>
-                </li>
-                <li className={styles.radioButtonRow}>
-                  <label>
-                    <Field
-                      id="pphotoUsageApprovedNo"
-                      name="photoUsageApproved"
-                      type="radio"
-                      value="false"
-                    />
-                    <span className={styles.listLabel}>
-                      {t('approval.photoUsageApprovedNo')}
-                    </span>
-                  </label>
-                </li>
-              </ul>
-            </div>
+            {age < 15 && (
+              <div className={styles.formFields}>
+                <ul className={styles.list}>
+                  <li className={styles.radioButtonRow}>
+                    <label>
+                      <Field
+                        id="photoUsageApprovedYes"
+                        name="photoUsageApproved"
+                        type="radio"
+                        value="true"
+                      />
+                      <span className={styles.listLabel}>
+                        {t('approval.photoUsageApprovedYes')}
+                      </span>
+                    </label>
+                  </li>
+                  <li className={styles.radioButtonRow}>
+                    <label>
+                      <Field
+                        id="pphotoUsageApprovedNo"
+                        name="photoUsageApproved"
+                        type="radio"
+                        value="false"
+                      />
+                      <span className={styles.listLabel}>
+                        {t('approval.photoUsageApprovedNo')}
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            )}
             <h3>{t('approval.approverInfo')}</h3>
             <p>{t('approval.approverInfoText')}</p>
+
             <div className={styles.formFields}>
               <Field
                 className={styles.formField}
