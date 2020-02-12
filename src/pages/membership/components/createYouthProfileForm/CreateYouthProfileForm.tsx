@@ -114,7 +114,7 @@ function CreateYouthProfileForm(props: Props) {
           city: values.city,
           email: props.profile.email,
           phone: values.phone,
-          birthDate: props.profile.birthDate,
+          birthDate: format(new Date(props.profile.birthDate), 'yyyy-MM-dd'),
           schoolName: values.schoolName,
           schoolClass: values.schoolClass,
           approverFirstName: values.approverFirstName,
