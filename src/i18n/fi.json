@@ -58,7 +58,7 @@
     "childBirthDay": "Syntymäpäivä",
     "childBirthMonth": "Syntymäkuukausi",
     "childBirthYear": "Syntymävuosi",
-    "birthdayHelper": "Syntymäpäivä (pp.kk.vvvvv) *",
+    "birthdayHelper": "Syntymäpäivä (pp.kk.vvvv) *",
     "phoneNumber": "Puhelinnumero",
     "email": "Sähköpostiosoite",
     "addInfo": "Lisätiedot",
@@ -77,7 +77,7 @@
     "approveTermsText_link": " palvelun ehdot",
     "approveTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
-    "birthdayInvalid": "Tarkista syntymäpäivä!",
+    "birthdayInvalid": "Syntymäpäivän tulee olla muotoa pp.kk.yyyy.",
     "ageRestriction": "Palveluun voi rekisteröityä iältään 8-25 vuotiaat."
   },
   "confirmSendingProfile": {

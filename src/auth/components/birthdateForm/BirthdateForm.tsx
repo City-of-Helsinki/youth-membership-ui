@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
 
+import ageConstants from '../../../pages/membership/constants/ageConstants';
 import styles from './BirthdateForm.module.css';
 import Button from '../../../common/button/Button';
 
@@ -21,7 +22,7 @@ const schema = yup.object().shape({
     .required(),
   birthYear: yup
     .number()
-    .moreThan(1900)
+    .moreThan(999)
     .required(),
   birthDate: yup
     .string()
@@ -37,7 +38,10 @@ const schema = yup.object().shape({
           new Date(),
           new Date(birthYear, birthMonth - 1, birthDay)
         );
-        return age < 8 || age > 25 ? schema.required() : schema;
+        return age < ageConstants.REGISTRATION_AGE_MIN ||
+          age > ageConstants.REGISTRATION_AGE_MAX
+          ? schema.required()
+          : schema;
       }
     ),
 });
@@ -106,14 +110,16 @@ function BirthdateForm(props: Props) {
               </p>
             )}
 
-          {props.errors.birthDate && !props.errors.birthYear && (
-            <p>{t('registration.ageRestriction')}</p>
-          )}
+          {props.errors.birthDate &&
+            !props.errors.birthYear &&
+            props.submitCount > 0 && (
+              <p className={styles.birthdayErrorMessage}>
+                {t('registration.ageRestriction')}
+              </p>
+            )}
 
           <div className={styles.buttonRow}>
-            <Button type="submit" disabled={Boolean(props.errors.birthDate)}>
-              {t('login.buttonText')}
-            </Button>
+            <Button type="submit">{t('login.buttonText')}</Button>
           </div>
         </Form>
       )}
