@@ -6,6 +6,7 @@ import { TextInput } from 'hds-react';
 import * as Yup from 'yup';
 import { differenceInYears } from 'date-fns';
 
+import ageConstants from '../../constants/ageConstants';
 import styles from './ApproveYouthProfileForm.module.css';
 import LabeledValue from '../../../../common/labeledValue/LabeledValue';
 import Button from '../../../../common/button/Button';
@@ -102,7 +103,7 @@ function ApproveYouthProfileForm(props: Props) {
               value={t(`LANGUAGE_OPTIONS.${props.values.languageAtHome}`)}
             />
           </div>
-          {age < 15 && (
+          {age < ageConstants.PHOTO_PERMISSION_MIN && (
             <React.Fragment>
               <h3>{t('approval.approverAcceptance')}</h3>
               <h4>{t('approval.photoUsageApproved')}</h4>
@@ -110,7 +111,7 @@ function ApproveYouthProfileForm(props: Props) {
             </React.Fragment>
           )}
           <Form>
-            {age < 15 && (
+            {age < ageConstants.PHOTO_PERMISSION_MIN && (
               <div className={styles.formFields}>
                 <ul className={styles.list}>
                   <li className={styles.radioButtonRow}>
