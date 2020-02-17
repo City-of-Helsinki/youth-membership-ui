@@ -77,7 +77,7 @@
     "approveTermsText_link": " service terms",
     "approveTermsText_2": ". I can be contacted via address I have given.",
     "sendButton": "Save and send approval request",
-    "birthdayInvalid": "Typed date invalid!",
+    "birthdayInvalid": "The birthday should be dd.mm.yyyy.",
     "ageRestriction": "Only 8-25 years old can create youth profile."
   },
   "confirmSendingProfile": {
