@@ -6,6 +6,7 @@ import { TextInput } from 'hds-react';
 import * as Yup from 'yup';
 import { differenceInYears } from 'date-fns';
 
+import convertDateToLocale from '../../helpers/convertDateToLocale';
 import ageConstants from '../../constants/ageConstants';
 import styles from './ApproveYouthProfileForm.module.css';
 import LabeledValue from '../../../../common/labeledValue/LabeledValue';
@@ -47,6 +48,7 @@ function ApproveYouthProfileForm(props: Props) {
   const { t } = useTranslation();
 
   const age = differenceInYears(new Date(), new Date(props.profile.birthDate));
+  const birthDate = convertDateToLocale(props.profile.birthDate);
 
   return (
     <Formik
@@ -87,10 +89,7 @@ function ApproveYouthProfileForm(props: Props) {
               label={t('approval.phone')}
               value={props.values.phone}
             />
-            <LabeledValue
-              label={t('approval.birthDate')}
-              value={props.values.birthDate}
-            />
+            <LabeledValue label={t('approval.birthDate')} value={birthDate} />
           </div>
           <h3>{t('approval.addInfo')}</h3>
           <div className={styles.formData}>
