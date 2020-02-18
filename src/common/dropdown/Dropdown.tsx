@@ -42,7 +42,10 @@ function Dropdown(props: Props) {
       {/* The button text is the first item in the option list */}
       {isDropdown && (
         <React.Fragment>
-          <button onClick={() => toggleDropdown(prevState => !prevState)}>
+          <button
+            className={styles.navButton}
+            onClick={() => toggleDropdown(prevState => !prevState)}
+          >
             {navBarItem.label}
             <img
               src={navBarItem.icon}
