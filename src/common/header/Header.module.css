@@ -44,7 +44,7 @@
   padding-right: 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 810px) {
   .mobileNav {
     display: none;
   }
@@ -53,7 +53,7 @@
 .desktopNav {
   display: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 810px) {
   .desktopNav {
     display: flex;
     align-items: center;
