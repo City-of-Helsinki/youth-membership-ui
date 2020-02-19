@@ -60,8 +60,17 @@ function UserDropdown(props: Props) {
     onClick: () => logout(),
   };
 
+  // This is just a placeholder and will be removed when OM - 478
+  // is done. If user is able to authenticate and doesn't have youth profile he is
+  // redirected to registration form. If there is no birthdate
+  // in the cookies, it will cause whole application to crash.
+  const empty = {
+    id: 'emptyId',
+    label: ' ',
+  };
+
   const dropdownOptions =
-    isAuthenticated && !loading ? [user, profile, logOut] : [login];
+    isAuthenticated && !loading ? [user, profile, logOut] : [empty];
 
   return (
     <React.Fragment>
