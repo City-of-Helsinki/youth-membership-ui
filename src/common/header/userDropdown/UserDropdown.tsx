@@ -34,6 +34,22 @@ function UserDropdown(props: Props) {
     }
   }, [isAuthenticated, nameQuery]);
 
+  const getDropdownOptions = () => {
+    if (loading) return [login];
+
+    // Shows logout in registration form
+    if (isAuthenticated && !loading && !data?.myProfile) {
+      return [logOut];
+    }
+
+    // Shows nothing for now in login page
+    if (!isAuthenticated && !loading && !data?.myProfile) {
+      return [empty];
+    }
+
+    return [user, profile, logOut];
+  };
+
   const login = {
     id: 'loginButton',
     label: t('nav.signin'),
@@ -69,8 +85,7 @@ function UserDropdown(props: Props) {
     label: ' ',
   };
 
-  const dropdownOptions =
-    isAuthenticated && !loading ? [user, profile, logOut] : [empty];
+  const dropdownOptions = getDropdownOptions();
 
   return (
     <React.Fragment>
