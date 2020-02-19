@@ -7,6 +7,7 @@ interface DropdownOption {
   id: string;
   label: string;
   icon?: string;
+  url?: string;
   onClick?: () => void;
 }
 type DropdownOptions = DropdownOption[];
@@ -55,19 +56,29 @@ function Dropdown(props: Props) {
           </button>
           {isOpen && (
             <div className={styles.dropdownContent}>
-              {props.options.slice(1).map((option, index) => (
-                <button
-                  id={option.id}
-                  key={index}
-                  onClick={() => {
-                    toggleDropdown(prevState => !prevState);
-                    option.onClick && option.onClick();
-                  }}
-                  className={styles.dropdownContentOption}
-                >
-                  {option.label}
-                </button>
-              ))}
+              {props.options.slice(1).map((option, index) =>
+                option.url ? (
+                  <a
+                    href={option.url}
+                    className={styles.linkButton}
+                    key={index}
+                  >
+                    {option.label}
+                  </a>
+                ) : (
+                  <button
+                    id={option.id}
+                    key={index}
+                    onClick={() => {
+                      toggleDropdown(prevState => !prevState);
+                      option.onClick && option.onClick();
+                    }}
+                    className={styles.dropdownContentOption}
+                  >
+                    {option.label}
+                  </button>
+                )
+              )}
             </div>
           )}
         </React.Fragment>
