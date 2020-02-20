@@ -5,6 +5,7 @@ import { ReactComponent as HelsinkiLogo } from '../svg/HelsinkiLogo.svg';
 import styles from './Header.module.css';
 import LanguageSwitcher from '../../i18n/languageSwitcher/LanguageSwitcher';
 import FullscreenNavigation from '../fullscreenNavigation/FullscreenNavigation';
+import UserDropdown from './userDropdown/UserDropdown';
 
 type Props = {};
 
@@ -19,6 +20,7 @@ function Header(props: Props) {
           <FullscreenNavigation className={styles.mobileNav} />
           <div className={styles.desktopNav}>
             <LanguageSwitcher />
+            <UserDropdown />
           </div>
         </section>
       </div>

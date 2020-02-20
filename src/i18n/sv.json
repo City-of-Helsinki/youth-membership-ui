@@ -29,7 +29,9 @@
     "approverPhone": "Telefon"
   },
   "nav": {
-    "signout": "Logga ut"
+    "signin": "Logga in",
+    "signout": "Logga ut",
+    "menuButtonLabel": "Profilmeny"
   },
   "membershipDetails": {
     "title": "Egen information",
