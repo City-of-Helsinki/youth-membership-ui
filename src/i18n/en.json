@@ -31,7 +31,7 @@
   "nav": {
     "signin": "Log in",
     "signout": "Log out",
-    "menuButtonLabel": "Menu"
+    "menuButtonLabel": "Profile menu"
   },
   "membershipDetails": {
     "title": "Own information",
