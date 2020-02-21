@@ -42,9 +42,9 @@ function UserDropdown(props: Props) {
       return [logOut];
     }
 
-    // Shows nothing for now in login page
+    // Shows login text
     if (!isAuthenticated && !loading && !data?.myProfile) {
-      return [empty];
+      return [login];
     }
 
     return [user, profile, logOut];
@@ -75,15 +75,6 @@ function UserDropdown(props: Props) {
     id: 'logoutButton',
     label: t('nav.signout'),
     onClick: () => logout(),
-  };
-
-  // This is just a placeholder and will be removed when OM - 478
-  // is done. If user is able to authenticate and doesn't have youth profile he is
-  // redirected to registration form. If there is no birthdate
-  // in the cookies, it will cause whole application to crash.
-  const empty = {
-    id: 'emptyId',
-    label: ' ',
   };
 
   const dropdownOptions = getDropdownOptions();
