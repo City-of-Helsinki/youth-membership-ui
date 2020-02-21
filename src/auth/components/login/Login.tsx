@@ -41,7 +41,11 @@ function Login(props: Props) {
             <p className={styles.helpText}>{t('login.helpText')}</p>
             <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
             <p>
-              <span role="button" className={styles.loginHelpText} onClick={authenticate}>
+              <span
+                role="button"
+                className={styles.loginHelpText}
+                onClick={authenticate}
+              >
                 {t('login.linkForMembersText')}
                 <span className={styles.linkArrow}> ></span>
               </span>
