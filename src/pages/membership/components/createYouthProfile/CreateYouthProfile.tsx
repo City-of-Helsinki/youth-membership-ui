@@ -43,7 +43,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     AddServiceConnectionData,
     AddServiceConnectionVariables
   >(ADD_SERVICE_CONNECTION, {
-    refetchQueries: ['HasYouthProfile', 'NameQuery'],
+    refetchQueries: ['HasYouthProfile'],
   });
 
   const birthDate = getCookie('birthDate');
