@@ -43,7 +43,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     AddServiceConnectionData,
     AddServiceConnectionVariables
   >(ADD_SERVICE_CONNECTION, {
-    refetchQueries: ['HasYouthProfile'],
+    refetchQueries: ['HasYouthProfile', 'NameQuery'],
   });
 
   const birthDate = getCookie('birthDate');
@@ -113,6 +113,9 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
           addServiceConnection({ variables: connectionVariables }).catch(() =>
             setShowNotification(true)
           );
+          // By resetting birthDate cookie here it allows
+          // two users to register from same computer one after another.
+          document.cookie = 'birthDate=';
         }
       })
       .catch(() => setShowNotification(true));
