@@ -6,9 +6,14 @@ import { Link } from 'react-router-dom';
 import { differenceInYears, format } from 'date-fns';
 import * as Yup from 'yup';
 
+import ageConstants from '../../constants/ageConstants';
+import getCookie from '../../helpers/getCookie';
 import { YouthLanguage } from '../../../../graphql/generatedTypes';
 import styles from './CreateYouthProfileForm.module.css';
 import Button from '../../../../common/button/Button';
+
+const BD = getCookie('birthDate');
+const AGE = differenceInYears(new Date(), new Date(BD));
 
 const schema = Yup.object().shape({
   firstName: Yup.string()
@@ -34,20 +39,36 @@ const schema = Yup.object().shape({
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
     .required('validation.required'),
-  approverFirstName: Yup.string()
-    .min(2, 'validation.tooShort')
-    .max(255, 'validation.tooLong')
-    .required('validation.required'),
-  approverLastName: Yup.string()
-    .min(2, 'validation.tooShort')
-    .max(255, 'validation.tooLong')
-    .required('validation.required'),
-  approverPhone: Yup.string()
-    .min(6, 'validation.phoneMin')
-    .required('validation.required'),
-  approverEmail: Yup.string()
-    .required('validation.required')
-    .email('validation.email'),
+  approverFirstName: Yup.string().when([], () => {
+    return AGE < ageConstants.ADULT
+      ? Yup.string()
+          .required('validation.required')
+          .min(2, 'validation.tooShort')
+          .max(255, 'validation.tooLong')
+      : Yup.string();
+  }),
+  approverLastName: Yup.string().when([], () => {
+    return AGE < ageConstants.ADULT
+      ? Yup.string()
+          .required('validation.required')
+          .min(2, 'validation.tooShort')
+          .max(255, 'validation.tooLong')
+      : Yup.string();
+  }),
+  approverPhone: Yup.string().when([], () => {
+    return AGE < ageConstants.ADULT
+      ? Yup.string()
+          .required('validation.required')
+          .min(6, 'validation.phoneMin')
+      : Yup.string();
+  }),
+  approverEmail: Yup.string().when([], () => {
+    return AGE < ageConstants.ADULT
+      ? Yup.string()
+          .required('validation.required')
+          .email('validation.email')
+      : Yup.string();
+  }),
   photoUsageApproved: Yup.boolean().required('validation.required'),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
@@ -82,7 +103,15 @@ function CreateYouthProfileForm(props: Props) {
   const { t } = useTranslation();
   const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
-  const age = differenceInYears(new Date(), new Date(props.profile.birthDate));
+  // For now when using .when() in validation we can't use
+  // schema.describe().fields[name].tests to determine if field is required or not.
+  // Validation rules returned from .when() won't be added there.
+  // For this reason determining asterisk usage must
+  // be done with this function
+  const approverLabelText = (name: string) => {
+    if (AGE < ageConstants.ADULT) return t(`registration.${name}`) + ' *';
+    return t(`registration.${name}`);
+  };
 
   return (
     <Formik
@@ -269,7 +298,13 @@ function CreateYouthProfileForm(props: Props) {
                 </li>
               ))}
             </ul>
-            <div className={age < 15 ? styles.hidePhotoUsageApproved : ''}>
+            <div
+              className={
+                AGE < ageConstants.PHOTO_PERMISSION_MIN
+                  ? styles.hidePhotoUsageApproved
+                  : ''
+              }
+            >
               <h4>{t('registration.photoUsageApproved')}</h4>
               <p>{t('registration.photoUsageApprovedText')}</p>
               <div className={styles.resRow}>
@@ -304,7 +339,9 @@ function CreateYouthProfileForm(props: Props) {
               </div>
             </div>
             <h3>{t('registration.approver')}</h3>
-            {age < 18 && <p>{t('registration.approverInfoText')}</p>}
+            {AGE < ageConstants.ADULT && (
+              <p>{t('registration.approverInfoText')}</p>
+            )}
             <div className={styles.formRow}>
               <Field
                 className={styles.formInput}
@@ -317,7 +354,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverFirstName &&
                   t(props.errors.approverFirstName)
                 }
-                labelText={t('registration.firstName') + ' *'}
+                labelText={approverLabelText('firstName')}
               />
               <Field
                 className={styles.formInput}
@@ -330,7 +367,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverLastName &&
                   t(props.errors.approverLastName)
                 }
-                labelText={t('registration.lastName') + ' *'}
+                labelText={approverLabelText('lastName')}
               />
             </div>
             <div className={styles.formRow}>
@@ -346,7 +383,7 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverEmail &&
                   t(props.errors.approverEmail)
                 }
-                labelText={t('registration.email') + ' *'}
+                labelText={approverLabelText('email')}
               />
               <Field
                 className={styles.formInput}
@@ -360,11 +397,13 @@ function CreateYouthProfileForm(props: Props) {
                   props.errors.approverPhone &&
                   t(props.errors.approverPhone)
                 }
-                labelText={t('registration.phoneNumber') + ' *'}
+                labelText={approverLabelText('phoneNumber')}
               />
             </div>
             <h3>{t('registration.confirmSend')}</h3>
-            {age < 18 && <p>{t('registration.processInfoText')}</p>}
+            {AGE < ageConstants.ADULT && (
+              <p>{t('registration.processInfoText')}</p>
+            )}
             <ul className={styles.terms}>
               <Field name="terms" type="checkbox" />
               <span className={styles.listLabel}>
