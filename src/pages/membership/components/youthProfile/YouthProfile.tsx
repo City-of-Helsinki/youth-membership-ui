@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { Route, Switch, useHistory } from 'react-router';
+import { Redirect, Route, Switch, useHistory } from 'react-router';
 import { loader } from 'graphql.macro';
 
 import getAuthenticatedUser from '../../../../auth/getAuthenticatedUser';
@@ -17,6 +17,7 @@ import {
   HasYouthProfile,
   MembershipStatus,
 } from '../../../../graphql/generatedTypes';
+import getCookie from '../../helpers/getCookie';
 
 const HAS_YOUTH_PROFILE = loader('../../graphql/HasYouthProfile.graphql');
 
@@ -48,6 +49,8 @@ function YouthProfile(props: Props) {
     data?.myProfile?.youthProfile?.membershipStatus ===
     MembershipStatus.PENDING;
 
+  const birthDate = getCookie('birthDate');
+
   return (
     <PageLayout background="youth">
       <Loading
@@ -71,6 +74,8 @@ function YouthProfile(props: Props) {
               <MembershipDetails />
             </Route>
           </Switch>
+        ) : !birthDate ? (
+          <Redirect to="/login" />
         ) : (
           <CreateYouthProfile tunnistamoUser={tunnistamoUser} />
         )}
