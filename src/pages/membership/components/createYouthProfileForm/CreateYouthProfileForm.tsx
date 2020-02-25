@@ -39,36 +39,36 @@ const schema = Yup.object().shape({
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
     .required('validation.required'),
-  approverFirstName: Yup.string().when([], () => {
-    return AGE < ageConstants.ADULT
-      ? Yup.string()
-          .required('validation.required')
-          .min(2, 'validation.tooShort')
-          .max(255, 'validation.tooLong')
-      : Yup.string();
-  }),
-  approverLastName: Yup.string().when([], () => {
-    return AGE < ageConstants.ADULT
-      ? Yup.string()
-          .required('validation.required')
-          .min(2, 'validation.tooShort')
-          .max(255, 'validation.tooLong')
-      : Yup.string();
-  }),
-  approverPhone: Yup.string().when([], () => {
-    return AGE < ageConstants.ADULT
-      ? Yup.string()
-          .required('validation.required')
-          .min(6, 'validation.phoneMin')
-      : Yup.string();
-  }),
-  approverEmail: Yup.string().when([], () => {
-    return AGE < ageConstants.ADULT
-      ? Yup.string()
-          .required('validation.required')
-          .email('validation.email')
-      : Yup.string();
-  }),
+  approverFirstName: Yup.string()
+    .min(2, 'validation.tooShort')
+    .max(255, 'validation.tooLong')
+    .when([], (schema: Yup.StringSchema) => {
+      return AGE < ageConstants.ADULT
+        ? schema.required('validation.required')
+        : schema;
+    }),
+  approverLastName: Yup.string()
+    .min(2, 'validation.tooShort')
+    .max(255, 'validation.tooLong')
+    .when([], (schema: Yup.StringSchema) => {
+      return AGE < ageConstants.ADULT
+        ? schema.required('validation.required')
+        : schema;
+    }),
+  approverPhone: Yup.string()
+    .min(6, 'validation.phoneMin')
+    .when([], (schema: Yup.StringSchema) => {
+      return AGE < ageConstants.ADULT
+        ? schema.required('validation.required')
+        : schema;
+    }),
+  approverEmail: Yup.string()
+    .email('validation.email')
+    .when([], (schema: Yup.StringSchema) => {
+      return AGE < ageConstants.ADULT
+        ? schema.required('validation.required')
+        : schema;
+    }),
   photoUsageApproved: Yup.boolean().required('validation.required'),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
