@@ -62,6 +62,15 @@ function Login(props: Props) {
             >
               {t('login.findNearestService')}
             </a>
+            <p>
+              <span
+                role="button"
+                onClick={() => setShowManualRegistration(false)}
+                className={styles.goBack}
+              >
+                {t('login.return')}
+              </span>
+            </p>
           </React.Fragment>
         )}
       </div>
