@@ -67,6 +67,7 @@ function YouthProfile(props: Props) {
                 <MembershipInformation
                   expirationDate={data?.myProfile?.youthProfile?.expiration}
                   status={data?.myProfile?.youthProfile?.membershipStatus}
+                  renewable={data?.myProfile?.youthProfile?.renewable}
                 />
               )}
             </Route>

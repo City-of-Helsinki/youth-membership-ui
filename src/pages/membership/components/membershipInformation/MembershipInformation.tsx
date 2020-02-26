@@ -24,6 +24,7 @@ const RENEW_MEMBERSHIP = loader('../../graphql/RenewMyYouthProfile.graphql');
 type Props = {
   expirationDate: string;
   status: MembershipStatus | undefined | null;
+  renewable: boolean | undefined | null;
 };
 
 function MembershipInformation(props: Props) {
@@ -65,34 +66,31 @@ function MembershipInformation(props: Props) {
               number: data?.youthProfile?.membershipNumber,
             })}
           </h3>
-
           <p className={styles.validUntil}>
             {t('membershipInformation.validUntil', { date: validUntil })}
           </p>
-
           <QRCode
             size={175}
             value="https://helsinkiprofile.test.kuva.hel.ninja/admin/"
           />
-
-          <Button
-            type="button"
-            onClick={handleRenewMembership}
-            className={styles.renew}
-          >
-            {t('membershipInformation.renew')}
-          </Button>
-
+           
+          {props.renewable && (
+            <Button
+              type="button"
+              onClick={handleRenewMembership}
+              className={styles.renew}
+            >
+              {t('membershipInformation.renew')}
+            </Button>
+          )}
           <Link to="/membership-details" className={styles.detailsLink}>
             {t('membershipInformation.showProfileInformation')}
             <IconAngleRight className={styles.icon} />
           </Link>
-
           <NotificationComponent
             show={showNotification}
             onClose={() => setShowNotification(false)}
           />
-
           <NotificationComponent
             show={successNotification}
             onClose={() => setSuccessNotification(false)}

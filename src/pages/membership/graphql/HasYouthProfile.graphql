@@ -4,6 +4,7 @@ query HasYouthProfile {
       expiration
       approvedTime
       membershipStatus
+      renewable
     }
   }
 }

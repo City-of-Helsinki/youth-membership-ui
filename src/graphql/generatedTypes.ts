@@ -171,6 +171,10 @@ export interface HasYouthProfile_myProfile_youthProfile {
    * Membership status based on expiration and approved_time fields
    */
   readonly membershipStatus: MembershipStatus | null;
+  /**
+   * Tells if the membership is currently renewable or not
+   */
+  readonly renewable: boolean | null;
 }
 
 export interface HasYouthProfile_myProfile {
@@ -610,21 +614,9 @@ export interface AddressInput {
   readonly primary?: boolean | null;
 }
 
-export interface ApproveYouthProfileFields {
-  readonly schoolName?: string | null;
-  readonly schoolClass?: string | null;
-  readonly languageAtHome?: YouthLanguage | null;
-  readonly approverFirstName?: string | null;
-  readonly approverLastName?: string | null;
-  readonly approverPhone?: string | null;
-  readonly approverEmail?: string | null;
-  readonly birthDate?: any | null;
-  readonly photoUsageApproved?: boolean | null;
-}
-
 export interface ApproveYouthProfileMutationInput {
   readonly approvalToken: string;
-  readonly approvalData: ApproveYouthProfileFields;
+  readonly approvalData: YouthProfileFields;
   readonly clientMutationId?: string | null;
 }
 
@@ -664,10 +656,15 @@ export interface ProfileInput {
   readonly updateAddresses?: ReadonlyArray<(AddressInput | null)> | null;
   readonly removeAddresses?: ReadonlyArray<(string | null)> | null;
   readonly youthProfile?: YouthProfileFields | null;
+  readonly sensitivedata?: SensitiveDataFields | null;
 }
 
 export interface RenewMyYouthProfileMutationInput {
   readonly clientMutationId?: string | null;
+}
+
+export interface SensitiveDataFields {
+  readonly ssn?: string | null;
 }
 
 export interface ServiceConnectionInput {
@@ -693,6 +690,7 @@ export interface UpdateYouthProfileInput {
   readonly approverPhone?: string | null;
   readonly approverEmail?: string | null;
   readonly birthDate?: any | null;
+  readonly photoUsageApproved?: boolean | null;
   readonly resendRequestNotification?: boolean | null;
 }
 
@@ -705,6 +703,7 @@ export interface YouthProfileFields {
   readonly approverPhone?: string | null;
   readonly approverEmail?: string | null;
   readonly birthDate?: any | null;
+  readonly photoUsageApproved?: boolean | null;
 }
 
 //==============================================================
