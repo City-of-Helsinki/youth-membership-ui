@@ -69,7 +69,7 @@ const schema = Yup.object().shape({
         ? schema.required('validation.required')
         : schema;
     }),
-  photoUsageApproved: Yup.boolean().required('validation.required'),
+  photoUsageApproved: Yup.string().required('validation.required'),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
 
@@ -89,8 +89,7 @@ export type FormValues = {
   approverPhone: string;
   approverEmail: string;
   languageAtHome: YouthLanguage;
-  //TODO: Waiting to be fixed in backend
-  // photoUsageApproved: boolean;
+  photoUsageApproved: string;
 };
 
 type Props = {
@@ -124,7 +123,6 @@ function CreateYouthProfileForm(props: Props) {
         schoolName: '',
         schoolClass: '',
         language: '',
-        photoUsageApproved: false,
         approverFirstName: '',
         approverLastName: '',
         approverEmail: '',
@@ -151,8 +149,7 @@ function CreateYouthProfileForm(props: Props) {
           approverPhone: values.approverPhone,
           approverEmail: values.approverEmail,
           languageAtHome: values.languageAtHome,
-          //TODO: Waiting to be fixed in backend
-          //photoUsageApproved: true,
+          photoUsageApproved: values.photoUsageApproved,
         });
       }}
       validationSchema={schema}
@@ -315,7 +312,7 @@ function CreateYouthProfileForm(props: Props) {
                         id="photoUsageApprovedYes"
                         name="photoUsageApproved"
                         type="radio"
-                        value={true}
+                        value={'true'}
                       />
                       <span className={styles.listLabel}>
                         {t('registration.photoUsageApprovedYes')}
@@ -328,7 +325,7 @@ function CreateYouthProfileForm(props: Props) {
                         id="pphotoUsageApprovedNo"
                         name="photoUsageApproved"
                         type="radio"
-                        value={false}
+                        value={'false'}
                       />
                       <span className={styles.listLabel}>
                         {t('registration.photoUsageApprovedNo')}
