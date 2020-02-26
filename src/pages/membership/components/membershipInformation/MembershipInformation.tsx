@@ -28,6 +28,7 @@ type Props = {
 
 function MembershipInformation(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
+  const [successNotification, setSuccessNotification] = useState(false);
   const { t } = useTranslation();
 
   const { data, loading } = useQuery<MembershipDetails>(MEMBERSHIP_DETAILS, {
@@ -36,7 +37,7 @@ function MembershipInformation(props: Props) {
   const [renewMembership] = useMutation<
     RenewMyYouthProfileData,
     RenewMyYouthProfileVariables
-  >(RENEW_MEMBERSHIP);
+  >(RENEW_MEMBERSHIP, { refetchQueries: ['HasYouthProfile'] });
 
   const validUntil = convertDateToLocale(props.expirationDate);
 
@@ -45,7 +46,13 @@ function MembershipInformation(props: Props) {
       input: {},
     };
 
-    renewMembership({ variables }).catch(() => setShowNotification(true));
+    renewMembership({ variables })
+      .then(result => {
+        if (result.data) {
+          setSuccessNotification(true);
+        }
+      })
+      .catch(() => setShowNotification(true));
   };
 
   return (
@@ -85,6 +92,15 @@ function MembershipInformation(props: Props) {
             show={showNotification}
             onClose={() => setShowNotification(false)}
           />
+
+          <NotificationComponent
+            show={successNotification}
+            onClose={() => setSuccessNotification(false)}
+            type="success"
+            labelText={t('membershipInformation.renewSuccessTitle')}
+          >
+            {t('membershipInformation.renewSuccessMessage')}
+          </NotificationComponent>
         </React.Fragment>
       )}
     </div>

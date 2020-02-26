@@ -46,7 +46,9 @@
     "title": "Jäsenkortin numero {{number}}",
     "showProfileInformation": "Näytä profiilin tiedot",
     "validUntil": "Voimassa {{date}} asti",
-    "renew": "Uusi jäsenyys"
+    "renew": "Uusi jäsenyys",
+    "renewSuccessTitle": "Onnistui",
+    "renewSuccessMessage": "Jäsenyys uusittu onnistuneesti!"
   },
   "registration": {
     "title": "Täytä tietosi",
