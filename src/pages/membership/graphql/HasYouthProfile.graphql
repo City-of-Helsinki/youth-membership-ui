@@ -1,10 +1,7 @@
 query HasYouthProfile {
   myProfile {
     youthProfile {
-      expiration
-      approvedTime
       membershipStatus
-      renewable
     }
   }
 }

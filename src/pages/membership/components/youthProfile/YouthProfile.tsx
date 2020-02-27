@@ -64,11 +64,7 @@ function YouthProfile(props: Props) {
               {isMembershipPending ? (
                 <SentYouthProfile />
               ) : (
-                <MembershipInformation
-                  expirationDate={data?.myProfile?.youthProfile?.expiration}
-                  status={data?.myProfile?.youthProfile?.membershipStatus}
-                  renewable={data?.myProfile?.youthProfile?.renewable}
-                />
+                <MembershipInformation />
               )}
             </Route>
             <Route path="/membership-details" exact>
