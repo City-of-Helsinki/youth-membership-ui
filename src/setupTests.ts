@@ -3,6 +3,9 @@ import { configure } from 'enzyme';
 import { GlobalWithFetchMock } from 'jest-fetch-mock';
 import './common/test/tesi18nInit';
 
+// Jest canvas mock is for testing component with QR code
+import 'jest-canvas-mock';
+
 const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock;
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 customGlobal.fetch = require('jest-fetch-mock');
