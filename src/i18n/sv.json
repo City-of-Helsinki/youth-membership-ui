@@ -10,7 +10,8 @@
     "helpTextUnderAge": "Tyvärr, på grund av användningsvillkoren för Helsingfors-profilen krävs det 13 års ålder för att erhålla ungdomarsmedlemskapet digitalt. Du kan få en pappersansökan från stadens ungdomsgårdar. Fyll i ansökan med dina föräldrar och skicka tillbaka den till Ungdomsangården för att få ditt medlemskort.",
     "findNearestService": "Hitta närmaste ungdomsanläggning på servicekartan",
     "buttonText": "Få medlemskap",
-    "linkForMembersText": "Har du medlemskap? Logga in "
+    "linkForMembersText": "Har du medlemskap? Logga in ",
+    "return": "Gå tillbaka"
   },
   "profile": {
     "loading": "Laddar profil...",

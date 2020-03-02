@@ -10,14 +10,6 @@
   }
 }
 
-.linkArrow{
-  color: #0072c6;
-}
-
-.loginHelpText:hover {
-  cursor:pointer;
-}
-
 .serviceLink {
   background-color: var(--hds-ui-color-black);
   color: var(--hds-ui-color-white);
@@ -25,4 +17,5 @@
   display: inline-block;
   font-weight: bold;
   margin-top: 30px;
+  margin-bottom: 30px;
 }

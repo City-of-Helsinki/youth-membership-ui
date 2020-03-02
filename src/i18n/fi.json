@@ -10,7 +10,8 @@
     "helpTextUnderAge": "Valitettavasti Jässärin hankkiminen digitaalisesti edellyttää vähintään 13 vuoden iän johtuen Helsinkiprofiilin käyttöehdoista. Saat paperisen jässärihakemuksen kaupungin nuorisotiloilta. Täytä hakemus vanhempasi kanssa ja palauta se nuorisotilalle, niin saat oman jäsenkortin.",
     "findNearestService": "Löydä lähin nuorisotila palvelukartalta",
     "buttonText": "Hanki jäsenyys",
-    "linkForMembersText": "Oletko jo jäsen? Kirjaudu sisään"
+    "linkForMembersText": "Oletko jo jäsen? Kirjaudu sisään",
+    "return": "Palaa takaisin"
   },
   "profile": {
     "loading": "Ladataan profiilia...",
