@@ -48,11 +48,7 @@ function MembershipInformation(props: Props) {
     };
 
     renewMembership({ variables })
-      .then(result => {
-        if (result.data) {
-          setSuccessNotification(true);
-        }
-      })
+      .then(result => setSuccessNotification(!!result.data))
       .catch(() => setShowNotification(true));
   };
 
