@@ -88,8 +88,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
             approverPhone: formValues.approverPhone,
             approverEmail: formValues.approverEmail,
             languageAtHome: formValues.languageAtHome,
-            //TODO: Waiting to be fixed in backend
-            //photoUsageApproved: formValues.photoUsageApproved,
+            photoUsageApproved: formValues.photoUsageApproved === 'true',
           },
         },
       },
@@ -136,8 +135,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
           approverLastName: '',
           approverPhone: '',
           languageAtHome: YouthLanguage.FINNISH,
-          //TODO: Waiting to be fixed in backend
-          //photoUsageApproved: false,
+          photoUsageApproved: 'false',
         }}
         isSubmitting={loading}
         onValues={handleOnValues}
