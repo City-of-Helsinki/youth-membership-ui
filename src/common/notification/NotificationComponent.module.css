@@ -9,5 +9,14 @@
     margin: 0;
 }
 
+/*
+    Use !important for now to shrink notification button size
+    and prevent button appearing on top of the title text.
+    Replace after DismissableNotification accepts className as prop.
+*/
+.notification button {
+    width: 50px !important;
+}
+
 
 

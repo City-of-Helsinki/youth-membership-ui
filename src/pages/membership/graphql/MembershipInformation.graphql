@@ -1,0 +1,12 @@
+query MembershipInformation {
+    youthProfile {
+        profile {
+            firstName
+            lastName
+        }
+        expiration
+        renewable
+        membershipNumber
+    }
+
+}

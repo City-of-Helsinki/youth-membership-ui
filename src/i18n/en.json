@@ -46,7 +46,9 @@
     "title": "Membership card number {{number}}",
     "showProfileInformation": "Show profile information",
     "validUntil": "Valid until {{date}}",
-    "renew": "Renew membership"
+    "renew": "Renew membership",
+    "renewSuccessTitle": "Success",
+    "renewSuccessMessage": "Membership renewed successfully!"
   },
   "registration": {
     "title": "Please fill in your information",

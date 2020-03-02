@@ -46,7 +46,9 @@
     "title": "Medlemskortnummer {{number}}",
     "showProfileInformation": "Visa profilinformation",
     "validUntil": "Gäller till {{date}}",
-    "renew": "Förnya medlemskapet"
+    "renew": "Förnya medlemskapet",
+    "renewSuccessTitle": "Framgång",
+    "renewSuccessMessage": "Medlemskapet förnyades framgångsrikt!"
   },
   "registration": {
     "title": "Vänligen fyll i din information",
