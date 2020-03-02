@@ -40,16 +40,9 @@ function Login(props: Props) {
           <React.Fragment>
             <p className={styles.helpText}>{t('login.helpText')}</p>
             <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
-            <p>
-              <span
-                role="button"
-                className={styles.loginHelpText}
-                onClick={authenticate}
-              >
-                {t('login.linkForMembersText')}
-                <span className={styles.linkArrow}> ></span>
-              </span>
-            </p>
+            <button onClick={authenticate}>
+              {t('login.linkForMembersText')} >
+            </button>
           </React.Fragment>
         )}
 
@@ -62,15 +55,10 @@ function Login(props: Props) {
             >
               {t('login.findNearestService')}
             </a>
-            <p>
-              <span
-                role="button"
-                onClick={() => setShowManualRegistration(false)}
-                className={styles.goBack}
-              >
-                {t('login.return')}
-              </span>
-            </p>
+            <br />
+            <button onClick={() => setShowManualRegistration(false)}>
+              {t('login.return')}
+            </button>
           </React.Fragment>
         )}
       </div>
