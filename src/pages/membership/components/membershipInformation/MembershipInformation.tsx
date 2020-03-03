@@ -38,7 +38,7 @@ function MembershipInformation(props: Props) {
   const [renewMembership] = useMutation<
     RenewMyYouthProfileData,
     RenewMyYouthProfileVariables
-  >(RENEW_MEMBERSHIP, { refetchQueries: ['HasYouthProfile'] });
+  >(RENEW_MEMBERSHIP, { refetchQueries: ['MembershipInformation'] });
 
   const validUntil = convertDateToLocale(data?.youthProfile?.expiration);
 
