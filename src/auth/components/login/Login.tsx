@@ -11,6 +11,7 @@ import styles from './Login.module.css';
 import BirthdateForm from '../birthdateForm/BirthdateForm';
 import NotificationComponent from '../../../common/notification/NotificationComponent';
 import authConstants from '../../constants/authConstants';
+import ageConstants from '../../../pages/membership/constants/ageConstants';
 
 type Props = {
   resetError: () => void;
@@ -24,7 +25,7 @@ function Login(props: Props) {
   const redirectBasedOnAge = (birthDate: string) => {
     const age = differenceInYears(new Date(), new Date(birthDate));
 
-    if (age < 13) {
+    if (age < ageConstants.REGISTRATION_AGE_DIGITALLY_MIN) {
       setShowManualRegistration(true);
     } else {
       document.cookie = `birthDate=${birthDate}`;
