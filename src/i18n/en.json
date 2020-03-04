@@ -7,7 +7,7 @@
   "login" : {
     "title": "Get Jässäri!",
     "helpText": "The membership card gives you access to youth hostels. As a youth membership owner, you can spend an evening in a disco or nightclub, hang out in a youth club, practice in a band camp, do a DJ class, practice dancing, theater or handicrafts, apply for project money, attend summer camps or even create your own event.",
-    "helpTextUnderAge": "Unfortunately, due to the terms of use of the Helsinki profile, 13 years of age is required to acquire Youth membership digitally. You can get a paper application from the city's youth centres. Fill out the application with your parents and return it to Youth centre to get your membership card.",
+    "helpTextUnderAge": "Unfortunately, due to the terms of use of the Helsinki profile, 13 years of age is required to acquire Youth membership digitally. You can get a paper application from the city's youth centres or by downloading it from <0>this link</0>. Fill out the application with your parents and return it to Youth centre to get your membership card.",
     "findNearestService": "Find the nearest youth centre on the service map",
     "buttonText": "Get membership",
     "linkForMembersText": "Do you have membership? Log in ",
