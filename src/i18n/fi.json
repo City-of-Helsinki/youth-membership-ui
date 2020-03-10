@@ -11,7 +11,8 @@
     "findNearestService": "Löydä lähin nuorisotila palvelukartalta",
     "buttonText": "Hanki jäsenyys",
     "linkForMembersText": "Oletko jo jäsen? Kirjaudu sisään",
-    "return": "Palaa takaisin"
+    "return": "Palaa takaisin",
+    "registrationForm": "http://jassari.munstadi.fi/files/2019/06/Jasenkorttikaavake_2019_suomi.pdf "
   },
   "profile": {
     "loading": "Ladataan profiilia...",

@@ -11,7 +11,8 @@
     "findNearestService": "Find the nearest youth centre on the service map",
     "buttonText": "Get membership",
     "linkForMembersText": "Do you have membership? Log in ",
-    "return": "Go back"
+    "return": "Go back",
+    "registrationForm": "http://jassari.munstadi.fi/files/2019/06/Jasenkorttikaavake_2019_englanti.pdf "
   },
   "profile": {
     "loading": "Loading profile...",

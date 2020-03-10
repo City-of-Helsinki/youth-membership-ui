@@ -11,7 +11,8 @@
     "findNearestService": "Hitta närmaste ungdomsanläggning på servicekartan",
     "buttonText": "Få medlemskap",
     "linkForMembersText": "Har du medlemskap? Logga in ",
-    "return": "Gå tillbaka"
+    "return": "Gå tillbaka",
+    "registrationForm": "http://jassari.munstadi.fi/files/2019/06/Jasenkorttikaavake_2019_ruotsi.pdf"
   },
   "profile": {
     "loading": "Laddar profil...",

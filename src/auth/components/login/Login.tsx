@@ -20,7 +20,7 @@ type Props = {
 
 function Login(props: Props) {
   const [showManualRegistration, setShowManualRegistration] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const redirectBasedOnAge = (birthDate: string) => {
     const age = differenceInYears(new Date(), new Date(birthDate));
@@ -32,8 +32,6 @@ function Login(props: Props) {
       authenticate();
     }
   };
-
-  const userLanguage = i18n.languages[0].toUpperCase();
 
   return (
     <PageLayout background="youth">
@@ -58,7 +56,7 @@ function Login(props: Props) {
                 components={[
                   // eslint-disable-next-line jsx-a11y/anchor-has-content
                   <a
-                    href={authConstants.URLS.REGISTRATION_FORM[userLanguage]}
+                    href={t('login.registrationForm')}
                     target="_blank"
                     rel="noopener noreferrer"
                   />,
