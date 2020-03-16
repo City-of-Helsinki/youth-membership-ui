@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { User } from 'oidc-client';
 import { useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
+import * as Sentry from '@sentry/browser';
 
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import YouthProfileForm, {
@@ -109,12 +110,18 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     createProfile({ variables })
       .then(result => {
         if (result.data) {
-          addServiceConnection({ variables: connectionVariables }).catch(() =>
-            setShowNotification(true)
+          addServiceConnection({ variables: connectionVariables }).catch(
+            (error: Error) => {
+              Sentry.captureException(error);
+              setShowNotification(true);
+            }
           );
         }
       })
-      .catch(() => setShowNotification(true));
+      .catch((error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      });
   };
   return (
     <div className={styles.form}>

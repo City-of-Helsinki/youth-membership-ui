@@ -3,6 +3,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import * as Sentry from '@sentry/browser';
 
 import Button from '../../../../common/button/Button';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
@@ -22,7 +23,10 @@ function ViewYouthProfile(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
   const [emailReSent, setEmailReSent] = useState(false);
   const { data } = useQuery<ApproverEmail>(APPROVER_EMAIL, {
-    onError: () => setShowNotification(true),
+    onError: (error: Error) => {
+      Sentry.captureException(error);
+      setShowNotification(true);
+    },
   });
   const { t } = useTranslation();
 
@@ -45,7 +49,10 @@ function ViewYouthProfile(props: Props) {
           setEmailReSent(true);
         }
       })
-      .catch(() => setShowNotification(true));
+      .catch((error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      });
   };
 
   return (

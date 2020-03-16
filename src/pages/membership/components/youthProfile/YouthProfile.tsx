@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { Redirect, Route, Switch, useHistory } from 'react-router';
 import { loader } from 'graphql.macro';
+import * as Sentry from '@sentry/browser';
 
 import getAuthenticatedUser from '../../../../auth/getAuthenticatedUser';
 import PageLayout from '../../../../common/layout/PageLayout';
@@ -27,7 +28,10 @@ function YouthProfile(props: Props) {
   const { t } = useTranslation();
   const history = useHistory();
   const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
-    onError: () => setShowNotification(true),
+    onError: (error: Error) => {
+      Sentry.captureException(error);
+      setShowNotification(true);
+    },
   });
   const [showNotification, setShowNotification] = useState(false);
   const [isCheckingAuthState, setIsCheckingAuthState] = useState(true);
