@@ -3,6 +3,7 @@ import { loader } from 'graphql.macro';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import * as Sentry from '@sentry/browser';
 
 import styles from './MembershipDetails.module.css';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
@@ -21,7 +22,10 @@ function RegistrationInformation(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
   const { t } = useTranslation();
   const { data } = useQuery<MembershipDetailsData>(MEMBERSHIP_DETAILS, {
-    onError: () => setShowNotification(true),
+    onError: (error: Error) => {
+      Sentry.captureException(error);
+      setShowNotification(true);
+    },
   });
 
   return (

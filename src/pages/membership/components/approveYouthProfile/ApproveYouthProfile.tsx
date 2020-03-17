@@ -3,6 +3,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useParams } from 'react-router';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
+import * as Sentry from '@sentry/browser';
 
 import Loading from '../../../../common/loading/Loading';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
@@ -39,7 +40,10 @@ function ApproveYouthProfile(props: Props) {
     PROFILE_BY_TOKEN,
     {
       variables: { token: params.token },
-      onError: () => setShowNotification(true),
+      onError: (error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      },
       fetchPolicy: 'network-only',
     }
   );
@@ -68,7 +72,10 @@ function ApproveYouthProfile(props: Props) {
           setApprovalSuccessful(true);
         }
       })
-      .catch(() => setShowNotification(true));
+      .catch((error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      });
   };
 
   return (

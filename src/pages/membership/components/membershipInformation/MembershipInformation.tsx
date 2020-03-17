@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { IconAngleRight } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { QRCode } from 'react-qrcode-logo';
+import * as Sentry from '@sentry/browser';
 
 import Button from '../../../../common/button/Button';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
@@ -32,7 +33,10 @@ function MembershipInformation(props: Props) {
   const { data, loading } = useQuery<MembershipInformationTypes>(
     MEMBERSHIP_INFORMATION,
     {
-      onError: () => setShowNotification(true),
+      onError: (error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      },
     }
   );
   const [renewMembership] = useMutation<
@@ -49,7 +53,10 @@ function MembershipInformation(props: Props) {
 
     renewMembership({ variables })
       .then(result => setSuccessNotification(!!result.data))
-      .catch(() => setShowNotification(true));
+      .catch((error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      });
   };
 
   return (

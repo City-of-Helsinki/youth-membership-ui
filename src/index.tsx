@@ -1,9 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as Sentry from '@sentry/browser';
 
 import './index.css';
 import BrowserApp from './BrowserApp';
 import * as serviceWorker from './serviceWorker';
+
+if (process.env.NODE_ENV !== 'development') {
+  Sentry.init({
+    dsn: process.env.REACT_APP_SENTRY_DSN,
+    environment: process.env.NODE_ENV,
+    release: `${process.env.REACT_APP_APPLICATION_NAME}@${process.env.REACT_APP_VERSION}`,
+  });
+}
 
 ReactDOM.render(<BrowserApp />, document.getElementById('root'));
 
