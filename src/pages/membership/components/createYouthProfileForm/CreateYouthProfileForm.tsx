@@ -116,10 +116,6 @@ function CreateYouthProfileForm(props: Props) {
     <Formik
       initialValues={{
         ...props.profile,
-        address: '',
-        postalCode: '',
-        city: '',
-        phone: '',
         schoolName: '',
         schoolClass: '',
         language: '',

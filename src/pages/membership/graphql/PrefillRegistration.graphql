@@ -1,0 +1,16 @@
+query PrefillRegistartion {
+  myProfile {
+    firstName
+    lastName
+    primaryPhone {
+      phone
+      id
+    }
+    primaryAddress {
+      address
+      postalCode
+      city
+      id
+    }
+  }
+}
