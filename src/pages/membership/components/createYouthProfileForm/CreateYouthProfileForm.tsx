@@ -116,38 +116,12 @@ function CreateYouthProfileForm(props: Props) {
     <Formik
       initialValues={{
         ...props.profile,
-        schoolName: '',
-        schoolClass: '',
-        language: '',
-        approverFirstName: '',
-        approverLastName: '',
-        approverEmail: '',
-        approverPhone: '',
         terms: false,
       }}
       initialErrors={{
         terms: 'validation.required',
       }}
-      onSubmit={values => {
-        props.onValues({
-          firstName: values.firstName,
-          lastName: values.lastName,
-          address: values.address,
-          postalCode: values.postalCode,
-          city: values.city,
-          email: props.profile.email,
-          phone: values.phone,
-          birthDate: format(new Date(props.profile.birthDate), 'yyyy-MM-dd'),
-          schoolName: values.schoolName,
-          schoolClass: values.schoolClass,
-          approverFirstName: values.approverFirstName,
-          approverLastName: values.approverLastName,
-          approverPhone: values.approverPhone,
-          approverEmail: values.approverEmail,
-          languageAtHome: values.languageAtHome,
-          photoUsageApproved: values.photoUsageApproved,
-        });
-      }}
+      onSubmit={(values: FormValues) => props.onValues(values)}
       validationSchema={schema}
     >
       {props => (

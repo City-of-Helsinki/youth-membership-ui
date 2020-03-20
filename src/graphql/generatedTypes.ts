@@ -370,6 +370,11 @@ export interface PrefillRegistartion_myProfile_primaryAddress {
   readonly id: string;
 }
 
+export interface PrefillRegistartion_myProfile_primaryEmail {
+  readonly __typename: "EmailNode";
+  readonly email: string;
+}
+
 export interface PrefillRegistartion_myProfile {
   readonly __typename: "ProfileNode";
   readonly firstName: string;
@@ -382,6 +387,10 @@ export interface PrefillRegistartion_myProfile {
    * Convenience field for the address which is marked as primary.
    */
   readonly primaryAddress: PrefillRegistartion_myProfile_primaryAddress | null;
+  /**
+   * Convenience field for the email which is marked as primary.
+   */
+  readonly primaryEmail: PrefillRegistartion_myProfile_primaryEmail | null;
 }
 
 export interface PrefillRegistartion {
@@ -435,6 +444,59 @@ export interface RenewMyYouthProfile {
 
 export interface RenewMyYouthProfileVariables {
   readonly input: RenewMyYouthProfileMutationInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: UpdateMyProfile
+// ====================================================
+
+export interface UpdateMyProfile_updateMyProfile_profile_youthProfile {
+  readonly __typename: "YouthProfileType";
+  readonly approverEmail: string;
+}
+
+export interface UpdateMyProfile_updateMyProfile_profile {
+  readonly __typename: "ProfileNode";
+  /**
+   * The Youth membership data of the profile.
+   */
+  readonly youthProfile: UpdateMyProfile_updateMyProfile_profile_youthProfile | null;
+}
+
+export interface UpdateMyProfile_updateMyProfile {
+  readonly __typename: "UpdateMyProfileMutationPayload";
+  readonly profile: UpdateMyProfile_updateMyProfile_profile | null;
+}
+
+export interface UpdateMyProfile {
+  /**
+   * Updates the profile which is linked to the currently authenticated user based on the given data.
+   * 
+   * One or several of the following is possible to add, modify or remove:
+   * 
+   * * Email
+   * * Address
+   * * Phone
+   * 
+   * If youth data is given, a youth profile will also be created and linked to the
+   * profile **or** the existing youth profile will be updated if the profile is
+   * already linked to a youth profile.
+   * 
+   * Requires authentication.
+   * 
+   * Possible error codes:
+   * 
+   * * `TODO`
+   */
+  readonly updateMyProfile: UpdateMyProfile_updateMyProfile | null;
+}
+
+export interface UpdateMyProfileVariables {
+  readonly input: UpdateMyProfileMutationInput;
 }
 
 /* tslint:disable */
@@ -766,6 +828,11 @@ export interface ServiceConnectionInput {
 
 export interface ServiceInput {
   readonly type?: ServiceType | null;
+}
+
+export interface UpdateMyProfileMutationInput {
+  readonly profile: ProfileInput;
+  readonly clientMutationId?: string | null;
 }
 
 export interface UpdateMyYouthProfileMutationInput {

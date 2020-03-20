@@ -12,19 +12,19 @@ import YouthProfileForm, {
 } from '../createYouthProfileForm/CreateYouthProfileForm';
 import styles from './CreateYouthProfile.module.css';
 import {
-  AddressType,
   AddServiceConnection as AddServiceConnectionData,
   AddServiceConnectionVariables,
   CreateMyProfile as CreateMyProfileData,
   CreateMyProfileVariables,
-  EmailType,
-  PhoneType,
   ServiceType,
   YouthLanguage,
   PrefillRegistartion,
+  UpdateMyProfile as UpdateMyProfileData,
+  UpdateMyProfileVariables,
 } from '../../../../graphql/generatedTypes';
 import getCookie from '../../helpers/getCookie';
 import Loading from '../../../../common/loading/Loading';
+import { getMutationVariables } from '../../helpers/createProfileMutationVariables';
 
 const PREFILL_REGISTRATION = loader(
   '../../graphql/PrefillRegistration.graphql'
@@ -33,6 +33,7 @@ const CREATE_PROFILE = loader('../../graphql/CreateMyProfile.graphql');
 const ADD_SERVICE_CONNECTION = loader(
   '../../graphql/AddServiceConnection.graphql'
 );
+const UPDATE_PROFILE = loader('../../graphql/UpdateMyProfile.graphql');
 
 type Props = {
   tunnistamoUser: User;
@@ -64,54 +65,19 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     refetchQueries: ['HasYouthProfile'],
   });
 
+  const [updateProfile] = useMutation<
+    UpdateMyProfileData,
+    UpdateMyProfileVariables
+  >(UPDATE_PROFILE);
+
   const birthDate = getCookie('birthDate');
 
   const handleOnValues = (formValues: FormValues) => {
-    const variables: CreateMyProfileVariables = {
-      input: {
-        profile: {
-          firstName: formValues.firstName,
-          lastName: formValues.lastName,
-          addAddresses: [
-            {
-              address: formValues.address,
-              postalCode: formValues.postalCode,
-              city: formValues.city,
-              primary: true,
-              addressType: AddressType.OTHER,
-            },
-          ],
-          addEmails: [
-            {
-              email: formValues.email,
-              primary: true,
-              emailType: EmailType.OTHER,
-            },
-          ],
-          addPhones: [
-            formValues.phone
-              ? {
-                  phone: formValues.phone,
-                  primary: true,
-                  phoneType: PhoneType.OTHER,
-                }
-              : null,
-          ],
-          youthProfile: {
-            birthDate: formValues.birthDate,
-            schoolName: formValues.schoolName,
-            schoolClass: formValues.schoolClass,
-            approverFirstName: formValues.approverFirstName,
-            approverLastName: formValues.approverLastName,
-            approverPhone: formValues.approverPhone,
-            approverEmail: formValues.approverEmail,
-            languageAtHome: formValues.languageAtHome,
-            photoUsageApproved: formValues.photoUsageApproved === 'true',
-          },
-        },
-      },
-    };
-
+    const variables: CreateMyProfileVariables = getMutationVariables(
+      formValues,
+      data
+    );
+    console.log('VARIABLES', variables);
     // TODO after back end supports editing serviceConnections change enabled from true to false
     const connectionVariables: AddServiceConnectionVariables = {
       input: {
@@ -123,6 +89,13 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
         },
       },
     };
+
+    // TODO enable these after backend problem is solved
+    /*
+    updateProfile({ variables }).then(result => {
+      console.log(result);
+    });
+
 
     createProfile({ variables })
       .then(result => {
@@ -139,6 +112,8 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
         Sentry.captureException(error);
         setShowNotification(true);
       });
+
+     */
   };
   return (
     <div className={styles.form}>

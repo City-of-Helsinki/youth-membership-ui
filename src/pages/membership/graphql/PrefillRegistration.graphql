@@ -12,5 +12,8 @@ query PrefillRegistartion {
       city
       id
     }
+    primaryEmail {
+      email
+    }
   }
 }
