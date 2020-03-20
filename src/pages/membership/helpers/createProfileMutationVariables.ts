@@ -108,6 +108,7 @@ const getMutationVariables = (
       profile: {
         firstName: formValues.firstName,
         lastName: formValues.lastName,
+        language: formValues.profileLanguage,
         ...getAddress(formValues, profile),
         ...getPhone(formValues, profile),
         ...getEmail(formValues, profile),

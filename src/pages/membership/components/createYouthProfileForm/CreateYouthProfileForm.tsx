@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 
 import ageConstants from '../../constants/ageConstants';
 import getCookie from '../../helpers/getCookie';
-import { YouthLanguage } from '../../../../graphql/generatedTypes';
+import { Language, YouthLanguage } from '../../../../graphql/generatedTypes';
 import styles from './CreateYouthProfileForm.module.css';
 import Button from '../../../../common/button/Button';
 
@@ -88,6 +88,7 @@ export type FormValues = {
   approverLastName: string;
   approverPhone: string;
   approverEmail: string;
+  profileLanguage: Language;
   languageAtHome: YouthLanguage;
   photoUsageApproved: string;
 };
@@ -255,6 +256,23 @@ function CreateYouthProfileForm(props: Props) {
                   <label>
                     <Field
                       name="languageAtHome"
+                      type="radio"
+                      value={language}
+                    />
+                    <span className={styles.listLabel}>
+                      {t(`LANGUAGE_OPTIONS.${language}`)}
+                    </span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+            <h4>{t('registration.profileLanguage')}</h4>
+            <ul className={styles.list}>
+              {languages.map((language, index) => (
+                <li className={styles.languageRadioBtnRow} key={index}>
+                  <label>
+                    <Field
+                      name="profileLanguage"
                       type="radio"
                       value={language}
                     />

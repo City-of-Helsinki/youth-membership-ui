@@ -21,6 +21,7 @@ import {
   PrefillRegistartion,
   UpdateMyProfile as UpdateMyProfileData,
   UpdateMyProfileVariables,
+  Language,
 } from '../../../../graphql/generatedTypes';
 import getCookie from '../../helpers/getCookie';
 import Loading from '../../../../common/loading/Loading';
@@ -41,7 +42,7 @@ type Props = {
 
 function CreateYouthProflle({ tunnistamoUser }: Props) {
   const [showNotification, setShowNotification] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { data, loading: loadingData } = useQuery<PrefillRegistartion>(
     PREFILL_REGISTRATION,
@@ -91,12 +92,12 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     };
 
     // TODO enable these after backend problem is solved
-    /*
+
     updateProfile({ variables }).then(result => {
       console.log(result);
     });
 
-
+    /*
     createProfile({ variables })
       .then(result => {
         if (result.data) {
@@ -115,6 +116,11 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
 
      */
   };
+  // These allow us to set initial value of languageAtHome & profileLanguage
+  // to users current language.
+  const currentLangForProfile: Language = t('registration.language');
+  const currentLangForYouth: YouthLanguage = t('registration.language');
+
   return (
     <div className={styles.form}>
       <Loading
@@ -138,7 +144,8 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
             approverFirstName: '',
             approverLastName: '',
             approverPhone: '',
-            languageAtHome: YouthLanguage.FINNISH,
+            profileLanguage: Language[currentLangForProfile],
+            languageAtHome: YouthLanguage[currentLangForYouth],
             photoUsageApproved: 'false',
           }}
           isSubmitting={loading}
