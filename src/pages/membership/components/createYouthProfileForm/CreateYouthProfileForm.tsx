@@ -114,17 +114,19 @@ function CreateYouthProfileForm(props: Props) {
     return t(`registration.${name}`);
   };
 
-  const profileLanguage = props.profile.profileLanguage;
   return (
     <Formik
       initialValues={{
         ...props.profile,
+        birthDate: format(new Date(props.profile.birthDate), 'dd.MM.yyyy'),
         terms: false,
       }}
       initialErrors={{
         terms: 'validation.required',
       }}
-      onSubmit={(values: FormValues) => props.onValues(values)}
+      onSubmit={(values: FormValues) =>
+        props.onValues({ ...values, birthDate: props.profile.birthDate })
+      }
       validationSchema={schema}
     >
       {props => (
@@ -177,29 +179,57 @@ function CreateYouthProfileForm(props: Props) {
                 }
                 labelText={t('registration.address') + ' *'}
               />
+              <div className={styles.formInputRow}>
+                <Field
+                  className={styles.formInputPostal}
+                  as={TextInput}
+                  id="postalCode"
+                  name="postalCode"
+                  invalid={props.submitCount && props.errors.postalCode}
+                  invalidText={
+                    props.submitCount &&
+                    props.errors.postalCode &&
+                    t(props.errors.postalCode)
+                  }
+                  labelText={t('registration.postalCode') + ' *'}
+                />
+                <Field
+                  className={styles.formInputCity}
+                  as={TextInput}
+                  id="city"
+                  name="city"
+                  invalid={props.submitCount && props.errors.city}
+                  invalidText={
+                    props.submitCount &&
+                    props.errors.city &&
+                    t(props.errors.city)
+                  }
+                  labelText={t('registration.city') + ' *'}
+                />
+              </div>
+            </div>
+            <div className={styles.formRow}>
               <Field
-                className={styles.formInputShort}
                 as={TextInput}
-                id="postalCode"
-                name="postalCode"
-                invalid={props.submitCount && props.errors.postalCode}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.postalCode &&
-                  t(props.errors.postalCode)
-                }
-                labelText={t('registration.postalCode') + ' *'}
+                id="birthDate"
+                name="birthDate"
+                readOnly
+                labelText={t('registration.childBirthDay')}
+                className={styles.formInput}
               />
               <Field
-                className={styles.formInputRes}
-                as={TextInput}
-                id="city"
-                name="city"
-                invalid={props.submitCount && props.errors.city}
-                invalidText={
-                  props.submitCount && props.errors.city && t(props.errors.city)
-                }
-                labelText={t('registration.city') + ' *'}
+                as={Select}
+                setFieldValue={props.setFieldValue}
+                id="profileLanguage"
+                name="profileLanguage"
+                type="select"
+                options={[
+                  { value: 'FINNISH', label: t('LANGUAGE_OPTIONS.FINNISH') },
+                  { value: 'ENGLISH', label: t('LANGUAGE_OPTIONS.ENGLISH') },
+                  { value: 'SWEDISH', label: t('LANGUAGE_OPTIONS.SWEDISH') },
+                ]}
+                className={styles.formInput}
+                labelText={t('registration.profileLanguage')}
               />
             </div>
             <div className={styles.formRow}>
@@ -227,30 +257,7 @@ function CreateYouthProfileForm(props: Props) {
                 labelText={t('registration.phoneNumber') + ' *'}
               />
             </div>
-            <div className={styles.formRow}>
-              <Field
-                as={TextInput}
-                id="birthDate"
-                name="birthDate"
-                readOnly
-                labelText={t('registration.childBirthDay')}
-                className={styles.formInput}
-              />
-              <Field
-                as={Select}
-                setFieldValue={props.setFieldValue}
-                id="profileLanguage"
-                name="profileLanguage"
-                type="select"
-                options={[
-                  { value: 'FINNISH', label: t('LANGUAGE_OPTIONS.FINNISH') },
-                  { value: 'ENGLISH', label: t('LANGUAGE_OPTIONS.ENGLISH') },
-                  { value: 'SWEDISH', label: t('LANGUAGE_OPTIONS.SWEDISH') },
-                ]}
-                className={styles.formInput}
-                labelText={t('registration.profileLanguage')}
-              />
-            </div>
+
             <h3>{t('registration.addInfo')}</h3>
             <div className={styles.formRow}>
               <Field

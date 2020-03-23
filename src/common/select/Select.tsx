@@ -20,9 +20,9 @@ type Props = {
 };
 
 const Select = (props: Props) => {
-  const defaultValue = props.options.find(
-    option => option.value === props.value
-  );
+  // Without this defaultValue is not set / language wont get updated
+  const value = props.options.find(option => option.value === props.value);
+
   return (
     <div className={classNames('wrapper', props.className)}>
       <label htmlFor={props.name} className="select-label">
@@ -38,7 +38,7 @@ const Select = (props: Props) => {
         className="select"
         classNamePrefix="select"
         options={props.options}
-        defaultValue={defaultValue || {}}
+        value={value || {}}
       />
     </div>
   );

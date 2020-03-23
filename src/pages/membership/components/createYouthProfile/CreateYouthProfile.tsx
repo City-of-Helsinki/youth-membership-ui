@@ -42,7 +42,7 @@ type Props = {
 
 function CreateYouthProflle({ tunnistamoUser }: Props) {
   const [showNotification, setShowNotification] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const { data, loading: loadingData } = useQuery<PrefillRegistartion>(
     PREFILL_REGISTRATION,
@@ -73,12 +73,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
 
   const birthDate = getCookie('birthDate');
 
-  const handleOnValues = (formValues: FormValues) => {
-    const variables: CreateMyProfileVariables = getMutationVariables(
-      formValues,
-      data
-    );
-    console.log('VARIABLES', variables);
+  const connectService = () => {
     // TODO after back end supports editing serviceConnections change enabled from true to false
     const connectionVariables: AddServiceConnectionVariables = {
       input: {
@@ -91,33 +86,39 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
       },
     };
 
-    // TODO enable these after backend problem is solved
-
-    /*
-    updateProfile({ variables }).then(result => {
-      console.log(result);
-    });
-
-
-     */
-    /*
-    createProfile({ variables })
-      .then(result => {
-        if (result.data) {
-          addServiceConnection({ variables: connectionVariables }).catch(
-            (error: Error) => {
-              Sentry.captureException(error);
-              setShowNotification(true);
-            }
-          );
-        }
-      })
-      .catch((error: Error) => {
+    addServiceConnection({ variables: connectionVariables }).catch(
+      (error: Error) => {
         Sentry.captureException(error);
         setShowNotification(true);
-      });
+      }
+    );
+  };
 
-     */
+  const handleOnValues = (formValues: FormValues) => {
+    const variables: CreateMyProfileVariables = getMutationVariables(
+      formValues,
+      data
+    );
+
+    if (data?.myProfile) {
+      updateProfile({ variables })
+        .then(result => {
+          if (!!result.data) connectService();
+        })
+        .catch((error: Error) => {
+          Sentry.captureException(error);
+          setShowNotification(true);
+        });
+    } else {
+      createProfile({ variables })
+        .then(result => {
+          if (!!result.data) connectService();
+        })
+        .catch((error: Error) => {
+          Sentry.captureException(error);
+          setShowNotification(true);
+        });
+    }
   };
   // These allow us to set initial value of languageAtHome & profileLanguage
   // to users current language.
