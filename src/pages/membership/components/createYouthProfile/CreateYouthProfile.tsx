@@ -93,10 +93,13 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
 
     // TODO enable these after backend problem is solved
 
+    /*
     updateProfile({ variables }).then(result => {
       console.log(result);
     });
 
+
+     */
     /*
     createProfile({ variables })
       .then(result => {

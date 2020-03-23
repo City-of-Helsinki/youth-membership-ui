@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { differenceInYears, format } from 'date-fns';
 import * as Yup from 'yup';
 
+import Select from '../../../../common/select/Select';
 import ageConstants from '../../constants/ageConstants';
 import getCookie from '../../helpers/getCookie';
 import { Language, YouthLanguage } from '../../../../graphql/generatedTypes';
@@ -113,6 +114,7 @@ function CreateYouthProfileForm(props: Props) {
     return t(`registration.${name}`);
   };
 
+  const profileLanguage = props.profile.profileLanguage;
   return (
     <Formik
       initialValues={{
@@ -201,12 +203,15 @@ function CreateYouthProfileForm(props: Props) {
               />
             </div>
             <div className={styles.formRow}>
-              <span className={styles.label}>
-                <label className={styles.labelTitle}>
-                  {t('registration.email')}
-                </label>
-                <div>{props.values.email}</div>
-              </span>
+              <Field
+                as={TextInput}
+                id="email"
+                name="email"
+                type="text"
+                labelText={t('registration.email')}
+                className={styles.formInput}
+                readOnly
+              />
               <Field
                 className={styles.formInput}
                 as={TextInput}
@@ -223,14 +228,28 @@ function CreateYouthProfileForm(props: Props) {
               />
             </div>
             <div className={styles.formRow}>
-              <span className={styles.label}>
-                <label className={styles.labelTitle}>
-                  {t('registration.childBirthDay')}
-                </label>
-                <div>
-                  {format(new Date(props.values.birthDate), 'dd.MM.yyyy')}
-                </div>
-              </span>
+              <Field
+                as={TextInput}
+                id="birthDate"
+                name="birthDate"
+                readOnly
+                labelText={t('registration.childBirthDay')}
+                className={styles.formInput}
+              />
+              <Field
+                as={Select}
+                setFieldValue={props.setFieldValue}
+                id="profileLanguage"
+                name="profileLanguage"
+                type="select"
+                options={[
+                  { value: 'FINNISH', label: t('LANGUAGE_OPTIONS.FINNISH') },
+                  { value: 'ENGLISH', label: t('LANGUAGE_OPTIONS.ENGLISH') },
+                  { value: 'SWEDISH', label: t('LANGUAGE_OPTIONS.SWEDISH') },
+                ]}
+                className={styles.formInput}
+                labelText={t('registration.profileLanguage')}
+              />
             </div>
             <h3>{t('registration.addInfo')}</h3>
             <div className={styles.formRow}>
@@ -256,23 +275,6 @@ function CreateYouthProfileForm(props: Props) {
                   <label>
                     <Field
                       name="languageAtHome"
-                      type="radio"
-                      value={language}
-                    />
-                    <span className={styles.listLabel}>
-                      {t(`LANGUAGE_OPTIONS.${language}`)}
-                    </span>
-                  </label>
-                </li>
-              ))}
-            </ul>
-            <h4>{t('registration.profileLanguage')}</h4>
-            <ul className={styles.list}>
-              {languages.map((language, index) => (
-                <li className={styles.languageRadioBtnRow} key={index}>
-                  <label>
-                    <Field
-                      name="profileLanguage"
                       type="radio"
                       value={language}
                     />
