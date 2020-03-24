@@ -42,7 +42,7 @@ type Props = {
 
 function CreateYouthProflle({ tunnistamoUser }: Props) {
   const [showNotification, setShowNotification] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { data, loading: loadingData } = useQuery<PrefillRegistartion>(
     PREFILL_REGISTRATION,
@@ -120,10 +120,27 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
         });
     }
   };
+
+  const formatLocale = (locale: string) => {
+    switch (locale) {
+      case 'fi':
+        return 'FINNISH';
+      case 'en':
+        return 'ENGLISH';
+      case 'sv':
+        return 'SWEDISH';
+      default:
+        return 'FINNISH';
+    }
+  };
   // These allow us to set initial value of languageAtHome & profileLanguage
   // to users current language.
-  const currentLangForProfile: Language = t('registration.language');
-  const currentLangForYouth: YouthLanguage = t('registration.language');
+  const currentLangForProfile: Language = formatLocale(
+    i18n.languages[0]
+  ) as Language;
+  const currentLangForYouth: YouthLanguage = formatLocale(
+    i18n.languages[0]
+  ) as YouthLanguage;
 
   return (
     <div className={styles.form}>
