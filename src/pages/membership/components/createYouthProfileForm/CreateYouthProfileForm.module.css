@@ -9,79 +9,52 @@
 
 .formRow {
     display: flex;
-    flex-direction: row;
     margin-bottom: 20px;
+    flex-direction: column;
 }
 
-@media (max-width: 768px) {
-    .formRow {
-        flex-direction: column;
-    }
-}
-
-@media (min-width: 768px) {
-    .formInput {
-        margin-right: 20px;
-        width: 350px;
-    }
-
-    .formInputRes {
-        margin-right: 20px;
-        width: 200px;
-    }
-}
-
-.formInputShort {
-    margin-right: 20px;
-    width: 200px;
-}
-
-@media (max-width: 768px) {
-    .formInput {
-        margin-bottom: 10px;
-    }
-
-    .formInputShort {
-        margin-bottom: 10px;
-    }
-
-    .formInputRes {
-        margin-bottom: 10px;
-    }
-}
-
-.resRow {
+.formInputRow {
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
+    flex-direction: column;
 }
 
-.labelTitle {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 25px;
-    font-size: var(--hds-text-sm);
+.formInput {
+    width: 100%;
 }
 
-@media (max-width: 768px) {
-    .labelTitle {
-        margin-bottom: 0;
+.formInputPostal {
+    width: 100%;
+}
+
+.formInputCity {
+    width: 100%;
+
+}
+
+@media (min-width: 768px){
+    .formRow {
+        flex-direction: row;
     }
 
-    .label {
-        margin-bottom: 20px;
+    .formInputRow {
+        width: 320px;
+        flex-direction: row;
     }
-}
 
-.label {
-    margin-right: 110px;
-    margin-top: 5px;
-    display: block;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-    overflow: hidden;
-    width: 270px;
+    .formInput {
+        width: 320px;
+        margin-right: 20px;
+    }
 
+    .formInputPostal {
+        width: 110px;
+        margin-right: 20px;
+    }
+
+    .formInputCity {
+        width: 190px;
+    }
 }
 
 .list {
