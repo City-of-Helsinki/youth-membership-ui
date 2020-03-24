@@ -100,7 +100,7 @@ type Props = {
   isSubmitting: boolean;
 };
 
-function CreateYouthProfileForm(props: Props) {
+function CreateYouthProfileForm(componentProps: Props) {
   const { t } = useTranslation();
   const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
@@ -117,16 +117,13 @@ function CreateYouthProfileForm(props: Props) {
   return (
     <Formik
       initialValues={{
-        ...props.profile,
-        birthDate: format(new Date(props.profile.birthDate), 'dd.MM.yyyy'),
+        ...componentProps.profile,
         terms: false,
       }}
       initialErrors={{
         terms: 'validation.required',
       }}
-      onSubmit={(values: FormValues) =>
-        props.onValues({ ...values, birthDate: props.profile.birthDate })
-      }
+      onSubmit={(values: FormValues) => componentProps.onValues(values)}
       validationSchema={schema}
     >
       {props => (
@@ -214,6 +211,10 @@ function CreateYouthProfileForm(props: Props) {
                 id="birthDate"
                 name="birthDate"
                 readOnly
+                value={format(
+                  new Date(componentProps.profile.birthDate),
+                  'dd.MM.yyyy'
+                )}
                 labelText={t('registration.childBirthDay')}
                 className={styles.formInput}
               />
