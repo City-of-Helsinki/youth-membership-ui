@@ -5,7 +5,7 @@ import ReactSelect, { ValueType } from 'react-select';
 import './Select.css';
 
 type Option = {
-  value: string | number;
+  value: string;
   label: string;
 };
 
@@ -13,7 +13,7 @@ type Props = {
   id?: string;
   name: string;
   labelText?: string;
-  value?: string | undefined;
+  value: string | undefined;
   className?: string;
   options: Option[];
   setFieldValue: (name: string, value: string) => void;
@@ -30,15 +30,16 @@ const Select = (props: Props) => {
       </label>
 
       <ReactSelect
-        onChange={(event: ValueType<any>) =>
-          props.setFieldValue(props.name, event?.value)
-        }
+        onChange={(option: ValueType<Option>) => {
+          const value = (option as Option).value;
+          props.setFieldValue(props.name, value);
+        }}
         id={props.id}
         name={props.name}
         className="select"
         classNamePrefix="select"
         options={props.options}
-        value={value || {}}
+        value={value}
       />
     </div>
   );
