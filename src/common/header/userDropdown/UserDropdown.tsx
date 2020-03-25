@@ -60,9 +60,7 @@ function UserDropdown(props: Props) {
     id: 'userButton',
     icon: PersonIcon,
     altText: t('nav.menuButtonLabel'),
-    label: !loading
-      ? `${data?.myProfile?.firstName} ${data?.myProfile?.lastName}`
-      : '',
+    label: !loading ? `${data?.myProfile?.firstName}` : '',
   };
 
   const profile = {
