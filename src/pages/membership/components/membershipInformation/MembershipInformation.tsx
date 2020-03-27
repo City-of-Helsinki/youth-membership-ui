@@ -74,7 +74,7 @@ function MembershipInformation(props: Props) {
           </p>
           <QRCode
             size={175}
-            value="https://helsinkiprofile.test.kuva.hel.ninja/admin/"
+            value="https://profiili-api.test.kuva.hel.ninja/admin/"
           />
            
           {data?.youthProfile?.renewable && (
