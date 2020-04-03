@@ -53,7 +53,7 @@ describe('Login', () => {
   });
 
   it('fill correct data and navigate to registration form', () => {
-    cy.get('button[id="goBack"]').click();
+    cy.get('button[data-cy="goBack"]').click();
     cy.get('input[id="birthDay"]')
       .type('01')
       .get('input[id="birthMonth"]')

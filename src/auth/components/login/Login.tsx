@@ -71,7 +71,7 @@ function Login(props: Props) {
             </a>
             <br />
             <button
-              id="goBack"
+              data-cy="goBack"
               onClick={() => setShowManualRegistration(false)}
             >
               {t('login.return')}
