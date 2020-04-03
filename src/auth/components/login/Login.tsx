@@ -70,7 +70,10 @@ function Login(props: Props) {
               {t('login.findNearestService')}
             </a>
             <br />
-            <button onClick={() => setShowManualRegistration(false)}>
+            <button
+              data-cy="goBack"
+              onClick={() => setShowManualRegistration(false)}
+            >
               {t('login.return')}
             </button>
           </React.Fragment>
