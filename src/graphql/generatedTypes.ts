@@ -221,6 +221,7 @@ export interface MembershipDetails_youthProfile_profile {
   readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
+  readonly language: Language | null;
   /**
    * Convenience field for the address which is marked as primary.
    */
@@ -566,6 +567,7 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
   readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
+  readonly language: Language | null;
   /**
    * Convenience field for the address which is marked as primary.
    */
@@ -647,6 +649,7 @@ export interface MembershipDetailsFragment_profile {
   readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
+  readonly language: Language | null;
   /**
    * Convenience field for the address which is marked as primary.
    */
