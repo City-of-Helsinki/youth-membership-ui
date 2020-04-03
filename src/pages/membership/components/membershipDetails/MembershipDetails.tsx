@@ -53,6 +53,12 @@ function RegistrationInformation(props: Props) {
               label={t('youthProfile.birthdate')}
               value={formatDate(data.youthProfile.birthDate)}
             />
+            <LabeledValue
+              label={t('registration.profileLanguage')}
+              value={t(
+                `LANGUAGE_OPTIONS.${data?.youthProfile?.profile?.language}`
+              )}
+            />
           </div>
           <h2>{t('membershipDetails.additionalInformation')}</h2>
           <div className={styles.fieldsGroup}>
