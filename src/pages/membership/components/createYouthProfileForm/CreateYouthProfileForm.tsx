@@ -40,6 +40,8 @@ const schema = Yup.object().shape({
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
     .required('validation.required'),
+  schoolName: Yup.string().max(128, 'validation.tooLong'),
+  schoolClass: Yup.string().max(10, 'validation.tooLong'),
   approverFirstName: Yup.string()
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
@@ -267,6 +269,12 @@ function CreateYouthProfileForm(componentProps: Props) {
                 id="schoolName"
                 name="schoolName"
                 labelText={t('registration.schoolName')}
+                invalid={props.submitCount && props.errors.schoolName}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.schoolName &&
+                  t(props.errors.schoolName)
+                }
               />
               <Field
                 className={styles.formInput}
@@ -274,6 +282,12 @@ function CreateYouthProfileForm(componentProps: Props) {
                 id="schoolClass"
                 name="schoolClass"
                 labelText={t('registration.schoolClass')}
+                invalid={props.submitCount && props.errors.schoolClass}
+                invalidText={
+                  props.submitCount &&
+                  props.errors.schoolClass &&
+                  t(props.errors.schoolClass)
+                }
               />
             </div>
             <h4>{t('registration.languageAtHome')}</h4>
