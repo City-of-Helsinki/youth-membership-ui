@@ -36,9 +36,14 @@ function Footer() {
                 {t('footer.terms')}
               </Link>
             </span>
-            <Link to="/#" className={styles.feedback}>
+            <a
+              href={t('footer.feedbackLink')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.feedback}
+            >
               {t('footer.feedback')}
-            </Link>
+            </a>
           </div>
         </div>
       </footer>
