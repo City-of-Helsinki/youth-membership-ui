@@ -138,7 +138,8 @@
     "privacy": "Rekisteriseloste",
     "accessibility": "Saavutettavuusseloste",
     "terms": "Palvelun käyttöehdot",
-    "feedback": "Anna palautetta"
+    "feedback": "Anna palautetta",
+    "feedbackLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/anna-palautetta"
   },
   "tos": {
     "title": "Käyttöehdot",
