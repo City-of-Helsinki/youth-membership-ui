@@ -87,6 +87,7 @@
     "sendButton": "Save and send approval request",
     "birthdayInvalid": "The birthday should be dd.mm.yyyy.",
     "ageRestriction": "Only 8-25 years old can create youth profile.",
+    "save": "Save information",
     "cancel": "Cancel"
   },
   "confirmSendingProfile": {

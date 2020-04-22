@@ -87,6 +87,7 @@
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "birthdayInvalid": "Syntymäpäivän tulee olla muotoa pp.kk.yyyy.",
     "ageRestriction": "Palveluun voi rekisteröityä iältään 8-25 vuotiaat.",
+    "save": "Tallenna tiedot",
     "cancel": "Peruuta"
   },
   "confirmSendingProfile": {

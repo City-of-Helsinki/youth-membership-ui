@@ -335,7 +335,7 @@ function CreateYouthProfileForm(componentProps: Props) {
                   <li className={styles.radioButtonRow}>
                     <label>
                       <Field
-                        id="pphotoUsageApprovedNo"
+                        id="photoUsageApprovedNo"
                         name="photoUsageApproved"
                         type="radio"
                         value={'false'}
@@ -443,7 +443,9 @@ function CreateYouthProfileForm(componentProps: Props) {
                 }
                 className={styles.button}
               >
-                {t('registration.sendButton')}
+                {componentProps.isEditing
+                  ? t('registration.save')
+                  : t('registration.sendButton')}
               </Button>
 
               {componentProps.isEditing && (

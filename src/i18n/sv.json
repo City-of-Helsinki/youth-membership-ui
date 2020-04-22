@@ -87,6 +87,7 @@
     "sendButton": "Spara och skicka godkännandeförfrågan",
     "birthdayInvalid": "Födelsedagen bör vara dd.mm.yyyy.",
     "ageRestriction": "Endast 8-25 år kan skapa ungdomsprofil.",
+    "save": "Spara information",
     "cancel": "Avbryt"
   },
   "confirmSendingProfile": {
