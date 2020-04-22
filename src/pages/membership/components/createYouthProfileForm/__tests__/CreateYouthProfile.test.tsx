@@ -1,10 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import { MemoryRouter } from 'react-router';
 
 import CreateYouthProfileForm, { FormValues } from '../CreateYouthProfileForm';
 import { Language, YouthLanguage } from '../../../../../graphql/generatedTypes';
-import { MemoryRouter } from 'react-router';
 import { updateWrapper } from '../../../../../common/test/testUtils';
 
 const emptyProfile: FormValues = {
