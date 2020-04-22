@@ -1,7 +1,7 @@
 /* eslint-disable sort-keys */
 import React, { useState } from 'react';
 import { User } from 'oidc-client';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import * as Sentry from '@sentry/browser';
 import { useTranslation } from 'react-i18next';
@@ -16,12 +16,12 @@ import {
   AddServiceConnectionVariables,
   CreateMyProfile as CreateMyProfileData,
   CreateMyProfileVariables,
-  ServiceType,
-  YouthLanguage,
+  Language,
   PrefillRegistartion,
+  ServiceType,
   UpdateMyProfile as UpdateMyProfileData,
   UpdateMyProfileVariables,
-  Language,
+  YouthLanguage,
 } from '../../../../graphql/generatedTypes';
 import getCookie from '../../helpers/getCookie';
 import Loading from '../../../../common/loading/Loading';
@@ -165,7 +165,8 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
             approverFirstName: '',
             approverLastName: '',
             approverPhone: '',
-            profileLanguage: Language[currentLangForProfile],
+            profileLanguage:
+              data?.myProfile?.language || Language[currentLangForProfile],
             languageAtHome: YouthLanguage[currentLangForYouth],
             photoUsageApproved: 'false',
           }}

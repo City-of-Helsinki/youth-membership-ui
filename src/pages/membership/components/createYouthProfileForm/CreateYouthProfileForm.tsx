@@ -100,6 +100,7 @@ type Props = {
   profile: FormValues;
   onValues: (values: FormValues) => void;
   isSubmitting: boolean;
+  isEditing?: boolean;
 };
 
 function CreateYouthProfileForm(componentProps: Props) {
@@ -120,10 +121,7 @@ function CreateYouthProfileForm(componentProps: Props) {
     <Formik
       initialValues={{
         ...componentProps.profile,
-        terms: false,
-      }}
-      initialErrors={{
-        terms: 'validation.required',
+        terms: !!componentProps.isEditing,
       }}
       onSubmit={(values: FormValues) => componentProps.onValues(values)}
       validationSchema={schema}
@@ -213,10 +211,13 @@ function CreateYouthProfileForm(componentProps: Props) {
                 id="birthDate"
                 name="birthDate"
                 readOnly
-                value={format(
-                  new Date(componentProps.profile.birthDate),
-                  'dd.MM.yyyy'
-                )}
+                value={
+                  componentProps.profile.birthDate &&
+                  format(
+                    new Date(componentProps.profile.birthDate),
+                    'dd.MM.yyyy'
+                  )
+                }
                 labelText={t('registration.childBirthDay')}
                 className={styles.formInput}
               />
@@ -409,28 +410,47 @@ function CreateYouthProfileForm(componentProps: Props) {
                 labelText={approverLabelText('phoneNumber')}
               />
             </div>
-            <h3>{t('registration.confirmSend')}</h3>
-            {AGE < ageConstants.ADULT && (
-              <p>{t('registration.processInfoText')}</p>
+            {!componentProps.isEditing && (
+              <React.Fragment>
+                <h3>{t('registration.confirmSend')}</h3>
+                {AGE < ageConstants.ADULT && (
+                  <p>{t('registration.processInfoText')}</p>
+                )}
+                <ul className={styles.terms}>
+                  <Field name="terms" type="checkbox" />
+                  <span className={styles.listLabel}>
+                    {t('registration.approveTermsText_1')}
+                    <Link
+                      to="/terms-of-service"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {t('registration.approveTermsText_link')}
+                    </Link>
+                    {t('registration.approveTermsText_2') + ' *'}
+                  </span>
+                </ul>
+              </React.Fragment>
             )}
-            <ul className={styles.terms}>
-              <Field name="terms" type="checkbox" />
-              <span className={styles.listLabel}>
-                {t('registration.approveTermsText_1')}
-                <Link
-                  to="/terms-of-service"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t('registration.approveTermsText_link')}
-                </Link>
-                {t('registration.approveTermsText_2') + ' *'}
-              </span>
-            </ul>
+
             <div className={styles.buttonAlign}>
-              <Button type="submit" disabled={Boolean(!props.values.terms)}>
+              <Button
+                type="submit"
+                disabled={
+                  !componentProps.isEditing
+                    ? Boolean(!props.values.terms)
+                    : false
+                }
+                className={styles.button}
+              >
                 {t('registration.sendButton')}
               </Button>
+
+              {componentProps.isEditing && (
+                <Link to="/membership-details" className={styles.frontLink}>
+                  {t('registration.cancel')}
+                </Link>
+              )}
             </div>
           </Form>
         </div>

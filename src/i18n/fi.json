@@ -42,7 +42,8 @@
     "additionalInformation": "Lisätiedot",
     "requiredPermissionsFromParent": "Vanhemmalta vaadittavat luvat",
     "photoUsageExplanation": "Lapsestani saa ottaa kuvia ja niitä saa käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä",
-    "returnToFront": "Takaisin etusivulle"
+    "returnToFront": "Takaisin etusivulle",
+    "edit": "Muokkaa tietoja"
   },
   "membershipInformation": {
     "title": "Jäsenkortin numero {{number}}",
@@ -85,7 +86,8 @@
     "approveTermsText_2": " ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "birthdayInvalid": "Syntymäpäivän tulee olla muotoa pp.kk.yyyy.",
-    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-25 vuotiaat."
+    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-25 vuotiaat.",
+    "cancel": "Peruuta"
   },
   "confirmSendingProfile": {
     "title": "Hakemus on lähetetty huoltajallesi!",

@@ -42,7 +42,8 @@
     "additionalInformation": "Additional information",
     "requiredPermissionsFromParent": "Required permissions from parent",
     "photoUsageExplanation": "Pictures of my child can be taken and used for internal and external communications in the City of Helsinki",
-    "returnToFront": "Return to frontpage"
+    "returnToFront": "Return to frontpage",
+    "edit": "Edit information"
   },
   "membershipInformation": {
     "title": "Membership card number {{number}}",
@@ -85,7 +86,8 @@
     "approveTermsText_2": ". I can be contacted via address I have given.",
     "sendButton": "Save and send approval request",
     "birthdayInvalid": "The birthday should be dd.mm.yyyy.",
-    "ageRestriction": "Only 8-25 years old can create youth profile."
+    "ageRestriction": "Only 8-25 years old can create youth profile.",
+    "cancel": "Cancel"
   },
   "confirmSendingProfile": {
     "title": "The application has been sent to your guardian for approval!",

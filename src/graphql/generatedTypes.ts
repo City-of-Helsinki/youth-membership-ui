@@ -205,16 +205,28 @@ export interface MembershipDetails_youthProfile_profile_primaryAddress {
   readonly address: string;
   readonly postalCode: string;
   readonly city: string;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
 }
 
 export interface MembershipDetails_youthProfile_profile_primaryEmail {
   readonly __typename: "EmailNode";
   readonly email: string;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
 }
 
 export interface MembershipDetails_youthProfile_profile_primaryPhone {
   readonly __typename: "PhoneNode";
   readonly phone: string | null;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
 }
 
 export interface MembershipDetails_youthProfile_profile {
@@ -380,6 +392,7 @@ export interface PrefillRegistartion_myProfile {
   readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
+  readonly language: Language | null;
   /**
    * Convenience field for the phone which is marked as primary.
    */
@@ -551,16 +564,28 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
   readonly address: string;
   readonly postalCode: string;
   readonly city: string;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail {
   readonly __typename: "EmailNode";
   readonly email: string;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryPhone {
   readonly __typename: "PhoneNode";
   readonly phone: string | null;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile {
@@ -633,16 +658,28 @@ export interface MembershipDetailsFragment_profile_primaryAddress {
   readonly address: string;
   readonly postalCode: string;
   readonly city: string;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
 }
 
 export interface MembershipDetailsFragment_profile_primaryEmail {
   readonly __typename: "EmailNode";
   readonly email: string;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
 }
 
 export interface MembershipDetailsFragment_profile_primaryPhone {
   readonly __typename: "PhoneNode";
   readonly phone: string | null;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
 }
 
 export interface MembershipDetailsFragment_profile {
@@ -812,6 +849,7 @@ export interface ProfileInput {
   readonly addAddresses?: ReadonlyArray<(AddressInput | null)> | null;
   readonly updateAddresses?: ReadonlyArray<(AddressInput | null)> | null;
   readonly removeAddresses?: ReadonlyArray<(string | null)> | null;
+  readonly subscriptions?: ReadonlyArray<(SubscriptionInputType | null)> | null;
   readonly youthProfile?: YouthProfileFields | null;
   readonly sensitivedata?: SensitiveDataFields | null;
 }
@@ -831,6 +869,11 @@ export interface ServiceConnectionInput {
 
 export interface ServiceInput {
   readonly type?: ServiceType | null;
+}
+
+export interface SubscriptionInputType {
+  readonly subscriptionTypeId: string;
+  readonly enabled: boolean;
 }
 
 export interface UpdateMyProfileMutationInput {
