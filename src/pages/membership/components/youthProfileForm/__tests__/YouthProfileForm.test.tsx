@@ -1,31 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { MemoryRouter } from 'react-router';
 
 import YouthProfileForm, { FormValues } from '../YouthProfileForm';
 import { Language, YouthLanguage } from '../../../../../graphql/generatedTypes';
 import { updateWrapper } from '../../../../../common/test/testUtils';
-
-const emptyProfile: FormValues = {
-  firstName: '',
-  lastName: '',
-  birthDate: '',
-  email: '',
-  phone: '',
-  address: '',
-  city: '',
-  postalCode: '',
-  profileLanguage: Language.FINNISH,
-  languageAtHome: YouthLanguage.FINNISH,
-  schoolName: '',
-  schoolClass: '',
-  photoUsageApproved: '',
-  approverEmail: '',
-  approverLastName: '',
-  approverFirstName: '',
-  approverPhone: '',
-};
 
 const prefilledProfile: FormValues = {
   firstName: 'Test',
