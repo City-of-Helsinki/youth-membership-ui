@@ -1,4 +1,4 @@
-import { FormValues } from '../../components/createYouthProfileForm/CreateYouthProfileForm';
+import { FormValues } from '../../components/youthProfileForm/YouthProfileForm';
 import {
   PrefillRegistartion,
   YouthLanguage,

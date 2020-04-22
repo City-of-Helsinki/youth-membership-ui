@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { MemoryRouter } from 'react-router';
 
-import CreateYouthProfileForm, { FormValues } from '../CreateYouthProfileForm';
+import YouthProfileForm, { FormValues } from '../YouthProfileForm';
 import { Language, YouthLanguage } from '../../../../../graphql/generatedTypes';
 import { updateWrapper } from '../../../../../common/test/testUtils';
 
@@ -50,7 +50,7 @@ const prefilledProfile: FormValues = {
 const getWrapper = (profile: FormValues, isEditing?: boolean) => {
   return mount(
     <MemoryRouter>
-      <CreateYouthProfileForm
+      <YouthProfileForm
         profile={profile}
         onValues={jest.fn()}
         isSubmitting={false}
@@ -59,11 +59,6 @@ const getWrapper = (profile: FormValues, isEditing?: boolean) => {
     </MemoryRouter>
   );
 };
-
-test('Snapshot matches with emptyProfile', () => {
-  const wrapper = getWrapper(emptyProfile);
-  expect(toJson(wrapper)).toMatchSnapshot();
-});
 
 test('Form is used for profile creation with pre-filled data ', async () => {
   const wrapper = getWrapper(prefilledProfile);

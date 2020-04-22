@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import YouthProfileForm, {
   FormValues,
-} from '../createYouthProfileForm/CreateYouthProfileForm';
+} from '../youthProfileForm/YouthProfileForm';
 import styles from './CreateYouthProfile.module.css';
 import {
   AddServiceConnection as AddServiceConnectionData,

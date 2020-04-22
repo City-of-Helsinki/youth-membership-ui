@@ -10,7 +10,7 @@ import Select from '../../../../common/select/Select';
 import ageConstants from '../../constants/ageConstants';
 import getCookie from '../../helpers/getCookie';
 import { Language, YouthLanguage } from '../../../../graphql/generatedTypes';
-import styles from './CreateYouthProfileForm.module.css';
+import styles from './YouthProfileForm.module.css';
 import Button from '../../../../common/button/Button';
 
 const BD = getCookie('birthDate');
@@ -103,7 +103,7 @@ type Props = {
   isEditing?: boolean;
 };
 
-function CreateYouthProfileForm(componentProps: Props) {
+function YouthProfileForm(componentProps: Props) {
   const { t } = useTranslation();
   const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
@@ -461,4 +461,4 @@ function CreateYouthProfileForm(componentProps: Props) {
   );
 }
 
-export default CreateYouthProfileForm;
+export default YouthProfileForm;

@@ -14,7 +14,7 @@ import {
 } from '../../../../graphql/generatedTypes';
 import YouthProfileForm, {
   FormValues,
-} from '../createYouthProfileForm/CreateYouthProfileForm';
+} from '../youthProfileForm/YouthProfileForm';
 import styles from './EditYouthProfile.module.css';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 
