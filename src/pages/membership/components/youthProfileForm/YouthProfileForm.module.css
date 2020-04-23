@@ -95,8 +95,22 @@ a {
     .buttonAlign {
         text-align: left;
     }
+
+    .frontLink {
+        margin-top: 0;
+    }
 }
 
 .formWrapper h3 {
     margin-top: 60px;
+}
+
+.frontLink {
+    border: 2px solid var(--hds-ui-color-black);
+    color: var(--hds-ui-color-black);
+    display: inline-block;
+    font-weight: bold;
+    padding: 15px 50px;
+    margin-left: 20px;
+    margin-top: 20px;
 }

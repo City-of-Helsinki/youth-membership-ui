@@ -8,7 +8,7 @@ import {
   PrefillRegistartion,
   YouthProfileFields,
 } from '../../../graphql/generatedTypes';
-import { FormValues } from '../components/createYouthProfileForm/CreateYouthProfileForm';
+import { FormValues } from '../components/youthProfileForm/YouthProfileForm';
 
 const getYouthProfile = (formValues: FormValues) => {
   const age = differenceInYears(new Date(), new Date(formValues.birthDate));

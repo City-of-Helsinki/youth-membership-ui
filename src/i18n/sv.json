@@ -42,7 +42,8 @@
     "additionalInformation": "Ytterligare information",
     "requiredPermissionsFromParent": "Tillstånd som krävs av vårdnadshavaren",
     "photoUsageExplanation": "Bilder av mitt barn kan tas och användas för Helsingfors stads interna och externa kommunikationsyften",
-    "returnToFront": "Tillbaka till framsidan"
+    "returnToFront": "Tillbaka till framsidan",
+    "edit": "Redigera information"
   },
   "membershipInformation": {
     "title": "Medlemskortnummer {{number}}",
@@ -85,7 +86,9 @@
     "approveTermsText_2": ". Jag kan kontaktas via den adress jag har angett.",
     "sendButton": "Spara och skicka godkännandeförfrågan",
     "birthdayInvalid": "Födelsedagen bör vara dd.mm.yyyy.",
-    "ageRestriction": "Endast 8-25 år kan skapa ungdomsprofil."
+    "ageRestriction": "Endast 8-25 år kan skapa ungdomsprofil.",
+    "save": "Spara information",
+    "cancel": "Avbryt"
   },
   "confirmSendingProfile": {
     "title": "Ansökan har skickats till din vårdnadshavare för godkännande!",

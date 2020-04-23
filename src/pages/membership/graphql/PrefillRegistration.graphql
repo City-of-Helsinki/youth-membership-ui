@@ -2,6 +2,7 @@ query PrefillRegistartion {
   myProfile {
     firstName
     lastName
+    language
     primaryPhone {
       phone
       id

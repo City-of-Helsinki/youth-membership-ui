@@ -46,7 +46,7 @@ function App(props: Props) {
             <Route path="/login">
               <Login />
             </Route>
-            <Route path={['/', '/membership-details']} exact>
+            <Route path={['/', '/membership-details', '/edit']} exact>
               <YouthProfile />
             </Route>
             <Route path="/approve/:token" exact>

@@ -7,12 +7,15 @@ fragment MembershipDetailsFragment on YouthProfileType {
       address
       postalCode
       city
+      id
     }
     primaryEmail {
       email
+      id
     }
     primaryPhone {
       phone
+      id
     }
   }
   birthDate

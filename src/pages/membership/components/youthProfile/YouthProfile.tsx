@@ -19,6 +19,7 @@ import {
   MembershipStatus,
 } from '../../../../graphql/generatedTypes';
 import getCookie from '../../helpers/getCookie';
+import EditYouthProfile from '../editYouthProfile/EditYouthProfile';
 
 const HAS_YOUTH_PROFILE = loader('../../graphql/HasYouthProfile.graphql');
 
@@ -73,6 +74,9 @@ function YouthProfile(props: Props) {
             </Route>
             <Route path="/membership-details" exact>
               <MembershipDetails />
+            </Route>
+            <Route path="/edit" exact>
+              <EditYouthProfile />
             </Route>
           </Switch>
         ) : !birthDate ? (

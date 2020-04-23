@@ -26,6 +26,7 @@ function RegistrationInformation(props: Props) {
       Sentry.captureException(error);
       setShowNotification(true);
     },
+    fetchPolicy: 'network-only',
   });
 
   return (
@@ -100,6 +101,10 @@ function RegistrationInformation(props: Props) {
       )}
       <Link to="/" className={styles.frontLink}>
         {t('membershipDetails.returnToFront')}
+      </Link>
+
+      <Link to="/edit" className={styles.frontLink}>
+        {t('membershipDetails.edit')}
       </Link>
 
       <NotificationComponent
