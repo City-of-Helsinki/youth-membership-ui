@@ -22,6 +22,8 @@ function PageLayout(props: Props) {
         <html lang={i18n.languages[0]} />
         <title>{t('appName')}</title>
         <meta name="description" content={t('login.helpText')} />
+        <meta property="og:title" content={t('appName')} />
+        <meta property="og:description" content={t('login.helpText')} />
       </Helmet>
       <div
         className={classNames(

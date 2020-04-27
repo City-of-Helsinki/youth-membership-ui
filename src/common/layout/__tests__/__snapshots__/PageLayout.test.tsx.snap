@@ -18,6 +18,14 @@ exports[`matches snapshot 1`] = `
       content="Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässärin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, harjoitella bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman."
       name="description"
     />
+    <meta
+      content="Nuorisopalvelut"
+      property="og:title"
+    />
+    <meta
+      content="Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässärin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, harjoitella bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman."
+      property="og:description"
+    />
   </Helmet>
   <div
     className="background youthBackground"
