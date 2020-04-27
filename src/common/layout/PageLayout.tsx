@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 import Header from '../header/Header';
 import HostingBox from '../hostingBox/HostingBox';
-import { useTranslation } from 'react-i18next';
 import Footer from '../footer/Footer';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
 import styles from './PageLayout.module.css';
 
 type Props = {
