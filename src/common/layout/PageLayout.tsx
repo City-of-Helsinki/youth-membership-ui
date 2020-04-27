@@ -3,7 +3,9 @@ import classNames from 'classnames';
 
 import Header from '../header/Header';
 import HostingBox from '../hostingBox/HostingBox';
+import { useTranslation } from 'react-i18next';
 import Footer from '../footer/Footer';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import styles from './PageLayout.module.css';
 
 type Props = {
@@ -12,19 +14,28 @@ type Props = {
 };
 
 function PageLayout(props: Props) {
+  const { t, i18n } = useTranslation();
+
   return (
-    <div
-      className={classNames(
-        styles.background,
-        props.background === 'youth'
-          ? styles.youthBackground
-          : styles.adultBackground
-      )}
-    >
-      <Header />
-      <HostingBox className={styles.hostingBox}>{props.children}</HostingBox>
-      <Footer />
-    </div>
+    <HelmetProvider>
+      <Helmet>
+        <html lang={i18n.languages[0]} />
+        <title>{t('appName')}</title>
+        <meta name="description" content={t('login.helpText')} />
+      </Helmet>
+      <div
+        className={classNames(
+          styles.background,
+          props.background === 'youth'
+            ? styles.youthBackground
+            : styles.adultBackground
+        )}
+      >
+        <Header />
+        <HostingBox className={styles.hostingBox}>{props.children}</HostingBox>
+        <Footer />
+      </div>
+    </HelmetProvider>
   );
 }
 

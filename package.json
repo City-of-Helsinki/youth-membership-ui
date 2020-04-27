@@ -36,6 +36,7 @@
     "oidc-client": "^1.10.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-helmet-async": "^1.0.5",
     "react-i18next": "^10.13.1",
     "react-qrcode-logo": "^2.2.1",
     "react-redux": "^7.1.1",
@@ -53,7 +54,7 @@
     "test": "react-scripts test",
     "ci": "CI=true yarn test --coverage",
     "lint": "eslint --ext js,ts,tsx src",
-    "cypress:open":"cypress open",
+    "cypress:open": "cypress open",
     "codegen": "apollo client:codegen ./src/graphql/generatedTypes.ts --outputFlat --includes=./src/**/*.graphql --target=typescript --endpoint=https://profiili-api.test.kuva.hel.ninja/graphql/ --useReadOnlyTypes --addTypename"
   },
   "eslintConfig": {
