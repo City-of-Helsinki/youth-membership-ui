@@ -1,11 +1,15 @@
 {
   "appName": "Nuorisopalvelut",
+  "edit": {
+    "title": "Muokkaa tietoja"
+  },
   "loading": "Ladataan...",
   "oidc": {
     "authenticating": "Tunnistaudutaan..."
   },
   "login" : {
     "title": "Hanki Jässäri!",
+    "pageTitle": "Kirjaudu",
     "helpText": "Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässärin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, harjoitella bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman.",
     "helpTextUnderAge": "Valitettavasti Jässärin hankkiminen digitaalisesti edellyttää vähintään 13 vuoden iän johtuen Helsinkiprofiilin käyttöehdoista. Saat paperisen jässärihakemuksen kaupungin nuorisotiloilta, tai lataamalla sen <0>tästä linkistä</0>. Täytä hakemus vanhempasi kanssa ja palauta se nuorisotilalle, niin saat oman jäsenkortin.",
     "findNearestService": "Löydä lähin nuorisotila palvelukartalta",
@@ -47,6 +51,7 @@
   },
   "membershipInformation": {
     "title": "Jäsenkortin numero {{number}}",
+    "pageTitle": "Jäsentiedot",
     "showProfileInformation": "Näytä profiilin tiedot",
     "validUntil": "Voimassa {{date}} asti",
     "renew": "Uusi jäsenyys",
@@ -55,6 +60,7 @@
   },
   "registration": {
     "title": "Täytä tietosi",
+    "pageTitle": "Rekisteröitymislomake",
     "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
     "basicInfo": "Perustiedot",
     "firstName": "Etunimi",
@@ -92,6 +98,7 @@
   },
   "confirmSendingProfile": {
     "title": "Hakemus on lähetetty huoltajallesi!",
+    "pageTitle": "Odottaa hyväksyntää",
     "helpText": "Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen ",
     "sendAgainHelpText": "Varmistusviesti on lähetetty uudestaan osoitteeseen ",
     "buttonText": "Lähetä uusi varmistusviesti",

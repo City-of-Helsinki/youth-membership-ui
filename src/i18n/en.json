@@ -1,11 +1,15 @@
 {
   "appName": "Youth services",
+  "edit": {
+    "title": "Edit information"
+  },
   "loading": "Loading...",
   "oidc": {
     "authenticating": "Authenticating..."
   },
   "login" : {
     "title": "Get Jässäri!",
+    "pageTitle": "Log in",
     "helpText": "The membership card gives you access to youth hostels. As a youth membership owner, you can spend an evening in a disco or nightclub, hang out in a youth club, practice in a band camp, do a DJ class, practice dancing, theater or handicrafts, apply for project money, attend summer camps or even create your own event.",
     "helpTextUnderAge": "Unfortunately, due to the terms of use of the Helsinki profile, 13 years of age is required to acquire Youth membership digitally. You can get a paper application from the city's youth centres or by downloading it from <0>this link</0>. Fill out the application with your parents and return it to Youth centre to get your membership card.",
     "findNearestService": "Find the nearest youth centre on the service map",
@@ -47,6 +51,7 @@
   },
   "membershipInformation": {
     "title": "Membership card number {{number}}",
+    "pageTitle": "Membership information",
     "showProfileInformation": "Show profile information",
     "validUntil": "Valid until {{date}}",
     "renew": "Renew membership",
@@ -55,6 +60,7 @@
   },
   "registration": {
     "title": "Please fill in your information",
+    "pageTitle": "Registration form",
     "membershipInfoText": "Add information about what membership can get and what it is used for.",
     "basicInfo": "Basic info",
     "firstName": "Firstname",
@@ -92,6 +98,7 @@
   },
   "confirmSendingProfile": {
     "title": "The application has been sent to your guardian for approval!",
+    "pageTitle": "Waiting approval",
     "helpText": "Your membership application has been sent to ",
     "sendAgainHelpText": "Approval email has been re-sent to ",
     "buttonText": "Resend the membership request",
@@ -168,7 +175,6 @@
     "defaultErrorTitle": "Error",
     "defaultErrorText": "Something went wrong. Try again after a while.",
     "closeButtonText": "Close"
-
   },
   "LANGUAGE_OPTIONS": {
     "ENGLISH": "English",
