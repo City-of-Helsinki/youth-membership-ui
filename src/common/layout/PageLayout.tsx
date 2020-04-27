@@ -1,7 +1,8 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import classNames from 'classnames';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 import Header from '../header/Header';
 import HostingBox from '../hostingBox/HostingBox';
@@ -10,11 +11,23 @@ import styles from './PageLayout.module.css';
 
 type Props = {
   children: ReactNode;
+  title?: string;
   background: 'youth' | 'adult';
 };
 
-function PageLayout(props: Props) {
+function PageLayout({ children, title = 'appName', background }: Props) {
   const { t, i18n } = useTranslation();
+  const { trackPageView } = useMatomo();
+
+  const pageTitle =
+    title !== 'appName' ? `${t(title)} - ${t('appName')}` : t('appName');
+
+  useEffect(() => {
+    trackPageView({
+      documentTitle: pageTitle,
+      href: window.location.href,
+    });
+  });
 
   return (
     <HelmetProvider>
@@ -28,13 +41,13 @@ function PageLayout(props: Props) {
       <div
         className={classNames(
           styles.background,
-          props.background === 'youth'
+          background === 'youth'
             ? styles.youthBackground
             : styles.adultBackground
         )}
       >
         <Header />
-        <HostingBox className={styles.hostingBox}>{props.children}</HostingBox>
+        <HostingBox className={styles.hostingBox}>{children}</HostingBox>
         <Footer />
       </div>
     </HelmetProvider>

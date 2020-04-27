@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
 import { connect } from 'react-redux';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 import { AuthState, resetError } from '../../redux';
 import { RootState } from '../../../redux/rootReducer';
@@ -21,6 +22,7 @@ type Props = {
 function Login(props: Props) {
   const [showManualRegistration, setShowManualRegistration] = useState(false);
   const { t } = useTranslation();
+  const { trackEvent } = useMatomo();
 
   const redirectBasedOnAge = (birthDate: string) => {
     const age = differenceInYears(new Date(), new Date(birthDate));
@@ -29,12 +31,13 @@ function Login(props: Props) {
       setShowManualRegistration(true);
     } else {
       document.cookie = `birthDate=${birthDate}`;
+      trackEvent({ category: 'action', action: 'Log in' });
       authenticate();
     }
   };
 
   return (
-    <PageLayout background="youth">
+    <PageLayout background="youth" title={'login.pageTitle'}>
       <div className={styles.hostingBox}>
         <h1>{t('login.title')}</h1>
 
