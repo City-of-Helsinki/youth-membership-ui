@@ -41,7 +41,14 @@ const schema = Yup.object().shape({
   approverFirstName: Yup.string()
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
-    .when(['birthDate'], (value: string, schema: Yup.StringSchema) => {
+    .when(['birthDate'], (value: string, schema: Yup.StringSchema) => return isConsentRequired(birthDate, schema)
+    
+    const isConsentRequired = (birthDate:string, schema: Yup.StringSchema) => {
+      const userAge = differenceInYears(new Date(), new Date(value));
+      return userAge < ageConstants.ADULT
+        ? schema.required('validation.required')
+        : schema;
+    }
       const userAge = differenceInYears(new Date(), new Date(value));
       return userAge < ageConstants.ADULT
         ? schema.required('validation.required')
