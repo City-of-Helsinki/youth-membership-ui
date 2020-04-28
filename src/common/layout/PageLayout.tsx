@@ -27,7 +27,7 @@ function PageLayout({ children, title = 'appName', background }: Props) {
       documentTitle: pageTitle,
       href: window.location.href,
     });
-  });
+  }, [pageTitle, trackPageView]);
 
   return (
     <HelmetProvider>
