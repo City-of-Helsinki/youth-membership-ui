@@ -75,7 +75,7 @@ test('Profile is used for profile editing', async () => {
 });
 
 describe('Form fields & texts based on user age', () => {
-  test('user age is > 13 < 15', () => {
+  test('user age is >= 13 < 15', () => {
     // Create birthDate that fits test criteria
     const userAge = format(subYears(new Date(), 14), 'yyyy-MM-dd');
     const wrapper = getWrapper(getPrefilledProfile({ birthDate: userAge }));
@@ -86,7 +86,7 @@ describe('Form fields & texts based on user age', () => {
     expect(photoPermission.length).toEqual(1);
     expect(approverInfoText.length).toEqual(1);
   });
-  test('user age is > 15 < 18', () => {
+  test('user age is >= 15 < 18', () => {
     // Create birthDate that fits test criteria
     const userAge = format(subYears(new Date(), 16), 'yyyy-MM-dd');
     const wrapper = getWrapper(getPrefilledProfile({ birthDate: userAge }));
