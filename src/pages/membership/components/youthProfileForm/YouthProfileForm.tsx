@@ -8,13 +8,16 @@ import * as Yup from 'yup';
 
 import Select from '../../../../common/select/Select';
 import ageConstants from '../../constants/ageConstants';
-import getCookie from '../../helpers/getCookie';
 import { Language, YouthLanguage } from '../../../../graphql/generatedTypes';
 import styles from './YouthProfileForm.module.css';
 import Button from '../../../../common/button/Button';
 
-const BD = getCookie('birthDate');
-const AGE = differenceInYears(new Date(), new Date(BD));
+const isConsentRequired = (birthDate: string, schema: Yup.StringSchema) => {
+  const userAge = differenceInYears(new Date(), new Date(birthDate));
+  return userAge < ageConstants.ADULT
+    ? schema.required('validation.required')
+    : schema;
+};
 
 const schema = Yup.object().shape({
   firstName: Yup.string()
@@ -45,33 +48,25 @@ const schema = Yup.object().shape({
   approverFirstName: Yup.string()
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
-    .when([], (schema: Yup.StringSchema) => {
-      return AGE < ageConstants.ADULT
-        ? schema.required('validation.required')
-        : schema;
-    }),
+    .when(['birthDate'], (birthDate: string, schema: Yup.StringSchema) =>
+      isConsentRequired(birthDate, schema)
+    ),
   approverLastName: Yup.string()
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
-    .when([], (schema: Yup.StringSchema) => {
-      return AGE < ageConstants.ADULT
-        ? schema.required('validation.required')
-        : schema;
-    }),
+    .when(['birthDate'], (birthDate: string, schema: Yup.StringSchema) =>
+      isConsentRequired(birthDate, schema)
+    ),
   approverPhone: Yup.string()
     .min(6, 'validation.phoneMin')
-    .when([], (schema: Yup.StringSchema) => {
-      return AGE < ageConstants.ADULT
-        ? schema.required('validation.required')
-        : schema;
-    }),
+    .when(['birthDate'], (birthDate: string, schema: Yup.StringSchema) =>
+      isConsentRequired(birthDate, schema)
+    ),
   approverEmail: Yup.string()
     .email('validation.email')
-    .when([], (schema: Yup.StringSchema) => {
-      return AGE < ageConstants.ADULT
-        ? schema.required('validation.required')
-        : schema;
-    }),
+    .when(['birthDate'], (birthDate: string, schema: Yup.StringSchema) =>
+      isConsentRequired(birthDate, schema)
+    ),
   photoUsageApproved: Yup.string().required('validation.required'),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
@@ -107,13 +102,18 @@ function YouthProfileForm(componentProps: Props) {
   const { t } = useTranslation();
   const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
+  const userAge = differenceInYears(
+    new Date(),
+    new Date(componentProps.profile.birthDate)
+  );
+
   // For now when using .when() in validation we can't use
   // schema.describe().fields[name].tests to determine if field is required or not.
   // Validation rules returned from .when() won't be added there.
   // For this reason determining asterisk usage must
   // be done with this function
   const approverLabelText = (name: string) => {
-    if (AGE < ageConstants.ADULT) return t(`registration.${name}`) + ' *';
+    if (userAge < ageConstants.ADULT) return t(`registration.${name}`) + ' *';
     return t(`registration.${name}`);
   };
 
@@ -310,7 +310,7 @@ function YouthProfileForm(componentProps: Props) {
             </ul>
             <div
               className={
-                AGE < ageConstants.PHOTO_PERMISSION_MIN
+                userAge < ageConstants.PHOTO_PERMISSION_MIN
                   ? styles.hidePhotoUsageApproved
                   : ''
               }
@@ -349,8 +349,10 @@ function YouthProfileForm(componentProps: Props) {
               </div>
             </div>
             <h3>{t('registration.approver')}</h3>
-            {AGE < ageConstants.ADULT && (
-              <p>{t('registration.approverInfoText')}</p>
+            {userAge < ageConstants.ADULT && (
+              <p data-testid="approverInfoText">
+                {t('registration.approverInfoText')}
+              </p>
             )}
             <div className={styles.formRow}>
               <Field
@@ -413,7 +415,7 @@ function YouthProfileForm(componentProps: Props) {
             {!componentProps.isEditing && (
               <React.Fragment>
                 <h3>{t('registration.confirmSend')}</h3>
-                {AGE < ageConstants.ADULT && (
+                {userAge < ageConstants.ADULT && (
                   <p>{t('registration.processInfoText')}</p>
                 )}
                 <ul className={styles.terms}>
