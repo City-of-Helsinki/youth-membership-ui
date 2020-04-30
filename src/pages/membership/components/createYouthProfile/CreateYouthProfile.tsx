@@ -5,6 +5,7 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import * as Sentry from '@sentry/browser';
 import { useTranslation } from 'react-i18next';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import YouthProfileForm, {
@@ -43,6 +44,7 @@ type Props = {
 function CreateYouthProflle({ tunnistamoUser }: Props) {
   const [showNotification, setShowNotification] = useState(false);
   const { t, i18n } = useTranslation();
+  const { trackEvent } = useMatomo();
 
   const { data, loading: loadingData } = useQuery<PrefillRegistartion>(
     PREFILL_REGISTRATION,
@@ -103,7 +105,13 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     if (data?.myProfile) {
       updateProfile({ variables })
         .then(result => {
-          if (!!result.data) connectService();
+          if (!!result.data) {
+            trackEvent({
+              category: 'action',
+              action: 'Register youth membership',
+            });
+            connectService();
+          }
         })
         .catch((error: Error) => {
           Sentry.captureException(error);
@@ -112,7 +120,13 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
     } else {
       createProfile({ variables })
         .then(result => {
-          if (!!result.data) connectService();
+          if (!!result.data) {
+            trackEvent({
+              category: 'action',
+              action: 'Register youth membership',
+            });
+            connectService();
+          }
         })
         .catch((error: Error) => {
           Sentry.captureException(error);

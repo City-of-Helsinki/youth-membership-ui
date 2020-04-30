@@ -1,11 +1,15 @@
 {
   "appName": "Ungdomstjänster",
   "loading": "Laddar...",
+  "edit": {
+    "title": "Redigera information"
+  },
   "oidc": {
     "authenticating": "Autentiserar..."
   },
   "login" : {
     "title": "Bli Jässäri-medlem!",
+    "pageTitle": "Logga in",
     "helpText": "Medlemskortet ger dig tillgång till vandrarhem. Som ägare till ungdomsmedlemskap kan du spendera en kväll i ett diskotek eller nattklubb, umgås i en ungdomsklubb, träna i ett bandläger, göra en DJ-klass, träna dans, teater eller hantverk, ansöka om projektpengar, delta i sommarläger eller till och med skapa din egen händelse.",
     "helpTextUnderAge": "Tyvärr, på grund av användningsvillkoren för Helsingfors-profilen krävs det 13 års ålder för att erhålla ungdomarsmedlemskapet digitalt. Du kan få en pappersansökan från stadens ungdomsgårdar, eller genom att ladda ner den från <0>den här länken</0>. Fyll i ansökan med dina föräldrar och skicka tillbaka den till Ungdomsangården för att få ditt medlemskort.",
     "findNearestService": "Hitta närmaste ungdomsanläggning på servicekartan",
@@ -47,6 +51,7 @@
   },
   "membershipInformation": {
     "title": "Medlemskortnummer {{number}}",
+    "pageTitle": "Information om medlemskap",
     "showProfileInformation": "Visa profilinformation",
     "validUntil": "Gäller till {{date}}",
     "renew": "Förnya medlemskapet",
@@ -55,6 +60,7 @@
   },
   "registration": {
     "title": "Vänligen fyll i din information",
+    "pageTitle":"Anmälningsblankett",
     "membershipInfoText": "Lägg till information om vad medlemskap kan få och vad det används för.",
     "basicInfo": "Grundläggande information",
     "firstName": "Förnamn",
@@ -92,6 +98,7 @@
   },
   "confirmSendingProfile": {
     "title": "Ansökan har skickats till din vårdnadshavare för godkännande!",
+    "pageTitle": "Inväntar godkännande",
     "helpText": "Din medlemsansökan har skickats till ",
     "sendAgainHelpText": "Godkännandemail har skickats igen till ",
     "buttonText": "Skicka igen medlemskapsförfrågan",
