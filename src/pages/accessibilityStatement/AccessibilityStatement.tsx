@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import PageWrapper from '../../common/wrapper/PageWrapper';
 import styles from './AccessibilityStatement.module.css';
 import Header from '../../common/header/Header';
 import Footer from '../../common/footer/Footer';
@@ -25,13 +26,15 @@ function AccessibilityStatement() {
     }
   };
   return (
-    <div className={styles.pageWrapper}>
-      <Header />
-      <div className={styles.container}>
-        <div className={styles.innerWrapper}>{selectStatement()}</div>
+    <PageWrapper>
+      <div className={styles.pageWrapper}>
+        <Header />
+        <div className={styles.container}>
+          <div className={styles.innerWrapper}>{selectStatement()}</div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </PageWrapper>
   );
 }
 
