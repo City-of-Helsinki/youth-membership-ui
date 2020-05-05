@@ -1,0 +1,34 @@
+.pageWrapper {
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    margin: 20px 10px 0;
+    width: auto;
+    flex: 1 0 auto;
+}
+
+.innerWrapper {
+    width: 800px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+}
+
+.innerWrapper p {
+    margin: 16px 0;
+}
+
+.innerWrapper h2 {
+    margin-top: 25px;
+    font-size: var(--hds-text-xl);
+}
+
+@media (min-width: 1200px) {
+    .container {
+        margin: 20px auto 0;
+        width: 1200px;
+    }
+}
