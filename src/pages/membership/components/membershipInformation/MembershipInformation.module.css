@@ -14,12 +14,13 @@
 
 .detailsLink {
     margin-top: 50px;
-    display: flex;
     align-items: center;
-}
-
-.detailsLink:visited {
+    border: 2px solid var(--hds-ui-color-black);
     color: var(--hds-ui-color-black);
+    display: inline-block;
+    font-weight: bold;
+    padding: 16px 50px;
+    margin-right: 20px;
 }
 
 .icon {
