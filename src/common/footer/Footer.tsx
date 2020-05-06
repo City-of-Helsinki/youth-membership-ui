@@ -28,7 +28,7 @@ function Footer() {
                 {t('footer.privacy')}
               </a>{' '}
               | 
-              <Link to="/#" className={styles.links}>
+              <Link to="/accessibility" className={styles.links}>
                 {t('footer.accessibility')}
               </Link>{' '}
               | 
