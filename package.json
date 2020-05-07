@@ -32,7 +32,6 @@
     "graphql.macro": "^1.4.2",
     "hds-core": "^0.4.1",
     "hds-react": "^0.5.4",
-    "helsinki-utils": "https://github.com/City-of-Helsinki/helsinki-utils-js.git#0.1.0",
     "i18next": "^17.3.0",
     "i18next-browser-languagedetector": "^4.0.1",
     "oidc-client": "^1.10.1",
@@ -81,6 +80,7 @@
     "cypress": "^4.3.0",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "helsinki-utils": "https://github.com/City-of-Helsinki/helsinki-utils-js.git#0.1.0",
     "jest-canvas-mock": "^2.2.0",
     "jest-fetch-mock": "^2.1.2",
     "prettier": "^1.19.1"
