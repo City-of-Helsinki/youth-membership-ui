@@ -12,7 +12,6 @@ import authenticate from '../../../auth/authenticate';
 import logout from '../../../auth/logout';
 import { isAuthenticatedSelector } from '../../../auth/redux';
 import NotificationComponent from '../../notification/NotificationComponent';
-import commonConstants from '../../constants/commonConstants';
 
 const NAME_QUERY = loader(
   '../../../../src/pages/membership/graphql/NameQuery.graphql'
@@ -71,7 +70,7 @@ function UserDropdown(props: Props) {
   const profile = {
     id: 'profileButton',
     label: 'Profiili',
-    url: commonConstants.URLS.HELSINKI_PROFILE_URL,
+    url: process.env.REACT_APP_ENVIRONMENT === 'production' ? t('nav.profileLinkProd') : t('nav.profileLinkTest'),
   };
 
   const logOut = {
