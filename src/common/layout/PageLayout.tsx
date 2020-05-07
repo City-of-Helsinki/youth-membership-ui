@@ -1,5 +1,4 @@
 import React, { ReactNode, useEffect } from 'react';
-import classNames from 'classnames';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
@@ -12,10 +11,9 @@ import styles from './PageLayout.module.css';
 type Props = {
   children: ReactNode;
   title?: string;
-  background: 'youth' | 'adult';
 };
 
-function PageLayout({ children, title = 'appName', background }: Props) {
+function PageLayout({ children, title = 'appName' }: Props) {
   const { t, i18n } = useTranslation();
   const { trackPageView } = useMatomo();
 
@@ -39,12 +37,7 @@ function PageLayout({ children, title = 'appName', background }: Props) {
         <meta property="og:description" content={t('login.helpText')} />
       </Helmet>
       <div
-        className={classNames(
-          styles.background,
-          background === 'youth'
-            ? styles.youthBackground
-            : styles.adultBackground
-        )}
+        className={styles.background}
       >
         <Header />
         <HostingBox className={styles.hostingBox}>{children}</HostingBox>
