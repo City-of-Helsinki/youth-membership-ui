@@ -43,6 +43,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Generate static types for GraphQL queries by using the schema from the backend server.
 
+### `yarn update-translations`
+
+Creates new translation message files based on current version of translation source and overwrites existing files with them.
+
 ## Setting up development environment locally with docker
 
 ### Set tunnistamo hostname
