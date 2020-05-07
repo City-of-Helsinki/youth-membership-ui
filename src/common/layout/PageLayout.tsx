@@ -36,9 +36,7 @@ function PageLayout({ children, title = 'appName' }: Props) {
         <meta property="og:title" content={t('appName')} />
         <meta property="og:description" content={t('login.helpText')} />
       </Helmet>
-      <div
-        className={styles.background}
-      >
+      <div className={styles.background}>
         <Header />
         <HostingBox className={styles.hostingBox}>{children}</HostingBox>
         <Footer />
