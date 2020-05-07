@@ -56,7 +56,8 @@
     "ci": "CI=true yarn test --coverage",
     "lint": "eslint --ext js,ts,tsx src",
     "cypress:open": "cypress open",
-    "codegen": "apollo client:codegen ./src/graphql/generatedTypes.ts --outputFlat --includes=./src/**/*.graphql --target=typescript --endpoint=https://profiili-api.test.kuva.hel.ninja/graphql/ --useReadOnlyTypes --addTypename"
+    "codegen": "apollo client:codegen ./src/graphql/generatedTypes.ts --outputFlat --includes=./src/**/*.graphql --target=typescript --endpoint=https://profiili-api.test.kuva.hel.ninja/graphql/ --useReadOnlyTypes --addTypename",
+    "update-translations": "fetch-translations 1kvN0olQHdTqsI25yxJucL2Cqq6PXaPjHAkXpKJPjxjU -l fi,en,sv -o ./src/i18n"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -79,6 +80,7 @@
     "cypress": "^4.3.0",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "helsinki-utils": "https://github.com/City-of-Helsinki/helsinki-utils-js.git#0.1.0",
     "jest-canvas-mock": "^2.2.0",
     "jest-fetch-mock": "^2.1.2",
     "prettier": "^1.19.1"

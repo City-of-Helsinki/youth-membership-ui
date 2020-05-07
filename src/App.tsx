@@ -15,6 +15,7 @@ import YouthProfile from './pages/membership/components/youthProfile/YouthProfil
 import ApproveYouthProfile from './pages/membership/components/approveYouthProfile/ApproveYouthProfile';
 import TermsOfService from './pages/tos/components/termsOfService/TermsOfService';
 import { fetchApiTokenThunk } from './auth/redux';
+import AccessibilityStatement from './pages/accessibilityStatement/AccessibilityStatement';
 
 if (process.env.NODE_ENV !== 'production') {
   enableOidcLogging();
@@ -68,6 +69,9 @@ function App(props: Props) {
               </Route>
               <Route path="/terms-of-service" exact>
                 <TermsOfService />
+              </Route>
+              <Route path="/accessibility" exact>
+                <AccessibilityStatement />
               </Route>
               <Route path="*">404 - not found</Route>
             </Switch>
