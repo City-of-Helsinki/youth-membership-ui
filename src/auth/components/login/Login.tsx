@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
 import { connect } from 'react-redux';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
@@ -37,7 +37,7 @@ function Login(props: Props) {
   };
 
   return (
-    <PageLayout background="youth" title={'login.pageTitle'}>
+    <PageLayout title={'login.pageTitle'}>
       <div className={styles.hostingBox}>
         <h1>{t('login.title')}</h1>
 
