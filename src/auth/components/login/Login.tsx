@@ -48,7 +48,7 @@ function Login(props: Props) {
               <p className={styles.helpText}>{t('login.helpText')}</p>
               <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
               <div className={styles.loginContainer}>
-                <span>Oletko jo jäsen?</span>
+                <span>{t('login.linkForMembersText')}</span>
                 <button onClick={authenticate} className={styles.button}>
                   {t('nav.signin')}
                 </button>
@@ -65,7 +65,7 @@ function Login(props: Props) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {t('login.downloadRegistrationForm')}
+                {t('login.registrationFormText')}
               </a>
               <a
                 className={styles.serviceLink}
