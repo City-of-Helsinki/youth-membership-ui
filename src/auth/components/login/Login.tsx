@@ -45,27 +45,26 @@ function Login(props: Props) {
           <React.Fragment>
             <p className={styles.helpText}>{t('login.helpText')}</p>
             <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
-            <button onClick={authenticate}>
-              {t('login.linkForMembersText')} >
-            </button>
+            <div className={styles.loginContainer}>
+              <span>Oletko jo jäsen?</span>
+              <button onClick={authenticate} className={styles.button}>
+                {t('nav.signin')}
+              </button>
+            </div>
           </React.Fragment>
         )}
 
         {showManualRegistration && (
           <React.Fragment>
-            <p className={styles.helpText}>
-              <Trans
-                i18nKey="login.helpTextUnderAge"
-                components={[
-                  // eslint-disable-next-line jsx-a11y/anchor-has-content
-                  <a
-                    href={t('login.registrationForm')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  />,
-                ]}
-              />
-            </p>
+            <p className={styles.helpText}>{t('login.helpTextUnderAge')}</p>
+            <a
+              className={styles.serviceLink}
+              href={t('login.registrationForm')}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('login.downloadRegistrationForm')}
+            </a>
             <a
               className={styles.serviceLink}
               href={authConstants.URLS.YOUTH_CENTERS}
@@ -76,6 +75,7 @@ function Login(props: Props) {
             <button
               data-cy="goBack"
               onClick={() => setShowManualRegistration(false)}
+              className={styles.button}
             >
               {t('login.return')}
             </button>
