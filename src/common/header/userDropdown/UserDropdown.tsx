@@ -69,11 +69,8 @@ function UserDropdown(props: Props) {
 
   const profile = {
     id: 'profileButton',
-    label: 'Profiili',
-    url:
-      process.env.REACT_APP_ENVIRONMENT === 'production'
-        ? t('nav.profileLinkProd')
-        : t('nav.profileLinkTest'),
+    label: t('nav.profile'),
+    url: process.env.REACT_APP_PROFILE_LINK,
   };
 
   const logOut = {

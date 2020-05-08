@@ -89,8 +89,7 @@
   },
   "nav": {
     "menuButtonLabel": "Profile menu",
-    "profileLinkTest": "https://profiili.test.kuva.hel.ninja/",
-    "profileLinkProd": "https://profiili.prod.kuva.hel.ninja/",
+    "profile": "Profile",
     "signin": "Log in",
     "signout": "Log out"
   },
