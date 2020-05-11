@@ -15,7 +15,7 @@ exports[`matches snapshot 1`] = `
       Nuorisopalvelut
     </title>
     <meta
-      content="Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässärin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, harjoitella bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman."
+      content="Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat."
       name="description"
     />
     <meta
@@ -23,7 +23,7 @@ exports[`matches snapshot 1`] = `
       property="og:title"
     />
     <meta
-      content="Jäsenkortilla pääset mukaan nuorisotalojen toimintaan. Jässärin omistajana voit viettää iltaa discossa tai yökahvilassa, hengailla nuorisotalolla, harjoitella bändikämpillä, käydä dj-kurssin, harrasta tanssia, teatteria tai kädentaitoja, hakea projektirahaa, osallistua kesäleireille tai vaikka tuottaa oman tapahtuman."
+      content="Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat."
       property="og:description"
     />
   </Helmet>

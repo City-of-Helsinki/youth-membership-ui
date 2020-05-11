@@ -79,7 +79,7 @@ function ApproveYouthProfile(props: Props) {
   };
 
   return (
-    <PageLayout background="adult" title="approval.title">
+    <PageLayout title="approval.title">
       <Loading
         isLoading={queryLoading}
         loadingClassName="loading"

@@ -1,5 +1,4 @@
 import React, { ReactNode, useEffect } from 'react';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 
@@ -12,10 +11,9 @@ import PageWrapper from '../wrapper/PageWrapper';
 type Props = {
   children: ReactNode;
   title?: string;
-  background: 'youth' | 'adult';
 };
 
-function PageLayout({ children, title = 'appName', background }: Props) {
+function PageLayout({ children, title = 'appName' }: Props) {
   const { t } = useTranslation();
   const { trackPageView } = useMatomo();
 
@@ -31,14 +29,7 @@ function PageLayout({ children, title = 'appName', background }: Props) {
 
   return (
     <PageWrapper>
-      <div
-        className={classNames(
-          styles.background,
-          background === 'youth'
-            ? styles.youthBackground
-            : styles.adultBackground
-        )}
-      >
+      <div className={styles.background}>
         <Header />
         <HostingBox className={styles.hostingBox}>{children}</HostingBox>
         <Footer />
