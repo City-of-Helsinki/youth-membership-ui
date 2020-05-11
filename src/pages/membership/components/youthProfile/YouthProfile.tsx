@@ -76,7 +76,7 @@ function YouthProfile(props: Props) {
   };
 
   return (
-    <PageLayout background="youth" title={getPageTitle()}>
+    <PageLayout title={getPageTitle()}>
       <Loading
         loadingClassName={styles.loading}
         isLoading={isLoadingAnything}

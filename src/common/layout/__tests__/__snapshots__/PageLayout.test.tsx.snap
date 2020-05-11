@@ -3,7 +3,7 @@
 exports[`matches snapshot 1`] = `
 <PageWrapper>
   <div
-    className="background youthBackground"
+    className="background"
   >
     <Header />
     <HostingBox

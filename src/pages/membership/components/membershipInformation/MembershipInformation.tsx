@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { Link } from 'react-router-dom';
-import { IconAngleRight } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { QRCode } from 'react-qrcode-logo';
 import * as Sentry from '@sentry/browser';
@@ -88,7 +87,6 @@ function MembershipInformation(props: Props) {
           )}
           <Link to="/membership-details" className={styles.detailsLink}>
             {t('membershipInformation.showProfileInformation')}
-            <IconAngleRight className={styles.icon} />
           </Link>
           <NotificationComponent
             show={showNotification}
