@@ -18,7 +18,9 @@ export default function getAddress(
     address = data.youthProfileByApprovalToken?.profile.primaryAddress;
   }
   if (address) {
-    return `${address.address}, ${address.postalCode} ${address.city}\n${countries.getName(address.countryCode, lang)}`;
+    return `${address.address}, ${address.postalCode} ${
+      address.city
+    }\n${countries.getName(address.countryCode || 'FI', lang)}`;
   }
   return '';
 }

@@ -46,7 +46,7 @@ const getAddress = (formValues: FormValues, profile?: PrefillRegistartion) => {
           id: profile.myProfile.primaryAddress.id,
         },
       ],
-    }
+    };
   }
 
   return {
@@ -74,7 +74,7 @@ const getPhone = (formValues: FormValues, profile?: PrefillRegistartion) => {
           id: profile?.myProfile?.primaryPhone?.id,
         },
       ],
-    }
+    };
   }
 
   return {
