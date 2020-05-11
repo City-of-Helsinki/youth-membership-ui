@@ -20,7 +20,7 @@ type Props = {};
 
 function RegistrationInformation(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { data } = useQuery<MembershipDetailsData>(MEMBERSHIP_DETAILS, {
     onError: (error: Error) => {
       Sentry.captureException(error);
@@ -40,7 +40,7 @@ function RegistrationInformation(props: Props) {
             <LabeledValue label={t('profile.name')} value={getFullName(data)} />
             <LabeledValue
               label={t('profile.address')}
-              value={getAddress(data)}
+              value={getAddress(data, i18n.languages[0])}
             />
             <LabeledValue
               label={t('profile.email')}

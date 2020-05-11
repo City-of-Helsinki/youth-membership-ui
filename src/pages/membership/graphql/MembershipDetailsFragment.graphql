@@ -7,6 +7,7 @@ fragment MembershipDetailsFragment on YouthProfileType {
       address
       postalCode
       city
+      countryCode
       id
     }
     primaryEmail {

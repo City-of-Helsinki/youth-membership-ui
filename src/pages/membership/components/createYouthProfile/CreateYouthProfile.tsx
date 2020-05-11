@@ -101,7 +101,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
       formValues,
       data
     );
-
+    console.log("Variables", variables);
     if (data?.myProfile) {
       updateProfile({ variables })
         .then(result => {
@@ -170,6 +170,7 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
             address: data?.myProfile?.primaryAddress?.address || '',
             postalCode: data?.myProfile?.primaryAddress?.postalCode || '',
             city: data?.myProfile?.primaryAddress?.city || '',
+            countryCode: data?.myProfile?.primaryAddress?.countryCode || 'FI',
             email: tunnistamoUser.profile.email || '',
             phone: data?.myProfile?.primaryPhone?.phone || '',
             birthDate,

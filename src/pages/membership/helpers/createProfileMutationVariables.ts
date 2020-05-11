@@ -33,35 +33,51 @@ const getYouthProfile = (formValues: FormValues) => {
 };
 
 const getAddress = (formValues: FormValues, profile?: PrefillRegistartion) => {
-  const addAddress = {
+  if (profile?.myProfile?.primaryAddress?.id) {
+    return {
+      updateAddresses: [
+        {
+          address: formValues.address,
+          postalCode: formValues.postalCode,
+          city: formValues.city,
+          addressType: AddressType.OTHER,
+          countryCode: formValues.countryCode,
+          primary: true,
+          id: profile.myProfile.primaryAddress.id,
+        },
+      ],
+    }
+  }
+
+  return {
     addAddresses: [
       {
         address: formValues.address,
         postalCode: formValues.postalCode,
         city: formValues.city,
         addressType: AddressType.OTHER,
+        countryCode: formValues.countryCode,
         primary: true,
       },
     ],
   };
-
-  const updateAddress = {
-    updateAddresses: [
-      {
-        address: formValues.address,
-        postalCode: formValues.postalCode,
-        city: formValues.city,
-        addressType: AddressType.OTHER,
-        primary: true,
-        id: profile?.myProfile?.primaryAddress?.id,
-      },
-    ],
-  };
-  return profile?.myProfile?.primaryAddress ? updateAddress : addAddress;
 };
 
 const getPhone = (formValues: FormValues, profile?: PrefillRegistartion) => {
-  const addPhone = {
+  if (profile?.myProfile?.primaryPhone?.id) {
+    return {
+      updatePhones: [
+        {
+          phone: formValues.phone,
+          phoneType: PhoneType.OTHER,
+          primary: true,
+          id: profile?.myProfile?.primaryPhone?.id,
+        },
+      ],
+    }
+  }
+
+  return {
     addPhones: [
       {
         phone: formValues.phone,
@@ -70,19 +86,6 @@ const getPhone = (formValues: FormValues, profile?: PrefillRegistartion) => {
       },
     ],
   };
-
-  const updatePhone = {
-    updatePhones: [
-      {
-        phone: formValues.phone,
-        phoneType: PhoneType.OTHER,
-        primary: true,
-        id: profile?.myProfile?.primaryPhone?.id,
-      },
-    ],
-  };
-
-  return profile?.myProfile?.primaryPhone ? updatePhone : addPhone;
 };
 
 const getEmail = (formValues: FormValues, profile?: PrefillRegistartion) => {

@@ -5,6 +5,7 @@ import { Formik, Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
 import { differenceInYears, format } from 'date-fns';
 import * as Yup from 'yup';
+import countries from 'i18n-iso-countries';
 
 import Select from '../../../../common/select/Select';
 import ageConstants from '../../constants/ageConstants';
@@ -77,6 +78,7 @@ export type FormValues = {
   address: string;
   postalCode: string;
   city: string;
+  countryCode: string;
   email: string;
   phone: string;
   birthDate: string;
@@ -99,7 +101,7 @@ type Props = {
 };
 
 function YouthProfileForm(componentProps: Props) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
   const userAge = differenceInYears(
@@ -116,6 +118,14 @@ function YouthProfileForm(componentProps: Props) {
     if (userAge < ageConstants.ADULT) return t(`registration.${name}`) + ' *';
     return t(`registration.${name}`);
   };
+
+  const countryList = countries.getNames(i18n.languages[0]);
+  const countryOptions = Object.keys(countryList).map(key => {
+    return {
+      value: key,
+      label: countryList[key]
+    }
+  })
 
   return (
     <Formik
@@ -204,6 +214,18 @@ function YouthProfileForm(componentProps: Props) {
                   labelText={t('registration.city') + ' *'}
                 />
               </div>
+            </div>
+            <div className={styles.formRow}>
+              <Field
+                as={Select}
+                setFieldValue={props.setFieldValue}
+                id="countryCode"
+                name="countryCode"
+                type="select"
+                options={countryOptions}
+                className={styles.formInput}
+                labelText={t('registration.country')}
+              />
             </div>
             <div className={styles.formRow}>
               <Field
