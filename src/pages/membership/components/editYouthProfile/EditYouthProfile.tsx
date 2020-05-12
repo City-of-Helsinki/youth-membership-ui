@@ -45,22 +45,27 @@ function EditYouthProfile(props: Props) {
           lastName: formValues.lastName,
           language: formValues.profileLanguage,
           updateAddresses: [
-            {
-              address: formValues.address,
-              postalCode: formValues.postalCode,
-              city: formValues.city,
-              addressType: AddressType.OTHER,
-              primary: true,
-              id: youthProfile?.profile?.primaryAddress?.id,
-            },
+            youthProfile?.profile?.primaryAddress?.id
+              ? {
+                  address: formValues.address,
+                  postalCode: formValues.postalCode,
+                  city: formValues.city,
+                  addressType: AddressType.OTHER,
+                  primary: true,
+                  countryCode: formValues.countryCode,
+                  id: youthProfile?.profile?.primaryAddress?.id,
+                }
+              : null,
           ],
           updatePhones: [
-            {
-              phone: formValues.phone,
-              phoneType: PhoneType.OTHER,
-              primary: true,
-              id: youthProfile?.profile?.primaryPhone?.id,
-            },
+            youthProfile?.profile.primaryPhone?.id
+              ? {
+                  phone: formValues.phone,
+                  phoneType: PhoneType.OTHER,
+                  primary: true,
+                  id: youthProfile.profile.primaryPhone.id,
+                }
+              : null,
           ],
           youthProfile: {
             birthDate: youthProfile?.birthDate,
@@ -93,6 +98,8 @@ function EditYouthProfile(props: Props) {
             address: youthProfile?.profile.primaryAddress?.address || '',
             postalCode: youthProfile?.profile.primaryAddress?.postalCode || '',
             city: youthProfile?.profile.primaryAddress?.city || '',
+            countryCode:
+              youthProfile?.profile?.primaryAddress?.countryCode || 'FI',
             email: youthProfile?.profile.primaryEmail?.email || '',
             phone: youthProfile?.profile.primaryPhone?.phone || '',
             birthDate: youthProfile?.birthDate,

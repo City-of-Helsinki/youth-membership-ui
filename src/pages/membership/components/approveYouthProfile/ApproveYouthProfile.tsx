@@ -35,7 +35,7 @@ function ApproveYouthProfile(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
 
   const params = useParams<Params>();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { data, loading: queryLoading } = useQuery<YouthProfileByApprovalToken>(
     PROFILE_BY_TOKEN,
     {
@@ -92,7 +92,7 @@ function ApproveYouthProfile(props: Props) {
                 data?.youthProfileByApprovalToken?.profile?.firstName || '',
               lastName:
                 data?.youthProfileByApprovalToken?.profile?.lastName || '',
-              address: getAddress(data),
+              address: getAddress(data, i18n.languages[0]),
               email:
                 data?.youthProfileByApprovalToken?.profile?.primaryEmail
                   ?.email || '',

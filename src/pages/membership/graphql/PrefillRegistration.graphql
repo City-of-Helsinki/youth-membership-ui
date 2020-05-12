@@ -11,6 +11,7 @@ query PrefillRegistartion {
       address
       postalCode
       city
+      countryCode
       id
     }
     primaryEmail {

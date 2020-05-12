@@ -4,6 +4,10 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import { Provider as ReduxProvider } from 'react-redux';
 import { OidcProvider, loadUser } from 'redux-oidc';
 import { MatomoProvider, createInstance } from '@datapunt/matomo-tracker-react';
+import countries from 'i18n-iso-countries';
+import fi from 'i18n-iso-countries/langs/fi.json';
+import en from 'i18n-iso-countries/langs/en.json';
+import sv from 'i18n-iso-countries/langs/sv.json';
 
 import graphqlClient from './graphql/client';
 import store from './redux/store';
@@ -16,6 +20,10 @@ import ApproveYouthProfile from './pages/membership/components/approveYouthProfi
 import TermsOfService from './pages/tos/components/termsOfService/TermsOfService';
 import { fetchApiTokenThunk } from './auth/redux';
 import AccessibilityStatement from './pages/accessibilityStatement/AccessibilityStatement';
+
+countries.registerLocale(fi);
+countries.registerLocale(en);
+countries.registerLocale(sv);
 
 if (process.env.NODE_ENV !== 'production') {
   enableOidcLogging();

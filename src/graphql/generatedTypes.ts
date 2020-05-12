@@ -205,6 +205,7 @@ export interface MembershipDetails_youthProfile_profile_primaryAddress {
   readonly address: string;
   readonly postalCode: string;
   readonly city: string;
+  readonly countryCode: string;
   /**
    * The ID of the object.
    */
@@ -377,6 +378,7 @@ export interface PrefillRegistartion_myProfile_primaryAddress {
   readonly address: string;
   readonly postalCode: string;
   readonly city: string;
+  readonly countryCode: string;
   /**
    * The ID of the object.
    */
@@ -564,6 +566,7 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
   readonly address: string;
   readonly postalCode: string;
   readonly city: string;
+  readonly countryCode: string;
   /**
    * The ID of the object.
    */
@@ -658,6 +661,7 @@ export interface MembershipDetailsFragment_profile_primaryAddress {
   readonly address: string;
   readonly postalCode: string;
   readonly city: string;
+  readonly countryCode: string;
   /**
    * The ID of the object.
    */
@@ -798,20 +802,25 @@ export interface AddServiceConnectionMutationInput {
   readonly clientMutationId?: string | null;
 }
 
-export interface AddressInput {
-  readonly id?: string | null;
-  readonly address: string;
-  readonly postalCode: string;
-  readonly city: string;
-  readonly countryCode?: string | null;
-  readonly addressType: AddressType;
-  readonly primary?: boolean | null;
-}
-
 export interface ApproveYouthProfileMutationInput {
   readonly approvalToken: string;
   readonly approvalData: YouthProfileFields;
   readonly clientMutationId?: string | null;
+}
+
+export interface CreateAddressInput {
+  readonly countryCode?: string | null;
+  readonly primary?: boolean | null;
+  readonly address: string;
+  readonly postalCode: string;
+  readonly city: string;
+  readonly addressType: AddressType;
+}
+
+export interface CreateEmailInput {
+  readonly primary?: boolean | null;
+  readonly email: string;
+  readonly emailType: EmailType;
 }
 
 export interface CreateMyProfileMutationInput {
@@ -819,18 +828,10 @@ export interface CreateMyProfileMutationInput {
   readonly clientMutationId?: string | null;
 }
 
-export interface EmailInput {
-  readonly id?: string | null;
-  readonly email?: string | null;
-  readonly emailType: EmailType;
+export interface CreatePhoneInput {
   readonly primary?: boolean | null;
-}
-
-export interface PhoneInput {
-  readonly id?: string | null;
   readonly phone: string;
   readonly phoneType: PhoneType;
-  readonly primary?: boolean | null;
 }
 
 export interface ProfileInput {
@@ -840,14 +841,14 @@ export interface ProfileInput {
   readonly image?: string | null;
   readonly language?: Language | null;
   readonly contactMethod?: ContactMethod | null;
-  readonly addEmails?: ReadonlyArray<(EmailInput | null)> | null;
-  readonly updateEmails?: ReadonlyArray<(EmailInput | null)> | null;
+  readonly addEmails?: ReadonlyArray<(CreateEmailInput | null)> | null;
+  readonly updateEmails?: ReadonlyArray<(UpdateEmailInput | null)> | null;
   readonly removeEmails?: ReadonlyArray<(string | null)> | null;
-  readonly addPhones?: ReadonlyArray<(PhoneInput | null)> | null;
-  readonly updatePhones?: ReadonlyArray<(PhoneInput | null)> | null;
+  readonly addPhones?: ReadonlyArray<(CreatePhoneInput | null)> | null;
+  readonly updatePhones?: ReadonlyArray<(UpdatePhoneInput | null)> | null;
   readonly removePhones?: ReadonlyArray<(string | null)> | null;
-  readonly addAddresses?: ReadonlyArray<(AddressInput | null)> | null;
-  readonly updateAddresses?: ReadonlyArray<(AddressInput | null)> | null;
+  readonly addAddresses?: ReadonlyArray<(CreateAddressInput | null)> | null;
+  readonly updateAddresses?: ReadonlyArray<(UpdateAddressInput | null)> | null;
   readonly removeAddresses?: ReadonlyArray<(string | null)> | null;
   readonly subscriptions?: ReadonlyArray<(SubscriptionInputType | null)> | null;
   readonly youthProfile?: YouthProfileFields | null;
@@ -876,6 +877,23 @@ export interface SubscriptionInputType {
   readonly enabled: boolean;
 }
 
+export interface UpdateAddressInput {
+  readonly countryCode?: string | null;
+  readonly primary?: boolean | null;
+  readonly id: string;
+  readonly address?: string | null;
+  readonly postalCode?: string | null;
+  readonly city?: string | null;
+  readonly addressType?: AddressType | null;
+}
+
+export interface UpdateEmailInput {
+  readonly primary?: boolean | null;
+  readonly id: string;
+  readonly email?: string | null;
+  readonly emailType?: EmailType | null;
+}
+
 export interface UpdateMyProfileMutationInput {
   readonly profile: ProfileInput;
   readonly clientMutationId?: string | null;
@@ -884,6 +902,13 @@ export interface UpdateMyProfileMutationInput {
 export interface UpdateMyYouthProfileMutationInput {
   readonly youthProfile: UpdateYouthProfileInput;
   readonly clientMutationId?: string | null;
+}
+
+export interface UpdatePhoneInput {
+  readonly primary?: boolean | null;
+  readonly id: string;
+  readonly phone?: string | null;
+  readonly phoneType?: PhoneType | null;
 }
 
 export interface UpdateYouthProfileInput {
