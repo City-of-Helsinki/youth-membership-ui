@@ -7,8 +7,8 @@
 
 .select-label {
     font-weight: bold;
-    font-size: var(--hds-text-sm);
-    line-height: var(--hds-text-sm-line-height);
+    font-size: var(--fontsize-body-small);
+    line-height: var(--lineheight-s);
     margin-bottom: 2.8px;
 }
 
@@ -19,7 +19,7 @@
 .select__control {
     height: 55.94px;
     border-radius: 0 !important;
-    border: 2px solid var(--hds-ui-color-black-20) !important;
+    border: 2px solid var(--color-black-20) !important;
 }
 
 .select__control:focus {
@@ -27,5 +27,5 @@
 }
 
 .select__option:hover  {
-    background-color: var(--hds-ui-color-black-10);
+    background-color: var(--color-black-10);
 }

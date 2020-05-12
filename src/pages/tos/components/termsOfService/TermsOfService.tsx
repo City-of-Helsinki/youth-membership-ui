@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import IconArrowLeft from 'hds-react/lib/icons/IconArrowLeft';
+import { IconArrowLeft } from 'hds-react';
 import { useHistory } from 'react-router';
 
 import Header from '../../../../common/header/Header';

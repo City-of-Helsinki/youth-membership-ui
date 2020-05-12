@@ -15,8 +15,8 @@
 .detailsLink {
     margin-top: 10px;
     align-items: center;
-    border: 2px solid var(--hds-ui-color-black);
-    color: var(--hds-ui-color-black);
+    border: 2px solid var(--color-black);
+    color: var(--color-black);
     display: inline-block;
     font-weight: bold;
     padding: 16px 50px;
