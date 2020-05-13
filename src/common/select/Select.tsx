@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import ReactSelect, { ValueType } from 'react-select';
 
-import './Select.css';
+import styles from './Select.module.css';
 
 type Option = {
   value: string;
@@ -10,39 +9,35 @@ type Option = {
 };
 
 type Props = {
-  id?: string;
   name: string;
-  labelText?: string;
-  value: string | undefined;
-  className?: string;
+  id?: string;
   options: Option[];
-  setFieldValue: (name: string, value: string) => void;
+  className?: string;
+  labelText?: string;
+  onChange?: () => void;
+  value?: string;
 };
 
-const Select = (props: Props) => {
-  // Without this defaultValue is not set / language wont get updated
-  const value = props.options.find(option => option.value === props.value);
-
+function Select(props: Props) {
   return (
-    <div className={classNames('wrapper', props.className)}>
-      <label htmlFor={props.name} className="select-label">
+    <div className={classNames(styles.select, props.className)}>
+      <label htmlFor={props.name} className={styles.label}>
         {props.labelText}
       </label>
-
-      <ReactSelect
-        onChange={(option: ValueType<Option>) => {
-          const value = (option as Option).value;
-          props.setFieldValue(props.name, value);
-        }}
+      <select
+        onChange={props.onChange}
         id={props.id}
         name={props.name}
-        className="select"
-        classNamePrefix="select"
-        options={props.options}
-        value={value}
-      />
+        value={props.value}
+      >
+        {props.options.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
     </div>
   );
-};
+}
 
 export default Select;
