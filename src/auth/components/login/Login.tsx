@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
+import { Button } from 'hds-react';
 
-import { AuthState, resetError } from '../../redux';
+import { AuthState, resetError, isAuthenticatedSelector } from '../../redux';
 import { RootState } from '../../../redux/rootReducer';
 import authenticate from '../../authenticate';
 import PageLayout from '../../../common/layout/PageLayout';
@@ -37,6 +38,8 @@ function Login(props: Props) {
     }
   };
 
+  const isAuthenticated = useSelector(isAuthenticatedSelector);
+
   return (
     <PageWrapper>
       <PageLayout title={'login.pageTitle'}>
@@ -47,12 +50,15 @@ function Login(props: Props) {
             <React.Fragment>
               <p className={styles.helpText}>{t('login.helpText')}</p>
               <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
-              <div className={styles.loginContainer}>
-                <span>{t('login.linkForMembersText')}</span>
-                <button onClick={authenticate} className={styles.button}>
-                  {t('nav.signin')}
-                </button>
-              </div>
+
+              {!isAuthenticated && (
+                <div className={styles.loginContainer}>
+                  <span>{t('login.linkForMembersText')}</span>
+                  <Button onClick={authenticate} variant="supplementary">
+                    {t('nav.signin')}
+                  </Button>
+                </div>
+              )}
             </React.Fragment>
           )}
 

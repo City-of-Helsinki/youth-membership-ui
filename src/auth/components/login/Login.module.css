@@ -1,7 +1,7 @@
 .helpText {
   margin: 20px 10px 50px;
-  font-size: var(--hds-text-md);
-  line-height: var(--hds-text-sm-line-height);
+  font-size: var(--fontsize-body-medium);
+  line-height: var(--lineheight-m);
 }
 
 @media (min-width: 500px) {
@@ -17,8 +17,8 @@
 }
 
 .serviceLink {
-  background-color: var(--hds-ui-color-black);
-  color: var(--hds-ui-color-white);
+  background-color: var(--color-black);
+  color: var(--color-white);
   padding: 15px;
   display: inline-block;
   font-weight: bold;
@@ -26,9 +26,9 @@
 }
 
 .button {
-  background-color: var(--hds-ui-color-white);
-  color: var(--hds-ui-color-black);
-  border: 2px solid var(--hds-ui-color-black);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: 2px solid var(--color-black);
   padding: 13px;
   display: inline-block;
   font-weight: bold;

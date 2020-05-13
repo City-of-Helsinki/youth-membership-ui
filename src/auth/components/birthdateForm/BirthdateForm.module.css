@@ -11,7 +11,7 @@
 
 .birthdayHelper {
     font-weight: bold;
-    font-size: var(--hds-text-sm);
+    font-size: var(--fontsize-body-small);
     margin: 0 0 5px;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .birthdayErrorMessage {
-    color: var(--hds-ui-color-error);
+    color: var(--color-error);
     margin-bottom: 20px;
 }
 
