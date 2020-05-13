@@ -72,17 +72,11 @@ function RegistrationInformation(props: Props) {
               label={t('youthProfile.homeLanguages')}
               value={t(`LANGUAGE_OPTIONS.${data.youthProfile.languageAtHome}`)}
             />
+            <LabeledValue
+              label={t('registration.photoUsageApproved')}
+              value={data?.youthProfile?.photoUsageApproved ? t('approval.photoUsageApprovedYes') : t('approval.photoUsageApprovedNo')} />
           </div>
-          {/*
-          <h2>{t('membershipDetails.requiredPermissionsFromParent')}</h2>
-          <strong className={styles.subHeading}>
-            {t('youthProfile.photoUsage')}
-          </strong>
-          <p className={styles.paragraph}>
-            {t('membershipDetails.photoUsageExplanation')}
-          </p>
-          <span className={styles.check}>{t('yes')}</span>
-          */}
+
           <h2>{t('youthProfile.approverInfo')}</h2>
           <div className={styles.fieldsGroup}>
             <LabeledValue
