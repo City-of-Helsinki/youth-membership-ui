@@ -95,22 +95,15 @@ a {
     .buttonAlign {
         text-align: left;
     }
-
-    .frontLink {
-        margin-top: 0;
-    }
 }
 
 .formWrapper h3 {
     margin-top: 60px;
 }
 
-.frontLink {
-    border: 2px solid var(--color-black);
-    color: var(--color-black);
-    display: inline-block;
-    font-weight: bold;
-    padding: 15px 50px;
-    margin-left: 20px;
+.button {
+    min-width: 230px;
+    margin-right: 20px;
     margin-top: 20px;
 }
+

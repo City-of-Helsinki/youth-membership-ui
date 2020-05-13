@@ -1,6 +1,6 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { TextInput } from 'hds-react';
+import { useTranslation, Trans } from 'react-i18next';
+import { TextInput, Button, Checkbox, RadioButton } from 'hds-react';
 import { Formik, Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
 import { differenceInYears, format } from 'date-fns';
@@ -11,7 +11,6 @@ import Select from '../../../../common/select/Select';
 import ageConstants from '../../constants/ageConstants';
 import { Language, YouthLanguage } from '../../../../graphql/generatedTypes';
 import styles from './YouthProfileForm.module.css';
-import Button from '../../../../common/button/Button';
 
 const isConsentRequired = (birthDate: string, schema: Yup.StringSchema) => {
   const userAge = differenceInYears(new Date(), new Date(birthDate));
@@ -151,10 +150,10 @@ function YouthProfileForm(componentProps: Props) {
                 id="firstName"
                 name="firstName"
                 invalid={props.submitCount && props.errors.firstName}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.firstName &&
-                  t(props.errors.firstName)
+                helperText={
+                  props.submitCount && props.errors.firstName
+                    ? t(props.errors.firstName)
+                    : ''
                 }
                 labelText={t('registration.firstName') + ' *'}
               />
@@ -164,10 +163,10 @@ function YouthProfileForm(componentProps: Props) {
                 id="lastName"
                 name="lastName"
                 invalid={props.submitCount && props.errors.lastName}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.lastName &&
-                  t(props.errors.lastName)
+                helperText={
+                  props.submitCount && props.errors.lastName
+                    ? t(props.errors.lastName)
+                    : ''
                 }
                 labelText={t('registration.lastName') + ' *'}
               />
@@ -179,10 +178,10 @@ function YouthProfileForm(componentProps: Props) {
                 id="address"
                 name="address"
                 invalid={props.submitCount && props.errors.address}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.address &&
-                  t(props.errors.address)
+                helperText={
+                  props.submitCount && props.errors.address
+                    ? t(props.errors.address)
+                    : ''
                 }
                 labelText={t('registration.address') + ' *'}
               />
@@ -193,10 +192,10 @@ function YouthProfileForm(componentProps: Props) {
                   id="postalCode"
                   name="postalCode"
                   invalid={props.submitCount && props.errors.postalCode}
-                  invalidText={
-                    props.submitCount &&
-                    props.errors.postalCode &&
-                    t(props.errors.postalCode)
+                  helperText={
+                    props.submitCount && props.errors.postalCode
+                      ? t(props.errors.postalCode)
+                      : ''
                   }
                   labelText={t('registration.postalCode') + ' *'}
                 />
@@ -206,10 +205,10 @@ function YouthProfileForm(componentProps: Props) {
                   id="city"
                   name="city"
                   invalid={props.submitCount && props.errors.city}
-                  invalidText={
-                    props.submitCount &&
-                    props.errors.city &&
-                    t(props.errors.city)
+                  helperText={
+                    props.submitCount && props.errors.city
+                      ? t(props.errors.city)
+                      : ''
                   }
                   labelText={t('registration.city') + ' *'}
                 />
@@ -275,10 +274,10 @@ function YouthProfileForm(componentProps: Props) {
                 name="phone"
                 type="tel"
                 invalid={props.submitCount && props.errors.phone}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.phone &&
-                  t(props.errors.phone)
+                helperText={
+                  props.submitCount && props.errors.phone
+                    ? t(props.errors.phone)
+                    : ''
                 }
                 labelText={t('registration.phoneNumber') + ' *'}
               />
@@ -293,10 +292,10 @@ function YouthProfileForm(componentProps: Props) {
                 name="schoolName"
                 labelText={t('registration.schoolName')}
                 invalid={props.submitCount && props.errors.schoolName}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.schoolName &&
-                  t(props.errors.schoolName)
+                helperText={
+                  props.submitCount && props.errors.schoolName
+                    ? t(props.errors.schoolName)
+                    : ''
                 }
               />
               <Field
@@ -306,10 +305,10 @@ function YouthProfileForm(componentProps: Props) {
                 name="schoolClass"
                 labelText={t('registration.schoolClass')}
                 invalid={props.submitCount && props.errors.schoolClass}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.schoolClass &&
-                  t(props.errors.schoolClass)
+                helperText={
+                  props.submitCount && props.errors.schoolClass
+                    ? t(props.errors.schoolClass)
+                    : ''
                 }
               />
             </div>
@@ -317,16 +316,14 @@ function YouthProfileForm(componentProps: Props) {
             <ul className={styles.list}>
               {languages.map(language => (
                 <li className={styles.languageRadioBtnRow} key={language}>
-                  <label>
                     <Field
+                      as={RadioButton}
                       name="languageAtHome"
+                      id={language}
                       type="radio"
                       value={language}
+                      labelText={t(`LANGUAGE_OPTIONS.${language}`)}
                     />
-                    <span className={styles.listLabel}>
-                      {t(`LANGUAGE_OPTIONS.${language}`)}
-                    </span>
-                  </label>
                 </li>
               ))}
             </ul>
@@ -342,30 +339,24 @@ function YouthProfileForm(componentProps: Props) {
               <div className={styles.resRow}>
                 <ul className={styles.list}>
                   <li className={styles.radioButtonRow}>
-                    <label>
                       <Field
+                        as={RadioButton}
                         id="photoUsageApprovedYes"
                         name="photoUsageApproved"
                         type="radio"
                         value={'true'}
+                        labelText={t('registration.photoUsageApprovedYes')}
                       />
-                      <span className={styles.listLabel}>
-                        {t('registration.photoUsageApprovedYes')}
-                      </span>
-                    </label>
                   </li>
                   <li className={styles.radioButtonRow}>
-                    <label>
                       <Field
+                        as={RadioButton}
                         id="photoUsageApprovedNo"
                         name="photoUsageApproved"
                         type="radio"
                         value={'false'}
+                        labelText={t('registration.photoUsageApprovedNo')}
                       />
-                      <span className={styles.listLabel}>
-                        {t('registration.photoUsageApprovedNo')}
-                      </span>
-                    </label>
                   </li>
                 </ul>
               </div>
@@ -383,10 +374,10 @@ function YouthProfileForm(componentProps: Props) {
                 id="approverFirstName"
                 name="approverFirstName"
                 invalid={props.submitCount && props.errors.approverFirstName}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.approverFirstName &&
-                  t(props.errors.approverFirstName)
+                helperText={
+                  props.submitCount && props.errors.approverFirstName
+                    ? t(props.errors.approverFirstName)
+                    : ''
                 }
                 labelText={approverLabelText('firstName')}
               />
@@ -396,10 +387,10 @@ function YouthProfileForm(componentProps: Props) {
                 id="approverLastName"
                 name="approverLastName"
                 invalid={props.submitCount && props.errors.approverLastName}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.approverLastName &&
-                  t(props.errors.approverLastName)
+                helperText={
+                  props.submitCount && props.errors.approverLastName
+                    ? t(props.errors.approverLastName)
+                    : ''
                 }
                 labelText={approverLabelText('lastName')}
               />
@@ -412,10 +403,10 @@ function YouthProfileForm(componentProps: Props) {
                 name="approverEmail"
                 type="email"
                 invalid={props.submitCount && props.errors.approverEmail}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.approverEmail &&
-                  t(props.errors.approverEmail)
+                helperText={
+                  props.submitCount && props.errors.approverEmail
+                    ? t(props.errors.approverEmail)
+                    : ''
                 }
                 labelText={approverLabelText('email')}
               />
@@ -426,10 +417,10 @@ function YouthProfileForm(componentProps: Props) {
                 name="approverPhone"
                 type="tel"
                 invalid={props.submitCount && props.errors.approverPhone}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.approverPhone &&
-                  t(props.errors.approverPhone)
+                helperText={
+                  props.submitCount && props.errors.approverPhone
+                    ? t(props.errors.approverPhone)
+                    : ''
                 }
                 labelText={approverLabelText('phoneNumber')}
               />
@@ -441,18 +432,16 @@ function YouthProfileForm(componentProps: Props) {
                   <p>{t('registration.processInfoText')}</p>
                 )}
                 <ul className={styles.terms}>
-                  <Field name="terms" type="checkbox" />
-                  <span className={styles.listLabel}>
-                    {t('registration.approveTermsText_1')}
-                    <Link
-                      to="/terms-of-service"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {t('registration.approveTermsText_link')}
-                    </Link>
-                    {t('registration.approveTermsText_2') + ' *'}
-                  </span>
+                  <Field as={Checkbox} name="terms" type="checkbox" labelText={
+                    <Trans
+                      i18nKey='registration.approveTerms'
+                      components={[<Link
+                        to="/terms-of-service"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />]}
+                    />
+                  }/>
                 </ul>
               </React.Fragment>
             )}
@@ -473,8 +462,10 @@ function YouthProfileForm(componentProps: Props) {
               </Button>
 
               {componentProps.isEditing && (
-                <Link to="/membership-details" className={styles.frontLink}>
-                  {t('registration.cancel')}
+                <Link to="/membership-details">
+                  <Button variant="secondary" className={styles.button}>
+                    {t('registration.cancel')}
+                  </Button>
                 </Link>
               )}
             </div>
