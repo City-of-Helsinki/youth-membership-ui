@@ -316,14 +316,14 @@ function YouthProfileForm(componentProps: Props) {
             <ul className={styles.list}>
               {languages.map(language => (
                 <li className={styles.languageRadioBtnRow} key={language}>
-                    <Field
-                      as={RadioButton}
-                      name="languageAtHome"
-                      id={language}
-                      type="radio"
-                      value={language}
-                      labelText={t(`LANGUAGE_OPTIONS.${language}`)}
-                    />
+                  <Field
+                    as={RadioButton}
+                    name="languageAtHome"
+                    id={language}
+                    type="radio"
+                    value={language}
+                    labelText={t(`LANGUAGE_OPTIONS.${language}`)}
+                  />
                 </li>
               ))}
             </ul>
@@ -339,24 +339,24 @@ function YouthProfileForm(componentProps: Props) {
               <div className={styles.resRow}>
                 <ul className={styles.list}>
                   <li className={styles.radioButtonRow}>
-                      <Field
-                        as={RadioButton}
-                        id="photoUsageApprovedYes"
-                        name="photoUsageApproved"
-                        type="radio"
-                        value={'true'}
-                        labelText={t('registration.photoUsageApprovedYes')}
-                      />
+                    <Field
+                      as={RadioButton}
+                      id="photoUsageApprovedYes"
+                      name="photoUsageApproved"
+                      type="radio"
+                      value={'true'}
+                      labelText={t('registration.photoUsageApprovedYes')}
+                    />
                   </li>
                   <li className={styles.radioButtonRow}>
-                      <Field
-                        as={RadioButton}
-                        id="photoUsageApprovedNo"
-                        name="photoUsageApproved"
-                        type="radio"
-                        value={'false'}
-                        labelText={t('registration.photoUsageApprovedNo')}
-                      />
+                    <Field
+                      as={RadioButton}
+                      id="photoUsageApprovedNo"
+                      name="photoUsageApproved"
+                      type="radio"
+                      value={'false'}
+                      labelText={t('registration.photoUsageApprovedNo')}
+                    />
                   </li>
                 </ul>
               </div>
@@ -432,16 +432,23 @@ function YouthProfileForm(componentProps: Props) {
                   <p>{t('registration.processInfoText')}</p>
                 )}
                 <ul className={styles.terms}>
-                  <Field as={Checkbox} name="terms" type="checkbox" labelText={
-                    <Trans
-                      i18nKey='registration.approveTerms'
-                      components={[<Link
-                        to="/terms-of-service"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      />]}
-                    />
-                  }/>
+                  <Field
+                    as={Checkbox}
+                    name="terms"
+                    type="checkbox"
+                    labelText={
+                      <Trans
+                        i18nKey="registration.approveTerms"
+                        components={[
+                          <Link
+                            to="/terms-of-service"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          />,
+                        ]}
+                      />
+                    }
+                  />
                 </ul>
               </React.Fragment>
             )}

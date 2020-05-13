@@ -74,7 +74,12 @@ function RegistrationInformation(props: Props) {
             />
             <LabeledValue
               label={t('registration.photoUsageApproved')}
-              value={data?.youthProfile?.photoUsageApproved ? t('approval.photoUsageApprovedYes') : t('approval.photoUsageApprovedNo')} />
+              value={
+                data?.youthProfile?.photoUsageApproved
+                  ? t('approval.photoUsageApprovedYes')
+                  : t('approval.photoUsageApprovedNo')
+              }
+            />
           </div>
 
           <h2>{t('youthProfile.approverInfo')}</h2>
