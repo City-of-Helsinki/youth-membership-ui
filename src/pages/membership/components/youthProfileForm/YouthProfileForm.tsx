@@ -312,7 +312,9 @@ function YouthProfileForm(componentProps: Props) {
                 }
               />
             </div>
-            <p className={styles.radioLabel}>{t('registration.languageAtHome')}</p>
+            <p className={styles.radioLabel}>
+              {t('registration.languageAtHome')}
+            </p>
             <ul className={styles.list}>
               {languages.map(language => (
                 <li className={styles.languageRadioBtnRow} key={language}>
@@ -334,7 +336,9 @@ function YouthProfileForm(componentProps: Props) {
                   : styles.formInputColumn
               }
             >
-              <p className={styles.radioLabel}>{t('registration.photoUsageApproved')}</p>
+              <p className={styles.radioLabel}>
+                {t('registration.photoUsageApproved')}
+              </p>
               <p>{t('registration.photoUsageApprovedText')}</p>
               <div className={styles.resRow}>
                 <ul className={styles.list}>
@@ -453,7 +457,7 @@ function YouthProfileForm(componentProps: Props) {
               </React.Fragment>
             )}
 
-            <div className={styles.buttonAlign}>
+            <div className={componentProps.isEditing ? styles.buttonAlign : ''}>
               <Button
                 type="submit"
                 disabled={

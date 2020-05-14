@@ -118,6 +118,7 @@ a {
 
 .button {
     min-width: 230px;
+    width: 100%;
     margin-right: 20px;
     margin-top: 20px;
 }
@@ -125,5 +126,12 @@ a {
 @media (min-width: 400px) {
     .terms {
         margin-top: 20px;
+    }
+}
+
+@media (min-width: 540px) {
+    .button {
+        min-width: 230px;
+        width: auto;
     }
 }
