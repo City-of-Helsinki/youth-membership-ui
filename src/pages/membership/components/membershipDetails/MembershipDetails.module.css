@@ -39,18 +39,22 @@
   }
 }
 
-.frontLink {
-  border: 2px solid var(--color-black);
-  color: var(--color-black);
-  display: inline-block;
-  font-weight: bold;
-  margin-top: 40px;
-  padding: 16px 50px;
-  margin-right: 20px;
-}
-
 .button {
   margin-right: 20px;
-  width: 230px;
+  width: 100%;
   margin-top: 20px;
+}
+
+.membershipDetails h1 {
+  font-size: var(--fontsize-h-2);
+}
+
+.membershipDetails h2 {
+  font-size: var(--fontsize-h-3);
+}
+
+@media (min-width: 540px) {
+  .button {
+    width: 230px;
+  }
 }
