@@ -137,10 +137,10 @@ function YouthProfileForm(componentProps: Props) {
     >
       {props => (
         <div className={styles.formWrapper}>
-          <span className={styles.formTitleText}>
-            <h2>{t('registration.title')}</h2>
+          <div className={styles.formTitleText}>
+            <h1>{t('registration.title')}</h1>
             <p>{t('registration.membershipInfoText')}</p>
-          </span>
+          </div>
           <h3>{t('registration.basicInfo')}</h3>
           <Form>
             <div className={styles.formRow}>
@@ -367,7 +367,10 @@ function YouthProfileForm(componentProps: Props) {
             </div>
             <h3>{t('registration.approver')}</h3>
             {userAge < ageConstants.ADULT && (
-              <p data-testid="approverInfoText" className={styles.approverInfoText}>
+              <p
+                data-testid="approverInfoText"
+                className={styles.approverInfoText}
+              >
                 {t('registration.approverInfoText')}
               </p>
             )}

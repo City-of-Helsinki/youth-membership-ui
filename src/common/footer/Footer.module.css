@@ -49,6 +49,7 @@ hr {
     text-decoration: underline var(--color-black);
     font-weight: bold;
     margin-top: 15px;
+    color: var(--color-black)
 }
 
 .links {

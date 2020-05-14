@@ -1,3 +1,7 @@
+.hostingBox {
+  text-align: left;
+}
+
 .helpText {
   margin: 20px 10px 50px;
   font-size: var(--fontsize-body-medium);
@@ -15,16 +19,29 @@
   margin-right: 15px;
 }
 
+.linkForMembers {
+  margin-top: 30px;
+}
+
 .button {
   margin-top: var(--spacing-s);
-  width: 230px;
+  width: 100%;
 }
 
 
+@media (min-width: 400px) {
+  .button {
+    width: 230px;
+  }
+}
 
 @media (min-width: 500px) {
   .helpText {
     margin: 20px 50px 50px;
+    text-align: center;
+  }
+
+  .hostingBox {
     text-align: center;
   }
 }

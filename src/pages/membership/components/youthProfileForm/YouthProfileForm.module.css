@@ -1,10 +1,6 @@
-.formTitleText {
-    text-align: center;
-}
-@media (min-width: 768px) {
-    .formTitleText {
-        text-align: left;
-    }
+.formTitleText h1 {
+    font-size: var(--fontsize-h-2);
+    margin-bottom: 15px;
 }
 
 .formRow {
@@ -104,7 +100,7 @@ a {
     }
 }
 
-.formWrapper h3 {
+.formWrapper h3:not:first-child {
     margin-top: 60px;
     margin-bottom: 20px;
 }
@@ -137,5 +133,9 @@ a {
     .button {
         min-width: 230px;
         width: auto;
+    }
+
+    .formTitleText h1 {
+        font-size: var(--fontsize-h-1);
     }
 }

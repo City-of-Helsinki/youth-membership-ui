@@ -54,7 +54,9 @@ function Login(props: Props) {
 
               {!isAuthenticated && (
                 <div className={styles.loginContainer}>
-                  <span>{t('login.linkForMembersText')}</span>
+                  <span className={styles.linkForMembers}>
+                    {t('login.linkForMembersText')}
+                  </span>
                   <Button
                     onClick={authenticate}
                     variant="supplementary"
