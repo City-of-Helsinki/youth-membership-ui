@@ -6,8 +6,8 @@ import styles from './LanguageSwitcher.module.css';
 
 const languages = [
   { code: 'fi', label: 'Suomi' },
-  { code: 'en', label: 'English' },
   { code: 'sv', label: 'Svenska' },
+  { code: 'en', label: 'English' },
 ];
 
 type Props = {
@@ -26,15 +26,19 @@ function LanguageSwitcher(props: Props) {
   return (
     <ul className={classNames(props.className, styles.list)}>
       {languages.map(lang => (
-        <li key={lang.code} className={styles.item}>
-          <button
-            type="button"
-            lang={lang.code}
-            onClick={() => setLanguage(lang.code)}
-          >
-            {lang.label}
-          </button>
-        </li>
+        <React.Fragment key={lang.code}>
+          {lang.code !== i18n.languages[0] ? (
+            <li className={styles.item}>
+              <button
+                type="button"
+                lang={lang.code}
+                onClick={() => setLanguage(lang.code)}
+              >
+                {lang.label}
+              </button>
+            </li>
+          ) : null}
+        </React.Fragment>
       ))}
     </ul>
   );
