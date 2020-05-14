@@ -41,7 +41,7 @@ function LinkButton({
       target={target || ''}
       rel={rel}
     >
-      <span className='hds-button__label'>{buttonText}</span>
+      <span className="hds-button__label">{buttonText}</span>
     </a>
   );
 }

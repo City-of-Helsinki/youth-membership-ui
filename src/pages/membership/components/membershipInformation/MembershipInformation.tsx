@@ -82,11 +82,18 @@ function MembershipInformation(props: Props) {
               type="button"
               onClick={handleRenewMembership}
               className={styles.button}
+              data-cy="renew"
             >
               {t('membershipInformation.renew')}
             </Button>
           )}
-          <LinkButton className={styles.button} path="/membership-details" component="Link" buttonText={t('membershipInformation.showProfileInformation')} variant="secondary" />
+          <LinkButton
+            className={styles.button}
+            path="/membership-details"
+            component="Link"
+            buttonText={t('membershipInformation.showProfileInformation')}
+            variant="secondary"
+          />
           <NotificationComponent
             show={showNotification}
             onClose={() => setShowNotification(false)}

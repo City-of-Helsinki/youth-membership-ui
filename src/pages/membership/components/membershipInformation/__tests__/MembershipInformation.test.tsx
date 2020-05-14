@@ -66,5 +66,5 @@ it('renew button is shown', async () => {
 
   await updateWrapper(wrapper);
 
-  expect(wrapper.find('button[className="button renew"]')).toHaveLength(1);
+  expect(wrapper.find('button[data-cy="renew"]')).toHaveLength(1);
 });
