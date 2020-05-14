@@ -117,7 +117,7 @@ function BirthdateForm(props: Props) {
             )}
 
           <div className={styles.buttonRow}>
-            <Button type="submit">{t('login.buttonText')}</Button>
+            <Button type="submit" className={styles.button}>{t('login.buttonText')}</Button>
           </div>
         </Form>
       )}

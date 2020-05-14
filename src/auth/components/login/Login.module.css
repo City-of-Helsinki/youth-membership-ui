@@ -2,12 +2,7 @@
   margin: 20px 10px 50px;
   font-size: var(--fontsize-body-medium);
   line-height: var(--lineheight-m);
-}
-
-@media (min-width: 500px) {
-  .helpText {
-    margin: 20px 100px 50px;
-  }
+  text-align: left;
 }
 
 .loginContainer {
@@ -16,29 +11,16 @@
   align-items: center;
 }
 
-.serviceLink {
-  background-color: var(--color-black);
-  color: var(--color-white);
-  padding: 15px;
-  display: inline-block;
-  font-weight: bold;
-  margin: 10px 7px;
-}
-
 .button {
-  background-color: var(--color-white);
-  color: var(--color-black);
-  border: 2px solid var(--color-black);
-  padding: 13px;
-  display: inline-block;
-  font-weight: bold;
-  margin-bottom: 30px;
-  min-width: 230px;
-  margin-top: 5px;
+  margin-top: var(--spacing-s);
+  width: 230px;
 }
 
-@media (min-width: 630px) {
-  .serviceLink {
-    margin: 30px 7px;
+
+
+@media (min-width: 500px) {
+  .helpText {
+    margin: 20px 50px 50px;
+    text-align: center;
   }
 }

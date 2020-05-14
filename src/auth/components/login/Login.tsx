@@ -54,7 +54,7 @@ function Login(props: Props) {
               {!isAuthenticated && (
                 <div className={styles.loginContainer}>
                   <span>{t('login.linkForMembersText')}</span>
-                  <Button onClick={authenticate} variant="supplementary">
+                  <Button onClick={authenticate} variant="supplementary" className={styles.button}>
                     {t('nav.signin')}
                   </Button>
                 </div>
@@ -66,27 +66,31 @@ function Login(props: Props) {
             <React.Fragment>
               <p className={styles.helpText}>{t('login.helpTextUnderAge')}</p>
               <a
-                className={styles.serviceLink}
                 href={t('login.registrationForm')}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {t('login.registrationFormText')}
+                <Button>
+                  {t('login.registrationFormText')}
+                </Button>
               </a>
               <a
                 className={styles.serviceLink}
                 href={authConstants.URLS.YOUTH_CENTERS}
               >
-                {t('login.findNearestService')}
+                <Button>
+                  {t('login.findNearestService')}
+                </Button>
               </a>
               <br />
-              <button
+              <Button
                 data-cy="goBack"
                 onClick={() => setShowManualRegistration(false)}
                 className={styles.button}
+                variant="secondary"
               >
                 {t('login.return')}
-              </button>
+              </Button>
             </React.Fragment>
           )}
         </div>
