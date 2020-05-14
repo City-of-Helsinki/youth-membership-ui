@@ -109,6 +109,10 @@ a {
     margin-bottom: 20px;
 }
 
+.approverInfoText {
+    margin-bottom: 10px;
+}
+
 .radioLabel {
     font-weight: 700;
     font-size: 0.9em;

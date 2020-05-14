@@ -367,7 +367,7 @@ function YouthProfileForm(componentProps: Props) {
             </div>
             <h3>{t('registration.approver')}</h3>
             {userAge < ageConstants.ADULT && (
-              <p data-testid="approverInfoText">
+              <p data-testid="approverInfoText" className={styles.approverInfoText}>
                 {t('registration.approverInfoText')}
               </p>
             )}
