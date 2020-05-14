@@ -3,8 +3,8 @@ import Koros from 'hds-react/lib/components/koros/Koros';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import HelsinkiLogo from '../helsinkiLogo/HelsinkiLogo';
 import tosConstants from '../../pages/tos/constants/tosConstants';
-import { ReactComponent as HelsinkiLogo } from '../svg/HelsinkiLogo.svg';
 import styles from './Footer.module.css';
 
 function Footer() {

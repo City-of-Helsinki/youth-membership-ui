@@ -1,0 +1,10 @@
+.logoFi {
+    background-size: contain;
+    background: url("../svg/HelsinkiLogoFi.svg") no-repeat;
+}
+
+
+.logoSv {
+    background-size: contain;
+    background: url("../svg/HelsinkiLogoSv.svg") no-repeat;
+}

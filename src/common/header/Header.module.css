@@ -18,7 +18,7 @@
 .appName {
   font-size: 16px;
   font-weight: bold;
-  margin-left: -10px;
+  margin-left: 0;
 }
 
 @media (min-width: 415px) {
@@ -29,14 +29,9 @@
 }
 
 .logo {
+  width: 120px;
   height: 42px;
-  margin-left: -10px;
-}
-
-@media (min-width: 415px) {
-  .logo {
-    margin-left: 0;
-  }
+  margin-left: 10px;
 }
 
 .end {
