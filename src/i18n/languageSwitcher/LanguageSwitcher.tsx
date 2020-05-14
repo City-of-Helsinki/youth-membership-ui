@@ -23,23 +23,22 @@ function LanguageSwitcher(props: Props) {
       props.onLanguageChanged();
     }
   };
+
   return (
     <ul className={classNames(props.className, styles.list)}>
-      {languages.map(lang => (
-        <React.Fragment key={lang.code}>
-          {lang.code !== i18n.languages[0] ? (
-            <li className={styles.item}>
-              <button
-                type="button"
-                lang={lang.code}
-                onClick={() => setLanguage(lang.code)}
-              >
-                {lang.label}
-              </button>
-            </li>
-          ) : null}
-        </React.Fragment>
-      ))}
+      {languages
+        .filter(lang => lang.code !== i18n.languages[0])
+        .map(lang => (
+          <li key={lang.code} className={styles.item}>
+            <button
+              type="button"
+              lang={lang.code}
+              onClick={() => setLanguage(lang.code)}
+            >
+              {lang.label}
+            </button>
+          </li>
+        ))}
     </ul>
   );
 }
