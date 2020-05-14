@@ -19,6 +19,12 @@
     flex-direction: column;
 }
 
+.formInputColumn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .formInput {
     width: 100%;
 }
@@ -80,6 +86,7 @@
 }
 
 .terms {
+    margin-top: 30px;
     padding-left: 0;
 }
 
@@ -99,6 +106,14 @@ a {
 
 .formWrapper h3 {
     margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.radioLabel {
+    font-weight: 700;
+    font-size: 0.9em;
+    margin-top: var(--spacing-l);
+    margin-bottom: 5px;
 }
 
 .button {
@@ -107,3 +122,8 @@ a {
     margin-top: 20px;
 }
 
+@media (min-width: 400px) {
+    .terms {
+        margin-top: 20px;
+    }
+}

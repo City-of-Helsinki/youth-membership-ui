@@ -312,7 +312,7 @@ function YouthProfileForm(componentProps: Props) {
                 }
               />
             </div>
-            <h4>{t('registration.languageAtHome')}</h4>
+            <p className={styles.radioLabel}>{t('registration.languageAtHome')}</p>
             <ul className={styles.list}>
               {languages.map(language => (
                 <li className={styles.languageRadioBtnRow} key={language}>
@@ -331,10 +331,10 @@ function YouthProfileForm(componentProps: Props) {
               className={
                 userAge < ageConstants.PHOTO_PERMISSION_MIN
                   ? styles.hidePhotoUsageApproved
-                  : ''
+                  : styles.formInputColumn
               }
             >
-              <h4>{t('registration.photoUsageApproved')}</h4>
+              <p className={styles.radioLabel}>{t('registration.photoUsageApproved')}</p>
               <p>{t('registration.photoUsageApprovedText')}</p>
               <div className={styles.resRow}>
                 <ul className={styles.list}>
