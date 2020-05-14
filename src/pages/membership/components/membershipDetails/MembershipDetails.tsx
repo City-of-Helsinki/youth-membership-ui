@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { loader } from 'graphql.macro';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
-import { Button } from 'hds-react';
 
+import LinkButton from '../../../../common/linkButton/LinkButton';
 import styles from './MembershipDetails.module.css';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import { MembershipDetails as MembershipDetailsData } from '../../../../graphql/generatedTypes';
@@ -99,17 +98,20 @@ function RegistrationInformation(props: Props) {
           </div>
         </>
       )}
-      <Link to="/">
-        <Button variant="secondary" className={styles.button}>
-          {t('membershipDetails.returnToFront')}
-        </Button>
-      </Link>
-
-      <Link to="/edit">
-        <Button variant="secondary" className={styles.button}>
-          {t('membershipDetails.edit')}
-        </Button>
-      </Link>
+      <LinkButton
+        className={styles.button}
+        path="/"
+        component="Link"
+        buttonText={t('membershipDetails.returnToFront')}
+        variant="secondary"
+      />
+      <LinkButton
+        className={styles.button}
+        path="/edit"
+        component="Link"
+        buttonText={t('membershipDetails.edit')}
+        variant="secondary"
+      />
 
       <NotificationComponent
         show={showNotification}

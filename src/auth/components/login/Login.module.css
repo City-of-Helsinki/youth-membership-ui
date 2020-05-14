@@ -11,6 +11,10 @@
   align-items: center;
 }
 
+.linkButtons {
+  margin-right: 15px;
+}
+
 .button {
   margin-top: var(--spacing-s);
   width: 230px;

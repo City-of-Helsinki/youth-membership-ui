@@ -5,6 +5,7 @@ import { connect, useSelector } from 'react-redux';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 import { Button } from 'hds-react';
 
+import LinkButton from '../../../common/linkButton/LinkButton';
 import { AuthState, resetError, isAuthenticatedSelector } from '../../redux';
 import { RootState } from '../../../redux/rootReducer';
 import authenticate from '../../authenticate';
@@ -54,7 +55,11 @@ function Login(props: Props) {
               {!isAuthenticated && (
                 <div className={styles.loginContainer}>
                   <span>{t('login.linkForMembersText')}</span>
-                  <Button onClick={authenticate} variant="supplementary" className={styles.button}>
+                  <Button
+                    onClick={authenticate}
+                    variant="supplementary"
+                    className={styles.button}
+                  >
                     {t('nav.signin')}
                   </Button>
                 </div>
@@ -65,23 +70,23 @@ function Login(props: Props) {
           {showManualRegistration && (
             <React.Fragment>
               <p className={styles.helpText}>{t('login.helpTextUnderAge')}</p>
-              <a
-                href={t('login.registrationForm')}
+              <LinkButton
+                className={styles.linkButtons}
+                path={t('login.registrationForm')}
+                component="a"
+                buttonText={t('login.registrationFormText')}
+                variant="primary"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                <Button>
-                  {t('login.registrationFormText')}
-                </Button>
-              </a>
-              <a
-                className={styles.serviceLink}
-                href={authConstants.URLS.YOUTH_CENTERS}
-              >
-                <Button>
-                  {t('login.findNearestService')}
-                </Button>
-              </a>
+              />
+              <LinkButton
+                className={styles.linkButtons}
+                path={authConstants.URLS.YOUTH_CENTERS}
+                component="a"
+                buttonText={t('login.findNearestService')}
+                variant="primary"
+              />
+
               <br />
               <Button
                 data-cy="goBack"
