@@ -16,7 +16,6 @@ import {
 import styles from './MembershipInformation.module.css';
 import getFullName from '../../helpers/getFullName';
 import convertDateToLocale from '../../helpers/convertDateToLocale';
-import './../../../../../node_modules/hds-core/lib/components/button/button.css';
 
 const MEMBERSHIP_INFORMATION = loader(
   '../../graphql/MembershipInformation.graphql'
