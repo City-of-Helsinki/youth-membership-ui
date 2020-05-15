@@ -1,25 +1,10 @@
-@media (min-width: 768px){
-  .content {
-      padding: 10px 50px;
-      text-align: left;
-  }
-}
-
 .content {
+  padding: 10px 10px;
   text-align: left;
 }
 
 .content h3 {
   margin-top: 40px;
-}
-
-.formTitleText {
-  text-align: center;
-}
-@media (min-width: 768px) {
-  .formTitleText {
-      text-align: left;
-  }
 }
 
 @media (min-width: 768px) {
@@ -60,10 +45,22 @@
   margin-right: 50px;
 }
 
-.listLabel {
-  margin-left: 10px;
-}
-
 .terms {
   padding-left: 0;
+}
+
+.button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+@media (min-width: 400px)  {
+  .button {
+    width: 230px;
+    margin-top: 0;
+  }
+
+  .content {
+    padding: 10px 50px;
+  }
 }
