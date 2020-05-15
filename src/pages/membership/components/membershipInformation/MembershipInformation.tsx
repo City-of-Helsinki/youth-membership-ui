@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { QRCode } from 'react-qrcode-logo';
 import * as Sentry from '@sentry/browser';
+import { Button } from 'hds-react';
 
-import Button from '../../../../common/button/Button';
+import LinkButton from '../../../../common/linkButton/LinkButton';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import {
   RenewMyYouthProfile as RenewMyYouthProfileData,
@@ -80,14 +80,19 @@ function MembershipInformation(props: Props) {
             <Button
               type="button"
               onClick={handleRenewMembership}
-              className={styles.renew}
+              className={styles.button}
+              data-cy="renew"
             >
               {t('membershipInformation.renew')}
             </Button>
           )}
-          <Link to="/membership-details" className={styles.detailsLink}>
-            {t('membershipInformation.showProfileInformation')}
-          </Link>
+          <LinkButton
+            className={styles.button}
+            path="/membership-details"
+            component="Link"
+            buttonText={t('membershipInformation.showProfileInformation')}
+            variant="secondary"
+          />
           <NotificationComponent
             show={showNotification}
             onClose={() => setShowNotification(false)}

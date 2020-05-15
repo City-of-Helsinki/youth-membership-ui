@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { loader } from 'graphql.macro';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
 
+import LinkButton from '../../../../common/linkButton/LinkButton';
 import styles from './MembershipDetails.module.css';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import { MembershipDetails as MembershipDetailsData } from '../../../../graphql/generatedTypes';
@@ -71,17 +71,16 @@ function RegistrationInformation(props: Props) {
               label={t('youthProfile.homeLanguages')}
               value={t(`LANGUAGE_OPTIONS.${data.youthProfile.languageAtHome}`)}
             />
+            <LabeledValue
+              label={t('registration.photoUsageApproved')}
+              value={
+                data?.youthProfile?.photoUsageApproved
+                  ? t('approval.photoUsageApprovedYes')
+                  : t('approval.photoUsageApprovedNo')
+              }
+            />
           </div>
-          {/*
-          <h2>{t('membershipDetails.requiredPermissionsFromParent')}</h2>
-          <strong className={styles.subHeading}>
-            {t('youthProfile.photoUsage')}
-          </strong>
-          <p className={styles.paragraph}>
-            {t('membershipDetails.photoUsageExplanation')}
-          </p>
-          <span className={styles.check}>{t('yes')}</span>
-          */}
+
           <h2>{t('youthProfile.approverInfo')}</h2>
           <div className={styles.fieldsGroup}>
             <LabeledValue
@@ -99,13 +98,20 @@ function RegistrationInformation(props: Props) {
           </div>
         </>
       )}
-      <Link to="/" className={styles.frontLink}>
-        {t('membershipDetails.returnToFront')}
-      </Link>
-
-      <Link to="/edit" className={styles.frontLink}>
-        {t('membershipDetails.edit')}
-      </Link>
+      <LinkButton
+        className={styles.button}
+        path="/"
+        component="Link"
+        buttonText={t('membershipDetails.returnToFront')}
+        variant="secondary"
+      />
+      <LinkButton
+        className={styles.button}
+        path="/edit"
+        component="Link"
+        buttonText={t('membershipDetails.edit')}
+        variant="secondary"
+      />
 
       <NotificationComponent
         show={showNotification}

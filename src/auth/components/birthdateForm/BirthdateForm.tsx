@@ -1,13 +1,12 @@
 import React from 'react';
 import { Field, Form, Formik } from 'formik';
-import { TextInput } from 'hds-react';
+import { TextInput, Button } from 'hds-react';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
 
 import ageConstants from '../../../pages/membership/constants/ageConstants';
 import styles from './BirthdateForm.module.css';
-import Button from '../../../common/button/Button';
 
 const schema = yup.object().shape({
   birthDay: yup
@@ -32,7 +31,7 @@ const schema = yup.object().shape({
         birthYear: number,
         birthMonth: number,
         birthDay: number,
-        schema: any
+        schema: yup.StringSchema
       ) => {
         const age = differenceInYears(
           new Date(),
@@ -52,7 +51,6 @@ type Props = {
 
 function BirthdateForm(props: Props) {
   const { t } = useTranslation();
-
   return (
     <Formik
       initialValues={{
@@ -89,7 +87,7 @@ function BirthdateForm(props: Props) {
               id="birthMonth"
               name="birthMonth"
               type="number"
-              invalid={props.submitCount && props.errors.birthDay}
+              invalid={props.submitCount && props.errors.birthMonth}
             />
             <span className={styles.birthdayMiddleDot}>&#8901;</span>
             <Field
@@ -98,7 +96,7 @@ function BirthdateForm(props: Props) {
               id="birthYear"
               name="birthYear"
               type="number"
-              invalid={props.submitCount && props.errors.birthDay}
+              invalid={props.submitCount && props.errors.birthYear}
             />
           </div>
           {(props.errors.birthDay ||
@@ -119,7 +117,9 @@ function BirthdateForm(props: Props) {
             )}
 
           <div className={styles.buttonRow}>
-            <Button type="submit">{t('login.buttonText')}</Button>
+            <Button type="submit" className={styles.button}>
+              {t('login.buttonText')}
+            </Button>
           </div>
         </Form>
       )}

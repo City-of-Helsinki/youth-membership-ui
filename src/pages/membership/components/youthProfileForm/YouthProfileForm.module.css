@@ -1,10 +1,6 @@
-.formTitleText {
-    text-align: center;
-}
-@media (min-width: 768px) {
-    .formTitleText {
-        text-align: left;
-    }
+.formTitleText h1 {
+    font-size: var(--fontsize-h-2);
+    margin-bottom: 15px;
 }
 
 .formRow {
@@ -14,6 +10,12 @@
 }
 
 .formInputRow {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.formInputColumn {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -80,6 +82,7 @@
 }
 
 .terms {
+    margin-top: 30px;
     padding-left: 0;
 }
 
@@ -95,22 +98,44 @@ a {
     .buttonAlign {
         text-align: left;
     }
+}
 
-    .frontLink {
-        margin-top: 0;
+.formWrapper h3:not:first-child {
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.approverInfoText {
+    margin-bottom: 10px;
+}
+
+.radioLabel {
+    font-weight: 700;
+    font-size: 0.9em;
+    margin-top: var(--spacing-l);
+    margin-bottom: 5px;
+}
+
+.button {
+    min-width: 230px;
+    width: 100%;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+@media (min-width: 400px) {
+    .terms {
+        margin-top: 20px;
     }
 }
 
-.formWrapper h3 {
-    margin-top: 60px;
-}
+@media (min-width: 540px) {
+    .button {
+        min-width: 230px;
+        width: auto;
+    }
 
-.frontLink {
-    border: 2px solid var(--hds-ui-color-black);
-    color: var(--hds-ui-color-black);
-    display: inline-block;
-    font-weight: bold;
-    padding: 15px 50px;
-    margin-left: 20px;
-    margin-top: 20px;
+    .formTitleText h1 {
+        font-size: var(--fontsize-h-1);
+    }
 }

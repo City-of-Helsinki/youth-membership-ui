@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
+import { Button } from 'hds-react';
 
-import { AuthState, resetError } from '../../redux';
+import LinkButton from '../../../common/linkButton/LinkButton';
+import { AuthState, resetError, isAuthenticatedSelector } from '../../redux';
 import { RootState } from '../../../redux/rootReducer';
 import authenticate from '../../authenticate';
 import PageLayout from '../../../common/layout/PageLayout';
@@ -37,6 +39,8 @@ function Login(props: Props) {
     }
   };
 
+  const isAuthenticated = useSelector(isAuthenticatedSelector);
+
   return (
     <PageWrapper>
       <PageLayout title={'login.pageTitle'}>
@@ -47,40 +51,53 @@ function Login(props: Props) {
             <React.Fragment>
               <p className={styles.helpText}>{t('login.helpText')}</p>
               <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
-              <div className={styles.loginContainer}>
-                <span>{t('login.linkForMembersText')}</span>
-                <button onClick={authenticate} className={styles.button}>
-                  {t('nav.signin')}
-                </button>
-              </div>
+
+              {!isAuthenticated && (
+                <div className={styles.loginContainer}>
+                  <span className={styles.linkForMembers}>
+                    {t('login.linkForMembersText')}
+                  </span>
+                  <Button
+                    onClick={authenticate}
+                    variant="supplementary"
+                    className={styles.button}
+                  >
+                    {t('nav.signin')}
+                  </Button>
+                </div>
+              )}
             </React.Fragment>
           )}
 
           {showManualRegistration && (
             <React.Fragment>
               <p className={styles.helpText}>{t('login.helpTextUnderAge')}</p>
-              <a
-                className={styles.serviceLink}
-                href={t('login.registrationForm')}
+              <LinkButton
+                className={styles.linkButtons}
+                path={t('login.registrationForm')}
+                component="a"
+                buttonText={t('login.registrationFormText')}
+                variant="primary"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                {t('login.registrationFormText')}
-              </a>
-              <a
-                className={styles.serviceLink}
-                href={authConstants.URLS.YOUTH_CENTERS}
-              >
-                {t('login.findNearestService')}
-              </a>
+              />
+              <LinkButton
+                className={styles.linkButtons}
+                path={authConstants.URLS.YOUTH_CENTERS}
+                component="a"
+                buttonText={t('login.findNearestService')}
+                variant="primary"
+              />
+
               <br />
-              <button
+              <Button
                 data-cy="goBack"
                 onClick={() => setShowManualRegistration(false)}
                 className={styles.button}
+                variant="secondary"
               >
                 {t('login.return')}
-              </button>
+              </Button>
             </React.Fragment>
           )}
         </div>

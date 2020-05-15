@@ -1,5 +1,5 @@
 import React from 'react';
-import Koros from 'hds-react/lib/components/koros/Koros';
+import { Koros } from 'hds-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
