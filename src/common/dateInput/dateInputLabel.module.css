@@ -1,0 +1,5 @@
+.label {
+  font-weight: bold;
+  font-size: var(--fontsize-body-small);
+  margin: 0 0 5px;
+}

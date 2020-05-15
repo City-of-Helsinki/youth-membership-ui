@@ -2460,6 +2460,11 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.149.tgz#1342d63d948c6062838fbf961012f74d4e638440"
   integrity sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
 
+"@types/lodash@^4.14.151":
+  version "4.14.151"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.151.tgz#7d58cac32bedb0ec37cb7f99094a167d6176c9d5"
+  integrity sha512-Zst90IcBX5wnwSu7CAS0vvJkTjTELY4ssKbHiTnGcJgi170uiS8yQDdc3v6S77bRqYQIN1App5a1Pc2lceE5/g==
+
 "@types/minimatch@*", "@types/minimatch@3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -6748,6 +6753,11 @@ hds-core@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/hds-core/-/hds-core-0.6.2.tgz#c7e31d293c627aa44141ba5711a3da0f4ace9243"
   integrity sha512-I9hYpi8Iq7yabeA/VFxL8UGidTU/BR6/ORMTR6eIKx8SwexHSk0CYjn/70G0HcoSyyur6sJb7Vs3Q8qHDE1eCg==
+
+hds-design-tokens@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/hds-design-tokens/-/hds-design-tokens-0.2.0.tgz#6452a645427987f5699e092241c4cebfc1e33aac"
+  integrity sha512-/cH5XocpZN3N+CyuMRkWoP1FWd7J29DLrYlm2GqOn0vez7xLBE1xmTuXMlipLs2xs/TP4ZXUZ8n8M4HcDJnKgg==
 
 hds-react@^0.7.0:
   version "0.7.0"

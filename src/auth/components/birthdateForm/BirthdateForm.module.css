@@ -4,36 +4,11 @@
     margin: 0 auto;
 }
 
-.formRow {
-    display: flex;
-
-}
-
-.birthdayHelper {
-    font-weight: bold;
-    font-size: var(--fontsize-body-small);
-    margin: 0 0 5px;
-}
-
-.birthdayInput {
-    width: 100px;
-    margin-right: 0;
-}
-
-.birthdayMiddleDot {
-    margin: 48px 5px 0;
-}
-
-.birthdayErrorMessage {
-    color: var(--color-error);
-    margin-bottom: 20px;
-}
-
 .buttonRow {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 10px 0 20px;
+    margin: var(--spacing-m) 0 var(--spacing-m);
 }
 
 .button {
@@ -44,15 +19,4 @@
     .birthdayForm {
         width: 375px;
     }
-}
-
-@media (min-width: 400px) {
-    .birthdayInput {
-        margin-right: 15px;
-    }
-
-    .birthdayMiddleDot {
-        margin: 48px 15px 0 0;
-    }
-
 }
