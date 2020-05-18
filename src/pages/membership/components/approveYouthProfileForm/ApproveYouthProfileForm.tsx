@@ -2,15 +2,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
 import { Link } from 'react-router-dom';
-import { TextInput } from 'hds-react';
 import * as Yup from 'yup';
 import { differenceInYears } from 'date-fns';
+import { Button, Checkbox, TextInput } from 'hds-react';
 
 import convertDateToLocale from '../../helpers/convertDateToLocale';
 import ageConstants from '../../constants/ageConstants';
 import styles from './ApproveYouthProfileForm.module.css';
 import LabeledValue from '../../../../common/labeledValue/LabeledValue';
-import Button from '../../../../common/button/Button';
 
 const schema = Yup.object().shape({
   approverFirstName: Yup.string().max(255, 'validation.maxLength'),
@@ -152,10 +151,10 @@ function ApproveYouthProfileForm(props: Props) {
                 id="approverFirstName"
                 name="approverFirstName"
                 invalid={props.submitCount && props.errors.approverFirstName}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.approverFirstName &&
-                  t(props.errors.approverFirstName)
+                helperText={
+                  props.submitCount && props.errors.approverFirstName
+                    ? t(props.errors.approverFirstName)
+                    : ''
                 }
                 labelText={t('approval.approverFirstName')}
               />
@@ -165,10 +164,10 @@ function ApproveYouthProfileForm(props: Props) {
                 id="approverLastName"
                 name="approverLastName"
                 invalid={props.submitCount && props.errors.approverLastName}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.approverLastName &&
-                  t(props.errors.approverLastName)
+                helperText={
+                  props.submitCount && props.errors.approverLastName
+                    ? t(props.errors.approverLastName)
+                    : ''
                 }
                 labelText={t('approval.approverLastName')}
               />
@@ -179,10 +178,10 @@ function ApproveYouthProfileForm(props: Props) {
                 name="approverEmail"
                 type="email"
                 invalid={props.submitCount && props.errors.phone}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.phone &&
-                  t(props.errors.phone)
+                helperText={
+                  props.submitCount && props.errors.phone
+                    ? t(props.errors.phone)
+                    : ''
                 }
                 labelText={t('approval.approverEmail')}
               />
@@ -193,30 +192,37 @@ function ApproveYouthProfileForm(props: Props) {
                 name="approverPhone"
                 type="tel"
                 invalid={props.submitCount && props.errors.phone}
-                invalidText={
-                  props.submitCount &&
-                  props.errors.phone &&
-                  t(props.errors.phone)
+                helperText={
+                  props.submitCount && props.errors.phone
+                    ? t(props.errors.phone)
+                    : ''
                 }
                 labelText={t('approval.phone')}
               />
             </div>
             <ul className={styles.terms}>
-              <Field name="terms" type="checkbox" />
-              <span className={styles.listLabel}>
-                {t('approval.approveTermsText_1')}
-                <Link
-                  to="/terms-of-service"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t('approval.approveTermsText_link')}
-                </Link>
-                {t('approval.approveTermsText_2')}
-              </span>
+              <Field
+                name="terms"
+                type="checkbox"
+                as={Checkbox}
+                labelText={
+                  <span className={styles.listLabel}>
+                    {t('approval.approveTermsText_1')}{' '}
+                    <Link
+                      to="/terms-of-service"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {t('approval.approveTermsText_link')}
+                    </Link>
+                    {t('approval.approveTermsText_2')}
+                  </span>
+                }
+              />
             </ul>
             <div className={styles.buttonAlign}>
               <Button
+                className={styles.button}
                 type="submit"
                 disabled={props.isSubmitting || Boolean(!props.values.terms)}
               >

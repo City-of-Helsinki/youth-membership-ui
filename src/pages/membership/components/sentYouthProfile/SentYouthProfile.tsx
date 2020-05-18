@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 import * as Sentry from '@sentry/browser';
+import { Button } from 'hds-react';
 
-import Button from '../../../../common/button/Button';
+import LinkButton from '../../../../common/linkButton/LinkButton';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import styles from './SentYouthProfile.module.css';
 import {
@@ -66,19 +66,20 @@ function ViewYouthProfile(props: Props) {
         {data?.youthProfile?.approverEmail}.
       </p>
       <Button
-        type="button"
         className={styles.button}
         onClick={handleEmailResent}
         disabled={emailReSent}
       >
         {t('confirmSendingProfile.buttonText')}
       </Button>
-      <p>
-        <Link to="/membership-details">
-          {t('confirmSendingProfile.linkToShowSentData')}
-          <span className={styles.linkArrow}> ></span>
-        </Link>
-      </p>
+      <br />
+      <LinkButton
+        className={styles.button}
+        path="/membership-details"
+        component="Link"
+        buttonText={t('confirmSendingProfile.linkToShowSentData')}
+        variant="secondary"
+      />
 
       <NotificationComponent
         show={showNotification}
