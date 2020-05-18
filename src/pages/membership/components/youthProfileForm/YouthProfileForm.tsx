@@ -366,14 +366,16 @@ function YouthProfileForm(componentProps: Props) {
               </div>
             </div>
             <h3>{t('registration.approver')}</h3>
-            {userAge < ageConstants.ADULT && (
-              <p
-                data-testid="approverInfoText"
-                className={styles.approverInfoText}
-              >
-                {t('registration.approverInfoText')}
-              </p>
-            )}
+
+            <p
+              data-testid="approverInfoText"
+              className={styles.approverInfoText}
+            >
+              {userAge < ageConstants.ADULT
+                ? t('registration.approverInfoText')
+                : t('registration.approverInfoOver18Text')}
+            </p>
+
             <div className={styles.formRow}>
               <Field
                 className={styles.formInput}
