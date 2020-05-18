@@ -58,7 +58,7 @@
     "lint": "eslint --ext js,ts,tsx src",
     "cypress:open": "cypress open",
     "codegen": "apollo client:codegen ./src/graphql/generatedTypes.ts --outputFlat --includes=./src/**/*.graphql --target=typescript --endpoint=https://profiili-api.test.kuva.hel.ninja/graphql/ --useReadOnlyTypes --addTypename",
-    "update-translations": "fetch-translations 1kvN0olQHdTqsI25yxJucL2Cqq6PXaPjHAkXpKJPjxjU -l fi,en,sv -o ./src/i18n"
+    "update-translations": "fetch-translations 14aAzZeJ0HijXy7LklBtvOr0LKNy8PrpR2Gf_4ryv668 -l fi,en,sv -o ./src/i18n"
   },
   "eslintConfig": {
     "extends": "react-app"
