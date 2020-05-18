@@ -13,8 +13,7 @@
     "approverInfo": "Information om godkännande",
     "approverInfoText": "Förmyndare kan kontaktas angående barnet.",
     "approverLastName": "Efternamn",
-    "approveTermsText_1": "Jag accepterar",
-    "approveTermsText_2": ". Jag kan kontaktas via den adress jag har angett.",
+    "approveTerms": "Jag har läst filen <0>beskrivningen</0> och stads <1>sekretesspolicy</1>. Jag kan kontaktas via den adress jag har angett.",
     "approveTermsText_link": "servicevillkor",
     "basicInfo": "Grundläggande information",
     "birthDate": "Födelsedatum",
@@ -100,6 +99,9 @@
   "oidc": {
     "authenticating": "Autentiserar..."
   },
+  "privacyPolicy": {
+    "descriptionLink": ""
+  },
   "profile": {
     "address": "Adress",
     "email": "Epost",
@@ -112,11 +114,12 @@
     "address": "Gata",
     "ageRestriction": "Endast 8-25 år kan skapa ungdomsprofil.",
     "approver": "Godkännare",
+    "approverInfoOver18Text": "",
     "approverInfoText": "Begäran om bekräftelse av ditt medlemskap skickas till denna adress. Vårdnadshavaren kontrollerar uppgifterna och godkänner medlemskapet.",
-    "approveTerms": "Acceptera <0>servicevillkor</0>. Jag kan kontaktas via den adress jag har angett.",
+    "approveTerms": "Jag har läst filen <0>beskrivningen</0> och stads <1>sekretesspolicy</1>. Jag kan kontaktas via den adress jag har angett.",
     "basicInfo": "Grundläggande information",
-    "birthdayHelper": "Födelsedatum (dd.mm.yyyy) *",
-    "birthdayInvalid": "Födelsedagen bör vara dd.mm.yyyy.",
+    "birthdayHelper": "Födelsedatum (dd.mm.åååå) *",
+    "birthdayInvalid": "Födelsedagen bör vara dd.mm.åååå.",
     "cancel": "Avbryt",
     "childBirthDay": "Födelsedatum",
     "childBirthMonth": "Födelsemånad",
@@ -128,7 +131,7 @@
     "firstName": "Förnamn",
     "languageAtHome": "Språk hemma",
     "lastName": "Efternamn",
-    "membershipInfoText": "Lägg till information om vad medlemskap kan få och vad det används för.",
+    "membershipInfoText": "Medlemskapet är avgiftsfritt och förpliktar inte till något. För att delta i ungdomsgårdarnas verksamhet måste du ha ett medlemsskap. Vi överlåter inte dina kontaktuppgifter till utomstående. Du har också rätt att kontrollera och radera dina uppgifter. Kom ihåg att ungdomsverksamheten är drogfri.",
     "phoneNumber": "Telefon",
     "photoUsageApproved": "Fotoanvändning godkänd",
     "photoUsageApprovedNo": "Nej",
@@ -142,6 +145,9 @@
     "schoolName": "Skolnamn",
     "sendButton": "Spara och skicka godkännandeförfrågan",
     "title": "Vänligen fyll i din information"
+  },
+  "registry": {
+    "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri-SV.pdf"
   },
   "sanityCheck": "youth-profile.sv",
   "tos": {

@@ -13,8 +13,7 @@
     "approverInfo": "Approver info",
     "approverInfoText": "Guardian may be contacted concerning the child.",
     "approverLastName": "Lastname",
-    "approveTermsText_1": "I accept",
-    "approveTermsText_2": ". I can be contacted via address I have given.",
+    "approveTerms": "I have read <0>file description</0> and  city's <1>data protection principles</1>. I can be contacted via address I have given.",
     "approveTermsText_link": "service terms",
     "basicInfo": "Basic info",
     "birthDate": "Birthdate",
@@ -101,6 +100,9 @@
   "oidc": {
     "authenticating": "Authenticating..."
   },
+  "privacyPolicy": {
+    "descriptionLink": ""
+  },
   "profile": {
     "address": "Address",
     "email": "Email",
@@ -113,8 +115,9 @@
     "address": "Street",
     "ageRestriction": "Only 8-25 years old can create youth profile.",
     "approver": "Approver",
+    "approverInfoOver18Text": "",
     "approverInfoText": "A confirmation request concerning your membership will be sent to this address, and your guardian must verify the information and approve your membership.",
-    "approveTerms": "Accept <0>service terms</0>. I can be contacted via address I have given.",
+    "approveTerms": "I have read <0>file description</0> and  city's <1>data protection principles</1>. I can be contacted via address I have given.",
     "basicInfo": "Basic info",
     "birthdayHelper": "Birthdate (dd.mm.yyyy) *",
     "birthdayInvalid": "The birthday should be dd.mm.yyyy.",
@@ -129,7 +132,7 @@
     "firstName": "Firstname",
     "languageAtHome": "Language at home",
     "lastName": "Lastname",
-    "membershipInfoText": "Add information about what membership can get and what it is used for.",
+    "membershipInfoText": "Membership is free and does not require anything of you, but you do need a membership to be able to participate in activities at Youth Centres. We will not disclose your information to third parties. You have the right to check and remove the information we have stored concerning you. Please remember that intoxicants are not allowed at Youth Centre activities. ",
     "phoneNumber": "Phone",
     "photoUsageApproved": "Photo usage approved",
     "photoUsageApprovedNo": "No",
@@ -143,6 +146,9 @@
     "schoolName": "School name",
     "sendButton": "Save and send approval request",
     "title": "Please fill in your information"
+  },
+  "registry": {
+    "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
   },
   "sanityCheck": "youth-profile.en",
   "tos": {
