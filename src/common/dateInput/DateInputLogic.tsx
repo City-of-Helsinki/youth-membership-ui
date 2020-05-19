@@ -182,7 +182,7 @@ function DateInputLogic({
     }
   };
 
-  const handleDateChange = (event: React.FormEvent<HTMLInputElement>) => {
+  const handleDayOfMonthChange = (event: React.FormEvent<HTMLInputElement>) => {
     const nextDate = parseNumberFromValue(event.currentTarget.value);
 
     updateDate(nextDate, null, null);
@@ -213,7 +213,7 @@ function DateInputLogic({
       id: dateInputId,
       name: dateInputName,
       value: defaultTo(internalDate.date?.toString(), ''),
-      onChange: handleDateChange,
+      onChange: handleDayOfMonthChange,
       isInvalid,
       label: dateInputLabel,
       ...INPUT_CONFIGS,
