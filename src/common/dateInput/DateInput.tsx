@@ -12,7 +12,7 @@ const DEFAULT_DATE_INPUT_YEAR_ID = 'ym-date-input-year-id';
 const DEFAULT_DATE_INPUT_DATE_NAME = 'ym-date-input-date-name';
 const DEFAULT_DATE_INPUT_MONTH_NAME = 'ym-date-input-month-name';
 const DEFAULT_DATE_INPUT_YEAR_NAME = 'ym-date-input-year-name';
-const DEFAULT_DATE_INPUT = ({
+const DEFAULT_DAY_OF_MONTH_INPUT = ({
   isInvalid,
   label,
   ...rest
@@ -65,7 +65,7 @@ interface Props {
   dateInputName?: string;
   monthInputName?: string;
   yearInputName?: string;
-  dateComponent?: React.FC<InputComponentProps>;
+  dayOfMonthComponent?: React.FC<InputComponentProps>;
   monthComponent?: React.FC<InputComponentProps>;
   yearComponent?: React.FC<InputComponentProps>;
   dateInputLabel: string;
@@ -84,7 +84,7 @@ function DateInput({
   dateInputName = DEFAULT_DATE_INPUT_DATE_NAME,
   monthInputName = DEFAULT_DATE_INPUT_MONTH_NAME,
   yearInputName = DEFAULT_DATE_INPUT_YEAR_NAME,
-  dateComponent = DEFAULT_DATE_INPUT,
+  dayOfMonthComponent = DEFAULT_DAY_OF_MONTH_INPUT,
   monthComponent = DEFAULT_MONTH_INPUT,
   yearComponent = DEFAULT_YEAR_INPUT,
   dateInputLabel,
@@ -104,7 +104,7 @@ function DateInput({
         dateInputName={dateInputName}
         monthInputName={monthInputName}
         yearInputName={yearInputName}
-        dateComponent={dateComponent}
+        dayOfMonthComponent={dayOfMonthComponent}
         monthComponent={monthComponent}
         yearComponent={yearComponent}
         dateInputLabel={dateInputLabel}

@@ -61,7 +61,7 @@ interface Props {
   dateInputName: string;
   monthInputName: string;
   yearInputName: string;
-  dateComponent: React.FC<InputComponentProps>;
+  dayOfMonthComponent: React.FC<InputComponentProps>;
   monthComponent: React.FC<InputComponentProps>;
   yearComponent: React.FC<InputComponentProps>;
   dateInputLabel: string;
@@ -138,7 +138,7 @@ function DateInputLogic({
   dateInputName,
   monthInputName,
   yearInputName,
-  dateComponent,
+  dayOfMonthComponent,
   monthComponent,
   yearComponent,
   dateInputLabel,
@@ -208,7 +208,7 @@ function DateInputLogic({
       : undefined;
 
   return React.createElement(wrapper, { isInvalid }, [
-    React.createElement(dateComponent, {
+    React.createElement(dayOfMonthComponent, {
       key: dateInputId,
       id: dateInputId,
       name: dateInputName,
