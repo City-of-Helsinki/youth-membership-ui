@@ -17,7 +17,6 @@ import Login from './auth/components/login/Login';
 import OidcCallback from './auth/components/oidcCallback/OidcCallback';
 import YouthProfile from './pages/membership/components/youthProfile/YouthProfile';
 import ApproveYouthProfile from './pages/membership/components/approveYouthProfile/ApproveYouthProfile';
-import TermsOfService from './pages/tos/components/termsOfService/TermsOfService';
 import { fetchApiTokenThunk } from './auth/redux';
 import AccessibilityStatement from './pages/accessibilityStatement/AccessibilityStatement';
 
@@ -74,9 +73,6 @@ function App(props: Props) {
               </Route>
               <Route path="/approve/:token" exact>
                 <ApproveYouthProfile />
-              </Route>
-              <Route path="/terms-of-service" exact>
-                <TermsOfService />
               </Route>
               <Route path="/accessibility" exact>
                 <AccessibilityStatement />

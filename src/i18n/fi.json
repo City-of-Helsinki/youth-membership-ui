@@ -13,8 +13,7 @@
     "approverInfo": "Huoltajan tiedot",
     "approverInfoText": "Huoltajaan voidaan olla yhteydessä lasta koskevissa asioissa.",
     "approverLastName": "Sukunimi",
-    "approveTermsText_1": "Hyväksyn",
-    "approveTermsText_2": ", ja että minuun voidaan olla yhteydessä antamieni yhteystietojen kautta.",
+    "approveTerms": "Olen tutustunut palvelun <0>rekisteriselosteeseen</0> ja kaupungin <1>tietosuojakäytäntöön</1>  ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "approveTermsText_link": "palvelun ehdot",
     "basicInfo": "Perustiedot",
     "birthDate": "Syntymäpäivä",
@@ -101,6 +100,9 @@
   "oidc": {
     "authenticating": "Tunnistaudutaan..."
   },
+  "privacyPolicy": {
+    "descriptionLink": "TÄHÄN TAVITAAN LINKKI"
+  },
   "profile": {
     "address": "Osoite",
     "email": "Sähköposti",
@@ -113,11 +115,12 @@
     "address": "Katuosoite",
     "ageRestriction": "Palveluun voi rekisteröityä iältään 8-25 vuotiaat.",
     "approver": "Huoltajan tiedot",
+    "approverInfoOver18Text": "TÄHÄN TAVITAAN TEKSTI",
     "approverInfoText": "Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
-    "approveTerms": "Hyväksyn <0>palvelun ehdot</0> ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "approveTerms": "Olen tutustunut palvelun <0>rekisteriselosteeseen</0> ja kaupungin <1>tietosuojakäytäntöön</1>  ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "basicInfo": "Perustiedot",
     "birthdayHelper": "Syntymäpäivä (pp.kk.vvvv) *",
-    "birthdayInvalid": "Syntymäpäivän tulee olla muotoa pp.kk.yyyy.",
+    "birthdayInvalid": "Syntymäpäivän tulee olla muotoa pp.kk.vvvv.",
     "cancel": "Peruuta",
     "childBirthDay": "Syntymäpäivä",
     "childBirthMonth": "Syntymäkuukausi",
@@ -129,7 +132,7 @@
     "firstName": "Etunimi",
     "languageAtHome": "Kotona puhuttu kieli",
     "lastName": "Sukunimi",
-    "membershipInfoText": "Tähän lisätietoja mitä jäsenyydellä saa, mitä jäsenyydellä saa ja mihin käytetään.",
+    "membershipInfoText": "Jäsenyys on ilmainen, eikä se velvoita sinua mihinkään, mutta jäsenyyden hankinta on edellytys nuorisotilojen toimintaan osallistumiselle. Emme luovuta antamiasi yhteystietoja eteenpäin. Sinulla on myös oikeus tarkistaa ja poistaa itseäsi koskevat tiedot. Muistathan, että nuorisopalvelujen toiminta on päihteetöntä. ",
     "phoneNumber": "Puhelinnumero",
     "photoUsageApproved": "Kuvauslupa",
     "photoUsageApprovedNo": "Ei",
@@ -143,6 +146,9 @@
     "schoolName": "Koulu",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "title": "Täytä tietosi"
+  },
+  "registry": {
+    "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
   },
   "sanityCheck": "youth-profile.fi",
   "tos": {
