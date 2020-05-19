@@ -96,4 +96,21 @@ describe('<DateInput />', () => {
     // This has to be tested with cypress, jsdom doesn't have focus
     // support
   });
+
+  it('should yield a valid date when month is january', () => {
+    const onChange = jest.fn();
+    const { container } = getWrapper({ onChange });
+
+    fireEvent.change(dateInputSelector(container), {
+      target: { value: '1' },
+    });
+    fireEvent.change(monthInputSelector(container), {
+      target: { value: '1' },
+    });
+    fireEvent.change(yearInputSelector(container), {
+      target: { value: '2017' },
+    });
+
+    expect(onChange).toHaveBeenCalledWith(new Date(2017, 0, 1, 0, 0, 0, 0));
+  });
 });

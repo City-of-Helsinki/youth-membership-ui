@@ -86,7 +86,11 @@ function getDateComponents(date: Date | null): DateObject {
 }
 
 function makeDate(date: DateObject): Date | null {
-  if (date.year && date.month && date.date) {
+  if (
+    date.year !== undefined &&
+    date.month !== undefined &&
+    date.date !== undefined
+  ) {
     return new Date(date.year, date.month, date.date, 0, 0, 0, 0);
   }
 
