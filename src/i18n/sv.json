@@ -46,6 +46,7 @@
     "reserveRights": "Alla rättigheter förbehållna",
     "terms": "Användarvillkor"
   },
+  "helsinkiLogo": "Helsingfors logotyp",
   "LANGUAGE_OPTIONS": {
     "ARABIC": "Arabiska",
     "ENGLISH": "Engelska",
@@ -114,7 +115,7 @@
     "address": "Gata",
     "ageRestriction": "Endast 8-25 år kan skapa ungdomsprofil.",
     "approver": "Godkännare",
-    "approverInfoOver18Text": "",
+    "approverInfoOver18Text": "För medlemmar över 18 år behöver vi inte lämna kontaktinformation för vårdnadshavare. Om du av någon anledning vill att vi ska kunna kontakta dem kan du lägga till informationen här",
     "approverInfoText": "Begäran om bekräftelse av ditt medlemskap skickas till denna adress. Vårdnadshavaren kontrollerar uppgifterna och godkänner medlemskapet.",
     "approveTerms": "Jag har läst filen <0>beskrivningen</0> och stads <1>sekretesspolicy</1>. Jag kan kontaktas via den adress jag har angett.",
     "basicInfo": "Grundläggande information",

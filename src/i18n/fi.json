@@ -46,6 +46,7 @@
     "reserveRights": "Kaikki oikeudet pidätetään",
     "terms": "Palvelun käyttöehdot"
   },
+  "helsinkiLogo": "Helsinki-logo",
   "LANGUAGE_OPTIONS": {
     "ARABIC": "Arabia",
     "ENGLISH": "Englanti",
@@ -115,7 +116,7 @@
     "address": "Katuosoite",
     "ageRestriction": "Palveluun voi rekisteröityä iältään 8-25 vuotiaat.",
     "approver": "Huoltajan tiedot",
-    "approverInfoOver18Text": "TÄHÄN TAVITAAN TEKSTI",
+    "approverInfoOver18Text": "Yli 18-vuotiaalta emme edellytä vanhemman yhteystietojen lisäämistä. Mutta mikäli syystä tai toisesta koet tarpeelliseksi, että voimme tarvittaessa olla yhteydessä huoltajaasi, voit lisätä yhteystiedon tähän. ",
     "approverInfoText": "Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
     "approveTerms": "Olen tutustunut palvelun <0>rekisteriselosteeseen</0> ja kaupungin <1>tietosuojakäytäntöön</1>  ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "basicInfo": "Perustiedot",

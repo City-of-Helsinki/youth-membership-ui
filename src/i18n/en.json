@@ -46,6 +46,7 @@
     "reserveRights": "All rights reserved",
     "terms": "Terms of Service"
   },
+  "helsinkiLogo": "Helsinki logo",
   "LANGUAGE_OPTIONS": {
     "ARABIC": "Arabic",
     "ENGLISH": "English",
@@ -115,7 +116,7 @@
     "address": "Street",
     "ageRestriction": "Only 8-25 years old can create youth profile.",
     "approver": "Approver",
-    "approverInfoOver18Text": "",
+    "approverInfoOver18Text": "For members over 18, we don't require providing custodian contact information. If for any reason you wish us to be able to contact them, you can add the information here.",
     "approverInfoText": "A confirmation request concerning your membership will be sent to this address, and your guardian must verify the information and approve your membership.",
     "approveTerms": "I have read <0>file description</0> and  city's <1>data protection principles</1>. I can be contacted via address I have given.",
     "basicInfo": "Basic info",
