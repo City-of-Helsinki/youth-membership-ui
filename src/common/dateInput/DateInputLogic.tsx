@@ -145,8 +145,10 @@ function DateInputLogic({
   monthInputLabel,
   yearInputLabel,
 }: Props) {
-  const currentDate = getDateComponents(value);
-  const [cachedDate, setCachedDate] = React.useState<DateObject>(currentDate);
+  const externalDate = getDateComponents(value);
+  const [internalDate, setInternalDate] = React.useState<DateObject>(
+    externalDate
+  );
   const monthInputRef = React.useRef(null);
   const yearInputRef = React.useRef(null);
 
@@ -155,7 +157,7 @@ function DateInputLogic({
     month: number | null,
     year: number | null
   ) => {
-    setCachedDate(previousDate => {
+    setInternalDate(previousDate => {
       const nextCachedDate = {
         date: defaultTo(date, previousDate.date),
         month: defaultTo(month, previousDate.month),
@@ -201,8 +203,8 @@ function DateInputLogic({
   };
 
   const formattedMonth =
-    cachedDate.month !== undefined
-      ? (cachedDate.month + 1).toString()
+    internalDate.month !== undefined
+      ? (internalDate.month + 1).toString()
       : undefined;
 
   return React.createElement(wrapper, { isInvalid }, [
@@ -210,7 +212,7 @@ function DateInputLogic({
       key: dateInputId,
       id: dateInputId,
       name: dateInputName,
-      value: defaultTo(cachedDate.date?.toString(), ''),
+      value: defaultTo(internalDate.date?.toString(), ''),
       onChange: handleDateChange,
       isInvalid,
       label: dateInputLabel,
@@ -231,7 +233,7 @@ function DateInputLogic({
       key: yearInputId,
       id: yearInputId,
       name: yearInputName,
-      value: defaultTo(cachedDate.year?.toString(), ''),
+      value: defaultTo(internalDate.year?.toString(), ''),
       onChange: handleYearChange,
       innerRef: yearInputRef,
       isInvalid,
