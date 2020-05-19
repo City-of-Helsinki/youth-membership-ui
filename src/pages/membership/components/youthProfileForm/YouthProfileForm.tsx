@@ -449,8 +449,17 @@ function YouthProfileForm(componentProps: Props) {
                       <Trans
                         i18nKey="registration.approveTerms"
                         components={[
-                          <Link
-                            to="/terms-of-service"
+                          // These components receive content  in the
+                          // translation definition.
+                          // eslint-disable-next-line jsx-a11y/anchor-has-content
+                          <a
+                            href={t('registry.descriptionLink')}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          />,
+                          // eslint-disable-next-line jsx-a11y/anchor-has-content
+                          <a
+                            href={t('privacyPolicy.descriptionLink')}
                             target="_blank"
                             rel="noopener noreferrer"
                           />,

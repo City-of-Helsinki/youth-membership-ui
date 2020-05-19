@@ -1,7 +1,6 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
-import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { differenceInYears } from 'date-fns';
 import { Button, Checkbox, TextInput } from 'hds-react';
@@ -207,15 +206,25 @@ function ApproveYouthProfileForm(props: Props) {
                 as={Checkbox}
                 labelText={
                   <span className={styles.listLabel}>
-                    {t('approval.approveTermsText_1')}{' '}
-                    <Link
-                      to="/terms-of-service"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {t('approval.approveTermsText_link')}
-                    </Link>
-                    {t('approval.approveTermsText_2')}
+                    <Trans
+                      i18nKey="approval.approveTerms"
+                      components={[
+                        // These components receive content  in the
+                        // translation definition.
+                        // eslint-disable-next-line jsx-a11y/anchor-has-content
+                        <a
+                          href={t('registry.descriptionLink')}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        />,
+                        // eslint-disable-next-line jsx-a11y/anchor-has-content
+                        <a
+                          href={t('privacyPolicy.descriptionLink')}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        />,
+                      ]}
+                    />
                   </span>
                 }
               />

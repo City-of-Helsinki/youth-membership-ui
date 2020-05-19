@@ -13,8 +13,7 @@
     "approverInfo": "Huoltajan tiedot",
     "approverInfoText": "Huoltajaan voidaan olla yhteydessä lasta koskevissa asioissa.",
     "approverLastName": "Sukunimi",
-    "approveTermsText_1": "Hyväksyn",
-    "approveTermsText_2": ", ja että minuun voidaan olla yhteydessä antamieni yhteystietojen kautta.",
+    "approveTerms": "Olen tutustunut palvelun <0>rekisteriselosteeseen</0> ja kaupungin <1>tietosuojakäytäntöön</1>  ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "approveTermsText_link": "palvelun ehdot",
     "basicInfo": "Perustiedot",
     "birthDate": "Syntymäpäivä",
@@ -47,7 +46,6 @@
     "reserveRights": "Kaikki oikeudet pidätetään",
     "terms": "Palvelun käyttöehdot"
   },
-  "helsinkiLogo": "Helsinki-logo",
   "LANGUAGE_OPTIONS": {
     "ARABIC": "Arabia",
     "ENGLISH": "Englanti",
@@ -62,13 +60,14 @@
     "buttonText": "Hanki jäsenyys",
     "findNearestService": "Löydä lähin nuorisotila palvelukartalta",
     "helpText": "Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat.",
-    "helpTextUnderAge": "Valitettavasti Jässärin hankkiminen digitaalisesti edellyttää vähintään 13 vuoden iän johtuen Helsinki-profiilin käyttöehdoista. Täytä hakemus huoltajasi kanssa ja palauta se nuorisotilalle, niin saat oman jäsenkortin. ",
+    "helpTextUnderAge": "Valitettavasti Jässärin hankkiminen digitaalisesti edellyttää vähintään 13 vuoden iän johtuen Helsinki-profiilin käyttöehdoista. Saat paperisen jässärihakemuksen kaupungin nuorisotiloilta. ",
     "linkForMembersText": "Oletko jo jäsen? Kirjaudu sisään",
     "registrationForm": "http://jassari.munstadi.fi/files/2019/06/Jasenkorttikaavake_2019_suomi.pdf",
     "registrationFormText": "Lataa hakemus",
     "return": "Palaa takaisin",
     "title": "Hanki Jässäri!"
   },
+  "Täytä hakemus huoltajasi kanssa ja palauta se nuorisotilalle, niin saat oman jäsenkortin. ": "",
   "membershipDetails": {
     "additionalInformation": "Lisätiedot",
     "edit": "Muokkaa tietoja",
@@ -76,7 +75,7 @@
     "profileInformation": "Perustiedot",
     "requiredPermissionsFromParent": "Vanhemmalta vaadittavat luvat",
     "returnToFront": "Takaisin etusivulle",
-    "text": "Jäsenyys on ilmainen, eikä se velvoita sinua mihinkään, mutta jäsenyyden hankinta on edellytys nuorisotilojen toimintaan osallistumiselle. Emme luovuta antamiasi yhteystietoja eteenpäin. Sinulla on myös oikeus tarkistaa ja poistaa itseäsi koskevat tiedot. Muistathan, että nuorisopalvelujen toiminta on päihteetöntä. ",
+    "text": "Tähän listätietoa siitä mitä jäsenyydellä saa, mihin tietoja käytetään ja miksi niitä kysytään?",
     "title": "Omat tiedot"
   },
   "membershipInformation": {
@@ -101,6 +100,9 @@
   "oidc": {
     "authenticating": "Tunnistaudutaan..."
   },
+  "privacyPolicy": {
+    "descriptionLink": "TÄHÄN TAVITAAN LINKKI"
+  },
   "profile": {
     "address": "Osoite",
     "email": "Sähköposti",
@@ -113,9 +115,9 @@
     "address": "Katuosoite",
     "ageRestriction": "Palveluun voi rekisteröityä iältään 8-25 vuotiaat.",
     "approver": "Huoltajan tiedot",
+    "approverInfoOver18Text": "TÄHÄN TAVITAAN TEKSTI",
     "approverInfoText": "Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
-    "approverInfoOver18Text": "Yli 18-vuotiaalta emme edellytä vanhemman yhteystietojen lisäämistä. Mutta mikäli syystä tai toisesta koet tarpeelliseksi, että voimme tarvittaessa olla yhteydessä huoltajaasi, voit lisätä yhteystiedon tähän. ",
-    "approveTerms": "Hyväksyn <0>palvelun ehdot</0> ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "approveTerms": "Olen tutustunut palvelun <0>rekisteriselosteeseen</0> ja kaupungin <1>tietosuojakäytäntöön</1>  ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
     "basicInfo": "Perustiedot",
     "birthdayHelper": "Syntymäpäivä (pp.kk.vvvv) *",
     "birthdayInvalid": "Syntymäpäivän tulee olla muotoa pp.kk.vvvv.",
@@ -134,10 +136,10 @@
     "phoneNumber": "Puhelinnumero",
     "photoUsageApproved": "Kuvauslupa",
     "photoUsageApprovedNo": "Ei",
-    "photoUsageApprovedText": "Lapsestani saa ottaa kuvia ja niitä saa käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä.",
+    "photoUsageApprovedText": "Minusta saa ottaa kuvia ja käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä.",
     "photoUsageApprovedYes": "Kyllä",
     "postalCode": "Postinumero",
-    "processInfoText": "Tietojen varmennuskysely lähetetään huoltajalle, ja kun tiedot on tarkistettu ja hyväksytty, jäsenyytesi astuu voimaan.",
+    "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
     "profileLanguage": "Profiilin kieli",
     "save": "Tallenna tiedot",
     "schoolClass": "Luokka",
@@ -145,7 +147,30 @@
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "title": "Täytä tietosi"
   },
+  "registry": {
+    "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
+  },
   "sanityCheck": "youth-profile.fi",
+  "tos": {
+    "message1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "message2": "",
+    "message3": "",
+    "message4": "",
+    "message5": "",
+    "message6": "",
+    "message7": "",
+    "message8": "",
+    "title": "Käyttöehdot",
+    "title1": "1. Soveltamisala",
+    "title2": "2. Profiilin luominen ja poistaminen käytöstä",
+    "title3": "3. Profiilin käyttäminen",
+    "title4": "4. Palvelun saatavuus",
+    "title5": "5. Henkilötiedot",
+    "title6": "6. Oikeudet",
+    "title7": "7. Vastuunrajoitus",
+    "title8": "8. Muut ehdot",
+    "updated": "Pävitetty viimeksi 20.1.2020"
+  },
   "validation": {
     "email": "Virheellinen sähköpostiosoite",
     "phoneMin": "Vähimmäispituus kuusi merkkiä",

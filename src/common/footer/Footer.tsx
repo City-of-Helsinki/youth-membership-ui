@@ -4,14 +4,10 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import HelsinkiLogo from '../helsinkiLogo/HelsinkiLogo';
-import tosConstants from '../../pages/tos/constants/tosConstants';
 import styles from './Footer.module.css';
 
 function Footer() {
-  const { t, i18n } = useTranslation();
-  const selectedLanguage =
-    (i18n.languages && i18n.languages[0].toUpperCase()) || 'FI';
-  const link = Object(tosConstants.REGISTER_DESCRIPTION)[selectedLanguage];
+  const { t } = useTranslation();
   const year = new Date().getFullYear();
   return (
     <React.Fragment>
@@ -24,16 +20,12 @@ function Footer() {
             <span>
               &copy; {t('footer.copyright', { year })} &bull;{' '}
               {t('footer.reserveRights')} &bull;{' '}
-              <a href={link} className={styles.links}>
+              <a href={t('registry.descriptionLink')} className={styles.links}>
                 {t('footer.privacy')}
               </a>{' '}
               | 
               <Link to="/accessibility" className={styles.links}>
                 {t('footer.accessibility')}
-              </Link>{' '}
-              | 
-              <Link to="/terms-of-service" className={styles.links}>
-                {t('footer.terms')}
               </Link>
             </span>
             <a
