@@ -8,19 +8,19 @@ type Props = {
   className?: string;
 };
 function HelsinkiLogo({ className }: Props) {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   if (i18n.languages[0] === 'sv')
     return (
       <span
         className={classNames(styles.logoSv, className)}
-        aria-label="Helsinki logo"
+        aria-label={t('helsinkiLogo')}
       />
     );
   return (
     <span
       className={classNames(styles.logoFi, className)}
-      aria-label="Helsinki logo"
+      aria-label={t('helsinkiLogo')}
     />
   );
 }

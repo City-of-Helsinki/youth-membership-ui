@@ -15,6 +15,7 @@ const getPrefilledProfile = (values?: Partial<FormValues>) => {
     email: 'test@test.fi',
     phone: '0501234567',
     address: 'TestAddress',
+    countryCode: 'FI',
     city: 'Helsinki',
     postalCode: '12345',
     profileLanguage: Language.FINNISH,
@@ -84,7 +85,9 @@ describe('Form fields & texts based on user age', () => {
 
     // Photo permission is not shown
     expect(photoPermission.length).toEqual(1);
-    expect(approverInfoText.length).toEqual(1);
+    expect(approverInfoText.text()).toEqual(
+      'Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.'
+    );
   });
   test('user age is >= 15 < 18', () => {
     // Create birthDate that fits test criteria
@@ -95,7 +98,9 @@ describe('Form fields & texts based on user age', () => {
 
     // Photo permission is shown
     expect(photoPermission.length).toEqual(0);
-    expect(approverInfoText.length).toEqual(1);
+    expect(approverInfoText.text()).toEqual(
+      'Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.'
+    );
   });
   test('user is over 18', () => {
     // Create birthDate that fits test criteria
@@ -103,7 +108,10 @@ describe('Form fields & texts based on user age', () => {
     const wrapper = getWrapper(getPrefilledProfile({ birthDate: userAge }));
     const approverInfoText = wrapper.find('p[data-testid="approverInfoText"]');
 
-    // Helper texts about guardian approval are hidden
-    expect(approverInfoText.length).toEqual(0);
+    // Show guardian info text for adults
+    expect(approverInfoText.text()).toEqual(
+      //eslint-disable-next-line max-len
+      'Yli 18-vuotiaalta emme edellytä vanhemman yhteystietojen lisäämistä. Mutta mikäli syystä tai toisesta koet tarpeelliseksi, että voimme tarvittaessa olla yhteydessä huoltajaasi, voit lisätä yhteystiedon tähän. '
+    );
   });
 });
