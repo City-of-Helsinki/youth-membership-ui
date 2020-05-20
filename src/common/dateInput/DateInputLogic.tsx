@@ -74,12 +74,12 @@ function getDateComponents(date: Date | null): DateObject {
     return {};
   }
 
-  const monthDate = date.getDate();
+  const dayOfMonth = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear();
 
   return {
-    date: monthDate,
+    date: dayOfMonth,
     month,
     year,
   };
