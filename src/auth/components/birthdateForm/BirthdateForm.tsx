@@ -18,8 +18,8 @@ const schema = yup.object().shape({
     .required(INVALID_BIRTHDAY_ERROR)
     .test('age-is-appropriate', AGE_RESTRICTION_ERROR, value => {
       const age = differenceInYears(new Date(), new Date(value));
-      const isNotOverMaxAge = age < ageConstants.REGISTRATION_AGE_MAX;
-      const isNotUnderMinAge = age > ageConstants.REGISTRATION_AGE_MIN;
+      const isNotOverMaxAge = age <= ageConstants.REGISTRATION_AGE_MAX;
+      const isNotUnderMinAge = age >= ageConstants.REGISTRATION_AGE_MIN;
 
       return isNotOverMaxAge && isNotUnderMinAge;
     }),
