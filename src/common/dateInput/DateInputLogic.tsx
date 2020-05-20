@@ -27,7 +27,7 @@ const INPUT_CONFIGS = {
 };
 
 type DateObject = {
-  date?: number;
+  dayOfMonth?: number;
   month?: number;
   year?: number;
 };
@@ -79,7 +79,7 @@ function getDateComponents(date: Date | null): DateObject {
   const year = date.getFullYear();
 
   return {
-    date: dayOfMonth,
+    dayOfMonth,
     month,
     year,
   };
@@ -89,9 +89,9 @@ function makeDate(date: DateObject): Date | null {
   if (
     date.year !== undefined &&
     date.month !== undefined &&
-    date.date !== undefined
+    date.dayOfMonth !== undefined
   ) {
-    return new Date(date.year, date.month, date.date, 0, 0, 0, 0);
+    return new Date(date.year, date.month, date.dayOfMonth, 0, 0, 0, 0);
   }
 
   return null;
@@ -153,13 +153,13 @@ function DateInputLogic({
   const yearInputRef = React.useRef(null);
 
   const updateDate = (
-    date: number | null,
+    dayOfMonth: number | null,
     month: number | null,
     year: number | null
   ) => {
     setInternalDate(previousDate => {
       const nextCachedDate = {
-        date: defaultTo(date, previousDate.date),
+        dayOfMonth: defaultTo(dayOfMonth, previousDate.dayOfMonth),
         month: defaultTo(month, previousDate.month),
         year: defaultTo(year, previousDate.year),
       };
@@ -183,10 +183,10 @@ function DateInputLogic({
   };
 
   const handleDayOfMonthChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const nextDate = parseNumberFromValue(event.currentTarget.value);
+    const nextDayOfMonth = parseNumberFromValue(event.currentTarget.value);
 
-    updateDate(nextDate, null, null);
-    focusWhen(getCharacterCount(nextDate) === 2, monthInputRef);
+    updateDate(nextDayOfMonth, null, null);
+    focusWhen(getCharacterCount(nextDayOfMonth) === 2, monthInputRef);
   };
   const handleMonthChange = (event: React.FormEvent<HTMLInputElement>) => {
     const nextMonth = parseNumberFromValue(event.currentTarget.value);
@@ -212,7 +212,7 @@ function DateInputLogic({
       key: dateInputId,
       id: dateInputId,
       name: dateInputName,
-      value: defaultTo(internalDate.date?.toString(), ''),
+      value: defaultTo(internalDate.dayOfMonth?.toString(), ''),
       onChange: handleDayOfMonthChange,
       isInvalid,
       label: dateInputLabel,
