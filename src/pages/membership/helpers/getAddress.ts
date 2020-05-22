@@ -1,19 +1,10 @@
 import countries from 'i18n-iso-countries';
 
+import getLanguageCode from '../../../common/helpers/getLanguageCode';
 import {
   YouthProfileByApprovalToken,
   MembershipDetails,
 } from '../../../graphql/generatedTypes';
-
-function getLanguageCode(langOrLangAndLocale: string) {
-  const hasLocale = langOrLangAndLocale.includes('-');
-
-  if (hasLocale) {
-    return langOrLangAndLocale.split('-')[0];
-  }
-
-  return langOrLangAndLocale;
-}
 
 export default function getAddress(
   data: YouthProfileByApprovalToken | MembershipDetails,
