@@ -1,0 +1,33 @@
+.row {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Make year box greater in width on bigger screens */
+@media (min-width: 400px) {
+  .row div:nth-of-type(1),
+  .row div:nth-of-type(2) {
+    flex-grow: 1;
+    flex-shrink: 2;
+  }
+
+  .row div:nth-of-type(3) {
+    flex-grow: 2;
+    flex-shrink: 1;
+  }
+}
+
+/* Hide invalid error icon because there's no room for it */
+.invalid div > div::after {
+  display: none;
+}
+.invalid div > div > input {
+  padding-right: var(--spacing-s) !important; 
+}
+
+/* Hide number input spinners */
+.row input[type=number]::-webkit-inner-spin-button, 
+.row input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
