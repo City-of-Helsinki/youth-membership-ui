@@ -24,3 +24,10 @@
 .invalid div > div > input {
   padding-right: var(--spacing-s) !important; 
 }
+
+/* Hide number input spinners */
+.row input[type=number]::-webkit-inner-spin-button, 
+.row input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
