@@ -20,6 +20,8 @@ const INPUT_CONFIGS = {
   // Sets the minimum allowed number as 0 for chrome controls. The user
   // is still able to input a negative number by hand if they choose.
   min: 0,
+  // Forces the number keyboard on mobile devices
+  inputMode: 'numeric',
   // 1) Ensures that a number pad is shown on iOS instead of the regular
   // keyboard
   // 2) Blocks iOS devices from inputting characters other than numbers
