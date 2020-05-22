@@ -66,3 +66,20 @@ it('can get address from MembershipDetails', () => {
   const value = getAddress(data, 'fi');
   expect(value).toBe('Teststreet Ö 44, 00990 Helsingfors\nRuotsi');
 });
+
+it('should return country when lang contains locale', () => {
+  const data = {
+    youthProfileByApprovalToken: {
+      profile: {
+        primaryAddress: {
+          address: '',
+          postalCode: '',
+          city: '',
+          countryCode: 'FI',
+        },
+      },
+    },
+  } as YouthProfileByApprovalToken;
+
+  expect(getAddress(data, 'fi-FI')).toEqual(',  \nSuomi');
+});

@@ -5,6 +5,16 @@ import {
   MembershipDetails,
 } from '../../../graphql/generatedTypes';
 
+function getLanguageCode(langOrLangAndLocale: string) {
+  const hasLocale = langOrLangAndLocale.includes('-');
+
+  if (hasLocale) {
+    return langOrLangAndLocale.split('-')[0];
+  }
+
+  return langOrLangAndLocale;
+}
+
 export default function getAddress(
   data: YouthProfileByApprovalToken | MembershipDetails,
   lang: string
@@ -20,7 +30,10 @@ export default function getAddress(
   if (address) {
     return `${address.address}, ${address.postalCode} ${
       address.city
-    }\n${countries.getName(address.countryCode || 'FI', lang)}`;
+    }\n${countries.getName(
+      address.countryCode || 'FI',
+      getLanguageCode(lang)
+    )}`;
   }
   return '';
 }
