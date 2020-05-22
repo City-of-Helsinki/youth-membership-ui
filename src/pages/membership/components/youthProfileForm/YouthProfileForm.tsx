@@ -7,6 +7,7 @@ import { differenceInYears, format } from 'date-fns';
 import * as Yup from 'yup';
 import countries from 'i18n-iso-countries';
 
+import getLanguageCode from '../../../../common/helpers/getLanguageCode';
 import Select from '../../../../common/select/Select';
 import ageConstants from '../../constants/ageConstants';
 import { Language, YouthLanguage } from '../../../../graphql/generatedTypes';
@@ -118,7 +119,8 @@ function YouthProfileForm(componentProps: Props) {
     return t(`registration.${name}`);
   };
 
-  const countryList = countries.getNames(i18n.languages[0]);
+  const applicationLanguageCode = getLanguageCode(i18n.languages[0]);
+  const countryList = countries.getNames(applicationLanguageCode);
   const countryOptions = Object.keys(countryList).map(key => {
     return {
       value: key,
