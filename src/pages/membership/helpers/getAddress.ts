@@ -27,13 +27,17 @@ export default function getAddress(
     // YouthProfileByApprovalToken
     address = data.youthProfileByApprovalToken?.profile.primaryAddress;
   }
+
   if (address) {
-    return `${address.address}, ${address.postalCode} ${
-      address.city
-    }\n${countries.getName(
+    const country = countries.getName(
       address.countryCode || 'FI',
       getLanguageCode(lang)
-    )}`;
+    );
+
+    return [address.address, address.postalCode, address.city, country]
+      .filter(addressPart => addressPart)
+      .join(', ');
   }
+
   return '';
 }

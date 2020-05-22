@@ -29,7 +29,7 @@ it('test function with empty values', () => {
   } as YouthProfileByApprovalToken;
 
   const testData = getAddress(data, 'fi');
-  expect(testData).toEqual(',  \nSuomi');
+  expect(testData).toEqual('Suomi');
 });
 
 it('test function with all values', () => {
@@ -47,7 +47,7 @@ it('test function with all values', () => {
   } as YouthProfileByApprovalToken;
 
   const testData = getAddress(data, 'fi');
-  expect(testData).toEqual('TestAddress, 12345 Helsinki\nSuomi');
+  expect(testData).toEqual('TestAddress, 12345, Helsinki, Suomi');
 });
 
 it('can get address from MembershipDetails', () => {
@@ -64,7 +64,7 @@ it('can get address from MembershipDetails', () => {
     },
   } as MembershipDetails;
   const value = getAddress(data, 'fi');
-  expect(value).toBe('Teststreet Ö 44, 00990 Helsingfors\nRuotsi');
+  expect(value).toBe('Teststreet Ö 44, 00990, Helsingfors, Ruotsi');
 });
 
 it('should return country when lang contains locale', () => {
@@ -81,5 +81,5 @@ it('should return country when lang contains locale', () => {
     },
   } as YouthProfileByApprovalToken;
 
-  expect(getAddress(data, 'fi-FI')).toEqual(',  \nSuomi');
+  expect(getAddress(data, 'fi-FI')).toEqual('Suomi');
 });
