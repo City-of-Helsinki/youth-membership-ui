@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import AccessibilityStatement from '../AccessibilityStatement';
-import i18n from '../../../common/test/test18nInit';
+import i18n from '../../../common/test/testi18nInit';
 
 test('matches snapshot', () => {
   const wrapper = shallow(<AccessibilityStatement />);

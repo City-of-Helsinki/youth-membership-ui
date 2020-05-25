@@ -2,7 +2,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { configure } from 'enzyme';
 import { GlobalWithFetchMock } from 'jest-fetch-mock';
 import '@testing-library/jest-dom/extend-expect';
-import './common/test/test18nInit';
+import './common/test/testi18nInit';
 
 // Jest canvas mock is for testing component with QR code
 import 'jest-canvas-mock';
