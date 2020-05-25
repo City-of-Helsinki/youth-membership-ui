@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import getLanguageCode from '../../common/helpers/getLanguageCode';
 import PageWrapper from '../../common/wrapper/PageWrapper';
 import styles from './AccessibilityStatement.module.css';
 import Header from '../../common/header/Header';
@@ -12,7 +13,7 @@ import AccessibilityStatementSv from './AccessibilityStatementSv';
 function AccessibilityStatement() {
   const { i18n } = useTranslation();
   const selectStatement = () => {
-    const lang = i18n.languages[0];
+    const lang = getLanguageCode(i18n.languages[0]);
 
     switch (lang) {
       case 'fi':
