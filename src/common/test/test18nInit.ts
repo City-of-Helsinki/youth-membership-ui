@@ -13,11 +13,11 @@ i18n.use(initReactI18next).init({
       translation: fi,
     },
     en: {
-      translation: en
+      translation: en,
     },
     sv: {
-      translation: sv
-    }
+      translation: sv,
+    },
   },
 });
 
