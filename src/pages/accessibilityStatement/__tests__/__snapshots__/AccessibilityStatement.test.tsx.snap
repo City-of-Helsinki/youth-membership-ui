@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<PageWrapper>
+  <div
+    className="pageWrapper"
+  >
+    <Header />
+    <div
+      className="container"
+    >
+      <div
+        className="innerWrapper"
+      >
+        <AccessibilityStatementFi />
+      </div>
+    </div>
+    <Footer />
+  </div>
+</PageWrapper>
+`;
