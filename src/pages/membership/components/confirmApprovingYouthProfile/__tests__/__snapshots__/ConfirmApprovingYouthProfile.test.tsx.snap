@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Jässärihakemus hyväksytty!
+  </h1>
+  <p>
+    Kiitos kun varmistit nuorisopalveluiden jäsenyyden.
+  </p>
+</div>
+`;
