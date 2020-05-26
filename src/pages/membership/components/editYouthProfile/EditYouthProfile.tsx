@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { useHistory } from 'react-router';
+import * as Sentry from '@sentry/browser';
 
 import {
   AddressType,
@@ -76,6 +77,7 @@ function EditYouthProfile(props: Props) {
             approverPhone: formValues.approverPhone,
             approverEmail: formValues.approverEmail,
             languageAtHome: formValues.languageAtHome,
+            photoUsageApproved: formValues.photoUsageApproved === 'true',
           },
         },
       },
@@ -85,7 +87,10 @@ function EditYouthProfile(props: Props) {
       .then(() => {
         history.push('/membership-details');
       })
-      .catch((error: Error) => setShowNotification(true));
+      .catch((error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      });
   };
 
   return (
@@ -113,7 +118,8 @@ function EditYouthProfile(props: Props) {
               youthProfile?.profile?.language || Language.FINNISH,
             languageAtHome:
               youthProfile?.languageAtHome || YouthLanguage.FINNISH,
-            photoUsageApproved: 'false',
+            photoUsageApproved:
+              youthProfile?.photoUsageApproved?.toString() || 'false',
           }}
           isEditing={true}
           isSubmitting={saveLoading}
