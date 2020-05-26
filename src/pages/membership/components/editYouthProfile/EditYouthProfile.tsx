@@ -5,10 +5,8 @@ import { useHistory } from 'react-router';
 import * as Sentry from '@sentry/browser';
 
 import {
-  AddressType,
   Language,
   MembershipDetails as MembershipDetailsData,
-  PhoneType,
   UpdateMyProfile as UpdateMyProfileData,
   UpdateMyProfileVariables,
   YouthLanguage,
@@ -18,6 +16,7 @@ import YouthProfileForm, {
 } from '../youthProfileForm/YouthProfileForm';
 import styles from './EditYouthProfile.module.css';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
+import { getEditMutationVariables } from '../../helpers/updateProfileMutationVariables';
 
 const MEMBERSHIP_DETAILS = loader('../../graphql/MembershipDetails.graphql');
 const UPDATE_PROFILE = loader('../../graphql/UpdateMyProfile.graphql');
@@ -39,49 +38,10 @@ function EditYouthProfile(props: Props) {
   const youthProfile = data?.youthProfile;
 
   const handleOnValues = (formValues: FormValues) => {
-    const variables: UpdateMyProfileVariables = {
-      input: {
-        profile: {
-          firstName: formValues.firstName,
-          lastName: formValues.lastName,
-          language: formValues.profileLanguage,
-          updateAddresses: [
-            youthProfile?.profile?.primaryAddress?.id
-              ? {
-                  address: formValues.address,
-                  postalCode: formValues.postalCode,
-                  city: formValues.city,
-                  addressType: AddressType.OTHER,
-                  primary: true,
-                  countryCode: formValues.countryCode,
-                  id: youthProfile?.profile?.primaryAddress?.id,
-                }
-              : null,
-          ],
-          updatePhones: [
-            youthProfile?.profile.primaryPhone?.id
-              ? {
-                  phone: formValues.phone,
-                  phoneType: PhoneType.OTHER,
-                  primary: true,
-                  id: youthProfile.profile.primaryPhone.id,
-                }
-              : null,
-          ],
-          youthProfile: {
-            birthDate: youthProfile?.birthDate,
-            schoolName: formValues.schoolName,
-            schoolClass: formValues.schoolClass,
-            approverFirstName: formValues.approverFirstName,
-            approverLastName: formValues.approverLastName,
-            approverPhone: formValues.approverPhone,
-            approverEmail: formValues.approverEmail,
-            languageAtHome: formValues.languageAtHome,
-            photoUsageApproved: formValues.photoUsageApproved === 'true',
-          },
-        },
-      },
-    };
+    const variables: UpdateMyProfileVariables = getEditMutationVariables(
+      formValues,
+      data
+    );
 
     updateProfile({ variables })
       .then(() => {
