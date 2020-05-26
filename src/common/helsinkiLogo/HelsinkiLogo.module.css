@@ -7,4 +7,16 @@
 .logoSv {
     background-size: contain;
     background: url("../svg/HelsinkiLogoSv.svg") no-repeat;
+    margin-right: 5px;
+}
+
+.logoFi:hover,
+.logoSv:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 400px) {
+    .logoSv {
+        margin-right: 20px;
+    }
 }
