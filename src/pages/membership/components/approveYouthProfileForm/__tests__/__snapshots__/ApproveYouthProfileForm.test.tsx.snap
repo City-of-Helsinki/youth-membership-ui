@@ -11,7 +11,7 @@ exports[`matches snapshot 1`] = `
       "approverFirstName": "Ville",
       "approverLastName": "Vanhempi",
       "approverPhone": "05012345567",
-      "birthDate": "2005-01-01",
+      "birthDate": "2006-01-01",
       "email": "teemu.testaaja@test.fi",
       "firstName": "Teemu",
       "languageAtHome": "FINNISH",
@@ -32,7 +32,7 @@ exports[`matches snapshot 1`] = `
         "approverFirstName": "Ville",
         "approverLastName": "Vanhempi",
         "approverPhone": "05012345567",
-        "birthDate": "2005-01-01",
+        "birthDate": "2006-01-01",
         "email": "teemu.testaaja@test.fi",
         "firstName": "Teemu",
         "languageAtHome": "FINNISH",
@@ -299,7 +299,7 @@ exports[`matches snapshot 1`] = `
         </LabeledValue>
         <LabeledValue
           label="Syntymäpäivä"
-          value="01.01.2005"
+          value="01.01.2006"
         >
           <div
             className="wrapper"
@@ -312,7 +312,7 @@ exports[`matches snapshot 1`] = `
             <span
               className="value"
             >
-              01.01.2005
+              01.01.2006
             </span>
           </div>
         </LabeledValue>
@@ -362,12 +362,83 @@ exports[`matches snapshot 1`] = `
           </div>
         </LabeledValue>
       </div>
+      <h3>
+        Huoltajalta vaadittavat luvat
+      </h3>
+      <h4>
+        Kuvauslupa
+      </h4>
+      <p>
+        Lapsestani voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin sisäisessä ja ulkoisessä viestinnässä.
+      </p>
       <Form>
         <form
           action="#"
           onReset={[Function]}
           onSubmit={[Function]}
         >
+          <div
+            className="formFields"
+          >
+            <ul
+              className="list"
+            >
+              <li
+                className="radioButtonRow"
+              >
+                <label>
+                  <Field
+                    id="photoUsageApprovedYes"
+                    name="photoUsageApproved"
+                    type="radio"
+                    value="true"
+                  >
+                    <input
+                      checked={false}
+                      id="photoUsageApprovedYes"
+                      name="photoUsageApproved"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      type="radio"
+                      value="true"
+                    />
+                  </Field>
+                  <span
+                    className="listLabel"
+                  >
+                    Kyllä
+                  </span>
+                </label>
+              </li>
+              <li
+                className="radioButtonRow"
+              >
+                <label>
+                  <Field
+                    id="pphotoUsageApprovedNo"
+                    name="photoUsageApproved"
+                    type="radio"
+                    value="false"
+                  >
+                    <input
+                      checked={true}
+                      id="pphotoUsageApprovedNo"
+                      name="photoUsageApproved"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      type="radio"
+                      value="false"
+                    />
+                  </Field>
+                  <span
+                    className="listLabel"
+                  >
+                    Ei
+                  </span>
+                </label>
+              </li>
+            </ul>
+          </div>
           <h3>
             Huoltajan tiedot
           </h3>
