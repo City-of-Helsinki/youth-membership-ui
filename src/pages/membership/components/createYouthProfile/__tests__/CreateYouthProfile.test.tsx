@@ -1,12 +1,14 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { MockedProvider, MockedResponse } from '@apollo/react-testing';
+import { MockedResponse } from '@apollo/react-testing';
 import { User } from 'oidc-client';
 import { loader } from 'graphql.macro';
 
+import {
+  mountWithApolloProvider,
+  updateWrapper,
+} from '../../../../../common/test/testUtils';
 import i18n from '../../../../../common/test/testi18nInit';
 import CreateYouthProfile from '../CreateYouthProfile';
-import { updateWrapper } from '../../../../../common/test/testUtils';
 import {
   Language,
   PrefillRegistartion,
@@ -85,10 +87,9 @@ const getMocks = (myProfile: MyProfile) => {
 };
 
 const getWrapper = (mocks?: MockedResponse[]) => {
-  return mount(
-    <MockedProvider mocks={mocks}>
-      <CreateYouthProfile tunnistamoUser={tunnistamoUser} />
-    </MockedProvider>
+  return mountWithApolloProvider(
+    <CreateYouthProfile tunnistamoUser={tunnistamoUser} />,
+    mocks
   );
 };
 
