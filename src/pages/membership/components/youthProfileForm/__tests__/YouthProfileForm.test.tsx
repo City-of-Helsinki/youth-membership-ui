@@ -115,3 +115,17 @@ describe('Form fields & texts based on user age', () => {
     );
   });
 });
+
+describe('postalCode inputMode changes based on selected country', () => {
+  test('inputMode is numeric when countryCode === "FI" ', () => {
+    const wrapper = getWrapper(getPrefilledProfile());
+    const postalCode = wrapper.find('input[name="postalCode"]');
+    expect(postalCode.props().inputMode).toEqual('numeric');
+  });
+
+  test('inputMode is text when countryCode !== "FI', () => {
+    const wrapper = getWrapper(getPrefilledProfile({ countryCode: 'SV' }));
+    const postalCode = wrapper.find('input[name="postalCode"]');
+    expect(postalCode.props().inputMode).toEqual('text');
+  });
+});

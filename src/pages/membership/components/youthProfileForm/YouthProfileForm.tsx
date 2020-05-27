@@ -42,14 +42,14 @@ const schema = Yup.object().shape({
     .required('validation.required'),
   postalCode: Yup.mixed()
     .required('validation.required')
-    .test('isValid', 'Invalid postal code', function() {
+    .test('isValidPostalCode', 'validation.invalidValue', function() {
       if (postcodeValidatorExistsForCountry(this.parent.countryCode)) {
         return postcodeValidator(
           this.parent.postalCode,
           this.parent.countryCode
         );
       }
-      return this.parent?.postalCode?.length < 10;
+      return this.parent?.postalCode?.length < 32;
     }),
   city: Yup.string()
     .min(2, 'validation.tooShort')
@@ -186,6 +186,18 @@ function YouthProfileForm(componentProps: Props) {
             </div>
             <div className={styles.formRow}>
               <Field
+                as={Select}
+                setFieldValue={props.setFieldValue}
+                id="countryCode"
+                name="countryCode"
+                type="select"
+                options={countryOptions}
+                className={styles.formInput}
+                labelText={t('registration.country')}
+              />
+            </div>
+            <div className={styles.formRow}>
+              <Field
                 className={styles.formInput}
                 as={TextInput}
                 id="address"
@@ -229,18 +241,6 @@ function YouthProfileForm(componentProps: Props) {
                   labelText={t('registration.city') + ' *'}
                 />
               </div>
-            </div>
-            <div className={styles.formRow}>
-              <Field
-                as={Select}
-                setFieldValue={props.setFieldValue}
-                id="countryCode"
-                name="countryCode"
-                type="select"
-                options={countryOptions}
-                className={styles.formInput}
-                labelText={t('registration.country')}
-              />
             </div>
             <div className={styles.formRow}>
               <Field
