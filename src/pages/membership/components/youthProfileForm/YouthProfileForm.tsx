@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 import { differenceInYears, format } from 'date-fns';
 import * as Yup from 'yup';
 import countries from 'i18n-iso-countries';
+import {
+  postcodeValidator,
+  postcodeValidatorExistsForCountry,
+} from 'postcode-validator';
 
 import getLanguageCode from '../../../../common/helpers/getLanguageCode';
 import Select from '../../../../common/select/Select';
@@ -36,10 +40,17 @@ const schema = Yup.object().shape({
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
     .required('validation.required'),
-  postalCode: Yup.string()
-    .min(5, 'validation.tooShort')
-    .max(5, 'validation.tooLong')
-    .required('validation.required'),
+  postalCode: Yup.mixed()
+    .required('validation.required')
+    .test('isValid', 'Invalid postal code', function() {
+      if (postcodeValidatorExistsForCountry(this.parent.countryCode)) {
+        return postcodeValidator(
+          this.parent.postalCode,
+          this.parent.countryCode
+        );
+      }
+      return this.parent?.postalCode?.length < 10;
+    }),
   city: Yup.string()
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
@@ -194,6 +205,9 @@ function YouthProfileForm(componentProps: Props) {
                   id="postalCode"
                   name="postalCode"
                   invalid={props.submitCount && props.errors.postalCode}
+                  inputMode={
+                    props.values.countryCode === 'FI' ? 'numeric' : 'text'
+                  }
                   helperText={
                     props.submitCount && props.errors.postalCode
                       ? t(props.errors.postalCode)
