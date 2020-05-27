@@ -4,27 +4,31 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import styles from './HelsinkiLogo.module.css';
+import getLanguageCode from '../helpers/getLanguageCode';
 
 type Props = {
   className?: string;
+  isLinkToFrontPage?: boolean;
 };
-function HelsinkiLogo({ className }: Props) {
+function HelsinkiLogo({ className, isLinkToFrontPage }: Props) {
   const { t, i18n } = useTranslation();
 
-  if (i18n.languages[0] === 'sv')
+  const lang = getLanguageCode(i18n.languages[0]);
+  const logoStyle = lang === 'sv' ? styles.logoSv : styles.logoFi;
+
+  if (isLinkToFrontPage) {
     return (
       <Link
-        role="button"
         to="/"
-        className={classNames(styles.logoSv, className)}
+        className={classNames(logoStyle, className)}
         aria-label={t('helsinkiLogo')}
       />
     );
+  }
+
   return (
-    <Link
-      role="button"
-      to="/"
-      className={classNames(styles.logoFi, className)}
+    <span
+      className={classNames(logoStyle, className)}
       aria-label={t('helsinkiLogo')}
     />
   );
