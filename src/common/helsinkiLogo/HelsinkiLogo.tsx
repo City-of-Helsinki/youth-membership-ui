@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import styles from './HelsinkiLogo.module.css';
@@ -10,23 +10,20 @@ type Props = {
 };
 function HelsinkiLogo({ className }: Props) {
   const { t, i18n } = useTranslation();
-  const history = useHistory();
-
-  const navigateToHomePage = () => history.push('/');
 
   if (i18n.languages[0] === 'sv')
     return (
-      <span
+      <Link
         role="button"
-        onClick={navigateToHomePage}
+        to="/"
         className={classNames(styles.logoSv, className)}
         aria-label={t('helsinkiLogo')}
       />
     );
   return (
-    <span
+    <Link
       role="button"
-      onClick={navigateToHomePage}
+      to="/"
       className={classNames(styles.logoFi, className)}
       aria-label={t('helsinkiLogo')}
     />
