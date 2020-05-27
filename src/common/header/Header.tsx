@@ -14,7 +14,7 @@ function Header(props: Props) {
   return (
     <header className={styles.header}>
       <div className={styles.centeredContainer}>
-        <HelsinkiLogo className={styles.logo} />
+        <HelsinkiLogo className={styles.logo} isLinkToFrontPage />
         <span className={styles.appName}>{t('appName')}</span>
         <section className={styles.end}>
           <FullscreenNavigation className={styles.mobileNav} />
