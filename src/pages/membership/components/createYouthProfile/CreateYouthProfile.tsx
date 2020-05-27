@@ -27,6 +27,7 @@ import {
 import getCookie from '../../helpers/getCookie';
 import Loading from '../../../../common/loading/Loading';
 import { getMutationVariables } from '../../helpers/createProfileMutationVariables';
+import getLanguageCode from '../../../../common/helpers/getLanguageCode';
 
 const PREFILL_REGISTRATION = loader(
   '../../graphql/PrefillRegistration.graphql'
@@ -41,7 +42,7 @@ type Props = {
   tunnistamoUser: User;
 };
 
-function CreateYouthProflle({ tunnistamoUser }: Props) {
+function CreateYouthProfile({ tunnistamoUser }: Props) {
   const [showNotification, setShowNotification] = useState(false);
   const { t, i18n } = useTranslation();
   const { trackEvent } = useMatomo();
@@ -150,10 +151,10 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
   // These allow us to set initial value of languageAtHome & profileLanguage
   // to users current language.
   const currentLangForProfile: Language = formatLocale(
-    i18n.languages[0]
+    getLanguageCode(i18n.languages[0])
   ) as Language;
   const currentLangForYouth: YouthLanguage = formatLocale(
-    i18n.languages[0]
+    getLanguageCode(i18n.languages[0])
   ) as YouthLanguage;
 
   return (
@@ -197,4 +198,4 @@ function CreateYouthProflle({ tunnistamoUser }: Props) {
   );
 }
 
-export default CreateYouthProflle;
+export default CreateYouthProfile;
