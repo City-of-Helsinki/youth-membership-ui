@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 import { differenceInYears, format } from 'date-fns';
 import * as Yup from 'yup';
 import countries from 'i18n-iso-countries';
+import {
+  postcodeValidator,
+  postcodeValidatorExistsForCountry,
+} from 'postcode-validator';
 
 import getLanguageCode from '../../../../common/helpers/getLanguageCode';
 import Select from '../../../../common/select/Select';
@@ -36,10 +40,17 @@ const schema = Yup.object().shape({
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
     .required('validation.required'),
-  postalCode: Yup.string()
-    .min(5, 'validation.tooShort')
-    .max(5, 'validation.tooLong')
-    .required('validation.required'),
+  postalCode: Yup.mixed()
+    .required('validation.required')
+    .test('isValidPostalCode', 'validation.invalidValue', function() {
+      if (postcodeValidatorExistsForCountry(this.parent.countryCode)) {
+        return postcodeValidator(
+          this.parent.postalCode,
+          this.parent.countryCode
+        );
+      }
+      return this.parent?.postalCode?.length < 32;
+    }),
   city: Yup.string()
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
@@ -175,6 +186,18 @@ function YouthProfileForm(componentProps: Props) {
             </div>
             <div className={styles.formRow}>
               <Field
+                as={Select}
+                setFieldValue={props.setFieldValue}
+                id="countryCode"
+                name="countryCode"
+                type="select"
+                options={countryOptions}
+                className={styles.formInput}
+                labelText={t('registration.country')}
+              />
+            </div>
+            <div className={styles.formRow}>
+              <Field
                 className={styles.formInput}
                 as={TextInput}
                 id="address"
@@ -194,6 +217,9 @@ function YouthProfileForm(componentProps: Props) {
                   id="postalCode"
                   name="postalCode"
                   invalid={props.submitCount && props.errors.postalCode}
+                  inputMode={
+                    props.values.countryCode === 'FI' ? 'numeric' : 'text'
+                  }
                   helperText={
                     props.submitCount && props.errors.postalCode
                       ? t(props.errors.postalCode)
@@ -215,18 +241,6 @@ function YouthProfileForm(componentProps: Props) {
                   labelText={t('registration.city') + ' *'}
                 />
               </div>
-            </div>
-            <div className={styles.formRow}>
-              <Field
-                as={Select}
-                setFieldValue={props.setFieldValue}
-                id="countryCode"
-                name="countryCode"
-                type="select"
-                options={countryOptions}
-                className={styles.formInput}
-                labelText={t('registration.country')}
-              />
             </div>
             <div className={styles.formRow}>
               <Field
