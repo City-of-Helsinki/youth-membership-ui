@@ -16,6 +16,7 @@ const PREFILL_REGISTRATION = loader(
   '../../../graphql/PrefillRegistration.graphql'
 );
 
+/* eslint-disable @typescript-eslint/camelcase */
 const tunnistamoUser: User = {
   profile: {
     iss: '',
@@ -37,6 +38,7 @@ const tunnistamoUser: User = {
     return '';
   },
 };
+/* eslint-enable @typescript-eslint/camelcase */
 
 type MyProfile = {
   language?: string;
