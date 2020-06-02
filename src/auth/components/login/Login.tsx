@@ -45,7 +45,7 @@ function Login(props: Props) {
     <PageWrapper>
       <PageLayout title={'login.pageTitle'}>
         <div className={styles.hostingBox}>
-          <h1>{t('login.title')}</h1>
+          <h1 className={styles.title}>{t('login.title')}</h1>
 
           {!showManualRegistration && (
             <React.Fragment>
@@ -70,7 +70,7 @@ function Login(props: Props) {
           )}
 
           {showManualRegistration && (
-            <React.Fragment>
+            <div className={styles.loginContainer}>
               <p className={styles.helpText}>{t('login.helpTextUnderAge')}</p>
               <LinkButton
                 className={styles.linkButtons}
@@ -89,16 +89,15 @@ function Login(props: Props) {
                 variant="primary"
               />
 
-              <br />
               <Button
                 data-cy="goBack"
                 onClick={() => setShowManualRegistration(false)}
-                className={styles.button}
+                className={styles.linkButtons}
                 variant="secondary"
               >
                 {t('login.return')}
               </Button>
-            </React.Fragment>
+            </div>
           )}
         </div>
 
