@@ -24,7 +24,7 @@
     "phone": "Puhelin",
     "photoUsageApproved": "Kuvauslupa",
     "photoUsageApprovedNo": "Ei",
-    "photoUsageApprovedText": "Lapsestani voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin sisäisessä ja ulkoisessä viestinnässä.",
+    "photoUsageApprovedText": "Lapsesta voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin viestinnässä ja markkinoinnissa painetussa ja sähköisessä mediassa. Kuvaamisesta ja kuvien käytöstä ei makseta korvausta. Oikeus kuvien käyttöön on aina voimassa ja koskee koko Helsingin kaupungin viestintää ja markkinointiviestintää.",
     "photoUsageApprovedYes": "Kyllä",
     "profile": "Profiili",
     "schoolInfo": "Koulu ja luokka",
@@ -102,7 +102,7 @@
     "authenticating": "Tunnistaudutaan..."
   },
   "privacyPolicy": {
-    "descriptionLink": "TÄHÄN TAVITAAN LINKKI"
+    "descriptionLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
   },
   "profile": {
     "address": "Osoite",

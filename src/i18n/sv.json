@@ -24,7 +24,7 @@
     "phone": "Telefon",
     "photoUsageApproved": "Godkännande av fotoanvändning",
     "photoUsageApprovedNo": "Nej",
-    "photoUsageApprovedText": "Ge tillstånd att använda bilder av mitt barn för Helsingfors interna och externa medieändamål.",
+    "photoUsageApprovedText": "Vårt minderåriga barn får fotograferas och fotografierna får användas i Helsingfors stads tryckta och elektroniska media för kommunikation och marknadsföring Ingen ersättning betalas för fotograferingen och användningen av bilderna. Rätten att använda bilderna är ständigt i kraft i och gäller för hela Helsingfors stads kommunikation och marknadsföringskommunikation.",
     "photoUsageApprovedYes": "Ja",
     "profile": "Profil",
     "schoolInfo": "Skola och klass",
@@ -101,7 +101,7 @@
     "authenticating": "Autentiserar..."
   },
   "privacyPolicy": {
-    "descriptionLink": ""
+    "descriptionLink": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd"
   },
   "profile": {
     "address": "Adress",
