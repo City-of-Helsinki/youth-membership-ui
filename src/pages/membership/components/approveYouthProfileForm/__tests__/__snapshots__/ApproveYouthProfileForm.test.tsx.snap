@@ -483,19 +483,12 @@ exports[`matches snapshot 1`] = `
                   <div
                     className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
                   >
-                    <FieldLabel
-                      hidden={false}
-                      inputId="approverFirstName"
-                      label="Etunimi"
-                      required={false}
+                    <label
+                      className="TextInput-module_label__1NkZD text-input_hds-text-input__label__1-UoQ "
+                      htmlFor="approverFirstName"
                     >
-                      <label
-                        className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                        htmlFor="approverFirstName"
-                      >
-                        Etunimi
-                      </label>
-                    </FieldLabel>
+                      Etunimi
+                    </label>
                     <div
                       className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
                     >
@@ -549,19 +542,12 @@ exports[`matches snapshot 1`] = `
                   <div
                     className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
                   >
-                    <FieldLabel
-                      hidden={false}
-                      inputId="approverLastName"
-                      label="Sukunimi"
-                      required={false}
+                    <label
+                      className="TextInput-module_label__1NkZD text-input_hds-text-input__label__1-UoQ "
+                      htmlFor="approverLastName"
                     >
-                      <label
-                        className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                        htmlFor="approverLastName"
-                      >
-                        Sukunimi
-                      </label>
-                    </FieldLabel>
+                      Sukunimi
+                    </label>
                     <div
                       className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
                     >
@@ -617,19 +603,12 @@ exports[`matches snapshot 1`] = `
                   <div
                     className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
                   >
-                    <FieldLabel
-                      hidden={false}
-                      inputId="approverEmail"
-                      label="Sähköposti"
-                      required={false}
+                    <label
+                      className="TextInput-module_label__1NkZD text-input_hds-text-input__label__1-UoQ "
+                      htmlFor="approverEmail"
                     >
-                      <label
-                        className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                        htmlFor="approverEmail"
-                      >
-                        Sähköposti
-                      </label>
-                    </FieldLabel>
+                      Sähköposti
+                    </label>
                     <div
                       className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
                     >
@@ -685,19 +664,12 @@ exports[`matches snapshot 1`] = `
                   <div
                     className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
                   >
-                    <FieldLabel
-                      hidden={false}
-                      inputId="approverPhone"
-                      label="Puhelin"
-                      required={false}
+                    <label
+                      className="TextInput-module_label__1NkZD text-input_hds-text-input__label__1-UoQ "
+                      htmlFor="approverPhone"
                     >
-                      <label
-                        className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                        htmlFor="approverPhone"
-                      >
-                        Puhelin
-                      </label>
-                    </FieldLabel>
+                      Puhelin
+                    </label>
                     <div
                       className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
                     >
