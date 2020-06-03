@@ -740,7 +740,7 @@ exports[`matches snapshot 1`] = `
                           target="_blank"
                         />,
                         <a
-                          href="TÄHÄN TAVITAAN LINKKI"
+                          href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
                           rel="noopener noreferrer"
                           target="_blank"
                         />,
@@ -768,7 +768,7 @@ exports[`matches snapshot 1`] = `
                             target="_blank"
                           />,
                           <a
-                            href="TÄHÄN TAVITAAN LINKKI"
+                            href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
                             rel="noopener noreferrer"
                             target="_blank"
                           />,
@@ -813,7 +813,7 @@ exports[`matches snapshot 1`] = `
                               target="_blank"
                             />,
                             <a
-                              href="TÄHÄN TAVITAAN LINKKI"
+                              href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
                               rel="noopener noreferrer"
                               target="_blank"
                             />,
@@ -832,7 +832,7 @@ exports[`matches snapshot 1`] = `
                         </a>
                          ja kaupungin 
                         <a
-                          href="TÄHÄN TAVITAAN LINKKI"
+                          href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
                           key="3"
                           rel="noopener noreferrer"
                           target="_blank"

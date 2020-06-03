@@ -102,7 +102,7 @@
     "authenticating": "Tunnistaudutaan..."
   },
   "privacyPolicy": {
-    "descriptionLink": "TÄHÄN TAVITAAN LINKKI"
+    "descriptionLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
   },
   "profile": {
     "address": "Osoite",
