@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import styles from './Header.module.css';
@@ -15,7 +16,9 @@ function Header(props: Props) {
     <header className={styles.header}>
       <div className={styles.centeredContainer}>
         <HelsinkiLogo className={styles.logo} isLinkToFrontPage />
-        <span className={styles.appName}>{t('appName')}</span>
+        <Link to="/" className={styles.appName}>
+          {t('appName')}
+        </Link>
         <section className={styles.end}>
           <FullscreenNavigation className={styles.mobileNav} />
           <div className={styles.desktopNav}>
