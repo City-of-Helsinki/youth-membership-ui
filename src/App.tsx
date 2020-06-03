@@ -19,6 +19,9 @@ import YouthProfile from './pages/membership/components/youthProfile/YouthProfil
 import ApproveYouthProfile from './pages/membership/components/approveYouthProfile/ApproveYouthProfile';
 import { fetchApiTokenThunk } from './auth/redux';
 import AccessibilityStatement from './pages/accessibilityStatement/AccessibilityStatement';
+import logout from './auth/logout';
+import authConstants from './auth/constants/authConstants';
+import authenticate from './auth/authenticate';
 
 countries.registerLocale(fi);
 countries.registerLocale(en);
@@ -49,6 +52,22 @@ if (process.env.REACT_APP_ENVIRONMENT !== 'production') {
 type Props = {};
 
 function App(props: Props) {
+  window.addEventListener('storage', event => {
+    if (
+      event.key === authConstants.OIDC_KEY &&
+      event.oldValue &&
+      !event.newValue
+    ) {
+      logout();
+    }
+    if (
+      event.key === authConstants.OIDC_KEY &&
+      !event.oldValue &&
+      event.newValue
+    )
+      authenticate();
+  });
+
   return (
     <ReduxProvider store={store}>
       <OidcProvider store={store} userManager={userManager}>
