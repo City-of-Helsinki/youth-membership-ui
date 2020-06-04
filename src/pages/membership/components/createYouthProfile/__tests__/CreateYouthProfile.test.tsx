@@ -2,6 +2,7 @@ import React from 'react';
 import { MockedResponse } from '@apollo/react-testing';
 import { User } from 'oidc-client';
 import { loader } from 'graphql.macro';
+import { act } from 'react-dom/test-utils';
 
 import {
   mountWithApolloProvider,
@@ -103,6 +104,15 @@ test('renders form with empty values', async () => {
   expect(lastName.props().value).toBeFalsy();
 });
 
+test('without act error', async () => {
+  const wrapper = getWrapper(getMocks({}));
+  await updateWrapper(wrapper);
+
+  const firstName = wrapper.find('input[name="firstName"]');
+
+  expect(firstName.props().value).toEqual('Teemu');
+});
+
 test('renders form with pre-filled values', async () => {
   const wrapper = getWrapper(getMocks({}));
   await updateWrapper(wrapper);
@@ -128,7 +138,10 @@ describe('language pre-fill', () => {
   });
 
   test('language is english', async () => {
-    await i18n.changeLanguage('en');
+    await act(async () => {
+      await i18n.changeLanguage('en');
+    });
+
     const wrapper = getWrapper(getMocks({ language: '' }));
     await updateWrapper(wrapper);
     const profileLanguage = wrapper.find('select[name="profileLanguage"]');
@@ -137,7 +150,10 @@ describe('language pre-fill', () => {
   });
 
   test('language is swedish', async () => {
-    await i18n.changeLanguage('sv');
+    await act(async () => {
+      await i18n.changeLanguage('sv');
+    });
+
     const wrapper = getWrapper(getMocks({ language: '' }));
     await updateWrapper(wrapper);
     const profileLanguage = wrapper.find('select[name="profileLanguage"]');
