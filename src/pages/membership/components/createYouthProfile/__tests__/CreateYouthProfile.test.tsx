@@ -104,15 +104,6 @@ test('renders form with empty values', async () => {
   expect(lastName.props().value).toBeFalsy();
 });
 
-test('without act error', async () => {
-  const wrapper = getWrapper(getMocks({}));
-  await updateWrapper(wrapper);
-
-  const firstName = wrapper.find('input[name="firstName"]');
-
-  expect(firstName.props().value).toEqual('Teemu');
-});
-
 test('renders form with pre-filled values', async () => {
   const wrapper = getWrapper(getMocks({}));
   await updateWrapper(wrapper);
