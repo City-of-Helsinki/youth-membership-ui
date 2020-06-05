@@ -2,6 +2,7 @@ import React from 'react';
 import { MockedResponse } from '@apollo/react-testing';
 import { User } from 'oidc-client';
 import { loader } from 'graphql.macro';
+import { act } from 'react-dom/test-utils';
 
 import {
   mountWithApolloProvider,
@@ -128,7 +129,10 @@ describe('language pre-fill', () => {
   });
 
   test('language is english', async () => {
-    await i18n.changeLanguage('en');
+    await act(async () => {
+      await i18n.changeLanguage('en');
+    });
+
     const wrapper = getWrapper(getMocks({ language: '' }));
     await updateWrapper(wrapper);
     const profileLanguage = wrapper.find('select[name="profileLanguage"]');
@@ -137,7 +141,10 @@ describe('language pre-fill', () => {
   });
 
   test('language is swedish', async () => {
-    await i18n.changeLanguage('sv');
+    await act(async () => {
+      await i18n.changeLanguage('sv');
+    });
+
     const wrapper = getWrapper(getMocks({ language: '' }));
     await updateWrapper(wrapper);
     const profileLanguage = wrapper.find('select[name="profileLanguage"]');
