@@ -2,11 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
+/* eslint-disable import/named */
 import {
   render,
   fireEvent,
   getByText,
 } from '../../../utils/test/testing-library';
+/* eslint-enable import/named */
 import Dropdown, { DropdownOption } from '../Dropdown';
 
 const dropDownOptions: DropdownOption[] = [
