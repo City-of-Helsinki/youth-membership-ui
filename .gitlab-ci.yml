@@ -42,6 +42,8 @@ build-production:
   only:
     refs:
       - master
+      # this regexp will match release-tags
+      - /^release-.*$/
 
 review:
   variables:
@@ -55,3 +57,7 @@ staging:
   only:
     refs:
       - develop
+
+production:
+  variables:
+    DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-production"
