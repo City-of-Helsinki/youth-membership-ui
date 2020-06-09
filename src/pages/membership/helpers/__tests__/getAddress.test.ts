@@ -11,7 +11,7 @@ it('test function with empty undefined', () => {
     },
   } as YouthProfileByApprovalToken;
 
-  const testData = getAddress(data);
+  const testData = getAddress(data, 'fi');
   expect(testData).toEqual('');
 });
 
@@ -28,8 +28,8 @@ it('test function with empty values', () => {
     },
   } as YouthProfileByApprovalToken;
 
-  const testData = getAddress(data);
-  expect(testData).toEqual(',  ');
+  const testData = getAddress(data, 'fi');
+  expect(testData).toEqual('Suomi');
 });
 
 it('test function with all values', () => {
@@ -40,13 +40,14 @@ it('test function with all values', () => {
           address: 'TestAddress',
           postalCode: '12345',
           city: 'Helsinki',
+          countryCode: 'FI',
         },
       },
     },
   } as YouthProfileByApprovalToken;
 
-  const testData = getAddress(data);
-  expect(testData).toEqual('TestAddress, 12345 Helsinki');
+  const testData = getAddress(data, 'fi');
+  expect(testData).toEqual('TestAddress, 12345, Helsinki, Suomi');
 });
 
 it('can get address from MembershipDetails', () => {
@@ -57,10 +58,28 @@ it('can get address from MembershipDetails', () => {
           address: 'Teststreet Ö 44',
           postalCode: '00990',
           city: 'Helsingfors',
+          countryCode: 'SE',
         },
       },
     },
   } as MembershipDetails;
-  const value = getAddress(data);
-  expect(value).toBe('Teststreet Ö 44, 00990 Helsingfors');
+  const value = getAddress(data, 'fi');
+  expect(value).toBe('Teststreet Ö 44, 00990, Helsingfors, Ruotsi');
+});
+
+it('should return country when lang contains locale', () => {
+  const data = {
+    youthProfileByApprovalToken: {
+      profile: {
+        primaryAddress: {
+          address: '',
+          postalCode: '',
+          city: '',
+          countryCode: 'FI',
+        },
+      },
+    },
+  } as YouthProfileByApprovalToken;
+
+  expect(getAddress(data, 'fi-FI')).toEqual('Suomi');
 });

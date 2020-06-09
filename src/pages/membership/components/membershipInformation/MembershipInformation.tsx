@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
-import { Link } from 'react-router-dom';
-import { IconAngleRight } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { QRCode } from 'react-qrcode-logo';
+import * as Sentry from '@sentry/browser';
+import { Button } from 'hds-react';
 
-import Button from '../../../../common/button/Button';
+import LinkButton from '../../../../common/linkButton/LinkButton';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import {
   RenewMyYouthProfile as RenewMyYouthProfileData,
@@ -32,7 +32,10 @@ function MembershipInformation(props: Props) {
   const { data, loading } = useQuery<MembershipInformationTypes>(
     MEMBERSHIP_INFORMATION,
     {
-      onError: () => setShowNotification(true),
+      onError: (error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      },
     }
   );
   const [renewMembership] = useMutation<
@@ -49,7 +52,10 @@ function MembershipInformation(props: Props) {
 
     renewMembership({ variables })
       .then(result => setSuccessNotification(!!result.data))
-      .catch(() => setShowNotification(true));
+      .catch((error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      });
   };
 
   return (
@@ -67,22 +73,26 @@ function MembershipInformation(props: Props) {
           </p>
           <QRCode
             size={175}
-            value="https://helsinkiprofile.test.kuva.hel.ninja/admin/"
+            value="https://profiili-api.test.kuva.hel.ninja/admin/"
           />
            
           {data?.youthProfile?.renewable && (
             <Button
               type="button"
               onClick={handleRenewMembership}
-              className={styles.renew}
+              className={styles.button}
+              data-cy="renew"
             >
               {t('membershipInformation.renew')}
             </Button>
           )}
-          <Link to="/membership-details" className={styles.detailsLink}>
-            {t('membershipInformation.showProfileInformation')}
-            <IconAngleRight className={styles.icon} />
-          </Link>
+          <LinkButton
+            className={styles.button}
+            path="/membership-details"
+            component="Link"
+            buttonText={t('membershipInformation.showProfileInformation')}
+            variant="secondary"
+          />
           <NotificationComponent
             show={showNotification}
             onClose={() => setShowNotification(false)}

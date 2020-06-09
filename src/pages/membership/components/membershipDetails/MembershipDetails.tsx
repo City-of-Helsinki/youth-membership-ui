@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { loader } from 'graphql.macro';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import * as Sentry from '@sentry/browser';
 
+import LinkButton from '../../../../common/linkButton/LinkButton';
 import styles from './MembershipDetails.module.css';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import { MembershipDetails as MembershipDetailsData } from '../../../../graphql/generatedTypes';
@@ -19,9 +20,13 @@ type Props = {};
 
 function RegistrationInformation(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { data } = useQuery<MembershipDetailsData>(MEMBERSHIP_DETAILS, {
-    onError: () => setShowNotification(true),
+    onError: (error: Error) => {
+      Sentry.captureException(error);
+      setShowNotification(true);
+    },
+    fetchPolicy: 'network-only',
   });
 
   return (
@@ -35,7 +40,7 @@ function RegistrationInformation(props: Props) {
             <LabeledValue label={t('profile.name')} value={getFullName(data)} />
             <LabeledValue
               label={t('profile.address')}
-              value={getAddress(data)}
+              value={getAddress(data, i18n.languages[0])}
             />
             <LabeledValue
               label={t('profile.email')}
@@ -49,6 +54,12 @@ function RegistrationInformation(props: Props) {
               label={t('youthProfile.birthdate')}
               value={formatDate(data.youthProfile.birthDate)}
             />
+            <LabeledValue
+              label={t('registration.profileLanguage')}
+              value={t(
+                `LANGUAGE_OPTIONS.${data?.youthProfile?.profile?.language}`
+              )}
+            />
           </div>
           <h2>{t('membershipDetails.additionalInformation')}</h2>
           <div className={styles.fieldsGroup}>
@@ -60,17 +71,16 @@ function RegistrationInformation(props: Props) {
               label={t('youthProfile.homeLanguages')}
               value={t(`LANGUAGE_OPTIONS.${data.youthProfile.languageAtHome}`)}
             />
+            <LabeledValue
+              label={t('registration.photoUsageApproved')}
+              value={
+                data?.youthProfile?.photoUsageApproved
+                  ? t('approval.photoUsageApprovedYes')
+                  : t('approval.photoUsageApprovedNo')
+              }
+            />
           </div>
-          {/*
-          <h2>{t('membershipDetails.requiredPermissionsFromParent')}</h2>
-          <strong className={styles.subHeading}>
-            {t('youthProfile.photoUsage')}
-          </strong>
-          <p className={styles.paragraph}>
-            {t('membershipDetails.photoUsageExplanation')}
-          </p>
-          <span className={styles.check}>{t('yes')}</span>
-          */}
+
           <h2>{t('youthProfile.approverInfo')}</h2>
           <div className={styles.fieldsGroup}>
             <LabeledValue
@@ -88,9 +98,20 @@ function RegistrationInformation(props: Props) {
           </div>
         </>
       )}
-      <Link to="/" className={styles.frontLink}>
-        {t('membershipDetails.returnToFront')}
-      </Link>
+      <LinkButton
+        className={styles.button}
+        path="/"
+        component="Link"
+        buttonText={t('membershipDetails.returnToFront')}
+        variant="secondary"
+      />
+      <LinkButton
+        className={styles.button}
+        path="/edit"
+        component="Link"
+        buttonText={t('membershipDetails.edit')}
+        variant="secondary"
+      />
 
       <NotificationComponent
         show={showNotification}

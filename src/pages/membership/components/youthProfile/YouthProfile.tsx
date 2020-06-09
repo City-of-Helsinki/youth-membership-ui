@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { Redirect, Route, Switch, useHistory } from 'react-router';
+import { Redirect, Route, Switch, useHistory, useLocation } from 'react-router';
 import { loader } from 'graphql.macro';
+import * as Sentry from '@sentry/browser';
 
 import getAuthenticatedUser from '../../../../auth/getAuthenticatedUser';
 import PageLayout from '../../../../common/layout/PageLayout';
@@ -18,6 +19,7 @@ import {
   MembershipStatus,
 } from '../../../../graphql/generatedTypes';
 import getCookie from '../../helpers/getCookie';
+import EditYouthProfile from '../editYouthProfile/EditYouthProfile';
 
 const HAS_YOUTH_PROFILE = loader('../../graphql/HasYouthProfile.graphql');
 
@@ -26,8 +28,12 @@ type Props = {};
 function YouthProfile(props: Props) {
   const { t } = useTranslation();
   const history = useHistory();
+  const location = useLocation();
   const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
-    onError: () => setShowNotification(true),
+    onError: (error: Error) => {
+      Sentry.captureException(error);
+      setShowNotification(true);
+    },
   });
   const [showNotification, setShowNotification] = useState(false);
   const [isCheckingAuthState, setIsCheckingAuthState] = useState(true);
@@ -51,8 +57,26 @@ function YouthProfile(props: Props) {
 
   const birthDate = getCookie('birthDate');
 
+  const getPageTitle = () => {
+    const pathname = location.pathname.substr(1);
+    if (pathname.length === 0) {
+      return isMembershipPending
+        ? 'confirmSendingProfile.pageTitle'
+        : 'membershipInformation.pageTitle';
+    }
+
+    switch (pathname) {
+      case 'membership-details':
+        return 'membershipDetails.title';
+      case 'edit':
+        return 'edit.title';
+      default:
+        return 'appName';
+    }
+  };
+
   return (
-    <PageLayout background="youth">
+    <PageLayout title={getPageTitle()}>
       <Loading
         loadingClassName={styles.loading}
         isLoading={isLoadingAnything}
@@ -69,6 +93,9 @@ function YouthProfile(props: Props) {
             </Route>
             <Route path="/membership-details" exact>
               <MembershipDetails />
+            </Route>
+            <Route path="/edit" exact>
+              <EditYouthProfile />
             </Route>
           </Switch>
         ) : !birthDate ? (

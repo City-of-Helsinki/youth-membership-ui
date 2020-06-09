@@ -2,16 +2,21 @@ fragment MembershipDetailsFragment on YouthProfileType {
   profile {
     firstName
     lastName
+    language
     primaryAddress {
       address
       postalCode
       city
+      countryCode
+      id
     }
     primaryEmail {
       email
+      id
     }
     primaryPhone {
       phone
+      id
     }
   }
   birthDate

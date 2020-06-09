@@ -1,13 +1,14 @@
 .koros {
     width: 100%;
-    fill: var(--hds-ui-color-black-5);
+    fill: var(--color-black-5);
     height: 60px;
 }
 
 .footer {
     width: 100%;
     flex-shrink: 0;
-    background-color: var(--hds-ui-color-black-5);
+    background-color: var(--color-black-5);
+
     padding: 0 10px 20px;
 }
 
@@ -26,12 +27,12 @@
 
 .logo {
     height: 42px;
-    margin-left: -20px;
+    width: 120px;
 }
 
 
 hr {
-    border-top: 1px solid var(--hds-ui-color-black);
+    border-top: 1px solid var(--color-black);
     margin: 15px 0;
     width: 100%;
 }
@@ -45,19 +46,20 @@ hr {
 
 
 .feedback {
-    text-decoration: underline var(--hds-ui-color-black);
+    text-decoration: underline var(--color-black);
     font-weight: bold;
     margin-top: 15px;
+    color: var(--color-black)
 }
 
 .links {
-    color: var(--hds-ui-color-black);
+    color: var(--color-black);
     font-weight: bold;
 }
 
 .links:visited,
 .feedback:visited {
-    color: var(--hds-ui-color-black);
+    color: var(--color-black);
 }
 
 @media (min-width: 600px) {

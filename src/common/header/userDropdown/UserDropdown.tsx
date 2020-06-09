@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { loader } from 'graphql.macro';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 import PersonIcon from '../../svg/Person.svg';
 import { NameQuery } from '../../../graphql/generatedTypes';
@@ -11,7 +12,6 @@ import authenticate from '../../../auth/authenticate';
 import logout from '../../../auth/logout';
 import { isAuthenticatedSelector } from '../../../auth/redux';
 import NotificationComponent from '../../notification/NotificationComponent';
-import commonConstants from '../../constants/commonConstants';
 
 const NAME_QUERY = loader(
   '../../../../src/pages/membership/graphql/NameQuery.graphql'
@@ -25,6 +25,7 @@ function UserDropdown(props: Props) {
     onError: () => setShowNotification(true),
   });
   const { t } = useTranslation();
+  const { trackEvent } = useMatomo();
 
   const isAuthenticated = useSelector(isAuthenticatedSelector);
 
@@ -53,28 +54,32 @@ function UserDropdown(props: Props) {
   const login = {
     id: 'loginButton',
     label: t('nav.signin'),
-    onClick: () => authenticate(),
+    onClick: () => {
+      trackEvent({ category: 'action', action: 'Log in' });
+      authenticate();
+    },
   };
 
   const user = {
     id: 'userButton',
     icon: PersonIcon,
     altText: t('nav.menuButtonLabel'),
-    label: !loading
-      ? `${data?.myProfile?.firstName} ${data?.myProfile?.lastName}`
-      : '',
+    label: !loading ? `${data?.myProfile?.firstName}` : '',
   };
 
   const profile = {
     id: 'profileButton',
-    label: 'Profiili',
-    url: commonConstants.URLS.HELSINKI_PROFILE_URL,
+    label: t('nav.profile'),
+    url: process.env.REACT_APP_PROFILE_LINK,
   };
 
   const logOut = {
     id: 'logoutButton',
     label: t('nav.signout'),
-    onClick: () => logout(),
+    onClick: () => {
+      trackEvent({ category: 'action', action: 'Log out' });
+      logout();
+    },
   };
 
   const dropdownOptions = getDropdownOptions();

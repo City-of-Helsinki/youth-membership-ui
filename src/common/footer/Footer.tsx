@@ -1,17 +1,13 @@
 import React from 'react';
-import Koros from 'hds-react/lib/components/koros/Koros';
+import { Koros } from 'hds-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import tosConstants from '../../pages/tos/constants/tosConstants';
-import { ReactComponent as HelsinkiLogo } from '../svg/HelsinkiLogo.svg';
+import HelsinkiLogo from '../helsinkiLogo/HelsinkiLogo';
 import styles from './Footer.module.css';
 
 function Footer() {
-  const { t, i18n } = useTranslation();
-  const selectedLanguage =
-    (i18n.languages && i18n.languages[0].toUpperCase()) || 'FI';
-  const link = Object(tosConstants.REGISTER_DESCRIPTION)[selectedLanguage];
+  const { t } = useTranslation();
   const year = new Date().getFullYear();
   return (
     <React.Fragment>
@@ -24,21 +20,22 @@ function Footer() {
             <span>
               &copy; {t('footer.copyright', { year })} &bull;{' '}
               {t('footer.reserveRights')} &bull;{' '}
-              <a href={link} className={styles.links}>
+              <a href={t('registry.descriptionLink')} className={styles.links}>
                 {t('footer.privacy')}
               </a>{' '}
               | 
-              <Link to="/#" className={styles.links}>
+              <Link to="/accessibility" className={styles.links}>
                 {t('footer.accessibility')}
-              </Link>{' '}
-              | 
-              <Link to="/terms-of-service" className={styles.links}>
-                {t('footer.terms')}
               </Link>
             </span>
-            <Link to="/#" className={styles.feedback}>
+            <a
+              href={t('footer.feedbackLink')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.feedback}
+            >
               {t('footer.feedback')}
-            </Link>
+            </a>
           </div>
         </div>
       </footer>

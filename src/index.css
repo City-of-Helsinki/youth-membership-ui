@@ -1,4 +1,5 @@
-@import "~hds-core/lib/helsinki.css";
+@import "~hds-core/lib/base.css";
+@import "~hds-design-tokens/lib/all.css";
 
 @font-face {
   font-family: 'HelsinkiGrotesk';

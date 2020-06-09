@@ -1,6 +1,5 @@
 .membershipDetails {
   text-align: left;
-  word-break: break-all;
 }
 
 .subHeading {
@@ -12,7 +11,7 @@
 }
 
 .check::before {
-  color: var(--hds-brand-color-bus);
+  color: var(--color-bus);
   content: '\2713';
   display: inline-block;
   margin-right: 10px;
@@ -39,11 +38,22 @@
   }
 }
 
-.frontLink {
-  border: 2px solid var(--hds-ui-color-black);
-  color: var(--hds-ui-color-black);
-  display: inline-block;
-  font-weight: bold;
-  margin-top: 40px;
-  padding: 16px 50px;
+.button {
+  margin-right: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.membershipDetails h1 {
+  font-size: var(--fontsize-h-2);
+}
+
+.membershipDetails h2 {
+  font-size: var(--fontsize-h-3);
+}
+
+@media (min-width: 540px) {
+  .button {
+    width: 230px;
+  }
 }

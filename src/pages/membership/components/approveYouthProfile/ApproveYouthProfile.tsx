@@ -3,6 +3,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useParams } from 'react-router';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
+import * as Sentry from '@sentry/browser';
 
 import Loading from '../../../../common/loading/Loading';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
@@ -34,12 +35,15 @@ function ApproveYouthProfile(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
 
   const params = useParams<Params>();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { data, loading: queryLoading } = useQuery<YouthProfileByApprovalToken>(
     PROFILE_BY_TOKEN,
     {
       variables: { token: params.token },
-      onError: () => setShowNotification(true),
+      onError: (error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      },
       fetchPolicy: 'network-only',
     }
   );
@@ -68,11 +72,14 @@ function ApproveYouthProfile(props: Props) {
           setApprovalSuccessful(true);
         }
       })
-      .catch(() => setShowNotification(true));
+      .catch((error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      });
   };
 
   return (
-    <PageLayout background="adult">
+    <PageLayout title="approval.title">
       <Loading
         isLoading={queryLoading}
         loadingClassName="loading"
@@ -85,7 +92,7 @@ function ApproveYouthProfile(props: Props) {
                 data?.youthProfileByApprovalToken?.profile?.firstName || '',
               lastName:
                 data?.youthProfileByApprovalToken?.profile?.lastName || '',
-              address: getAddress(data),
+              address: getAddress(data, i18n.languages[0]),
               email:
                 data?.youthProfileByApprovalToken?.profile?.primaryEmail
                   ?.email || '',

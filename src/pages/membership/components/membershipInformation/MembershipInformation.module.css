@@ -5,29 +5,12 @@
 }
 
 .validUntil {
-    margin-bottom: 50px;
+    margin-bottom: var(--spacing-m);
 }
 
-.renew {
-    margin-top: 40px;
+.button {
+    margin-top: var(--spacing-s);
+    min-width: 230px;
+    margin-bottom: 15px;
 }
 
-.detailsLink {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-}
-
-.detailsLink:visited {
-    color: var(--hds-ui-color-black);
-}
-
-.icon {
-    margin-left: 10px;
-    width: 15px;
-    height: 15px;
-}
-
-.container button {
-    width: 195px;
-}

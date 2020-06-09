@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
+import { Button } from 'hds-react';
 
-import { AuthState, resetError } from '../../redux';
+import LinkButton from '../../../common/linkButton/LinkButton';
+import { AuthState, resetError, isAuthenticatedSelector } from '../../redux';
 import { RootState } from '../../../redux/rootReducer';
 import authenticate from '../../authenticate';
 import PageLayout from '../../../common/layout/PageLayout';
@@ -12,6 +15,7 @@ import BirthdateForm from '../birthdateForm/BirthdateForm';
 import NotificationComponent from '../../../common/notification/NotificationComponent';
 import authConstants from '../../constants/authConstants';
 import ageConstants from '../../../pages/membership/constants/ageConstants';
+import PageWrapper from '../../../common/wrapper/PageWrapper';
 
 type Props = {
   resetError: () => void;
@@ -21,6 +25,7 @@ type Props = {
 function Login(props: Props) {
   const [showManualRegistration, setShowManualRegistration] = useState(false);
   const { t } = useTranslation();
+  const { trackEvent } = useMatomo();
 
   const redirectBasedOnAge = (birthDate: string) => {
     const age = differenceInYears(new Date(), new Date(birthDate));
@@ -29,59 +34,79 @@ function Login(props: Props) {
       setShowManualRegistration(true);
     } else {
       document.cookie = `birthDate=${birthDate}`;
+      trackEvent({ category: 'action', action: 'Log in' });
       authenticate();
     }
   };
 
+  const isAuthenticated = useSelector(isAuthenticatedSelector);
+
   return (
-    <PageLayout background="youth">
-      <div className={styles.hostingBox}>
-        <h1>{t('login.title')}</h1>
+    <PageWrapper>
+      <PageLayout title={'login.pageTitle'}>
+        <div className={styles.hostingBox}>
+          <h1 className={styles.title}>{t('login.title')}</h1>
 
-        {!showManualRegistration && (
-          <React.Fragment>
-            <p className={styles.helpText}>{t('login.helpText')}</p>
-            <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
-            <button onClick={authenticate}>
-              {t('login.linkForMembersText')} >
-            </button>
-          </React.Fragment>
-        )}
+          {!showManualRegistration && (
+            <React.Fragment>
+              <p className={styles.helpText}>{t('login.helpText')}</p>
+              <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
 
-        {showManualRegistration && (
-          <React.Fragment>
-            <p className={styles.helpText}>
-              <Trans
-                i18nKey="login.helpTextUnderAge"
-                components={[
-                  // eslint-disable-next-line jsx-a11y/anchor-has-content
-                  <a
-                    href={t('login.registrationForm')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  />,
-                ]}
+              {!isAuthenticated && (
+                <div className={styles.loginContainer}>
+                  <span className={styles.linkForMembers}>
+                    {t('login.linkForMembersText')}
+                  </span>
+                  <Button
+                    onClick={authenticate}
+                    variant="supplementary"
+                    className={styles.button}
+                  >
+                    {t('nav.signin')}
+                  </Button>
+                </div>
+              )}
+            </React.Fragment>
+          )}
+
+          {showManualRegistration && (
+            <div className={styles.loginContainer}>
+              <p className={styles.helpText}>{t('login.helpTextUnderAge')}</p>
+              <LinkButton
+                className={styles.linkButtons}
+                path={t('login.registrationForm')}
+                component="a"
+                buttonText={t('login.registrationFormText')}
+                variant="primary"
+                target="_blank"
+                rel="noopener noreferrer"
               />
-            </p>
-            <a
-              className={styles.serviceLink}
-              href={authConstants.URLS.YOUTH_CENTERS}
-            >
-              {t('login.findNearestService')}
-            </a>
-            <br />
-            <button onClick={() => setShowManualRegistration(false)}>
-              {t('login.return')}
-            </button>
-          </React.Fragment>
-        )}
-      </div>
+              <LinkButton
+                className={styles.linkButtons}
+                path={authConstants.URLS.YOUTH_CENTERS}
+                component="a"
+                buttonText={t('login.findNearestService')}
+                variant="primary"
+              />
 
-      <NotificationComponent
-        show={Boolean(props.auth.error)}
-        onClose={() => props.resetError()}
-      />
-    </PageLayout>
+              <Button
+                data-cy="goBack"
+                onClick={() => setShowManualRegistration(false)}
+                className={styles.linkButtons}
+                variant="secondary"
+              >
+                {t('login.return')}
+              </Button>
+            </div>
+          )}
+        </div>
+
+        <NotificationComponent
+          show={Boolean(props.auth.error)}
+          onClose={() => props.resetError()}
+        />
+      </PageLayout>
+    </PageWrapper>
   );
 }
 

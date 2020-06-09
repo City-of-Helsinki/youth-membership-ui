@@ -5,12 +5,6 @@
     flex: 1 0 auto;
 }
 
-@media (min-width: 800px) {
-    .hostingBox {
-        margin: 20px auto 0;
-        width: 800px;
-    }
-}
 
 
 header {
@@ -19,15 +13,24 @@ header {
 
 .background {
     min-height: 100vh;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    background-image: url("../images/JassariBG.svg");
+    background-repeat: repeat-x;
+    background-color: #2E3192;
 }
 
-.adultBackground {
-    background-color: #0072c6;
+@media (min-width: 720px) {
+    .background {
+        background-size: 720px auto;
+    }
 }
 
-.youthBackground {
-    background-color: #ffc61e;
+
+@media (min-width: 800px) {
+    .hostingBox {
+        margin: 20px auto 0;
+        width: 800px;
+    }
 }
