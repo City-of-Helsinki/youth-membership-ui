@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import styles from './Dropdown.module.css';
 
-interface DropdownOption {
+export interface DropdownOption {
   id: string;
   label: string;
   altText?: string;
