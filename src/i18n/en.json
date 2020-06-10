@@ -1,0 +1,192 @@
+{
+  "appName": "Youth services",
+  "approval": {
+    "addInfo": "Additional info",
+    "address": "Home address",
+    "approveButton": "Approve membership",
+    "approvedLink": "Application is already approved / link is defective",
+    "approvedMessage": "Thank you for confirming youth service membership.",
+    "approvedTitle": "Jässäri membership approved!",
+    "approverAcceptance": "Permissions to be approved",
+    "approverEmail": "Email",
+    "approverFirstName": "Firstname",
+    "approverInfo": "Approver info",
+    "approverInfoText": "Guardian may be contacted concerning the child.",
+    "approverLastName": "Lastname",
+    "approveTerms": "I have read <0>file description</0> and  city's <1>data protection principles</1>. I can be contacted via address I have given.",
+    "approveTermsText_link": "service terms",
+    "basicInfo": "Basic info",
+    "birthDate": "Birthdate",
+    "formExplanationText_1": "has sent a membership application for the City of Helsinki’s Youth Services for your approval. The membership is free of charge. If you approve the application,",
+    "formExplanationText_2": "may visit Youth Centres and enjoy fun benefits. If the information is incorrect, ask the young person to change it and send a new verification message to you.",
+    "languagesAtHome": "Languages at home",
+    "name": "Name",
+    "phone": "Phone",
+    "photoUsageApproved": "Photo usage approval",
+    "photoUsageApprovedNo": "No",
+    "photoUsageApprovedText": "The young person may be photographed and the photos may be used in the printed and electronic communications and marketing of the City of Helsinki. The City will not pay compensation for photographing and using the photos. The right to use the photos will remain in effect until further notice, and it concerns all communications and marketing communications of the City of Helsinki.",
+    "photoUsageApprovedYes": "Yes",
+    "profile": "Profile",
+    "schoolInfo": "School and class",
+    "title": "Please approve membership"
+  },
+  "confirmSendingProfile": {
+    "buttonText": "Resend the membership request",
+    "helpText": "Your membership application has been sent to",
+    "linkToShowSentData": "Display your application",
+    "sendAgainHelpText": "Approval email has been re-sent to",
+    "title": "The application has been sent to your guardian for approval!"
+  },
+  "footer": {
+    "accessibility": "Accessibility document",
+    "copyright": "Copyright {{year}}",
+    "feedback": "Give feedback",
+    "feedbackLink": "https://www.hel.fi/helsinki/en/administration/participate/feedback",
+    "privacy": "Privacy policy",
+    "reserveRights": "All rights reserved",
+    "terms": "Terms of Service"
+  },
+  "helsinkiLogo": "Helsinki logo",
+  "LANGUAGE_OPTIONS": {
+    "ARABIC": "Arabic",
+    "ENGLISH": "English",
+    "ESTONIAN": "Estonian",
+    "FINNISH": "Finnish",
+    "RUSSIAN": "Russian",
+    "SOMALI": "Somali",
+    "SWEDISH": "Swedish"
+  },
+  "loading": "Loading...",
+  "login": {
+    "buttonText": "Get membership",
+    "findNearestService": "Find the nearest youth centre on the service map",
+    "helpText": "Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers.",
+    "helpTextUnderAge": "Unfortunately, you need to be at least 13 years old to get a digital Jässäri. You can download an application form from here. ",
+    "linkForMembersText": "Do you have membership? Log in",
+    "registrationForm": "http://jassari.munstadi.fi/files/2019/06/Jasenkorttikaavake_2019_englanti.pdf",
+    "registrationFormText": "Download application",
+    "return": "Go back",
+    "title": "Get your Jässäri!"
+  },
+  "Fill in the application form with your guardian and take it back to the Youth Centre to get your own membership card. ": "",
+  "membershipDetails": {
+    "additionalInformation": "Additional information",
+    "edit": "Edit information",
+    "photoUsageExplanation": "Pictures of my child can be taken and used for internal and external communications in the City of Helsinki",
+    "profileInformation": "Basic information",
+    "requiredPermissionsFromParent": "Required permissions from parent",
+    "returnToFront": "Return to frontpage",
+    "text": "Here information about things?",
+    "title": "Own information"
+  },
+  "membershipInformation": {
+    "renew": "Renew membership",
+    "renewSuccessMessage": "Membership renewed successfully!",
+    "renewSuccessTitle": "Success",
+    "showProfileInformation": "Show profile information",
+    "title": "Membership card number {{number}}",
+    "validUntil": "Valid until {{date}}"
+  },
+  "nav": {
+    "menuButtonLabel": "Profile menu",
+    "profile": "Profile",
+    "signin": "Log in",
+    "signout": "Log out"
+  },
+  "notification": {
+    "closeButtonText": "Close",
+    "defaultErrorText": "Something went wrong. Try again after a while.",
+    "defaultErrorTitle": "Error"
+  },
+  "oidc": {
+    "authenticating": "Authenticating..."
+  },
+  "privacyPolicy": {
+    "descriptionLink": "https://www.hel.fi/helsinki/en/administration/information/data-protection"
+  },
+  "profile": {
+    "address": "Address",
+    "email": "Email",
+    "loading": "Loading profile...",
+    "name": "Name",
+    "phone": "Phone"
+  },
+  "registration": {
+    "addInfo": "Additional info",
+    "address": "Street",
+    "ageRestriction": "Only 8-25 years old can create youth profile.",
+    "approver": "Approver",
+    "approverInfoOver18Text": "For members over 18, we don't require providing custodian contact information. If for any reason you wish us to be able to contact them, you can add the information here.",
+    "approverInfoText": "A confirmation request concerning your membership will be sent to this address, and your guardian must verify the information and approve your membership.",
+    "approveTerms": "I have read <0>file description</0> and  city's <1>data protection principles</1>. I can be contacted via address I have given.",
+    "basicInfo": "Basic info",
+    "birthdayHelper": "Birthdate (dd.mm.yyyy) *",
+    "birthdayInvalid": "The birthday should be dd.mm.yyyy.",
+    "cancel": "Cancel",
+    "childBirthDay": "Birthdate",
+    "childBirthMonth": "Birthmonth",
+    "childBirthYear": "Birthyear",
+    "city": "City",
+    "confirmSend": "Accept the terms and send the application",
+    "country": "Country",
+    "email": "Email",
+    "firstName": "Firstname",
+    "languageAtHome": "Language at home",
+    "lastName": "Lastname",
+    "membershipInfoText": "Membership is free and does not require anything of you, but you do need a membership to be able to participate in activities at Youth Centres. We will not disclose your information to third parties. You have the right to check and remove the information we have stored concerning you. Please remember that intoxicants are not allowed at Youth Centre activities. ",
+    "phoneNumber": "Phone",
+    "photoUsageApproved": "Photo usage approved",
+    "photoUsageApprovedNo": "No",
+    "photoUsageApprovedText": "I can be photographed and photos can be used in internal and external communications in the City of Helsinki.",
+    "photoUsageApprovedYes": "Yes",
+    "postalCode": "Postalcode",
+    "processInfoText": "A data verification request will be sent to the parent and once they have reviewed and approved the information, your membership will take effect.",
+    "profileLanguage": "The language of the profile",
+    "save": "Save information",
+    "schoolClass": "School class",
+    "schoolName": "School name",
+    "sendButton": "Save and send approval request",
+    "title": "Please fill in your information"
+  },
+  "registry": {
+    "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
+  },
+  "sanityCheck": "youth-profile.en",
+  "tos": {
+    "message1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "message2": "",
+    "message3": "",
+    "message4": "",
+    "message5": "",
+    "message6": "",
+    "message7": "",
+    "message8": "",
+    "title": "Terms of Service",
+    "title1": "1. Scope of application",
+    "title2": "2. Create and disable a profile",
+    "title3": "3. Using a profile",
+    "title4": "4. Availability of the service",
+    "title5": "5. Personal information",
+    "title6": "6. Rights",
+    "title7": "7. Limitation of Liability",
+    "title8": "8. Other terms and conditions",
+    "updated": "Updated 20.1.2020"
+  },
+  "validation": {
+    "email": "Invalid email",
+    "invalidValue": "Invalid value",
+    "phoneMin": "Min length six characters",
+    "required": "Required",
+    "tooLong": "Too long",
+    "tooShort": "Too short"
+  },
+  "youthProfile": {
+    "approverEmail": "Email",
+    "approverInfo": "Approver information",
+    "approverName": "Name",
+    "approverPhone": "Phone",
+    "birthdate": "Birthdate",
+    "homeLanguages": "Language spoken at home",
+    "school": "School"
+  }
+}

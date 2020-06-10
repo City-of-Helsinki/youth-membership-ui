@@ -1,0 +1,60 @@
+.hostingBox {
+  text-align: left;
+}
+
+.title {
+  font-size: var(--fontsize-h-2);
+}
+
+.helpText {
+  margin: 20px 0 50px;
+  font-size: var(--fontsize-body-medium);
+  line-height: var(--lineheight-m);
+  text-align: left;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linkButtons {
+  margin-top: var(--spacing-s);
+  width: 100%;
+}
+
+.linkForMembers {
+  margin-top: 30px;
+}
+
+.button {
+  margin-top: var(--spacing-s);
+  width: 100%;
+}
+
+
+@media (min-width: 400px) {
+  .title {
+    font-size: var(--fontsize-h-1);
+  }
+
+  .button {
+    width: 230px;
+  }
+
+  .linkButtons {
+    width: 340px;
+  }
+}
+
+@media (min-width: 500px) {
+  .helpText {
+    margin: 20px 50px 50px;
+    text-align: center;
+  }
+
+  .hostingBox {
+    text-align: center;
+  }
+}

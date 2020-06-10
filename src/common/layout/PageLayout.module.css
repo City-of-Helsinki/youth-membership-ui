@@ -1,0 +1,36 @@
+.hostingBox {
+    margin: 20px 10px 0;
+    padding-bottom: 50px;
+    width: auto;
+    flex: 1 0 auto;
+}
+
+
+
+header {
+    background-color: white;
+}
+
+.background {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-image: url("../images/JassariBG.svg");
+    background-repeat: repeat-x;
+    background-color: #2E3192;
+}
+
+@media (min-width: 720px) {
+    .background {
+        background-size: 720px auto;
+    }
+}
+
+
+@media (min-width: 800px) {
+    .hostingBox {
+        margin: 20px auto 0;
+        width: 800px;
+    }
+}

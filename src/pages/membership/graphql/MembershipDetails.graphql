@@ -1,0 +1,7 @@
+#import "./MembershipDetailsFragment.graphql
+
+query MembershipDetails {
+  youthProfile {
+    ...MembershipDetailsFragment
+  }
+}

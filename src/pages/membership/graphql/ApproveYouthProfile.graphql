@@ -1,0 +1,7 @@
+mutation ApproveYouthProfile($input:ApproveYouthProfileMutationInput!) {
+    approveYouthProfile(input: $input) {
+        youthProfile {
+            approverEmail
+        }
+    }
+}

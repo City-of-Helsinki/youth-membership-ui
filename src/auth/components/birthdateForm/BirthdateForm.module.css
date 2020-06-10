@@ -1,0 +1,22 @@
+.birthdayForm {
+    text-align: left;
+    width: auto;
+    margin: 0 auto;
+}
+
+.buttonRow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: var(--spacing-m) 0 var(--spacing-m);
+}
+
+.button {
+    width: 230px;
+}
+
+@media (min-width: 375px) {
+    .birthdayForm {
+        max-width: 375px;
+    }
+}
