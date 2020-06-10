@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<Fragment>
+  <Koros
+    className="koros"
+  />
+  <footer
+    className="footer"
+  >
+    <div
+      className="content"
+    >
+      <HelsinkiLogo
+        className="logo"
+      />
+      <hr />
+      <div
+        className="textContainer"
+      >
+        <span>
+          © 
+          Tekijänoikeus 2020
+           •
+           
+          Kaikki oikeudet pidätetään
+           •
+           
+          <a
+            className="links"
+            href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
+          >
+            Rekisteriseloste
+          </a>
+           
+          | 
+          <Link
+            className="links"
+            to="/accessibility"
+          >
+            Saavutettavuusseloste
+          </Link>
+        </span>
+        <a
+          className="feedback"
+          href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/anna-palautetta"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Anna palautetta
+        </a>
+      </div>
+    </div>
+  </footer>
+</Fragment>
+`;
