@@ -72,11 +72,11 @@
   "membershipDetails": {
     "additionalInformation": "Additional information",
     "edit": "Edit information",
-    "photoUsageExplanation": "Pictures of my child can be taken and used for internal and external communications in the City of Helsinki",
+    "photoUsageExplanation": "I can be photographed and the photos may be used in the printed and electronic communications and marketing of the City of Helsinki. The City will not pay compensation for photographing and using the photos. The right to use the photos will remain in effect until further notice, and it concerns all communications and marketing communications of the City of Helsinki.",
     "profileInformation": "Basic information",
     "requiredPermissionsFromParent": "Required permissions from parent",
     "returnToFront": "Return to frontpage",
-    "text": "Here information about things?",
+    "text": "Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers.",
     "title": "Own information"
   },
   "membershipInformation": {
@@ -137,7 +137,7 @@
     "phoneNumber": "Phone",
     "photoUsageApproved": "Photo usage approved",
     "photoUsageApprovedNo": "No",
-    "photoUsageApprovedText": "I can be photographed and photos can be used in internal and external communications in the City of Helsinki.",
+    "photoUsageApprovedText": "I can be photographed and the photos may be used in the printed and electronic communications and marketing of the City of Helsinki. The City will not pay compensation for photographing and using the photos. The right to use the photos will remain in effect until further notice, and it concerns all communications and marketing communications of the City of Helsinki.",
     "photoUsageApprovedYes": "Yes",
     "postalCode": "Postalcode",
     "processInfoText": "A data verification request will be sent to the parent and once they have reviewed and approved the information, your membership will take effect.",
@@ -146,7 +146,11 @@
     "schoolClass": "School class",
     "schoolName": "School name",
     "sendButton": "Save and send approval request",
-    "title": "Please fill in your information"
+    "title": "Please fill in your information",
+    "addAddress": "Add another address",
+    "addGuardian": "Add anohter guardians infomration ",
+    "addGuardianText": "We will notify the other guardian about them being added to the application.",
+    "remove": "Delete"
   },
   "registry": {
     "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
