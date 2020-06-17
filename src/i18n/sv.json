@@ -71,11 +71,11 @@
   "membershipDetails": {
     "additionalInformation": "Ytterligare information",
     "edit": "Redigera information",
-    "photoUsageExplanation": "Bilder av mitt barn kan tas och användas för Helsingfors stads interna och externa kommunikationsyften",
+    "photoUsageExplanation": "Jag kan fotograferas och fotografierna får användas i Helsingfors stads tryckta och elektroniska media för kommunikation och marknadsföring Ingen ersättning betalas för fotograferingen och användningen av bilderna. Rätten att använda bilderna är ständigt i kraft i och gäller för hela Helsingfors stads kommunikation och marknadsföringskommunikation.",
     "profileInformation": "Grundläggande information",
     "requiredPermissionsFromParent": "Tillstånd som krävs av vårdnadshavaren",
     "returnToFront": "Tillbaka till framsidan",
-    "text": "Information om saker?",
+    "text": "Jässäri är ditt medlemskort till ungdomsgårdarna. Medlemskapet garanterar trevliga aktiviteter: häng på ungdomsgårdarna, delta i hobbygrupper, ansök om projektunderstöd eller producera ett eget evenemang! Verksamheten leds av utbildade ungdomsledare.",
     "title": "Egen information"
   },
   "membershipInformation": {
@@ -136,7 +136,7 @@
     "phoneNumber": "Telefon",
     "photoUsageApproved": "Fotoanvändning godkänd",
     "photoUsageApprovedNo": "Nej",
-    "photoUsageApprovedText": "Jag kan fotograferas och foton kan användas i intern och extern kommunikation i Helsingfors stad.",
+    "photoUsageApprovedText": "Jag kan fotograferas och fotografierna får användas i Helsingfors stads tryckta och elektroniska media för kommunikation och marknadsföring Ingen ersättning betalas för fotograferingen och användningen av bilderna. Rätten att använda bilderna är ständigt i kraft i och gäller för hela Helsingfors stads kommunikation och marknadsföringskommunikation.",
     "photoUsageApprovedYes": "Ja",
     "postalCode": "Postnummer",
     "processInfoText": "En begäran om dataverifiering skickas till föräldern och när de har granskat och godkänt informationen kommer ditt medlemskap att träda i kraft.",
@@ -145,7 +145,11 @@
     "schoolClass": "Skolklass",
     "schoolName": "Skolnamn",
     "sendButton": "Spara och skicka godkännandeförfrågan",
-    "title": "Vänligen fyll i din information"
+    "title": "Vänligen fyll i din information",
+    "addAddress": "Lägg till en annan adress",
+    "addGuardian": "Lägg till anohter förmyndares infomration",
+    "addGuardianText": "Vi meddelar den andra vårdnadshavaren om att de har lagts till i ansökan.",
+    "remove": "Radera"
   },
   "registry": {
     "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri-SV.pdf"

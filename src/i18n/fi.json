@@ -72,11 +72,11 @@
   "membershipDetails": {
     "additionalInformation": "Lisätiedot",
     "edit": "Muokkaa tietoja",
-    "photoUsageExplanation": "Lapsestani saa ottaa kuvia ja niitä saa käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä",
+    "photoUsageExplanation": "Minusta voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin viestinnässä ja markkinoinnissa painetussa ja sähköisessä mediassa. Kuvaamisesta ja kuvien käytöstä ei makseta korvausta. Oikeus kuvien käyttöön on aina voimassa ja koskee koko Helsingin kaupungin viestintää ja markkinointiviestintää.",
     "profileInformation": "Perustiedot",
     "requiredPermissionsFromParent": "Vanhemmalta vaadittavat luvat",
     "returnToFront": "Takaisin etusivulle",
-    "text": "Tähän listätietoa siitä mitä jäsenyydellä saa, mihin tietoja käytetään ja miksi niitä kysytään?",
+    "text": "Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat.",
     "title": "Omat tiedot"
   },
   "membershipInformation": {
@@ -137,7 +137,7 @@
     "phoneNumber": "Puhelinnumero",
     "photoUsageApproved": "Kuvauslupa",
     "photoUsageApprovedNo": "Ei",
-    "photoUsageApprovedText": "Minusta saa ottaa kuvia ja käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä.",
+    "photoUsageApprovedText": "Minusta voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin viestinnässä ja markkinoinnissa painetussa ja sähköisessä mediassa. Kuvaamisesta ja kuvien käytöstä ei makseta korvausta. Oikeus kuvien käyttöön on aina voimassa ja koskee koko Helsingin kaupungin viestintää ja markkinointiviestintää.",
     "photoUsageApprovedYes": "Kyllä",
     "postalCode": "Postinumero",
     "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
@@ -146,7 +146,11 @@
     "schoolClass": "Luokka",
     "schoolName": "Koulu",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
-    "title": "Täytä tietosi"
+    "title": "Täytä tietosi",
+    "addAddress": "Lisää toinen osoite",
+    "addGuardian": "Lisää toisen huoltajan yhteystiedot",
+    "addGuardianText": "Toiselle huoltajalle lähtee ilmoitus, että olet lisännyt hänen tietonsa hakemukseesi.",
+    "remove": "Poista"
   },
   "registry": {
     "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
