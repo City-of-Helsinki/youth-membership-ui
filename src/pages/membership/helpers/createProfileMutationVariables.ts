@@ -1,4 +1,4 @@
-import { format, differenceInYears } from 'date-fns';
+import { differenceInYears, format } from 'date-fns';
 
 import ageConstants from '../constants/ageConstants';
 import {
@@ -33,6 +33,20 @@ const getYouthProfile = (formValues: FormValues) => {
 };
 
 const getAddress = (formValues: FormValues, profile?: PrefillRegistartion) => {
+  const addAddresses = formValues.addresses
+    .filter(addresss => !addresss.id)
+    .map(address => ({
+      address: address.address,
+      postalCode: address.postalCode,
+      city: address.city,
+      countryCode: address.countryCode,
+      addressType: address.addressType || AddressType.OTHER,
+    }));
+
+  return {
+    addAddresses,
+  };
+  /*
   if (profile?.myProfile?.primaryAddress?.id) {
     return {
       updateAddresses: [
@@ -61,6 +75,9 @@ const getAddress = (formValues: FormValues, profile?: PrefillRegistartion) => {
       },
     ],
   };
+
+   */
+  return {};
 };
 
 const getPhone = (formValues: FormValues, profile?: PrefillRegistartion) => {

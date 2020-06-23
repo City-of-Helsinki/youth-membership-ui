@@ -210,6 +210,38 @@ export interface MembershipDetails_youthProfile_profile_primaryAddress {
    * The ID of the object.
    */
   readonly id: string;
+  readonly addressType: AddressType | null;
+  readonly primary: boolean;
+}
+
+export interface MembershipDetails_youthProfile_profile_addresses_edges_node {
+  readonly __typename: "AddressNode";
+  readonly primary: boolean;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
+  readonly address: string;
+  readonly postalCode: string;
+  readonly city: string;
+  readonly countryCode: string;
+  readonly addressType: AddressType | null;
+}
+
+export interface MembershipDetails_youthProfile_profile_addresses_edges {
+  readonly __typename: "AddressNodeEdge";
+  /**
+   * The item at the end of the edge
+   */
+  readonly node: MembershipDetails_youthProfile_profile_addresses_edges_node | null;
+}
+
+export interface MembershipDetails_youthProfile_profile_addresses {
+  readonly __typename: "AddressNodeConnection";
+  /**
+   * Contains the nodes in this connection.
+   */
+  readonly edges: ReadonlyArray<(MembershipDetails_youthProfile_profile_addresses_edges | null)>;
 }
 
 export interface MembershipDetails_youthProfile_profile_primaryEmail {
@@ -239,6 +271,10 @@ export interface MembershipDetails_youthProfile_profile {
    * Convenience field for the address which is marked as primary.
    */
   readonly primaryAddress: MembershipDetails_youthProfile_profile_primaryAddress | null;
+  /**
+   * List of addresses of the profile.
+   */
+  readonly addresses: MembershipDetails_youthProfile_profile_addresses | null;
   /**
    * Convenience field for the email which is marked as primary.
    */
@@ -383,6 +419,38 @@ export interface PrefillRegistartion_myProfile_primaryAddress {
    * The ID of the object.
    */
   readonly id: string;
+  readonly primary: boolean;
+  readonly addressType: AddressType | null;
+}
+
+export interface PrefillRegistartion_myProfile_addresses_edges_node {
+  readonly __typename: "AddressNode";
+  readonly primary: boolean;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
+  readonly address: string;
+  readonly postalCode: string;
+  readonly city: string;
+  readonly countryCode: string;
+  readonly addressType: AddressType | null;
+}
+
+export interface PrefillRegistartion_myProfile_addresses_edges {
+  readonly __typename: "AddressNodeEdge";
+  /**
+   * The item at the end of the edge
+   */
+  readonly node: PrefillRegistartion_myProfile_addresses_edges_node | null;
+}
+
+export interface PrefillRegistartion_myProfile_addresses {
+  readonly __typename: "AddressNodeConnection";
+  /**
+   * Contains the nodes in this connection.
+   */
+  readonly edges: ReadonlyArray<(PrefillRegistartion_myProfile_addresses_edges | null)>;
 }
 
 export interface PrefillRegistartion_myProfile_primaryEmail {
@@ -403,6 +471,10 @@ export interface PrefillRegistartion_myProfile {
    * Convenience field for the address which is marked as primary.
    */
   readonly primaryAddress: PrefillRegistartion_myProfile_primaryAddress | null;
+  /**
+   * List of addresses of the profile.
+   */
+  readonly addresses: PrefillRegistartion_myProfile_addresses | null;
   /**
    * Convenience field for the email which is marked as primary.
    */
@@ -571,6 +643,38 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
    * The ID of the object.
    */
   readonly id: string;
+  readonly addressType: AddressType | null;
+  readonly primary: boolean;
+}
+
+export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges_node {
+  readonly __typename: "AddressNode";
+  readonly primary: boolean;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
+  readonly address: string;
+  readonly postalCode: string;
+  readonly city: string;
+  readonly countryCode: string;
+  readonly addressType: AddressType | null;
+}
+
+export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges {
+  readonly __typename: "AddressNodeEdge";
+  /**
+   * The item at the end of the edge
+   */
+  readonly node: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges_node | null;
+}
+
+export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses {
+  readonly __typename: "AddressNodeConnection";
+  /**
+   * Contains the nodes in this connection.
+   */
+  readonly edges: ReadonlyArray<(YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges | null)>;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail {
@@ -600,6 +704,10 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
    * Convenience field for the address which is marked as primary.
    */
   readonly primaryAddress: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryAddress | null;
+  /**
+   * List of addresses of the profile.
+   */
+  readonly addresses: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses | null;
   /**
    * Convenience field for the email which is marked as primary.
    */
@@ -666,6 +774,38 @@ export interface MembershipDetailsFragment_profile_primaryAddress {
    * The ID of the object.
    */
   readonly id: string;
+  readonly addressType: AddressType | null;
+  readonly primary: boolean;
+}
+
+export interface MembershipDetailsFragment_profile_addresses_edges_node {
+  readonly __typename: "AddressNode";
+  readonly primary: boolean;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
+  readonly address: string;
+  readonly postalCode: string;
+  readonly city: string;
+  readonly countryCode: string;
+  readonly addressType: AddressType | null;
+}
+
+export interface MembershipDetailsFragment_profile_addresses_edges {
+  readonly __typename: "AddressNodeEdge";
+  /**
+   * The item at the end of the edge
+   */
+  readonly node: MembershipDetailsFragment_profile_addresses_edges_node | null;
+}
+
+export interface MembershipDetailsFragment_profile_addresses {
+  readonly __typename: "AddressNodeConnection";
+  /**
+   * Contains the nodes in this connection.
+   */
+  readonly edges: ReadonlyArray<(MembershipDetailsFragment_profile_addresses_edges | null)>;
 }
 
 export interface MembershipDetailsFragment_profile_primaryEmail {
@@ -695,6 +835,10 @@ export interface MembershipDetailsFragment_profile {
    * Convenience field for the address which is marked as primary.
    */
   readonly primaryAddress: MembershipDetailsFragment_profile_primaryAddress | null;
+  /**
+   * List of addresses of the profile.
+   */
+  readonly addresses: MembershipDetailsFragment_profile_addresses | null;
   /**
    * Convenience field for the email which is marked as primary.
    */

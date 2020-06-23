@@ -1,4 +1,5 @@
 import {
+  AddressType,
   Language,
   MembershipDetails,
   YouthLanguage,
@@ -25,8 +26,28 @@ export const membershipDetailsData: MembershipDetails = {
         address: 'Testikatu 55',
         postalCode: '12345',
         city: 'Helsinki',
+        primary: true,
         countryCode: 'FI',
+        addressType: AddressType.OTHER,
         __typename: 'AddressNode',
+      },
+      addresses: {
+        edges: [
+          {
+            node: {
+              address: 'Testikatu 66',
+              addressType: AddressType.OTHER,
+              city: 'Helsinki',
+              countryCode: 'FI',
+              id: '234',
+              postalCode: '00100',
+              primary: false,
+              __typename: 'AddressNode',
+            },
+            __typename: 'AddressNodeEdge',
+          },
+        ],
+        __typename: 'AddressNodeConnection',
       },
       __typename: 'ProfileNode',
     },

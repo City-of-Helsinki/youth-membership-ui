@@ -1,7 +1,13 @@
 import React from 'react';
-import { useTranslation, Trans } from 'react-i18next';
-import { TextInput, Button, Checkbox, RadioButton } from 'hds-react';
-import { Formik, Form, Field } from 'formik';
+import { Trans, useTranslation } from 'react-i18next';
+import {
+  Button,
+  Checkbox,
+  RadioButton,
+  TextInput,
+  IconPlusCircle,
+} from 'hds-react';
+import { Field, FieldArray, FieldArrayRenderProps, Form, Formik } from 'formik';
 import { Link } from 'react-router-dom';
 import { differenceInYears, format } from 'date-fns';
 import * as Yup from 'yup';
@@ -14,7 +20,15 @@ import {
 import getLanguageCode from '../../../../common/helpers/getLanguageCode';
 import Select from '../../../../common/select/Select';
 import ageConstants from '../../constants/ageConstants';
-import { Language, YouthLanguage } from '../../../../graphql/generatedTypes';
+import {
+  AddressType,
+  Language,
+  MembershipDetails_youthProfile_profile_addresses_edges_node as EditAddress,
+  MembershipDetails_youthProfile_profile_primaryAddress as EditPrimaryAddress,
+  PrefillRegistartion_myProfile_addresses_edges_node as CreateAddress,
+  PrefillRegistartion_myProfile_primaryAddress as CreatePrimaryAddress,
+  YouthLanguage,
+} from '../../../../graphql/generatedTypes';
 import styles from './YouthProfileForm.module.css';
 
 const isConsentRequired = (birthDate: string, schema: Yup.StringSchema) => {
@@ -33,27 +47,29 @@ const schema = Yup.object().shape({
     .min(2, 'validation.tooShort')
     .max(255, 'validation.tooLong')
     .required('validation.required'),
+  primaryAddress: Yup.object().shape({
+    address: Yup.string()
+      .min(2, 'validation.tooShort')
+      .max(255, 'validation.tooLong')
+      .required('validation.required'),
+    postalCode: Yup.mixed()
+      .required('validation.required')
+      .test('isValidPostalCode', 'validation.invalidValue', function() {
+        if (postcodeValidatorExistsForCountry(this.parent.countryCode)) {
+          return postcodeValidator(
+            this.parent.postalCode,
+            this.parent.countryCode
+          );
+        }
+        return this.parent?.postalCode?.length < 32;
+      }),
+    city: Yup.string()
+      .min(2, 'validation.tooShort')
+      .max(255, 'validation.tooLong')
+      .required('validation.required'),
+  }),
   phone: Yup.string()
     .min(6, 'validation.phoneMin')
-    .required('validation.required'),
-  address: Yup.string()
-    .min(2, 'validation.tooShort')
-    .max(255, 'validation.tooLong')
-    .required('validation.required'),
-  postalCode: Yup.mixed()
-    .required('validation.required')
-    .test('isValidPostalCode', 'validation.invalidValue', function() {
-      if (postcodeValidatorExistsForCountry(this.parent.countryCode)) {
-        return postcodeValidator(
-          this.parent.postalCode,
-          this.parent.countryCode
-        );
-      }
-      return this.parent?.postalCode?.length < 32;
-    }),
-  city: Yup.string()
-    .min(2, 'validation.tooShort')
-    .max(255, 'validation.tooLong')
     .required('validation.required'),
   schoolName: Yup.string().max(128, 'validation.tooLong'),
   schoolClass: Yup.string().max(10, 'validation.tooLong'),
@@ -86,10 +102,8 @@ const schema = Yup.object().shape({
 export type FormValues = {
   firstName: string;
   lastName: string;
-  address: string;
-  postalCode: string;
-  city: string;
-  countryCode: string;
+  primaryAddress: CreatePrimaryAddress | EditPrimaryAddress;
+  addresses: (CreateAddress | EditAddress)[];
   email: string;
   phone: string;
   birthDate: string;
@@ -144,8 +158,27 @@ function YouthProfileForm(componentProps: Props) {
       initialValues={{
         ...componentProps.profile,
         terms: !!componentProps.isEditing,
+        primaryAddress: {
+          ...componentProps.profile.primaryAddress,
+          address: componentProps.profile.primaryAddress.address || '',
+          postalCode: componentProps.profile.primaryAddress.postalCode || '',
+          city: componentProps.profile.primaryAddress.city || '',
+          countryCode:
+            componentProps.profile.primaryAddress.countryCode || 'FI',
+          primary: componentProps.profile.primaryAddress.primary || true,
+          addressType:
+            componentProps.profile.primaryAddress.addressType ||
+            AddressType.OTHER,
+          __typename:
+            componentProps.profile.primaryAddress.__typename || 'AddressNode',
+        },
       }}
-      onSubmit={(values: FormValues) => componentProps.onValues(values)}
+      onSubmit={async (values: FormValues) => {
+        componentProps.onValues({
+          ...values,
+          addresses: [...values.addresses, { ...values.primaryAddress }],
+        });
+      }}
       validationSchema={schema}
     >
       {props => (
@@ -188,8 +221,8 @@ function YouthProfileForm(componentProps: Props) {
               <Field
                 as={Select}
                 setFieldValue={props.setFieldValue}
-                id="countryCode"
-                name="countryCode"
+                id="primaryAddress.countryCode"
+                name="primaryAddress.countryCode"
                 type="select"
                 options={countryOptions}
                 className={styles.formInput}
@@ -200,12 +233,14 @@ function YouthProfileForm(componentProps: Props) {
               <Field
                 className={styles.formInput}
                 as={TextInput}
-                id="address"
-                name="address"
-                invalid={props.submitCount && props.errors.address}
+                id="primaryAddress.address"
+                name="primaryAddress.address"
+                invalid={
+                  props.submitCount && props.errors?.primaryAddress?.address
+                }
                 helperText={
-                  props.submitCount && props.errors.address
-                    ? t(props.errors.address)
+                  props.submitCount && props.errors?.primaryAddress?.address
+                    ? t(props.errors?.primaryAddress?.address)
                     : ''
                 }
                 labelText={t('registration.address') + ' *'}
@@ -214,15 +249,21 @@ function YouthProfileForm(componentProps: Props) {
                 <Field
                   className={styles.formInputPostal}
                   as={TextInput}
-                  id="postalCode"
-                  name="postalCode"
-                  invalid={props.submitCount && props.errors.postalCode}
+                  id="primaryAddress.postalCode"
+                  name="primaryAddress.postalCode"
+                  invalid={
+                    props.submitCount &&
+                    props.errors?.primaryAddress?.postalCode
+                  }
                   inputMode={
-                    props.values.countryCode === 'FI' ? 'numeric' : 'text'
+                    props.values?.primaryAddress?.countryCode === 'FI'
+                      ? 'numeric'
+                      : 'text'
                   }
                   helperText={
-                    props.submitCount && props.errors.postalCode
-                      ? t(props.errors.postalCode)
+                    props.submitCount &&
+                    props.errors?.primaryAddress?.postalCode
+                      ? t(props.errors?.primaryAddress?.postalCode)
                       : ''
                   }
                   labelText={t('registration.postalCode') + ' *'}
@@ -230,18 +271,121 @@ function YouthProfileForm(componentProps: Props) {
                 <Field
                   className={styles.formInputCity}
                   as={TextInput}
-                  id="city"
-                  name="city"
-                  invalid={props.submitCount && props.errors.city}
+                  id="primaryAddress.city"
+                  name="primaryAddress.city"
+                  invalid={
+                    props.submitCount && props.errors?.primaryAddress?.city
+                  }
                   helperText={
-                    props.submitCount && props.errors.city
-                      ? t(props.errors.city)
+                    props.submitCount && props.errors?.primaryAddress?.city
+                      ? t(props.errors?.primaryAddress?.city)
                       : ''
                   }
                   labelText={t('registration.city') + ' *'}
                 />
               </div>
             </div>
+            <FieldArray
+              name="addresses"
+              render={(arrayHelpers: FieldArrayRenderProps) => (
+                <React.Fragment>
+                  {props.values.addresses.map((address, index: number) => (
+                    <React.Fragment key={index}>
+                      <div className={styles.formRow}>
+                        <Field
+                          as={Select}
+                          setFieldValue={props.setFieldValue}
+                          id={`addresses.${index}.countryCode`}
+                          name={`addresses.${index}.countryCode`}
+                          type="select"
+                          options={countryOptions}
+                          className={styles.formInput}
+                          labelText={t('registration.country')}
+                        />
+                      </div>
+                      <div className={styles.formRow}>
+                        <Field
+                          className={styles.formInput}
+                          as={TextInput}
+                          id={`addresses.${index}.address`}
+                          name={`addresses.${index}.address`}
+                          invalid={
+                            props.submitCount &&
+                            props.errors?.primaryAddress?.address
+                          }
+                          helperText={
+                            props.submitCount &&
+                            props.errors?.primaryAddress?.address
+                              ? t(props.errors?.primaryAddress?.address)
+                              : ''
+                          }
+                          labelText={t('registration.address')}
+                        />
+                        <div className={styles.formInputRow}>
+                          <Field
+                            className={styles.formInputPostal}
+                            as={TextInput}
+                            id={`addresses.${index}.postalCode`}
+                            name={`addresses.${index}.postalCode`}
+                            invalid={
+                              props.submitCount &&
+                              props.errors?.primaryAddress?.postalCode
+                            }
+                            inputMode={
+                              props.values?.primaryAddress?.countryCode === 'FI'
+                                ? 'numeric'
+                                : 'text'
+                            }
+                            helperText={
+                              props.submitCount &&
+                              props.errors?.primaryAddress?.postalCode
+                                ? t(props.errors?.primaryAddress?.postalCode)
+                                : ''
+                            }
+                            labelText={t('registration.postalCode')}
+                          />
+                          <Field
+                            className={styles.formInputCity}
+                            as={TextInput}
+                            id={`addresses.${index}.city`}
+                            name={`addresses.${index}.city`}
+                            invalid={
+                              props.submitCount &&
+                              props.errors?.primaryAddress?.city
+                            }
+                            helperText={
+                              props.submitCount &&
+                              props.errors?.primaryAddress?.city
+                                ? t(props.errors?.primaryAddress?.city)
+                                : ''
+                            }
+                            labelText={t('registration.city')}
+                          />
+                        </div>
+                      </div>
+                    </React.Fragment>
+                  ))}
+                  <Button
+                    type="button"
+                    iconLeft={<IconPlusCircle />}
+                    variant="supplementary"
+                    onClick={() =>
+                      arrayHelpers.push({
+                        address: '',
+                        postalCode: '',
+                        countryCode: 'FI',
+                        city: '',
+                        primary: false,
+                        addressType: AddressType.OTHER,
+                        __typeName: 'AddressNode',
+                      })
+                    }
+                  >
+                    Add another address
+                  </Button>
+                </React.Fragment>
+              )}
+            />
             <div className={styles.formRow}>
               <Field
                 as={TextInput}

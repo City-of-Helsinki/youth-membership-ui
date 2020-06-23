@@ -23,11 +23,14 @@ import {
   UpdateMyProfile as UpdateMyProfileData,
   UpdateMyProfileVariables,
   YouthLanguage,
+  PrefillRegistartion_myProfile_addresses_edges_node as Address,
+  PrefillRegistartion_myProfile_primaryAddress as PrimaryAddress,
 } from '../../../../graphql/generatedTypes';
 import getCookie from '../../helpers/getCookie';
 import Loading from '../../../../common/loading/Loading';
 import { getMutationVariables } from '../../helpers/createProfileMutationVariables';
 import getLanguageCode from '../../../../common/helpers/getLanguageCode';
+import getAddressesFromNode from '../../helpers/getAddressesFromNode';
 
 const PREFILL_REGISTRATION = loader(
   '../../graphql/PrefillRegistration.graphql'
@@ -102,7 +105,7 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
       formValues,
       data
     );
-
+    console.log('VARIABLES', variables);
     if (data?.myProfile) {
       updateProfile({ variables })
         .then(result => {
@@ -157,6 +160,25 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
     getLanguageCode(i18n.languages[0])
   ) as YouthLanguage;
 
+  const getAddresses = (data?: PrefillRegistartion) => {
+    const edge = data?.myProfile?.addresses?.edges || [];
+    return edge
+      .filter(edge => !edge?.node?.primary)
+      .map(
+        edge =>
+          ({
+            address: edge?.node?.address,
+            addressType: edge?.node?.addressType,
+            city: edge?.node?.city,
+            countryCode: edge?.node?.countryCode,
+            id: edge?.node?.id,
+            postalCode: edge?.node?.postalCode,
+            primary: edge?.node?.primary,
+            __typename: 'AddressNode',
+          } as Address)
+      );
+  };
+
   return (
     <div className={styles.form}>
       <Loading
@@ -168,10 +190,9 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
           profile={{
             firstName: data?.myProfile?.firstName || '',
             lastName: data?.myProfile?.lastName || '',
-            address: data?.myProfile?.primaryAddress?.address || '',
-            postalCode: data?.myProfile?.primaryAddress?.postalCode || '',
-            city: data?.myProfile?.primaryAddress?.city || '',
-            countryCode: data?.myProfile?.primaryAddress?.countryCode || 'FI',
+            primaryAddress:
+              data?.myProfile?.primaryAddress || ({} as PrimaryAddress),
+            addresses: getAddresses(data),
             email: tunnistamoUser.profile.email || '',
             phone: data?.myProfile?.primaryPhone?.phone || '',
             birthDate,

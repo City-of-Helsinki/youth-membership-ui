@@ -10,6 +10,8 @@ import {
   UpdateMyProfile as UpdateMyProfileData,
   UpdateMyProfileVariables,
   YouthLanguage,
+  MembershipDetails_youthProfile_profile_primaryAddress as PrimaryAddress,
+  MembershipDetails_youthProfile_profile_addresses_edges_node as Address,
 } from '../../../../graphql/generatedTypes';
 import YouthProfileForm, {
   FormValues,
@@ -53,6 +55,25 @@ function EditYouthProfile(props: Props) {
       });
   };
 
+  const getAddress = (data?: MembershipDetailsData) => {
+    const edge = data?.youthProfile?.profile?.addresses?.edges || [];
+    return edge
+      .filter(edge => !edge?.node?.primary)
+      .map(
+        edge =>
+          ({
+            address: edge?.node?.address,
+            addressType: edge?.node?.addressType,
+            city: edge?.node?.city,
+            countryCode: edge?.node?.countryCode,
+            id: edge?.node?.id,
+            postalCode: edge?.node?.postalCode,
+            primary: edge?.node?.primary,
+            __typename: 'AddressNode',
+          } as Address)
+      );
+  };
+
   return (
     <div className={styles.form}>
       {!loadingProfile && (
@@ -60,12 +81,10 @@ function EditYouthProfile(props: Props) {
           profile={{
             firstName: youthProfile?.profile.firstName || '',
             lastName: youthProfile?.profile.lastName || '',
-            address: youthProfile?.profile.primaryAddress?.address || '',
-            postalCode: youthProfile?.profile.primaryAddress?.postalCode || '',
-            city: youthProfile?.profile.primaryAddress?.city || '',
-            countryCode:
-              youthProfile?.profile?.primaryAddress?.countryCode || 'FI',
+            primaryAddress:
+              youthProfile?.profile?.primaryAddress || ({} as PrimaryAddress),
             email: youthProfile?.profile.primaryEmail?.email || '',
+            addresses: getAddress(data),
             phone: youthProfile?.profile.primaryPhone?.phone || '',
             birthDate: youthProfile?.birthDate,
             schoolName: youthProfile?.schoolName || '',

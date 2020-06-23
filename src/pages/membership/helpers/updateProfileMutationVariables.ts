@@ -16,18 +16,7 @@ const getEditMutationVariables = (
         firstName: formValues.firstName,
         lastName: formValues.lastName,
         language: formValues.profileLanguage,
-        updateAddresses: [
-          profile?.youthProfile?.profile?.primaryAddress?.id
-            ? {
-                address: formValues.address,
-                city: formValues.city,
-                postalCode: formValues.postalCode,
-                countryCode: formValues.countryCode,
-                id: profile.youthProfile.profile.primaryAddress.id,
-                addressType: AddressType.OTHER,
-              }
-            : null,
-        ],
+        updateAddresses: [null],
         updatePhones: [
           profile?.youthProfile?.profile?.primaryPhone?.id
             ? {
