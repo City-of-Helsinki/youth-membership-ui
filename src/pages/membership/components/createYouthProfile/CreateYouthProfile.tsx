@@ -23,7 +23,6 @@ import {
   UpdateMyProfile as UpdateMyProfileData,
   UpdateMyProfileVariables,
   YouthLanguage,
-  PrefillRegistartion_myProfile_addresses_edges_node as Address,
   PrefillRegistartion_myProfile_primaryAddress as PrimaryAddress,
 } from '../../../../graphql/generatedTypes';
 import getCookie from '../../helpers/getCookie';
@@ -105,7 +104,7 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
       formValues,
       data
     );
-    console.log('VARIABLES', variables);
+
     if (data?.myProfile) {
       updateProfile({ variables })
         .then(result => {
@@ -160,25 +159,6 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
     getLanguageCode(i18n.languages[0])
   ) as YouthLanguage;
 
-  const getAddresses = (data?: PrefillRegistartion) => {
-    const edge = data?.myProfile?.addresses?.edges || [];
-    return edge
-      .filter(edge => !edge?.node?.primary)
-      .map(
-        edge =>
-          ({
-            address: edge?.node?.address,
-            addressType: edge?.node?.addressType,
-            city: edge?.node?.city,
-            countryCode: edge?.node?.countryCode,
-            id: edge?.node?.id,
-            postalCode: edge?.node?.postalCode,
-            primary: edge?.node?.primary,
-            __typename: 'AddressNode',
-          } as Address)
-      );
-  };
-
   return (
     <div className={styles.form}>
       <Loading
@@ -192,7 +172,7 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
             lastName: data?.myProfile?.lastName || '',
             primaryAddress:
               data?.myProfile?.primaryAddress || ({} as PrimaryAddress),
-            addresses: getAddresses(data),
+            addresses: getAddressesFromNode('prefill', data),
             email: tunnistamoUser.profile.email || '',
             phone: data?.myProfile?.primaryPhone?.phone || '',
             birthDate,

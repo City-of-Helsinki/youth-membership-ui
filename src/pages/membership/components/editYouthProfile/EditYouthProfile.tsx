@@ -19,6 +19,7 @@ import YouthProfileForm, {
 import styles from './EditYouthProfile.module.css';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import { getEditMutationVariables } from '../../helpers/updateProfileMutationVariables';
+import getAddressesFromNode from '../../helpers/getAddressesFromNode';
 
 const MEMBERSHIP_DETAILS = loader('../../graphql/MembershipDetails.graphql');
 const UPDATE_PROFILE = loader('../../graphql/UpdateMyProfile.graphql');
@@ -55,25 +56,6 @@ function EditYouthProfile(props: Props) {
       });
   };
 
-  const getAddress = (data?: MembershipDetailsData) => {
-    const edge = data?.youthProfile?.profile?.addresses?.edges || [];
-    return edge
-      .filter(edge => !edge?.node?.primary)
-      .map(
-        edge =>
-          ({
-            address: edge?.node?.address,
-            addressType: edge?.node?.addressType,
-            city: edge?.node?.city,
-            countryCode: edge?.node?.countryCode,
-            id: edge?.node?.id,
-            postalCode: edge?.node?.postalCode,
-            primary: edge?.node?.primary,
-            __typename: 'AddressNode',
-          } as Address)
-      );
-  };
-
   return (
     <div className={styles.form}>
       {!loadingProfile && (
@@ -84,7 +66,7 @@ function EditYouthProfile(props: Props) {
             primaryAddress:
               youthProfile?.profile?.primaryAddress || ({} as PrimaryAddress),
             email: youthProfile?.profile.primaryEmail?.email || '',
-            addresses: getAddress(data),
+            addresses: getAddressesFromNode('membership', data),
             phone: youthProfile?.profile.primaryPhone?.phone || '',
             birthDate: youthProfile?.birthDate,
             schoolName: youthProfile?.schoolName || '',
