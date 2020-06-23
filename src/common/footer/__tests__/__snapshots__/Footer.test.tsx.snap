@@ -43,7 +43,7 @@ exports[`matches snapshot 1`] = `
         </span>
         <a
           className="feedback"
-          href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/anna-palautetta"
+          href="https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/yhteystiedot-ja-palaute/Anna+palautetta/"
           rel="noopener noreferrer"
           target="_blank"
         >
