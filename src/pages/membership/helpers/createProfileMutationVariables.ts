@@ -40,6 +40,7 @@ const getAddress = (formValues: FormValues, profile?: PrefillRegistartion) => {
       postalCode: address.postalCode,
       city: address.city,
       countryCode: address.countryCode,
+      primary: address.primary,
       addressType: address.addressType || AddressType.OTHER,
     }));
 

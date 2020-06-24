@@ -104,7 +104,7 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
       formValues,
       data
     );
-
+    console.log('VARIABLES', variables);
     if (data?.myProfile) {
       updateProfile({ variables })
         .then(result => {

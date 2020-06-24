@@ -29,7 +29,7 @@ const getAddressesFromNode = (
   const edge = getEdge(type, data);
 
   return edge
-    .filter(edge => edge?.node?.primary)
+    .filter(edge => !edge?.node?.primary)
     .map(
       edge =>
         ({

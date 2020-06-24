@@ -3,16 +3,22 @@ import { loader } from 'graphql.macro';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import * as Sentry from '@sentry/browser';
+import countries from 'i18n-iso-countries';
 
 import LinkButton from '../../../../common/linkButton/LinkButton';
 import styles from './MembershipDetails.module.css';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
-import { MembershipDetails as MembershipDetailsData } from '../../../../graphql/generatedTypes';
+import {
+  MembershipDetails as MembershipDetailsData,
+  MembershipDetails_youthProfile_profile_addresses_edges_node as Address,
+} from '../../../../graphql/generatedTypes';
 import LabeledValue from '../../../../common/labeledValue/LabeledValue';
 import getFullName from '../../helpers/getFullName';
 import getAddress from '../../helpers/getAddress';
 import getSchool from '../../helpers/getSchool';
 import formatDate from '../../../../common/helpers/formatDate';
+import getAddressesFromNode from '../../helpers/getAddressesFromNode';
+import getLanguageCode from '../../../../common/helpers/getLanguageCode';
 
 const MEMBERSHIP_DETAILS = loader('../../graphql/MembershipDetails.graphql');
 
@@ -29,6 +35,17 @@ function RegistrationInformation(props: Props) {
     fetchPolicy: 'network-only',
   });
 
+  const getAdditionalAddresses = (address: Address) => {
+    const country = countries.getName(
+      address.countryCode || 'FI',
+      getLanguageCode(i18n.languages[0])
+    );
+    return [address.address, address.city, address.postalCode, country]
+      .filter(addressPart => addressPart)
+      .join(', ');
+  };
+  const addresses = getAddressesFromNode('membership', data);
+  console.log(addresses);
   return (
     <div className={styles.membershipDetails}>
       {data?.youthProfile && (
@@ -42,6 +59,13 @@ function RegistrationInformation(props: Props) {
               label={t('profile.address')}
               value={getAddress(data, i18n.languages[0])}
             />
+            {addresses.map((address, index: number) => (
+              <LabeledValue
+                key={index}
+                label={t('profile.address')}
+                value={getAdditionalAddresses(address)}
+              />
+            ))}
             <LabeledValue
               label={t('profile.email')}
               value={data.youthProfile.profile.primaryEmail?.email}

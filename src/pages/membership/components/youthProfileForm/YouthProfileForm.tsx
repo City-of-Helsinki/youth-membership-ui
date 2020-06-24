@@ -7,7 +7,14 @@ import {
   TextInput,
   IconPlusCircle,
 } from 'hds-react';
-import { Field, FieldArray, FieldArrayRenderProps, Form, Formik } from 'formik';
+import {
+  Field,
+  FieldArray,
+  FieldArrayRenderProps,
+  Form,
+  Formik,
+  FormikProps,
+} from 'formik';
 import { Link } from 'react-router-dom';
 import { differenceInYears, format } from 'date-fns';
 import * as Yup from 'yup';
@@ -16,6 +23,7 @@ import {
   postcodeValidator,
   postcodeValidatorExistsForCountry,
 } from 'postcode-validator';
+import { get } from 'lodash';
 
 import getLanguageCode from '../../../../common/helpers/getLanguageCode';
 import Select from '../../../../common/select/Select';
@@ -68,6 +76,29 @@ const schema = Yup.object().shape({
       .max(255, 'validation.tooLong')
       .required('validation.required'),
   }),
+  addresses: Yup.array().of(
+    Yup.object().shape({
+      address: Yup.string()
+        .min(2, 'validation.tooShort')
+        .max(255, 'validation.tooLong'),
+      postalCode: Yup.mixed().test(
+        'isValidPostalCode',
+        'validation.invalidValue',
+        function() {
+          if (postcodeValidatorExistsForCountry(this.parent.countryCode)) {
+            return postcodeValidator(
+              this.parent.postalCode,
+              this.parent.countryCode
+            );
+          }
+          return this.parent?.postalCode?.length < 32;
+        }
+      ),
+      city: Yup.string()
+        .min(2, 'validation.tooShort')
+        .max(255, 'validation.tooLong'),
+    })
+  ),
   phone: Yup.string()
     .min(6, 'validation.phoneMin')
     .required('validation.required'),
@@ -152,6 +183,28 @@ function YouthProfileForm(componentProps: Props) {
       label: countryList[key],
     };
   });
+
+  function isInvalid<FormValues>(
+    formikProps: FormikProps<FormValues>,
+    field: string
+  ) {
+    return (
+      formikProps.submitCount > 0 && Boolean(get(formikProps.errors, field))
+    );
+  }
+
+  function getErrorCode<FormValues>(
+    formikProps: FormikProps<FormValues>,
+    field: string,
+    options?: object
+  ) {
+    const error = get(formikProps.errors, field);
+
+    if (isInvalid(formikProps, field) && typeof error === 'string')
+      return t(error, options);
+
+    return undefined;
+  }
 
   return (
     <Formik
@@ -309,38 +362,35 @@ function YouthProfileForm(componentProps: Props) {
                           as={TextInput}
                           id={`addresses.${index}.address`}
                           name={`addresses.${index}.address`}
-                          invalid={
-                            props.submitCount &&
-                            props.errors?.primaryAddress?.address
-                          }
-                          helperText={
-                            props.submitCount &&
-                            props.errors?.primaryAddress?.address
-                              ? t(props.errors?.primaryAddress?.address)
-                              : ''
-                          }
+                          invalid={isInvalid(
+                            props,
+                            `addresses.${index}.address`
+                          )}
+                          helperText={getErrorCode(
+                            props,
+                            `addresses.${index}.address`
+                          )}
                           labelText={t('registration.address')}
                         />
+
                         <div className={styles.formInputRow}>
                           <Field
                             className={styles.formInputPostal}
                             as={TextInput}
                             id={`addresses.${index}.postalCode`}
                             name={`addresses.${index}.postalCode`}
-                            invalid={
-                              props.submitCount &&
-                              props.errors?.primaryAddress?.postalCode
-                            }
+                            invalid={isInvalid(
+                              props,
+                              `addresses.${index}.postalCode`
+                            )}
+                            helperText={getErrorCode(
+                              props,
+                              `addresses.${index}.postalCode`
+                            )}
                             inputMode={
                               props.values?.primaryAddress?.countryCode === 'FI'
                                 ? 'numeric'
                                 : 'text'
-                            }
-                            helperText={
-                              props.submitCount &&
-                              props.errors?.primaryAddress?.postalCode
-                                ? t(props.errors?.primaryAddress?.postalCode)
-                                : ''
                             }
                             labelText={t('registration.postalCode')}
                           />
@@ -349,25 +399,32 @@ function YouthProfileForm(componentProps: Props) {
                             as={TextInput}
                             id={`addresses.${index}.city`}
                             name={`addresses.${index}.city`}
-                            invalid={
-                              props.submitCount &&
-                              props.errors?.primaryAddress?.city
-                            }
-                            helperText={
-                              props.submitCount &&
-                              props.errors?.primaryAddress?.city
-                                ? t(props.errors?.primaryAddress?.city)
-                                : ''
-                            }
+                            invalid={isInvalid(
+                              props,
+                              `addresses.${index}.city`
+                            )}
+                            helperText={getErrorCode(
+                              props,
+                              `addresses.${index}.city`
+                            )}
                             labelText={t('registration.city')}
                           />
                         </div>
                       </div>
+                      <button
+                        type="button"
+                        className={styles.additionalActionButton}
+                        onClick={() => arrayHelpers.remove(index)}
+                      >
+                        Poista
+                      </button>
                     </React.Fragment>
                   ))}
+                  <br />
                   <Button
                     type="button"
                     iconLeft={<IconPlusCircle />}
+                    className={styles.addAdditional}
                     variant="supplementary"
                     onClick={() =>
                       arrayHelpers.push({

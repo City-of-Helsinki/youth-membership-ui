@@ -34,6 +34,15 @@
 
 }
 
+.addAdditional {
+    margin: var(--spacing-layout-2-xs) 0;
+}
+
+.additionalActionButton {
+    color: var(--color-bus);
+    font-size: var(--fontsize-body-small);
+}
+
 @media (min-width: 768px){
     .formRow {
         flex-direction: row;
