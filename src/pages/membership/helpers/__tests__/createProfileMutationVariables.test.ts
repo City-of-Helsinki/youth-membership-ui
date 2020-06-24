@@ -1,14 +1,16 @@
 import { FormValues } from '../../components/youthProfileForm/YouthProfileForm';
 import {
+  AddressType,
+  Language,
   PrefillRegistartion,
   YouthLanguage,
 } from '../../../../graphql/generatedTypes';
 import {
-  getYouthProfile,
   getAddress,
-  getPhone,
   getEmail,
   getMutationVariables,
+  getPhone,
+  getYouthProfile,
 } from '../createProfileMutationVariables';
 
 const formValues: FormValues = {
@@ -16,10 +18,50 @@ const formValues: FormValues = {
   lastName: 'Tester',
   email: 'tina@tester.fi',
   phone: '0501234567',
-  city: 'Helsinki',
-  postalCode: '00100',
-  address: 'Testaddress 123',
   photoUsageApproved: 'false',
+  profileLanguage: Language.FINNISH,
+  primaryAddress: {
+    city: 'Helsinki',
+    postalCode: '00100',
+    address: 'Testaddress 123',
+    countryCode: 'FI',
+    id: '123',
+    addressType: AddressType.OTHER,
+    primary: true,
+    __typename: 'AddressNode',
+  },
+  addresses: [
+    {
+      address: 'Testaddress 123',
+      city: 'Helsinki',
+      postalCode: '00100',
+      countryCode: 'FI',
+      id: '123',
+      primary: true,
+      addressType: AddressType.OTHER,
+      __typename: 'AddressNode',
+    },
+    {
+      primary: false,
+      postalCode: '00200',
+      id: '',
+      countryCode: 'FI',
+      city: 'Helsinki',
+      address: 'Testikatu 66',
+      addressType: AddressType.OTHER,
+      __typename: 'AddressNode',
+    },
+    {
+      primary: false,
+      postalCode: '00200',
+      id: '234',
+      countryCode: 'FI',
+      city: 'Helsinki',
+      address: 'Testikatu 55',
+      addressType: AddressType.OTHER,
+      __typename: 'AddressNode',
+    },
+  ],
   birthDate: '2000-01-01',
   languageAtHome: YouthLanguage.FINNISH,
   approverPhone: '0501234567',
@@ -34,6 +76,7 @@ const profileValues: PrefillRegistartion = {
   myProfile: {
     firstName: '',
     lastName: '',
+    language: Language.FINNISH,
     primaryPhone: {
       phone: '0501234567',
       id: 'id',
@@ -43,8 +86,29 @@ const profileValues: PrefillRegistartion = {
       address: 'Testaddress 123',
       city: 'Helsinki',
       postalCode: '00100',
-      id: 'id',
+      countryCode: 'FI',
+      id: '123',
+      primary: true,
+      addressType: AddressType.OTHER,
       __typename: 'AddressNode',
+    },
+    addresses: {
+      edges: [
+        {
+          node: {
+            primary: false,
+            postalCode: '00200',
+            id: '234',
+            countryCode: 'FI',
+            city: 'Helsinki',
+            address: 'Testikatu 55',
+            addressType: AddressType.OTHER,
+            __typename: 'AddressNode',
+          },
+          __typename: 'AddressNodeEdge',
+        },
+      ],
+      __typename: 'AddressNodeConnection',
     },
     primaryEmail: {
       email: 'tina@tester.fi',
@@ -68,14 +132,74 @@ describe('getYouthProfile tests', () => {
 });
 
 describe('getAddress tests', () => {
-  it('has data from pre-fill', () => {
-    const variables = getAddress(formValues, profileValues);
-    expect(variables).toHaveProperty('updateAddresses');
+  it('Add array is formed correctly', () => {
+    const variables = getAddress(formValues, 'prefill', profileValues);
+
+    expect(variables.addAddresses).toEqual([
+      {
+        address: 'Testikatu 66',
+        postalCode: '00200',
+        city: 'Helsinki',
+        countryCode: 'FI',
+        primary: false,
+        addressType: 'OTHER',
+      },
+    ]);
   });
 
-  it('has only formValues', () => {
-    const variables = getAddress(formValues);
-    expect(variables).toHaveProperty('addAddresses');
+  it('Add array is empty', () => {
+    const variables = getAddress(
+      { ...formValues, addresses: [] },
+      'prefill',
+      profileValues
+    );
+    expect(variables.addAddresses).toEqual([]);
+  });
+
+  it('Update array is formed correctly', () => {
+    const variables = getAddress(
+      {
+        ...formValues,
+        addresses: [
+          formValues.addresses[0],
+          formValues.addresses[1],
+          { ...formValues.addresses[2], address: 'Testgatan 55' },
+        ],
+      },
+      'prefill',
+      profileValues
+    );
+    expect(variables.updateAddresses).toEqual([
+      {
+        id: '234',
+        address: 'Testgatan 55',
+        postalCode: '00200',
+        city: 'Helsinki',
+        countryCode: 'FI',
+        primary: false,
+        addressType: 'OTHER',
+      },
+    ]);
+  });
+
+  it('Update array is empty', () => {
+    const variables = getAddress(formValues, 'prefill', profileValues);
+    //console.log(variables);
+    expect(variables.updateAddresses).toEqual([]);
+  });
+
+  it('Remove array doesnt exist', () => {
+    const variables = getAddress(
+      { ...formValues, addresses: [formValues.addresses[1]] },
+      'prefill',
+      profileValues
+    );
+    expect(variables.removeAddresses).toEqual(['234', '123']);
+  });
+
+  it('Remove array doesnt exist', () => {
+    const variables = getAddress(formValues, 'prefill', profileValues);
+    expect(variables.removeAddresses).toBeFalsy();
   });
 });
 
@@ -117,17 +241,19 @@ it('getMutationVariables returns correct object', () => {
       profile: {
         firstName: 'Tina',
         lastName: 'Tester',
+        language: Language.FINNISH,
         addEmails: [null],
-        updateAddresses: [
+        addAddresses: [
           {
-            address: 'Testaddress 123',
+            primary: false,
+            postalCode: '00200',
+            countryCode: 'FI',
             city: 'Helsinki',
-            addressType: 'OTHER',
-            postalCode: '00100',
-            primary: true,
-            id: 'id',
+            address: 'Testikatu 66',
+            addressType: AddressType.OTHER,
           },
         ],
+        updateAddresses: [],
         updatePhones: [
           {
             phone: '0501234567',

@@ -11,7 +11,6 @@ import {
   UpdateMyProfileVariables,
   YouthLanguage,
   MembershipDetails_youthProfile_profile_primaryAddress as PrimaryAddress,
-  MembershipDetails_youthProfile_profile_addresses_edges_node as Address,
 } from '../../../../graphql/generatedTypes';
 import YouthProfileForm, {
   FormValues,

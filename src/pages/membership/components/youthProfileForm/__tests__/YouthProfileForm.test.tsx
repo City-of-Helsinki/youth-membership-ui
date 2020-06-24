@@ -4,20 +4,32 @@ import { MemoryRouter } from 'react-router';
 import { subYears, format } from 'date-fns';
 
 import YouthProfileForm, { FormValues } from '../YouthProfileForm';
-import { Language, YouthLanguage } from '../../../../../graphql/generatedTypes';
+import {
+  AddressType,
+  Language,
+  YouthLanguage,
+  MembershipDetails_youthProfile_profile_primaryAddress as PrimaryAddress,
+} from '../../../../../graphql/generatedTypes';
 import { updateWrapper } from '../../../../../common/test/testUtils';
 
 const getPrefilledProfile = (values?: Partial<FormValues>) => {
   return {
     firstName: 'Test',
     lastName: 'Person',
+    primaryAddress: {
+      address: 'TestAddress',
+      countryCode: 'FI',
+      city: 'Helsinki',
+      postalCode: '12345',
+      id: '123',
+      primary: true,
+      addressType: AddressType.OTHER,
+      __typename: 'AddressNode',
+    } as PrimaryAddress,
+    addresses: [],
     birthDate: '2000-1-1',
     email: 'test@test.fi',
     phone: '0501234567',
-    address: 'TestAddress',
-    countryCode: 'FI',
-    city: 'Helsinki',
-    postalCode: '12345',
     profileLanguage: Language.FINNISH,
     languageAtHome: YouthLanguage.FINNISH,
     schoolName: 'School',
@@ -119,13 +131,26 @@ describe('Form fields & texts based on user age', () => {
 describe('postalCode inputMode changes based on selected country', () => {
   test('inputMode is numeric when countryCode === "FI" ', () => {
     const wrapper = getWrapper(getPrefilledProfile());
-    const postalCode = wrapper.find('input[name="postalCode"]');
+    const postalCode = wrapper.find('input[name="primaryAddress.postalCode"]');
     expect(postalCode.props().inputMode).toEqual('numeric');
   });
 
   test('inputMode is text when countryCode !== "FI', () => {
-    const wrapper = getWrapper(getPrefilledProfile({ countryCode: 'SV' }));
-    const postalCode = wrapper.find('input[name="postalCode"]');
+    const wrapper = getWrapper(
+      getPrefilledProfile({
+        primaryAddress: {
+          address: 'TestAddress',
+          countryCode: 'SV',
+          city: 'Helsinki',
+          postalCode: '12345',
+          id: '123',
+          primary: true,
+          addressType: AddressType.OTHER,
+          __typename: 'AddressNode',
+        },
+      })
+    );
+    const postalCode = wrapper.find('input[name="primaryAddress.postalCode"]');
     expect(postalCode.props().inputMode).toEqual('text');
   });
 });

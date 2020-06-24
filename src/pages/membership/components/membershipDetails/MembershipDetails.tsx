@@ -40,12 +40,12 @@ function RegistrationInformation(props: Props) {
       address.countryCode || 'FI',
       getLanguageCode(i18n.languages[0])
     );
-    return [address.address, address.city, address.postalCode, country]
+    return [address.address, address.postalCode, address.city, country]
       .filter(addressPart => addressPart)
       .join(', ');
   };
   const addresses = getAddressesFromNode('membership', data);
-  console.log(addresses);
+
   return (
     <div className={styles.membershipDetails}>
       {data?.youthProfile && (
