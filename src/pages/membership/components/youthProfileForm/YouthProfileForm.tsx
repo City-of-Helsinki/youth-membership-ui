@@ -416,7 +416,7 @@ function YouthProfileForm(componentProps: Props) {
                         className={styles.additionalActionButton}
                         onClick={() => arrayHelpers.remove(index)}
                       >
-                        Poista
+                        {t('registration.remove')}
                       </button>
                     </React.Fragment>
                   ))}
@@ -438,7 +438,7 @@ function YouthProfileForm(componentProps: Props) {
                       })
                     }
                   >
-                    Add another address
+                    {t('registration.addAddress')}
                   </Button>
                 </React.Fragment>
               )}

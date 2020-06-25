@@ -8,18 +8,10 @@ import {
   PhoneType,
   PrefillRegistartion,
   YouthProfileFields,
-  CreateAddressInput,
-  UpdateAddressInput,
   MembershipDetails,
 } from '../../../graphql/generatedTypes';
 import { FormValues } from '../components/youthProfileForm/YouthProfileForm';
 import getAddressesFromNode from './getAddressesFromNode';
-
-type AddressInputs = {
-  addAddresses: CreateAddressInput[];
-  updateAddresses: UpdateAddressInput[];
-  removeAddresses?: (string | undefined)[] | null | undefined;
-};
 
 const getYouthProfile = (formValues: FormValues) => {
   const age = differenceInYears(new Date(), new Date(formValues.birthDate));
@@ -101,17 +93,13 @@ const getAddress = (
 
   const removeAddresses = profileAddresses
     .filter(address => address?.id && !formValueIDs.includes(address.id))
-    .map(address => address?.id);
+    .map(address => address?.id || null);
 
-  const addressInputs: AddressInputs = {
+  return {
     addAddresses,
     updateAddresses,
+    removeAddresses,
   };
-
-  if (removeAddresses.length > 0)
-    addressInputs.removeAddresses = removeAddresses;
-
-  return addressInputs;
 };
 
 const getPhone = (formValues: FormValues, profile?: PrefillRegistartion) => {
