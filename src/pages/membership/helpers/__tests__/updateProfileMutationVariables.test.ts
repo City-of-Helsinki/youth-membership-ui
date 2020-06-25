@@ -104,6 +104,7 @@ test('test object is correct and all fields are present', () => {
         language: Language.FINNISH,
         addAddresses: [],
         updateAddresses: [],
+        removeAddresses: [],
         updatePhones: [
           {
             phone: '0501234567',

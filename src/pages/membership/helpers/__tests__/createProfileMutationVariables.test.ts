@@ -188,7 +188,7 @@ describe('getAddress tests', () => {
     expect(variables.updateAddresses).toEqual([]);
   });
 
-  it('Remove array doesnt exist', () => {
+  it('Remove array is empty', () => {
     const variables = getAddress(
       { ...formValues, addresses: [formValues.addresses[1]] },
       'prefill',
@@ -197,9 +197,9 @@ describe('getAddress tests', () => {
     expect(variables.removeAddresses).toEqual(['234', '123']);
   });
 
-  it('Remove array doesnt exist', () => {
+  it('Remove array is empty', () => {
     const variables = getAddress(formValues, 'prefill', profileValues);
-    expect(variables.removeAddresses).toBeFalsy();
+    expect(variables.removeAddresses).toEqual([]);
   });
 });
 
@@ -254,6 +254,7 @@ it('getMutationVariables returns correct object', () => {
           },
         ],
         updateAddresses: [],
+        removeAddresses: [],
         updatePhones: [
           {
             phone: '0501234567',
