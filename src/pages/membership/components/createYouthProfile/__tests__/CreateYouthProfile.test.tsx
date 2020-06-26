@@ -11,6 +11,7 @@ import {
 import i18n from '../../../../../common/test/testi18nInit';
 import CreateYouthProfile from '../CreateYouthProfile';
 import {
+  AddressType,
   Language,
   PrefillRegistartion,
 } from '../../../../../graphql/generatedTypes';
@@ -68,7 +69,13 @@ const getMocks = (myProfile: MyProfile) => {
               city: 'Helsinki',
               countryCode: 'FI',
               id: '123',
+              primary: true,
+              addressType: AddressType.OTHER,
               __typename: 'AddressNode',
+            },
+            addresses: {
+              edges: [],
+              __typename: 'AddressNodeConnection',
             },
             primaryEmail: {
               email: 'teemu.testaaja@test.fi',
@@ -110,7 +117,7 @@ test('renders form with pre-filled values', async () => {
 
   const firstName = wrapper.find('input[name="firstName"]');
   const lastName = wrapper.find('input[name="lastName"]');
-  const address = wrapper.find('input[name="address"]');
+  const address = wrapper.find('input[name="primaryAddress.address"]');
   const profileLanguage = wrapper.find('select[name="profileLanguage"]');
 
   expect(firstName.props().value).toEqual('Teemu');

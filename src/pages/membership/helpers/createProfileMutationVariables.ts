@@ -1,4 +1,5 @@
-import { format, differenceInYears } from 'date-fns';
+import { differenceInYears, format } from 'date-fns';
+import { isEqual } from 'lodash';
 
 import ageConstants from '../constants/ageConstants';
 import {
@@ -7,8 +8,10 @@ import {
   PhoneType,
   PrefillRegistartion,
   YouthProfileFields,
+  MembershipDetails,
 } from '../../../graphql/generatedTypes';
 import { FormValues } from '../components/youthProfileForm/YouthProfileForm';
+import getAddressesFromNode from './getAddressesFromNode';
 
 const getYouthProfile = (formValues: FormValues) => {
   const age = differenceInYears(new Date(), new Date(formValues.birthDate));
@@ -32,34 +35,70 @@ const getYouthProfile = (formValues: FormValues) => {
     : variables;
 };
 
-const getAddress = (formValues: FormValues, profile?: PrefillRegistartion) => {
-  if (profile?.myProfile?.primaryAddress?.id) {
-    return {
-      updateAddresses: [
-        {
-          address: formValues.address,
-          postalCode: formValues.postalCode,
-          city: formValues.city,
-          addressType: AddressType.OTHER,
-          countryCode: formValues.countryCode,
-          primary: true,
-          id: profile.myProfile.primaryAddress.id,
-        },
-      ],
-    };
+const getPrimaryAddress = (
+  profileType: 'prefill' | 'membership',
+  profile?: PrefillRegistartion | MembershipDetails
+) => {
+  switch (profileType) {
+    case 'membership':
+      return (profile as MembershipDetails).youthProfile?.profile
+        ?.primaryAddress;
+    case 'prefill':
+      return (profile as PrefillRegistartion).myProfile?.primaryAddress;
+    default:
+      return { id: '' };
   }
+};
+
+const getAddress = (
+  formValues: FormValues,
+  profileType: 'prefill' | 'membership',
+  profile?: PrefillRegistartion | MembershipDetails
+) => {
+  const profileAddresses = [
+    ...getAddressesFromNode(profileType, profile),
+    getPrimaryAddress(profileType, profile),
+  ];
+
+  const addAddresses = formValues.addresses
+    .filter(addresss => !addresss.id)
+    .map(address => ({
+      address: address.address,
+      postalCode: address.postalCode,
+      city: address.city,
+      countryCode: address.countryCode,
+      primary: address.primary,
+      addressType: address.addressType || AddressType.OTHER,
+    }));
+
+  const updateAddresses = formValues.addresses
+    .filter(address => {
+      const profileAddress = profileAddresses.find(
+        value => value?.id === address.id
+      );
+
+      return address.id && !isEqual(address, profileAddress);
+    })
+    .map(address => ({
+      id: address.id,
+      address: address.address,
+      postalCode: address.postalCode,
+      city: address.city,
+      countryCode: address.countryCode,
+      primary: address.primary,
+      addressType: address.addressType || AddressType.OTHER,
+    }));
+
+  const formValueIDs = formValues.addresses.map(address => address.id);
+
+  const removeAddresses = profileAddresses
+    .filter(address => address?.id && !formValueIDs.includes(address.id))
+    .map(address => address?.id || null);
 
   return {
-    addAddresses: [
-      {
-        address: formValues.address,
-        postalCode: formValues.postalCode,
-        city: formValues.city,
-        addressType: AddressType.OTHER,
-        countryCode: formValues.countryCode,
-        primary: true,
-      },
-    ],
+    addAddresses,
+    updateAddresses,
+    removeAddresses,
   };
 };
 
@@ -112,7 +151,7 @@ const getMutationVariables = (
         firstName: formValues.firstName,
         lastName: formValues.lastName,
         language: formValues.profileLanguage,
-        ...getAddress(formValues, profile),
+        ...getAddress(formValues, 'prefill', profile),
         ...getPhone(formValues, profile),
         ...getEmail(formValues, profile),
         youthProfile: getYouthProfile(formValues),

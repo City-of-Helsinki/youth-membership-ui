@@ -13,9 +13,28 @@ const formValues: FormValues = {
   lastName: 'Testaaja',
   email: 'tina@testaaja.fi',
   phone: '0501234567',
-  city: 'Helsinki',
-  postalCode: '00100',
-  address: 'Testaddress 123',
+  primaryAddress: {
+    city: 'Helsinki',
+    postalCode: '00100',
+    address: 'Testaddress 123',
+    countryCode: 'FI',
+    id: '123',
+    primary: true,
+    addressType: AddressType.OTHER,
+    __typename: 'AddressNode',
+  },
+  addresses: [
+    {
+      city: 'Helsinki',
+      postalCode: '00100',
+      address: 'Testaddress 123',
+      countryCode: 'FI',
+      id: '123',
+      primary: true,
+      addressType: AddressType.OTHER,
+      __typename: 'AddressNode',
+    },
+  ],
   photoUsageApproved: 'false',
   birthDate: '2000-01-01',
   languageAtHome: YouthLanguage.FINNISH,
@@ -25,7 +44,6 @@ const formValues: FormValues = {
   approverFirstName: 'Gee',
   schoolClass: '1S',
   schoolName: 'Smooth School',
-  countryCode: 'FI',
   profileLanguage: Language.FINNISH,
 };
 
@@ -36,12 +54,18 @@ const profileData: MembershipDetails = {
       lastName: 'Testaaja',
       language: Language.FINNISH,
       primaryAddress: {
-        __typename: 'AddressNode',
-        address: 'Testikatu 123',
         city: 'Helsinki',
+        postalCode: '00100',
+        address: 'Testaddress 123',
         countryCode: 'FI',
         id: '123',
-        postalCode: '00100',
+        primary: true,
+        addressType: AddressType.OTHER,
+        __typename: 'AddressNode',
+      },
+      addresses: {
+        edges: [],
+        __typename: 'AddressNodeConnection',
       },
       primaryEmail: {
         email: 'teemu.testaaja@test.fi',
@@ -78,16 +102,9 @@ test('test object is correct and all fields are present', () => {
         firstName: 'Tina',
         lastName: 'Testaaja',
         language: Language.FINNISH,
-        updateAddresses: [
-          {
-            city: 'Helsinki',
-            postalCode: '00100',
-            address: 'Testaddress 123',
-            id: '123',
-            countryCode: 'FI',
-            addressType: AddressType.OTHER,
-          },
-        ],
+        addAddresses: [],
+        updateAddresses: [],
+        removeAddresses: [],
         updatePhones: [
           {
             phone: '0501234567',

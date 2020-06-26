@@ -10,6 +10,7 @@ import {
   UpdateMyProfile as UpdateMyProfileData,
   UpdateMyProfileVariables,
   YouthLanguage,
+  MembershipDetails_youthProfile_profile_primaryAddress as PrimaryAddress,
 } from '../../../../graphql/generatedTypes';
 import YouthProfileForm, {
   FormValues,
@@ -17,6 +18,7 @@ import YouthProfileForm, {
 import styles from './EditYouthProfile.module.css';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import { getEditMutationVariables } from '../../helpers/updateProfileMutationVariables';
+import getAddressesFromNode from '../../helpers/getAddressesFromNode';
 
 const MEMBERSHIP_DETAILS = loader('../../graphql/MembershipDetails.graphql');
 const UPDATE_PROFILE = loader('../../graphql/UpdateMyProfile.graphql');
@@ -60,12 +62,10 @@ function EditYouthProfile(props: Props) {
           profile={{
             firstName: youthProfile?.profile.firstName || '',
             lastName: youthProfile?.profile.lastName || '',
-            address: youthProfile?.profile.primaryAddress?.address || '',
-            postalCode: youthProfile?.profile.primaryAddress?.postalCode || '',
-            city: youthProfile?.profile.primaryAddress?.city || '',
-            countryCode:
-              youthProfile?.profile?.primaryAddress?.countryCode || 'FI',
+            primaryAddress:
+              youthProfile?.profile?.primaryAddress || ({} as PrimaryAddress),
             email: youthProfile?.profile.primaryEmail?.email || '',
+            addresses: getAddressesFromNode('membership', data),
             phone: youthProfile?.profile.primaryPhone?.phone || '',
             birthDate: youthProfile?.birthDate,
             schoolName: youthProfile?.schoolName || '',

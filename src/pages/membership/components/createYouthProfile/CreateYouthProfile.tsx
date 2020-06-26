@@ -23,11 +23,13 @@ import {
   UpdateMyProfile as UpdateMyProfileData,
   UpdateMyProfileVariables,
   YouthLanguage,
+  PrefillRegistartion_myProfile_primaryAddress as PrimaryAddress,
 } from '../../../../graphql/generatedTypes';
 import getCookie from '../../helpers/getCookie';
 import Loading from '../../../../common/loading/Loading';
 import { getMutationVariables } from '../../helpers/createProfileMutationVariables';
 import getLanguageCode from '../../../../common/helpers/getLanguageCode';
+import getAddressesFromNode from '../../helpers/getAddressesFromNode';
 
 const PREFILL_REGISTRATION = loader(
   '../../graphql/PrefillRegistration.graphql'
@@ -168,10 +170,9 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
           profile={{
             firstName: data?.myProfile?.firstName || '',
             lastName: data?.myProfile?.lastName || '',
-            address: data?.myProfile?.primaryAddress?.address || '',
-            postalCode: data?.myProfile?.primaryAddress?.postalCode || '',
-            city: data?.myProfile?.primaryAddress?.city || '',
-            countryCode: data?.myProfile?.primaryAddress?.countryCode || 'FI',
+            primaryAddress:
+              data?.myProfile?.primaryAddress || ({} as PrimaryAddress),
+            addresses: getAddressesFromNode('prefill', data),
             email: tunnistamoUser.profile.email || '',
             phone: data?.myProfile?.primaryPhone?.phone || '',
             birthDate,
