@@ -13,7 +13,7 @@ import {
   MembershipDetails_youthProfile_profile_primaryAddress as PrimaryAddress,
 } from '../../../../graphql/generatedTypes';
 import YouthProfileForm, {
-  FormValues,
+  Values as FormValues,
 } from '../youthProfileForm/YouthProfileForm';
 import styles from './EditYouthProfile.module.css';
 import NotificationComponent from '../../../../common/notification/NotificationComponent';

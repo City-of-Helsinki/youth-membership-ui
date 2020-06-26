@@ -1,4 +1,4 @@
-import { FormValues } from '../components/youthProfileForm/YouthProfileForm';
+import { Values as FormValues } from '../components/youthProfileForm/YouthProfileForm';
 import { MembershipDetails, PhoneType } from '../../../graphql/generatedTypes';
 import { getYouthProfile, getAddress } from './createProfileMutationVariables';
 

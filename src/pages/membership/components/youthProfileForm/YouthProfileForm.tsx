@@ -1,12 +1,6 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import {
-  Button,
-  Checkbox,
-  RadioButton,
-  TextInput,
-  IconPlusCircle,
-} from 'hds-react';
+import { Button, Checkbox, RadioButton, IconPlusCircle } from 'hds-react';
 import {
   Field,
   FieldArray,
@@ -23,10 +17,10 @@ import {
   postcodeValidator,
   postcodeValidatorExistsForCountry,
 } from 'postcode-validator';
-import { get } from 'lodash';
 
 import getLanguageCode from '../../../../common/helpers/getLanguageCode';
 import Select from '../../../../common/select/Select';
+import TextInput from './FormikTextInput';
 import ageConstants from '../../constants/ageConstants';
 import {
   AddressType,
@@ -130,7 +124,7 @@ const schema = Yup.object().shape({
   terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
 
-export type FormValues = {
+export type Values = {
   firstName: string;
   lastName: string;
   primaryAddress: CreatePrimaryAddress | EditPrimaryAddress;
@@ -149,9 +143,13 @@ export type FormValues = {
   photoUsageApproved: string;
 };
 
+type FormValues = Values & {
+  terms: boolean;
+};
+
 type Props = {
-  profile: FormValues;
-  onValues: (values: FormValues) => void;
+  profile: Values;
+  onValues: (values: Values) => void;
   isSubmitting: boolean;
   isEditing?: boolean;
 };
@@ -184,30 +182,9 @@ function YouthProfileForm(componentProps: Props) {
     };
   });
 
-  function isInvalid<FormValues>(
-    formikProps: FormikProps<FormValues>,
-    field: string
-  ) {
-    return (
-      formikProps.submitCount > 0 && Boolean(get(formikProps.errors, field))
-    );
-  }
-
-  function getErrorCode<FormValues>(
-    formikProps: FormikProps<FormValues>,
-    field: string,
-    options?: object
-  ) {
-    const error = get(formikProps.errors, field);
-
-    if (isInvalid(formikProps, field) && typeof error === 'string')
-      return t(error, options);
-
-    return undefined;
-  }
-
   return (
     <Formik
+      validateOnBlur={true}
       initialValues={{
         ...componentProps.profile,
         terms: !!componentProps.isEditing,
@@ -234,7 +211,7 @@ function YouthProfileForm(componentProps: Props) {
       }}
       validationSchema={schema}
     >
-      {props => (
+      {(props: FormikProps<FormValues>) => (
         <div className={styles.formWrapper}>
           <div className={styles.formTitleText}>
             <h1>{t('registration.title')}</h1>
@@ -243,30 +220,16 @@ function YouthProfileForm(componentProps: Props) {
           <h3>{t('registration.basicInfo')}</h3>
           <Form>
             <div className={styles.formRow}>
-              <Field
+              <TextInput
                 className={styles.formInput}
-                as={TextInput}
                 id="firstName"
                 name="firstName"
-                invalid={props.submitCount && props.errors.firstName}
-                helperText={
-                  props.submitCount && props.errors.firstName
-                    ? t(props.errors.firstName)
-                    : ''
-                }
                 labelText={t('registration.firstName') + ' *'}
               />
-              <Field
+              <TextInput
                 className={styles.formInput}
-                as={TextInput}
                 id="lastName"
                 name="lastName"
-                invalid={props.submitCount && props.errors.lastName}
-                helperText={
-                  props.submitCount && props.errors.lastName
-                    ? t(props.errors.lastName)
-                    : ''
-                }
                 labelText={t('registration.lastName') + ' *'}
               />
             </div>
@@ -283,57 +246,28 @@ function YouthProfileForm(componentProps: Props) {
               />
             </div>
             <div className={styles.formRow}>
-              <Field
+              <TextInput
                 className={styles.formInput}
-                as={TextInput}
                 id="primaryAddress.address"
                 name="primaryAddress.address"
-                invalid={
-                  props.submitCount && props.errors?.primaryAddress?.address
-                }
-                helperText={
-                  props.submitCount && props.errors?.primaryAddress?.address
-                    ? t(props.errors?.primaryAddress?.address)
-                    : ''
-                }
                 labelText={t('registration.address') + ' *'}
               />
               <div className={styles.formInputRow}>
-                <Field
+                <TextInput
                   className={styles.formInputPostal}
-                  as={TextInput}
                   id="primaryAddress.postalCode"
                   name="primaryAddress.postalCode"
-                  invalid={
-                    props.submitCount &&
-                    props.errors?.primaryAddress?.postalCode
-                  }
                   inputMode={
                     props.values?.primaryAddress?.countryCode === 'FI'
                       ? 'numeric'
                       : 'text'
                   }
-                  helperText={
-                    props.submitCount &&
-                    props.errors?.primaryAddress?.postalCode
-                      ? t(props.errors?.primaryAddress?.postalCode)
-                      : ''
-                  }
                   labelText={t('registration.postalCode') + ' *'}
                 />
-                <Field
+                <TextInput
                   className={styles.formInputCity}
-                  as={TextInput}
                   id="primaryAddress.city"
                   name="primaryAddress.city"
-                  invalid={
-                    props.submitCount && props.errors?.primaryAddress?.city
-                  }
-                  helperText={
-                    props.submitCount && props.errors?.primaryAddress?.city
-                      ? t(props.errors?.primaryAddress?.city)
-                      : ''
-                  }
                   labelText={t('registration.city') + ' *'}
                 />
               </div>
@@ -357,36 +291,18 @@ function YouthProfileForm(componentProps: Props) {
                         />
                       </div>
                       <div className={styles.formRow}>
-                        <Field
+                        <TextInput
                           className={styles.formInput}
-                          as={TextInput}
                           id={`addresses.${index}.address`}
                           name={`addresses.${index}.address`}
-                          invalid={isInvalid(
-                            props,
-                            `addresses.${index}.address`
-                          )}
-                          helperText={getErrorCode(
-                            props,
-                            `addresses.${index}.address`
-                          )}
                           labelText={t('registration.address')}
                         />
 
                         <div className={styles.formInputRow}>
-                          <Field
+                          <TextInput
                             className={styles.formInputPostal}
-                            as={TextInput}
                             id={`addresses.${index}.postalCode`}
                             name={`addresses.${index}.postalCode`}
-                            invalid={isInvalid(
-                              props,
-                              `addresses.${index}.postalCode`
-                            )}
-                            helperText={getErrorCode(
-                              props,
-                              `addresses.${index}.postalCode`
-                            )}
                             inputMode={
                               props.values?.primaryAddress?.countryCode === 'FI'
                                 ? 'numeric'
@@ -394,19 +310,10 @@ function YouthProfileForm(componentProps: Props) {
                             }
                             labelText={t('registration.postalCode')}
                           />
-                          <Field
+                          <TextInput
                             className={styles.formInputCity}
-                            as={TextInput}
                             id={`addresses.${index}.city`}
                             name={`addresses.${index}.city`}
-                            invalid={isInvalid(
-                              props,
-                              `addresses.${index}.city`
-                            )}
-                            helperText={getErrorCode(
-                              props,
-                              `addresses.${index}.city`
-                            )}
                             labelText={t('registration.city')}
                           />
                         </div>
