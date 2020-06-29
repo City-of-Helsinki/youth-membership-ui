@@ -1,4 +1,4 @@
-import { FormValues } from '../../components/youthProfileForm/YouthProfileForm';
+import { Values as FormValues } from '../../components/youthProfileForm/YouthProfileForm';
 import {
   AddressType,
   Language,

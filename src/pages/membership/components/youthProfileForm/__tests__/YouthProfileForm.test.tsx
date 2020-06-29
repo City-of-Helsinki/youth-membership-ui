@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import { subYears, format } from 'date-fns';
 
-import YouthProfileForm, { FormValues } from '../YouthProfileForm';
+import YouthProfileForm, { Values as FormValues } from '../YouthProfileForm';
 import {
   AddressType,
   Language,

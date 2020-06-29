@@ -10,7 +10,7 @@ import {
   YouthProfileFields,
   MembershipDetails,
 } from '../../../graphql/generatedTypes';
-import { FormValues } from '../components/youthProfileForm/YouthProfileForm';
+import { Values as FormValues } from '../components/youthProfileForm/YouthProfileForm';
 import getAddressesFromNode from './getAddressesFromNode';
 
 const getYouthProfile = (formValues: FormValues) => {

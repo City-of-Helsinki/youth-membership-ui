@@ -9,7 +9,7 @@ import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 import NotificationComponent from '../../../../common/notification/NotificationComponent';
 import YouthProfileForm, {
-  FormValues,
+  Values as FormValues,
 } from '../youthProfileForm/YouthProfileForm';
 import styles from './CreateYouthProfile.module.css';
 import {
