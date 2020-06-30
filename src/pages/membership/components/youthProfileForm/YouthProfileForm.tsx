@@ -391,49 +391,28 @@ function YouthProfileForm(componentProps: Props) {
                 className={styles.formInput}
                 readOnly
               />
-              <Field
+              <TextInput
                 className={styles.formInput}
-                as={TextInput}
                 id="phone"
                 name="phone"
                 type="tel"
-                invalid={props.submitCount && props.errors.phone}
-                helperText={
-                  props.submitCount && props.errors.phone
-                    ? t(props.errors.phone)
-                    : ''
-                }
                 labelText={t('registration.phoneNumber') + ' *'}
               />
             </div>
 
             <h3>{t('registration.addInfo')}</h3>
             <div className={styles.formRow}>
-              <Field
+              <TextInput
                 className={styles.formInput}
-                as={TextInput}
                 id="schoolName"
                 name="schoolName"
                 labelText={t('registration.schoolName')}
-                invalid={props.submitCount && props.errors.schoolName}
-                helperText={
-                  props.submitCount && props.errors.schoolName
-                    ? t(props.errors.schoolName)
-                    : ''
-                }
               />
-              <Field
+              <TextInput
                 className={styles.formInput}
-                as={TextInput}
                 id="schoolClass"
                 name="schoolClass"
                 labelText={t('registration.schoolClass')}
-                invalid={props.submitCount && props.errors.schoolClass}
-                helperText={
-                  props.submitCount && props.errors.schoolClass
-                    ? t(props.errors.schoolClass)
-                    : ''
-                }
               />
             </div>
             <p className={styles.radioLabel}>
@@ -501,60 +480,32 @@ function YouthProfileForm(componentProps: Props) {
             </p>
 
             <div className={styles.formRow}>
-              <Field
+              <TextInput
                 className={styles.formInput}
-                as={TextInput}
                 id="approverFirstName"
                 name="approverFirstName"
-                invalid={props.submitCount && props.errors.approverFirstName}
-                helperText={
-                  props.submitCount && props.errors.approverFirstName
-                    ? t(props.errors.approverFirstName)
-                    : ''
-                }
                 labelText={approverLabelText('firstName')}
               />
-              <Field
+              <TextInput
                 className={styles.formInput}
-                as={TextInput}
                 id="approverLastName"
                 name="approverLastName"
-                invalid={props.submitCount && props.errors.approverLastName}
-                helperText={
-                  props.submitCount && props.errors.approverLastName
-                    ? t(props.errors.approverLastName)
-                    : ''
-                }
                 labelText={approverLabelText('lastName')}
               />
             </div>
             <div className={styles.formRow}>
-              <Field
+              <TextInput
                 className={styles.formInput}
-                as={TextInput}
                 id="approverEmail"
                 name="approverEmail"
                 type="email"
-                invalid={props.submitCount && props.errors.approverEmail}
-                helperText={
-                  props.submitCount && props.errors.approverEmail
-                    ? t(props.errors.approverEmail)
-                    : ''
-                }
                 labelText={approverLabelText('email')}
               />
-              <Field
+              <TextInput
                 className={styles.formInput}
-                as={TextInput}
                 id="approverPhone"
                 name="approverPhone"
                 type="tel"
-                invalid={props.submitCount && props.errors.approverPhone}
-                helperText={
-                  props.submitCount && props.errors.approverPhone
-                    ? t(props.errors.approverPhone)
-                    : ''
-                }
                 labelText={approverLabelText('phoneNumber')}
               />
             </div>
