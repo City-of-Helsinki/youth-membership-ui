@@ -1,0 +1,6 @@
+#import "../../membership/graphql/MembershipDetailsFragment.graphql
+query YouthProfileByApprovalToken($token: String!) {
+  youthProfileByApprovalToken(token: $token) {
+    ...MembershipDetailsFragment
+  }
+}

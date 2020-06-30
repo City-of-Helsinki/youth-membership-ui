@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 
 import client from '../client';
 
-jest.mock('../../auth/redux', () => {
+jest.mock('../../domain/auth/redux', () => {
   return {
     profileApiTokenSelector: () => 'foo.bar.baz',
   };

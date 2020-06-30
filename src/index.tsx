@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import * as Sentry from '@sentry/browser';
 
 import './index.css';
-import BrowserApp from './BrowserApp';
+import BrowserApp from './domain/app/BrowserApp';
 import * as serviceWorker from './serviceWorker';
 
 if (process.env.NODE_ENV !== 'development') {
