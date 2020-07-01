@@ -6,6 +6,7 @@ import { loader } from 'graphql.macro';
 import * as Sentry from '@sentry/browser';
 import { useTranslation } from 'react-i18next';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
+import { useHistory } from 'react-router';
 
 import {
   AddServiceConnection as AddServiceConnectionData,
@@ -46,6 +47,7 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
   const [showNotification, setShowNotification] = useState(false);
   const { t, i18n } = useTranslation();
   const { trackEvent } = useMatomo();
+  const history = useHistory();
 
   const { data, loading: loadingData } = useQuery<PrefillRegistartion>(
     PREFILL_REGISTRATION,
@@ -89,12 +91,14 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
       },
     };
 
-    addServiceConnection({ variables: connectionVariables }).catch(
-      (error: Error) => {
+    addServiceConnection({ variables: connectionVariables })
+      .then(() => {
+        history.push('/');
+      })
+      .catch((error: Error) => {
         Sentry.captureException(error);
         setShowNotification(true);
-      }
-    );
+      });
   };
 
   const handleOnValues = (formValues: FormValues) => {
