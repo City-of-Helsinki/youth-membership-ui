@@ -1,0 +1,12 @@
+.youthProfileFormSection {
+  --youth-profile-form-section-max-width: 1024px;
+
+  max-width: var(--youth-profile-form-section-max-width);
+  margin: 0 auto;
+  padding: var(--spacing-layout-s) var(--spacing-3-xl);
+
+  background: var(--color-white);
+}
+.youthProfileFormSection:not(:last-child) {
+  margin-bottom: var(--spacing-layout-2-xs);
+}

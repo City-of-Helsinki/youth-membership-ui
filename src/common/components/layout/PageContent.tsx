@@ -9,9 +9,15 @@ interface Props {
   children: ReactNode;
   title?: string;
   isReady?: boolean;
+  loadingText?: string;
 }
 
-function PageContent({ children, title = 'appName', isReady = true }: Props) {
+function PageContent({
+  children,
+  title = 'appName',
+  isReady = true,
+  loadingText,
+}: Props) {
   const { t } = useTranslation();
   const { trackPageView } = useMatomo();
 
@@ -33,7 +39,7 @@ function PageContent({ children, title = 'appName', isReady = true }: Props) {
   }, []);
 
   return (
-    <LoadingContent isLoading={!isReady}>
+    <LoadingContent isLoading={!isReady} loadingText={loadingText}>
       <div className={styles.wrapper}>{children}</div>
     </LoadingContent>
   );

@@ -1,7 +1,7 @@
 /* eslint-disable sort-keys */
 import React, { useState } from 'react';
 import { User } from 'oidc-client';
-import { useMutation, useQuery } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import * as Sentry from '@sentry/browser';
 import { useTranslation } from 'react-i18next';
@@ -23,7 +23,6 @@ import {
 } from '../../../graphql/generatedTypes';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import getCookie from '../../../common/helpers/getCookie';
-import Loading from '../../../common/components/loading/Loading';
 import { getMutationVariables } from '../helpers/createProfileMutationVariables';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
@@ -32,7 +31,6 @@ import YouthProfileForm, {
 } from '../form/YouthProfileForm';
 import styles from './createYouthProfile.module.css';
 
-const PREFILL_REGISTRATION = loader('../graphql/PrefillRegistration.graphql');
 const CREATE_PROFILE = loader('../graphql/CreateMyProfile.graphql');
 const ADD_SERVICE_CONNECTION = loader(
   '../graphql/AddServiceConnection.graphql'
@@ -41,23 +39,17 @@ const UPDATE_PROFILE = loader('../graphql/UpdateMyProfile.graphql');
 
 type Props = {
   tunnistamoUser: User;
+  prefillRegistrationData: PrefillRegistartion;
 };
 
-function CreateYouthProfile({ tunnistamoUser }: Props) {
+function CreateYouthProfile({
+  tunnistamoUser,
+  prefillRegistrationData,
+}: Props) {
   const [showNotification, setShowNotification] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { trackEvent } = useMatomo();
   const history = useHistory();
-
-  const { data, loading: loadingData } = useQuery<PrefillRegistartion>(
-    PREFILL_REGISTRATION,
-    {
-      onError: (error: Error) => {
-        Sentry.captureException(error);
-        setShowNotification(true);
-      },
-    }
-  );
 
   const [createProfile, { loading }] = useMutation<
     CreateMyProfileData,
@@ -105,10 +97,10 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
   const handleOnValues = (formValues: FormValues) => {
     const variables: CreateMyProfileVariables = getMutationVariables(
       formValues,
-      data
+      prefillRegistrationData
     );
 
-    if (data?.myProfile) {
+    if (prefillRegistrationData?.myProfile) {
       updateProfile({ variables })
         .then(result => {
           if (!!result.data) {
@@ -164,36 +156,32 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
 
   return (
     <div className={styles.form}>
-      <Loading
-        isLoading={loadingData}
-        loadingText={t('profile.loading')}
-        loadingClassName={styles.loading}
-      >
-        <YouthProfileForm
-          profile={{
-            firstName: data?.myProfile?.firstName || '',
-            lastName: data?.myProfile?.lastName || '',
-            primaryAddress:
-              data?.myProfile?.primaryAddress || ({} as PrimaryAddress),
-            addresses: getAddressesFromNode('prefill', data),
-            email: tunnistamoUser.profile.email || '',
-            phone: data?.myProfile?.primaryPhone?.phone || '',
-            birthDate,
-            approverEmail: '',
-            schoolName: '',
-            schoolClass: '',
-            approverFirstName: '',
-            approverLastName: '',
-            approverPhone: '',
-            profileLanguage:
-              data?.myProfile?.language || Language[currentLangForProfile],
-            languageAtHome: YouthLanguage[currentLangForYouth],
-            photoUsageApproved: 'false',
-          }}
-          isSubmitting={loading}
-          onValues={handleOnValues}
-        />
-      </Loading>
+      <YouthProfileForm
+        profile={{
+          firstName: prefillRegistrationData?.myProfile?.firstName || '',
+          lastName: prefillRegistrationData?.myProfile?.lastName || '',
+          primaryAddress:
+            prefillRegistrationData?.myProfile?.primaryAddress ||
+            ({} as PrimaryAddress),
+          addresses: getAddressesFromNode('prefill', prefillRegistrationData),
+          email: tunnistamoUser.profile.email || '',
+          phone: prefillRegistrationData?.myProfile?.primaryPhone?.phone || '',
+          birthDate,
+          approverEmail: '',
+          schoolName: '',
+          schoolClass: '',
+          approverFirstName: '',
+          approverLastName: '',
+          approverPhone: '',
+          profileLanguage:
+            prefillRegistrationData?.myProfile?.language ||
+            Language[currentLangForProfile],
+          languageAtHome: YouthLanguage[currentLangForYouth],
+          photoUsageApproved: 'false',
+        }}
+        isSubmitting={loading}
+        onValues={handleOnValues}
+      />
       <NotificationComponent
         show={showNotification}
         onClose={() => setShowNotification(false)}

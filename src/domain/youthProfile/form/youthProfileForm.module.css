@@ -1,6 +1,24 @@
+.formWrapper {
+    margin: var(--spacing-layout-2-xs) 0 var(--spacing-layout-l) 0;
+
+    color: var(--color-black-90);
+}
+
+.formWrapper p {
+    margin: 0 0 var(--spacing-m) 0;
+    line-height: var(--lineheight-l);
+    font-size: var(--fontsize-body-medium);
+}
+
+.formWrapper h2 {
+    margin: 0 0 var(--spacing-s) 0;
+}
+
 .formTitleText h1 {
-    font-size: var(--fontsize-h-2);
+    margin-top: 0;
     margin-bottom: 15px;
+
+    font-size: var(--fontsize-h-2);
 }
 
 .formRow {

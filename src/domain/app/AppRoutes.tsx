@@ -12,12 +12,13 @@ import LandingPage from '../landingPage/LandingPage';
 import MembershipDetailsPage from '../membership/details/MembershipDetailsPage';
 import EditYouthProfilePage from '../youthProfile/edit/EditYouthProfilePage';
 import CreateYouthProfilePage from '../youthProfile/create/CreateYouthProfilePage';
+import NotFoundPage from '../notFoundPage/NotFoundPage';
 
 function AppRoutes() {
   return (
     <PageLayout>
       <Switch>
-        <Route path="/login" component={Login} />
+        <Route path="/login" exact component={Login} />
         <AppYouthProfileRoute path="/" exact component={LandingPage} />
         <AppYouthProfileRoute
           path="/membership-details"
@@ -40,7 +41,7 @@ function AppRoutes() {
           }}
         />
         <Route path="/callback" component={OidcCallback} />
-        <Route path="*">404 - not found</Route>
+        <Route path="*" component={NotFoundPage} />
       </Switch>
     </PageLayout>
   );

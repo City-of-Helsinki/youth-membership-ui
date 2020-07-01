@@ -9,19 +9,15 @@ import {
   updateWrapper,
 } from '../../../../common/test/testUtils';
 import i18n from '../../../../common/test/testi18nInit';
-import CreateYouthProfile from '../CreateYouthProfile';
+import CreateYouthProfilePage from '../CreateYouthProfilePage';
 import {
   AddressType,
   Language,
   PrefillRegistartion,
 } from '../../../../graphql/generatedTypes';
 
-const PREFILL_REGISTRATION = loader(
-  '../../graphql/PrefillRegistration.graphql'
-);
-
 /* eslint-disable @typescript-eslint/camelcase */
-const tunnistamoUser: User = {
+const mockTunnistamoUser: User = {
   profile: {
     iss: '',
     sub: '',
@@ -43,6 +39,14 @@ const tunnistamoUser: User = {
   },
 };
 /* eslint-enable @typescript-eslint/camelcase */
+
+jest.mock('../../../auth/getAuthenticatedUser', () => () =>
+  Promise.resolve(mockTunnistamoUser)
+);
+
+const PREFILL_REGISTRATION = loader(
+  '../../graphql/PrefillRegistration.graphql'
+);
 
 type MyProfile = {
   language?: string;
@@ -95,21 +99,8 @@ const getMocks = (myProfile: MyProfile) => {
 };
 
 const getWrapper = (mocks?: MockedResponse[]) => {
-  return mountWithApolloProvider(
-    <CreateYouthProfile tunnistamoUser={tunnistamoUser} />,
-    mocks
-  );
+  return mountWithApolloProvider(<CreateYouthProfilePage />, mocks);
 };
-
-test('renders form with empty values', async () => {
-  const wrapper = getWrapper();
-  await updateWrapper(wrapper);
-  const firstName = wrapper.find('input[name="firstName"]');
-  const lastName = wrapper.find('input[name="lastName"]');
-
-  expect(firstName.props().value).toBeFalsy();
-  expect(lastName.props().value).toBeFalsy();
-});
 
 test('renders form with pre-filled values', async () => {
   const wrapper = getWrapper(getMocks({}));

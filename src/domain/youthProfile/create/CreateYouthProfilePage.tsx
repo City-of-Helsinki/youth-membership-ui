@@ -1,19 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Redirect } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from '@apollo/react-hooks';
+import { loader } from 'graphql.macro';
+import * as Sentry from '@sentry/browser';
+import { User } from 'oidc-client';
 
-import Loading from '../../../common/components/loading/Loading';
-import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
+import { PrefillRegistartion } from '../../../graphql/generatedTypes';
+import PageContent from '../../../common/components/layout/PageContent';
+import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import getAuthenticatedUser from '../../auth/getAuthenticatedUser';
 import useIsMembershipPending from '../../membership/useIsMembershipPending';
 import CreateYouthProfile from './CreateYouthProfile';
 
+const PREFILL_REGISTRATION = loader('../graphql/PrefillRegistration.graphql');
+
 function CreateYouthProfilePage() {
   const { t } = useTranslation();
   const history = useHistory();
-  const [tunnistamoUser, setTunnistamoUser] = useState();
+  const [showNotification, setShowNotification] = useState(false);
+  const [tunnistamoUser, setTunnistamoUser] = useState<User | null>(null);
   const [isCheckingAuthState, setIsCheckingAuthState] = useState(true);
-  const [isMembershipPending, loading] = useIsMembershipPending({
+  const { data, loading: loadingPrefillData } = useQuery<PrefillRegistartion>(
+    PREFILL_REGISTRATION,
+    {
+      onError: (error: Error) => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      },
+    }
+  );
+  const [
+    isMembershipPending,
+    loadingIsMembershipPending,
+  ] = useIsMembershipPending({
     onError: () => {
       history.push('/login');
     },
@@ -33,15 +53,28 @@ function CreateYouthProfilePage() {
   }
 
   return (
-    <PageContentWithHostingBox title="">
-      <Loading
-        loadingClassName="unused"
-        isLoading={isCheckingAuthState || loading}
-        loadingText={t('profile.loading')}
-      >
-        <CreateYouthProfile tunnistamoUser={tunnistamoUser} />
-      </Loading>
-    </PageContentWithHostingBox>
+    <PageContent
+      isReady={
+        !(
+          isCheckingAuthState ||
+          loadingPrefillData ||
+          loadingIsMembershipPending
+        )
+      }
+      loadingText={t('profile.loading')}
+      title=""
+    >
+      {data && tunnistamoUser && (
+        <CreateYouthProfile
+          tunnistamoUser={tunnistamoUser}
+          prefillRegistrationData={data}
+        />
+      )}
+      <NotificationComponent
+        show={showNotification}
+        onClose={() => setShowNotification(false)}
+      />
+    </PageContent>
   );
 }
 
