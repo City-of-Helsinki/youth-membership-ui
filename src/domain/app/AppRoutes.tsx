@@ -26,7 +26,6 @@ function AppRoutes(props: Props) {
         <YouthProfile />
       </Route>
       <Route path="/approve/:token" exact component={ApproveYouthProfile} />
-      <ApproveYouthProfile />
       <Route path="/accessibility" exact component={AccessibilityStatement} />
       <Route path="*">404 - not found</Route>
     </Switch>
