@@ -1,13 +1,13 @@
 import React from 'react';
 
-import PageLayout from '../../../common/components/layout/PageLayout';
+import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import SentYouthProfile from './SentYouthProfile';
 
 function SentYouthProfilePage() {
   return (
-    <PageLayout title="confirmSendingProfile.pageTitle">
+    <PageContentWithHostingBox title="confirmSendingProfile.pageTitle">
       <SentYouthProfile />
-    </PageLayout>
+    </PageContentWithHostingBox>
   );
 }
 

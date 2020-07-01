@@ -9,7 +9,7 @@ import LinkButton from '../../../../common/components/linkButton/LinkButton';
 import { AuthState, resetError, isAuthenticatedSelector } from '../../redux';
 import { RootState } from '../../../../redux/rootReducer';
 import authenticate from '../../authenticate';
-import PageLayout from '../../../../common/components/layout/PageLayout';
+import PageContentWithHostingBox from '../../../../common/components/layout/PageContentWithHostingBox';
 import styles from './Login.module.css';
 import BirthdateForm from '../birthdateForm/BirthdateForm';
 import NotificationComponent from '../../../../common/components/notification/NotificationComponent';
@@ -43,7 +43,7 @@ function Login(props: Props) {
 
   return (
     <PageWrapper>
-      <PageLayout title={'login.pageTitle'}>
+      <PageContentWithHostingBox title={'login.pageTitle'}>
         <div className={styles.hostingBox}>
           <h1 className={styles.title}>{t('login.title')}</h1>
 
@@ -105,7 +105,7 @@ function Login(props: Props) {
           show={Boolean(props.auth.error)}
           onClose={() => props.resetError()}
         />
-      </PageLayout>
+      </PageContentWithHostingBox>
     </PageWrapper>
   );
 }

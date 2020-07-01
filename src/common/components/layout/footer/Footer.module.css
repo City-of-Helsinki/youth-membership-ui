@@ -1,28 +1,32 @@
+.wrapper {
+    display: inherit;
+    grid-template-columns: inherit;
+    grid-column: viewport;
+    grid-row: footer;
+  }
+
 .koros {
+    grid-column: viewport;
     width: 100%;
     fill: var(--color-black-5);
     height: 60px;
 }
 
 .footer {
+    display: inherit;
+    grid-template-columns: inherit;
+    grid-column: viewport;
     width: 100%;
     flex-shrink: 0;
     background-color: var(--color-black-5);
 
-    padding: 0 10px 20px;
+    padding: 0 0 20px;
 }
 
 .content {
-    width: auto;
-    margin: 0 auto;
+    grid-column: 2;
     display: flex;
     flex-direction: column;
-}
-
-@media (min-width: 1200px) {
-    .content {
-        width: 1200px;
-    }
 }
 
 .logo {

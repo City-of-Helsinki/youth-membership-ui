@@ -12,14 +12,14 @@ exports[`matches snapshot 1`] = `
       lang="fi"
     />
     <title>
-      Nuorisopalvelut
+      Jässäri
     </title>
     <meta
       content="Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat."
       name="description"
     />
     <meta
-      content="Nuorisopalvelut"
+      content="Jässäri"
       property="og:title"
     />
     <meta

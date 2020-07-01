@@ -69,6 +69,7 @@ function CreateYouthProfile({ tunnistamoUser }: Props) {
     AddServiceConnectionVariables
   >(ADD_SERVICE_CONNECTION, {
     refetchQueries: ['HasYouthProfile'],
+    awaitRefetchQueries: true,
   });
 
   const [updateProfile] = useMutation<

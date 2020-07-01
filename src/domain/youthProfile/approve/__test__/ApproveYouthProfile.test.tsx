@@ -100,7 +100,5 @@ test('there is no user data / profile has already been approved', async () => {
   const content = wrapper.find('div[className="hostingBox"]');
   const title = content.find('h2');
 
-  expect(title.text()).toEqual(
-    'Hakemus on jo hyväksytty / linkki on viallinen'
-  );
+  expect(title.text()).toEqual('Hakemus on jo hyväksytty ');
 });

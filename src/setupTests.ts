@@ -20,3 +20,7 @@ jest.mock('react-router', () => ({
     push: jest.fn(),
   }),
 }));
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
+global.scrollTo = jest.fn();

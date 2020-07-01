@@ -1,0 +1,4 @@
+.wrapper {
+  grid-column: container;
+  grid-row: content;
+}

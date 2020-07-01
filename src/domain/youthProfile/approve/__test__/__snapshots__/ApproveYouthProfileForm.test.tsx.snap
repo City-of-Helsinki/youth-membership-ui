@@ -241,7 +241,7 @@ exports[`matches snapshot 1`] = `
           </div>
         </LabeledValue>
         <LabeledValue
-          label="Kotioisoite"
+          label="Kotiosoite"
           value="Testikuja 55, 00100 Helsinki"
         >
           <div
@@ -250,7 +250,7 @@ exports[`matches snapshot 1`] = `
             <strong
               className="label"
             >
-              Kotioisoite
+              Kotiosoite
             </strong>
             <span
               className="value"

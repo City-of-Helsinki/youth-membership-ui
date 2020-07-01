@@ -1,13 +1,13 @@
 import React from 'react';
 
-import PageLayout from '../../../common/components/layout/PageLayout';
+import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import EditYouthProfile from './EditYouthProfile';
 
 function EditYouthProfilePage() {
   return (
-    <PageLayout title="edit.title">
+    <PageContentWithHostingBox title="edit.title">
       <EditYouthProfile />
-    </PageLayout>
+    </PageContentWithHostingBox>
   );
 }
 

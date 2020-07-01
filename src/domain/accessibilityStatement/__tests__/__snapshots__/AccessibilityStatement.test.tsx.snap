@@ -1,21 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<PageWrapper>
+<Fragment>
   <div
-    className="pageWrapper"
-  >
-    <Header />
+    className="background"
+  />
+  <PageContent>
     <div
-      className="container"
+      className="innerWrapper"
     >
-      <div
-        className="innerWrapper"
-      >
-        <AccessibilityStatementFi />
-      </div>
+      <AccessibilityStatementFi />
     </div>
-    <Footer />
-  </div>
-</PageWrapper>
+  </PageContent>
+</Fragment>
 `;

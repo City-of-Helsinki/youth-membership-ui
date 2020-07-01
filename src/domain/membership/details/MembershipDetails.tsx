@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
-import { loader } from 'graphql.macro';
-import { useQuery } from '@apollo/react-hooks';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import * as Sentry from '@sentry/browser';
 import countries from 'i18n-iso-countries';
 
+// eslint-disable-next-line max-len
 import {
-  MembershipDetails as MembershipDetailsData,
+  MembershipDetails,
   MembershipDetails_youthProfile_profile_addresses_edges_node as Address,
 } from '../../../graphql/generatedTypes';
 import LinkButton from '../../../common/components/linkButton/LinkButton';
-import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import LabeledValue from '../../../common/components/labeledValue/LabeledValue';
 import formatDate from '../../../common/helpers/formatDate';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
@@ -20,20 +17,12 @@ import getSchool from '../helpers/getSchool';
 import getAddressesFromNode from '../helpers/getAddressesFromNode';
 import styles from './membershipDetails.module.css';
 
-const MEMBERSHIP_DETAILS = loader('../graphql/MembershipDetails.graphql');
+type Props = {
+  membershipDetailsData: MembershipDetails;
+};
 
-type Props = {};
-
-function RegistrationInformation(props: Props) {
-  const [showNotification, setShowNotification] = useState(false);
+function RegistrationInformation({ membershipDetailsData }: Props) {
   const { t, i18n } = useTranslation();
-  const { data } = useQuery<MembershipDetailsData>(MEMBERSHIP_DETAILS, {
-    onError: (error: Error) => {
-      Sentry.captureException(error);
-      setShowNotification(true);
-    },
-    fetchPolicy: 'network-only',
-  });
 
   const getAdditionalAddresses = (address: Address) => {
     const country = countries.getName(
@@ -44,20 +33,23 @@ function RegistrationInformation(props: Props) {
       .filter(addressPart => addressPart)
       .join(', ');
   };
-  const addresses = getAddressesFromNode('membership', data);
+  const addresses = getAddressesFromNode('membership', membershipDetailsData);
 
   return (
     <div className={styles.membershipDetails}>
-      {data?.youthProfile && (
+      {membershipDetailsData?.youthProfile && (
         <>
           <h1>{t('membershipDetails.title')}</h1>
           <p>{t('membershipDetails.text')}</p>
           <h2>{t('membershipDetails.profileInformation')}</h2>
           <div className={styles.fieldsGroup}>
-            <LabeledValue label={t('profile.name')} value={getFullName(data)} />
+            <LabeledValue
+              label={t('profile.name')}
+              value={getFullName(membershipDetailsData)}
+            />
             <LabeledValue
               label={t('profile.address')}
-              value={getAddress(data, i18n.languages[0])}
+              value={getAddress(membershipDetailsData, i18n.languages[0])}
             />
             {addresses.map((address, index: number) => (
               <LabeledValue
@@ -68,20 +60,24 @@ function RegistrationInformation(props: Props) {
             ))}
             <LabeledValue
               label={t('profile.email')}
-              value={data.youthProfile.profile.primaryEmail?.email}
+              value={
+                membershipDetailsData.youthProfile.profile.primaryEmail?.email
+              }
             />
             <LabeledValue
               label={t('profile.phone')}
-              value={data.youthProfile.profile.primaryPhone?.phone}
+              value={
+                membershipDetailsData.youthProfile.profile.primaryPhone?.phone
+              }
             />
             <LabeledValue
               label={t('youthProfile.birthdate')}
-              value={formatDate(data.youthProfile.birthDate)}
+              value={formatDate(membershipDetailsData.youthProfile.birthDate)}
             />
             <LabeledValue
               label={t('registration.profileLanguage')}
               value={t(
-                `LANGUAGE_OPTIONS.${data?.youthProfile?.profile?.language}`
+                `LANGUAGE_OPTIONS.${membershipDetailsData?.youthProfile?.profile?.language}`
               )}
             />
           </div>
@@ -89,16 +85,18 @@ function RegistrationInformation(props: Props) {
           <div className={styles.fieldsGroup}>
             <LabeledValue
               label={t('youthProfile.school')}
-              value={getSchool(data)}
+              value={getSchool(membershipDetailsData)}
             />
             <LabeledValue
               label={t('youthProfile.homeLanguages')}
-              value={t(`LANGUAGE_OPTIONS.${data.youthProfile.languageAtHome}`)}
+              value={t(
+                `LANGUAGE_OPTIONS.${membershipDetailsData.youthProfile.languageAtHome}`
+              )}
             />
             <LabeledValue
               label={t('registration.photoUsageApproved')}
               value={
-                data?.youthProfile?.photoUsageApproved
+                membershipDetailsData?.youthProfile?.photoUsageApproved
                   ? t('approval.photoUsageApprovedYes')
                   : t('approval.photoUsageApprovedNo')
               }
@@ -109,15 +107,15 @@ function RegistrationInformation(props: Props) {
           <div className={styles.fieldsGroup}>
             <LabeledValue
               label={t('youthProfile.approverName')}
-              value={`${data.youthProfile.approverFirstName} ${data.youthProfile.approverLastName}`}
+              value={`${membershipDetailsData.youthProfile.approverFirstName} ${membershipDetailsData.youthProfile.approverLastName}`}
             />
             <LabeledValue
               label={t('youthProfile.approverEmail')}
-              value={data.youthProfile.approverEmail}
+              value={membershipDetailsData.youthProfile.approverEmail}
             />
             <LabeledValue
               label={t('youthProfile.approverPhone')}
-              value={data.youthProfile.approverPhone}
+              value={membershipDetailsData.youthProfile.approverPhone}
             />
           </div>
         </>
@@ -135,11 +133,6 @@ function RegistrationInformation(props: Props) {
         component="Link"
         buttonText={t('membershipDetails.edit')}
         variant="secondary"
-      />
-
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
       />
     </div>
   );

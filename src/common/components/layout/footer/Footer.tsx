@@ -3,14 +3,14 @@ import { Koros } from 'hds-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import HelsinkiLogo from '../helsinkiLogo/HelsinkiLogo';
+import HelsinkiLogo from '../../helsinkiLogo/HelsinkiLogo';
 import styles from './Footer.module.css';
 
 function Footer() {
   const { t } = useTranslation();
   const year = new Date().getFullYear();
   return (
-    <React.Fragment>
+    <div className={styles.wrapper}>
       <Koros className={styles.koros} />
       <footer className={styles.footer}>
         <div className={styles.content}>
@@ -39,7 +39,7 @@ function Footer() {
           </div>
         </div>
       </footer>
-    </React.Fragment>
+    </div>
   );
 }
 

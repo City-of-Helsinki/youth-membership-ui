@@ -3,7 +3,7 @@ import { useHistory, Redirect } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
 import Loading from '../../../common/components/loading/Loading';
-import PageLayout from '../../../common/components/layout/PageLayout';
+import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import getAuthenticatedUser from '../../auth/getAuthenticatedUser';
 import useIsMembershipPending from '../../membership/useIsMembershipPending';
 import CreateYouthProfile from './CreateYouthProfile';
@@ -33,7 +33,7 @@ function CreateYouthProfilePage() {
   }
 
   return (
-    <PageLayout title="">
+    <PageContentWithHostingBox title="">
       <Loading
         loadingClassName="unused"
         isLoading={isCheckingAuthState || loading}
@@ -41,7 +41,7 @@ function CreateYouthProfilePage() {
       >
         <CreateYouthProfile tunnistamoUser={tunnistamoUser} />
       </Loading>
-    </PageLayout>
+    </PageContentWithHostingBox>
   );
 }
 

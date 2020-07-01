@@ -5,16 +5,16 @@ import { useTranslation } from 'react-i18next';
 import { loader } from 'graphql.macro';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 
-import PersonIcon from '../../../svg/Person.svg';
-import { NameQuery } from '../../../../graphql/generatedTypes';
-import Dropdown from '../../dropdown/Dropdown';
-import authenticate from '../../../../domain/auth/authenticate';
-import logout from '../../../../domain/auth/logout';
-import { isAuthenticatedSelector } from '../../../../domain/auth/redux';
-import NotificationComponent from '../../notification/NotificationComponent';
+import PersonIcon from '../../../../svg/Person.svg';
+import { NameQuery } from '../../../../../graphql/generatedTypes';
+import Dropdown from '../../../dropdown/Dropdown';
+import authenticate from '../../../../../domain/auth/authenticate';
+import logout from '../../../../../domain/auth/logout';
+import { isAuthenticatedSelector } from '../../../../../domain/auth/redux';
+import NotificationComponent from '../../../notification/NotificationComponent';
 
 const NAME_QUERY = loader(
-  '../../../../../src/domain/youthProfile/graphql/NameQuery.graphql'
+  '../../../../../../src/domain/youthProfile/graphql/NameQuery.graphql'
 );
 
 type Props = {};

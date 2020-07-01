@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 import { HasYouthProfile } from '../../graphql/generatedTypes';
 import getCookie from '../../common/helpers/getCookie';
-import Loading from '../../common/components/loading/Loading';
+import LoadingContent from '../../common/components/loading/LoadingContent';
 import NotificationComponent from '../../common/components/notification/NotificationComponent';
 
 const HAS_YOUTH_PROFILE = loader(
@@ -24,7 +24,6 @@ function AppYouthProfileRoute(props: Props) {
       Sentry.captureException(error);
       setShowNotification(true);
     },
-    fetchPolicy: 'network-only',
   });
 
   const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
@@ -32,11 +31,7 @@ function AppYouthProfileRoute(props: Props) {
 
   return (
     <>
-      <Loading
-        loadingClassName="unused"
-        isLoading={loading}
-        loadingText={t('profile.verifying')}
-      >
+      <LoadingContent isLoading={loading} loadingText={t('profile.verifying')}>
         {isYouthProfileFound ? (
           <Route {...props} />
         ) : !birthDate ? (
@@ -44,7 +39,7 @@ function AppYouthProfileRoute(props: Props) {
         ) : (
           <Redirect to="/create" />
         )}
-      </Loading>
+      </LoadingContent>
       <NotificationComponent
         show={showNotification}
         onClose={() => setShowNotification(false)}

@@ -5,7 +5,7 @@ exports[`matches snapshot 1`] = `
   className="header"
 >
   <div
-    className="centeredContainer"
+    className="content"
   >
     <HelsinkiLogo
       className="logo"
@@ -15,7 +15,7 @@ exports[`matches snapshot 1`] = `
       className="appName"
       to="/"
     >
-      Nuorisopalvelut
+      Jässäri
     </Link>
     <section
       className="end"
