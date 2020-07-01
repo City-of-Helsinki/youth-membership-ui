@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { reducer as oidcReducer } from 'redux-oidc';
 
-import authReducer from '../auth/redux';
+import authReducer from '../domain/auth/redux';
 
 const rootReducer = combineReducers({
   auth: authReducer,
