@@ -23,7 +23,7 @@
 
 .formRow {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-s);
     flex-direction: column;
 }
 
@@ -31,6 +31,11 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.formRow > *:not(:last-child),
+.formInputRow > *:not(:last-child) {
+    margin-bottom: var(--spacing-s);
 }
 
 .formInputColumn {
@@ -69,6 +74,11 @@
     .formInputRow {
         width: 320px;
         flex-direction: row;
+    }
+
+    .formRow > *:not(:last-child),
+    .formInputRow > *:not(:last-child) {
+        margin-bottom: 0;
     }
 
     .formInput {
