@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<Fragment>
+<div
+  className="wrapper"
+>
   <Koros
     className="koros"
   />
@@ -20,7 +22,7 @@ exports[`matches snapshot 1`] = `
       >
         <span>
           © 
-          Tekijänoikeus 2020
+          © Helsingin kaupunki
            •
            
           Kaikki oikeudet pidätetään
@@ -52,5 +54,5 @@ exports[`matches snapshot 1`] = `
       </div>
     </div>
   </footer>
-</Fragment>
+</div>
 `;

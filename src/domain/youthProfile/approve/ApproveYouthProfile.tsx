@@ -13,7 +13,7 @@ import {
 import convertBooleanToString from '../../../common/helpers/convertBooleanToString';
 import Loading from '../../../common/components/loading/Loading';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
-import PageLayout from '../../../common/components/layout/PageLayout';
+import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import getAddress from '../../membership/helpers/getAddress';
 import ConfirmApprovingYouthProfile from './ConfirmApprovingYouthProfile';
 import ApproveYouthProfileForm, { FormValues } from './ApproveYouthProfileForm';
@@ -77,7 +77,7 @@ function ApproveYouthProfile(props: Props) {
   };
 
   return (
-    <PageLayout title="approval.title">
+    <PageContentWithHostingBox title="approval.title">
       <Loading
         isLoading={queryLoading}
         loadingClassName="loading"
@@ -125,7 +125,7 @@ function ApproveYouthProfile(props: Props) {
         show={showNotification}
         onClose={() => setShowNotification(false)}
       />
-    </PageLayout>
+    </PageContentWithHostingBox>
   );
 }
 

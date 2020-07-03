@@ -3,14 +3,13 @@
 exports[`matches snapshot 1`] = `
 <PageWrapper>
   <div
-    className="background"
+    className="layout"
   >
+    <div
+      className="background"
+    />
     <Header />
-    <HostingBox
-      className="hostingBox"
-    >
-      <div />
-    </HostingBox>
+    <div />
     <Footer />
   </div>
 </PageWrapper>

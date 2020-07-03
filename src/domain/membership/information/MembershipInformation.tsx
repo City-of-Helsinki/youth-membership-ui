@@ -1,71 +1,38 @@
-import React, { useState } from 'react';
-import { useQuery, useMutation } from '@apollo/react-hooks';
-import { loader } from 'graphql.macro';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { QRCode } from 'react-qrcode-logo';
-import * as Sentry from '@sentry/browser';
 import { Button } from 'hds-react';
 
-import {
-  RenewMyYouthProfile as RenewMyYouthProfileData,
-  RenewMyYouthProfileVariables,
-  MembershipInformation as MembershipInformationTypes,
-} from '../../../graphql/generatedTypes';
+import { MembershipInformation as MembershipInformationTypes } from '../../../graphql/generatedTypes';
 import LinkButton from '../../../common/components/linkButton/LinkButton';
-import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import getFullName from '../helpers/getFullName';
 import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import styles from './membershipInformation.module.css';
 
-const MEMBERSHIP_INFORMATION = loader(
-  '../graphql/MembershipInformation.graphql'
-);
-const RENEW_MEMBERSHIP = loader('../graphql/RenewMyYouthProfile.graphql');
+interface Props {
+  onRenewMembership: () => void;
+  membershipInformationTypes: MembershipInformationTypes;
+}
 
-type Props = {};
-
-function MembershipInformation(props: Props) {
-  const [showNotification, setShowNotification] = useState(false);
-  const [successNotification, setSuccessNotification] = useState(false);
+function MembershipInformation({
+  onRenewMembership,
+  membershipInformationTypes,
+}: Props) {
   const { t } = useTranslation();
 
-  const { data, loading } = useQuery<MembershipInformationTypes>(
-    MEMBERSHIP_INFORMATION,
-    {
-      onError: (error: Error) => {
-        Sentry.captureException(error);
-        setShowNotification(true);
-      },
-    }
+  const validUntil = convertDateToLocale(
+    membershipInformationTypes?.youthProfile?.expiration
   );
-  const [renewMembership] = useMutation<
-    RenewMyYouthProfileData,
-    RenewMyYouthProfileVariables
-  >(RENEW_MEMBERSHIP, { refetchQueries: ['MembershipInformation'] });
-
-  const validUntil = convertDateToLocale(data?.youthProfile?.expiration);
-
-  const handleRenewMembership = () => {
-    const variables: RenewMyYouthProfileVariables = {
-      input: {},
-    };
-
-    renewMembership({ variables })
-      .then(result => setSuccessNotification(!!result.data))
-      .catch((error: Error) => {
-        Sentry.captureException(error);
-        setShowNotification(true);
-      });
-  };
 
   return (
     <div className={styles.container}>
-      {!loading && (
+      {membershipInformationTypes && (
         <React.Fragment>
-          <h1>{getFullName(data)}</h1>
+          <h1>{getFullName(membershipInformationTypes)}</h1>
           <h3>
             {t('membershipInformation.title', {
-              number: data?.youthProfile?.membershipNumber,
+              number:
+                membershipInformationTypes?.youthProfile?.membershipNumber,
             })}
           </h3>
           <p className={styles.validUntil}>
@@ -76,10 +43,10 @@ function MembershipInformation(props: Props) {
             value="https://profiili-api.test.kuva.hel.ninja/admin/"
           />
            
-          {data?.youthProfile?.renewable && (
+          {membershipInformationTypes?.youthProfile?.renewable && (
             <Button
               type="button"
-              onClick={handleRenewMembership}
+              onClick={onRenewMembership}
               className={styles.button}
               data-cy="renew"
             >
@@ -93,18 +60,6 @@ function MembershipInformation(props: Props) {
             buttonText={t('membershipInformation.showProfileInformation')}
             variant="secondary"
           />
-          <NotificationComponent
-            show={showNotification}
-            onClose={() => setShowNotification(false)}
-          />
-          <NotificationComponent
-            show={successNotification}
-            onClose={() => setSuccessNotification(false)}
-            type="success"
-            labelText={t('membershipInformation.renewSuccessTitle')}
-          >
-            {t('membershipInformation.renewSuccessMessage')}
-          </NotificationComponent>
         </React.Fragment>
       )}
     </div>

@@ -4,7 +4,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import { loader } from 'graphql.macro';
 import { MemoryRouter } from 'react-router-dom';
 
-import MembershipInformation from '../MembershipInformation';
+import MembershipInformationPage from '../MembershipInformationPage';
 import { updateWrapper } from '../../../../common/test/testUtils';
 
 const MEMBERSHIP_INFORMATION = loader(
@@ -37,7 +37,7 @@ it('mocked data is found', async () => {
   const wrapper = mount(
     <MemoryRouter>
       <MockedProvider mocks={mocks} addTypename={false}>
-        <MembershipInformation />
+        <MembershipInformationPage />
       </MockedProvider>
     </MemoryRouter>
   );
@@ -59,7 +59,7 @@ it('renew button is shown', async () => {
   const wrapper = mount(
     <MemoryRouter>
       <MockedProvider mocks={mocks} addTypename={false}>
-        <MembershipInformation />
+        <MembershipInformationPage />
       </MockedProvider>
     </MemoryRouter>
   );

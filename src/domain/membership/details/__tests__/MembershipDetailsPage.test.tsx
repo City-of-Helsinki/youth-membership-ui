@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router';
 import { loader } from 'graphql.macro';
 
 import { membershipDetailsData } from '../../../../common/test/membershipDetailsData';
-import RegistrationInformation from '../MembershipDetails';
+import MembershipDetailsPage from '../MembershipDetailsPage';
 import {
   mountWithApolloProvider,
   updateWrapper,
@@ -43,7 +43,7 @@ const expectedValues = [
 const getWrapper = () => {
   return mountWithApolloProvider(
     <MemoryRouter>
-      <RegistrationInformation />
+      <MembershipDetailsPage />
     </MemoryRouter>,
     mocks
   );
@@ -58,8 +58,7 @@ test('all data is present', async () => {
   const wrapper = getWrapper();
   await updateWrapper(wrapper);
 
-  const labeledValues = wrapper.find('.wrapper');
-
+  const labeledValues = wrapper.find('LabeledValue .wrapper');
   const componentValues: ComponentValues[] = labeledValues.map(subWrapper => {
     const label = subWrapper.find('.label');
     const value = subWrapper.find('.value');
