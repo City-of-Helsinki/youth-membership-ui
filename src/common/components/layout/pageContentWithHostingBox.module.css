@@ -9,6 +9,6 @@
 @media (min-width: 800px) {
   .hostingBox {
       margin: 20px auto 50px;
-      width: 800px;
+      max-width: 800px;
   }
 }
