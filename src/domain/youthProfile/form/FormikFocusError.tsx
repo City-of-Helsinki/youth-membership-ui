@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'formik';
-import { PrefillRegistartion_myProfile_addresses_edges_node as Address } from '../../../graphql/generatedTypes';
+import { FormikErrors, useFormikContext } from 'formik';
 import scrollToElement from 'scroll-to-element';
+
+import { FormValues } from './YouthProfileForm';
 
 interface ScrollConfig {
   offset: number;
@@ -19,31 +19,28 @@ const defaultConfig: ScrollConfig = {
   duration: 1000,
 };
 
-function FormikFocusError({ formik }: any) {
-  const { errors, isSubmitting } = formik;
+const getErrorElement = (errors: FormikErrors<FormValues>, key: string) => {
+  switch (key) {
+    case 'primaryAddress':
+      const primaryKeys = Object.keys(errors.primaryAddress as {});
+      return document.querySelector(`[name="primaryAddress.${primaryKeys[0]}"`);
+    case 'addresses':
+      const firstIndex = (errors.addresses as []).findIndex(error => error);
+      // postalCode is only validated field in additional addresses
+      return document.querySelector(
+        `[name="addresses.${firstIndex}.postalCode"`
+      );
+    default:
+      return document.querySelector(`[name="${key}"`);
+  }
+};
+
+function FormikFocusError() {
+  const { errors, isSubmitting, isValidating } = useFormikContext<FormValues>();
   const keys = Object.keys(errors);
 
-  if (keys.length > 0 && isSubmitting) {
-    let selector = `[name="${keys[0]}"`;
-    let errorElement = document.querySelector(selector);
-
-    if (keys[0] === 'primaryAddress') {
-      const primaryAddressKeys = Object.keys(errors.primaryAddress);
-      selector = `[name="primaryAddress.${primaryAddressKeys[0]}"`;
-      errorElement = document.querySelector(selector);
-    }
-
-    if (keys[0] === 'addresses') {
-      const indexes = errors.addresses
-        .map((address: Address, index: number) => {
-          if (address?.postalCode) return index;
-          return false;
-        })
-        .filter((index: number) => index);
-
-      selector = `[name="addresses.${indexes[0]}.postalCode"`;
-      errorElement = document.querySelector(selector);
-    }
+  if (keys.length > 0 && isSubmitting && !isValidating) {
+    const errorElement = getErrorElement(errors, keys[0]);
 
     if (errorElement) {
       scrollToElement(errorElement, defaultConfig);
@@ -57,4 +54,4 @@ function FormikFocusError({ formik }: any) {
   return null;
 }
 
-export default connect(FormikFocusError);
+export default FormikFocusError;
