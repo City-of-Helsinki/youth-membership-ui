@@ -2,7 +2,6 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Button, Checkbox } from 'hds-react';
 import { Field, Form, Formik, FormikProps } from 'formik';
-import FormikFocusError from './FormikFocusError';
 import { Link } from 'react-router-dom';
 import { differenceInYears } from 'date-fns';
 
@@ -21,6 +20,7 @@ import YouthProfileFormSection from './YouthProfileFormSection';
 import YouthProfileBasicInformationFields from './YouthProfileBasicInformationFields';
 import YouthProfileAdditionalInformationFields from './YouthProfileAdditionalInformationFields';
 import YouthProfileApproverFields from './YouthProfileApproverFields';
+import FormikFocusError from './FormikFocusError';
 import styles from './youthProfileForm.module.css';
 
 export type Values = {
