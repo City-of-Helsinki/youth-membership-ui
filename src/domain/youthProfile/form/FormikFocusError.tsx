@@ -16,7 +16,7 @@ const defaultConfig: ScrollConfig = {
   align: 'top',
   focusDelay: 200,
   ease: 'linear',
-  duration: 1000,
+  duration: 800,
 };
 
 const getErrorElement = (errors: FormikErrors<FormValues>, key: string) => {
@@ -42,7 +42,8 @@ function FormikFocusError() {
   if (keys.length > 0 && isSubmitting && !isValidating) {
     const errorElement = getErrorElement(errors, keys[0]);
 
-    if (errorElement) {
+    // Scroll only happens when element is out of view.
+    if (errorElement && errorElement.getBoundingClientRect().top < 0) {
       scrollToElement(errorElement, defaultConfig);
 
       setTimeout(() => {
