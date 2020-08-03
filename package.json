@@ -21,6 +21,7 @@
     "@types/react-router-dom": "^5.1.0",
     "@types/react-select": "^3.0.11",
     "@types/redux-thunk": "^2.1.0",
+    "@types/scroll-to-element": "^2.0.0",
     "@types/yup": "^0.26.24",
     "apollo-boost": "^0.4.4",
     "classnames": "^2.2.6",
@@ -51,6 +52,7 @@
     "react-scripts": "^3.3.0",
     "react-select": "^3.0.8",
     "redux-oidc": "^3.1.5",
+    "scroll-to-element": "^2.0.3",
     "typescript": "^3.7.4",
     "yup": "^0.27.0"
   },

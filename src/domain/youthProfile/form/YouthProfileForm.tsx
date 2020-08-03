@@ -20,6 +20,7 @@ import YouthProfileFormSection from './YouthProfileFormSection';
 import YouthProfileBasicInformationFields from './YouthProfileBasicInformationFields';
 import YouthProfileAdditionalInformationFields from './YouthProfileAdditionalInformationFields';
 import YouthProfileApproverFields from './YouthProfileApproverFields';
+import FormikFocusError from './FormikFocusError';
 import styles from './youthProfileForm.module.css';
 
 export type Values = {
@@ -139,12 +140,12 @@ function YouthProfileForm(componentProps: Props) {
                   {userAge < ageConstants.ADULT && (
                     <p>{t('registration.processInfoText')}</p>
                   )}
-                  <ul className={styles.terms}>
+                  <div className={styles.terms}>
                     <Field
                       as={Checkbox}
                       name="terms"
                       type="checkbox"
-                      labelText={
+                      label={
                         <Trans
                           i18nKey="registration.approveTerms"
                           components={[
@@ -166,22 +167,19 @@ function YouthProfileForm(componentProps: Props) {
                         />
                       }
                     />
-                  </ul>
+                    {props.errors.terms && props.submitCount > 0 && (
+                      <p className={styles.termsError}>
+                        {t(props.errors.terms)}
+                      </p>
+                    )}
+                  </div>
                 </React.Fragment>
               )}
 
               <div
                 className={componentProps.isEditing ? styles.buttonAlign : ''}
               >
-                <Button
-                  type="submit"
-                  disabled={
-                    !componentProps.isEditing
-                      ? Boolean(!props.values.terms)
-                      : false
-                  }
-                  className={styles.button}
-                >
+                <Button type="submit" className={styles.button}>
                   {componentProps.isEditing
                     ? t('registration.save')
                     : t('registration.sendButton')}
@@ -197,6 +195,7 @@ function YouthProfileForm(componentProps: Props) {
               </div>
             </YouthProfileFormSection>
           </div>
+          <FormikFocusError />
         </Form>
       )}
     </Formik>
