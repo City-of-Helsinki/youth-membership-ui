@@ -23,6 +23,7 @@ export type FormValues = {
   firstName: string;
   lastName: string;
   address: string;
+  addresses: string[];
   email: string;
   phone: string;
   birthDate: string;
@@ -75,10 +76,16 @@ function ApproveYouthProfileForm(props: Props) {
               label={t('approval.name')}
               value={`${props.values.firstName} ${props.values.lastName}`}
             />
-            <LabeledValue
-              label={t('approval.address')}
-              value={props.values.address}
-            />
+            <div>
+              <LabeledValue
+                label={t('approval.address')}
+                value={props.values.address}
+              />
+              <LabeledValue
+                label={t('approval.additionalAddresses')}
+                value={props.values.addresses.join('\n')}
+              />
+            </div>
             <LabeledValue
               label={t('approval.profile')}
               value={props.values.email}

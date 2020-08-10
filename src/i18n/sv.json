@@ -2,6 +2,7 @@
   "appName": "Jässäri",
   "approval": {
     "addInfo": "Ytterligare info",
+    "additionalAddresses": "Ytterligare adresser",
     "address": "Hemadress",
     "approveButton": "Godkänn medlemskap",
     "approvedLink": "Ansökan är redan godkänd",

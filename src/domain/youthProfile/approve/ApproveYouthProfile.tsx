@@ -15,6 +15,7 @@ import Loading from '../../../common/components/loading/Loading';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import getAddress from '../../membership/helpers/getAddress';
+import getAddresses from '../../membership/helpers/getAddresses';
 import ConfirmApprovingYouthProfile from './ConfirmApprovingYouthProfile';
 import ApproveYouthProfileForm, { FormValues } from './ApproveYouthProfileForm';
 
@@ -91,6 +92,7 @@ function ApproveYouthProfile(props: Props) {
               lastName:
                 data?.youthProfileByApprovalToken?.profile?.lastName || '',
               address: getAddress(data, i18n.languages[0]),
+              addresses: getAddresses(data, i18n.languages[0]),
               email:
                 data?.youthProfileByApprovalToken?.profile?.primaryEmail
                   ?.email || '',

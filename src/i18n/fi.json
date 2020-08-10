@@ -2,6 +2,7 @@
   "appName": "Jässäri",
   "approval": {
     "addInfo": "Lisätiedot",
+    "additionalAddresses": "Muut osoitteet",
     "address": "Kotiosoite",
     "approveButton": "Hyväksy jäsenyys",
     "approvedLink": "Hakemus on jo hyväksytty ",
