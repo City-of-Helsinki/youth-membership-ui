@@ -2,6 +2,7 @@
   "appName": "Jässäri",
   "approval": {
     "addInfo": "Additional info",
+    "additionalAddresses": "Additional addresses",
     "address": "Home address",
     "approveButton": "Approve membership",
     "approvedLink": "Application is already approved",

@@ -14,6 +14,7 @@ const defaultProps = {
     lastName: 'Testaaja',
     birthDate: '2006-01-01',
     address: 'Testikuja 55, 00100 Helsinki',
+    addresses: ['Kymintie 43, 00100 Helsinki'],
     email: 'teemu.testaaja@test.fi',
     languageAtHome: YouthLanguage.FINNISH,
     phone: '050123467',

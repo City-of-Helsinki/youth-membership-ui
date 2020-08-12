@@ -7,6 +7,9 @@ exports[`matches snapshot 1`] = `
   profile={
     Object {
       "address": "Testikuja 55, 00100 Helsinki",
+      "addresses": Array [
+        "Kymintie 43, 00100 Helsinki",
+      ],
       "approverEmail": "ville.vanhempi@test.fi",
       "approverFirstName": "Ville",
       "approverLastName": "Vanhempi",
@@ -28,6 +31,9 @@ exports[`matches snapshot 1`] = `
     initialValues={
       Object {
         "address": "Testikuja 55, 00100 Helsinki",
+        "addresses": Array [
+          "Kymintie 43, 00100 Helsinki",
+        ],
         "approverEmail": "ville.vanhempi@test.fi",
         "approverFirstName": "Ville",
         "approverLastName": "Vanhempi",
@@ -240,25 +246,46 @@ exports[`matches snapshot 1`] = `
             </span>
           </div>
         </LabeledValue>
-        <LabeledValue
-          label="Kotiosoite"
-          value="Testikuja 55, 00100 Helsinki"
-        >
-          <div
-            className="wrapper"
+        <div>
+          <LabeledValue
+            label="Kotiosoite"
+            value="Testikuja 55, 00100 Helsinki"
           >
-            <strong
-              className="label"
+            <div
+              className="wrapper"
             >
-              Kotiosoite
-            </strong>
-            <span
-              className="value"
+              <strong
+                className="label"
+              >
+                Kotiosoite
+              </strong>
+              <span
+                className="value"
+              >
+                Testikuja 55, 00100 Helsinki
+              </span>
+            </div>
+          </LabeledValue>
+          <LabeledValue
+            label="Muut osoitteet"
+            value="Kymintie 43, 00100 Helsinki"
+          >
+            <div
+              className="wrapper"
             >
-              Testikuja 55, 00100 Helsinki
-            </span>
-          </div>
-        </LabeledValue>
+              <strong
+                className="label"
+              >
+                Muut osoitteet
+              </strong>
+              <span
+                className="value"
+              >
+                Kymintie 43, 00100 Helsinki
+              </span>
+            </div>
+          </LabeledValue>
+        </div>
         <LabeledValue
           label="Profiili"
           value="teemu.testaaja@test.fi"
