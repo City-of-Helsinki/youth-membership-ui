@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import * as Sentry from '@sentry/browser';
 
 import { MembershipDetails as MembershipDetailsData } from '../../../graphql/generatedTypes';
-import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
+import PageContent from '../../../common/components/layout/PageContent';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import MembershipDetails from './MembershipDetails';
 
@@ -29,16 +29,13 @@ function MembershipDetailsPage() {
   );
 
   return (
-    <PageContentWithHostingBox
-      isReady={!loading}
-      title="membershipInformation.pageTitle"
-    >
+    <PageContent isReady={!loading} title="membershipInformation.pageTitle">
       {data && <MembershipDetails membershipDetailsData={data} />}
       <NotificationComponent
         show={showNotification}
         onClose={() => setShowNotification(false)}
       />
-    </PageContentWithHostingBox>
+    </PageContent>
   );
 }
 

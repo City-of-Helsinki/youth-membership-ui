@@ -16,9 +16,10 @@ import {
   CreateAdditionalContactPersonInput,
   UpdateAdditionalContactPersonInput,
 } from '../../../graphql/generatedTypes';
+import PageSection from '../../../common/components/layout/PageSection';
+import Text from '../../../common/components/text/Text';
 import ageConstants from '../constants/ageConstants';
 import youthProfileFormSchema from './youthProfileFormSchema';
-import YouthProfileFormSection from './YouthProfileFormSection';
 import YouthProfileBasicInformationFields from './YouthProfileBasicInformationFields';
 import YouthProfileAdditionalInformationFields from './YouthProfileAdditionalInformationFields';
 import YouthProfileApproverFields from './YouthProfileApproverFields';
@@ -109,43 +110,44 @@ function YouthProfileForm(componentProps: Props) {
       {(props: FormikProps<FormValues>) => (
         <Form>
           <div className={styles.formWrapper}>
-            <YouthProfileFormSection>
+            <PageSection>
               <div className={styles.formTitleText}>
-                <h1>{t('registration.title')}</h1>
-                <p>{t('registration.membershipInfoText')}</p>
+                <Text variant="h1">{t('registration.title')}</Text>
+                <Text variant="info">
+                  {t('registration.membershipInfoText')}
+                </Text>
               </div>
-              <h2>{t('registration.basicInfo')}</h2>
+              <Text variant="h2">{t('registration.basicInfo')}</Text>
               <YouthProfileBasicInformationFields
                 profile={componentProps.profile}
                 formikProps={props}
               />
-            </YouthProfileFormSection>
-            <YouthProfileFormSection>
-              <h2>{t('registration.addInfo')}</h2>
+            </PageSection>
+            <PageSection>
+              <Text variant="h2">{t('registration.addInfo')}</Text>
               <YouthProfileAdditionalInformationFields userAge={userAge} />
-            </YouthProfileFormSection>
-            <YouthProfileFormSection>
-              <h2>{t('registration.approver')}</h2>
-              <p
-                data-testid="approverInfoText"
-                className={styles.approverInfoText}
-              >
+            </PageSection>
+            <PageSection>
+              <Text variant="h2">{t('registration.approver')}</Text>
+              <Text variant="info" data-testid="approverInfoText">
                 {userAge < ageConstants.ADULT
                   ? t('registration.approverInfoText')
                   : t('registration.approverInfoOver18Text')}
-              </p>
+              </Text>
 
               <YouthProfileApproverFields
                 formikProps={props}
                 approverLabelText={approverLabelText}
               />
-            </YouthProfileFormSection>
-            <YouthProfileFormSection>
+            </PageSection>
+            <PageSection>
               {!componentProps.isEditing && (
                 <React.Fragment>
-                  <h3>{t('registration.confirmSend')}</h3>
+                  <Text variant="h3">{t('registration.confirmSend')}</Text>
                   {userAge < ageConstants.ADULT && (
-                    <p>{t('registration.processInfoText')}</p>
+                    <Text variant="info">
+                      {t('registration.processInfoText')}
+                    </Text>
                   )}
                   <div className={styles.terms}>
                     <Field
@@ -200,7 +202,7 @@ function YouthProfileForm(componentProps: Props) {
                   </Link>
                 )}
               </div>
-            </YouthProfileFormSection>
+            </PageSection>
           </div>
           <FormikFocusError />
         </Form>
