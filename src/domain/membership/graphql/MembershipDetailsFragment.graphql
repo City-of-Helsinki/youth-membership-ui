@@ -44,4 +44,15 @@ fragment MembershipDetailsFragment on YouthProfileType {
   approverEmail
   approverPhone
   membershipNumber
+  additionalContactPersons {
+    edges {
+      node {
+        id
+        firstName
+        lastName
+        phone
+        email
+      }
+    }
+  }
 }

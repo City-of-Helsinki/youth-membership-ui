@@ -1,4 +1,3 @@
-import { differenceInYears, format } from 'date-fns';
 import { isEqual } from 'lodash';
 
 import {
@@ -6,34 +5,11 @@ import {
   EmailType,
   PhoneType,
   PrefillRegistartion,
-  YouthProfileFields,
   MembershipDetails,
 } from '../../../graphql/generatedTypes';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
 import { Values as FormValues } from '../form/YouthProfileForm';
-import ageConstants from '../constants/ageConstants';
-
-const getYouthProfile = (formValues: FormValues) => {
-  const age = differenceInYears(new Date(), new Date(formValues.birthDate));
-
-  const variables: YouthProfileFields = {
-    birthDate: format(new Date(formValues.birthDate), 'yyyy-MM-dd'),
-    schoolName: formValues.schoolName,
-    schoolClass: formValues.schoolClass,
-    approverFirstName: formValues.approverFirstName,
-    approverLastName: formValues.approverLastName,
-    approverPhone: formValues.approverPhone,
-    approverEmail: formValues.approverEmail,
-    languageAtHome: formValues.languageAtHome,
-  };
-
-  return age > ageConstants.PHOTO_PERMISSION_MIN
-    ? {
-        ...variables,
-        photoUsageApproved: formValues.photoUsageApproved === 'true',
-      }
-    : variables;
-};
+import { getCreateYouthProfile } from './youthProfileGetters';
 
 const getPrimaryAddress = (
   profileType: 'prefill' | 'membership',
@@ -154,16 +130,10 @@ const getMutationVariables = (
         ...getAddress(formValues, 'prefill', profile),
         ...getPhone(formValues, profile),
         ...getEmail(formValues, profile),
-        youthProfile: getYouthProfile(formValues),
+        youthProfile: getCreateYouthProfile(formValues),
       },
     },
   };
 };
 
-export {
-  getYouthProfile,
-  getPhone,
-  getAddress,
-  getEmail,
-  getMutationVariables,
-};
+export { getPhone, getAddress, getEmail, getMutationVariables };

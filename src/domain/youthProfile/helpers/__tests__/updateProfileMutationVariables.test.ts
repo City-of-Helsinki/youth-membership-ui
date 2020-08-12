@@ -45,6 +45,7 @@ const formValues: FormValues = {
   schoolClass: '1S',
   schoolName: 'Smooth School',
   profileLanguage: Language.FINNISH,
+  additionalContactPersons: [],
 };
 
 const profileData: MembershipDetails = {
@@ -89,6 +90,10 @@ const profileData: MembershipDetails = {
     schoolClass: '1S',
     schoolName: 'Smooth School',
     photoUsageApproved: false,
+    additionalContactPersons: {
+      edges: [],
+      __typename: 'AdditionalContactPersonNodeConnection',
+    },
     __typename: 'YouthProfileType',
   },
 };
@@ -122,6 +127,9 @@ test('test object is correct and all fields are present', () => {
           approverFirstName: 'Gee',
           schoolClass: '1S',
           schoolName: 'Smooth School',
+          addAdditionalContactPersons: [],
+          updateAdditionalContactPersons: [],
+          removeAdditionalContactPersons: [],
         },
       },
     },

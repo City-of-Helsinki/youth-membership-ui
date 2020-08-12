@@ -1,6 +1,7 @@
 import { MembershipDetails, PhoneType } from '../../../graphql/generatedTypes';
 import { Values as FormValues } from '../form/YouthProfileForm';
-import { getYouthProfile, getAddress } from './createProfileMutationVariables';
+import { getAddress } from './createProfileMutationVariables';
+import { getEditYouthProfile } from './youthProfileGetters';
 
 const getEditMutationVariables = (
   formValues: FormValues,
@@ -22,7 +23,7 @@ const getEditMutationVariables = (
               }
             : null,
         ],
-        youthProfile: getYouthProfile(formValues),
+        youthProfile: getEditYouthProfile(formValues, profile),
       },
     },
   };

@@ -15,6 +15,7 @@ import {
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import { getEditMutationVariables } from '../helpers/updateProfileMutationVariables';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
+import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';
 import YouthProfileForm, {
   Values as FormValues,
 } from '../form/YouthProfileForm';
@@ -82,6 +83,9 @@ function EditYouthProfile(props: Props) {
               youthProfile?.languageAtHome || YouthLanguage.FINNISH,
             photoUsageApproved:
               youthProfile?.photoUsageApproved?.toString() || 'false',
+            additionalContactPersons: getAdditionalContactPersons(
+              data?.youthProfile
+            ),
           }}
           isEditing={true}
           isSubmitting={saveLoading}

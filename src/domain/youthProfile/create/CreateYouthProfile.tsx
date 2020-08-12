@@ -178,6 +178,7 @@ function CreateYouthProfile({
             Language[currentLangForProfile],
           languageAtHome: YouthLanguage[currentLangForYouth],
           photoUsageApproved: 'false',
+          additionalContactPersons: [],
         }}
         isSubmitting={loading}
         onValues={handleOnValues}

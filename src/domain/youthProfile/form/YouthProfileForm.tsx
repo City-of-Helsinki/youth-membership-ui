@@ -13,6 +13,8 @@ import {
   PrefillRegistartion_myProfile_addresses_edges_node as CreateAddress,
   PrefillRegistartion_myProfile_primaryAddress as CreatePrimaryAddress,
   YouthLanguage,
+  CreateAdditionalContactPersonInput,
+  UpdateAdditionalContactPersonInput,
 } from '../../../graphql/generatedTypes';
 import ageConstants from '../constants/ageConstants';
 import youthProfileFormSchema from './youthProfileFormSchema';
@@ -40,6 +42,10 @@ export type Values = {
   profileLanguage: Language;
   languageAtHome: YouthLanguage;
   photoUsageApproved: string;
+  additionalContactPersons: (
+    | CreateAdditionalContactPersonInput
+    | UpdateAdditionalContactPersonInput
+  )[];
 };
 
 export type FormValues = Values & {
@@ -130,6 +136,7 @@ function YouthProfileForm(componentProps: Props) {
               </p>
 
               <YouthProfileApproverFields
+                formikProps={props}
                 approverLabelText={approverLabelText}
               />
             </YouthProfileFormSection>
