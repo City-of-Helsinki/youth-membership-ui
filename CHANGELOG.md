@@ -11,4 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - Controls for additional contact persons
 
+### Fixed
+- Authentication info text position
+
 ## [1.0.0-rc.3]

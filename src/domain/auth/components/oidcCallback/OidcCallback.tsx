@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import * as Sentry from '@sentry/browser';
 
+import LoadingContent from '../../../../common/components/loading/LoadingContent';
 import userManager from '../../userManager';
 
 type Props = {};
@@ -24,7 +25,7 @@ function OidcCallback(props: Props) {
       errorCallback={onError}
       userManager={userManager}
     >
-      <p>{t('oidc.authenticating')}</p>
+      <LoadingContent isLoading={true} loadingText={t('oidc.authenticating')} />
     </CallbackComponent>
   );
 }
