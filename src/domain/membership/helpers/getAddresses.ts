@@ -43,7 +43,7 @@ function handleApiData(
     .filter((node): node is Address => Boolean(node));
 }
 
-export default function getAddress(
+export default function getAddresses(
   data: YouthProfileByApprovalToken | MembershipDetails,
   lang: string
 ) {
