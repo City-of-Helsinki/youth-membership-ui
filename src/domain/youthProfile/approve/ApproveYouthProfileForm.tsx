@@ -3,7 +3,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { differenceInYears } from 'date-fns';
-import { Button, Checkbox, TextInput } from 'hds-react';
+import { Button, Checkbox, TextInput, RadioButton } from 'hds-react';
 
 import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import LabeledValue from '../../../common/components/labeledValue/LabeledValue';
@@ -48,6 +48,10 @@ function ApproveYouthProfileForm(props: Props) {
 
   const age = differenceInYears(new Date(), new Date(props.profile.birthDate));
   const birthDate = convertDateToLocale(props.profile.birthDate);
+  const schoolInfo =
+    [props.profile.schoolName, props.profile.schoolClass]
+      .filter(value => value)
+      .join(', ') || '-';
 
   return (
     <Formik
@@ -98,10 +102,7 @@ function ApproveYouthProfileForm(props: Props) {
           </div>
           <h3>{t('approval.addInfo')}</h3>
           <div className={styles.formData}>
-            <LabeledValue
-              label={t('approval.schoolInfo')}
-              value={`${props.values.schoolName}, ${props.values.schoolClass}`}
-            />
+            <LabeledValue label={t('approval.schoolInfo')} value={schoolInfo} />
             <LabeledValue
               label={t('approval.languagesAtHome')}
               value={t(`LANGUAGE_OPTIONS.${props.values.languageAtHome}`)}
@@ -119,30 +120,24 @@ function ApproveYouthProfileForm(props: Props) {
               <div className={styles.formFields}>
                 <ul className={styles.list}>
                   <li className={styles.radioButtonRow}>
-                    <label>
-                      <Field
-                        id="photoUsageApprovedYes"
-                        name="photoUsageApproved"
-                        type="radio"
-                        value="true"
-                      />
-                      <span className={styles.listLabel}>
-                        {t('approval.photoUsageApprovedYes')}
-                      </span>
-                    </label>
+                    <Field
+                      id="photoUsageApprovedYes"
+                      name="photoUsageApproved"
+                      as={RadioButton}
+                      labelText={t('approval.photoUsageApprovedYes')}
+                      value="true"
+                      checked={props.values.photoUsageApproved === 'true'}
+                    />
                   </li>
                   <li className={styles.radioButtonRow}>
-                    <label>
-                      <Field
-                        id="pphotoUsageApprovedNo"
-                        name="photoUsageApproved"
-                        type="radio"
-                        value="false"
-                      />
-                      <span className={styles.listLabel}>
-                        {t('approval.photoUsageApprovedNo')}
-                      </span>
-                    </label>
+                    <Field
+                      id="pphotoUsageApprovedNo"
+                      name="photoUsageApproved"
+                      as={RadioButton}
+                      labelText={t('approval.photoUsageApprovedNo')}
+                      value="false"
+                      checked={props.values.photoUsageApproved === 'false'}
+                    />
                   </li>
                 </ul>
               </div>
