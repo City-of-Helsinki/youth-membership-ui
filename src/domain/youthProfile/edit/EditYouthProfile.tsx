@@ -15,6 +15,7 @@ import {
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import { getEditMutationVariables } from '../helpers/updateProfileMutationVariables';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
+import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';
 import YouthProfileForm, {
   Values as FormValues,
 } from '../form/YouthProfileForm';
@@ -30,7 +31,16 @@ type Props = {};
 function EditYouthProfile(props: Props) {
   const [showNotification, setShowNotification] = useState<boolean>(false);
   const { data, loading: loadingProfile } = useQuery<MembershipDetailsData>(
-    MEMBERSHIP_DETAILS
+    MEMBERSHIP_DETAILS,
+    {
+      onError: error => {
+        // Without this console log, errors will fail when the CI env
+        // variable is set to true. I was not able to understand the
+        // underlying cause.
+        // eslint-disable-next-line no-console
+        console.log(error);
+      },
+    }
   );
 
   const [updateProfile, { loading: saveLoading }] = useMutation<
@@ -82,6 +92,9 @@ function EditYouthProfile(props: Props) {
               youthProfile?.languageAtHome || YouthLanguage.FINNISH,
             photoUsageApproved:
               youthProfile?.photoUsageApproved?.toString() || 'false',
+            additionalContactPersons: getAdditionalContactPersons(
+              data?.youthProfile
+            ),
           }}
           isEditing={true}
           isSubmitting={saveLoading}

@@ -39,6 +39,7 @@ const getPrefilledProfile = (values?: Partial<FormValues>) => {
     approverLastName: 'TestApprover',
     approverFirstName: 'TestFirstName',
     approverPhone: '0501234567',
+    additionalContactPersons: [],
     ...values,
   };
 };

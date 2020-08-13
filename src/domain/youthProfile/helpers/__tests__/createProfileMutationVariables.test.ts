@@ -10,9 +10,17 @@ import {
   getEmail,
   getMutationVariables,
   getPhone,
-  getYouthProfile,
 } from '../createProfileMutationVariables';
+import { getCreateYouthProfile } from '../youthProfileGetters';
 
+const additionalContactPersons = [
+  {
+    firstName: 'Jorgi',
+    lastName: 'Mehutz',
+    phone: '000000000',
+    email: 'edadsa@email.com',
+  },
+];
 const formValues: FormValues = {
   firstName: 'Tina',
   lastName: 'Tester',
@@ -70,6 +78,7 @@ const formValues: FormValues = {
   approverFirstName: 'Gee',
   schoolClass: '1S',
   schoolName: 'Smooth School',
+  additionalContactPersons,
 };
 
 const profileValues: PrefillRegistartion = {
@@ -120,13 +129,13 @@ const profileValues: PrefillRegistartion = {
 
 describe('getYouthProfile tests', () => {
   it('user is over ageConstants.PHOTO_PERMISSION_MIN', () => {
-    const youthVariables = getYouthProfile(formValues);
+    const youthVariables = getCreateYouthProfile(formValues);
     expect(youthVariables.photoUsageApproved).toEqual(false);
   });
 
   it('user is younger than ageConstants.PHOTO_PERMISSION_MIN', () => {
     const formVariables = { ...formValues, birthDate: '2008-01-01' };
-    const youthVariables = getYouthProfile(formVariables);
+    const youthVariables = getCreateYouthProfile(formVariables);
     expect(youthVariables.photoUsageApproved).toBeUndefined();
   });
 });
@@ -273,6 +282,9 @@ it('getMutationVariables returns correct object', () => {
           approverLastName: 'Guardian',
           approverFirstName: 'Gee',
           photoUsageApproved: false,
+          addAdditionalContactPersons: additionalContactPersons,
+          updateAdditionalContactPersons: [],
+          removeAdditionalContactPersons: [],
         },
       },
     },

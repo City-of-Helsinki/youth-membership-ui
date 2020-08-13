@@ -16,6 +16,11 @@ function MembershipDetailsPage() {
     MEMBERSHIP_DETAILS,
     {
       onError: (error: Error) => {
+        // Without this console log, errors will fail when the CI env
+        // variable is set to true. I was not able to understand the
+        // underlying cause.
+        // eslint-disable-next-line no-console
+        console.log(error);
         Sentry.captureException(error);
         setShowNotification(true);
       },

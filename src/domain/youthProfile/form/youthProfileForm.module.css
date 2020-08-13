@@ -166,6 +166,13 @@ a {
     margin-top: 20px;
 }
 
+.additionalContactGroup {
+    margin-top: var(--spacing-xl);
+}
+.additionalContactGroup:last-of-type {
+    margin-bottom: var(--spacing-m);
+}
+
 @media (min-width: 400px) {
     .terms {
         margin-top: 20px;
@@ -180,5 +187,9 @@ a {
 
     .formTitleText h1 {
         font-size: var(--fontsize-h-1);
+    }
+
+    .alignButton {
+        margin-left: calc(-1 * var(--spacing-m));
     }
 }

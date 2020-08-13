@@ -61,6 +61,22 @@ export const membershipDetailsData: MembershipDetails = {
     approverLastName: 'Vanhempi',
     approverEmail: 'ville@vanhempi.com',
     approverPhone: '0501234567',
+    additionalContactPersons: {
+      edges: [
+        {
+          node: {
+            id: '123',
+            firstName: 'Jop',
+            lastName: 'Jap',
+            phone: '000000000',
+            email: 'eds@sdads.com',
+            __typename: 'AdditionalContactPersonNode',
+          },
+          __typename: 'AdditionalContactPersonNodeEdge',
+        },
+      ],
+      __typename: 'AdditionalContactPersonNodeConnection',
+    },
     __typename: 'YouthProfileType',
   },
 };
