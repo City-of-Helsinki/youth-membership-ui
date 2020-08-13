@@ -35,7 +35,7 @@ const getWrapper = () => {
   );
 };
 
-test.skip('form has values', async () => {
+test('form has values', async () => {
   const wrapper = getWrapper();
   await updateWrapper(wrapper);
 

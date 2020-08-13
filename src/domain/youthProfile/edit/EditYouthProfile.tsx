@@ -31,7 +31,16 @@ type Props = {};
 function EditYouthProfile(props: Props) {
   const [showNotification, setShowNotification] = useState<boolean>(false);
   const { data, loading: loadingProfile } = useQuery<MembershipDetailsData>(
-    MEMBERSHIP_DETAILS
+    MEMBERSHIP_DETAILS,
+    {
+      onError: error => {
+        // Without this console log, errors will fail when the CI env
+        // variable is set to true. I was not able to understand the
+        // underlying cause.
+        // eslint-disable-next-line no-console
+        console.log(error);
+      },
+    }
   );
 
   const [updateProfile, { loading: saveLoading }] = useMutation<

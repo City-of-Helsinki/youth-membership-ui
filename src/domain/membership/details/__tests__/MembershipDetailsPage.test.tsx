@@ -54,7 +54,7 @@ type ComponentValues = {
   value: string;
 };
 
-test.skip('all data is present', async () => {
+test('all data is present', async () => {
   const wrapper = getWrapper();
   await updateWrapper(wrapper);
 
