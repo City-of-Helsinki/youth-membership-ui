@@ -51,7 +51,7 @@ function ApproveYouthProfileForm(props: Props) {
   const schoolInfo =
     [props.profile.schoolName, props.profile.schoolClass]
       .filter(value => value)
-      .join(', ') || '-';
+      .join(', ') || '—';
 
   return (
     <Formik
@@ -203,6 +203,7 @@ function ApproveYouthProfileForm(props: Props) {
             </div>
             <ul className={styles.terms}>
               <Field
+                id="terms"
                 name="terms"
                 type="checkbox"
                 as={Checkbox}
