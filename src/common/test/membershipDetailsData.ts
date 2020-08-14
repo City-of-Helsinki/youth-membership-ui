@@ -66,10 +66,10 @@ export const membershipDetailsData: MembershipDetails = {
         {
           node: {
             id: '123',
-            firstName: 'Jop',
-            lastName: 'Jap',
+            firstName: 'Jopre',
+            lastName: 'Jaramand',
             phone: '000000000',
-            email: 'eds@sdads.com',
+            email: 'jopre@email.com',
             __typename: 'AdditionalContactPersonNode',
           },
           __typename: 'AdditionalContactPersonNodeEdge',

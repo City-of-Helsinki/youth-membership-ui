@@ -9,8 +9,11 @@ import {
 } from '../../../graphql/generatedTypes';
 import LinkButton from '../../../common/components/linkButton/LinkButton';
 import LabeledValue from '../../../common/components/labeledValue/LabeledValue';
+import PageSection from '../../../common/components/layout/PageSection';
+import Text from '../../../common/components/text/Text';
 import formatDate from '../../../common/helpers/formatDate';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
+import getAdditionalContactPersons from '../../youthProfile/helpers/getAdditionalContactPersons';
 import getFullName from '../helpers/getFullName';
 import getAddress from '../helpers/getAddress';
 import getSchool from '../helpers/getSchool';
@@ -36,12 +39,12 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
   const addresses = getAddressesFromNode('membership', membershipDetailsData);
 
   return (
-    <div className={styles.membershipDetails}>
+    <PageSection>
       {membershipDetailsData?.youthProfile && (
         <>
-          <h1>{t('membershipDetails.title')}</h1>
-          <p>{t('membershipDetails.text')}</p>
-          <h2>{t('membershipDetails.profileInformation')}</h2>
+          <Text variant="h1">{t('membershipDetails.title')}</Text>
+          <Text variant="info">{t('membershipDetails.text')}</Text>
+          <Text variant="h2">{t('membershipDetails.profileInformation')}</Text>
           <div className={styles.fieldsGroup}>
             <LabeledValue
               label={t('profile.name')}
@@ -81,7 +84,9 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
               )}
             />
           </div>
-          <h2>{t('membershipDetails.additionalInformation')}</h2>
+          <Text variant="h2">
+            {t('membershipDetails.additionalInformation')}
+          </Text>
           <div className={styles.fieldsGroup}>
             <LabeledValue
               label={t('youthProfile.school')}
@@ -103,8 +108,8 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
             />
           </div>
 
-          <h2>{t('youthProfile.approverInfo')}</h2>
-          <div className={styles.fieldsGroup}>
+          <Text variant="h2">{t('youthProfile.approverInfo')}</Text>
+          <div className={[styles.fieldsGroup, styles.three].join(' ')}>
             <LabeledValue
               label={t('youthProfile.approverName')}
               value={`${membershipDetailsData.youthProfile.approverFirstName} ${membershipDetailsData.youthProfile.approverLastName}`}
@@ -118,6 +123,27 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
               value={membershipDetailsData.youthProfile.approverPhone}
             />
           </div>
+          {getAdditionalContactPersons(membershipDetailsData.youthProfile).map(
+            additionalContact => (
+              <div
+                key={Object.values(additionalContact).join('')}
+                className={[styles.fieldsGroup, styles.three].join(' ')}
+              >
+                <LabeledValue
+                  label={t('youthProfile.approverName')}
+                  value={`${additionalContact.firstName} ${additionalContact.lastName}`}
+                />
+                <LabeledValue
+                  label={t('youthProfile.approverEmail')}
+                  value={additionalContact.email}
+                />
+                <LabeledValue
+                  label={t('youthProfile.approverPhone')}
+                  value={additionalContact.phone}
+                />
+              </div>
+            )
+          )}
         </>
       )}
       <LinkButton
@@ -134,7 +160,7 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
         buttonText={t('membershipDetails.edit')}
         variant="secondary"
       />
-    </div>
+    </PageSection>
   );
 }
 

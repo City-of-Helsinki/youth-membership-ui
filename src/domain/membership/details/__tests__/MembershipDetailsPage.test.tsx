@@ -38,6 +38,9 @@ const expectedValues = [
   { label: 'Nimi', value: 'Ville Vanhempi' },
   { label: 'Sähköposti', value: 'ville@vanhempi.com' },
   { label: 'Puhelin', value: '0501234567' },
+  { label: 'Nimi', value: 'Jopre Jaramand' },
+  { label: 'Sähköposti', value: 'jopre@email.com' },
+  { label: 'Puhelin', value: '000000000' },
 ];
 
 const getWrapper = () => {

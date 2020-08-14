@@ -32,9 +32,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: var(--spacing-m);
   }
   .fieldsGroup > * {
     flex-basis: 50%;
+  }
+  .fieldsGroup.three > * {
+    flex-basis: calc(100% / 3);
   }
 }
 
