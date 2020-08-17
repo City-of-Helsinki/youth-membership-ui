@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import Text from '../../../common/components/text/Text';
 import styles from './confirmApprovingYouthProfile.module.css';
 
 function ConfirmApprovingYouthProfile() {
@@ -8,8 +9,8 @@ function ConfirmApprovingYouthProfile() {
 
   return (
     <div className={styles.container}>
-      <h1>{t('approval.approvedTitle')}</h1>
-      <p>{t('approval.approvedMessage')}</p>
+      <Text variant="h1">{t('approval.approvedTitle')}</Text>
+      <Text variant="info">{t('approval.approvedMessage')}</Text>
     </div>
   );
 }

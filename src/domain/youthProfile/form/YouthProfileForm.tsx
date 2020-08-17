@@ -18,6 +18,7 @@ import {
 } from '../../../graphql/generatedTypes';
 import PageSection from '../../../common/components/layout/PageSection';
 import Text from '../../../common/components/text/Text';
+import Stack from '../../../common/components/stack/Stack';
 import ageConstants from '../constants/ageConstants';
 import youthProfileFormSchema from './youthProfileFormSchema';
 import YouthProfileBasicInformationFields from './YouthProfileBasicInformationFields';
@@ -111,17 +112,21 @@ function YouthProfileForm(componentProps: Props) {
         <Form>
           <div className={styles.formWrapper}>
             <PageSection>
-              <div className={styles.formTitleText}>
-                <Text variant="h1">{t('registration.title')}</Text>
-                <Text variant="info">
-                  {t('registration.membershipInfoText')}
-                </Text>
-              </div>
-              <Text variant="h2">{t('registration.basicInfo')}</Text>
-              <YouthProfileBasicInformationFields
-                profile={componentProps.profile}
-                formikProps={props}
-              />
+              <Stack space="l">
+                <div className={styles.formTitleText}>
+                  <Text variant="h1">{t('registration.title')}</Text>
+                  <Text variant="info">
+                    {t('registration.membershipInfoText')}
+                  </Text>
+                </div>
+                <div>
+                  <Text variant="h2">{t('registration.basicInfo')}</Text>
+                  <YouthProfileBasicInformationFields
+                    profile={componentProps.profile}
+                    formikProps={props}
+                  />
+                </div>
+              </Stack>
             </PageSection>
             <PageSection>
               <Text variant="h2">{t('registration.addInfo')}</Text>

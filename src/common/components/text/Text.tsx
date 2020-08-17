@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import styles from './text.module.css';
 
-type TextVariant = 'h1' | 'h2' | 'h3' | 'info' | 'body';
+type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'info' | 'body';
 
 type Props = {
   variant: TextVariant;
@@ -18,6 +18,8 @@ function getElement(variant: TextVariant) {
       return 'h2';
     case 'h3':
       return 'h3';
+    case 'h4':
+      return 'h4';
     case 'info':
     case 'body':
     default:

@@ -3,6 +3,9 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
+.wrapper.noMargin {
+  margin-bottom: unset;
+}
 
 .label {
   font-size: 14px;

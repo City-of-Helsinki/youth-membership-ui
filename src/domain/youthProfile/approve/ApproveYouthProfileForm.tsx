@@ -7,6 +7,8 @@ import { Button, Checkbox, TextInput, RadioButton } from 'hds-react';
 
 import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import LabeledValue from '../../../common/components/labeledValue/LabeledValue';
+import Text from '../../../common/components/text/Text';
+import Stack from '../../../common/components/stack/Stack';
 import ageConstants from '../constants/ageConstants';
 import styles from './approveYouthProfileForm.module.css';
 
@@ -39,8 +41,7 @@ export type FormValues = {
 
 type Props = {
   profile: FormValues;
-  isSubmitting: boolean;
-  onValues: (values: FormValues) => void;
+  onSubmit: (values: FormValues) => Promise<unknown>;
 };
 
 function ApproveYouthProfileForm(props: Props) {
@@ -59,149 +60,172 @@ function ApproveYouthProfileForm(props: Props) {
         ...props.profile,
         terms: false,
       }}
-      onSubmit={values => {
-        props.onValues(values);
-      }}
+      onSubmit={values => props.onSubmit(values)}
       validationSchema={schema}
       enableReinitialize={true}
     >
       {props => (
-        <div className={styles.content}>
-          <span className={styles.formTitleText}>
-            <h2>{t('approval.title')}</h2>
-            <p>
+        <Stack space="xl">
+          <div>
+            <Text variant="h2">{t('approval.title')}</Text>
+            <Text variant="info">
               {props.values.firstName} {t('approval.formExplanationText_1')}{' '}
               {props.values.firstName} {t('approval.formExplanationText_2')}
-            </p>
-          </span>
-          <h3>{t('approval.basicInfo')}</h3>
-          <div className={styles.formData}>
-            <LabeledValue
-              label={t('approval.name')}
-              value={`${props.values.firstName} ${props.values.lastName}`}
-            />
-            <div>
-              <LabeledValue
-                label={t('approval.address')}
-                value={props.values.address}
-              />
-              <LabeledValue
-                label={t('approval.additionalAddresses')}
-                value={props.values.addresses.join('\n')}
-              />
-            </div>
-            <LabeledValue
-              label={t('approval.profile')}
-              value={props.values.email}
-            />
-            <LabeledValue
-              label={t('approval.phone')}
-              value={props.values.phone}
-            />
-            <LabeledValue label={t('approval.birthDate')} value={birthDate} />
+            </Text>
           </div>
-          <h3>{t('approval.addInfo')}</h3>
-          <div className={styles.formData}>
-            <LabeledValue label={t('approval.schoolInfo')} value={schoolInfo} />
-            <LabeledValue
-              label={t('approval.languagesAtHome')}
-              value={t(`LANGUAGE_OPTIONS.${props.values.languageAtHome}`)}
-            />
-          </div>
-          {age < ageConstants.PHOTO_PERMISSION_MIN && (
-            <React.Fragment>
-              <h3>{t('approval.approverAcceptance')}</h3>
-              <h4>{t('approval.photoUsageApproved')}</h4>
-              <p>{t('approval.photoUsageApprovedText')}</p>
-            </React.Fragment>
-          )}
-          <Form>
-            {age < ageConstants.PHOTO_PERMISSION_MIN && (
-              <div className={styles.formFields}>
-                <ul className={styles.list}>
-                  <li className={styles.radioButtonRow}>
-                    <Field
-                      id="photoUsageApprovedYes"
-                      name="photoUsageApproved"
-                      as={RadioButton}
-                      labelText={t('approval.photoUsageApprovedYes')}
-                      value="true"
-                      checked={props.values.photoUsageApproved === 'true'}
-                    />
-                  </li>
-                  <li className={styles.radioButtonRow}>
-                    <Field
-                      id="pphotoUsageApprovedNo"
-                      name="photoUsageApproved"
-                      as={RadioButton}
-                      labelText={t('approval.photoUsageApprovedNo')}
-                      value="false"
-                      checked={props.values.photoUsageApproved === 'false'}
-                    />
-                  </li>
-                </ul>
+          <div>
+            <Text variant="h3">{t('approval.basicInfo')}</Text>
+            <div className={styles.formData}>
+              <LabeledValue
+                label={t('approval.name')}
+                value={`${props.values.firstName} ${props.values.lastName}`}
+                noMargin
+              />
+              <div className={styles.formRow}>
+                <LabeledValue
+                  label={t('approval.address')}
+                  value={props.values.address}
+                  noMargin
+                />
+                <LabeledValue
+                  label={t('approval.additionalAddresses')}
+                  value={props.values.addresses.join('\n')}
+                  noMargin
+                />
               </div>
-            )}
-            <h3>{t('approval.approverInfo')}</h3>
-            <p>{t('approval.approverInfoText')}</p>
-
-            <div className={styles.formFields}>
-              <Field
-                className={styles.formField}
-                as={TextInput}
-                id="approverFirstName"
-                name="approverFirstName"
-                invalid={props.submitCount && props.errors.approverFirstName}
-                helperText={
-                  props.submitCount && props.errors.approverFirstName
-                    ? t(props.errors.approverFirstName)
-                    : ''
-                }
-                labelText={t('approval.approverFirstName')}
+              <LabeledValue
+                label={t('approval.profile')}
+                value={props.values.email}
+                noMargin
               />
-              <Field
-                className={styles.formField}
-                as={TextInput}
-                id="approverLastName"
-                name="approverLastName"
-                invalid={props.submitCount && props.errors.approverLastName}
-                helperText={
-                  props.submitCount && props.errors.approverLastName
-                    ? t(props.errors.approverLastName)
-                    : ''
-                }
-                labelText={t('approval.approverLastName')}
+              <LabeledValue
+                label={t('approval.phone')}
+                value={props.values.phone}
+                noMargin
               />
-              <Field
-                className={styles.formField}
-                as={TextInput}
-                id="approverEmail"
-                name="approverEmail"
-                type="email"
-                invalid={props.submitCount && props.errors.phone}
-                helperText={
-                  props.submitCount && props.errors.phone
-                    ? t(props.errors.phone)
-                    : ''
-                }
-                labelText={t('approval.approverEmail')}
-              />
-              <Field
-                className={styles.formField}
-                as={TextInput}
-                id="approverPhone"
-                name="approverPhone"
-                type="tel"
-                invalid={props.submitCount && props.errors.phone}
-                helperText={
-                  props.submitCount && props.errors.phone
-                    ? t(props.errors.phone)
-                    : ''
-                }
-                labelText={t('approval.phone')}
+              <LabeledValue
+                label={t('approval.birthDate')}
+                value={birthDate}
+                noMargin
               />
             </div>
-            <ul className={styles.terms}>
+          </div>
+          <div>
+            <Text variant="h3">{t('approval.addInfo')}</Text>
+            <div className={styles.formData}>
+              <LabeledValue
+                label={t('approval.schoolInfo')}
+                value={schoolInfo}
+                noMargin
+              />
+              <LabeledValue
+                label={t('approval.languagesAtHome')}
+                value={t(`LANGUAGE_OPTIONS.${props.values.languageAtHome}`)}
+                noMargin
+              />
+            </div>
+          </div>
+          <Form>
+            <Stack space="xl">
+              <div>
+                {age < ageConstants.PHOTO_PERMISSION_MIN && (
+                  <React.Fragment>
+                    <Text variant="h3">{t('approval.approverAcceptance')}</Text>
+                    <Text variant="h4">{t('approval.photoUsageApproved')}</Text>
+                    <Text variant="info">
+                      {t('approval.photoUsageApprovedText')}
+                    </Text>
+                  </React.Fragment>
+                )}
+                {age < ageConstants.PHOTO_PERMISSION_MIN && (
+                  <div className={styles.formFields}>
+                    <ul className={styles.list}>
+                      <li className={styles.radioButtonRow}>
+                        <Field
+                          id="photoUsageApprovedYes"
+                          name="photoUsageApproved"
+                          as={RadioButton}
+                          labelText={t('approval.photoUsageApprovedYes')}
+                          value="true"
+                          checked={props.values.photoUsageApproved === 'true'}
+                        />
+                      </li>
+                      <li className={styles.radioButtonRow}>
+                        <Field
+                          id="photoUsageApprovedNo"
+                          name="photoUsageApproved"
+                          as={RadioButton}
+                          labelText={t('approval.photoUsageApprovedNo')}
+                          value="false"
+                          checked={props.values.photoUsageApproved === 'false'}
+                        />
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+              <div>
+                <Text variant="h3">{t('approval.approverInfo')}</Text>
+                <Text variant="info">{t('approval.approverInfoText')}</Text>
+                <div className={styles.formFields}>
+                  <Field
+                    className={styles.formField}
+                    as={TextInput}
+                    id="approverFirstName"
+                    name="approverFirstName"
+                    invalid={
+                      props.submitCount && props.errors.approverFirstName
+                    }
+                    helperText={
+                      props.submitCount && props.errors.approverFirstName
+                        ? t(props.errors.approverFirstName)
+                        : ''
+                    }
+                    labelText={t('approval.approverFirstName')}
+                  />
+                  <Field
+                    className={styles.formField}
+                    as={TextInput}
+                    id="approverLastName"
+                    name="approverLastName"
+                    invalid={props.submitCount && props.errors.approverLastName}
+                    helperText={
+                      props.submitCount && props.errors.approverLastName
+                        ? t(props.errors.approverLastName)
+                        : ''
+                    }
+                    labelText={t('approval.approverLastName')}
+                  />
+                  <Field
+                    className={styles.formField}
+                    as={TextInput}
+                    id="approverEmail"
+                    name="approverEmail"
+                    type="email"
+                    invalid={props.submitCount && props.errors.phone}
+                    helperText={
+                      props.submitCount && props.errors.phone
+                        ? t(props.errors.phone)
+                        : ''
+                    }
+                    labelText={t('approval.approverEmail')}
+                  />
+                  <Field
+                    className={styles.formField}
+                    as={TextInput}
+                    id="approverPhone"
+                    name="approverPhone"
+                    type="tel"
+                    invalid={props.submitCount && props.errors.phone}
+                    helperText={
+                      props.submitCount && props.errors.phone
+                        ? t(props.errors.phone)
+                        : ''
+                    }
+                    labelText={t('approval.phone')}
+                  />
+                </div>
+              </div>
               <Field
                 id="terms"
                 name="terms"
@@ -231,8 +255,6 @@ function ApproveYouthProfileForm(props: Props) {
                   </span>
                 }
               />
-            </ul>
-            <div className={styles.buttonAlign}>
               <Button
                 className={styles.button}
                 type="submit"
@@ -240,9 +262,9 @@ function ApproveYouthProfileForm(props: Props) {
               >
                 {t('approval.approveButton')}
               </Button>
-            </div>
+            </Stack>
           </Form>
-        </div>
+        </Stack>
       )}
     </Formik>
   );

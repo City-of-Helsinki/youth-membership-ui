@@ -6,7 +6,7 @@ import userManager from '../auth/userManager';
 import Login from '../auth/components/login/Login';
 import OidcCallback from '../auth/components/oidcCallback/OidcCallback';
 import AppYouthProfileRoute from './AppYouthProfileRoute';
-import ApproveYouthProfile from '../youthProfile/approve/ApproveYouthProfile';
+import ApproveYouthProfilePage from '../youthProfile/approve/ApproveYouthProfilePage';
 import AccessibilityStatement from '../accessibilityStatement/AccessibilityStatement';
 import LandingPage from '../landingPage/LandingPage';
 import MembershipDetailsPage from '../membership/details/MembershipDetailsPage';
@@ -31,7 +31,11 @@ function AppRoutes() {
           component={EditYouthProfilePage}
         />
         <Route path="/create" exact component={CreateYouthProfilePage} />
-        <Route path="/approve/:token" exact component={ApproveYouthProfile} />
+        <Route
+          path="/approve/:token"
+          exact
+          component={ApproveYouthProfilePage}
+        />
         <Route path="/accessibility" exact component={AccessibilityStatement} />
         <Route
           path="/silent_renew"
