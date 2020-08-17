@@ -10,6 +10,7 @@ import LabeledValue from '../../../common/components/labeledValue/LabeledValue';
 import Text from '../../../common/components/text/Text';
 import Stack from '../../../common/components/stack/Stack';
 import TermsField from '../../../common/components/termsField/TermsField';
+import BasicInformationGrid from '../../../common/components/basicInformationGrid/BasicInformationGrid';
 import ageConstants from '../constants/ageConstants';
 import styles from './approveYouthProfileForm.module.css';
 
@@ -76,40 +77,13 @@ function ApproveYouthProfileForm(props: Props) {
           </div>
           <div>
             <Text variant="h3">{t('approval.basicInfo')}</Text>
-            <div className={styles.formData}>
-              <LabeledValue
-                label={t('approval.name')}
-                value={`${props.values.firstName} ${props.values.lastName}`}
-                noMargin
-              />
-              <div className={styles.formRow}>
-                <LabeledValue
-                  label={t('approval.address')}
-                  value={props.values.address}
-                  noMargin
-                />
-                <LabeledValue
-                  label={t('approval.additionalAddresses')}
-                  value={props.values.addresses.join('\n')}
-                  noMargin
-                />
-              </div>
-              <LabeledValue
-                label={t('approval.profile')}
-                value={props.values.email}
-                noMargin
-              />
-              <LabeledValue
-                label={t('approval.phone')}
-                value={props.values.phone}
-                noMargin
-              />
-              <LabeledValue
-                label={t('approval.birthDate')}
-                value={birthDate}
-                noMargin
-              />
-            </div>
+            <BasicInformationGrid
+              name={`${props.values.firstName} ${props.values.lastName}`}
+              addresses={[props.values.address, ...props.values.addresses]}
+              email={props.values.email}
+              phone={props.values.phone}
+              birthDate={birthDate}
+            />
           </div>
           <div>
             <Text variant="h3">{t('approval.addInfo')}</Text>

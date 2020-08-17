@@ -1,0 +1,17 @@
+.formData {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+  max-width: 750px;
+}
+@media (min-width: 768px) {
+  .formData {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.formRow {
+  display: inherit;
+  grid-template-columns: inherit;
+  grid-column: 1 / -1;
+  gap: inherit;
+}
