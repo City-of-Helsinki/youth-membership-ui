@@ -1,14 +1,15 @@
 import React from 'react';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { differenceInYears } from 'date-fns';
-import { Button, Checkbox, TextInput, RadioButton } from 'hds-react';
+import { Button, TextInput, RadioButton } from 'hds-react';
 
 import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import LabeledValue from '../../../common/components/labeledValue/LabeledValue';
 import Text from '../../../common/components/text/Text';
 import Stack from '../../../common/components/stack/Stack';
+import TermsField from '../../../common/components/termsField/TermsField';
 import ageConstants from '../constants/ageConstants';
 import styles from './approveYouthProfileForm.module.css';
 
@@ -19,6 +20,7 @@ const schema = Yup.object().shape({
   phone: Yup.string()
     .min(6, 'validation.phoneMin')
     .max(255, 'validation.maxLength'),
+  terms: Yup.boolean().oneOf([true], 'validation.required'),
 });
 
 export type FormValues = {
@@ -59,7 +61,7 @@ function ApproveYouthProfileForm(props: Props) {
         ...props.profile,
         terms: false,
       }}
-      onSubmit={values => props.onSubmit(values)}
+      onSubmit={({ terms, ...values }) => props.onSubmit(values)}
       validationSchema={schema}
       enableReinitialize={true}
     >
@@ -225,40 +227,8 @@ function ApproveYouthProfileForm(props: Props) {
                   />
                 </div>
               </div>
-              <Field
-                id="terms"
-                name="terms"
-                type="checkbox"
-                as={Checkbox}
-                labelText={
-                  <span className={styles.listLabel}>
-                    <Trans
-                      i18nKey="approval.approveTerms"
-                      components={[
-                        // These components receive content  in the
-                        // translation definition.
-                        // eslint-disable-next-line jsx-a11y/anchor-has-content
-                        <a
-                          href={t('registry.descriptionLink')}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        />,
-                        // eslint-disable-next-line jsx-a11y/anchor-has-content
-                        <a
-                          href={t('privacyPolicy.descriptionLink')}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        />,
-                      ]}
-                    />
-                  </span>
-                }
-              />
-              <Button
-                className={styles.button}
-                type="submit"
-                disabled={props.isSubmitting || Boolean(!props.values.terms)}
-              >
+              <TermsField id="terms" name="terms" />
+              <Button className={styles.button} type="submit">
                 {t('approval.approveButton')}
               </Button>
             </Stack>
