@@ -3,6 +3,7 @@ import { loader } from 'graphql.macro';
 import * as Sentry from '@sentry/browser';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useParams } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 import {
   YouthProfileByApprovalToken,
@@ -11,6 +12,7 @@ import {
 } from '../../../graphql/generatedTypes';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import PageContent from '../../../common/components/layout/PageContent';
+import PageSection from '../../../common/components/layout/PageSection';
 import { FormValues } from './ApproveYouthProfileForm';
 import ApproveYouthProfile from './ApproveYouthProfile';
 
@@ -24,6 +26,7 @@ type Params = {
 };
 
 function ApproveYouthProfilePage() {
+  const { t } = useTranslation();
   const [approvalSuccessful, setApprovalSuccessful] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
@@ -80,6 +83,11 @@ function ApproveYouthProfilePage() {
           onSubmit={handleOnSubmit}
           isApprovalSuccessful={approvalSuccessful}
         />
+      )}
+      {!approvalSuccessful && !data && (
+        <PageSection>
+          <h2>{t('approval.approvedLink')}</h2>
+        </PageSection>
       )}
       <NotificationComponent
         show={showNotification}

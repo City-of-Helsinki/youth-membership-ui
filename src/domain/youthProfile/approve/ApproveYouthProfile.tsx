@@ -19,7 +19,7 @@ type Params = {
 };
 
 function ApproveYouthProfile({ isApprovalSuccessful, data, onSubmit }: Props) {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   return (
     <PageSection>
@@ -59,7 +59,6 @@ function ApproveYouthProfile({ isApprovalSuccessful, data, onSubmit }: Props) {
           onSubmit={onSubmit}
         />
       )}
-      {!isApprovalSuccessful && !data && <h2>{t('approval.approvedLink')}</h2>}
       {isApprovalSuccessful && <ConfirmApprovingYouthProfile />}
     </PageSection>
   );

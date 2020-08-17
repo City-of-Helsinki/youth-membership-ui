@@ -7,7 +7,7 @@ import { loader } from 'graphql.macro';
 
 import store from '../../../../redux/store';
 import { updateWrapper } from '../../../../common/test/testUtils';
-import ApproveYouthProfile from '../ApproveYouthProfile';
+import ApproveYouthProfilePage from '../ApproveYouthProfilePage';
 import {
   Language,
   YouthLanguage,
@@ -76,7 +76,7 @@ const getWrapper = (mocks?: MockedResponse[]) => {
     <ReduxProvider store={store}>
       <MemoryRouter>
         <MockedProvider mocks={mocks} addTypename={true}>
-          <ApproveYouthProfile />
+          <ApproveYouthProfilePage />
         </MockedProvider>
       </MemoryRouter>
     </ReduxProvider>
@@ -97,7 +97,7 @@ test('there is no user data / profile has already been approved', async () => {
 
   await updateWrapper(wrapper);
 
-  const content = wrapper.find('div[className="hostingBox"]');
+  const content = wrapper.find('div[className="wrapper"]');
   const title = content.find('h2');
 
   expect(title.text()).toEqual('Hakemus on jo hyväksytty ');

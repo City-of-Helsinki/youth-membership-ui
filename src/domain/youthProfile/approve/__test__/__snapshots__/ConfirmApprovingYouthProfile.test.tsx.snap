@@ -4,11 +4,15 @@ exports[`matches snapshot 1`] = `
 <div
   className="container"
 >
-  <h1>
+  <Text
+    variant="h1"
+  >
     Jässärihakemus hyväksytty!
-  </h1>
-  <p>
+  </Text>
+  <Text
+    variant="info"
+  >
     Kiitos kun varmistit nuorisopalveluiden jäsenyyden.
-  </p>
+  </Text>
 </div>
 `;
