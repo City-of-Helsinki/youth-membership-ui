@@ -283,8 +283,6 @@ it('getMutationVariables returns correct object', () => {
           approverFirstName: 'Gee',
           photoUsageApproved: false,
           addAdditionalContactPersons: additionalContactPersons,
-          updateAdditionalContactPersons: [],
-          removeAdditionalContactPersons: [],
         },
       },
     },

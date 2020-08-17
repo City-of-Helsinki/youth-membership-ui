@@ -60,8 +60,6 @@ export function getCreateYouthProfile(formValues: FormValues) {
     {
       ...getCommonProfileFields(formValues),
       addAdditionalContactPersons,
-      removeAdditionalContactPersons: [],
-      updateAdditionalContactPersons: [],
     },
     formValues
   );
