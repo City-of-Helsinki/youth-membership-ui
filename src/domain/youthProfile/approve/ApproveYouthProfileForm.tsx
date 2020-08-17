@@ -49,10 +49,9 @@ function ApproveYouthProfileForm(props: Props) {
 
   const age = differenceInYears(new Date(), new Date(props.profile.birthDate));
   const birthDate = convertDateToLocale(props.profile.birthDate);
-  const schoolInfo =
-    [props.profile.schoolName, props.profile.schoolClass]
-      .filter(value => value)
-      .join(', ') || '—';
+  const schoolInfo = [props.profile.schoolName, props.profile.schoolClass]
+    .filter(value => value)
+    .join(', ');
 
   return (
     <Formik
