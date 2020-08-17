@@ -96,6 +96,14 @@ const schema = Yup.object().shape({
     ),
   photoUsageApproved: Yup.string().required('validation.required'),
   terms: Yup.boolean().oneOf([true], 'validation.required'),
+  additionalContactPersons: Yup.array(
+    Yup.object({
+      firstName: Yup.string().required('validation.required'),
+      lastName: Yup.string().required('validation.required'),
+      phone: Yup.string().required('validation.required'),
+      email: Yup.string().required('validation.required'),
+    })
+  ),
 });
 
 export default schema;
