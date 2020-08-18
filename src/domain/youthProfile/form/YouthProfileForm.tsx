@@ -1,7 +1,7 @@
 import React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
-import { Button, Checkbox } from 'hds-react';
-import { Field, Form, Formik, FormikProps } from 'formik';
+import { useTranslation } from 'react-i18next';
+import { Button } from 'hds-react';
+import { Form, Formik, FormikProps } from 'formik';
 import { Link } from 'react-router-dom';
 import { differenceInYears } from 'date-fns';
 
@@ -19,6 +19,7 @@ import {
 import PageSection from '../../../common/components/layout/PageSection';
 import Text from '../../../common/components/text/Text';
 import Stack from '../../../common/components/stack/Stack';
+import TermsField from '../../../common/components/termsField/TermsField';
 import ageConstants from '../constants/ageConstants';
 import youthProfileFormSchema from './youthProfileFormSchema';
 import YouthProfileBasicInformationFields from './YouthProfileBasicInformationFields';
@@ -154,39 +155,7 @@ function YouthProfileForm(componentProps: Props) {
                       {t('registration.processInfoText')}
                     </Text>
                   )}
-                  <div className={styles.terms}>
-                    <Field
-                      as={Checkbox}
-                      name="terms"
-                      type="checkbox"
-                      label={
-                        <Trans
-                          i18nKey="registration.approveTerms"
-                          components={[
-                            // These components receive content  in the
-                            // translation definition.
-                            // eslint-disable-next-line jsx-a11y/anchor-has-content
-                            <a
-                              href={t('registry.descriptionLink')}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            />,
-                            // eslint-disable-next-line jsx-a11y/anchor-has-content
-                            <a
-                              href={t('privacyPolicy.descriptionLink')}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            />,
-                          ]}
-                        />
-                      }
-                    />
-                    {props.errors.terms && props.submitCount > 0 && (
-                      <p className={styles.termsError}>
-                        {t(props.errors.terms)}
-                      </p>
-                    )}
-                  </div>
+                  <TermsField id="terms" name="terms" />
                 </React.Fragment>
               )}
 
