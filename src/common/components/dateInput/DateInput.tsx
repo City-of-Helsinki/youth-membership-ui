@@ -1,9 +1,9 @@
 import React from 'react';
-import { TextInput } from 'hds-react';
 
 import DateInputGroup from './DateInputGroup';
 import DateInputLogic, { InputComponentProps } from './DateInputLogic';
 import DateInputRow from './DateInputRow';
+import InputWithoutSpinners from './InputWithoutSpinners';
 import styles from './dateInput.module.css';
 
 const DEFAULT_DATE_INPUT_DATE_ID = 'ym-date-input-date-id';
@@ -18,7 +18,12 @@ const DEFAULT_DAY_OF_MONTH_INPUT = ({
   ...rest
 }: InputComponentProps) => (
   <>
-    <TextInput {...rest} invalid={isInvalid} hideLabel labelText={label} />
+    <InputWithoutSpinners
+      {...rest}
+      invalid={isInvalid}
+      hideLabel
+      labelText={label}
+    />
     <span className={styles.dot}>.</span>
   </>
 );
@@ -29,7 +34,7 @@ const DEFAULT_MONTH_INPUT = ({
   ...rest
 }: InputComponentProps) => (
   <>
-    <TextInput
+    <InputWithoutSpinners
       {...rest}
       invalid={isInvalid}
       ref={innerRef}
@@ -45,7 +50,7 @@ const DEFAULT_YEAR_INPUT = ({
   label,
   ...rest
 }: InputComponentProps) => (
-  <TextInput
+  <InputWithoutSpinners
     {...rest}
     invalid={isInvalid}
     ref={innerRef}
