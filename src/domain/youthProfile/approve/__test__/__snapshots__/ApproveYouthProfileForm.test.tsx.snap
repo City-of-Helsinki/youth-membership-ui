@@ -64,6 +64,7 @@ exports[`matches snapshot 1`] = `
         "_exclusive": Object {},
         "_mutate": undefined,
         "_nodes": Array [
+          "terms",
           "phone",
           "approverEmail",
           "approverLastName",
@@ -194,6 +195,33 @@ exports[`matches snapshot 1`] = `
               [Function],
             ],
           },
+          "terms": BooleanSchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {},
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_type": "boolean",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {
+                true,
+              },
+              "refs": Map {},
+            },
+            "_whitelistError": [Function],
+            "tests": Array [],
+            "transforms": Array [
+              [Function],
+            ],
+          },
         },
         "tests": Array [],
         "transforms": Array [
@@ -202,702 +230,812 @@ exports[`matches snapshot 1`] = `
       }
     }
   >
-    <div
-      className="content"
+    <Stack
+      space="xl"
     >
-      <span
-        className="formTitleText"
-      >
-        <h2>
-          Hyväksy jäsenyys
-        </h2>
-        <p>
-          Teemu
-           
-          on lähettänyt hyväksyttäväksesi Helsingin kaupungin nuorisopalvelujen jäsenyyshakemuksen. Jäsenyys on maksuton. Hyväksymällä hakemuksen,
-           
-          Teemu
-           
-          voi käydä nuorisotalolla ja saa kivoja etuja. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uusi varmistusviesti.
-        </p>
-      </span>
-      <h3>
-        Perustiedot
-      </h3>
       <div
-        className="formData"
+        className="stack xl"
       >
-        <LabeledValue
-          label="Nimi"
-          value="Teemu Testaaja"
-        >
-          <div
-            className="wrapper"
-          >
-            <strong
-              className="label"
-            >
-              Nimi
-            </strong>
-            <span
-              className="value"
-            >
-              Teemu Testaaja
-            </span>
-          </div>
-        </LabeledValue>
         <div>
-          <LabeledValue
-            label="Kotiosoite"
-            value="Testikuja 55, 00100 Helsinki"
+          <Text
+            variant="h2"
           >
-            <div
-              className="wrapper"
+            <h2
+              className="text h2 "
             >
-              <strong
-                className="label"
-              >
-                Kotiosoite
-              </strong>
-              <span
-                className="value"
-              >
-                Testikuja 55, 00100 Helsinki
-              </span>
-            </div>
-          </LabeledValue>
-          <LabeledValue
-            label="Muut osoitteet"
-            value="Kymintie 43, 00100 Helsinki"
+              Hyväksy jäsenyys
+            </h2>
+          </Text>
+          <Text
+            variant="info"
           >
-            <div
-              className="wrapper"
+            <p
+              className="text info "
             >
-              <strong
-                className="label"
-              >
-                Muut osoitteet
-              </strong>
-              <span
-                className="value"
-              >
-                Kymintie 43, 00100 Helsinki
-              </span>
-            </div>
-          </LabeledValue>
+              Teemu
+               
+              on lähettänyt hyväksyttäväksesi Helsingin kaupungin nuorisopalvelujen jäsenyyshakemuksen. Jäsenyys on maksuton. Hyväksymällä hakemuksen,
+               
+              Teemu
+               
+              voi käydä nuorisotalolla ja saa kivoja etuja. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uusi varmistusviesti.
+            </p>
+          </Text>
         </div>
-        <LabeledValue
-          label="Profiili"
-          value="teemu.testaaja@test.fi"
-        >
-          <div
-            className="wrapper"
+        <div>
+          <Text
+            variant="h3"
           >
-            <strong
-              className="label"
+            <h3
+              className="text h3 "
             >
-              Profiili
-            </strong>
-            <span
-              className="value"
-            >
-              teemu.testaaja@test.fi
-            </span>
-          </div>
-        </LabeledValue>
-        <LabeledValue
-          label="Puhelin"
-          value="050123467"
-        >
-          <div
-            className="wrapper"
+              Perustiedot
+            </h3>
+          </Text>
+          <BasicInformationGrid
+            addresses={
+              Array [
+                "Testikuja 55, 00100 Helsinki",
+                "Kymintie 43, 00100 Helsinki",
+              ]
+            }
+            birthDate="01.01.2006"
+            email="teemu.testaaja@test.fi"
+            name="Teemu Testaaja"
+            phone="050123467"
           >
-            <strong
-              className="label"
+            <div
+              className="formData"
             >
-              Puhelin
-            </strong>
-            <span
-              className="value"
-            >
-              050123467
-            </span>
-          </div>
-        </LabeledValue>
-        <LabeledValue
-          label="Syntymäpäivä"
-          value="01.01.2006"
-        >
-          <div
-            className="wrapper"
-          >
-            <strong
-              className="label"
-            >
-              Syntymäpäivä
-            </strong>
-            <span
-              className="value"
-            >
-              01.01.2006
-            </span>
-          </div>
-        </LabeledValue>
-      </div>
-      <h3>
-        Lisätiedot
-      </h3>
-      <div
-        className="formData"
-      >
-        <LabeledValue
-          label="Koulu ja luokka"
-          value="Koulu, Luokka"
-        >
-          <div
-            className="wrapper"
-          >
-            <strong
-              className="label"
-            >
-              Koulu ja luokka
-            </strong>
-            <span
-              className="value"
-            >
-              Koulu, Luokka
-            </span>
-          </div>
-        </LabeledValue>
-        <LabeledValue
-          label="Kotona puhutut kielet"
-          value="Suomi"
-        >
-          <div
-            className="wrapper"
-          >
-            <strong
-              className="label"
-            >
-              Kotona puhutut kielet
-            </strong>
-            <span
-              className="value"
-            >
-              Suomi
-            </span>
-          </div>
-        </LabeledValue>
-      </div>
-      <h3>
-        Huoltajalta vaadittavat luvat
-      </h3>
-      <h4>
-        Kuvauslupa
-      </h4>
-      <p>
-        Lapsesta voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin viestinnässä ja markkinoinnissa painetussa ja sähköisessä mediassa. Kuvaamisesta ja kuvien käytöstä ei makseta korvausta. Oikeus kuvien käyttöön on aina voimassa ja koskee koko Helsingin kaupungin viestintää ja markkinointiviestintää.
-      </p>
-      <Form>
-        <form
-          action="#"
-          onReset={[Function]}
-          onSubmit={[Function]}
-        >
-          <div
-            className="formFields"
-          >
-            <ul
-              className="list"
-            >
-              <li
-                className="radioButtonRow"
+              <LabeledValue
+                label="Nimi"
+                noMargin={true}
+                value="Teemu Testaaja"
               >
-                <label>
-                  <Field
-                    id="photoUsageApprovedYes"
-                    name="photoUsageApproved"
-                    type="radio"
-                    value="true"
+                <div
+                  className="wrapper noMargin"
+                >
+                  <strong
+                    className="label"
                   >
-                    <input
-                      checked={false}
-                      id="photoUsageApprovedYes"
-                      name="photoUsageApproved"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="true"
-                    />
-                  </Field>
+                    Nimi
+                  </strong>
                   <span
-                    className="listLabel"
+                    className="value"
                   >
-                    Kyllä
+                    Teemu Testaaja
                   </span>
-                </label>
-              </li>
-              <li
-                className="radioButtonRow"
+                </div>
+              </LabeledValue>
+              <LabeledValue
+                label="Profiili"
+                noMargin={true}
+                value="teemu.testaaja@test.fi"
               >
-                <label>
-                  <Field
-                    id="pphotoUsageApprovedNo"
-                    name="photoUsageApproved"
-                    type="radio"
-                    value="false"
+                <div
+                  className="wrapper noMargin"
+                >
+                  <strong
+                    className="label"
                   >
-                    <input
-                      checked={true}
-                      id="pphotoUsageApprovedNo"
-                      name="photoUsageApproved"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="radio"
-                      value="false"
-                    />
-                  </Field>
+                    Profiili
+                  </strong>
                   <span
-                    className="listLabel"
+                    className="value"
                   >
-                    Ei
+                    teemu.testaaja@test.fi
                   </span>
-                </label>
-              </li>
-            </ul>
-          </div>
-          <h3>
-            Huoltajan tiedot
-          </h3>
-          <p>
-            Huoltajaan voidaan olla yhteydessä lasta koskevissa asioissa.
-          </p>
-          <div
-            className="formFields"
-          >
-            <Field
-              as={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
-              className="formField"
-              helperText=""
-              id="approverFirstName"
-              invalid={0}
-              labelText="Etunimi"
-              name="approverFirstName"
-            >
-              <ForwardRef
-                className="formField"
-                helperText=""
-                id="approverFirstName"
-                invalid={0}
-                labelText="Etunimi"
-                name="approverFirstName"
-                onBlur={[Function]}
-                onChange={[Function]}
-                value="Ville"
+                </div>
+              </LabeledValue>
+              <LabeledValue
+                label="Puhelin"
+                noMargin={true}
+                value="050123467"
               >
-                <InputWrapper
-                  className="formField"
-                  helperText=""
-                  id="approverFirstName"
-                  invalid={0}
-                  labelText="Etunimi"
+                <div
+                  className="wrapper noMargin"
+                >
+                  <strong
+                    className="label"
+                  >
+                    Puhelin
+                  </strong>
+                  <span
+                    className="value"
+                  >
+                    050123467
+                  </span>
+                </div>
+              </LabeledValue>
+              <LabeledValue
+                label="Syntymäpäivä"
+                noMargin={true}
+                value="01.01.2006"
+              >
+                <div
+                  className="wrapper noMargin"
+                >
+                  <strong
+                    className="label"
+                  >
+                    Syntymäpäivä
+                  </strong>
+                  <span
+                    className="value"
+                  >
+                    01.01.2006
+                  </span>
+                </div>
+              </LabeledValue>
+              <div
+                className="formRow"
+              >
+                <LabeledValue
+                  key="Testikuja 55, 00100 Helsinki"
+                  label="Kotiosoite 1"
+                  noMargin={true}
+                  value="Testikuja 55, 00100 Helsinki"
                 >
                   <div
-                    className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
+                    className="wrapper noMargin"
                   >
-                    <FieldLabel
-                      hidden={false}
-                      inputId="approverFirstName"
-                      label="Etunimi"
-                      required={false}
+                    <strong
+                      className="label"
                     >
-                      <label
-                        className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                        htmlFor="approverFirstName"
+                      Kotiosoite 1
+                    </strong>
+                    <span
+                      className="value"
+                    >
+                      Testikuja 55, 00100 Helsinki
+                    </span>
+                  </div>
+                </LabeledValue>
+                <LabeledValue
+                  key="Kymintie 43, 00100 Helsinki"
+                  label="Kotiosoite 2"
+                  noMargin={true}
+                  value="Kymintie 43, 00100 Helsinki"
+                >
+                  <div
+                    className="wrapper noMargin"
+                  >
+                    <strong
+                      className="label"
+                    >
+                      Kotiosoite 2
+                    </strong>
+                    <span
+                      className="value"
+                    >
+                      Kymintie 43, 00100 Helsinki
+                    </span>
+                  </div>
+                </LabeledValue>
+              </div>
+            </div>
+          </BasicInformationGrid>
+        </div>
+        <div>
+          <Text
+            variant="h3"
+          >
+            <h3
+              className="text h3 "
+            >
+              Lisätiedot
+            </h3>
+          </Text>
+          <div
+            className="formData"
+          >
+            <LabeledValue
+              label="Koulu ja luokka"
+              noMargin={true}
+              value="Koulu, Luokka"
+            >
+              <div
+                className="wrapper noMargin"
+              >
+                <strong
+                  className="label"
+                >
+                  Koulu ja luokka
+                </strong>
+                <span
+                  className="value"
+                >
+                  Koulu, Luokka
+                </span>
+              </div>
+            </LabeledValue>
+            <LabeledValue
+              label="Kotona puhutut kielet"
+              noMargin={true}
+              value="Suomi"
+            >
+              <div
+                className="wrapper noMargin"
+              >
+                <strong
+                  className="label"
+                >
+                  Kotona puhutut kielet
+                </strong>
+                <span
+                  className="value"
+                >
+                  Suomi
+                </span>
+              </div>
+            </LabeledValue>
+          </div>
+        </div>
+        <Form>
+          <form
+            action="#"
+            onReset={[Function]}
+            onSubmit={[Function]}
+          >
+            <Stack
+              space="xl"
+            >
+              <div
+                className="stack xl"
+              >
+                <div>
+                  <Text
+                    variant="h3"
+                  >
+                    <h3
+                      className="text h3 "
+                    >
+                      Huoltajalta vaadittavat luvat
+                    </h3>
+                  </Text>
+                  <Text
+                    variant="h4"
+                  >
+                    <h4
+                      className="text h4 "
+                    >
+                      Kuvauslupa
+                    </h4>
+                  </Text>
+                  <Text
+                    variant="info"
+                  >
+                    <p
+                      className="text info "
+                    >
+                      Lapsesta voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin viestinnässä ja markkinoinnissa painetussa ja sähköisessä mediassa. Kuvaamisesta ja kuvien käytöstä ei makseta korvausta. Oikeus kuvien käyttöön on aina voimassa ja koskee koko Helsingin kaupungin viestintää ja markkinointiviestintää.
+                    </p>
+                  </Text>
+                  <div
+                    className="formFields"
+                  >
+                    <ul
+                      className="list"
+                    >
+                      <li
+                        className="radioButtonRow"
                       >
-                        Etunimi
-                      </label>
-                    </FieldLabel>
-                    <div
-                      className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                        <Field
+                          as={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "render": [Function],
+                            }
+                          }
+                          checked={false}
+                          id="photoUsageApprovedYes"
+                          labelText="Kyllä"
+                          name="photoUsageApproved"
+                          value="true"
+                        >
+                          <ForwardRef
+                            checked={false}
+                            id="photoUsageApprovedYes"
+                            labelText="Kyllä"
+                            name="photoUsageApproved"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="true"
+                          >
+                            <div
+                              className="RadioButton-module_radioButton__cl9Gp radio-button_hds-radio-button__qM8AJ"
+                            >
+                              <input
+                                aria-checked={false}
+                                checked={false}
+                                className="RadioButton-module_input__3Jcdf radio-button_hds-radio-button__input__ztS8g"
+                                disabled={false}
+                                id="photoUsageApprovedYes"
+                                name="photoUsageApproved"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                type="radio"
+                                value="true"
+                              />
+                              <label
+                                className="RadioButton-module_label__g_pgE radio-button_hds-radio-button__label__1e-Rr"
+                                htmlFor="photoUsageApprovedYes"
+                              >
+                                Kyllä
+                              </label>
+                            </div>
+                          </ForwardRef>
+                        </Field>
+                      </li>
+                      <li
+                        className="radioButtonRow"
+                      >
+                        <Field
+                          as={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "render": [Function],
+                            }
+                          }
+                          checked={true}
+                          id="photoUsageApprovedNo"
+                          labelText="Ei"
+                          name="photoUsageApproved"
+                          value="false"
+                        >
+                          <ForwardRef
+                            checked={true}
+                            id="photoUsageApprovedNo"
+                            labelText="Ei"
+                            name="photoUsageApproved"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            value="false"
+                          >
+                            <div
+                              className="RadioButton-module_radioButton__cl9Gp radio-button_hds-radio-button__qM8AJ"
+                            >
+                              <input
+                                aria-checked={true}
+                                checked={true}
+                                className="RadioButton-module_input__3Jcdf radio-button_hds-radio-button__input__ztS8g"
+                                disabled={false}
+                                id="photoUsageApprovedNo"
+                                name="photoUsageApproved"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                type="radio"
+                                value="false"
+                              />
+                              <label
+                                className="RadioButton-module_label__g_pgE radio-button_hds-radio-button__label__1e-Rr"
+                                htmlFor="photoUsageApprovedNo"
+                              >
+                                Ei
+                              </label>
+                            </div>
+                          </ForwardRef>
+                        </Field>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <Text
+                    variant="h3"
+                  >
+                    <h3
+                      className="text h3 "
                     >
-                      <input
-                        className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                        disabled={false}
+                      Huoltajan tiedot
+                    </h3>
+                  </Text>
+                  <Text
+                    variant="info"
+                  >
+                    <p
+                      className="text info "
+                    >
+                      Huoltajaan voidaan olla yhteydessä lasta koskevissa asioissa.
+                    </p>
+                  </Text>
+                  <div
+                    className="formFields"
+                  >
+                    <Field
+                      as={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        }
+                      }
+                      className="formField"
+                      helperText=""
+                      id="approverFirstName"
+                      invalid={0}
+                      labelText="Etunimi"
+                      name="approverFirstName"
+                    >
+                      <ForwardRef
+                        className="formField"
+                        helperText=""
                         id="approverFirstName"
+                        invalid={0}
+                        labelText="Etunimi"
                         name="approverFirstName"
                         onBlur={[Function]}
                         onChange={[Function]}
-                        type="text"
                         value="Ville"
-                      />
-                    </div>
-                  </div>
-                </InputWrapper>
-              </ForwardRef>
-            </Field>
-            <Field
-              as={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
-              className="formField"
-              helperText=""
-              id="approverLastName"
-              invalid={0}
-              labelText="Sukunimi"
-              name="approverLastName"
-            >
-              <ForwardRef
-                className="formField"
-                helperText=""
-                id="approverLastName"
-                invalid={0}
-                labelText="Sukunimi"
-                name="approverLastName"
-                onBlur={[Function]}
-                onChange={[Function]}
-                value="Vanhempi"
-              >
-                <InputWrapper
-                  className="formField"
-                  helperText=""
-                  id="approverLastName"
-                  invalid={0}
-                  labelText="Sukunimi"
-                >
-                  <div
-                    className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
-                  >
-                    <FieldLabel
-                      hidden={false}
-                      inputId="approverLastName"
-                      label="Sukunimi"
-                      required={false}
-                    >
-                      <label
-                        className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                        htmlFor="approverLastName"
                       >
-                        Sukunimi
-                      </label>
-                    </FieldLabel>
-                    <div
-                      className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                        <InputWrapper
+                          className="formField"
+                          helperText=""
+                          id="approverFirstName"
+                          invalid={0}
+                          labelText="Etunimi"
+                        >
+                          <div
+                            className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
+                          >
+                            <FieldLabel
+                              hidden={false}
+                              inputId="approverFirstName"
+                              label="Etunimi"
+                              required={false}
+                            >
+                              <label
+                                className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                htmlFor="approverFirstName"
+                              >
+                                Etunimi
+                              </label>
+                            </FieldLabel>
+                            <div
+                              className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                            >
+                              <input
+                                className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                disabled={false}
+                                id="approverFirstName"
+                                name="approverFirstName"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                type="text"
+                                value="Ville"
+                              />
+                            </div>
+                          </div>
+                        </InputWrapper>
+                      </ForwardRef>
+                    </Field>
+                    <Field
+                      as={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        }
+                      }
+                      className="formField"
+                      helperText=""
+                      id="approverLastName"
+                      invalid={0}
+                      labelText="Sukunimi"
+                      name="approverLastName"
                     >
-                      <input
-                        className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                        disabled={false}
+                      <ForwardRef
+                        className="formField"
+                        helperText=""
                         id="approverLastName"
+                        invalid={0}
+                        labelText="Sukunimi"
                         name="approverLastName"
                         onBlur={[Function]}
                         onChange={[Function]}
-                        type="text"
                         value="Vanhempi"
-                      />
-                    </div>
-                  </div>
-                </InputWrapper>
-              </ForwardRef>
-            </Field>
-            <Field
-              as={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
-              className="formField"
-              helperText=""
-              id="approverEmail"
-              invalid={0}
-              labelText="Sähköposti"
-              name="approverEmail"
-              type="email"
-            >
-              <ForwardRef
-                className="formField"
-                helperText=""
-                id="approverEmail"
-                invalid={0}
-                labelText="Sähköposti"
-                name="approverEmail"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="email"
-                value="ville.vanhempi@test.fi"
-              >
-                <InputWrapper
-                  className="formField"
-                  helperText=""
-                  id="approverEmail"
-                  invalid={0}
-                  labelText="Sähköposti"
-                >
-                  <div
-                    className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
-                  >
-                    <FieldLabel
-                      hidden={false}
-                      inputId="approverEmail"
-                      label="Sähköposti"
-                      required={false}
-                    >
-                      <label
-                        className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                        htmlFor="approverEmail"
                       >
-                        Sähköposti
-                      </label>
-                    </FieldLabel>
-                    <div
-                      className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                        <InputWrapper
+                          className="formField"
+                          helperText=""
+                          id="approverLastName"
+                          invalid={0}
+                          labelText="Sukunimi"
+                        >
+                          <div
+                            className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
+                          >
+                            <FieldLabel
+                              hidden={false}
+                              inputId="approverLastName"
+                              label="Sukunimi"
+                              required={false}
+                            >
+                              <label
+                                className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                htmlFor="approverLastName"
+                              >
+                                Sukunimi
+                              </label>
+                            </FieldLabel>
+                            <div
+                              className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                            >
+                              <input
+                                className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                disabled={false}
+                                id="approverLastName"
+                                name="approverLastName"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                type="text"
+                                value="Vanhempi"
+                              />
+                            </div>
+                          </div>
+                        </InputWrapper>
+                      </ForwardRef>
+                    </Field>
+                    <Field
+                      as={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        }
+                      }
+                      className="formField"
+                      helperText=""
+                      id="approverEmail"
+                      invalid={0}
+                      labelText="Sähköposti"
+                      name="approverEmail"
+                      type="email"
                     >
-                      <input
-                        className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                        disabled={false}
+                      <ForwardRef
+                        className="formField"
+                        helperText=""
                         id="approverEmail"
+                        invalid={0}
+                        labelText="Sähköposti"
                         name="approverEmail"
                         onBlur={[Function]}
                         onChange={[Function]}
                         type="email"
                         value="ville.vanhempi@test.fi"
-                      />
-                    </div>
-                  </div>
-                </InputWrapper>
-              </ForwardRef>
-            </Field>
-            <Field
-              as={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
-              className="formField"
-              helperText=""
-              id="approverPhone"
-              invalid={0}
-              labelText="Puhelin"
-              name="approverPhone"
-              type="tel"
-            >
-              <ForwardRef
-                className="formField"
-                helperText=""
-                id="approverPhone"
-                invalid={0}
-                labelText="Puhelin"
-                name="approverPhone"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="tel"
-                value="05012345567"
-              >
-                <InputWrapper
-                  className="formField"
-                  helperText=""
-                  id="approverPhone"
-                  invalid={0}
-                  labelText="Puhelin"
-                >
-                  <div
-                    className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
-                  >
-                    <FieldLabel
-                      hidden={false}
-                      inputId="approverPhone"
-                      label="Puhelin"
-                      required={false}
-                    >
-                      <label
-                        className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                        htmlFor="approverPhone"
                       >
-                        Puhelin
-                      </label>
-                    </FieldLabel>
-                    <div
-                      className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                        <InputWrapper
+                          className="formField"
+                          helperText=""
+                          id="approverEmail"
+                          invalid={0}
+                          labelText="Sähköposti"
+                        >
+                          <div
+                            className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
+                          >
+                            <FieldLabel
+                              hidden={false}
+                              inputId="approverEmail"
+                              label="Sähköposti"
+                              required={false}
+                            >
+                              <label
+                                className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                htmlFor="approverEmail"
+                              >
+                                Sähköposti
+                              </label>
+                            </FieldLabel>
+                            <div
+                              className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                            >
+                              <input
+                                className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                disabled={false}
+                                id="approverEmail"
+                                name="approverEmail"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                type="email"
+                                value="ville.vanhempi@test.fi"
+                              />
+                            </div>
+                          </div>
+                        </InputWrapper>
+                      </ForwardRef>
+                    </Field>
+                    <Field
+                      as={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        }
+                      }
+                      className="formField"
+                      helperText=""
+                      id="approverPhone"
+                      invalid={0}
+                      labelText="Puhelin"
+                      name="approverPhone"
+                      type="tel"
                     >
-                      <input
-                        className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                        disabled={false}
+                      <ForwardRef
+                        className="formField"
+                        helperText=""
                         id="approverPhone"
+                        invalid={0}
+                        labelText="Puhelin"
                         name="approverPhone"
                         onBlur={[Function]}
                         onChange={[Function]}
                         type="tel"
                         value="05012345567"
-                      />
-                    </div>
+                      >
+                        <InputWrapper
+                          className="formField"
+                          helperText=""
+                          id="approverPhone"
+                          invalid={0}
+                          labelText="Puhelin"
+                        >
+                          <div
+                            className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
+                          >
+                            <FieldLabel
+                              hidden={false}
+                              inputId="approverPhone"
+                              label="Puhelin"
+                              required={false}
+                            >
+                              <label
+                                className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                htmlFor="approverPhone"
+                              >
+                                Puhelin
+                              </label>
+                            </FieldLabel>
+                            <div
+                              className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                            >
+                              <input
+                                className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                disabled={false}
+                                id="approverPhone"
+                                name="approverPhone"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                type="tel"
+                                value="05012345567"
+                              />
+                            </div>
+                          </div>
+                        </InputWrapper>
+                      </ForwardRef>
+                    </Field>
                   </div>
-                </InputWrapper>
-              </ForwardRef>
-            </Field>
-          </div>
-          <ul
-            className="terms"
-          >
-            <Field
-              as={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
-              labelText={
-                <span
-                  className="listLabel"
+                </div>
+                <TermsField
+                  id="terms"
+                  name="terms"
                 >
-                  <Trans
-                    components={
-                      Array [
-                        <a
-                          href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        />,
-                        <a
-                          href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        />,
-                      ]
-                    }
-                    i18nKey="approval.approveTerms"
-                  />
-                </span>
-              }
-              name="terms"
-              type="checkbox"
-            >
-              <ForwardRef
-                checked={false}
-                labelText={
-                  <span
-                    className="listLabel"
-                  >
-                    <Trans
-                      components={
-                        Array [
-                          <a
-                            href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          />,
-                          <a
-                            href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          />,
-                        ]
+                  <div>
+                    <ForwardRef
+                      checked={false}
+                      id="terms"
+                      label={
+                        <span
+                          className="listLabel"
+                        >
+                          <Trans
+                            components={
+                              Array [
+                                <a
+                                  href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                />,
+                                <a
+                                  href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                />,
+                              ]
+                            }
+                            i18nKey="approval.approveTerms"
+                          />
+                        </span>
                       }
-                      i18nKey="approval.approveTerms"
-                    />
-                  </span>
-                }
-                name="terms"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="checkbox"
-                value={false}
-              >
-                <div
-                  className="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
+                      name="terms"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      type="checkbox"
+                      value={false}
+                    >
+                      <div
+                        className="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
+                      >
+                        <input
+                          aria-checked={false}
+                          checked={false}
+                          className="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                          disabled={false}
+                          id="terms"
+                          name="terms"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          type="checkbox"
+                          value={false}
+                        />
+                        <label
+                          className="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                          htmlFor="terms"
+                        >
+                          <span
+                            className="listLabel"
+                          >
+                            <Trans
+                              components={
+                                Array [
+                                  <a
+                                    href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                  />,
+                                  <a
+                                    href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                  />,
+                                ]
+                              }
+                              i18nKey="approval.approveTerms"
+                            >
+                              Olen tutustunut palvelun 
+                              <a
+                                href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
+                                key="1"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                              >
+                                rekisteriselosteeseen
+                              </a>
+                               ja kaupungin 
+                              <a
+                                href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+                                key="3"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                              >
+                                tietosuojakäytäntöön
+                              </a>
+                                ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.
+                            </Trans>
+                          </span>
+                        </label>
+                      </div>
+                    </ForwardRef>
+                  </div>
+                </TermsField>
+                <ForwardRef
+                  className="button"
+                  type="submit"
                 >
-                  <input
-                    aria-checked={false}
-                    checked={false}
-                    className="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+                  <button
+                    className="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO button"
                     disabled={false}
-                    name="terms"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    type="checkbox"
-                    value={false}
-                  />
-                  <label
-                    className="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+                    type="submit"
                   >
                     <span
-                      className="listLabel"
+                      className="Button-module_label__2zMLC button_hds-button__label__2EQa-"
                     >
-                      <Trans
-                        components={
-                          Array [
-                            <a
-                              href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
-                              rel="noopener noreferrer"
-                              target="_blank"
-                            />,
-                            <a
-                              href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
-                              rel="noopener noreferrer"
-                              target="_blank"
-                            />,
-                          ]
-                        }
-                        i18nKey="approval.approveTerms"
-                      >
-                        Olen tutustunut palvelun 
-                        <a
-                          href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
-                          key="1"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          rekisteriselosteeseen
-                        </a>
-                         ja kaupungin 
-                        <a
-                          href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
-                          key="3"
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          tietosuojakäytäntöön
-                        </a>
-                          ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.
-                      </Trans>
+                      Hyväksy jäsenyys
                     </span>
-                  </label>
-                </div>
-              </ForwardRef>
-            </Field>
-          </ul>
-          <div
-            className="buttonAlign"
-          >
-            <ForwardRef
-              className="button"
-              disabled={true}
-              type="submit"
-            >
-              <button
-                className="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO button"
-                disabled={true}
-                type="submit"
-              >
-                <span
-                  className="Button-module_label__2zMLC button_hds-button__label__2EQa-"
-                >
-                  Hyväksy jäsenyys
-                </span>
-              </button>
-            </ForwardRef>
-          </div>
-        </form>
-      </Form>
-    </div>
+                  </button>
+                </ForwardRef>
+              </div>
+            </Stack>
+          </form>
+        </Form>
+      </div>
+    </Stack>
   </Formik>
 </ApproveYouthProfileForm>
 `;

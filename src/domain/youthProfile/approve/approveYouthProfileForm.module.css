@@ -1,52 +1,34 @@
 .content {
-  padding: 10px 10px;
   text-align: left;
 }
 
-.content h3 {
-  margin-top: 40px;
-}
-
-@media (min-width: 768px) {
-  .formFields, .formData {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 750px;
-  }
-}
-
-.formData > * {
-  width: 50%;
-}
-
-.formField {
-  padding-bottom: 20px;
+.formData, .formFields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+  max-width: 750px;
 }
 @media (min-width: 768px) {
-  .formField {
-    flex-basis: 50%;
-    max-width: 350px;
-    padding: 10px 10px 10px 0;
+  .formData, .formFields {
+    grid-template-columns: 1fr 1fr;
   }
-  .formField:nth-of-type(even) {
-    padding-right: 0;
-    padding-left: 10px;
-  }
+}
+.formRow {
+  display: inherit;
+  grid-template-columns: inherit;
+  grid-column: 1 / -1;
+  gap: inherit;
 }
 
 .list {
   list-style-type: none;
-  padding: 0 0 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .radioButtonRow {
   float: left;
   margin-right: 50px;
-}
-
-.terms {
-  padding-left: 0;
 }
 
 .button {
