@@ -55,7 +55,6 @@ function ApproveYouthProfile({ isApprovalSuccessful, data, onSubmit }: Props) {
             languageAtHome:
               data?.youthProfileByApprovalToken?.languageAtHome || '',
           }}
-          // isSubmitting={loading}
           onSubmit={onSubmit}
         />
       )}
