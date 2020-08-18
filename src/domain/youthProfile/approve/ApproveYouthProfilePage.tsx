@@ -31,7 +31,7 @@ function ApproveYouthProfilePage() {
   const [showNotification, setShowNotification] = useState(false);
 
   const params = useParams<Params>();
-  const { data, loading: queryLoading } = useQuery<YouthProfileByApprovalToken>(
+  const { data, loading } = useQuery<YouthProfileByApprovalToken>(
     PROFILE_BY_TOKEN,
     {
       variables: { token: params.token },
@@ -73,10 +73,8 @@ function ApproveYouthProfilePage() {
     }
   };
 
-  const isLoading = queryLoading;
-
   return (
-    <PageContent isReady={!isLoading} title="approval.title">
+    <PageContent isReady={!loading} title="approval.title">
       {data && (
         <ApproveYouthProfile
           data={data}
