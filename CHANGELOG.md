@@ -14,5 +14,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 - Authentication info text position
+- Hide spinners from birth day input on Firefox
 
 ## [1.0.0-rc.3]

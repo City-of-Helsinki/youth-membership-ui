@@ -1,0 +1,11 @@
+.noSpinner input{
+  /* Firefox */
+  -moz-appearance: textfield !important;
+}
+
+.noSpinner::-webkit-outer-spin-button input,
+.noSpinner::-webkit-inner-spin-button input {
+  /* Webkit */
+  -webkit-appearance: none;
+  margin: 0;
+}
