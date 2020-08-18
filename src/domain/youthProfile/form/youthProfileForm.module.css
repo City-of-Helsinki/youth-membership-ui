@@ -95,17 +95,6 @@
     display:none;
 }
 
-.terms {
-    margin-top: 30px;
-    padding-left: 0;
-}
-
-.termsError {
-    padding-left: var(--spacing-l);
-    font-size: var(--fontsize-body-default) !important;
-    color: var(--color-helper-text-input-invalid)
-}
-
 a {
     text-decoration: none;
 }
