@@ -64,7 +64,7 @@
     "helpText": "Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers.",
     "helpTextUnderAge": "Unfortunately, you need to be at least 13 years old to get a digital Jässäri. You can download an application form from here. ",
     "linkForMembersText": "Do you have membership? Log in",
-    "registrationForm": "http://jassari.munstadi.fi/files/2019/06/Jasenkorttikaavake_2019_englanti.pdf",
+    "registrationForm": "http://jassari.munstadi.fi/files/2020/07/Jasenkorttikaavake_2020_englanti-1.pdf",
     "registrationFormText": "Download application form",
     "return": "Go back",
     "title": "Get your Jässäri!"
@@ -150,7 +150,7 @@
     "sendButton": "Save and send approval request",
     "title": "Please fill in your information",
     "addAddress": "Add another address",
-    "addGuardian": "Add anohter guardians infomration ",
+    "addGuardian": "Add another guardian's information ",
     "addGuardianText": "We will notify the other guardian about them being added to the application.",
     "remove": "Delete"
   },
