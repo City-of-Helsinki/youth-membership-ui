@@ -284,97 +284,14 @@ exports[`matches snapshot 1`] = `
             name="Teemu Testaaja"
             phone="050123467"
           >
-            <div
-              className="formData"
-            >
-              <LabeledValue
-                label="Nimi"
-                noMargin={true}
-                value="Teemu Testaaja"
-              >
-                <div
-                  className="wrapper noMargin"
-                >
-                  <strong
-                    className="label"
-                  >
-                    Nimi
-                  </strong>
-                  <span
-                    className="value"
-                  >
-                    Teemu Testaaja
-                  </span>
-                </div>
-              </LabeledValue>
-              <LabeledValue
-                label="Profiili"
-                noMargin={true}
-                value="teemu.testaaja@test.fi"
-              >
-                <div
-                  className="wrapper noMargin"
-                >
-                  <strong
-                    className="label"
-                  >
-                    Profiili
-                  </strong>
-                  <span
-                    className="value"
-                  >
-                    teemu.testaaja@test.fi
-                  </span>
-                </div>
-              </LabeledValue>
-              <LabeledValue
-                label="Puhelin"
-                noMargin={true}
-                value="050123467"
-              >
-                <div
-                  className="wrapper noMargin"
-                >
-                  <strong
-                    className="label"
-                  >
-                    Puhelin
-                  </strong>
-                  <span
-                    className="value"
-                  >
-                    050123467
-                  </span>
-                </div>
-              </LabeledValue>
-              <LabeledValue
-                label="Syntymäpäivä"
-                noMargin={true}
-                value="01.01.2006"
-              >
-                <div
-                  className="wrapper noMargin"
-                >
-                  <strong
-                    className="label"
-                  >
-                    Syntymäpäivä
-                  </strong>
-                  <span
-                    className="value"
-                  >
-                    01.01.2006
-                  </span>
-                </div>
-              </LabeledValue>
+            <InfoGrid>
               <div
-                className="formRow"
+                className="grid"
               >
                 <LabeledValue
-                  key="Testikuja 55, 00100 Helsinki"
-                  label="Kotiosoite 1"
+                  label="Nimi"
                   noMargin={true}
-                  value="Testikuja 55, 00100 Helsinki"
+                  value="Teemu Testaaja"
                 >
                   <div
                     className="wrapper noMargin"
@@ -382,20 +299,19 @@ exports[`matches snapshot 1`] = `
                     <strong
                       className="label"
                     >
-                      Kotiosoite 1
+                      Nimi
                     </strong>
                     <span
                       className="value"
                     >
-                      Testikuja 55, 00100 Helsinki
+                      Teemu Testaaja
                     </span>
                   </div>
                 </LabeledValue>
                 <LabeledValue
-                  key="Kymintie 43, 00100 Helsinki"
-                  label="Kotiosoite 2"
+                  label="Syntymäpäivä"
                   noMargin={true}
-                  value="Kymintie 43, 00100 Helsinki"
+                  value="01.01.2006"
                 >
                   <div
                     className="wrapper noMargin"
@@ -403,17 +319,124 @@ exports[`matches snapshot 1`] = `
                     <strong
                       className="label"
                     >
-                      Kotiosoite 2
+                      Syntymäpäivä
                     </strong>
                     <span
                       className="value"
                     >
-                      Kymintie 43, 00100 Helsinki
+                      01.01.2006
                     </span>
                   </div>
                 </LabeledValue>
+                <LabeledValue
+                  label="Sähköposti"
+                  noMargin={true}
+                  value="teemu.testaaja@test.fi"
+                >
+                  <div
+                    className="wrapper noMargin"
+                  >
+                    <strong
+                      className="label"
+                    >
+                      Sähköposti
+                    </strong>
+                    <span
+                      className="value"
+                    >
+                      teemu.testaaja@test.fi
+                    </span>
+                  </div>
+                </LabeledValue>
+                <LabeledValue
+                  label="Puhelinnumero"
+                  noMargin={true}
+                  value="050123467"
+                >
+                  <div
+                    className="wrapper noMargin"
+                  >
+                    <strong
+                      className="label"
+                    >
+                      Puhelinnumero
+                    </strong>
+                    <span
+                      className="value"
+                    >
+                      050123467
+                    </span>
+                  </div>
+                </LabeledValue>
+                <LabeledValue
+                  label="Profiilin kieli"
+                  noMargin={true}
+                >
+                  <div
+                    className="wrapper noMargin"
+                  >
+                    <strong
+                      className="label"
+                    >
+                      Profiilin kieli
+                    </strong>
+                    <span
+                      className="value"
+                    >
+                      –
+                    </span>
+                  </div>
+                </LabeledValue>
+                <InfoGridRow>
+                  <div
+                    className="gridRow"
+                  >
+                    <LabeledValue
+                      key="Testikuja 55, 00100 Helsinki"
+                      label="Osoite"
+                      noMargin={true}
+                      value="Testikuja 55, 00100 Helsinki"
+                    >
+                      <div
+                        className="wrapper noMargin"
+                      >
+                        <strong
+                          className="label"
+                        >
+                          Osoite
+                        </strong>
+                        <span
+                          className="value"
+                        >
+                          Testikuja 55, 00100 Helsinki
+                        </span>
+                      </div>
+                    </LabeledValue>
+                    <LabeledValue
+                      key="Kymintie 43, 00100 Helsinki"
+                      label="Osoite 2"
+                      noMargin={true}
+                      value="Kymintie 43, 00100 Helsinki"
+                    >
+                      <div
+                        className="wrapper noMargin"
+                      >
+                        <strong
+                          className="label"
+                        >
+                          Osoite 2
+                        </strong>
+                        <span
+                          className="value"
+                        >
+                          Kymintie 43, 00100 Helsinki
+                        </span>
+                      </div>
+                    </LabeledValue>
+                  </div>
+                </InfoGridRow>
               </div>
-            </div>
+            </InfoGrid>
           </BasicInformationGrid>
         </div>
         <div>
@@ -426,50 +449,52 @@ exports[`matches snapshot 1`] = `
               Lisätiedot
             </h3>
           </Text>
-          <div
-            className="formData"
-          >
-            <LabeledValue
-              label="Koulu ja luokka"
-              noMargin={true}
-              value="Koulu, Luokka"
+          <InfoGrid>
+            <div
+              className="grid"
             >
-              <div
-                className="wrapper noMargin"
+              <LabeledValue
+                label="Koulu ja luokka"
+                noMargin={true}
+                value="Koulu, Luokka"
               >
-                <strong
-                  className="label"
+                <div
+                  className="wrapper noMargin"
                 >
-                  Koulu ja luokka
-                </strong>
-                <span
-                  className="value"
-                >
-                  Koulu, Luokka
-                </span>
-              </div>
-            </LabeledValue>
-            <LabeledValue
-              label="Kotona puhutut kielet"
-              noMargin={true}
-              value="Suomi"
-            >
-              <div
-                className="wrapper noMargin"
+                  <strong
+                    className="label"
+                  >
+                    Koulu ja luokka
+                  </strong>
+                  <span
+                    className="value"
+                  >
+                    Koulu, Luokka
+                  </span>
+                </div>
+              </LabeledValue>
+              <LabeledValue
+                label="Kotona puhutut kielet"
+                noMargin={true}
+                value="Suomi"
               >
-                <strong
-                  className="label"
+                <div
+                  className="wrapper noMargin"
                 >
-                  Kotona puhutut kielet
-                </strong>
-                <span
-                  className="value"
-                >
-                  Suomi
-                </span>
-              </div>
-            </LabeledValue>
-          </div>
+                  <strong
+                    className="label"
+                  >
+                    Kotona puhutut kielet
+                  </strong>
+                  <span
+                    className="value"
+                  >
+                    Suomi
+                  </span>
+                </div>
+              </LabeledValue>
+            </div>
+          </InfoGrid>
         </div>
         <Form>
           <form

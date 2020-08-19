@@ -26,12 +26,12 @@ const mocks = [
 
 const expectedValues = [
   { label: 'Nimi', value: 'Teemu Testaaja' },
-  { label: 'Osoite', value: 'Testikatu 55, 12345, Helsinki, Suomi' },
-  { label: 'Osoite', value: 'Testikatu 66, 00100, Helsinki, Suomi' },
+  { label: 'Syntymäpäivä', value: '1.1.2000' },
   { label: 'Sähköposti', value: 'teemu@testaaja.com' },
   { label: 'Puhelinnumero', value: '0501234567' },
-  { label: 'Syntymäpäivä', value: '1.1.2000' },
   { label: 'Profiilin kieli', value: 'Suomi' },
+  { label: 'Osoite', value: 'Testikatu 55, 12345, Helsinki, Suomi' },
+  { label: 'Osoite 2', value: 'Testikatu 66, 00100, Helsinki, Suomi' },
   { label: 'Koulu', value: 'School, Class' },
   { label: 'Kotona puhuttu kieli', value: 'Suomi' },
   { label: 'Kuvauslupa', value: 'Ei' },
