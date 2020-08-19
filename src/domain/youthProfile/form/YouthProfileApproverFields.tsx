@@ -1,120 +1,83 @@
 import React from 'react';
-import { Button, IconPlusCircle } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { FieldArray, FieldArrayRenderProps, FormikProps } from 'formik';
 
-import { FormValues } from './YouthProfileForm';
+import ArrayFieldTemplate from '../../../common/components/arrayFieldTemplate/ArrayFieldTemplate';
+import Stack from '../../../common/components/stack/Stack';
+import YouthProfileFormGrid from './YouthProfileFormGrid';
 import TextInput from './FormikTextInput';
-import styles from './youthProfileForm.module.css';
 
 interface Props {
   approverLabelText: (name: string) => string;
-  formikProps: FormikProps<FormValues>;
 }
 
-function YouthProfileApproverFields({ approverLabelText, formikProps }: Props) {
+function YouthProfileApproverFields({ approverLabelText }: Props) {
   const { t } = useTranslation();
 
   return (
-    <>
-      <div className={styles.formRow}>
+    <Stack space="xl">
+      <YouthProfileFormGrid>
         <TextInput
-          className={styles.formInput}
           id="approverFirstName"
           name="approverFirstName"
           labelText={approverLabelText('firstName')}
         />
         <TextInput
-          className={styles.formInput}
           id="approverLastName"
           name="approverLastName"
           labelText={approverLabelText('lastName')}
         />
-      </div>
-      <div className={styles.formRow}>
         <TextInput
-          className={styles.formInput}
           id="approverEmail"
           name="approverEmail"
           type="email"
           labelText={approverLabelText('email')}
         />
         <TextInput
-          className={styles.formInput}
           id="approverPhone"
           name="approverPhone"
           type="tel"
           labelText={approverLabelText('phoneNumber')}
         />
-      </div>
-      <FieldArray
+      </YouthProfileFormGrid>
+      <ArrayFieldTemplate
         name="additionalContactPersons"
-        render={(arrayHelpers: FieldArrayRenderProps) => (
-          <>
-            {formikProps.values.additionalContactPersons.map(
-              (_: unknown, index: number) => (
-                <div key={index} className={styles.additionalContactGroup}>
-                  <div className={styles.formRow}>
-                    <TextInput
-                      className={styles.formInput}
-                      id={`additionalContactPersons.${index}.firstName`}
-                      name={`additionalContactPersons.${index}.firstName`}
-                      labelText={approverLabelText('firstName')}
-                    />
-                    <TextInput
-                      className={styles.formInput}
-                      id={`additionalContactPersons.${index}.lastName`}
-                      name={`additionalContactPersons.${index}.lastName`}
-                      labelText={approverLabelText('lastName')}
-                    />
-                  </div>
-                  <div className={styles.formRow}>
-                    <TextInput
-                      className={styles.formInput}
-                      id={`additionalContactPersons.${index}.email`}
-                      name={`additionalContactPersons.${index}.email`}
-                      type="email"
-                      labelText={approverLabelText('email')}
-                    />
-                    <TextInput
-                      className={styles.formInput}
-                      id={`additionalContactPersons.${index}.phone`}
-                      name={`additionalContactPersons.${index}.phone`}
-                      type="tel"
-                      labelText={approverLabelText('phoneNumber')}
-                    />
-                  </div>
-                  <button
-                    type="button"
-                    className={styles.additionalActionButton}
-                    onClick={() => arrayHelpers.remove(index)}
-                  >
-                    {t('registration.remove')}
-                  </button>
-                </div>
-              )
-            )}
-
-            <Button
-              type="button"
-              iconLeft={<IconPlusCircle />}
-              variant="supplementary"
-              className={styles.alignButton}
-              onClick={() => {
-                arrayHelpers.push({
-                  email: '',
-                  firstName: '',
-                  lastName: '',
-                  phone: '',
-                });
-              }}
-            >
-              {t('registration.addGuardian')}
-            </Button>
-          </>
+        renderField={(value, index, arrayPath) => (
+          <YouthProfileFormGrid>
+            <TextInput
+              id={`${arrayPath}.firstName`}
+              name={`${arrayPath}.firstName`}
+              labelText={approverLabelText('firstName')}
+            />
+            <TextInput
+              id={`${arrayPath}.lastName`}
+              name={`${arrayPath}.lastName`}
+              labelText={approverLabelText('lastName')}
+            />
+            <TextInput
+              id={`${arrayPath}.email`}
+              name={`${arrayPath}.email`}
+              type="email"
+              labelText={approverLabelText('email')}
+            />
+            <TextInput
+              id={`${arrayPath}.phone`}
+              name={`${arrayPath}.phone`}
+              type="tel"
+              labelText={approverLabelText('phoneNumber')}
+            />
+          </YouthProfileFormGrid>
         )}
+        addItemLabel={t('registration.addGuardian')}
+        onPushItem={push =>
+          push({
+            email: '',
+            firstName: '',
+            lastName: '',
+            phone: '',
+          })
+        }
       />
-    </>
+    </Stack>
   );
 }
 

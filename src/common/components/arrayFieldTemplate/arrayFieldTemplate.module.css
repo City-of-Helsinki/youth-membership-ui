@@ -1,0 +1,17 @@
+.additionalActionButton {
+  margin-top: var(--spacing-xs);
+  width: fit-content;
+
+  color: var(--color-bus);
+  font-size: var(--fontsize-body-small);
+}
+
+.addItemButton {
+  width: fit-content;
+}
+
+@media (min-width: 540px) {
+  .addItemButton {
+      margin-left: calc(-1 * var(--spacing-m));
+  }
+}

@@ -1,0 +1,21 @@
+.formGrid {
+  --column-gap: var(--spacing-m); 
+  --row-gap: var(--spacing-m); 
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  column-gap: var(--column-gap);
+  row-gap: var(--row-gap);
+  max-width: 660px;
+}
+
+.formGrid.vertical-small {
+  --row-gap: var(--spacing-s);
+}
+
+@media (min-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

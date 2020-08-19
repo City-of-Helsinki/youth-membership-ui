@@ -1,16 +1,18 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, IconPlusCircle } from 'hds-react';
-import { Field, FieldArray, FieldArrayRenderProps, FormikProps } from 'formik';
+import { Field, FormikProps } from 'formik';
 import countries from 'i18n-iso-countries';
 import { format } from 'date-fns';
 
 import { AddressType } from '../../../graphql/generatedTypes';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
 import Select from '../../../common/components/select/Select';
+import ArrayFieldTemplate from '../../../common/components/arrayFieldTemplate/ArrayFieldTemplate';
+import Stack from '../../../common/components/stack/Stack';
 import TextInput from './FormikTextInput';
+import YouthProfileAddressTemplate from './YouthProfileAddressTemplate';
+import YouthProfileFormGrid from './YouthProfileFormGrid';
 import { FormValues, Values } from './YouthProfileForm';
-import styles from './youthProfileForm.module.css';
 
 type Props = {
   profile: Values;
@@ -33,139 +35,122 @@ function YouthProfileFormBasicInformationFields({
   });
 
   return (
-    <>
-      <div className={styles.formRow}>
+    <Stack space="l">
+      <YouthProfileFormGrid>
         <TextInput
-          className={styles.formInput}
           id="firstName"
           name="firstName"
           labelText={t('registration.firstName') + ' *'}
         />
         <TextInput
-          className={styles.formInput}
           id="lastName"
           name="lastName"
           labelText={t('registration.lastName') + ' *'}
         />
-      </div>
-      <div className={styles.formRow}>
-        <Field
-          as={Select}
-          setFieldValue={formikProps.setFieldValue}
-          id="primaryAddress.countryCode"
-          name="primaryAddress.countryCode"
-          type="select"
-          options={countryOptions}
-          className={styles.formInput}
-          labelText={t('registration.country')}
-        />
-      </div>
-      <div className={styles.formRow}>
-        <TextInput
-          className={styles.formInput}
-          id="primaryAddress.address"
-          name="primaryAddress.address"
-          labelText={t('registration.address') + ' *'}
-        />
-        <div className={styles.formInputRow}>
-          <TextInput
-            className={styles.formInputPostal}
-            id="primaryAddress.postalCode"
-            name="primaryAddress.postalCode"
-            inputMode={
-              formikProps.values?.primaryAddress?.countryCode === 'FI'
-                ? 'numeric'
-                : 'text'
-            }
-            labelText={t('registration.postalCode') + ' *'}
+      </YouthProfileFormGrid>
+      <Stack space="s">
+        <YouthProfileFormGrid>
+          <Field
+            as={Select}
+            setFieldValue={formikProps.setFieldValue}
+            id="primaryAddress.countryCode"
+            name="primaryAddress.countryCode"
+            type="select"
+            options={countryOptions}
+            labelText={t('registration.country')}
           />
-          <TextInput
-            className={styles.formInputCity}
-            id="primaryAddress.city"
-            name="primaryAddress.city"
-            labelText={t('registration.city') + ' *'}
-          />
-        </div>
-      </div>
-      <FieldArray
-        name="addresses"
-        render={(arrayHelpers: FieldArrayRenderProps) => (
-          <React.Fragment>
-            {formikProps.values.addresses.map((address, index: number) => (
-              <React.Fragment key={index}>
-                <div className={styles.formRow}>
-                  <Field
-                    as={Select}
-                    setFieldValue={formikProps.setFieldValue}
-                    id={`addresses.${index}.countryCode`}
-                    name={`addresses.${index}.countryCode`}
-                    type="select"
-                    options={countryOptions}
-                    className={styles.formInput}
-                    labelText={t('registration.country')}
-                  />
-                </div>
-                <div className={styles.formRow}>
+        </YouthProfileFormGrid>
+        <YouthProfileAddressTemplate
+          address={
+            <TextInput
+              id="primaryAddress.address"
+              name="primaryAddress.address"
+              labelText={t('registration.address') + ' *'}
+            />
+          }
+          postalCode={
+            <TextInput
+              id="primaryAddress.postalCode"
+              name="primaryAddress.postalCode"
+              inputMode={
+                formikProps.values?.primaryAddress?.countryCode === 'FI'
+                  ? 'numeric'
+                  : 'text'
+              }
+              labelText={t('registration.postalCode') + ' *'}
+            />
+          }
+          city={
+            <TextInput
+              id="primaryAddress.city"
+              name="primaryAddress.city"
+              labelText={t('registration.city') + ' *'}
+            />
+          }
+        />
+      </Stack>
+      <Stack space="m">
+        <ArrayFieldTemplate
+          name="addresses"
+          listSpace="s"
+          renderField={(value, index, namePath) => (
+            <Stack space="s">
+              <YouthProfileFormGrid>
+                <Field
+                  as={Select}
+                  setFieldValue={formikProps.setFieldValue}
+                  id={`${namePath}.countryCode`}
+                  name={`${namePath}.countryCode`}
+                  type="select"
+                  options={countryOptions}
+                  labelText={t('registration.country')}
+                />
+              </YouthProfileFormGrid>
+              <YouthProfileAddressTemplate
+                address={
                   <TextInput
-                    className={styles.formInput}
-                    id={`addresses.${index}.address`}
-                    name={`addresses.${index}.address`}
+                    id={`${namePath}.address`}
+                    name={`${namePath}.address`}
                     labelText={t('registration.address')}
                   />
-
-                  <div className={styles.formInputRow}>
-                    <TextInput
-                      className={styles.formInputPostal}
-                      id={`addresses.${index}.postalCode`}
-                      name={`addresses.${index}.postalCode`}
-                      inputMode={
-                        formikProps.values?.primaryAddress?.countryCode === 'FI'
-                          ? 'numeric'
-                          : 'text'
-                      }
-                      labelText={t('registration.postalCode')}
-                    />
-                    <TextInput
-                      className={styles.formInputCity}
-                      id={`addresses.${index}.city`}
-                      name={`addresses.${index}.city`}
-                      labelText={t('registration.city')}
-                    />
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  className={styles.additionalActionButton}
-                  onClick={() => arrayHelpers.remove(index)}
-                >
-                  {t('registration.remove')}
-                </button>
-              </React.Fragment>
-            ))}
-            <br />
-            <Button
-              type="button"
-              iconLeft={<IconPlusCircle />}
-              className={styles.addAdditional}
-              variant="supplementary"
-              onClick={() =>
-                arrayHelpers.push({
-                  address: '',
-                  postalCode: '',
-                  countryCode: 'FI',
-                  city: '',
-                  primary: false,
-                  addressType: AddressType.OTHER,
-                  __typeName: 'AddressNode',
-                })
-              }
-            >
-              {t('registration.addAddress')}
-            </Button>
-          </React.Fragment>
-        )}
-      />
-      <div className={styles.formRow}>
+                }
+                postalCode={
+                  <TextInput
+                    id={`${namePath}.postalCode`}
+                    name={`${namePath}.postalCode`}
+                    inputMode={
+                      formikProps.values?.primaryAddress?.countryCode === 'FI'
+                        ? 'numeric'
+                        : 'text'
+                    }
+                    labelText={t('registration.postalCode')}
+                  />
+                }
+                city={
+                  <TextInput
+                    id={`${namePath}.city`}
+                    name={`${namePath}.city`}
+                    labelText={t('registration.city')}
+                  />
+                }
+              />
+            </Stack>
+          )}
+          addItemLabel={t('registration.addAddress')}
+          onPushItem={push =>
+            push({
+              address: '',
+              postalCode: '',
+              countryCode: 'FI',
+              city: '',
+              primary: false,
+              addressType: AddressType.OTHER,
+              __typeName: 'AddressNode',
+            })
+          }
+        />
+      </Stack>
+      <YouthProfileFormGrid>
         <Field
           as={TextInput}
           id="birthDate"
@@ -176,7 +161,6 @@ function YouthProfileFormBasicInformationFields({
             format(new Date(profile.birthDate), 'dd.MM.yyyy')
           }
           labelText={t('registration.childBirthDay')}
-          className={styles.formInput}
         />
         <Field
           as={Select}
@@ -189,29 +173,24 @@ function YouthProfileFormBasicInformationFields({
             { value: 'ENGLISH', label: t('LANGUAGE_OPTIONS.ENGLISH') },
             { value: 'SWEDISH', label: t('LANGUAGE_OPTIONS.SWEDISH') },
           ]}
-          className={styles.formInput}
           labelText={t('registration.profileLanguage')}
         />
-      </div>
-      <div className={styles.formRow}>
         <Field
           as={TextInput}
           id="email"
           name="email"
           type="text"
           labelText={t('registration.email')}
-          className={styles.formInput}
           readOnly
         />
         <TextInput
-          className={styles.formInput}
           id="phone"
           name="phone"
           type="tel"
           labelText={t('registration.phoneNumber') + ' *'}
         />
-      </div>
-    </>
+      </YouthProfileFormGrid>
+    </Stack>
   );
 }
 
