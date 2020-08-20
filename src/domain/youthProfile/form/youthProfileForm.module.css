@@ -1,4 +1,5 @@
 .formRow {
+    grid-column: 1 / -1;
     display: flex;
     margin-bottom: var(--spacing-s);
     flex-direction: column;
@@ -36,11 +37,6 @@
 
 .addAdditional {
     margin: var(--spacing-layout-2-xs) 0;
-}
-
-.additionalActionButton {
-    color: var(--color-bus);
-    font-size: var(--fontsize-body-small);
 }
 
 @media (min-width: 768px){
@@ -153,9 +149,5 @@ a {
 
     .formTitleText h1 {
         font-size: var(--fontsize-h-1);
-    }
-
-    .alignButton {
-        margin-left: calc(-1 * var(--spacing-m));
     }
 }

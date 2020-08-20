@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import styles from './stack.module.css';
 
-type Space =
+export type Space =
   | '4-xs'
   | '3-xs'
   | '2-xs'
@@ -36,7 +36,7 @@ function transformToCssFriendly(space: Space): CssFriendlySpace {
     case '3-xl':
     case '4-xl':
       return space
-        .split(space)
+        .split('-')
         .reverse()
         .join('-') as CssFriendlySpace;
     default:
@@ -45,7 +45,7 @@ function transformToCssFriendly(space: Space): CssFriendlySpace {
 }
 
 type Props = {
-  children: Array<ReactNode | string>;
+  children: ReactNode;
   component?: 'div' | 'ol' | 'ul';
   space?:
     | '4-xs'

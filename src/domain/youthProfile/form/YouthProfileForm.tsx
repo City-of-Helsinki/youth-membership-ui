@@ -142,7 +142,6 @@ function YouthProfileForm(componentProps: Props) {
               </Text>
 
               <YouthProfileApproverFields
-                formikProps={props}
                 approverLabelText={approverLabelText}
               />
             </PageSection>
