@@ -11,6 +11,7 @@ import Text from '../../../common/components/text/Text';
 import Stack from '../../../common/components/stack/Stack';
 import TermsField from '../../../common/components/termsField/TermsField';
 import BasicInformationGrid from '../../../common/components/basicInformationGrid/BasicInformationGrid';
+import InfoGrid from '../../../common/components/infoGrid/InfoGrid';
 import ageConstants from '../constants/ageConstants';
 import styles from './approveYouthProfileForm.module.css';
 
@@ -87,7 +88,7 @@ function ApproveYouthProfileForm(props: Props) {
           </div>
           <div>
             <Text variant="h3">{t('approval.addInfo')}</Text>
-            <div className={styles.formData}>
+            <InfoGrid>
               <LabeledValue
                 label={t('approval.schoolInfo')}
                 value={schoolInfo}
@@ -98,7 +99,7 @@ function ApproveYouthProfileForm(props: Props) {
                 value={t(`LANGUAGE_OPTIONS.${props.values.languageAtHome}`)}
                 noMargin
               />
-            </div>
+            </InfoGrid>
           </div>
           <Form>
             <Stack space="xl">

@@ -11,6 +11,9 @@ import LinkButton from '../../../common/components/linkButton/LinkButton';
 import LabeledValue from '../../../common/components/labeledValue/LabeledValue';
 import PageSection from '../../../common/components/layout/PageSection';
 import Text from '../../../common/components/text/Text';
+import Stack from '../../../common/components/stack/Stack';
+import BasicInformationGrid from '../../../common/components/basicInformationGrid/BasicInformationGrid';
+import InfoGrid from '../../../common/components/infoGrid/InfoGrid';
 import formatDate from '../../../common/helpers/formatDate';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
 import getAdditionalContactPersons from '../../youthProfile/helpers/getAdditionalContactPersons';
@@ -41,90 +44,85 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
   return (
     <PageSection>
       {membershipDetailsData?.youthProfile && (
-        <>
-          <Text variant="h1">{t('membershipDetails.title')}</Text>
-          <Text variant="info">{t('membershipDetails.text')}</Text>
-          <Text variant="h2">{t('membershipDetails.profileInformation')}</Text>
-          <div className={styles.fieldsGroup}>
-            <LabeledValue
-              label={t('profile.name')}
-              value={getFullName(membershipDetailsData)}
-            />
-            <LabeledValue
-              label={t('profile.address')}
-              value={getAddress(membershipDetailsData, i18n.languages[0])}
-            />
-            {addresses.map((address, index: number) => (
-              <LabeledValue
-                key={index}
-                label={t('profile.address')}
-                value={getAdditionalAddresses(address)}
-              />
-            ))}
-            <LabeledValue
-              label={t('profile.email')}
-              value={
-                membershipDetailsData.youthProfile.profile.primaryEmail?.email
+        <Stack space="xl">
+          <div>
+            <Text variant="h1">{t('membershipDetails.title')}</Text>
+            <Text variant="info">{t('membershipDetails.text')}</Text>
+          </div>
+          <div>
+            <Text variant="h2">
+              {t('membershipDetails.profileInformation')}
+            </Text>
+            <BasicInformationGrid
+              name={getFullName(membershipDetailsData)}
+              addresses={[
+                getAddress(membershipDetailsData, i18n.languages[0]),
+                ...addresses.map(address => getAdditionalAddresses(address)),
+              ]}
+              email={
+                membershipDetailsData.youthProfile.profile.primaryEmail
+                  ?.email || null
               }
-            />
-            <LabeledValue
-              label={t('profile.phone')}
-              value={
-                membershipDetailsData.youthProfile.profile.primaryPhone?.phone
+              phone={
+                membershipDetailsData.youthProfile.profile.primaryPhone
+                  ?.phone || null
               }
-            />
-            <LabeledValue
-              label={t('youthProfile.birthdate')}
-              value={formatDate(membershipDetailsData.youthProfile.birthDate)}
-            />
-            <LabeledValue
-              label={t('registration.profileLanguage')}
-              value={t(
+              birthDate={formatDate(
+                membershipDetailsData.youthProfile.birthDate
+              )}
+              language={t(
                 `LANGUAGE_OPTIONS.${membershipDetailsData?.youthProfile?.profile?.language}`
               )}
             />
           </div>
-          <Text variant="h2">
-            {t('membershipDetails.additionalInformation')}
-          </Text>
-          <div className={styles.fieldsGroup}>
-            <LabeledValue
-              label={t('youthProfile.school')}
-              value={getSchool(membershipDetailsData)}
-            />
-            <LabeledValue
-              label={t('youthProfile.homeLanguages')}
-              value={t(
-                `LANGUAGE_OPTIONS.${membershipDetailsData.youthProfile.languageAtHome}`
-              )}
-            />
-            <LabeledValue
-              label={t('registration.photoUsageApproved')}
-              value={
-                membershipDetailsData?.youthProfile?.photoUsageApproved
-                  ? t('approval.photoUsageApprovedYes')
-                  : t('approval.photoUsageApprovedNo')
-              }
-            />
+          <div>
+            <Text variant="h2">
+              {t('membershipDetails.additionalInformation')}
+            </Text>
+            <InfoGrid>
+              <LabeledValue
+                label={t('youthProfile.school')}
+                value={getSchool(membershipDetailsData)}
+                noMargin
+              />
+              <LabeledValue
+                label={t('youthProfile.homeLanguages')}
+                value={t(
+                  `LANGUAGE_OPTIONS.${membershipDetailsData.youthProfile.languageAtHome}`
+                )}
+                noMargin
+              />
+              <LabeledValue
+                label={t('registration.photoUsageApproved')}
+                value={
+                  membershipDetailsData?.youthProfile?.photoUsageApproved
+                    ? t('approval.photoUsageApprovedYes')
+                    : t('approval.photoUsageApprovedNo')
+                }
+                noMargin
+              />
+            </InfoGrid>
           </div>
-
-          <Text variant="h2">{t('youthProfile.approverInfo')}</Text>
-          <div className={[styles.fieldsGroup, styles.three].join(' ')}>
-            <LabeledValue
-              label={t('youthProfile.approverName')}
-              value={`${membershipDetailsData.youthProfile.approverFirstName} ${membershipDetailsData.youthProfile.approverLastName}`}
-            />
-            <LabeledValue
-              label={t('youthProfile.approverEmail')}
-              value={membershipDetailsData.youthProfile.approverEmail}
-            />
-            <LabeledValue
-              label={t('youthProfile.approverPhone')}
-              value={membershipDetailsData.youthProfile.approverPhone}
-            />
-          </div>
-          {getAdditionalContactPersons(membershipDetailsData.youthProfile).map(
-            additionalContact => (
+          <div>
+            <Text variant="h2">{t('youthProfile.approverInfo')}</Text>
+            <div className={[styles.fieldsGroup, styles.three].join(' ')}>
+              <LabeledValue
+                label={t('youthProfile.approverName')}
+                // eslint-disable-next-line max-len
+                value={`${membershipDetailsData.youthProfile.approverFirstName} ${membershipDetailsData.youthProfile.approverLastName}`}
+              />
+              <LabeledValue
+                label={t('youthProfile.approverEmail')}
+                value={membershipDetailsData.youthProfile.approverEmail}
+              />
+              <LabeledValue
+                label={t('youthProfile.approverPhone')}
+                value={membershipDetailsData.youthProfile.approverPhone}
+              />
+            </div>
+            {getAdditionalContactPersons(
+              membershipDetailsData.youthProfile
+            ).map(additionalContact => (
               <div
                 key={Object.values(additionalContact).join('')}
                 className={[styles.fieldsGroup, styles.three].join(' ')}
@@ -142,9 +140,9 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
                   value={additionalContact.phone}
                 />
               </div>
-            )
-          )}
-        </>
+            ))}
+          </div>
+        </Stack>
       )}
       <LinkButton
         className={styles.button}
