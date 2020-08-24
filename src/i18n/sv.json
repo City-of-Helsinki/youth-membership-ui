@@ -19,7 +19,7 @@
     "basicInfo": "Basuppgifter",
     "birthDate": "Födelsedatum",
     "formExplanationText_1": "har skickat dig en ansökan om medlemskap i Helsingfors stads ungdomstjänster för att godkännas. Om du godkänner ansökan, får",
-    "formExplanationText_2": "delta i ungdomsgårdarnas verksamhet och njuta av trevliga förmåner. Om det finns fel i uppgifterna, be den unga personen att korrigera dem och skicka ett nytt bekräftelsemeddelande till dig.",
+    "formExplanationText_2": "delta i ungdomsgårdarnas verksamhet och hobbygrupper. Verksamheten leds av utbildade ungdomsledare. Om det finns fel i uppgifterna, be den unga personen att korrigera dem och skicka ett nytt bekräftelsemeddelande till dig.",
     "languagesAtHome": "Hemspråk",
     "name": "Namn",
     "phone": "Telefon",
@@ -115,7 +115,7 @@
   "registration": {
     "addInfo": "Ytterligare information",
     "address": "Gatuadress",
-    "ageRestriction": "Endast 8-25 åringar kan skaffa Jässäri.",
+    "ageRestriction": "Endast 8-29 åringar kan skaffa Jässäri.",
     "approver": "Vårdnadshavarens uppgifter",
     "approverInfoOver18Text": "För medlemmar över 18 år förutsätts inte vårdnadshavaren kontaktuppgifter. Om du av någon anledning vill att vi ska kunna kontakta din vårdnadshavare kan du lägga till informationen här",
     "approverInfoText": "Begäran om bekräftelse av ditt medlemskap skickas till denna adress. Vårdnadshavaren kontrollerar uppgifterna och godkänner medlemskapet.",

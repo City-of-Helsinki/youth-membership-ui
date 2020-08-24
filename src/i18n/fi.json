@@ -19,7 +19,7 @@
     "basicInfo": "Perustiedot",
     "birthDate": "Syntymäpäivä",
     "formExplanationText_1": "on lähettänyt hyväksyttäväksesi Helsingin kaupungin nuorisopalvelujen jäsenyyshakemuksen. Jäsenyys on maksuton. Hyväksymällä hakemuksen,",
-    "formExplanationText_2": "voi käydä nuorisotalolla ja saa kivoja etuja. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uusi varmistusviesti.",
+    "formExplanationText_2": "voi viettää aikaa nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uusi varmistusviesti.",
     "languagesAtHome": "Kotona puhutut kielet",
     "name": "Nimi",
     "phone": "Puhelin",
@@ -116,7 +116,7 @@
   "registration": {
     "addInfo": "Lisätiedot",
     "address": "Katuosoite",
-    "ageRestriction": "Jässäri on tarkoitettu 8-25 -vuotiaille nuorille.",
+    "ageRestriction": "Jässäri on tarkoitettu 8-29 -vuotiaille nuorille.",
     "approver": "Huoltajan tiedot",
     "approverInfoOver18Text": "Yli 18-vuotiaalta emme edellytä vanhemman yhteystietojen lisäämistä. Mutta mikäli syystä tai toisesta koet tarpeelliseksi, että voimme tarvittaessa olla yhteydessä huoltajaasi, voit lisätä yhteystiedon tähän. ",
     "approverInfoText": "Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
