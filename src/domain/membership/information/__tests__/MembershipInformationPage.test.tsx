@@ -21,6 +21,7 @@ const mocks = [
       data: {
         youthProfile: {
           profile: {
+            id: '123',
             firstName: 'Teemu',
             lastName: 'Testaaja',
           },

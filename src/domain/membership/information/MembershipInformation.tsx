@@ -40,7 +40,7 @@ function MembershipInformation({
           </p>
           <QRCode
             size={175}
-            value="https://profiili-api.test.kuva.hel.ninja/admin/"
+            value={`${process.env.REACT_APP_ADMIN_URL}youthProfiles/${membershipInformationTypes.youthProfile?.profile.id}/show`}
           />
            
           {membershipInformationTypes?.youthProfile?.renewable && (
