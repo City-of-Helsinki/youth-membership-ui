@@ -19,7 +19,7 @@
     "basicInfo": "Basic info",
     "birthDate": "Birthdate",
     "formExplanationText_1": "has sent a membership application for the City of Helsinki’s Youth Services for your approval. The membership is free of charge. If you approve the application,",
-    "formExplanationText_2": "may visit Youth Centres and enjoy fun benefits. If the information is incorrect, ask the young person to change it and send a new verification message to you.",
+    "formExplanationText_2": "may visit Youth Centres and participate in fun activities. The activities at Youth Centres are instructed by trained youth workers.  If the information is incorrect, ask the young person to change it and send a new verification message to you.",
     "languagesAtHome": "Languages at home",
     "name": "Name",
     "phone": "Phone",
@@ -116,7 +116,7 @@
   "registration": {
     "addInfo": "Additional info",
     "address": "Street",
-    "ageRestriction": "Jässäri is only for youths between 8-25 years.",
+    "ageRestriction": "Jässäri is only for youths between 8-29 years.",
     "approver": "Approver",
     "approverInfoOver18Text": "For members over 18, we don't require providing custodian contact information. If for any reason you wish us to be able to contact them, you can add the information here.",
     "approverInfoText": "A confirmation request concerning your membership will be sent to this address, and your guardian must verify the information and approve your membership.",
