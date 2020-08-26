@@ -166,6 +166,10 @@ export interface MembershipDetails {
 
 export interface MembershipInformation_youthProfile_profile {
   readonly __typename: "ProfileNode";
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
   readonly firstName: string;
   readonly lastName: string;
 }
