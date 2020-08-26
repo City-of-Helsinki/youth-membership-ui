@@ -56,6 +56,7 @@ function ApproveYouthProfilePage() {
           approverEmail: values.approverEmail,
           approverPhone: values.approverPhone,
           birthDate: data?.youthProfileByApprovalToken?.birthDate,
+          photoUsageApproved: Boolean(values.photoUsageApproved),
         },
         approvalToken: params.token,
       },
