@@ -18,6 +18,7 @@ const defaultProps = {
     email: 'teemu.testaaja@test.fi',
     languageAtHome: YouthLanguage.FINNISH,
     phone: '050123467',
+    language: YouthLanguage.FINNISH,
     schoolClass: 'Luokka',
     schoolName: 'Koulu',
     photoUsageApproved: 'false',
@@ -27,7 +28,7 @@ const defaultProps = {
     approverPhone: '05012345567',
   } as FormValues,
   isSubmitting: false,
-  onValues: jest.fn(),
+  onSubmit: jest.fn(),
 };
 
 type Props = {

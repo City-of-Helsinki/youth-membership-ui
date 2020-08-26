@@ -19,7 +19,7 @@ type Props = {
   email: string | null;
   phone: string | null;
   birthDate: string;
-  language?: string;
+  language: string | null;
 };
 
 function BasicInformationGrid({
@@ -31,6 +31,8 @@ function BasicInformationGrid({
   language,
 }: Props) {
   const { t } = useTranslation();
+
+  const formattedLanguage = language ? t(`LANGUAGE_OPTIONS.${language}`) : null;
 
   return (
     <InfoGrid>
@@ -44,7 +46,7 @@ function BasicInformationGrid({
       <LabeledValue label={t('profile.phone')} value={phone} noMargin />
       <LabeledValue
         label={t('registration.profileLanguage')}
-        value={language}
+        value={formattedLanguage}
         noMargin
       />
       <InfoGridRow>

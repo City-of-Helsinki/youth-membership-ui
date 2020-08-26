@@ -70,9 +70,7 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
               birthDate={formatDate(
                 membershipDetailsData.youthProfile.birthDate
               )}
-              language={t(
-                `LANGUAGE_OPTIONS.${membershipDetailsData?.youthProfile?.profile?.language}`
-              )}
+              language={membershipDetailsData?.youthProfile?.profile?.language}
             />
           </div>
           <div>
