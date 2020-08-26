@@ -50,10 +50,18 @@ export interface InputComponentProps {
 export interface WrapperComponentProps {
   children?: React.ReactNode;
   isInvalid: boolean;
+  onBlur?: () => void;
 }
+
+export type DateError = {
+  name: string;
+  description: string;
+};
 
 interface Props {
   onChange: (date: Date) => void;
+  onError: (error: DateError) => void;
+  onBlur?: () => void;
   wrapper: React.FC<WrapperComponentProps>;
   value: Date | null;
   isInvalid: boolean;
@@ -99,6 +107,14 @@ function makeDate(date: DateObject): Date | null {
   return null;
 }
 
+function getIsDateExists(userGivenDate?: number, dateObjectDate?: number) {
+  if (userGivenDate && dateObjectDate) {
+    return userGivenDate === dateObjectDate;
+  }
+
+  return true;
+}
+
 function getCharacterCount(number: number): number {
   return number.toString().length;
 }
@@ -131,6 +147,8 @@ function parseNumberFromValue(value: string, maxCharacterCount = 2): number {
 
 function DateInputLogic({
   onChange,
+  onError,
+  onBlur,
   value,
   isInvalid,
   wrapper,
@@ -160,14 +178,24 @@ function DateInputLogic({
     year: number | null
   ) => {
     setInternalDate(previousDate => {
+      const nextDayOfMonth = defaultTo(dayOfMonth, previousDate.dayOfMonth);
       const nextCachedDate = {
-        dayOfMonth: defaultTo(dayOfMonth, previousDate.dayOfMonth),
+        dayOfMonth: nextDayOfMonth,
         month: defaultTo(month, previousDate.month),
         year: defaultTo(year, previousDate.year),
       };
       const nextDate = makeDate(nextCachedDate);
+      const isDateExists = getIsDateExists(nextDayOfMonth, nextDate?.getDate());
 
-      if (nextDate) {
+      if (!isDateExists) {
+        onError({
+          name: 'dateDoesNotExist',
+          description:
+            'The combination of day, month and year do not result in a date that actually exists.',
+        });
+      }
+
+      if (isDateExists && nextDate) {
         onChange(nextDate);
       }
 
@@ -209,7 +237,7 @@ function DateInputLogic({
       ? (internalDate.month + 1).toString()
       : undefined;
 
-  return React.createElement(wrapper, { isInvalid }, [
+  return React.createElement(wrapper, { isInvalid, onBlur }, [
     React.createElement(dayOfMonthComponent, {
       key: dateInputId,
       id: dateInputId,

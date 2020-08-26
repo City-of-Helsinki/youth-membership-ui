@@ -22,5 +22,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Missing profile language in approval view
 - Photo usage approval not working when set from approval view
 - Missing Helsinki profile link in mobile menu
+- Non existent dates being silently transformed into existing dates
 
 ## [1.0.0-rc.3]
