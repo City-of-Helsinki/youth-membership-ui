@@ -32,6 +32,7 @@ export type FormValues = {
   addresses: string[];
   email: string;
   phone: string;
+  language: string;
   birthDate: string;
   schoolName: string;
   schoolClass: string;
@@ -84,6 +85,7 @@ function ApproveYouthProfileForm(props: Props) {
               email={props.values.email}
               phone={props.values.phone}
               birthDate={birthDate}
+              language={props.values.language}
             />
           </div>
           <div>

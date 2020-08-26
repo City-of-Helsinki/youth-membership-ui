@@ -3,7 +3,7 @@
 exports[`matches snapshot 1`] = `
 <ApproveYouthProfileForm
   isSubmitting={false}
-  onValues={[MockFunction]}
+  onSubmit={[MockFunction]}
   profile={
     Object {
       "address": "Testikuja 55, 00100 Helsinki",
@@ -17,6 +17,7 @@ exports[`matches snapshot 1`] = `
       "birthDate": "2006-01-01",
       "email": "teemu.testaaja@test.fi",
       "firstName": "Teemu",
+      "language": "FINNISH",
       "languageAtHome": "FINNISH",
       "lastName": "Testaaja",
       "phone": "050123467",
@@ -41,6 +42,7 @@ exports[`matches snapshot 1`] = `
         "birthDate": "2006-01-01",
         "email": "teemu.testaaja@test.fi",
         "firstName": "Teemu",
+        "language": "FINNISH",
         "languageAtHome": "FINNISH",
         "lastName": "Testaaja",
         "phone": "050123467",
@@ -281,6 +283,7 @@ exports[`matches snapshot 1`] = `
             }
             birthDate="01.01.2006"
             email="teemu.testaaja@test.fi"
+            language="FINNISH"
             name="Teemu Testaaja"
             phone="050123467"
           >
@@ -371,6 +374,7 @@ exports[`matches snapshot 1`] = `
                 <LabeledValue
                   label="Profiilin kieli"
                   noMargin={true}
+                  value="Suomi"
                 >
                   <div
                     className="wrapper noMargin"
@@ -383,7 +387,7 @@ exports[`matches snapshot 1`] = `
                     <span
                       className="value"
                     >
-                      –
+                      Suomi
                     </span>
                   </div>
                 </LabeledValue>

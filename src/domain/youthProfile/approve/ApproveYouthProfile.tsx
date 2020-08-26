@@ -38,6 +38,8 @@ function ApproveYouthProfile({ isApprovalSuccessful, data, onSubmit }: Props) {
             phone:
               data?.youthProfileByApprovalToken?.profile?.primaryPhone?.phone ||
               '',
+            language:
+              data?.youthProfileByApprovalToken?.profile?.language || '',
             birthDate: data?.youthProfileByApprovalToken?.birthDate,
             schoolName: data?.youthProfileByApprovalToken?.schoolName || '',
             schoolClass: data?.youthProfileByApprovalToken?.schoolClass || '',
