@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Authentication info text position
 - Hide spinners from birth day input on Firefox
 - Missing profile language in approval view
-- Fix photo usage approval not working when set from approval view
+- Photo usage approval not working when set from approval view
+- Missing Helsinki profile link in mobile menu
 
 ## [1.0.0-rc.3]

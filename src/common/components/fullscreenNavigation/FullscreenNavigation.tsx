@@ -38,9 +38,17 @@ function FullscreenNavigation(props: Props) {
         </div>
         <div className={styles.navItems}>
           {isAuthenticated && (
-            <span role="button" className={styles.navLink} onClick={logout}>
-              {t('nav.signout')}
-            </span>
+            <>
+              <a
+                className={styles.navLink}
+                href={process.env.REACT_APP_PROFILE_LINK}
+              >
+                {t('nav.profile')}
+              </a>
+              <span role="button" className={styles.navLink} onClick={logout}>
+                {t('nav.signout')}
+              </span>
+            </>
           )}
           {!isAuthenticated && (
             <span
