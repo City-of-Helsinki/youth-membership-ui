@@ -35,6 +35,23 @@ describe('<DateInput />', () => {
     expect(toJson(getWrapper())).toMatchSnapshot();
   });
 
+  it('should yield expected dates', () => {
+    const onChange = jest.fn();
+    const { container } = getWrapper({ onChange });
+
+    fireEvent.change(dateInputSelector(container), {
+      target: { value: '2' },
+    });
+    fireEvent.change(monthInputSelector(container), {
+      target: { value: '2' },
+    });
+    fireEvent.change(yearInputSelector(container), {
+      target: { value: '2020' },
+    });
+
+    expect(onChange).toHaveBeenCalledWith(new Date(2020, 1, 2, 0, 0, 0, 0));
+  });
+
   it('should not allow text to be inputted', () => {
     const { container, queryByDisplayValue } = getWrapper();
 
@@ -134,5 +151,21 @@ describe('<DateInput />', () => {
         "name": "dateDoesNotExist",
       }
     `);
+  });
+
+  it('should allow the user to input leading zeroes to day and month inputs', () => {
+    const testContent = '01';
+    const { container } = getWrapper();
+
+    const testLeadingZeroesAllowed = inputSelector => {
+      fireEvent.change(inputSelector(container), {
+        target: { value: testContent },
+      });
+
+      expect(inputSelector(container).value).toEqual(testContent);
+    };
+
+    testLeadingZeroesAllowed(dateInputSelector);
+    testLeadingZeroesAllowed(monthInputSelector);
   });
 });
