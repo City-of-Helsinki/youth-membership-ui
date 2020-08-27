@@ -962,6 +962,11 @@ exports[`matches snapshot 1`] = `
                                   target="_blank"
                                 />,
                                 <a
+                                  href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                />,
+                                <a
                                   href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
                                   rel="noopener noreferrer"
                                   target="_blank"
@@ -1009,6 +1014,11 @@ exports[`matches snapshot 1`] = `
                                     target="_blank"
                                   />,
                                   <a
+                                    href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                  />,
+                                  <a
                                     href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
                                     rel="noopener noreferrer"
                                     target="_blank"
@@ -1017,25 +1027,34 @@ exports[`matches snapshot 1`] = `
                               }
                               i18nKey="approval.approveTerms"
                             >
-                              Olen tutustunut palvelun 
+                              Olen tutustunut 
                               <a
                                 href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
                                 key="1"
                                 rel="noopener noreferrer"
                                 target="_blank"
                               >
-                                rekisteriselosteeseen
+                                tämän palvelun rekisteriselosteeseen
                               </a>
-                               ja kaupungin 
+                              , 
                               <a
-                                href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+                                href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
                                 key="3"
                                 rel="noopener noreferrer"
                                 target="_blank"
                               >
-                                tietosuojakäytäntöön
+                                Helsinki-profiilin rekisteriselosteeseen
                               </a>
-                                ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.
+                               ja 
+                              <a
+                                href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+                                key="5"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                              >
+                                kaupungin tietosuojakäytäntöön
+                              </a>
+                              . Minuun voidaan olla yhteydessä antamieni tietojen avulla.
                             </Trans>
                           </span>
                         </label>
