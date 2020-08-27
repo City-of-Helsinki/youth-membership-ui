@@ -36,6 +36,12 @@ function TermsField(props: Props) {
                 />,
                 // eslint-disable-next-line jsx-a11y/anchor-has-content
                 <a
+                  href={t('privacyPolicy.helsinkiProfileLink')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />,
+                // eslint-disable-next-line jsx-a11y/anchor-has-content
+                <a
                   href={t('privacyPolicy.descriptionLink')}
                   target="_blank"
                   rel="noopener noreferrer"

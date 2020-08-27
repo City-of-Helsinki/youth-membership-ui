@@ -14,7 +14,7 @@
     "approverInfo": "Approver info",
     "approverInfoText": "Guardian may be contacted concerning the child.",
     "approverLastName": "Lastname",
-    "approveTerms": "I have read <0>file description</0> and  city's <1>data protection principles</1>. I can be contacted via address I have given.",
+    "approveTerms": "I have read <0>the privacy policy of this service</0>, <1>the privacy policy of Helsinki profile</1> and <2>the city's data protection principles</2>. I can be contacted using the information I have given.",
     "approveTermsText_link": "service terms",
     "basicInfo": "Basic info",
     "birthDate": "Birthdate",
@@ -103,7 +103,8 @@
     "authenticating": "Authenticating..."
   },
   "privacyPolicy": {
-    "descriptionLink": "https://www.hel.fi/helsinki/en/administration/information/data-protection"
+    "descriptionLink": "https://www.hel.fi/helsinki/en/administration/information/data-protection",
+    "helsinkiProfileLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
   },
   "profile": {
     "address": "Address",
@@ -120,7 +121,7 @@
     "approver": "Approver",
     "approverInfoOver18Text": "For members over 18, we don't require providing custodian contact information. If for any reason you wish us to be able to contact them, you can add the information here.",
     "approverInfoText": "A confirmation request concerning your membership will be sent to this address, and your guardian must verify the information and approve your membership.",
-    "approveTerms": "I have read <0>file description</0> and  city's <1>data protection principles</1>. I can be contacted via address I have given.",
+    "approveTerms": "I have read <0>the privacy policy of this service</0>, <1>the privacy policy of Helsinki profile</1> and <2>the city's data protection principles</2>. I can be contacted using the information I have given.",
     "basicInfo": "Basic info",
     "birthdayHelper": "Birthdate (dd.mm.yyyy) *",
     "birthdayInvalid": "The birthday should be dd.mm.yyyy.",
@@ -131,6 +132,7 @@
     "city": "City",
     "confirmSend": "Accept the terms and send the application",
     "country": "Country",
+    "dateInvalid": "The date does not exist",
     "email": "Email",
     "firstName": "Firstname",
     "languageAtHome": "Language at home",

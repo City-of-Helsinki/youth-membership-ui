@@ -14,7 +14,7 @@
     "approverInfo": "Vårdnadshavarens uppgifter",
     "approverInfoText": "Vårdnadshavaren får kan kontaktas angående barnet.",
     "approverLastName": "Efternamn",
-    "approveTerms": "Jag har läst filen <0>beskrivningen</0> och stads <1>sekretesspolicy</1>. Jag kan kontaktas via den adress jag har angett.",
+    "approveTerms": "Jag har läst <0>sekretesspolicyn för denna tjänst</0>, <1>sekretesspolicyn för Helsingfors-profil</1> och <2>stadens dataskyddsprinciper</2>. Jag kan kontaktas med hjälp av den information jag har gett.",
     "approveTermsText_link": "servicevillkor",
     "basicInfo": "Basuppgifter",
     "birthDate": "Födelsedatum",
@@ -102,7 +102,8 @@
     "authenticating": "Autentiserar..."
   },
   "privacyPolicy": {
-    "descriptionLink": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd"
+    "descriptionLink": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd",
+    "helsinkiProfileLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
   },
   "profile": {
     "address": "Adress",
@@ -119,7 +120,7 @@
     "approver": "Vårdnadshavarens uppgifter",
     "approverInfoOver18Text": "För medlemmar över 18 år förutsätts inte vårdnadshavaren kontaktuppgifter. Om du av någon anledning vill att vi ska kunna kontakta din vårdnadshavare kan du lägga till informationen här",
     "approverInfoText": "Begäran om bekräftelse av ditt medlemskap skickas till denna adress. Vårdnadshavaren kontrollerar uppgifterna och godkänner medlemskapet.",
-    "approveTerms": "Jag har läst filen <0>beskrivningen</0> och stads <1>sekretesspolicy</1>. Jag kan kontaktas via den adress jag har angett.",
+    "approveTerms": "Jag har läst <0>sekretesspolicyn för denna tjänst</0>, <1>sekretesspolicyn för Helsingfors-profil</1> och <2>stadens dataskyddsprinciper</2>. Jag kan kontaktas med hjälp av den information jag har gett.",
     "basicInfo": "Basuppgifter",
     "birthdayHelper": "Födelsedatum (dd.mm.åååå) *",
     "birthdayInvalid": "Födelsedagen bör vara dd.mm.åååå.",
@@ -130,6 +131,7 @@
     "city": "Stad",
     "confirmSend": "Godkänn villkoren och skicka ansökan",
     "country": "Land",
+    "dateInvalid": "Datumet finns inte",
     "email": "E-post",
     "firstName": "Förnamn",
     "languageAtHome": "Hemspråk",

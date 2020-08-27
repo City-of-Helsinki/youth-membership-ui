@@ -14,7 +14,7 @@
     "approverInfo": "Huoltajan tiedot",
     "approverInfoText": "Huoltajaan voidaan olla yhteydessä lasta koskevissa asioissa.",
     "approverLastName": "Sukunimi",
-    "approveTerms": "Olen tutustunut palvelun <0>rekisteriselosteeseen</0> ja kaupungin <1>tietosuojakäytäntöön</1>  ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "approveTerms": "Olen tutustunut <0>tämän palvelun rekisteriselosteeseen</0>, <1>Helsinki-profiilin rekisteriselosteeseen</1> ja <2>kaupungin tietosuojakäytäntöön</2>. Minuun voidaan olla yhteydessä antamieni tietojen avulla.",
     "approveTermsText_link": "palvelun ehdot",
     "basicInfo": "Perustiedot",
     "birthDate": "Syntymäpäivä",
@@ -103,7 +103,8 @@
     "authenticating": "Tunnistaudutaan..."
   },
   "privacyPolicy": {
-    "descriptionLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+    "descriptionLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/",
+    "helsinkiProfileLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
   },
   "profile": {
     "address": "Osoite",
@@ -120,7 +121,7 @@
     "approver": "Huoltajan tiedot",
     "approverInfoOver18Text": "Yli 18-vuotiaalta emme edellytä vanhemman yhteystietojen lisäämistä. Mutta mikäli syystä tai toisesta koet tarpeelliseksi, että voimme tarvittaessa olla yhteydessä huoltajaasi, voit lisätä yhteystiedon tähän. ",
     "approverInfoText": "Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
-    "approveTerms": "Olen tutustunut palvelun <0>rekisteriselosteeseen</0> ja kaupungin <1>tietosuojakäytäntöön</1>  ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "approveTerms": "Olen tutustunut <0>tämän palvelun rekisteriselosteeseen</0>, <1>Helsinki-profiilin rekisteriselosteeseen</1> ja <2>kaupungin tietosuojakäytäntöön</2>. Minuun voidaan olla yhteydessä antamieni tietojen avulla.",
     "basicInfo": "Perustiedot",
     "birthdayHelper": "Syntymäpäivä (pp.kk.vvvv) *",
     "birthdayInvalid": "Syntymäpäivän tulee olla muotoa pp.kk.vvvv.",
@@ -131,6 +132,7 @@
     "city": "Kaupunki",
     "confirmSend": "Hyväksy ehdot ja lähetä hakemus",
     "country": "Maa",
+    "dateInvalid": "Päivää ei ole olemassa",
     "email": "Sähköpostiosoite",
     "firstName": "Etunimi",
     "languageAtHome": "Kotona puhuttu kieli",
@@ -142,7 +144,7 @@
     "photoUsageApprovedText": "Minusta voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin viestinnässä ja markkinoinnissa painetussa ja sähköisessä mediassa. Kuvaamisesta ja kuvien käytöstä ei makseta korvausta. Oikeus kuvien käyttöön on aina voimassa ja koskee koko Helsingin kaupungin viestintää ja markkinointiviestintää.",
     "photoUsageApprovedYes": "Kyllä",
     "postalCode": "Postinumero",
-    "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
+    "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalle ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
     "profileLanguage": "Profiilin kieli",
     "save": "Tallenna tiedot",
     "schoolClass": "Luokka",
