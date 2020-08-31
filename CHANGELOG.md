@@ -3,7 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
-## [Unreleased]
+## [1.0.1] - 2020-08-31
+### Fixed
+- Fixed issue where application would crash when entering `Profile information` page.
+
+## [1.0.0] - 2020-08-28
 ### Changed
 - Form fields are now validated on blur
 - Profile creation and editing views are now divided into sections [#123](https://github.com/City-of-Helsinki/youth-membership-ui/pull/123)
