@@ -1,0 +1,57 @@
+.header {
+  display: inherit;
+  grid-template-columns: inherit;
+  grid-column: viewport;
+  grid-row: navigation;
+  padding: 10px 0;
+}
+.header > * {
+  grid-column: container;
+}
+
+.content {
+  align-items: center;
+  display: flex;
+}
+
+.appName {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+.appName:visited {
+  color: var(--color-black);
+}
+
+@media (min-width: 415px) {
+  .appName {
+    font-size: 24px;
+    margin-left: 10px;
+  }
+}
+
+.logo {
+  width: 120px;
+  height: 42px;
+}
+
+.end {
+  margin-left: auto;
+}
+
+@media (min-width: 810px) {
+  .mobileNav {
+    display: none;
+  }
+}
+
+.desktopNav {
+  display: none;
+}
+@media (min-width: 810px) {
+  .desktopNav {
+    display: flex;
+    align-items: center;
+  }
+}

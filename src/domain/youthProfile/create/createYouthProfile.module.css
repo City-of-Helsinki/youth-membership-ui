@@ -1,0 +1,13 @@
+@media (min-width: 768px){
+    .form {
+        text-align: left;
+    }
+}
+
+.form {
+    text-align: left;
+}
+
+.loading {
+    margin-top: 20px;
+}

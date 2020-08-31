@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="content"
+  >
+    <HelsinkiLogo
+      className="logo"
+      isLinkToFrontPage={true}
+    />
+    <Link
+      className="appName"
+      to="/"
+    >
+      Jässäri
+    </Link>
+    <section
+      className="end"
+    >
+      <FullscreenNavigation
+        className="mobileNav"
+      />
+      <div
+        className="desktopNav"
+      >
+        <LanguageSwitcher />
+        <UserDropdown />
+      </div>
+    </section>
+  </div>
+</header>
+`;

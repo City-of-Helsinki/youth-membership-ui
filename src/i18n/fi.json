@@ -1,10 +1,11 @@
 {
-  "appName": "Nuorisopalvelut",
+  "appName": "Jässäri",
   "approval": {
     "addInfo": "Lisätiedot",
-    "address": "Kotioisoite",
+    "additionalAddresses": "Muut osoitteet",
+    "address": "Kotiosoite",
     "approveButton": "Hyväksy jäsenyys",
-    "approvedLink": "Hakemus on jo hyväksytty / linkki on viallinen",
+    "approvedLink": "Hakemus on jo hyväksytty ",
     "approvedMessage": "Kiitos kun varmistit nuorisopalveluiden jäsenyyden.",
     "approvedTitle": "Jässärihakemus hyväksytty!",
     "approverAcceptance": "Huoltajalta vaadittavat luvat",
@@ -13,12 +14,12 @@
     "approverInfo": "Huoltajan tiedot",
     "approverInfoText": "Huoltajaan voidaan olla yhteydessä lasta koskevissa asioissa.",
     "approverLastName": "Sukunimi",
-    "approveTerms": "Olen tutustunut palvelun <0>rekisteriselosteeseen</0> ja kaupungin <1>tietosuojakäytäntöön</1>  ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "approveTerms": "Olen tutustunut <0>tämän palvelun rekisteriselosteeseen</0>, <1>Helsinki-profiilin rekisteriselosteeseen</1> ja <2>kaupungin tietosuojakäytäntöön</2>. Minuun voidaan olla yhteydessä antamieni tietojen avulla.",
     "approveTermsText_link": "palvelun ehdot",
     "basicInfo": "Perustiedot",
     "birthDate": "Syntymäpäivä",
     "formExplanationText_1": "on lähettänyt hyväksyttäväksesi Helsingin kaupungin nuorisopalvelujen jäsenyyshakemuksen. Jäsenyys on maksuton. Hyväksymällä hakemuksen,",
-    "formExplanationText_2": "voi käydä nuorisotalolla ja saa kivoja etuja. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uusi varmistusviesti.",
+    "formExplanationText_2": "voi viettää aikaa nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uusi varmistusviesti.",
     "languagesAtHome": "Kotona puhutut kielet",
     "name": "Nimi",
     "phone": "Puhelin",
@@ -39,9 +40,9 @@
   },
   "footer": {
     "accessibility": "Saavutettavuusseloste",
-    "copyright": "Tekijänoikeus {{year}}",
+    "copyright": "Helsingin kaupunki",
     "feedback": "Anna palautetta",
-    "feedbackLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/anna-palautetta",
+    "feedbackLink": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/yhteystiedot-ja-palaute/Anna+palautetta/",
     "privacy": "Rekisteriseloste",
     "reserveRights": "Kaikki oikeudet pidätetään",
     "terms": "Palvelun käyttöehdot"
@@ -63,7 +64,7 @@
     "helpText": "Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat.",
     "helpTextUnderAge": "Valitettavasti Jässärin hankkiminen digitaalisesti edellyttää vähintään 13 vuoden iän. Voit ladata jässärihakemuksen tästä.",
     "linkForMembersText": "Oletko jo jäsen? Kirjaudu sisään",
-    "registrationForm": "http://jassari.munstadi.fi/files/2019/06/Jasenkorttikaavake_2019_suomi.pdf",
+    "registrationForm": "http://jassari.munstadi.fi/files/2020/07/Jasenkorttikaavake_2020_suomi.pdf",
     "registrationFormText": "Lataa hakemus",
     "return": "Palaa takaisin",
     "title": "Hanki Jässäri!"
@@ -72,11 +73,11 @@
   "membershipDetails": {
     "additionalInformation": "Lisätiedot",
     "edit": "Muokkaa tietoja",
-    "photoUsageExplanation": "Lapsestani saa ottaa kuvia ja niitä saa käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä",
+    "photoUsageExplanation": "Minusta voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin viestinnässä ja markkinoinnissa painetussa ja sähköisessä mediassa. Kuvaamisesta ja kuvien käytöstä ei makseta korvausta. Oikeus kuvien käyttöön on aina voimassa ja koskee koko Helsingin kaupungin viestintää ja markkinointiviestintää.",
     "profileInformation": "Perustiedot",
     "requiredPermissionsFromParent": "Vanhemmalta vaadittavat luvat",
     "returnToFront": "Takaisin etusivulle",
-    "text": "Tähän listätietoa siitä mitä jäsenyydellä saa, mihin tietoja käytetään ja miksi niitä kysytään?",
+    "text": "Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat.",
     "title": "Omat tiedot"
   },
   "membershipInformation": {
@@ -89,7 +90,7 @@
   },
   "nav": {
     "menuButtonLabel": "Profiili valikko",
-    "profile": "Profiili",
+    "profile": "Helsinki-profiili",
     "signin": "Kirjaudu sisään",
     "signout": "Kirjaudu ulos"
   },
@@ -102,23 +103,25 @@
     "authenticating": "Tunnistaudutaan..."
   },
   "privacyPolicy": {
-    "descriptionLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+    "descriptionLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/",
+    "helsinkiProfileLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
   },
   "profile": {
     "address": "Osoite",
     "email": "Sähköposti",
     "loading": "Ladataan profiilia...",
     "name": "Nimi",
-    "phone": "Puhelinnumero"
+    "phone": "Puhelinnumero",
+    "verifying": "Tarkistetaan profiilia..."
   },
   "registration": {
     "addInfo": "Lisätiedot",
     "address": "Katuosoite",
-    "ageRestriction": "Palveluun voi rekisteröityä iältään 8-25 vuotiaat.",
+    "ageRestriction": "Jässäri on tarkoitettu 8-29 -vuotiaille nuorille.",
     "approver": "Huoltajan tiedot",
     "approverInfoOver18Text": "Yli 18-vuotiaalta emme edellytä vanhemman yhteystietojen lisäämistä. Mutta mikäli syystä tai toisesta koet tarpeelliseksi, että voimme tarvittaessa olla yhteydessä huoltajaasi, voit lisätä yhteystiedon tähän. ",
     "approverInfoText": "Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.",
-    "approveTerms": "Olen tutustunut palvelun <0>rekisteriselosteeseen</0> ja kaupungin <1>tietosuojakäytäntöön</1>  ja että minuun voidaan olla yhteydessä antamaani osoitteeseen.",
+    "approveTerms": "Olen tutustunut <0>tämän palvelun rekisteriselosteeseen</0>, <1>Helsinki-profiilin rekisteriselosteeseen</1> ja <2>kaupungin tietosuojakäytäntöön</2>. Minuun voidaan olla yhteydessä antamieni tietojen avulla.",
     "basicInfo": "Perustiedot",
     "birthdayHelper": "Syntymäpäivä (pp.kk.vvvv) *",
     "birthdayInvalid": "Syntymäpäivän tulee olla muotoa pp.kk.vvvv.",
@@ -129,6 +132,7 @@
     "city": "Kaupunki",
     "confirmSend": "Hyväksy ehdot ja lähetä hakemus",
     "country": "Maa",
+    "dateInvalid": "Päivää ei ole olemassa",
     "email": "Sähköpostiosoite",
     "firstName": "Etunimi",
     "languageAtHome": "Kotona puhuttu kieli",
@@ -137,16 +141,20 @@
     "phoneNumber": "Puhelinnumero",
     "photoUsageApproved": "Kuvauslupa",
     "photoUsageApprovedNo": "Ei",
-    "photoUsageApprovedText": "Minusta saa ottaa kuvia ja käyttää Helsingin kaupungin sisäisessä ja ulkoisessa viestinnässä.",
+    "photoUsageApprovedText": "Minusta voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin viestinnässä ja markkinoinnissa painetussa ja sähköisessä mediassa. Kuvaamisesta ja kuvien käytöstä ei makseta korvausta. Oikeus kuvien käyttöön on aina voimassa ja koskee koko Helsingin kaupungin viestintää ja markkinointiviestintää.",
     "photoUsageApprovedYes": "Kyllä",
     "postalCode": "Postinumero",
-    "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalla ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
+    "processInfoText": "Tietojen varmennuskysely lähetetään vanhemmalle ja kun tämä on tarkastanut ja hyväksynyt tiedot, jäsenyytesi astuu voimaan.",
     "profileLanguage": "Profiilin kieli",
     "save": "Tallenna tiedot",
     "schoolClass": "Luokka",
     "schoolName": "Koulu",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
-    "title": "Täytä tietosi"
+    "title": "Täytä tietosi",
+    "addAddress": "Lisää toinen osoite",
+    "addGuardian": "Lisää toisen huoltajan yhteystiedot",
+    "addGuardianText": "Toiselle huoltajalle lähtee ilmoitus, että olet lisännyt hänen tietonsa hakemukseesi.",
+    "remove": "Poista"
   },
   "registry": {
     "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
@@ -188,5 +196,17 @@
     "birthdate": "Syntymäpäivä",
     "homeLanguages": "Kotona puhuttu kieli",
     "school": "Koulu"
+  },
+  "emailApproval": {
+    "heading": "{{ youth_profile.profile.first_name }} on lähettänyt hyväksyttäväksesi Helsingin kaupungin nuorisopalvelujen jäsenyyshakemuksen",
+    "content": "Hei {{ youth_profile.approver_first_name }},<br /><br />{{ youth_profile.profile.first_name }} on lähettänyt hyväksyttäväksesi Helsingin kaupungin nuorisopalvelujen jäsenyyshakemuksen. Jäsenyys on maksuton. Hyväksymällä hakemuksen, {{ youth_profile.profile.first_name }} voi käydä nuorisotalolla ja saa kivoja etuja. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uusi varmistusviesti. Käy antamassa vahvistus Jässäri-palvelussa käyttäen tätä linkkiä:"
+  },
+  " <br /><br /><a href=\"https://jassari.hel.fi/approve/{{ youth_profile.approval_token }}\">https://jassari.hel.fi/approve/{{ youth_profile.approval_token }}</a><br /><br /><i>Tämä viesti on lähetetty järjestelmästä automaattisesti. Älä vastaa tähän viestiin, sillä vastauksia ei käsitellä.</i>": "",
+  "emailApproved": {
+    "heading": "{{ youth_profile.approver_first_name }} on hyväksynyt nuorisopalveluiden jäsenyytesi",
+    "content": "Tervetuloa Helsingin kaupungin nuorisopalveluiden jäseneksi! {{ youth_profile.approver_first_name }} on hyväksynyt jäsenyytesi. Digitaalinen jäsenkorttisi löytyy täältä: <a href=\"https://jassari.hel.fi\">https://jassari.hel.fi</a><br /><br />Lisätietoa nuorisopalveluiden jäsenyydestä ja sen eduista voit lukea osoitteesta <a href=\"http://jassari.munstadi.fi/\">http://jassari.munstadi.fi/</a>.<br /><br /><i>Tämä viesti on lähetetty järjestelmästä automaattisesti. Älä vastaa tähän viestiin, sillä vastauksia ei käsitellä.</i>"
+  },
+  "emailRenew": {
+    "heading": "Tevehdys {{ youth_profile.profile.first_name }}! Nuorisopalveluiden jäsenyytesi on vanhentumassa. Uusi jäsenyytesi helposti täällä https://jassari.hel.fi/  Lisätietoa nuorisopalveluiden jäsenyydestä ja sen eduista voit lukea osoitteesta http://jassari.munstadi.fi/ <br /><br />Lisätietoa nuorisopalveluiden jäsenyydestä ja sen eduista voit lukea osoitteesta http://jassari.munstadi.fi/<br /><br /> <i>Tämä viesti on lähetetty järjestelmästä automaattisesti. Älä vastaa tähän viestiin, sillä vastauksia ei käsitellä.</i>"
   }
 }

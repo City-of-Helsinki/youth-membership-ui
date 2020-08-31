@@ -1,0 +1,12 @@
+.loader {
+  grid-column: container;
+  grid-row: content;
+  display: inline-flex;
+  justify-self: center;
+  align-self: center;
+  padding: var(--spacing-m);
+  width: fit-content;
+  height: fit-content;
+
+  background: var(--color-white);
+}

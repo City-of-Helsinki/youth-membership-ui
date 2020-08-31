@@ -1,0 +1,42 @@
+.text {
+  color: var(--color-black-90);
+}
+.text:last-child {
+  margin-bottom: 0;
+}
+
+.h1 {
+  margin: 0 0 var(--spacing-s) 0;
+
+  font-size: var(--fontsize-h-2);
+}
+@media (min-width: 540px) {
+  .h1 {
+    font-size: var(--fontsize-h-1);
+  }
+}
+
+.h2 {
+  margin: 0 0 var(--spacing-s) 0;
+
+  font-size: var(--fontsize-h-2);
+}
+
+.h3 {
+  margin: 0 0 var(--spacing-s) 0;
+  
+  font-size: var(--fontsize-h-3);
+}
+
+.h4 {
+  margin: 0 0 var(--spacing-s) 0;
+  
+  font-size: var(--fontsize-h-4);
+}
+
+.info {
+  margin: 0 0 var(--spacing-m) 0;
+
+  line-height: var(--lineheight-l);
+  font-size: var(--fontsize-body-medium);
+}

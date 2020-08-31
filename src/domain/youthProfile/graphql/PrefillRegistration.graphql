@@ -1,0 +1,36 @@
+query PrefillRegistartion {
+  myProfile {
+    firstName
+    lastName
+    language
+    primaryPhone {
+      phone
+      id
+    }
+    primaryAddress {
+      address
+      postalCode
+      city
+      countryCode
+      id
+      primary
+      addressType
+    }
+    addresses {
+      edges {
+        node {
+          primary
+          id
+          address
+          postalCode
+          city
+          countryCode
+          addressType
+        }
+      }
+    }
+    primaryEmail {
+      email
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.hostingBox {
+  margin: 20px 0 50px;
+  width: auto;
+  flex: 1 0 auto;
+
+  background: var(--color-white);
+}
+
+@media (min-width: 800px) {
+  .hostingBox {
+      margin: 20px auto 50px;
+      max-width: 800px;
+  }
+}

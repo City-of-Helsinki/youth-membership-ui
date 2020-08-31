@@ -1,0 +1,48 @@
+.content {
+  text-align: left;
+}
+
+.formData, .formFields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-m);
+  max-width: 750px;
+}
+@media (min-width: 768px) {
+  .formData, .formFields {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.formRow {
+  display: inherit;
+  grid-template-columns: inherit;
+  grid-column: 1 / -1;
+  gap: inherit;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.radioButtonRow {
+  float: left;
+  margin-right: 50px;
+}
+
+.button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+@media (min-width: 400px)  {
+  .button {
+    width: 230px;
+    margin-top: 0;
+  }
+
+  .content {
+    padding: 10px 50px;
+  }
+}

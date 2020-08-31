@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.wrapper.noMargin {
+  margin-bottom: unset;
+}
+
+.label {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.value {
+  font-size: 18px;
+  word-break: break-word;
+  white-space: pre-line;
+}

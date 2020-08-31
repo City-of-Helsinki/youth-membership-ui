@@ -1,0 +1,58 @@
+fragment MembershipDetailsFragment on YouthProfileType {
+  profile {
+    firstName
+    lastName
+    language
+    primaryAddress {
+      address
+      postalCode
+      city
+      countryCode
+      id
+      addressType
+      primary
+    }
+    addresses {
+      edges {
+        node {
+          primary
+          id
+          address
+          postalCode
+          city
+          countryCode
+          addressType
+        }
+      }
+    }
+    primaryEmail {
+      email
+      id
+    }
+    primaryPhone {
+      phone
+      id
+    }
+  }
+  birthDate
+  schoolName
+  schoolClass
+  languageAtHome
+  photoUsageApproved
+  approverFirstName
+  approverLastName
+  approverEmail
+  approverPhone
+  membershipNumber
+  additionalContactPersons {
+    edges {
+      node {
+        id
+        firstName
+        lastName
+        phone
+        email
+      }
+    }
+  }
+}

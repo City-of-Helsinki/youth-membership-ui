@@ -1,0 +1,19 @@
+.pageSection {
+  --page-section-max-width: 1024px;
+  --page-section-v-padding: var(--spacing-xs);
+
+  max-width: var(--page-section-max-width);
+  margin: var(--spacing-layout-2-xs) auto var(--spacing-layout-l);
+  padding: var(--spacing-layout-s) var(--page-section-v-padding);
+
+  background: var(--color-white);
+}
+.pageSection:not(:last-child) {
+  margin-bottom: var(--spacing-layout-2-xs);
+}
+
+@media (min-width: 400px) {
+  .pageSection {
+    --page-section-v-padding: var(--spacing-3-xl)
+  }
+}

@@ -1,10 +1,10 @@
 import ApolloClient from 'apollo-boost';
 
 import store from '../redux/store';
-import { profileApiTokenSelector } from '../auth/redux';
-import getAuthenticatedUser from '../auth/getAuthenticatedUser';
-import fetchApiToken from '../auth/fetchApiToken';
-import pickProfileApiToken from '../auth/pickProfileApiToken';
+import { profileApiTokenSelector } from '../domain/auth/redux';
+import getAuthenticatedUser from '../domain/auth/getAuthenticatedUser';
+import fetchApiToken from '../domain/auth/fetchApiToken';
+import pickProfileApiToken from '../domain/auth/pickProfileApiToken';
 
 const getToken = async () => {
   try {

@@ -1,0 +1,41 @@
+.stack {
+  --gap: var(--spacing-m);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  gap: var(--gap);
+}
+.stack.xs-4 {
+  --gap: var(--spacing-4-xs);
+}
+.stack.xs-3 {
+  --gap: var(--spacing-3-xs);
+}
+.stack.xs-2 {
+  --gap: var(--spacing-2-xs);
+}
+.stack.xs {
+  --gap: var(--spacing-xs);
+}
+.stack.s {
+  --gap: var(--spacing-s);
+}
+.stack.m {
+  --gap: var(--spacing-m);
+}
+.stack.l {
+  --gap: var(--spacing-l);
+}
+.stack.xl {
+  --gap: var(--spacing-xl);
+}
+.stack.xl-2 {
+  --gap: var(--spacing-2-xl);
+}
+.stack.xl-3 {
+  --gap: var(--spacing-3-xl);
+}
+.stack.xl-4 {
+  --gap: var(--spacing-4-xl);
+}
