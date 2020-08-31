@@ -74,6 +74,10 @@ export interface MembershipDetails_youthProfile_profile {
   readonly lastName: string;
   readonly language: Language | null;
   /**
+   * The ID of the object.
+   */
+  readonly id: string;
+  /**
    * Convenience field for the address which is marked as primary.
    */
   readonly primaryAddress: MembershipDetails_youthProfile_profile_primaryAddress | null;
@@ -734,6 +738,10 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
   readonly lastName: string;
   readonly language: Language | null;
   /**
+   * The ID of the object.
+   */
+  readonly id: string;
+  /**
    * Convenience field for the address which is marked as primary.
    */
   readonly primaryAddress: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryAddress | null;
@@ -893,6 +901,10 @@ export interface MembershipDetailsFragment_profile {
   readonly firstName: string;
   readonly lastName: string;
   readonly language: Language | null;
+  /**
+   * The ID of the object.
+   */
+  readonly id: string;
   /**
    * Convenience field for the address which is marked as primary.
    */
