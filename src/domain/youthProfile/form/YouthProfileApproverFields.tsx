@@ -3,15 +3,26 @@ import { useTranslation } from 'react-i18next';
 
 import ArrayFieldTemplate from '../../../common/components/arrayFieldTemplate/ArrayFieldTemplate';
 import Stack from '../../../common/components/stack/Stack';
+import ageConstants from '../constants/ageConstants';
 import YouthProfileFormGrid from './YouthProfileFormGrid';
 import TextInput from './FormikTextInput';
 
-interface Props {
-  approverLabelText: (name: string) => string;
-}
+type Props = {
+  youthAge: number;
+};
 
-function YouthProfileApproverFields({ approverLabelText }: Props) {
+function YouthProfileApproverFields({ youthAge }: Props) {
   const { t } = useTranslation();
+
+  // For now when using .when() in validation we can't use
+  // schema.describe().fields[name].tests to determine if field is required or not.
+  // Validation rules returned from .when() won't be added there.
+  // For this reason determining asterisk usage must
+  // be done with this function
+  const approverLabelText = (name: string) => {
+    if (youthAge < ageConstants.ADULT) return t(`registration.${name}`) + ' *';
+    return t(`registration.${name}`);
+  };
 
   return (
     <Stack space="xl">

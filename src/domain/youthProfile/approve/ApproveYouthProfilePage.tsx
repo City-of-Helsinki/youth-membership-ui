@@ -9,10 +9,14 @@ import {
   YouthProfileByApprovalToken,
   ApproveYouthProfile as ApproveYourProfileData,
   ApproveYouthProfileVariables,
+  CreateAdditionalContactPersonInput,
+  UpdateAdditionalContactPersonInput,
 } from '../../../graphql/generatedTypes';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import PageContent from '../../../common/components/layout/PageContent';
 import PageSection from '../../../common/components/layout/PageSection';
+import prepareArrayFieldChanges from '../helpers/prepareArrayFieldChanges';
+import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';
 import { FormValues } from './ApproveYouthProfileForm';
 import ApproveYouthProfile from './ApproveYouthProfile';
 
@@ -48,6 +52,13 @@ function ApproveYouthProfilePage() {
   >(APPROVE_PROFILE);
 
   const handleOnSubmit = async (values: FormValues) => {
+    const previousAdditionalContactPersons = getAdditionalContactPersons(
+      data?.youthProfileByApprovalToken
+    );
+    const { add, update, remove } = prepareArrayFieldChanges<
+      CreateAdditionalContactPersonInput,
+      UpdateAdditionalContactPersonInput
+    >(previousAdditionalContactPersons, values.additionalContactPersons);
     const variables = {
       input: {
         approvalData: {
@@ -57,6 +68,9 @@ function ApproveYouthProfilePage() {
           approverPhone: values.approverPhone,
           birthDate: data?.youthProfileByApprovalToken?.birthDate,
           photoUsageApproved: Boolean(values.photoUsageApproved),
+          addAdditionalContactPersons: add,
+          updateAdditionalContactPersons: update,
+          removeAdditionalContactPersons: remove,
         },
         approvalToken: params.token,
       },

@@ -70,16 +70,6 @@ function YouthProfileForm(componentProps: Props) {
     new Date(componentProps.profile.birthDate)
   );
 
-  // For now when using .when() in validation we can't use
-  // schema.describe().fields[name].tests to determine if field is required or not.
-  // Validation rules returned from .when() won't be added there.
-  // For this reason determining asterisk usage must
-  // be done with this function
-  const approverLabelText = (name: string) => {
-    if (userAge < ageConstants.ADULT) return t(`registration.${name}`) + ' *';
-    return t(`registration.${name}`);
-  };
-
   return (
     <Formik
       validateOnBlur={true}
@@ -141,9 +131,7 @@ function YouthProfileForm(componentProps: Props) {
                   : t('registration.approverInfoOver18Text')}
               </Text>
 
-              <YouthProfileApproverFields
-                approverLabelText={approverLabelText}
-              />
+              <YouthProfileApproverFields youthAge={userAge} />
             </PageSection>
             <PageSection>
               {!componentProps.isEditing && (
