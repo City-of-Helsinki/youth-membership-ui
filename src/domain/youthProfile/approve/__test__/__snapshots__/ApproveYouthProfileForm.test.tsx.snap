@@ -424,13 +424,13 @@ exports[`matches snapshot 1`] = `
       >
         <div>
           <Text
-            variant="h2"
+            variant="h1"
           >
-            <h2
-              className="text h2 "
+            <h1
+              className="text h1 "
             >
               Hyväksy jäsenyys
-            </h2>
+            </h1>
           </Text>
           <Text
             variant="info"
@@ -450,13 +450,13 @@ exports[`matches snapshot 1`] = `
         </div>
         <div>
           <Text
-            variant="h3"
+            variant="h2"
           >
-            <h3
-              className="text h3 "
+            <h2
+              className="text h2 "
             >
               Perustiedot
-            </h3>
+            </h2>
           </Text>
           <BasicInformationGrid
             addresses={
@@ -629,13 +629,13 @@ exports[`matches snapshot 1`] = `
         </div>
         <div>
           <Text
-            variant="h3"
+            variant="h2"
           >
-            <h3
-              className="text h3 "
+            <h2
+              className="text h2 "
             >
               Lisätiedot
-            </h3>
+            </h2>
           </Text>
           <InfoGrid>
             <div
@@ -698,22 +698,22 @@ exports[`matches snapshot 1`] = `
               >
                 <div>
                   <Text
+                    variant="h2"
+                  >
+                    <h2
+                      className="text h2 "
+                    >
+                      Huoltajalta vaadittavat luvat
+                    </h2>
+                  </Text>
+                  <Text
                     variant="h3"
                   >
                     <h3
                       className="text h3 "
                     >
-                      Huoltajalta vaadittavat luvat
-                    </h3>
-                  </Text>
-                  <Text
-                    variant="h4"
-                  >
-                    <h4
-                      className="text h4 "
-                    >
                       Kuvauslupa
-                    </h4>
+                    </h3>
                   </Text>
                   <Text
                     variant="info"
@@ -835,13 +835,13 @@ exports[`matches snapshot 1`] = `
                 </div>
                 <div>
                   <Text
-                    variant="h3"
+                    variant="h2"
                   >
-                    <h3
-                      className="text h3 "
+                    <h2
+                      className="text h2 "
                     >
                       Huoltajan tiedot
-                    </h3>
+                    </h2>
                   </Text>
                   <Text
                     variant="info"

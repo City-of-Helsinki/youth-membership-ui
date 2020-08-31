@@ -70,14 +70,14 @@ function ApproveYouthProfileForm(props: Props) {
       {props => (
         <Stack space="xl">
           <div>
-            <Text variant="h2">{t('approval.title')}</Text>
+            <Text variant="h1">{t('approval.title')}</Text>
             <Text variant="info">
               {props.values.firstName} {t('approval.formExplanationText_1')}{' '}
               {props.values.firstName} {t('approval.formExplanationText_2')}
             </Text>
           </div>
           <div>
-            <Text variant="h3">{t('approval.basicInfo')}</Text>
+            <Text variant="h2">{t('approval.basicInfo')}</Text>
             <BasicInformationGrid
               name={`${props.values.firstName} ${props.values.lastName}`}
               addresses={[props.values.address, ...props.values.addresses]}
@@ -88,7 +88,7 @@ function ApproveYouthProfileForm(props: Props) {
             />
           </div>
           <div>
-            <Text variant="h3">{t('approval.addInfo')}</Text>
+            <Text variant="h2">{t('approval.addInfo')}</Text>
             <InfoGrid>
               <LabeledValue
                 label={t('approval.schoolInfo')}
@@ -107,8 +107,8 @@ function ApproveYouthProfileForm(props: Props) {
               <div>
                 {age < ageConstants.PHOTO_PERMISSION_MIN && (
                   <React.Fragment>
-                    <Text variant="h3">{t('approval.approverAcceptance')}</Text>
-                    <Text variant="h4">{t('approval.photoUsageApproved')}</Text>
+                    <Text variant="h2">{t('approval.approverAcceptance')}</Text>
+                    <Text variant="h3">{t('approval.photoUsageApproved')}</Text>
                     <Text variant="info">
                       {t('approval.photoUsageApprovedText')}
                     </Text>
@@ -142,7 +142,7 @@ function ApproveYouthProfileForm(props: Props) {
                 )}
               </div>
               <div>
-                <Text variant="h3">{t('approval.approverInfo')}</Text>
+                <Text variant="h2">{t('approval.approverInfo')}</Text>
                 <Text variant="info">{t('approval.approverInfoText')}</Text>
                 <YouthProfileApproverFields />
               </div>
