@@ -11,6 +11,7 @@ export const membershipDetailsData: MembershipDetails = {
       firstName: 'Teemu',
       lastName: 'Testaaja',
       language: Language.FINNISH,
+      id: '123asd',
       primaryPhone: {
         id: '123',
         phone: '0501234567',

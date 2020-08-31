@@ -3,6 +3,7 @@ fragment MembershipDetailsFragment on YouthProfileType {
     firstName
     lastName
     language
+    id
     primaryAddress {
       address
       postalCode
