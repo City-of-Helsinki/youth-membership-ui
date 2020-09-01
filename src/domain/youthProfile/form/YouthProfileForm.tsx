@@ -21,7 +21,7 @@ import Text from '../../../common/components/text/Text';
 import Stack from '../../../common/components/stack/Stack';
 import TermsField from '../../../common/components/termsField/TermsField';
 import ageConstants from '../constants/ageConstants';
-import youthProfileFormSchema from './youthProfileFormSchema';
+import { youthProfileFormSchema } from '../youthProfileSchemas';
 import YouthProfileBasicInformationFields from './YouthProfileBasicInformationFields';
 import YouthProfileAdditionalInformationFields from './YouthProfileAdditionalInformationFields';
 import YouthProfileApproverFields from './YouthProfileApproverFields';
@@ -131,7 +131,9 @@ function YouthProfileForm(componentProps: Props) {
                   : t('registration.approverInfoOver18Text')}
               </Text>
 
-              <YouthProfileApproverFields youthAge={userAge} />
+              <YouthProfileApproverFields
+                isApproverFieldsRequired={userAge < ageConstants.ADULT}
+              />
             </PageSection>
             <PageSection>
               {!componentProps.isEditing && (

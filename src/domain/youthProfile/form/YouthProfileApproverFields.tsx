@@ -3,15 +3,16 @@ import { useTranslation } from 'react-i18next';
 
 import ArrayFieldTemplate from '../../../common/components/arrayFieldTemplate/ArrayFieldTemplate';
 import Stack from '../../../common/components/stack/Stack';
-import ageConstants from '../constants/ageConstants';
 import YouthProfileFormGrid from './YouthProfileFormGrid';
 import TextInput from './FormikTextInput';
 
 type Props = {
-  youthAge: number;
+  isApproverFieldsRequired?: boolean;
 };
 
-function YouthProfileApproverFields({ youthAge }: Props) {
+function YouthProfileApproverFields({
+  isApproverFieldsRequired = true,
+}: Props) {
   const { t } = useTranslation();
 
   // For now when using .when() in validation we can't use
@@ -19,9 +20,12 @@ function YouthProfileApproverFields({ youthAge }: Props) {
   // Validation rules returned from .when() won't be added there.
   // For this reason determining asterisk usage must
   // be done with this function
-  const approverLabelText = (name: string) => {
-    if (youthAge < ageConstants.ADULT) return t(`registration.${name}`) + ' *';
-    return t(`registration.${name}`);
+  const labelRequired = (translationPath: string) => {
+    if (isApproverFieldsRequired) {
+      return t(translationPath) + ' *';
+    }
+
+    return t(translationPath);
   };
 
   return (
@@ -30,24 +34,24 @@ function YouthProfileApproverFields({ youthAge }: Props) {
         <TextInput
           id="approverFirstName"
           name="approverFirstName"
-          labelText={approverLabelText('firstName')}
+          labelText={labelRequired('registration.firstName')}
         />
         <TextInput
           id="approverLastName"
           name="approverLastName"
-          labelText={approverLabelText('lastName')}
+          labelText={labelRequired('registration.lastName')}
         />
         <TextInput
           id="approverEmail"
           name="approverEmail"
           type="email"
-          labelText={approverLabelText('email')}
+          labelText={labelRequired('registration.email')}
         />
         <TextInput
           id="approverPhone"
           name="approverPhone"
           type="tel"
-          labelText={approverLabelText('phoneNumber')}
+          labelText={labelRequired('registration.phoneNumber')}
         />
       </YouthProfileFormGrid>
       <ArrayFieldTemplate
@@ -57,24 +61,24 @@ function YouthProfileApproverFields({ youthAge }: Props) {
             <TextInput
               id={`${arrayPath}.firstName`}
               name={`${arrayPath}.firstName`}
-              labelText={approverLabelText('firstName')}
+              labelText={t('registration.firstName') + ' *'}
             />
             <TextInput
               id={`${arrayPath}.lastName`}
               name={`${arrayPath}.lastName`}
-              labelText={approverLabelText('lastName')}
+              labelText={t('registration.lastName') + ' *'}
             />
             <TextInput
               id={`${arrayPath}.email`}
               name={`${arrayPath}.email`}
               type="email"
-              labelText={approverLabelText('email')}
+              labelText={t('registration.email') + ' *'}
             />
             <TextInput
               id={`${arrayPath}.phone`}
               name={`${arrayPath}.phone`}
               type="tel"
-              labelText={approverLabelText('phoneNumber')}
+              labelText={t('registration.phoneNumber') + ' *'}
             />
           </YouthProfileFormGrid>
         )}
