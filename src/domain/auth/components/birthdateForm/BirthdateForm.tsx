@@ -107,9 +107,9 @@ function BirthdateForm(props: Props) {
             }}
             error={getDateError(props)}
             label={t('registration.birthdayHelper')}
-            dateInputLabel="date"
-            monthInputLabel="month"
-            yearInputLabel="year"
+            dateInputLabel={t('registration.date')}
+            monthInputLabel={t('registration.month')}
+            yearInputLabel={t('registration.year')}
             // Sets name in a way which allows auto-fill to set these
             // values in case they are available. This makes the form
             // more accessible.
