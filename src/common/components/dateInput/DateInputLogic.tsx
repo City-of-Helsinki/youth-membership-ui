@@ -29,9 +29,9 @@ const INPUT_CONFIGS = {
 };
 
 type DateObject = {
-  dayOfMonth?: number;
-  month?: number;
-  year?: number;
+  dayOfMonth?: string;
+  month?: string;
+  year?: string;
 };
 
 export interface InputComponentProps {
@@ -50,10 +50,18 @@ export interface InputComponentProps {
 export interface WrapperComponentProps {
   children?: React.ReactNode;
   isInvalid: boolean;
+  onBlur?: () => void;
 }
+
+export type DateError = {
+  name: string;
+  description: string;
+};
 
 interface Props {
   onChange: (date: Date) => void;
+  onError: (error: DateError) => void;
+  onBlur?: () => void;
   wrapper: React.FC<WrapperComponentProps>;
   value: Date | null;
   isInvalid: boolean;
@@ -71,14 +79,22 @@ interface Props {
   yearInputLabel: string;
 }
 
+function formatDateComponent(dateComponent: string): string {
+  if (dateComponent.length === 1) {
+    return `0${dateComponent}`;
+  }
+
+  return dateComponent;
+}
+
 function getDateComponents(date: Date | null): DateObject {
   if (!date) {
     return {};
   }
 
-  const dayOfMonth = date.getDate();
-  const month = date.getMonth();
-  const year = date.getFullYear();
+  const dayOfMonth = formatDateComponent(date.getDate().toString());
+  const month = formatDateComponent(date.getMonth().toString());
+  const year = date.getFullYear().toString();
 
   return {
     dayOfMonth,
@@ -93,14 +109,39 @@ function makeDate(date: DateObject): Date | null {
     date.month !== undefined &&
     date.dayOfMonth !== undefined
   ) {
-    return new Date(date.year, date.month, date.dayOfMonth, 0, 0, 0, 0);
+    return new Date(
+      Number(date.year),
+      Number(date.month) - 1,
+      Number(date.dayOfMonth),
+      0,
+      0,
+      0,
+      0
+    );
   }
 
   return null;
 }
 
-function getCharacterCount(number: number): number {
-  return number.toString().length;
+function getIsDateExists(
+  userGivenDate?: string,
+  userGivenMonth?: string,
+  date?: Date | null
+) {
+  if (userGivenDate && userGivenMonth && date) {
+    // Casting to a number removes possible leading zeroes which could
+    // cause the dates to not match even they implicitly do.
+    const isDateExists = Number(userGivenDate) === date?.getDate();
+    const isMonthExists = Number(userGivenMonth) === date?.getMonth() + 1;
+
+    return isDateExists && isMonthExists;
+  }
+
+  return true;
+}
+
+function getCharacterCount(number: string): number {
+  return number.length;
 }
 
 function sanitizeInput(content: unknown) {
@@ -118,7 +159,7 @@ function cutToLength(string: string, length: number) {
   return string.slice(0, length);
 }
 
-function parseNumberFromValue(value: string, maxCharacterCount = 2): number {
+function parseNumberFromValue(value: string, maxCharacterCount = 2): string {
   // Removes all other characters than numbers from the result. This is
   // a last fallback which makes negative numbers positive and removes
   // possible characters from the output. The behavior of
@@ -126,11 +167,13 @@ function parseNumberFromValue(value: string, maxCharacterCount = 2): number {
   const sanitized = sanitizeInput(value);
   const maxSized = cutToLength(sanitized, maxCharacterCount);
 
-  return Number(maxSized);
+  return maxSized;
 }
 
 function DateInputLogic({
   onChange,
+  onError,
+  onBlur,
   value,
   isInvalid,
   wrapper,
@@ -154,10 +197,29 @@ function DateInputLogic({
   const monthInputRef = React.useRef(null);
   const yearInputRef = React.useRef(null);
 
+  const setExternalDate = (date: DateObject) => {
+    const nextDayOfMonth = defaultTo(date.dayOfMonth, internalDate.dayOfMonth);
+    const nextMonth = defaultTo(date.month, internalDate.month);
+    const nextDate = makeDate(date);
+    const isDateExists = getIsDateExists(nextDayOfMonth, nextMonth, nextDate);
+
+    if (!isDateExists) {
+      onError({
+        name: 'dateDoesNotExist',
+        description:
+          'The combination of day, month and year do not result in a date that actually exists.',
+      });
+    }
+
+    if (isDateExists && nextDate) {
+      onChange(nextDate);
+    }
+  };
+
   const updateDate = (
-    dayOfMonth: number | null,
-    month: number | null,
-    year: number | null
+    dayOfMonth: string | null,
+    month: string | null,
+    year: string | null
   ) => {
     setInternalDate(previousDate => {
       const nextCachedDate = {
@@ -165,11 +227,8 @@ function DateInputLogic({
         month: defaultTo(month, previousDate.month),
         year: defaultTo(year, previousDate.year),
       };
-      const nextDate = makeDate(nextCachedDate);
 
-      if (nextDate) {
-        onChange(nextDate);
-      }
+      setExternalDate(nextCachedDate);
 
       return nextCachedDate;
     });
@@ -192,10 +251,8 @@ function DateInputLogic({
   };
   const handleMonthChange = (event: React.FormEvent<HTMLInputElement>) => {
     const nextMonth = parseNumberFromValue(event.currentTarget.value);
-    // User's input month number, we save month index into state
-    const nextMonthIndex = nextMonth - 1;
 
-    updateDate(null, nextMonthIndex, null);
+    updateDate(null, nextMonth, null);
     focusWhen(getCharacterCount(nextMonth) === 2, yearInputRef);
   };
   const handleYearChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -204,12 +261,9 @@ function DateInputLogic({
     updateDate(null, null, nextYear);
   };
 
-  const formattedMonth =
-    internalDate.month !== undefined
-      ? (internalDate.month + 1).toString()
-      : undefined;
+  const formattedMonth = internalDate.month;
 
-  return React.createElement(wrapper, { isInvalid }, [
+  return React.createElement(wrapper, { isInvalid, onBlur }, [
     React.createElement(dayOfMonthComponent, {
       key: dateInputId,
       id: dateInputId,
