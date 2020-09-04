@@ -123,11 +123,18 @@ function makeDate(date: DateObject): Date | null {
   return null;
 }
 
-function getIsDateExists(userGivenDate?: string, dateObjectDate?: number) {
-  if (userGivenDate && dateObjectDate) {
+function getIsDateExists(
+  userGivenDate?: string,
+  userGivenMonth?: string,
+  date?: Date | null
+) {
+  if (userGivenDate && userGivenMonth && date) {
     // Casting to a number removes possible leading zeroes which could
     // cause the dates to not match even they implicitly do.
-    return Number(userGivenDate) === dateObjectDate;
+    const isDateExists = Number(userGivenDate) === date?.getDate();
+    const isMonthExists = Number(userGivenMonth) === date?.getMonth() + 1;
+
+    return isDateExists && isMonthExists;
   }
 
   return true;
@@ -192,8 +199,9 @@ function DateInputLogic({
 
   const setExternalDate = (date: DateObject) => {
     const nextDayOfMonth = defaultTo(date.dayOfMonth, internalDate.dayOfMonth);
+    const nextMonth = defaultTo(date.month, internalDate.month);
     const nextDate = makeDate(date);
-    const isDateExists = getIsDateExists(nextDayOfMonth, nextDate?.getDate());
+    const isDateExists = getIsDateExists(nextDayOfMonth, nextMonth, nextDate);
 
     if (!isDateExists) {
       onError({
