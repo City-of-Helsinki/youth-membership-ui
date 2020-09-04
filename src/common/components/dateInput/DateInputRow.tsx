@@ -1,16 +1,13 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import { WrapperComponentProps } from './DateInputLogic';
 import styles from './dateInputRow.module.css';
 
 function DateInputRow({ isInvalid, onBlur, ...rest }: WrapperComponentProps) {
-  const wrapperElement = useRef(null);
-
   return (
     <div
       {...rest}
-      ref={wrapperElement}
       // In react div elements can have onBlur without any extra
       // configuration.
       onBlur={e => {
