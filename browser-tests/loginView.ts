@@ -1,7 +1,8 @@
 import { loginSelector } from './pages/loginSelector';
 import { hasLength } from './utils/valueUtils';
+import { testURL } from './utils/settings';
 
-fixture('Open login page').page('http://localhost:3000');
+fixture('Open login page').page(testURL());
 test('Test age restrictions', async t => {
   // After page load click submit button and see error about birth date
   await t
