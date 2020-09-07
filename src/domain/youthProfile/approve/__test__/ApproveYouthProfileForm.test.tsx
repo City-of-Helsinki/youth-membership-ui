@@ -26,6 +26,7 @@ const defaultProps = {
     approverLastName: 'Vanhempi',
     approverEmail: 'ville.vanhempi@test.fi',
     approverPhone: '05012345567',
+    additionalContactPersons: [],
   } as FormValues,
   isSubmitting: false,
   onSubmit: jest.fn(),

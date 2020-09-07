@@ -1,7 +1,10 @@
 import React from 'react';
 
 import DateInputGroup from './DateInputGroup';
-import DateInputLogic, { InputComponentProps } from './DateInputLogic';
+import DateInputLogic, {
+  InputComponentProps,
+  DateError,
+} from './DateInputLogic';
 import DateInputRow from './DateInputRow';
 import InputWithoutSpinners from './InputWithoutSpinners';
 import styles from './dateInput.module.css';
@@ -61,6 +64,8 @@ const DEFAULT_YEAR_INPUT = ({
 
 interface Props {
   onChange: (date: Date) => void;
+  onError: (error: DateError) => void;
+  onBlur?: () => void;
   value: Date | null;
   label: string;
   error?: string;
@@ -80,6 +85,8 @@ interface Props {
 
 function DateInput({
   onChange,
+  onError,
+  onBlur,
   value,
   label,
   error,
@@ -100,6 +107,8 @@ function DateInput({
     <DateInputGroup label={label} error={error}>
       <DateInputLogic
         onChange={onChange}
+        onError={onError}
+        onBlur={onBlur}
         value={value}
         isInvalid={Boolean(error)}
         wrapper={DateInputRow}

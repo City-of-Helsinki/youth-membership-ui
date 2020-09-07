@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [Unreleased]
+### Added
+- Approvers can now control additional contact persons
+
 ## [1.0.1] - 2020-08-31
 ### Fixed
 - Fixed issue where application would crash when entering `Profile information` page.
@@ -22,5 +26,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Missing profile language in approval view
 - Photo usage approval not working when set from approval view
 - Missing Helsinki profile link in mobile menu
+- Non existent dates being silently transformed into existing dates
 
 ## [1.0.0-rc.3]
