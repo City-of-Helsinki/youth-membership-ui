@@ -90,7 +90,7 @@ function Login(props: Props) {
               />
 
               <Button
-                data-cy="goBack"
+                test-id="goBack"
                 onClick={() => setShowManualRegistration(false)}
                 className={styles.linkButtons}
                 variant="secondary"
