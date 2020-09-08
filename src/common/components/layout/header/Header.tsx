@@ -8,22 +8,40 @@ import FullscreenNavigation from '../../fullscreenNavigation/FullscreenNavigatio
 import HelsinkiLogo from '../../helsinkiLogo/HelsinkiLogo';
 import UserDropdown from './userDropdown/UserDropdown';
 
-type Props = {};
+// Approver variant is shown for approver view. The approver should not
+// be shown the user menu, nor should the header contain links for
+// navigating into te front page.
+export type HeaderVariant = 'default' | 'approver';
 
-function Header(props: Props) {
+type Props = {
+  variant?: HeaderVariant;
+};
+
+function Header({ variant = 'default' }: Props) {
   const { t } = useTranslation();
+  const isDefaultVariant = variant === 'default';
+  const isApproverVariant = variant === 'approver';
+
   return (
     <header className={styles.header}>
       <div className={styles.content}>
-        <HelsinkiLogo className={styles.logo} isLinkToFrontPage />
-        <Link to="/" className={styles.appName}>
-          {t('appName')}
-        </Link>
+        <HelsinkiLogo
+          className={styles.logo}
+          isLinkToFrontPage={isDefaultVariant}
+        />
+        {isDefaultVariant && (
+          <Link to="/" className={styles.appName}>
+            {t('appName')}
+          </Link>
+        )}
+        {isApproverVariant && (
+          <span className={styles.appName}>{t('appName')}</span>
+        )}
         <section className={styles.end}>
           <FullscreenNavigation className={styles.mobileNav} />
           <div className={styles.desktopNav}>
             <LanguageSwitcher />
-            <UserDropdown />
+            {isDefaultVariant && <UserDropdown />}
           </div>
         </section>
       </div>
