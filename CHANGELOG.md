@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - Approvers can now control additional contact persons
 
+### Changed
+- Hide user menu and disable links to home page on approval form
+
 ## [1.0.1] - 2020-08-31
 ### Fixed
 - Fixed issue where application would crash when entering `Profile information` page.

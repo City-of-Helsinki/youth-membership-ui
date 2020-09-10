@@ -16,38 +16,52 @@ import NotFoundPage from '../notFoundPage/NotFoundPage';
 
 function AppRoutes() {
   return (
-    <PageLayout>
-      <Switch>
-        <Route path="/login" exact component={Login} />
-        <AppYouthProfileRoute path="/" exact component={LandingPage} />
-        <AppYouthProfileRoute
-          path="/membership-details"
-          exact
-          component={MembershipDetailsPage}
-        />
-        <AppYouthProfileRoute
-          path="/edit"
-          exact
-          component={EditYouthProfilePage}
-        />
-        <Route path="/create" exact component={CreateYouthProfilePage} />
-        <Route
-          path="/approve/:token"
-          exact
-          component={ApproveYouthProfilePage}
-        />
-        <Route path="/accessibility" exact component={AccessibilityStatement} />
-        <Route
-          path="/silent_renew"
-          render={() => {
-            userManager.signinSilentCallback();
-            return null;
-          }}
-        />
-        <Route path="/callback" component={OidcCallback} />
-        <Route path="*" component={NotFoundPage} />
-      </Switch>
-    </PageLayout>
+    <Switch>
+      <Route path={['/approve/:token']}>
+        <PageLayout variant="approver">
+          <Switch>
+            <Route
+              path="/approve/:token"
+              exact
+              component={ApproveYouthProfilePage}
+            />
+          </Switch>
+        </PageLayout>
+      </Route>
+      <Route>
+        <PageLayout>
+          <Switch>
+            <Route path="/login" exact component={Login} />
+            <AppYouthProfileRoute path="/" exact component={LandingPage} />
+            <AppYouthProfileRoute
+              path="/membership-details"
+              exact
+              component={MembershipDetailsPage}
+            />
+            <AppYouthProfileRoute
+              path="/edit"
+              exact
+              component={EditYouthProfilePage}
+            />
+            <Route path="/create" exact component={CreateYouthProfilePage} />
+            <Route
+              path="/accessibility"
+              exact
+              component={AccessibilityStatement}
+            />
+            <Route
+              path="/silent_renew"
+              render={() => {
+                userManager.signinSilentCallback();
+                return null;
+              }}
+            />
+            <Route path="/callback" component={OidcCallback} />
+            <Route path="*" component={NotFoundPage} />
+          </Switch>
+        </PageLayout>
+      </Route>
+    </Switch>
   );
 }
 
