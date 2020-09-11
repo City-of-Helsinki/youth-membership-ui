@@ -33,10 +33,10 @@
   },
   "authentication": {
     "deviceTimeError": {
-      "message": "Usko tai älä usko mutta et voi kirjautua sisään koska laitteesi kello on yli 5 minuuttia väärässä. Säädä kelloa ja kokeile uudestaan."
+      "message": "Usko tai älä usko, mutta et voi kirjautua sisään koska laitteesi kello on yli 5 minuuttia väärässä. Säädä kelloa ja kokeile uudestaan."
     },
     "permRequestDenied": {
-      "message": "You need to approve our request to access your Tunnistamo profile in order to use this service. Please try logging in again."
+      "message": "Sinun täytyy hyväksyä pyytämämme oikeudet Tunnistamossa käyttääksesi tätä palvelua. Ole hyvä ja yritä kirjautua uudelleen."
     },
     "errorTitle": "Hupsista!",
     "errorMessage": "Tapahtui virhe. Yritä uudestaan"
