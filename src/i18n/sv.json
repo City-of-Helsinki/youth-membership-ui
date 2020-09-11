@@ -31,6 +31,16 @@
     "schoolInfo": "Skola och klass",
     "title": "Godkänn medlemskapet"
   },
+  "authentication": {
+    "deviceTimeError": {
+      "message": "Tro det eller ej, men du kan inte logga in eftersom din enhets klocka går mer än 5 minuter fel. Justera klockan och försök igen."
+    },
+    "permRequestDenied": {
+      "message": "Du måste godkänna begäran om åtkomst till din Tunnistamo-profil för att kunna använda den här tjänsten. Försök att logga in igen."
+    },
+    "errorTitle": "Hoppsan!",
+    "errorMessage": "Ett fel uppstod. Försök igen"
+  },
   "confirmSendingProfile": {
     "buttonText": "Skicka ett nytt verifieringsmeddelande",
     "helpText": "Din medlemsansökan har skickats till",

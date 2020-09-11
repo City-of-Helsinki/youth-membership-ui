@@ -31,6 +31,16 @@
     "schoolInfo": "Koulu ja luokka",
     "title": "Hyväksy jäsenyys"
   },
+  "authentication": {
+    "deviceTimeError": {
+      "message": "Usko tai älä usko, mutta et voi kirjautua sisään koska laitteesi kello on yli 5 minuuttia väärässä. Säädä kelloa ja kokeile uudestaan."
+    },
+    "permRequestDenied": {
+      "message": "Sinun täytyy hyväksyä pyytämämme oikeudet Tunnistamossa käyttääksesi tätä palvelua. Ole hyvä ja yritä kirjautua uudelleen."
+    },
+    "errorTitle": "Hupsista!",
+    "errorMessage": "Tapahtui virhe. Yritä uudestaan"
+  },
   "confirmSendingProfile": {
     "buttonText": "Lähetä uusi varmistusviesti",
     "helpText": "Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen",
