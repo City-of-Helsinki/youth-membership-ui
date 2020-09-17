@@ -1,6 +1,7 @@
 {
   "appName": "Jässäri",
   "approval": {
+    "addGuardianText": "Andra tillsynsmyndigheter kan kontaktas i frågor som rör barnet.",
     "addInfo": "Ytterligare info",
     "additionalAddresses": "Ytterligare adresser",
     "address": "Hemadress",
@@ -165,9 +166,10 @@
     "year": "År",
     "addAddress": "Lägg till en annan adress",
     "addGuardian": "Lägg till en annan förmyndares uppgifter",
-    "addGuardianText": "Vi meddelar den andra vårdnadshavaren att du har lagts till hens uppgifter i ansökan.",
+    "addGuardianText": "Vid behov kan andra vårdnadshavare kontaktas i frågor som rör ditt ungdomsmedlemskap.",
     "remove": "Radera"
   },
+  "En begäran om dataverifiering skickas till föräldern och efter att dina uppgifter är granskade och godkända träder ditt medlemskap i kraft.": "",
   "registry": {
     "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri-SV.pdf"
   },

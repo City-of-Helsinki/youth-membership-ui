@@ -1,6 +1,7 @@
 {
   "appName": "Jässäri",
   "approval": {
+    "addGuardianText": "Other added guardians may be contacted in matters concerning the child.",
     "addInfo": "Additional info",
     "additionalAddresses": "Additional addresses",
     "address": "Home address",
@@ -166,7 +167,7 @@
     "year": "Year",
     "addAddress": "Add another address",
     "addGuardian": "Add another guardian's information ",
-    "addGuardianText": "We will notify the other guardian about them being added to the application.",
+    "addGuardianText": "If necessary other guardians may be contacted in matters relating to your youth membership.",
     "remove": "Delete"
   },
   "registry": {

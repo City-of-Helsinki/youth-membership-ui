@@ -1,6 +1,7 @@
 {
   "appName": "Jässäri",
   "approval": {
+    "addGuardianText": "Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa.",
     "addInfo": "Lisätiedot",
     "additionalAddresses": "Muut osoitteet",
     "address": "Kotiosoite",
@@ -166,7 +167,7 @@
     "year": "Vuosi",
     "addAddress": "Lisää toinen osoite",
     "addGuardian": "Lisää toisen huoltajan yhteystiedot",
-    "addGuardianText": "Toiselle huoltajalle lähtee ilmoitus, että olet lisännyt hänen tietonsa hakemukseesi.",
+    "addGuardianText": "Muihin ilmoittamiisi huoltajiin voidaan olla tarvittaessa yhteydessä nuorisojäsenyyteesi liittyvissä asioissa.",
     "remove": "Poista"
   },
   "registry": {

@@ -8,10 +8,12 @@ import TextInput from './FormikTextInput';
 
 type Props = {
   isApproverFieldsRequired?: boolean;
+  additionalGuardianHelperText: string;
 };
 
 function YouthProfileApproverFields({
   isApproverFieldsRequired = true,
+  additionalGuardianHelperText,
 }: Props) {
   const { t } = useTranslation();
 
@@ -56,6 +58,7 @@ function YouthProfileApproverFields({
       </YouthProfileFormGrid>
       <ArrayFieldTemplate
         name="additionalContactPersons"
+        additionalGuardianHelperText={additionalGuardianHelperText}
         renderField={(value, index, arrayPath) => (
           <YouthProfileFormGrid>
             <TextInput

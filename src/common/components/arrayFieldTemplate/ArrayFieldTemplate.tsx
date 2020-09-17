@@ -14,6 +14,7 @@ type Props = {
   onPushItem: (push: (value: unknown) => void) => unknown;
   space?: Space;
   listSpace?: Space;
+  additionalGuardianHelperText?: string;
 };
 
 function ArrayFieldTemplate({
@@ -24,6 +25,7 @@ function ArrayFieldTemplate({
   onPushItem,
   space = 'm',
   listSpace = 'l',
+  additionalGuardianHelperText,
 }: Props) {
   const { t } = useTranslation();
   const [{ value: values }] = useField(name);
@@ -36,6 +38,9 @@ function ArrayFieldTemplate({
       name={name}
       render={(arrayHelpers: FieldArrayRenderProps) => (
         <Stack space={space}>
+          {values.length > 0 && additionalGuardianHelperText && (
+            <p>{t(additionalGuardianHelperText)}</p>
+          )}
           {Object.keys(values).length > 0 && (
             <Stack space={listSpace}>
               {((values as unknown) as Array<unknown>).map(
