@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import Stack, { Space } from '../stack/Stack';
 import styles from './arrayFieldTemplate.module.css';
+import Text from '../text/Text';
 
 type Props = {
   name: string;
@@ -39,7 +40,7 @@ function ArrayFieldTemplate({
       render={(arrayHelpers: FieldArrayRenderProps) => (
         <Stack space={space}>
           {values.length > 0 && additionalGuardianHelperText && (
-            <p>{t(additionalGuardianHelperText)}</p>
+            <Text variant="info">{additionalGuardianHelperText}</Text>
           )}
           {Object.keys(values).length > 0 && (
             <Stack space={listSpace}>
