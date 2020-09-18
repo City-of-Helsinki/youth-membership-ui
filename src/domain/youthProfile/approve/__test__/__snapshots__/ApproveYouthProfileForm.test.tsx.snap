@@ -853,7 +853,7 @@ exports[`matches snapshot 1`] = `
                     </p>
                   </Text>
                   <YouthProfileApproverFields
-                    additionalGuardianHelperText="Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa."
+                    additionalContactPersonHelperText="Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa."
                   >
                     <Stack
                       space="xl"
@@ -1103,9 +1103,13 @@ exports[`matches snapshot 1`] = `
                             </FormikTestInput>
                           </div>
                         </YouthProfileFormGrid>
+                        <FormGroupDescription
+                          className="additionalApproverDescription"
+                          description="Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa."
+                          name="additionalContactPersons"
+                        />
                         <ArrayFieldTemplate
                           addItemLabel="Lisää toisen huoltajan yhteystiedot"
-                          additionalGuardianHelperText="Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa."
                           name="additionalContactPersons"
                           onPushItem={[Function]}
                           renderField={[Function]}

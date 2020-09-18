@@ -145,7 +145,9 @@ function ApproveYouthProfileForm(props: Props) {
                 <Text variant="h2">{t('approval.approverInfo')}</Text>
                 <Text variant="info">{t('approval.approverInfoText')}</Text>
                 <YouthProfileApproverFields
-                  additionalGuardianHelperText={t('approval.addGuardianText')}
+                  additionalContactPersonHelperText={t(
+                    'approval.addGuardianText'
+                  )}
                 />
               </div>
               <TermsField id="terms" name="terms" />
