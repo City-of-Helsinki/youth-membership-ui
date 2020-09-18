@@ -144,7 +144,11 @@ function ApproveYouthProfileForm(props: Props) {
               <div>
                 <Text variant="h2">{t('approval.approverInfo')}</Text>
                 <Text variant="info">{t('approval.approverInfoText')}</Text>
-                <YouthProfileApproverFields />
+                <YouthProfileApproverFields
+                  additionalContactPersonHelperText={t(
+                    'approval.addGuardianText'
+                  )}
+                />
               </div>
               <TermsField id="terms" name="terms" />
               <Button className={styles.button} type="submit">

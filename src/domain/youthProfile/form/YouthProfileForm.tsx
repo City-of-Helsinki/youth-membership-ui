@@ -132,6 +132,9 @@ function YouthProfileForm(componentProps: Props) {
               </Text>
 
               <YouthProfileApproverFields
+                additionalContactPersonHelperText={t(
+                  'registration.addGuardianText'
+                )}
                 isApproverFieldsRequired={userAge < ageConstants.ADULT}
               />
             </PageSection>

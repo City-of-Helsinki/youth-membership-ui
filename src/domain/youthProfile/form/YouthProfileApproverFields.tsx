@@ -1,17 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import styles from './YouthProfileApproverFields.module.css';
 import ArrayFieldTemplate from '../../../common/components/arrayFieldTemplate/ArrayFieldTemplate';
 import Stack from '../../../common/components/stack/Stack';
 import YouthProfileFormGrid from './YouthProfileFormGrid';
+import FormGroupDescription from './FormGroupDescription';
 import TextInput from './FormikTextInput';
 
 type Props = {
   isApproverFieldsRequired?: boolean;
+  additionalContactPersonHelperText: string;
 };
 
 function YouthProfileApproverFields({
   isApproverFieldsRequired = true,
+  additionalContactPersonHelperText,
 }: Props) {
   const { t } = useTranslation();
 
@@ -54,6 +58,11 @@ function YouthProfileApproverFields({
           labelText={labelRequired('registration.phoneNumber')}
         />
       </YouthProfileFormGrid>
+      <FormGroupDescription
+        name="additionalContactPersons"
+        description={additionalContactPersonHelperText}
+        className={styles.additionalApproverDescription}
+      />
       <ArrayFieldTemplate
         name="additionalContactPersons"
         renderField={(value, index, arrayPath) => (
