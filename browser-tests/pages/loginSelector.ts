@@ -6,4 +6,8 @@ export const loginSelector = {
   month: Selector('input[id="ym-date-input-month-id"]'),
   year: Selector('input[id="ym-date-input-year-id"]'),
   paperForm: Selector('button[test-id="goBack"]'),
+  helLoginLink: Selector('.login-method-helusername'),
+  helUsername: Selector('#username'),
+  helPassword: Selector('#password'),
+  helLogin: Selector('#kc-login'),
 };
