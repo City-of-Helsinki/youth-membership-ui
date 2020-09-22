@@ -1,7 +1,7 @@
 {
   "appName": "Jässäri",
   "approval": {
-    "addGuardianText": "Andra tillsynsmyndigheter kan kontaktas i frågor som rör barnet.",
+    "addGuardianText": "Andra extra vårdnadshavare kan kontaktas i frågor som rör barnet.",
     "addInfo": "Ytterligare info",
     "additionalAddresses": "Ytterligare adresser",
     "address": "Hemadress",
