@@ -15,7 +15,11 @@ export const registrationFormSelector = {
   approverPhone: Selector('input[name="approverPhone"]'),
   schoolName: Selector('input[name="schoolName"]'),
   schoolClass: Selector('input[name="schoolClass"]'),
-  //Extra addresses
+  languageFinnish: Selector('label').withText('Finnish'),
+  languageSwedish: Selector('label').withText('Swedish'),
+  languageEnglish: Selector('label').withText('English'),
+  photoUsageYes: Selector('label').withText('Yes'),
+  photoUsageNo: Selector('label').withText('No'),
   addAddress: Selector('span[class^="Button-module_label"]').withText(
     'Add another address'
   ),
@@ -25,8 +29,6 @@ export const registrationFormSelector = {
   addressAddress: Selector('input[name="addresses.0.address"]'),
   addressPostalCode: Selector('input[name="addresses.0.postalCode"]'),
   addressCity: Selector('input[name="addresses.0.city"]'),
-  submitButton: Selector('button[type="submit"]'),
-  //Extra approvers
   addGuardian: Selector('span[class^="Button-module_label"]').withText(
     "Add another guardian's information"
   ),
@@ -45,4 +47,6 @@ export const registrationFormSelector = {
   additionalApproverPhone: Selector(
     'input[name="additionalContactPersons.0.phone"]'
   ),
+  terms: Selector('input[type="checkbox"]'),
+  submitButton: Selector('button[type="submit"]'),
 };

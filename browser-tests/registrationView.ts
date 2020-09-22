@@ -1,13 +1,12 @@
+import { Selector } from 'testcafe';
+
 import { login } from './utils/login';
 import { testURL } from './utils/settings';
 import { registrationFormSelector } from './pages/registrationFormSelector';
-import { Selector } from 'testcafe';
-import { Simulate } from 'react-dom/test-utils';
-import click = Simulate.click;
+import { sentProfileSelector } from './pages/sentProfileSelector';
 
 fixture('Test registration form').page(testURL());
 
-/*
 test('Test all required fields if user is adult', async t => {
   await login(t, 'adult');
 
@@ -32,8 +31,6 @@ test('Test all required fields if user is minor', async t => {
   await t.expect(allRequiredErrors).eql(10);
 });
 
-
- */
 test('Fill all form fields', async t => {
   await login(t, 'minor');
 
@@ -49,20 +46,37 @@ test('Fill all form fields', async t => {
     .typeText(registrationFormSelector.phone, '0501234567')
     .typeText(registrationFormSelector.schoolName, 'Best school')
     .typeText(registrationFormSelector.schoolClass, '1C')
+    .click(registrationFormSelector.languageSwedish)
+    .click(registrationFormSelector.languageEnglish)
+    .click(registrationFormSelector.languageFinnish)
+    .click(registrationFormSelector.photoUsageYes)
+    .click(registrationFormSelector.photoUsageNo)
     .typeText(registrationFormSelector.approverFirstName, 'Unique')
     .typeText(registrationFormSelector.approverLastName, 'User')
     .typeText(registrationFormSelector.approverEmail, 'unique@user.fi')
-    .typeText(registrationFormSelector.approverPhone, '0501234567')
-    // Extra fields -> Address
+    .typeText(registrationFormSelector.approverPhone, '0501234567');
+
+  // Extra fields -> Address
+  await t
     .click(registrationFormSelector.addAddress)
+    .expect(registrationFormSelector.addressAddress.exists)
+    .ok()
     .click(registrationFormSelector.removeAddress)
+    .expect(registrationFormSelector.addressAddress.exists)
+    .notOk()
     .click(registrationFormSelector.addAddress)
     .typeText(registrationFormSelector.addressAddress, 'Test street 202')
     .typeText(registrationFormSelector.addressPostalCode, '00100')
-    .typeText(registrationFormSelector.addressCity, 'Helsinki')
-    // Extra fields -> Guardian
+    .typeText(registrationFormSelector.addressCity, 'Helsinki');
+
+  // Extra fields -> Guardian
+  await t
     .click(registrationFormSelector.addGuardian)
+    .expect(registrationFormSelector.additionalApproverFirstName.exists)
+    .ok()
     .click(registrationFormSelector.removeGuardian)
+    .expect(registrationFormSelector.additionalApproverFirstName.exists)
+    .notOk()
     .click(registrationFormSelector.addGuardian)
     .typeText(registrationFormSelector.additionalApproverFirstName, 'Ursula')
     .typeText(registrationFormSelector.additionalApproverLastName, 'User')
@@ -71,4 +85,11 @@ test('Fill all form fields', async t => {
       'ursula@user.fi'
     )
     .typeText(registrationFormSelector.additionalApproverPhone, '0501234567');
+
+  // Accept terms and submit form
+  await t
+    .click(registrationFormSelector.terms)
+    .click(registrationFormSelector.submitButton)
+    .expect(sentProfileSelector.mainTitle.exists)
+    .ok();
 });
