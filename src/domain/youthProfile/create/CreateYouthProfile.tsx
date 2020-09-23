@@ -47,6 +47,7 @@ function CreateYouthProfile({
   prefillRegistrationData,
 }: Props) {
   const [showNotification, setShowNotification] = useState(false);
+  const [profileIsCreated, setProfileIsCreated] = useState<boolean>(false);
   const { i18n } = useTranslation();
   const { trackEvent } = useMatomo();
   const history = useHistory();
@@ -106,7 +107,7 @@ function CreateYouthProfile({
           if (!!result.data) {
             trackEvent({
               category: 'action',
-              action: 'Register youth membership',
+              action: 'Update youth profile',
             });
             connectService();
           }
@@ -115,7 +116,7 @@ function CreateYouthProfile({
           Sentry.captureException(error);
           setShowNotification(true);
         });
-    } else {
+    } else if (!loading && !profileIsCreated) {
       createProfile({ variables })
         .then(result => {
           if (!!result.data) {
@@ -123,6 +124,7 @@ function CreateYouthProfile({
               category: 'action',
               action: 'Register youth membership',
             });
+            setProfileIsCreated(true);
             connectService();
           }
         })
