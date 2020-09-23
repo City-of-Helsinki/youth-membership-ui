@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import * as Sentry from '@sentry/browser';
 import { useTranslation } from 'react-i18next';
+import { isValid, parseISO } from 'date-fns';
 
 import { HasYouthProfile } from '../../graphql/generatedTypes';
 import getCookie from '../../common/helpers/getCookie';
@@ -28,13 +29,14 @@ function AppYouthProfileRoute(props: Props) {
 
   const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
   const birthDate = getCookie('birthDate');
+  const isBirthDateValid = isValid(parseISO(birthDate));
 
   return (
     <>
       <LoadingContent isLoading={loading} loadingText={t('profile.verifying')}>
         {isYouthProfileFound ? (
           <Route {...props} />
-        ) : !birthDate ? (
+        ) : !isBirthDateValid ? (
           <Redirect to="/login" />
         ) : (
           <Redirect to="/create" />
