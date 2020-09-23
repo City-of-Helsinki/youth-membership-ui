@@ -26,7 +26,7 @@ const getErrorElement = (errors: FormikErrors<FormValues>, key: string) => {
       return document.querySelector(`[name="primaryAddress.${primaryKeys[0]}"`);
     case 'addresses':
       const firstIndex = (errors.addresses as []).findIndex(error => error);
-      // postalCode is only validated field in additional addresses
+      // postalCode is only validated field in additional addressess
       return document.querySelector(
         `[name="addresses.${firstIndex}.postalCode"`
       );
