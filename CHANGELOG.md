@@ -6,9 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 ### Added
 - Approvers can now control additional contact persons
+- e2e - tests for youth's registration form.
 
 ### Changed
 - Hide user menu and disable links to home page on approval form
+- Replaced Cypress with TestCafe
 
 ## [1.0.1] - 2020-08-31
 ### Fixed
