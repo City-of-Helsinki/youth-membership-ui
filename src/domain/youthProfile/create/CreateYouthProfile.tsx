@@ -106,7 +106,7 @@ function CreateYouthProfile({
           if (!!result.data) {
             trackEvent({
               category: 'action',
-              action: 'Register youth membership',
+              action: 'Update youth profile',
             });
             connectService();
           }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'hds-react';
 import { Form, Formik, FormikProps } from 'formik';
@@ -64,6 +64,7 @@ type Props = {
 
 function YouthProfileForm(componentProps: Props) {
   const { t } = useTranslation();
+  const [formIsSubmitted, setFormIsSubmitted] = useState<boolean>(false);
 
   const userAge = differenceInYears(
     new Date(),
@@ -92,10 +93,13 @@ function YouthProfileForm(componentProps: Props) {
         },
       }}
       onSubmit={async (values: FormValues) => {
-        componentProps.onValues({
-          ...values,
-          addresses: [...values.addresses, { ...values.primaryAddress }],
-        });
+        if (!formIsSubmitted) {
+          setFormIsSubmitted(true);
+          componentProps.onValues({
+            ...values,
+            addresses: [...values.addresses, { ...values.primaryAddress }],
+          });
+        }
       }}
       validationSchema={youthProfileFormSchema}
     >
