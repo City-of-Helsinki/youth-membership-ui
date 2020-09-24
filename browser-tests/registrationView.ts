@@ -16,7 +16,11 @@ test('Test all required fields if user is adult', async t => {
     'div[class^="TextInput-module_helperText"]'
   ).count;
 
-  await t.expect(allRequiredErrors).eql(6);
+  await t
+    .expect(allRequiredErrors)
+    .eql(6)
+    .expect(registrationFormSelector.firstName.focused)
+    .ok();
 });
 
 test('Test all required fields if user is minor', async t => {
@@ -28,7 +32,11 @@ test('Test all required fields if user is minor', async t => {
     'div[class^="TextInput-module_helperText"]'
   ).count;
 
-  await t.expect(allRequiredErrors).eql(10);
+  await t
+    .expect(allRequiredErrors)
+    .eql(10)
+    .expect(registrationFormSelector.firstName.focused)
+    .ok();
 });
 
 test('Fill all form fields', async t => {
