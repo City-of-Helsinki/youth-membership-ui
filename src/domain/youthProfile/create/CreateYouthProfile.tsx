@@ -6,7 +6,7 @@ import { loader } from 'graphql.macro';
 import * as Sentry from '@sentry/browser';
 import { useTranslation } from 'react-i18next';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
-import { useHistory } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
 import { isValid, parseISO } from 'date-fns';
 
 import {
@@ -72,7 +72,6 @@ function CreateYouthProfile({
 
   const birthDate = getCookie('birthDate');
   const isBirthDateValid = isValid(parseISO(birthDate));
-  if (!isBirthDateValid) history.replace('/login');
 
   const connectService = () => {
     // TODO after back end supports editing serviceConnections change enabled from true to false
@@ -157,7 +156,10 @@ function CreateYouthProfile({
     getLanguageCode(i18n.languages[0])
   ) as YouthLanguage;
 
-  if (!isBirthDateValid) return null;
+  if (!isBirthDateValid) {
+    return <Redirect to="/login" />;
+  }
+
   return (
     <div className={styles.form}>
       <YouthProfileForm
