@@ -3,6 +3,7 @@ import { MockedResponse } from '@apollo/react-testing';
 import { User } from 'oidc-client';
 import { loader } from 'graphql.macro';
 import { act } from 'react-dom/test-utils';
+import { MemoryRouter } from 'react-router';
 
 import {
   mountWithApolloProvider,
@@ -99,8 +100,18 @@ const getMocks = (myProfile: MyProfile) => {
 };
 
 const getWrapper = (mocks?: MockedResponse[]) => {
-  return mountWithApolloProvider(<CreateYouthProfilePage />, mocks);
+  return mountWithApolloProvider(
+    <MemoryRouter>
+      <CreateYouthProfilePage />
+    </MemoryRouter>,
+    mocks
+  );
 };
+
+Object.defineProperty(window.document, 'cookie', {
+  writable: true,
+  value: 'birthDate=2005-01-01',
+});
 
 test('renders form with pre-filled values', async () => {
   const wrapper = getWrapper(getMocks({}));
