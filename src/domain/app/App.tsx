@@ -7,6 +7,7 @@ import countries from 'i18n-iso-countries';
 import fi from 'i18n-iso-countries/langs/fi.json';
 import en from 'i18n-iso-countries/langs/en.json';
 import sv from 'i18n-iso-countries/langs/sv.json';
+import { HelmetProvider } from 'react-helmet-async';
 
 import graphqlClient from '../../graphql/client';
 import store from '../../redux/store';
@@ -16,6 +17,7 @@ import { fetchApiTokenThunk } from '../../domain/auth/redux';
 import logout from '../../domain/auth/logout';
 import authConstants from '../../domain/auth/constants/authConstants';
 import authenticate from '../../domain/auth/authenticate';
+import AppMeta from './AppMeta';
 import AppRoutes from './AppRoutes';
 
 countries.registerLocale(fi);
@@ -68,7 +70,10 @@ function App(props: Props) {
       <OidcProvider store={store} userManager={userManager}>
         <ApolloProvider client={graphqlClient}>
           <MatomoProvider value={instance}>
-            <AppRoutes />
+            <HelmetProvider>
+              <AppMeta />
+              <AppRoutes />
+            </HelmetProvider>
           </MatomoProvider>
         </ApolloProvider>
       </OidcProvider>

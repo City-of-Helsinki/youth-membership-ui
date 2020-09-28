@@ -98,6 +98,9 @@
     "title": "Medlemskortnummer {{number}}",
     "validUntil": "Gäller till {{date}}"
   },
+  "meta": {
+    "description": "Jässäri är ditt medlemskort till ungdomsgårdarna. Medlemskapet garanterar trevliga aktiviteter: häng på ungdomsgårdarna, delta i hobbygrupper, ansök om projektunderstöd eller producera ett eget evenemang! Verksamheten leds av utbildade ungdomsledare."
+  },
   "nav": {
     "menuButtonLabel": "Profilmeny",
     "profile": "Helsingfors profil",

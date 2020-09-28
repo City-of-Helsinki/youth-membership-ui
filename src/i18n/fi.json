@@ -99,6 +99,9 @@
     "title": "Jäsenkortin numero {{number}}",
     "validUntil": "Voimassa {{date}} asti"
   },
+  "meta": {
+    "description": "Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat."
+  },
   "nav": {
     "menuButtonLabel": "Profiili valikko",
     "profile": "Helsinki-profiili",
