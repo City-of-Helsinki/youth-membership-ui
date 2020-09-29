@@ -73,8 +73,8 @@ production:
     DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-production"
 
 test-codeanalysis:
-  extends: .build
   stage: test
+  image: circleci/node:10.14-browsers
   variables:
     DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'testing'
   before_script:
