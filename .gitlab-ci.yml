@@ -79,5 +79,6 @@ test-codeanalysis:
     DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'testing'
   before_script:
     - yarn
+    - yarn start
   script:
     - yarn browser-test:ci
