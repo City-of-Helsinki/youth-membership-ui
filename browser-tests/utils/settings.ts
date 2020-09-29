@@ -24,7 +24,9 @@ export const testURL = () => {
       return LOCAL_URL;
     case 'staging':
       return TEST_URL;
+    case 'testing':
+      return TEST_URL;
     default:
-      return LOCAL_URL;
+      return TEST_URL;
   }
 };
