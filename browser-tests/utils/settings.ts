@@ -19,6 +19,8 @@ export const password = (): string => {
 };
 
 export const testURL = () => {
+  return TEST_URL;
+  /*
   switch (process.env.REACT_APP_ENVIRONMENT) {
     case 'local':
       return LOCAL_URL;
@@ -29,4 +31,6 @@ export const testURL = () => {
     default:
       return TEST_URL;
   }
+
+   */
 };
