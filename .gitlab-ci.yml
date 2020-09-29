@@ -71,3 +71,11 @@ staging:
 production:
   variables:
     DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-production"
+
+test-codeanalysis:
+  stage: test
+  image: circleci/node:10.14-browsers
+  before_script:
+    - yarn
+  script:
+    - yarn browser-test:ci
