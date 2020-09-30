@@ -19,7 +19,11 @@ export const password = (): string => {
 };
 
 export const testURL = () => {
-  return TEST_URL;
+  if (!process.env.REACT_APP_BASE_URL) {
+    throw new Error('No REACT_APP_BASE_URL specified');
+  }
+  return process.env.REACT_APP_BASE_URL;
+
   /*
   switch (process.env.REACT_APP_ENVIRONMENT) {
     case 'local':
