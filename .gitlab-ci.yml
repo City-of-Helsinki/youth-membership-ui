@@ -76,13 +76,13 @@ test-codeanalysis:
   stage: test
   only:
     refs:
-      - develop
+      - external_pull_requests
   image: circleci/node:10.14-browsers
   variables:
     DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'testing'
-    REACT_APP_TESTING_USERNAME: 'test'
-    REACT_APP_TESTING_USERNAME_NO_ACCESS: 'test'
-    REACT_APP_TESTING_PASSWORD: ''
+    DOCKER_BUILD_ARG_REACT_APP_TESTING_USERNAME: 'test'
+    DOCKER_BUILD_ARG_REACT_APP_TESTING_USERNAME_NO_ACCESS: 'test'
+    DOCKER_BUILD_ARG_REACT_APP_TESTING_PASSWORD: ''
   before_script:
     - yarn
   script:
