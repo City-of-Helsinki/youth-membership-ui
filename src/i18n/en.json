@@ -99,6 +99,9 @@
     "title": "Membership card number {{number}}",
     "validUntil": "Valid until {{date}}"
   },
+  "meta": {
+    "description": "Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers."
+  },
   "nav": {
     "menuButtonLabel": "Profile menu",
     "profile": "Helsinki Profile",
