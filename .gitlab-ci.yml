@@ -74,6 +74,9 @@ production:
 
 test-codeanalysis:
   image: circleci/node:10.14-browsers
+  only:
+    refs:
+      - external_pull_requests
   variables:
     DEBUG: 1
     REACT_APP_ENVIRONMENT: 'testing'
