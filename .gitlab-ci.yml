@@ -73,16 +73,15 @@ production:
     DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-production"
 
 test-codeanalysis:
-  stage: test
-  extends: .build
-  only:
-    refs:
-      - external_pull_requests
+  image: circleci/node:10.14-browsers
   variables:
-    DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'testing'
-    DOCKER_BUILD_ARG_REACT_APP_TESTING_USERNAME: 'test'
-    DOCKER_BUILD_ARG_REACT_APP_TESTING_USERNAME_NO_ACCESS: 'test'
-    DOCKER_BUILD_ARG_REACT_APP_TESTING_PASSWORD: ''
-    DOCKER_BUILD_ARG_REACT_APP_BASE_URL: "https://$TF_PROJECT_NAME_SLUG-$CI_ENVIRONMENT_SLUG.$KUBE_INGRESS_BASE_DOMAIN"
-  after_script:
+    DEBUG: 1
+    REACT_APP_ENVIRONMENT: 'testing'
+    REACT_APP_TESTING_USERNAME: 'test'
+    REACT_APP_TESTING_USERNAME_NO_ACCESS: 'test'
+    REACT_APP_TESTING_PASSWORD: ''
+    REACT_APP_BASE_URL: "https://$TF_PROJECT_NAME_SLUG-$CI_ENVIRONMENT_SLUG.$KUBE_INGRESS_BASE_DOMAIN"
+  before_script:
+    - yarn
+  script:
     - yarn browser-test:ci
