@@ -3,7 +3,7 @@ import { Selector } from 'testcafe';
 import { login } from './utils/login';
 import { testURL } from './utils/settings';
 import { registrationFormSelector } from './pages/registrationFormSelector';
-import { sentProfileSelector } from './pages/sentProfileSelector';
+import { membershipInformationSelector } from './pages/membershipInformationSelector';
 
 fixture('Test registration form').page(testURL());
 
@@ -40,7 +40,7 @@ test('Test all required fields if user is minor', async t => {
 });
 
 test('Fill all form fields', async t => {
-  await login(t, 'minor');
+  await login(t, 'adult');
 
   await t
     // All normal fields
@@ -98,6 +98,6 @@ test('Fill all form fields', async t => {
   await t
     .click(registrationFormSelector.terms)
     .click(registrationFormSelector.submitButton)
-    .expect(sentProfileSelector.mainTitle.exists)
+    .expect(membershipInformationSelector.qrCode.exists)
     .ok();
 });

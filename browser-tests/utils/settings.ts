@@ -15,6 +15,7 @@ export const password = (): string => {
   if (!process.env.REACT_APP_TESTING_PASSWORD) {
     throw new Error('No REACT_APP_TESTING_PASSWORD specified');
   }
+
   return process.env.REACT_APP_TESTING_PASSWORD;
 };
 
