@@ -17,3 +17,12 @@ export const login = async (t: TestController, userAge: UserAge) => {
     .typeText(loginSelector.helPassword, password())
     .click(loginSelector.helLogin);
 };
+
+export const loginStraight = async (t: TestController) => {
+  await t
+    .click(loginSelector.straightLogin)
+    .click(loginSelector.helLoginLink)
+    .typeText(loginSelector.helUsername, username())
+    .typeText(loginSelector.helPassword, password())
+    .click(loginSelector.helLogin);
+};
