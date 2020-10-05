@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
-## [Unreleased]
+## [1.1.0] - 2020-10-05
 ### Added
 - Approvers can now control additional contact persons
 - e2e - tests for youth's registration form.
@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Hide user menu and disable links to home page on approval form
 - Replaced Cypress with TestCafe
 - Default meta description
+
+### Fixed
+- Non existent dates being silently transformed into existing dates
 
 ## [1.0.1] - 2020-08-31
 ### Fixed
@@ -32,6 +35,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Missing profile language in approval view
 - Photo usage approval not working when set from approval view
 - Missing Helsinki profile link in mobile menu
-- Non existent dates being silently transformed into existing dates
 
 ## [1.0.0-rc.3]
