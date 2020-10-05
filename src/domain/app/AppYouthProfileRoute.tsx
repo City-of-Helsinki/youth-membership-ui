@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Redirect, RouteProps } from 'react-router';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
@@ -22,7 +22,6 @@ type Props = RouteProps;
 function AppYouthProfileRoute(props: Props) {
   const { t } = useTranslation();
   const [showNotification, setShowNotification] = useState<boolean>(false);
-  const [profileLoaded, setProfileLoaded] = useState<boolean>(false);
 
   const [loadProfile, { data, loading }] = useLazyQuery<HasYouthProfile>(
     HAS_YOUTH_PROFILE,
@@ -36,10 +35,9 @@ function AppYouthProfileRoute(props: Props) {
 
   const isAuthenticated = useSelector(isAuthenticatedSelector);
 
-  if (isAuthenticated && !profileLoaded) {
-    loadProfile();
-    setProfileLoaded(true);
-  }
+  useEffect(() => {
+    if (isAuthenticated) loadProfile();
+  }, [isAuthenticated, loadProfile]);
 
   const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
   const birthDate = getCookie('birthDate');
