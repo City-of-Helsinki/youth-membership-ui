@@ -17,6 +17,7 @@ describe('<DateInput />', () => {
   const defaultProps = {
     value: '',
     onChange: jest.fn(),
+    onError: jest.fn(),
     dateInputLabel,
     monthInputLabel,
     yearInputLabel,
@@ -32,6 +33,23 @@ describe('<DateInput />', () => {
 
   it('should render expectedly', () => {
     expect(toJson(getWrapper())).toMatchSnapshot();
+  });
+
+  it('should yield expected dates', () => {
+    const onChange = jest.fn();
+    const { container } = getWrapper({ onChange });
+
+    fireEvent.change(dateInputSelector(container), {
+      target: { value: '2' },
+    });
+    fireEvent.change(monthInputSelector(container), {
+      target: { value: '2' },
+    });
+    fireEvent.change(yearInputSelector(container), {
+      target: { value: '2020' },
+    });
+
+    expect(onChange).toHaveBeenCalledWith(new Date(2020, 1, 2, 0, 0, 0, 0));
   });
 
   it('should not allow text to be inputted', () => {
@@ -92,11 +110,6 @@ describe('<DateInput />', () => {
     testNoTooLongNumberAllowed(yearInputSelector, 4);
   });
 
-  it.skip('should transition focus after two characters have been inputted', () => {
-    // This has to be tested with cypress, jsdom doesn't have focus
-    // support
-  });
-
   it('should yield a valid date when month is january', () => {
     const onChange = jest.fn();
     const { container } = getWrapper({ onChange });
@@ -112,5 +125,47 @@ describe('<DateInput />', () => {
     });
 
     expect(onChange).toHaveBeenCalledWith(new Date(2017, 0, 1, 0, 0, 0, 0));
+  });
+
+  it('should not accept invalid dates', () => {
+    const onChange = jest.fn();
+    const onError = jest.fn();
+    const { container } = getWrapper({ onChange, onError });
+
+    fireEvent.change(dateInputSelector(container), {
+      target: { value: '31' },
+    });
+    fireEvent.change(monthInputSelector(container), {
+      target: { value: '2' },
+    });
+    fireEvent.change(yearInputSelector(container), {
+      target: { value: '2020' },
+    });
+
+    // Does not send invalid date
+    expect(onChange.mock.calls.length).toEqual(0);
+    // Sends an error instead
+    expect(onError.mock.calls[0][0]).toMatchInlineSnapshot(`
+      Object {
+        "description": "The combination of day, month and year do not result in a date that actually exists.",
+        "name": "dateDoesNotExist",
+      }
+    `);
+  });
+
+  it('should allow the user to input leading zeroes to day and month inputs', () => {
+    const testContent = '01';
+    const { container } = getWrapper();
+
+    const testLeadingZeroesAllowed = inputSelector => {
+      fireEvent.change(inputSelector(container), {
+        target: { value: testContent },
+      });
+
+      expect(inputSelector(container).value).toEqual(testContent);
+    };
+
+    testLeadingZeroesAllowed(dateInputSelector);
+    testLeadingZeroesAllowed(monthInputSelector);
   });
 });

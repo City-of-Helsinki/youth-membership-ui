@@ -40,7 +40,7 @@ function PageContent({
 
   return (
     <LoadingContent isLoading={!isReady} loadingText={loadingText}>
-      <div className={styles.wrapper}>{children}</div>
+      <main className={styles.wrapper}>{children}</main>
     </LoadingContent>
   );
 }

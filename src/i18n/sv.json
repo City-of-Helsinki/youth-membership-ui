@@ -1,6 +1,7 @@
 {
   "appName": "Jässäri",
   "approval": {
+    "addGuardianText": "Andra extra vårdnadshavare kan kontaktas i frågor som rör barnet.",
     "addInfo": "Ytterligare info",
     "additionalAddresses": "Ytterligare adresser",
     "address": "Hemadress",
@@ -30,6 +31,16 @@
     "profile": "Profil",
     "schoolInfo": "Skola och klass",
     "title": "Godkänn medlemskapet"
+  },
+  "authentication": {
+    "deviceTimeError": {
+      "message": "Tro det eller ej, men du kan inte logga in eftersom din enhets klocka går mer än 5 minuter fel. Justera klockan och försök igen."
+    },
+    "permRequestDenied": {
+      "message": "Du måste godkänna begäran om åtkomst till din Tunnistamo-profil för att kunna använda den här tjänsten. Försök att logga in igen."
+    },
+    "errorTitle": "Hoppsan!",
+    "errorMessage": "Ett fel uppstod. Försök igen"
   },
   "confirmSendingProfile": {
     "buttonText": "Skicka ett nytt verifieringsmeddelande",
@@ -87,6 +98,9 @@
     "title": "Medlemskortnummer {{number}}",
     "validUntil": "Gäller till {{date}}"
   },
+  "meta": {
+    "description": "Jässäri är ditt medlemskort till ungdomsgårdarna. Medlemskapet garanterar trevliga aktiviteter: häng på ungdomsgårdarna, delta i hobbygrupper, ansök om projektunderstöd eller producera ett eget evenemang! Verksamheten leds av utbildade ungdomsledare."
+  },
   "nav": {
     "menuButtonLabel": "Profilmeny",
     "profile": "Helsingfors profil",
@@ -131,12 +145,14 @@
     "city": "Stad",
     "confirmSend": "Godkänn villkoren och skicka ansökan",
     "country": "Land",
-    "dateInvalid": "Datumet finns inte",
+    "date": "Datum",
+    "dateInvalid": "Ogiltigt datum",
     "email": "E-post",
     "firstName": "Förnamn",
     "languageAtHome": "Hemspråk",
     "lastName": "Efternamn",
     "membershipInfoText": "Medlemskapet är avgiftsfritt och förpliktar inte till något. För att delta i ungdomsgårdarnas verksamhet måste du ha ett medlemsskap. Vi överlåter inte dina kontaktuppgifter till utomstående. Du har också rätt att kontrollera och radera dina uppgifter. Kom ihåg att ungdomsverksamheten är drogfri.",
+    "month": "Månad",
     "phoneNumber": "Telefon",
     "photoUsageApproved": "Fotograferingstillstånd",
     "photoUsageApprovedNo": "Nej",
@@ -150,11 +166,13 @@
     "schoolName": "Skola",
     "sendButton": "Spara och skicka verifieringsförfrågan",
     "title": "Vänligen fyll i din information",
+    "year": "År",
     "addAddress": "Lägg till en annan adress",
     "addGuardian": "Lägg till en annan förmyndares uppgifter",
-    "addGuardianText": "Vi meddelar den andra vårdnadshavaren att du har lagts till hens uppgifter i ansökan.",
+    "addGuardianText": "Vid behov kan andra vårdnadshavare kontaktas i frågor som rör ditt ungdomsmedlemskap.",
     "remove": "Radera"
   },
+  "En begäran om dataverifiering skickas till föräldern och efter att dina uppgifter är granskade och godkända träder ditt medlemskap i kraft.": "",
   "registry": {
     "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri-SV.pdf"
   },

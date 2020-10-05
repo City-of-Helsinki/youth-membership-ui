@@ -97,7 +97,7 @@ test('there is no user data / profile has already been approved', async () => {
 
   await updateWrapper(wrapper);
 
-  const content = wrapper.find('div[className="wrapper"]');
+  const content = wrapper.find('main[className="wrapper"]');
   const title = content.find('h2');
 
   expect(title.text()).toEqual('Hakemus on jo hyväksytty ');

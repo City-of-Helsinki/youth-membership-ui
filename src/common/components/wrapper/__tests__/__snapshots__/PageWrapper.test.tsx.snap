@@ -1,16 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<HelmetProvider
-  context={Object {}}
->
+<Fragment>
   <Helmet
     defer={true}
     encodeSpecialCharacters={true}
   >
-    <html
-      lang="fi"
-    />
     <title>
       Jässäri
     </title>
@@ -27,5 +22,5 @@ exports[`matches snapshot 1`] = `
       property="og:description"
     />
   </Helmet>
-</HelmetProvider>
+</Fragment>
 `;

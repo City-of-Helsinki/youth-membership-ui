@@ -14,6 +14,7 @@ type Props = {
   onPushItem: (push: (value: unknown) => void) => unknown;
   space?: Space;
   listSpace?: Space;
+  additionalGuardianHelperText?: string;
 };
 
 function ArrayFieldTemplate({

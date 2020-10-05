@@ -6,6 +6,7 @@ exports[`matches snapshot 1`] = `
   onSubmit={[MockFunction]}
   profile={
     Object {
+      "additionalContactPersons": Array [],
       "address": "Testikuja 55, 00100 Helsinki",
       "addresses": Array [
         "Kymintie 43, 00100 Helsinki",
@@ -31,6 +32,7 @@ exports[`matches snapshot 1`] = `
     enableReinitialize={true}
     initialValues={
       Object {
+        "additionalContactPersons": Array [],
         "address": "Testikuja 55, 00100 Helsinki",
         "addresses": Array [
           "Kymintie 43, 00100 Helsinki",
@@ -66,11 +68,12 @@ exports[`matches snapshot 1`] = `
         "_exclusive": Object {},
         "_mutate": undefined,
         "_nodes": Array [
-          "terms",
+          "additionalContactPersons",
           "phone",
           "approverEmail",
           "approverLastName",
           "approverFirstName",
+          "terms",
         ],
         "_options": Object {
           "abortEarly": true,
@@ -83,6 +86,176 @@ exports[`matches snapshot 1`] = `
           "refs": Map {},
         },
         "fields": Object {
+          "additionalContactPersons": ArraySchema {
+            "_blacklist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "_conditions": Array [],
+            "_deps": Array [],
+            "_exclusive": Object {},
+            "_mutate": undefined,
+            "_options": Object {
+              "abortEarly": true,
+              "recursive": true,
+            },
+            "_subType": ObjectSchema {
+              "_blacklist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "_conditions": Array [],
+              "_defaultDefault": [Function],
+              "_deps": Array [],
+              "_excludedEdges": Array [],
+              "_exclusive": Object {},
+              "_mutate": undefined,
+              "_nodes": Array [
+                "email",
+                "phone",
+                "lastName",
+                "firstName",
+              ],
+              "_options": Object {
+                "abortEarly": true,
+                "recursive": true,
+              },
+              "_type": "object",
+              "_typeError": [Function],
+              "_whitelist": RefSet {
+                "list": Set {},
+                "refs": Map {},
+              },
+              "fields": Object {
+                "email": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [],
+                  "_deps": Array [],
+                  "_exclusive": Object {
+                    "required": true,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
+                  ],
+                },
+                "firstName": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [],
+                  "_deps": Array [],
+                  "_exclusive": Object {
+                    "required": true,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
+                  ],
+                },
+                "lastName": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [],
+                  "_deps": Array [],
+                  "_exclusive": Object {
+                    "required": true,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
+                  ],
+                },
+                "phone": StringSchema {
+                  "_blacklist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "_conditions": Array [],
+                  "_deps": Array [],
+                  "_exclusive": Object {
+                    "required": true,
+                  },
+                  "_mutate": undefined,
+                  "_options": Object {
+                    "abortEarly": true,
+                    "recursive": true,
+                  },
+                  "_type": "string",
+                  "_typeError": [Function],
+                  "_whitelist": RefSet {
+                    "list": Set {},
+                    "refs": Map {},
+                  },
+                  "tests": Array [
+                    [Function],
+                  ],
+                  "transforms": Array [
+                    [Function],
+                  ],
+                },
+              },
+              "tests": Array [],
+              "transforms": Array [
+                [Function],
+              ],
+            },
+            "_type": "array",
+            "_typeError": [Function],
+            "_whitelist": RefSet {
+              "list": Set {},
+              "refs": Map {},
+            },
+            "tests": Array [],
+            "transforms": Array [
+              [Function],
+            ],
+          },
           "approverEmail": StringSchema {
             "_blacklist": RefSet {
               "list": Set {},
@@ -91,7 +264,8 @@ exports[`matches snapshot 1`] = `
             "_conditions": Array [],
             "_deps": Array [],
             "_exclusive": Object {
-              "max": true,
+              "required": true,
+              "undefined": false,
             },
             "_mutate": undefined,
             "_options": Object {
@@ -105,6 +279,7 @@ exports[`matches snapshot 1`] = `
               "refs": Map {},
             },
             "tests": Array [
+              [Function],
               [Function],
             ],
             "transforms": Array [
@@ -120,6 +295,8 @@ exports[`matches snapshot 1`] = `
             "_deps": Array [],
             "_exclusive": Object {
               "max": true,
+              "min": true,
+              "required": true,
             },
             "_mutate": undefined,
             "_options": Object {
@@ -133,6 +310,8 @@ exports[`matches snapshot 1`] = `
               "refs": Map {},
             },
             "tests": Array [
+              [Function],
+              [Function],
               [Function],
             ],
             "transforms": Array [
@@ -148,6 +327,8 @@ exports[`matches snapshot 1`] = `
             "_deps": Array [],
             "_exclusive": Object {
               "max": true,
+              "min": true,
+              "required": true,
             },
             "_mutate": undefined,
             "_options": Object {
@@ -162,6 +343,8 @@ exports[`matches snapshot 1`] = `
             },
             "tests": Array [
               [Function],
+              [Function],
+              [Function],
             ],
             "transforms": Array [
               [Function],
@@ -175,8 +358,8 @@ exports[`matches snapshot 1`] = `
             "_conditions": Array [],
             "_deps": Array [],
             "_exclusive": Object {
-              "max": true,
               "min": true,
+              "required": true,
             },
             "_mutate": undefined,
             "_options": Object {
@@ -228,6 +411,7 @@ exports[`matches snapshot 1`] = `
         "tests": Array [],
         "transforms": Array [
           [Function],
+          [Function],
         ],
       }
     }
@@ -240,13 +424,13 @@ exports[`matches snapshot 1`] = `
       >
         <div>
           <Text
-            variant="h2"
+            variant="h1"
           >
-            <h2
-              className="text h2 "
+            <h1
+              className="text h1 "
             >
               Hyväksy jäsenyys
-            </h2>
+            </h1>
           </Text>
           <Text
             variant="info"
@@ -266,13 +450,13 @@ exports[`matches snapshot 1`] = `
         </div>
         <div>
           <Text
-            variant="h3"
+            variant="h2"
           >
-            <h3
-              className="text h3 "
+            <h2
+              className="text h2 "
             >
               Perustiedot
-            </h3>
+            </h2>
           </Text>
           <BasicInformationGrid
             addresses={
@@ -445,13 +629,13 @@ exports[`matches snapshot 1`] = `
         </div>
         <div>
           <Text
-            variant="h3"
+            variant="h2"
           >
-            <h3
-              className="text h3 "
+            <h2
+              className="text h2 "
             >
               Lisätiedot
-            </h3>
+            </h2>
           </Text>
           <InfoGrid>
             <div
@@ -514,22 +698,22 @@ exports[`matches snapshot 1`] = `
               >
                 <div>
                   <Text
+                    variant="h2"
+                  >
+                    <h2
+                      className="text h2 "
+                    >
+                      Huoltajalta vaadittavat luvat
+                    </h2>
+                  </Text>
+                  <Text
                     variant="h3"
                   >
                     <h3
                       className="text h3 "
                     >
-                      Huoltajalta vaadittavat luvat
-                    </h3>
-                  </Text>
-                  <Text
-                    variant="h4"
-                  >
-                    <h4
-                      className="text h4 "
-                    >
                       Kuvauslupa
-                    </h4>
+                    </h3>
                   </Text>
                   <Text
                     variant="info"
@@ -651,13 +835,13 @@ exports[`matches snapshot 1`] = `
                 </div>
                 <div>
                   <Text
-                    variant="h3"
+                    variant="h2"
                   >
-                    <h3
-                      className="text h3 "
+                    <h2
+                      className="text h2 "
                     >
                       Huoltajan tiedot
-                    </h3>
+                    </h2>
                   </Text>
                   <Text
                     variant="info"
@@ -668,278 +852,420 @@ exports[`matches snapshot 1`] = `
                       Huoltajaan voidaan olla yhteydessä lasta koskevissa asioissa.
                     </p>
                   </Text>
-                  <div
-                    className="formFields"
+                  <YouthProfileApproverFields
+                    additionalContactPersonHelperText="Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa."
                   >
-                    <Field
-                      as={
-                        Object {
-                          "$$typeof": Symbol(react.forward_ref),
-                          "render": [Function],
-                        }
-                      }
-                      className="formField"
-                      helperText=""
-                      id="approverFirstName"
-                      invalid={0}
-                      labelText="Etunimi"
-                      name="approverFirstName"
+                    <Stack
+                      space="xl"
                     >
-                      <ForwardRef
-                        className="formField"
-                        helperText=""
-                        id="approverFirstName"
-                        invalid={0}
-                        labelText="Etunimi"
-                        name="approverFirstName"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="Ville"
+                      <div
+                        className="stack xl"
                       >
-                        <InputWrapper
-                          className="formField"
-                          helperText=""
-                          id="approverFirstName"
-                          invalid={0}
-                          labelText="Etunimi"
-                        >
+                        <YouthProfileFormGrid>
                           <div
-                            className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
+                            className="formGrid vertical-default"
                           >
-                            <FieldLabel
-                              hidden={false}
-                              inputId="approverFirstName"
-                              label="Etunimi"
-                              required={false}
+                            <FormikTestInput
+                              id="approverFirstName"
+                              labelText="Etunimi *"
+                              name="approverFirstName"
                             >
-                              <label
-                                className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                                htmlFor="approverFirstName"
-                              >
-                                Etunimi
-                              </label>
-                            </FieldLabel>
-                            <div
-                              className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
-                            >
-                              <input
-                                className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                                disabled={false}
-                                id="approverFirstName"
+                              <Field
                                 name="approverFirstName"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                type="text"
-                                value="Ville"
-                              />
-                            </div>
-                          </div>
-                        </InputWrapper>
-                      </ForwardRef>
-                    </Field>
-                    <Field
-                      as={
-                        Object {
-                          "$$typeof": Symbol(react.forward_ref),
-                          "render": [Function],
-                        }
-                      }
-                      className="formField"
-                      helperText=""
-                      id="approverLastName"
-                      invalid={0}
-                      labelText="Sukunimi"
-                      name="approverLastName"
-                    >
-                      <ForwardRef
-                        className="formField"
-                        helperText=""
-                        id="approverLastName"
-                        invalid={0}
-                        labelText="Sukunimi"
-                        name="approverLastName"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        value="Vanhempi"
-                      >
-                        <InputWrapper
-                          className="formField"
-                          helperText=""
-                          id="approverLastName"
-                          invalid={0}
-                          labelText="Sukunimi"
-                        >
-                          <div
-                            className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
-                          >
-                            <FieldLabel
-                              hidden={false}
-                              inputId="approverLastName"
-                              label="Sukunimi"
-                              required={false}
-                            >
-                              <label
-                                className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                                htmlFor="approverLastName"
                               >
-                                Sukunimi
-                              </label>
-                            </FieldLabel>
-                            <div
-                              className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                <ForwardRef
+                                  id="approverFirstName"
+                                  invalid={false}
+                                  labelText="Etunimi *"
+                                  name="approverFirstName"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="Ville"
+                                >
+                                  <InputWrapper
+                                    className=""
+                                    id="approverFirstName"
+                                    invalid={false}
+                                    labelText="Etunimi *"
+                                  >
+                                    <div
+                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
+                                    >
+                                      <FieldLabel
+                                        hidden={false}
+                                        inputId="approverFirstName"
+                                        label="Etunimi *"
+                                        required={false}
+                                      >
+                                        <label
+                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                          htmlFor="approverFirstName"
+                                        >
+                                          Etunimi *
+                                        </label>
+                                      </FieldLabel>
+                                      <div
+                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                      >
+                                        <input
+                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                          disabled={false}
+                                          id="approverFirstName"
+                                          name="approverFirstName"
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          type="text"
+                                          value="Ville"
+                                        />
+                                      </div>
+                                    </div>
+                                  </InputWrapper>
+                                </ForwardRef>
+                              </Field>
+                            </FormikTestInput>
+                            <FormikTestInput
+                              id="approverLastName"
+                              labelText="Sukunimi *"
+                              name="approverLastName"
                             >
-                              <input
-                                className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                                disabled={false}
-                                id="approverLastName"
+                              <Field
                                 name="approverLastName"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                type="text"
-                                value="Vanhempi"
-                              />
-                            </div>
-                          </div>
-                        </InputWrapper>
-                      </ForwardRef>
-                    </Field>
-                    <Field
-                      as={
-                        Object {
-                          "$$typeof": Symbol(react.forward_ref),
-                          "render": [Function],
-                        }
-                      }
-                      className="formField"
-                      helperText=""
-                      id="approverEmail"
-                      invalid={0}
-                      labelText="Sähköposti"
-                      name="approverEmail"
-                      type="email"
-                    >
-                      <ForwardRef
-                        className="formField"
-                        helperText=""
-                        id="approverEmail"
-                        invalid={0}
-                        labelText="Sähköposti"
-                        name="approverEmail"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        type="email"
-                        value="ville.vanhempi@test.fi"
-                      >
-                        <InputWrapper
-                          className="formField"
-                          helperText=""
-                          id="approverEmail"
-                          invalid={0}
-                          labelText="Sähköposti"
-                        >
-                          <div
-                            className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
-                          >
-                            <FieldLabel
-                              hidden={false}
-                              inputId="approverEmail"
-                              label="Sähköposti"
-                              required={false}
-                            >
-                              <label
-                                className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                                htmlFor="approverEmail"
                               >
-                                Sähköposti
-                              </label>
-                            </FieldLabel>
-                            <div
-                              className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                <ForwardRef
+                                  id="approverLastName"
+                                  invalid={false}
+                                  labelText="Sukunimi *"
+                                  name="approverLastName"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  value="Vanhempi"
+                                >
+                                  <InputWrapper
+                                    className=""
+                                    id="approverLastName"
+                                    invalid={false}
+                                    labelText="Sukunimi *"
+                                  >
+                                    <div
+                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
+                                    >
+                                      <FieldLabel
+                                        hidden={false}
+                                        inputId="approverLastName"
+                                        label="Sukunimi *"
+                                        required={false}
+                                      >
+                                        <label
+                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                          htmlFor="approverLastName"
+                                        >
+                                          Sukunimi *
+                                        </label>
+                                      </FieldLabel>
+                                      <div
+                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                      >
+                                        <input
+                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                          disabled={false}
+                                          id="approverLastName"
+                                          name="approverLastName"
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          type="text"
+                                          value="Vanhempi"
+                                        />
+                                      </div>
+                                    </div>
+                                  </InputWrapper>
+                                </ForwardRef>
+                              </Field>
+                            </FormikTestInput>
+                            <FormikTestInput
+                              id="approverEmail"
+                              labelText="Sähköpostiosoite *"
+                              name="approverEmail"
+                              type="email"
                             >
-                              <input
-                                className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                                disabled={false}
-                                id="approverEmail"
+                              <Field
                                 name="approverEmail"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                type="email"
-                                value="ville.vanhempi@test.fi"
-                              />
-                            </div>
-                          </div>
-                        </InputWrapper>
-                      </ForwardRef>
-                    </Field>
-                    <Field
-                      as={
-                        Object {
-                          "$$typeof": Symbol(react.forward_ref),
-                          "render": [Function],
-                        }
-                      }
-                      className="formField"
-                      helperText=""
-                      id="approverPhone"
-                      invalid={0}
-                      labelText="Puhelin"
-                      name="approverPhone"
-                      type="tel"
-                    >
-                      <ForwardRef
-                        className="formField"
-                        helperText=""
-                        id="approverPhone"
-                        invalid={0}
-                        labelText="Puhelin"
-                        name="approverPhone"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        type="tel"
-                        value="05012345567"
-                      >
-                        <InputWrapper
-                          className="formField"
-                          helperText=""
-                          id="approverPhone"
-                          invalid={0}
-                          labelText="Puhelin"
-                        >
-                          <div
-                            className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6 formField"
-                          >
-                            <FieldLabel
-                              hidden={false}
-                              inputId="approverPhone"
-                              label="Puhelin"
-                              required={false}
-                            >
-                              <label
-                                className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                                htmlFor="approverPhone"
                               >
-                                Puhelin
-                              </label>
-                            </FieldLabel>
-                            <div
-                              className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                <ForwardRef
+                                  id="approverEmail"
+                                  invalid={false}
+                                  labelText="Sähköpostiosoite *"
+                                  name="approverEmail"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  type="email"
+                                  value="ville.vanhempi@test.fi"
+                                >
+                                  <InputWrapper
+                                    className=""
+                                    id="approverEmail"
+                                    invalid={false}
+                                    labelText="Sähköpostiosoite *"
+                                  >
+                                    <div
+                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
+                                    >
+                                      <FieldLabel
+                                        hidden={false}
+                                        inputId="approverEmail"
+                                        label="Sähköpostiosoite *"
+                                        required={false}
+                                      >
+                                        <label
+                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                          htmlFor="approverEmail"
+                                        >
+                                          Sähköpostiosoite *
+                                        </label>
+                                      </FieldLabel>
+                                      <div
+                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                      >
+                                        <input
+                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                          disabled={false}
+                                          id="approverEmail"
+                                          name="approverEmail"
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          type="email"
+                                          value="ville.vanhempi@test.fi"
+                                        />
+                                      </div>
+                                    </div>
+                                  </InputWrapper>
+                                </ForwardRef>
+                              </Field>
+                            </FormikTestInput>
+                            <FormikTestInput
+                              id="approverPhone"
+                              labelText="Puhelinnumero *"
+                              name="approverPhone"
+                              type="tel"
                             >
-                              <input
-                                className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                                disabled={false}
-                                id="approverPhone"
+                              <Field
                                 name="approverPhone"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                type="tel"
-                                value="05012345567"
-                              />
-                            </div>
+                              >
+                                <ForwardRef
+                                  id="approverPhone"
+                                  invalid={false}
+                                  labelText="Puhelinnumero *"
+                                  name="approverPhone"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  type="tel"
+                                  value="05012345567"
+                                >
+                                  <InputWrapper
+                                    className=""
+                                    id="approverPhone"
+                                    invalid={false}
+                                    labelText="Puhelinnumero *"
+                                  >
+                                    <div
+                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
+                                    >
+                                      <FieldLabel
+                                        hidden={false}
+                                        inputId="approverPhone"
+                                        label="Puhelinnumero *"
+                                        required={false}
+                                      >
+                                        <label
+                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                          htmlFor="approverPhone"
+                                        >
+                                          Puhelinnumero *
+                                        </label>
+                                      </FieldLabel>
+                                      <div
+                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                      >
+                                        <input
+                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                          disabled={false}
+                                          id="approverPhone"
+                                          name="approverPhone"
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          type="tel"
+                                          value="05012345567"
+                                        />
+                                      </div>
+                                    </div>
+                                  </InputWrapper>
+                                </ForwardRef>
+                              </Field>
+                            </FormikTestInput>
                           </div>
-                        </InputWrapper>
-                      </ForwardRef>
-                    </Field>
-                  </div>
+                        </YouthProfileFormGrid>
+                        <FormGroupDescription
+                          className="additionalApproverDescription"
+                          description="Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa."
+                          name="additionalContactPersons"
+                        />
+                        <ArrayFieldTemplate
+                          addItemLabel="Lisää toisen huoltajan yhteystiedot"
+                          name="additionalContactPersons"
+                          onPushItem={[Function]}
+                          renderField={[Function]}
+                        >
+                          <FormikConnect(FieldArrayInner)
+                            name="additionalContactPersons"
+                            render={[Function]}
+                          >
+                            <FieldArrayInner
+                              formik={
+                                Object {
+                                  "dirty": false,
+                                  "errors": Object {},
+                                  "getFieldMeta": [Function],
+                                  "getFieldProps": [Function],
+                                  "handleBlur": [Function],
+                                  "handleChange": [Function],
+                                  "handleReset": [Function],
+                                  "handleSubmit": [Function],
+                                  "initialErrors": Object {},
+                                  "initialStatus": undefined,
+                                  "initialTouched": Object {},
+                                  "initialValues": Object {
+                                    "additionalContactPersons": Array [],
+                                    "address": "Testikuja 55, 00100 Helsinki",
+                                    "addresses": Array [
+                                      "Kymintie 43, 00100 Helsinki",
+                                    ],
+                                    "approverEmail": "ville.vanhempi@test.fi",
+                                    "approverFirstName": "Ville",
+                                    "approverLastName": "Vanhempi",
+                                    "approverPhone": "05012345567",
+                                    "birthDate": "2006-01-01",
+                                    "email": "teemu.testaaja@test.fi",
+                                    "firstName": "Teemu",
+                                    "language": "FINNISH",
+                                    "languageAtHome": "FINNISH",
+                                    "lastName": "Testaaja",
+                                    "phone": "050123467",
+                                    "photoUsageApproved": "false",
+                                    "schoolClass": "Luokka",
+                                    "schoolName": "Koulu",
+                                    "terms": false,
+                                  },
+                                  "isSubmitting": false,
+                                  "isValid": true,
+                                  "isValidating": false,
+                                  "registerField": [Function],
+                                  "resetForm": [Function],
+                                  "setErrors": [Function],
+                                  "setFieldError": [Function],
+                                  "setFieldTouched": [Function],
+                                  "setFieldValue": [Function],
+                                  "setFormikState": [Function],
+                                  "setStatus": [Function],
+                                  "setSubmitting": [Function],
+                                  "setTouched": [Function],
+                                  "setValues": [Function],
+                                  "status": undefined,
+                                  "submitCount": 0,
+                                  "submitForm": [Function],
+                                  "touched": Object {},
+                                  "unregisterField": [Function],
+                                  "validateField": [Function],
+                                  "validateForm": [Function],
+                                  "validateOnBlur": true,
+                                  "validateOnChange": true,
+                                  "validateOnMount": false,
+                                  "values": Object {
+                                    "additionalContactPersons": Array [],
+                                    "address": "Testikuja 55, 00100 Helsinki",
+                                    "addresses": Array [
+                                      "Kymintie 43, 00100 Helsinki",
+                                    ],
+                                    "approverEmail": "ville.vanhempi@test.fi",
+                                    "approverFirstName": "Ville",
+                                    "approverLastName": "Vanhempi",
+                                    "approverPhone": "05012345567",
+                                    "birthDate": "2006-01-01",
+                                    "email": "teemu.testaaja@test.fi",
+                                    "firstName": "Teemu",
+                                    "language": "FINNISH",
+                                    "languageAtHome": "FINNISH",
+                                    "lastName": "Testaaja",
+                                    "phone": "050123467",
+                                    "photoUsageApproved": "false",
+                                    "schoolClass": "Luokka",
+                                    "schoolName": "Koulu",
+                                    "terms": false,
+                                  },
+                                }
+                              }
+                              name="additionalContactPersons"
+                              render={[Function]}
+                              validateOnChange={true}
+                            >
+                              <Stack
+                                space="m"
+                              >
+                                <div
+                                  className="stack m"
+                                >
+                                  <ForwardRef
+                                    className="addItemButton"
+                                    iconLeft={<IconPlusCircle />}
+                                    onClick={[Function]}
+                                    type="button"
+                                    variant="supplementary"
+                                  >
+                                    <button
+                                      className="Button-module_button__3wgee button_hds-button__2A0je Button-module_supplementary__3Epn- button_hds-button--supplementary__GcHcV addItemButton"
+                                      disabled={false}
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      <div
+                                        aria-hidden="true"
+                                        className="Button-module_icon__3Wlc6 button_hds-icon__17j8Z"
+                                      >
+                                        <IconPlusCircle>
+                                          <svg
+                                            className="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                                            style={Object {}}
+                                            viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <g
+                                              fill="none"
+                                              fillRule="evenodd"
+                                            >
+                                              <path
+                                                d="M0 0h24v24H0z"
+                                              />
+                                              <path
+                                                d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm1 3v4h4v2h-4v4h-2v-4H7v-2h4V7h2z"
+                                                fill="currentColor"
+                                              />
+                                            </g>
+                                          </svg>
+                                        </IconPlusCircle>
+                                      </div>
+                                      <span
+                                        className="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+                                      >
+                                        Lisää toisen huoltajan yhteystiedot
+                                      </span>
+                                    </button>
+                                  </ForwardRef>
+                                </div>
+                              </Stack>
+                            </FieldArrayInner>
+                          </FormikConnect(FieldArrayInner)>
+                        </ArrayFieldTemplate>
+                      </div>
+                    </Stack>
+                  </YouthProfileApproverFields>
                 </div>
                 <TermsField
                   id="terms"

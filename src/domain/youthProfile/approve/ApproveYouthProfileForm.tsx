@@ -1,10 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Field, Form, Formik } from 'formik';
-import * as Yup from 'yup';
 import { differenceInYears } from 'date-fns';
-import { Button, TextInput, RadioButton } from 'hds-react';
+import { Button, RadioButton } from 'hds-react';
 
+import {
+  CreateAdditionalContactPersonInput,
+  UpdateAdditionalContactPersonInput,
+} from '../../../graphql/generatedTypes';
 import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import LabeledValue from '../../../common/components/labeledValue/LabeledValue';
 import Text from '../../../common/components/text/Text';
@@ -12,18 +15,10 @@ import Stack from '../../../common/components/stack/Stack';
 import TermsField from '../../../common/components/termsField/TermsField';
 import BasicInformationGrid from '../../../common/components/basicInformationGrid/BasicInformationGrid';
 import InfoGrid from '../../../common/components/infoGrid/InfoGrid';
+import YouthProfileApproverFields from '../../youthProfile/form/YouthProfileApproverFields';
+import { approveYouthProfileFormSchema } from '../youthProfileSchemas';
 import ageConstants from '../constants/ageConstants';
 import styles from './approveYouthProfileForm.module.css';
-
-const schema = Yup.object().shape({
-  approverFirstName: Yup.string().max(255, 'validation.maxLength'),
-  approverLastName: Yup.string().max(255, 'validation.maxLength'),
-  approverEmail: Yup.string().max(255, 'validation.maxLength'),
-  phone: Yup.string()
-    .min(6, 'validation.phoneMin')
-    .max(255, 'validation.maxLength'),
-  terms: Yup.boolean().oneOf([true], 'validation.required'),
-});
 
 export type FormValues = {
   firstName: string;
@@ -42,6 +37,10 @@ export type FormValues = {
   approverEmail: string;
   photoUsageApproved: string;
   languageAtHome: string;
+  additionalContactPersons: (
+    | CreateAdditionalContactPersonInput
+    | UpdateAdditionalContactPersonInput
+  )[];
 };
 
 type Props = {
@@ -65,20 +64,20 @@ function ApproveYouthProfileForm(props: Props) {
         terms: false,
       }}
       onSubmit={({ terms, ...values }) => props.onSubmit(values)}
-      validationSchema={schema}
+      validationSchema={approveYouthProfileFormSchema}
       enableReinitialize={true}
     >
       {props => (
         <Stack space="xl">
           <div>
-            <Text variant="h2">{t('approval.title')}</Text>
+            <Text variant="h1">{t('approval.title')}</Text>
             <Text variant="info">
               {props.values.firstName} {t('approval.formExplanationText_1')}{' '}
               {props.values.firstName} {t('approval.formExplanationText_2')}
             </Text>
           </div>
           <div>
-            <Text variant="h3">{t('approval.basicInfo')}</Text>
+            <Text variant="h2">{t('approval.basicInfo')}</Text>
             <BasicInformationGrid
               name={`${props.values.firstName} ${props.values.lastName}`}
               addresses={[props.values.address, ...props.values.addresses]}
@@ -89,7 +88,7 @@ function ApproveYouthProfileForm(props: Props) {
             />
           </div>
           <div>
-            <Text variant="h3">{t('approval.addInfo')}</Text>
+            <Text variant="h2">{t('approval.addInfo')}</Text>
             <InfoGrid>
               <LabeledValue
                 label={t('approval.schoolInfo')}
@@ -108,8 +107,8 @@ function ApproveYouthProfileForm(props: Props) {
               <div>
                 {age < ageConstants.PHOTO_PERMISSION_MIN && (
                   <React.Fragment>
-                    <Text variant="h3">{t('approval.approverAcceptance')}</Text>
-                    <Text variant="h4">{t('approval.photoUsageApproved')}</Text>
+                    <Text variant="h2">{t('approval.approverAcceptance')}</Text>
+                    <Text variant="h3">{t('approval.photoUsageApproved')}</Text>
                     <Text variant="info">
                       {t('approval.photoUsageApprovedText')}
                     </Text>
@@ -143,66 +142,13 @@ function ApproveYouthProfileForm(props: Props) {
                 )}
               </div>
               <div>
-                <Text variant="h3">{t('approval.approverInfo')}</Text>
+                <Text variant="h2">{t('approval.approverInfo')}</Text>
                 <Text variant="info">{t('approval.approverInfoText')}</Text>
-                <div className={styles.formFields}>
-                  <Field
-                    className={styles.formField}
-                    as={TextInput}
-                    id="approverFirstName"
-                    name="approverFirstName"
-                    invalid={
-                      props.submitCount && props.errors.approverFirstName
-                    }
-                    helperText={
-                      props.submitCount && props.errors.approverFirstName
-                        ? t(props.errors.approverFirstName)
-                        : ''
-                    }
-                    labelText={t('approval.approverFirstName')}
-                  />
-                  <Field
-                    className={styles.formField}
-                    as={TextInput}
-                    id="approverLastName"
-                    name="approverLastName"
-                    invalid={props.submitCount && props.errors.approverLastName}
-                    helperText={
-                      props.submitCount && props.errors.approverLastName
-                        ? t(props.errors.approverLastName)
-                        : ''
-                    }
-                    labelText={t('approval.approverLastName')}
-                  />
-                  <Field
-                    className={styles.formField}
-                    as={TextInput}
-                    id="approverEmail"
-                    name="approverEmail"
-                    type="email"
-                    invalid={props.submitCount && props.errors.phone}
-                    helperText={
-                      props.submitCount && props.errors.phone
-                        ? t(props.errors.phone)
-                        : ''
-                    }
-                    labelText={t('approval.approverEmail')}
-                  />
-                  <Field
-                    className={styles.formField}
-                    as={TextInput}
-                    id="approverPhone"
-                    name="approverPhone"
-                    type="tel"
-                    invalid={props.submitCount && props.errors.phone}
-                    helperText={
-                      props.submitCount && props.errors.phone
-                        ? t(props.errors.phone)
-                        : ''
-                    }
-                    labelText={t('approval.phone')}
-                  />
-                </div>
+                <YouthProfileApproverFields
+                  additionalContactPersonHelperText={t(
+                    'approval.addGuardianText'
+                  )}
+                />
               </div>
               <TermsField id="terms" name="terms" />
               <Button className={styles.button} type="submit">

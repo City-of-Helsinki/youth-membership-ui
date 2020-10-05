@@ -1,6 +1,7 @@
 {
   "appName": "Jässäri",
   "approval": {
+    "addGuardianText": "Other added guardians may be contacted in matters concerning the child.",
     "addInfo": "Additional info",
     "additionalAddresses": "Additional addresses",
     "address": "Home address",
@@ -30,6 +31,16 @@
     "profile": "Profile",
     "schoolInfo": "School and class",
     "title": "Please approve membership"
+  },
+  "authentication": {
+    "deviceTimeError": {
+      "message": "Believe it or not, but we can’t allow you to log in because the clock on your device is off by more than five minutes. Please set the time and try again."
+    },
+    "permRequestDenied": {
+      "message": "You need to approve our request to access your Tunnistamo profile in order to use this service. Please try logging in again."
+    },
+    "errorTitle": "Oops!",
+    "errorMessage": "An error occured while logging in. Please try again"
   },
   "confirmSendingProfile": {
     "buttonText": "Resend the membership request",
@@ -88,6 +99,9 @@
     "title": "Membership card number {{number}}",
     "validUntil": "Valid until {{date}}"
   },
+  "meta": {
+    "description": "Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers."
+  },
   "nav": {
     "menuButtonLabel": "Profile menu",
     "profile": "Helsinki Profile",
@@ -132,12 +146,14 @@
     "city": "City",
     "confirmSend": "Accept the terms and send the application",
     "country": "Country",
-    "dateInvalid": "The date does not exist",
+    "date": "Date",
+    "dateInvalid": "Invalid date",
     "email": "Email",
     "firstName": "Firstname",
     "languageAtHome": "Language at home",
     "lastName": "Lastname",
     "membershipInfoText": "Membership is free and does not require anything of you, but you do need a membership to be able to participate in activities at Youth Centres. We will not disclose your information to third parties. You have the right to check and remove the information we have stored concerning you. Please remember that intoxicants are not allowed at Youth Centre activities. ",
+    "month": "Month",
     "phoneNumber": "Phone",
     "photoUsageApproved": "Photo usage approved",
     "photoUsageApprovedNo": "No",
@@ -151,9 +167,10 @@
     "schoolName": "School name",
     "sendButton": "Save and send approval request",
     "title": "Please fill in your information",
+    "year": "Year",
     "addAddress": "Add another address",
     "addGuardian": "Add another guardian's information ",
-    "addGuardianText": "We will notify the other guardian about them being added to the application.",
+    "addGuardianText": "If necessary other guardians may be contacted in matters relating to your youth membership.",
     "remove": "Delete"
   },
   "registry": {

@@ -1,6 +1,7 @@
 {
   "appName": "Jässäri",
   "approval": {
+    "addGuardianText": "Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa.",
     "addInfo": "Lisätiedot",
     "additionalAddresses": "Muut osoitteet",
     "address": "Kotiosoite",
@@ -30,6 +31,16 @@
     "profile": "Profiili",
     "schoolInfo": "Koulu ja luokka",
     "title": "Hyväksy jäsenyys"
+  },
+  "authentication": {
+    "deviceTimeError": {
+      "message": "Usko tai älä usko, mutta et voi kirjautua sisään koska laitteesi kello on yli 5 minuuttia väärässä. Säädä kelloa ja kokeile uudestaan."
+    },
+    "permRequestDenied": {
+      "message": "Sinun täytyy hyväksyä pyytämämme oikeudet Tunnistamossa käyttääksesi tätä palvelua. Ole hyvä ja yritä kirjautua uudelleen."
+    },
+    "errorTitle": "Hupsista!",
+    "errorMessage": "Tapahtui virhe. Yritä uudestaan"
   },
   "confirmSendingProfile": {
     "buttonText": "Lähetä uusi varmistusviesti",
@@ -88,6 +99,9 @@
     "title": "Jäsenkortin numero {{number}}",
     "validUntil": "Voimassa {{date}} asti"
   },
+  "meta": {
+    "description": "Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat."
+  },
   "nav": {
     "menuButtonLabel": "Profiili valikko",
     "profile": "Helsinki-profiili",
@@ -132,12 +146,14 @@
     "city": "Kaupunki",
     "confirmSend": "Hyväksy ehdot ja lähetä hakemus",
     "country": "Maa",
-    "dateInvalid": "Päivää ei ole olemassa",
+    "date": "Päivä",
+    "dateInvalid": "Päivämäärä ei kelpaa",
     "email": "Sähköpostiosoite",
     "firstName": "Etunimi",
     "languageAtHome": "Kotona puhuttu kieli",
     "lastName": "Sukunimi",
     "membershipInfoText": "Jäsenyys on ilmainen, eikä se velvoita sinua mihinkään, mutta jäsenyyden hankinta on edellytys nuorisotilojen toimintaan osallistumiselle. Emme luovuta antamiasi yhteystietoja eteenpäin. Sinulla on myös oikeus tarkistaa ja poistaa itseäsi koskevat tiedot. Muistathan, että nuorisopalvelujen toiminta on päihteetöntä. ",
+    "month": "Kuukausi",
     "phoneNumber": "Puhelinnumero",
     "photoUsageApproved": "Kuvauslupa",
     "photoUsageApprovedNo": "Ei",
@@ -151,9 +167,10 @@
     "schoolName": "Koulu",
     "sendButton": "Tallenna tiedot ja lähetä varmistuspyyntö",
     "title": "Täytä tietosi",
+    "year": "Vuosi",
     "addAddress": "Lisää toinen osoite",
     "addGuardian": "Lisää toisen huoltajan yhteystiedot",
-    "addGuardianText": "Toiselle huoltajalle lähtee ilmoitus, että olet lisännyt hänen tietonsa hakemukseesi.",
+    "addGuardianText": "Muihin ilmoittamiisi huoltajiin voidaan olla tarvittaessa yhteydessä nuorisojäsenyyteesi liittyvissä asioissa.",
     "remove": "Poista"
   },
   "registry": {

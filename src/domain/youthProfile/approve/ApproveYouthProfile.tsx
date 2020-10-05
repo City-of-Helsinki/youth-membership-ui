@@ -6,6 +6,7 @@ import convertBooleanToString from '../../../common/helpers/convertBooleanToStri
 import PageSection from '../../../common/components/layout/PageSection';
 import getAddress from '../../membership/helpers/getAddress';
 import getAddresses from '../../membership/helpers/getAddresses';
+import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';
 import ConfirmApprovingYouthProfile from './ConfirmApprovingYouthProfile';
 import ApproveYouthProfileForm, { FormValues } from './ApproveYouthProfileForm';
 
@@ -56,6 +57,9 @@ function ApproveYouthProfile({ isApprovalSuccessful, data, onSubmit }: Props) {
             ),
             languageAtHome:
               data?.youthProfileByApprovalToken?.languageAtHome || '',
+            additionalContactPersons: getAdditionalContactPersons(
+              data?.youthProfileByApprovalToken
+            ),
           }}
           onSubmit={onSubmit}
         />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'hds-react';
 import { Form, Formik, FormikProps } from 'formik';
@@ -21,7 +21,7 @@ import Text from '../../../common/components/text/Text';
 import Stack from '../../../common/components/stack/Stack';
 import TermsField from '../../../common/components/termsField/TermsField';
 import ageConstants from '../constants/ageConstants';
-import youthProfileFormSchema from './youthProfileFormSchema';
+import { youthProfileFormSchema } from '../youthProfileSchemas';
 import YouthProfileBasicInformationFields from './YouthProfileBasicInformationFields';
 import YouthProfileAdditionalInformationFields from './YouthProfileAdditionalInformationFields';
 import YouthProfileApproverFields from './YouthProfileApproverFields';
@@ -64,21 +64,12 @@ type Props = {
 
 function YouthProfileForm(componentProps: Props) {
   const { t } = useTranslation();
+  const [formIsSubmitted, setFormIsSubmitted] = useState<boolean>(false);
 
   const userAge = differenceInYears(
     new Date(),
     new Date(componentProps.profile.birthDate)
   );
-
-  // For now when using .when() in validation we can't use
-  // schema.describe().fields[name].tests to determine if field is required or not.
-  // Validation rules returned from .when() won't be added there.
-  // For this reason determining asterisk usage must
-  // be done with this function
-  const approverLabelText = (name: string) => {
-    if (userAge < ageConstants.ADULT) return t(`registration.${name}`) + ' *';
-    return t(`registration.${name}`);
-  };
 
   return (
     <Formik
@@ -102,10 +93,13 @@ function YouthProfileForm(componentProps: Props) {
         },
       }}
       onSubmit={async (values: FormValues) => {
-        componentProps.onValues({
-          ...values,
-          addresses: [...values.addresses, { ...values.primaryAddress }],
-        });
+        if (!formIsSubmitted) {
+          setFormIsSubmitted(true);
+          componentProps.onValues({
+            ...values,
+            addresses: [...values.addresses, { ...values.primaryAddress }],
+          });
+        }
       }}
       validationSchema={youthProfileFormSchema}
     >
@@ -142,7 +136,10 @@ function YouthProfileForm(componentProps: Props) {
               </Text>
 
               <YouthProfileApproverFields
-                approverLabelText={approverLabelText}
+                additionalContactPersonHelperText={t(
+                  'registration.addGuardianText'
+                )}
+                isApproverFieldsRequired={userAge < ageConstants.ADULT}
               />
             </PageSection>
             <PageSection>
