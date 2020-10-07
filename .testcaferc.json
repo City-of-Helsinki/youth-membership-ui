@@ -1,5 +1,0 @@
-{
-  "src": [
-    "browser-tests/loginView.ts", "browser-tests/registrationView.ts", "browser-tests/membershipView.ts"
-  ]
-}

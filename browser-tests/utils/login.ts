@@ -1,5 +1,5 @@
 import { loginSelector } from '../pages/loginSelector';
-import { username, password } from './settings';
+import { username, password, usernameWithExistingProfile } from './settings';
 import { format, subYears } from 'date-fns';
 
 type UserAge = 'minor' | 'adult';
@@ -22,7 +22,7 @@ export const loginStraight = async (t: TestController) => {
   await t
     .click(loginSelector.straightLogin)
     .click(loginSelector.helLoginLink)
-    .typeText(loginSelector.helUsername, username())
+    .typeText(loginSelector.helUsername, usernameWithExistingProfile())
     .typeText(loginSelector.helPassword, password())
     .click(loginSelector.helLogin);
 };
