@@ -1,6 +1,7 @@
 import { Selector } from 'testcafe';
 export const loginSelector = {
   submitButton: Selector('button[type="submit"]'),
+  straightLogin: Selector('button').withText('Log in'),
   errorText: Selector('span[class="hds-text-input__helper-text"]'),
   day: Selector('input[id="ym-date-input-date-id"]'),
   month: Selector('input[id="ym-date-input-month-id"]'),
