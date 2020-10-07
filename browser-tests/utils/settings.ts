@@ -11,10 +11,18 @@ export const username = (): string => {
   return process.env.REACT_APP_TESTING_USERNAME;
 };
 
+export const usernameWithExistingProfile = (): string => {
+  if (!process.env.REACT_APP_TESTING_USERNAME_WITH_PROFILE) {
+    throw new Error('No REACT_APP_TESTING_USERNAME specified');
+  }
+  return process.env.REACT_APP_TESTING_USERNAME_WITH_PROFILE;
+};
+
 export const password = (): string => {
   if (!process.env.REACT_APP_TESTING_PASSWORD) {
     throw new Error('No REACT_APP_TESTING_PASSWORD specified');
   }
+
   return process.env.REACT_APP_TESTING_PASSWORD;
 };
 

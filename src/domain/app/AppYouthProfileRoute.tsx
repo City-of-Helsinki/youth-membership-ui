@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Route, Redirect, RouteProps } from 'react-router';
-import { useLazyQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import * as Sentry from '@sentry/browser';
 import { useTranslation } from 'react-i18next';
 import { isValid, parseISO } from 'date-fns';
-import { useSelector } from 'react-redux';
 
 import { HasYouthProfile } from '../../graphql/generatedTypes';
 import getCookie from '../../common/helpers/getCookie';
 import LoadingContent from '../../common/components/loading/LoadingContent';
 import NotificationComponent from '../../common/components/notification/NotificationComponent';
-import { isAuthenticatedSelector } from '../auth/redux';
+import authConstants from '../auth/constants/authConstants';
 
 const HAS_YOUTH_PROFILE = loader(
   '../youthProfile/graphql/HasYouthProfile.graphql'
@@ -23,21 +22,20 @@ function AppYouthProfileRoute(props: Props) {
   const { t } = useTranslation();
   const [showNotification, setShowNotification] = useState<boolean>(false);
 
-  const [loadProfile, { data, loading }] = useLazyQuery<HasYouthProfile>(
-    HAS_YOUTH_PROFILE,
-    {
-      onError: (error: Error) => {
-        Sentry.captureException(error);
-        setShowNotification(true);
-      },
-    }
-  );
-
-  const isAuthenticated = useSelector(isAuthenticatedSelector);
-
-  useEffect(() => {
-    if (isAuthenticated) loadProfile();
-  }, [isAuthenticated, loadProfile]);
+  const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
+    onError: error => {
+      // It's too difficult to block the profile from being loaded before authentication is finished.
+      // Instead we allow the UI to optimistically request the profile before it has the authorisation to do so.
+      // Because we ignore the subsequent permissions error, the user experience is not affected.
+      // Other errors should be shown to the user and be passed to Sentry.
+      error.graphQLErrors.forEach(qlError => {
+        if (qlError.message !== authConstants.PERMISSION_DENIED) {
+          Sentry.captureException(qlError);
+          setShowNotification(true);
+        }
+      });
+    },
+  });
 
   const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
   const birthDate = getCookie('birthDate');

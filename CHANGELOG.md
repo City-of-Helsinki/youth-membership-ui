@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [1.1.1] - 2020-10-07
+### Added
+- e2e - tests for viewing own information
+
+### Fixed 
+- Fixed issue with loading profile data after logging in
+
 ## [1.1.0] - 2020-10-05
 ### Added
 - Approvers can now control additional contact persons
