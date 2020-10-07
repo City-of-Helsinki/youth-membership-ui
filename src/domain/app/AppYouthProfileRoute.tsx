@@ -24,9 +24,10 @@ function AppYouthProfileRoute(props: Props) {
 
   const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
     onError: error => {
-      // Ignore permission errors. This decision was made based on the difficulty to add enough checks that slow down Redirecting.
-      // Using useLazyQuery with isAuthenticatedSelector won't fetch profile information fast enough and user is always
-      // redirected to LoginPage. If in the future permission error causes application to crash, some kind of custom hook is necessary.
+      // It's too difficult to block the profile from being loaded before authentication is finished.
+      // Instead we allow the UI to optimistically request the profile before it has the authorisation to do so.
+      // Because we ignore the subsequent permissions error, the user experience is not affected.
+      // Other errors should be shown to the user and be passed to Sentry.
       error.graphQLErrors.forEach(qlError => {
         if (qlError.message !== authConstants.PERMISSION_DENIED) {
           Sentry.captureException(qlError);
