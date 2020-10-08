@@ -17,7 +17,7 @@ function handleAge(
   formValues: FormValues
 ): YouthProfileFields {
   const age = differenceInYears(new Date(), new Date(formValues.birthDate));
-  const isOldEnough = age > ageConstants.PHOTO_PERMISSION_MIN;
+  const isOldEnough = age >= ageConstants.PHOTO_PERMISSION_MIN;
   const photoUsageApproved = formValues.photoUsageApproved === 'true';
 
   return isOldEnough
