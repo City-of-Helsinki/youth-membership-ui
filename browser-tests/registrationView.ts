@@ -1,11 +1,19 @@
+import MailosaurClient from 'mailosaur/lib/mailosaur';
 import { Selector } from 'testcafe';
 
+import { getApproverUrl } from './utils/valueUtils';
 import { login } from './utils/login';
-import { testURL } from './utils/settings';
+import { mailosaurApiKey, mailosaurServerId, testURL } from './utils/settings';
 import { registrationFormSelector } from './pages/registrationFormSelector';
 import { membershipInformationSelector } from './pages/membershipInformationSelector';
 
-fixture('Test registration form').page(testURL());
+const serverId = mailosaurServerId();
+const client = new MailosaurClient(mailosaurApiKey());
+const approverEmail = `unique-user.${serverId}@mailosaur.io`;
+
+fixture('Test registration form')
+  .page(testURL())
+  .beforeEach(async () => await client.messages.deleteAll(serverId));
 
 test('Test all required fields if user is adult', async t => {
   await login(t, 'adult');
@@ -40,7 +48,7 @@ test('Test all required fields if user is minor', async t => {
 });
 
 test('Fill all form fields', async t => {
-  await login(t, 'adult');
+  await login(t, 'minor');
 
   await t
     // All normal fields
@@ -61,7 +69,7 @@ test('Fill all form fields', async t => {
     .click(registrationFormSelector.photoUsageNo)
     .typeText(registrationFormSelector.approverFirstName, 'Unique')
     .typeText(registrationFormSelector.approverLastName, 'User')
-    .typeText(registrationFormSelector.approverEmail, 'unique@user.fi')
+    .typeText(registrationFormSelector.approverEmail, approverEmail)
     .typeText(registrationFormSelector.approverPhone, '0501234567');
 
   // Extra fields -> Address
@@ -98,6 +106,70 @@ test('Fill all form fields', async t => {
   await t
     .click(registrationFormSelector.terms)
     .click(registrationFormSelector.submitButton)
+    .expect(membershipInformationSelector.approverEmailSent.exists)
+    .ok();
+
+  // Wait for a while & hopefully email has been received
+  await t.wait(10000);
+
+  const message = await client.messages.get(serverId, {
+    sentTo: approverEmail,
+  });
+
+  await t.expect(message.html).ok();
+});
+
+test('Youths profile is waiting for approval + approval + confirmation', async t => {
+  await login(t, 'minor');
+
+  await t
+    .expect(membershipInformationSelector.approverEmailSent.exists)
+    .ok()
+    .click(membershipInformationSelector.displayApplication)
+    .expect(membershipInformationSelector.mainAddress.exists)
+    .ok()
+    .click(membershipInformationSelector.goBack)
+    .click(membershipInformationSelector.resendApprovalEmai);
+
+  await t.wait(10000);
+
+  const message = await client.messages.get(serverId, {
+    sentTo: approverEmail,
+  });
+
+  // Move to approval page
+  await t.navigateTo(await getApproverUrl(message));
+
+  await t
+    .selectText(registrationFormSelector.additionalApproverFirstName)
+    .pressKey('delete')
+    .selectText(registrationFormSelector.additionalApproverLastName)
+    .pressKey('delete')
+    .selectText(registrationFormSelector.additionalApproverEmail)
+    .pressKey('delete')
+    .selectText(registrationFormSelector.additionalApproverPhone)
+    .pressKey('delete');
+
+  await t
+    .click(registrationFormSelector.submitButton)
+    .expect(registrationFormSelector.textInputErrors.count)
+    .eql(4)
+    .click(
+      Selector('button[class^="arrayFieldTemplate_additionalActionButton"]')
+    )
+    .click(registrationFormSelector.addGuardian)
+    .typeText(registrationFormSelector.additionalApproverFirstName, 'Uriel')
+    .typeText(registrationFormSelector.additionalApproverLastName, 'User')
+    .typeText(
+      registrationFormSelector.additionalApproverEmail,
+      'uriel.user@mailinator.com'
+    )
+    .typeText(registrationFormSelector.additionalApproverPhone, '0501234567')
+    .click(registrationFormSelector.terms)
+    .click(registrationFormSelector.submitButton);
+
+  await t
+    .navigateTo(testURL())
     .expect(membershipInformationSelector.qrCode.exists)
     .ok();
 });
