@@ -2,6 +2,13 @@ import { Selector } from 'testcafe';
 
 export const membershipInformationSelector = {
   qrCode: Selector('canvas[id="react-qrcode-logo"]'),
+  approverEmailSent: Selector('h1').withText(
+    'The application has been sent to your guardian for approval!'
+  ),
+  resendApprovalEmai: Selector('button').withText(
+    'Resend the membership request'
+  ),
+  displayApplication: Selector('a[class^="hds-button"]'),
   linkToProfile: Selector('a').withText('Show profile information'),
   name: Selector('span').withText('Existing TestProfile'),
   mainAddress: Selector('strong')
@@ -25,4 +32,5 @@ export const membershipInformationSelector = {
   editProfileButton: Selector('a[class^="hds-button"]').withText(
     'Edit information'
   ),
+  goBack: Selector('a[class^="hds-button"]'),
 };
