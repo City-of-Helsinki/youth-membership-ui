@@ -39,8 +39,7 @@ function ApproveYouthProfilePage() {
     PROFILE_BY_TOKEN,
     {
       variables: { token: params.token },
-      onError: (error: Error) => {
-        Sentry.captureException(error);
+      onError: () => {
         setShowNotification(true);
       },
       fetchPolicy: 'network-only',
