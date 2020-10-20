@@ -26,8 +26,7 @@ function MembershipInformationPage() {
   const { data, loading } = useQuery<MembershipInformationTypes>(
     MEMBERSHIP_INFORMATION,
     {
-      onError: (error: Error) => {
-        Sentry.captureException(error);
+      onError: () => {
         setShowNotification(true);
       },
     }

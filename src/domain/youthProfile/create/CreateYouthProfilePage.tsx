@@ -3,7 +3,6 @@ import { useHistory, Redirect } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
-import * as Sentry from '@sentry/browser';
 import { User } from 'oidc-client';
 
 import { PrefillRegistartion } from '../../../graphql/generatedTypes';
@@ -24,8 +23,7 @@ function CreateYouthProfilePage() {
   const { data, loading: loadingPrefillData } = useQuery<PrefillRegistartion>(
     PREFILL_REGISTRATION,
     {
-      onError: (error: Error) => {
-        Sentry.captureException(error);
+      onError: () => {
         setShowNotification(true);
       },
     }
