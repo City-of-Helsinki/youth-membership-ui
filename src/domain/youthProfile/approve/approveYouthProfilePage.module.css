@@ -1,0 +1,9 @@
+
+.explanationContainer {
+    text-align: center;
+}
+
+.explanationContainer h1 {
+    font-size: var(--fontsize-h-2);
+    margin-bottom: var(--spacing-xl);
+}
