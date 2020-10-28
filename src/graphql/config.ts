@@ -9,6 +9,9 @@ const HAS_YOUTH_PROFILE = loader(
 const PREFILL_REGISTRATION = loader(
   '../domain/youthProfile/graphql/PrefillRegistration.graphql'
 );
+const PROFILE_BY_TOKEN = loader(
+  '../domain/youthProfile/graphql/YouthProfileByApprovalToken.graphql'
+);
 
 function getName(document?: DocumentNode): string {
   if (!document) {
@@ -57,4 +60,5 @@ function createIgnoreErrorsConfig(ignoreInput: IgnoreInput[]): IgnoreRule[] {
 export const ignoreErrorRules: IgnoreRule[] = createIgnoreErrorsConfig([
   [HAS_YOUTH_PROFILE, 'PERMISSION_DENIED_ERROR', true],
   [PREFILL_REGISTRATION, 'PERMISSION_DENIED_ERROR', true],
+  [PROFILE_BY_TOKEN, 'OBJECT_DOES_NOT_EXIST_ERROR', true],
 ]);
