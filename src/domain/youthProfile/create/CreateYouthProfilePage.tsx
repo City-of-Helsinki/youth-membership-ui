@@ -23,7 +23,8 @@ function CreateYouthProfilePage() {
   const { data, loading: loadingPrefillData } = useQuery<PrefillRegistartion>(
     PREFILL_REGISTRATION,
     {
-      onError: () => {
+      onError: error => {
+        console.log(error.graphQLErrors);
         setShowNotification(true);
       },
     }
@@ -49,7 +50,7 @@ function CreateYouthProfilePage() {
   if (isMembershipPending) {
     return <Redirect to="/" />;
   }
-
+  console.log(data);
   return (
     <PageContent
       isReady={
