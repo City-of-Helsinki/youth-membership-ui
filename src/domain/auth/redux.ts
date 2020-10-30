@@ -3,8 +3,7 @@ import { USER_EXPIRED, LOAD_USER_ERROR, USER_SIGNED_OUT } from 'redux-oidc';
 
 import { AppThunk } from '../../redux/store';
 import { RootState } from '../../redux/rootReducer';
-import fetchApiToken from './fetchApiToken';
-import pickProfileApiToken from './pickProfileApiToken';
+import fetchApiTokens from './fetchApiTokens';
 
 export interface AuthState {
   apiTokens: { [key: string]: string };
@@ -59,15 +58,14 @@ export const fetchApiTokenThunk = (
 ): AppThunk => async dispatch => {
   try {
     dispatch(startFetching());
-    const token = await fetchApiToken(accessToken);
+    const token = await fetchApiTokens(accessToken);
     return dispatch(receiveApiToken(token));
   } catch (e) {
     return dispatch(apiError(e.toString()));
   }
 };
 
-export const profileApiTokenSelector = (state: RootState) =>
-  pickProfileApiToken(state.auth.apiTokens);
+export const apiTokensSelector = (state: RootState) => state.auth.apiTokens;
 
 export const isAuthenticatedSelector = (state: RootState) =>
   Boolean(!state.oidc.isLoadingUser && state.oidc.user);
