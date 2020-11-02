@@ -1,9 +1,10 @@
 import {
-  YouthProfileByApprovalToken,
-  MembershipDetails,
-  YouthLanguage,
   AddressType,
   Language,
+  MembershipDetails,
+  MembershipDetails_myYouthProfile as MyYouthProfile,
+  YouthLanguage,
+  YouthProfileByApprovalToken,
 } from '../../../../graphql/generatedTypes';
 import getAddresses from '../getAddresses';
 
@@ -35,16 +36,17 @@ const mockAddresses = [
     __typename: 'AddressNodeEdge' as 'AddressNodeEdge',
   },
 ];
-const youthProfile = {
+
+const youthProfile: MyYouthProfile = {
   profile: {
-    addresses: {
-      edges: mockAddresses,
-      __typename: 'AddressNodeConnection' as 'AddressNodeConnection',
-    },
     firstName: 'Georde',
     lastName: 'Tsaridiz',
-    language: 'Greek' as Language,
-    __typename: 'ProfileNode' as 'ProfileNode',
+    language: Language.ENGLISH,
+    id: '1234',
+    addresses: {
+      edges: mockAddresses,
+      __typename: 'AddressNodeConnection',
+    },
     primaryAddress: {
       address: 'Pyyninki 4',
       postalCode: '00000',
@@ -65,6 +67,7 @@ const youthProfile = {
       phone: '+358000000',
       __typename: 'PhoneNode' as 'PhoneNode',
     },
+    __typename: 'ProfileNode',
   },
   birthDate: '2006-02-02',
   schoolName: '',
@@ -76,10 +79,15 @@ const youthProfile = {
   approverEmail: 'email@email.com',
   approverPhone: '+358000000',
   membershipNumber: '1',
-  __typename: 'YouthProfileType' as 'YouthProfileType',
+  additionalContactPersons: {
+    edges: [],
+    __typename: 'AdditionalContactPersonNodeConnection',
+  },
+  __typename: 'YouthProfileNode',
 };
+
 const mockMembershipDetails: MembershipDetails = {
-  youthProfile,
+  myYouthProfile: youthProfile,
 };
 const mockApprovalToken: YouthProfileByApprovalToken = {
   youthProfileByApprovalToken: youthProfile,

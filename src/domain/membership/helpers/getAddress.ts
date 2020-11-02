@@ -11,12 +11,12 @@ export default function getAddress(
   lang: string
 ) {
   let address = null;
-  if ('youthProfile' in data) {
+  if ('myYouthProfile' in data) {
     // MembershipDetails
-    address = data.youthProfile?.profile.primaryAddress;
+    address = data.myYouthProfile?.profile?.primaryAddress;
   } else if ('youthProfileByApprovalToken' in data) {
     // YouthProfileByApprovalToken
-    address = data.youthProfileByApprovalToken?.profile.primaryAddress;
+    address = data.youthProfileByApprovalToken?.profile?.primaryAddress;
   }
 
   if (address) {

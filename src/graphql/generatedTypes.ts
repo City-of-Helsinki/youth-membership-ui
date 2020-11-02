@@ -6,26 +6,20 @@
 // GraphQL query operation: MembershipDetails
 // ====================================================
 
-export interface MembershipDetails_youthProfile_profile_primaryAddress {
+export interface MembershipDetails_myYouthProfile_profile_primaryAddress {
   readonly __typename: "AddressNode";
   readonly address: string;
   readonly postalCode: string;
   readonly city: string;
   readonly countryCode: string;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly addressType: AddressType | null;
   readonly primary: boolean;
 }
 
-export interface MembershipDetails_youthProfile_profile_addresses_edges_node {
+export interface MembershipDetails_myYouthProfile_profile_addresses_edges_node {
   readonly __typename: "AddressNode";
   readonly primary: boolean;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly address: string;
   readonly postalCode: string;
@@ -34,72 +28,42 @@ export interface MembershipDetails_youthProfile_profile_addresses_edges_node {
   readonly addressType: AddressType | null;
 }
 
-export interface MembershipDetails_youthProfile_profile_addresses_edges {
+export interface MembershipDetails_myYouthProfile_profile_addresses_edges {
   readonly __typename: "AddressNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
-  readonly node: MembershipDetails_youthProfile_profile_addresses_edges_node | null;
+  readonly node: MembershipDetails_myYouthProfile_profile_addresses_edges_node | null;
 }
 
-export interface MembershipDetails_youthProfile_profile_addresses {
+export interface MembershipDetails_myYouthProfile_profile_addresses {
   readonly __typename: "AddressNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
-  readonly edges: ReadonlyArray<(MembershipDetails_youthProfile_profile_addresses_edges | null)>;
+  readonly edges: ReadonlyArray<(MembershipDetails_myYouthProfile_profile_addresses_edges | null)>;
 }
 
-export interface MembershipDetails_youthProfile_profile_primaryEmail {
+export interface MembershipDetails_myYouthProfile_profile_primaryEmail {
   readonly __typename: "EmailNode";
   readonly email: string;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
 }
 
-export interface MembershipDetails_youthProfile_profile_primaryPhone {
+export interface MembershipDetails_myYouthProfile_profile_primaryPhone {
   readonly __typename: "PhoneNode";
   readonly phone: string | null;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
 }
 
-export interface MembershipDetails_youthProfile_profile {
+export interface MembershipDetails_myYouthProfile_profile {
   readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
   readonly language: Language | null;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
-  /**
-   * Convenience field for the address which is marked as primary.
-   */
-  readonly primaryAddress: MembershipDetails_youthProfile_profile_primaryAddress | null;
-  /**
-   * List of addresses of the profile.
-   */
-  readonly addresses: MembershipDetails_youthProfile_profile_addresses | null;
-  /**
-   * Convenience field for the email which is marked as primary.
-   */
-  readonly primaryEmail: MembershipDetails_youthProfile_profile_primaryEmail | null;
-  /**
-   * Convenience field for the phone which is marked as primary.
-   */
-  readonly primaryPhone: MembershipDetails_youthProfile_profile_primaryPhone | null;
+  readonly primaryAddress: MembershipDetails_myYouthProfile_profile_primaryAddress | null;
+  readonly addresses: MembershipDetails_myYouthProfile_profile_addresses | null;
+  readonly primaryEmail: MembershipDetails_myYouthProfile_profile_primaryEmail | null;
+  readonly primaryPhone: MembershipDetails_myYouthProfile_profile_primaryPhone | null;
 }
 
-export interface MembershipDetails_youthProfile_additionalContactPersons_edges_node {
+export interface MembershipDetails_myYouthProfile_additionalContactPersons_edges_node {
   readonly __typename: "AdditionalContactPersonNode";
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly firstName: string;
   readonly lastName: string;
@@ -107,57 +71,34 @@ export interface MembershipDetails_youthProfile_additionalContactPersons_edges_n
   readonly email: string;
 }
 
-export interface MembershipDetails_youthProfile_additionalContactPersons_edges {
+export interface MembershipDetails_myYouthProfile_additionalContactPersons_edges {
   readonly __typename: "AdditionalContactPersonNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
-  readonly node: MembershipDetails_youthProfile_additionalContactPersons_edges_node | null;
+  readonly node: MembershipDetails_myYouthProfile_additionalContactPersons_edges_node | null;
 }
 
-export interface MembershipDetails_youthProfile_additionalContactPersons {
+export interface MembershipDetails_myYouthProfile_additionalContactPersons {
   readonly __typename: "AdditionalContactPersonNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
-  readonly edges: ReadonlyArray<(MembershipDetails_youthProfile_additionalContactPersons_edges | null)>;
+  readonly edges: ReadonlyArray<(MembershipDetails_myYouthProfile_additionalContactPersons_edges | null)>;
 }
 
-export interface MembershipDetails_youthProfile {
-  readonly __typename: "YouthProfileType";
-  readonly profile: MembershipDetails_youthProfile_profile;
+export interface MembershipDetails_myYouthProfile {
+  readonly __typename: "YouthProfileNode";
+  readonly profile: MembershipDetails_myYouthProfile_profile | null;
   readonly birthDate: any;
   readonly schoolName: string;
   readonly schoolClass: string;
-  /**
-   * The language which is spoken in the youth's home.
-   */
-  readonly languageAtHome: YouthLanguage | null;
+  readonly languageAtHome: YouthLanguage;
   readonly photoUsageApproved: boolean | null;
   readonly approverFirstName: string;
   readonly approverLastName: string;
   readonly approverEmail: string;
   readonly approverPhone: string;
-  /**
-   * Youth's membership number
-   */
-  readonly membershipNumber: string | null;
-  readonly additionalContactPersons: MembershipDetails_youthProfile_additionalContactPersons;
+  readonly membershipNumber: string;
+  readonly additionalContactPersons: MembershipDetails_myYouthProfile_additionalContactPersons;
 }
 
 export interface MembershipDetails {
-  /**
-   * Get a youth profile by youth profile ID.
-   * 
-   * **NOTE:** Currently this requires `superuser` credentials. This is going to be
-   * changed at one point so that service-specific staff credentials and service
-   * type are used, just like the rest of the admin-type queries.
-   * 
-   * Possible error codes:
-   * 
-   * * `TODO`
-   */
-  readonly youthProfile: MembershipDetails_youthProfile | null;
+  readonly myYouthProfile: MembershipDetails_myYouthProfile | null;
 }
 
 /* tslint:disable */
@@ -168,43 +109,23 @@ export interface MembershipDetails {
 // GraphQL query operation: MembershipInformation
 // ====================================================
 
-export interface MembershipInformation_youthProfile_profile {
+export interface MembershipInformation_myYouthProfile_profile {
   readonly __typename: "ProfileNode";
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly firstName: string;
   readonly lastName: string;
 }
 
-export interface MembershipInformation_youthProfile {
-  readonly __typename: "YouthProfileType";
-  readonly profile: MembershipInformation_youthProfile_profile;
+export interface MembershipInformation_myYouthProfile {
+  readonly __typename: "YouthProfileNode";
+  readonly profile: MembershipInformation_myYouthProfile_profile | null;
   readonly expiration: any;
-  /**
-   * Tells if the membership is currently renewable or not
-   */
-  readonly renewable: boolean | null;
-  /**
-   * Youth's membership number
-   */
-  readonly membershipNumber: string | null;
+  readonly renewable: boolean;
+  readonly membershipNumber: string;
 }
 
 export interface MembershipInformation {
-  /**
-   * Get a youth profile by youth profile ID.
-   * 
-   * **NOTE:** Currently this requires `superuser` credentials. This is going to be
-   * changed at one point so that service-specific staff credentials and service
-   * type are used, just like the rest of the admin-type queries.
-   * 
-   * Possible error codes:
-   * 
-   * * `TODO`
-   */
-  readonly youthProfile: MembershipInformation_youthProfile | null;
+  readonly myYouthProfile: MembershipInformation_myYouthProfile | null;
 }
 
 /* tslint:disable */
@@ -216,11 +137,8 @@ export interface MembershipInformation {
 // ====================================================
 
 export interface RenewMyYouthProfile_renewMyYouthProfile_youthProfile {
-  readonly __typename: "YouthProfileType";
-  /**
-   * Youth's membership number
-   */
-  readonly membershipNumber: string | null;
+  readonly __typename: "YouthProfileNode";
+  readonly membershipNumber: string;
 }
 
 export interface RenewMyYouthProfile_renewMyYouthProfile {
@@ -229,17 +147,6 @@ export interface RenewMyYouthProfile_renewMyYouthProfile {
 }
 
 export interface RenewMyYouthProfile {
-  /**
-   * Renews the youth profile. Renewing can only be done once per season.
-   * 
-   * Requires Authentication.
-   * 
-   * Possible error codes:
-   * 
-   * * `CANNOT_RENEW_YOUTH_PROFILE_ERROR`: Returned if the youth profile is already renewed or not in the renew window
-   * 
-   * * `TODO`
-   */
   readonly renewMyYouthProfile: RenewMyYouthProfile_renewMyYouthProfile | null;
 }
 
@@ -266,16 +173,6 @@ export interface AddServiceConnection_addServiceConnection {
 }
 
 export interface AddServiceConnection {
-  /**
-   * Connect the currently authenticated user's profile to the given service.
-   * 
-   * Requires authentication.
-   * 
-   * Possible error codes:
-   * 
-   * * `SERVICE_CONNECTION_ALREADY_EXISTS_ERROR`: Returned if the currently
-   * authenticated user's profile is already connected to the given service.
-   */
   readonly addServiceConnection: AddServiceConnection_addServiceConnection | null;
 }
 
@@ -291,24 +188,13 @@ export interface AddServiceConnectionVariables {
 // GraphQL query operation: ApproverEmail
 // ====================================================
 
-export interface ApproverEmail_youthProfile {
-  readonly __typename: "YouthProfileType";
+export interface ApproverEmail_myYouthProfile {
+  readonly __typename: "YouthProfileNode";
   readonly approverEmail: string;
 }
 
 export interface ApproverEmail {
-  /**
-   * Get a youth profile by youth profile ID.
-   * 
-   * **NOTE:** Currently this requires `superuser` credentials. This is going to be
-   * changed at one point so that service-specific staff credentials and service
-   * type are used, just like the rest of the admin-type queries.
-   * 
-   * Possible error codes:
-   * 
-   * * `TODO`
-   */
-  readonly youthProfile: ApproverEmail_youthProfile | null;
+  readonly myYouthProfile: ApproverEmail_myYouthProfile | null;
 }
 
 /* tslint:disable */
@@ -320,7 +206,7 @@ export interface ApproverEmail {
 // ====================================================
 
 export interface ApproveYouthProfile_approveYouthProfile_youthProfile {
-  readonly __typename: "YouthProfileType";
+  readonly __typename: "YouthProfileNode";
   readonly approverEmail: string;
 }
 
@@ -330,22 +216,6 @@ export interface ApproveYouthProfile_approveYouthProfile {
 }
 
 export interface ApproveYouthProfile {
-  /**
-   * Fetches a youth profile using the given token, updates the data based on the
-   * given input data and approves the youth profile so that it is considered
-   * active. A confirmation is sent to the youth profile's email address after a
-   * successful approval.
-   * 
-   * The token is no longer valid after it's been used to approve the youth profile.
-   * 
-   * Requires authentication.
-   * 
-   * Possible error codes:
-   * 
-   * * `PROFILE_HAS_NO_PRIMARY_EMAIL_ERROR`: Returned if the youth profile doesn't have a primary email address.
-   * 
-   * * `TODO`
-   */
   readonly approveYouthProfile: ApproveYouthProfile_approveYouthProfile | null;
 }
 
@@ -362,15 +232,12 @@ export interface ApproveYouthProfileVariables {
 // ====================================================
 
 export interface CreateMyProfile_createMyProfile_profile_youthProfile {
-  readonly __typename: "YouthProfileType";
+  readonly __typename: "YouthProfileNode";
   readonly birthDate: any;
 }
 
 export interface CreateMyProfile_createMyProfile_profile {
   readonly __typename: "ProfileNode";
-  /**
-   * The Youth membership data of the profile.
-   */
   readonly youthProfile: CreateMyProfile_createMyProfile_profile_youthProfile | null;
 }
 
@@ -380,23 +247,6 @@ export interface CreateMyProfile_createMyProfile {
 }
 
 export interface CreateMyProfile {
-  /**
-   * Creates a new profile based on the given data. The new profile is linked to the currently authenticated user.
-   * 
-   * One or several of the following is possible to add:
-   * 
-   * * Email
-   * * Address
-   * * Phone
-   * 
-   * If youth data is given, a youth profile will also be created and linked to the profile.
-   * 
-   * Requires authentication.
-   * 
-   * Possible error codes:
-   * 
-   * * `TODO`
-   */
   readonly createMyProfile: CreateMyProfile_createMyProfile | null;
 }
 
@@ -412,33 +262,13 @@ export interface CreateMyProfileVariables {
 // GraphQL query operation: HasYouthProfile
 // ====================================================
 
-export interface HasYouthProfile_myProfile_youthProfile {
-  readonly __typename: "YouthProfileType";
-  /**
-   * Membership status based on expiration and approved_time fields
-   */
-  readonly membershipStatus: MembershipStatus | null;
-}
-
-export interface HasYouthProfile_myProfile {
-  readonly __typename: "ProfileNode";
-  /**
-   * The Youth membership data of the profile.
-   */
-  readonly youthProfile: HasYouthProfile_myProfile_youthProfile | null;
+export interface HasYouthProfile_myYouthProfile {
+  readonly __typename: "YouthProfileNode";
+  readonly membershipStatus: MembershipStatus;
 }
 
 export interface HasYouthProfile {
-  /**
-   * Get the profile belonging to the currently authenticated user.
-   * 
-   * Requires authentication.
-   * 
-   * Possible error codes:
-   * 
-   * * `TODO`
-   */
-  readonly myProfile: HasYouthProfile_myProfile | null;
+  readonly myYouthProfile: HasYouthProfile_myYouthProfile | null;
 }
 
 /* tslint:disable */
@@ -457,15 +287,6 @@ export interface NameQuery_myProfile {
 }
 
 export interface NameQuery {
-  /**
-   * Get the profile belonging to the currently authenticated user.
-   * 
-   * Requires authentication.
-   * 
-   * Possible error codes:
-   * 
-   * * `TODO`
-   */
   readonly myProfile: NameQuery_myProfile | null;
 }
 
@@ -480,9 +301,6 @@ export interface NameQuery {
 export interface PrefillRegistartion_myProfile_primaryPhone {
   readonly __typename: "PhoneNode";
   readonly phone: string | null;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
 }
 
@@ -492,9 +310,6 @@ export interface PrefillRegistartion_myProfile_primaryAddress {
   readonly postalCode: string;
   readonly city: string;
   readonly countryCode: string;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly primary: boolean;
   readonly addressType: AddressType | null;
@@ -503,9 +318,6 @@ export interface PrefillRegistartion_myProfile_primaryAddress {
 export interface PrefillRegistartion_myProfile_addresses_edges_node {
   readonly __typename: "AddressNode";
   readonly primary: boolean;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly address: string;
   readonly postalCode: string;
@@ -516,17 +328,11 @@ export interface PrefillRegistartion_myProfile_addresses_edges_node {
 
 export interface PrefillRegistartion_myProfile_addresses_edges {
   readonly __typename: "AddressNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
   readonly node: PrefillRegistartion_myProfile_addresses_edges_node | null;
 }
 
 export interface PrefillRegistartion_myProfile_addresses {
   readonly __typename: "AddressNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
   readonly edges: ReadonlyArray<(PrefillRegistartion_myProfile_addresses_edges | null)>;
 }
 
@@ -540,34 +346,13 @@ export interface PrefillRegistartion_myProfile {
   readonly firstName: string;
   readonly lastName: string;
   readonly language: Language | null;
-  /**
-   * Convenience field for the phone which is marked as primary.
-   */
   readonly primaryPhone: PrefillRegistartion_myProfile_primaryPhone | null;
-  /**
-   * Convenience field for the address which is marked as primary.
-   */
   readonly primaryAddress: PrefillRegistartion_myProfile_primaryAddress | null;
-  /**
-   * List of addresses of the profile.
-   */
   readonly addresses: PrefillRegistartion_myProfile_addresses | null;
-  /**
-   * Convenience field for the email which is marked as primary.
-   */
   readonly primaryEmail: PrefillRegistartion_myProfile_primaryEmail | null;
 }
 
 export interface PrefillRegistartion {
-  /**
-   * Get the profile belonging to the currently authenticated user.
-   * 
-   * Requires authentication.
-   * 
-   * Possible error codes:
-   * 
-   * * `TODO`
-   */
   readonly myProfile: PrefillRegistartion_myProfile | null;
 }
 
@@ -580,15 +365,12 @@ export interface PrefillRegistartion {
 // ====================================================
 
 export interface UpdateMyProfile_updateMyProfile_profile_youthProfile {
-  readonly __typename: "YouthProfileType";
+  readonly __typename: "YouthProfileNode";
   readonly approverEmail: string;
 }
 
 export interface UpdateMyProfile_updateMyProfile_profile {
   readonly __typename: "ProfileNode";
-  /**
-   * The Youth membership data of the profile.
-   */
   readonly youthProfile: UpdateMyProfile_updateMyProfile_profile_youthProfile | null;
 }
 
@@ -598,25 +380,6 @@ export interface UpdateMyProfile_updateMyProfile {
 }
 
 export interface UpdateMyProfile {
-  /**
-   * Updates the profile which is linked to the currently authenticated user based on the given data.
-   * 
-   * One or several of the following is possible to add, modify or remove:
-   * 
-   * * Email
-   * * Address
-   * * Phone
-   * 
-   * If youth data is given, a youth profile will also be created and linked to the
-   * profile **or** the existing youth profile will be updated if the profile is
-   * already linked to a youth profile.
-   * 
-   * Requires authentication.
-   * 
-   * Possible error codes:
-   * 
-   * * `TODO`
-   */
   readonly updateMyProfile: UpdateMyProfile_updateMyProfile | null;
 }
 
@@ -633,7 +396,7 @@ export interface UpdateMyProfileVariables {
 // ====================================================
 
 export interface UpdateMyYouthProfile_updateMyYouthProfile_youthProfile {
-  readonly __typename: "YouthProfileType";
+  readonly __typename: "YouthProfileNode";
   readonly approverEmail: string;
 }
 
@@ -643,18 +406,6 @@ export interface UpdateMyYouthProfile_updateMyYouthProfile {
 }
 
 export interface UpdateMyYouthProfile {
-  /**
-   * Updates the youth profile which belongs to the profile of the currently authenticated user.
-   * 
-   * The `resend_request_notification` parameter may be used to send a notification
-   * to the youth profile's approver whose contact information is in the youth profile.
-   * 
-   * Requires authentication.
-   * 
-   * Possible error codes:
-   * 
-   * * `TODO`
-   */
   readonly updateMyYouthProfile: UpdateMyYouthProfile_updateMyYouthProfile | null;
 }
 
@@ -676,9 +427,6 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
   readonly postalCode: string;
   readonly city: string;
   readonly countryCode: string;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly addressType: AddressType | null;
   readonly primary: boolean;
@@ -687,9 +435,6 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges_node {
   readonly __typename: "AddressNode";
   readonly primary: boolean;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly address: string;
   readonly postalCode: string;
@@ -700,35 +445,23 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges {
   readonly __typename: "AddressNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
   readonly node: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges_node | null;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses {
   readonly __typename: "AddressNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
   readonly edges: ReadonlyArray<(YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges | null)>;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail {
   readonly __typename: "EmailNode";
   readonly email: string;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryPhone {
   readonly __typename: "PhoneNode";
   readonly phone: string | null;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
 }
 
@@ -737,33 +470,15 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile
   readonly firstName: string;
   readonly lastName: string;
   readonly language: Language | null;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
-  /**
-   * Convenience field for the address which is marked as primary.
-   */
   readonly primaryAddress: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryAddress | null;
-  /**
-   * List of addresses of the profile.
-   */
   readonly addresses: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses | null;
-  /**
-   * Convenience field for the email which is marked as primary.
-   */
   readonly primaryEmail: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail | null;
-  /**
-   * Convenience field for the phone which is marked as primary.
-   */
   readonly primaryPhone: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryPhone | null;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_additionalContactPersons_edges_node {
   readonly __typename: "AdditionalContactPersonNode";
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly firstName: string;
   readonly lastName: string;
@@ -773,52 +488,31 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_additio
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_additionalContactPersons_edges {
   readonly __typename: "AdditionalContactPersonNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
   readonly node: YouthProfileByApprovalToken_youthProfileByApprovalToken_additionalContactPersons_edges_node | null;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_additionalContactPersons {
   readonly __typename: "AdditionalContactPersonNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
   readonly edges: ReadonlyArray<(YouthProfileByApprovalToken_youthProfileByApprovalToken_additionalContactPersons_edges | null)>;
 }
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken {
-  readonly __typename: "YouthProfileType";
-  readonly profile: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile;
+  readonly __typename: "YouthProfileNode";
+  readonly profile: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile | null;
   readonly birthDate: any;
   readonly schoolName: string;
   readonly schoolClass: string;
-  /**
-   * The language which is spoken in the youth's home.
-   */
-  readonly languageAtHome: YouthLanguage | null;
+  readonly languageAtHome: YouthLanguage;
   readonly photoUsageApproved: boolean | null;
   readonly approverFirstName: string;
   readonly approverLastName: string;
   readonly approverEmail: string;
   readonly approverPhone: string;
-  /**
-   * Youth's membership number
-   */
-  readonly membershipNumber: string | null;
+  readonly membershipNumber: string;
   readonly additionalContactPersons: YouthProfileByApprovalToken_youthProfileByApprovalToken_additionalContactPersons;
 }
 
 export interface YouthProfileByApprovalToken {
-  /**
-   * Get a youth profile by approval token. 
-   * 
-   * Doesn't require authentication.
-   * 
-   * Possible error codes:
-   * 
-   * * `TODO`
-   */
   readonly youthProfileByApprovalToken: YouthProfileByApprovalToken_youthProfileByApprovalToken | null;
 }
 
@@ -840,9 +534,6 @@ export interface MembershipDetailsFragment_profile_primaryAddress {
   readonly postalCode: string;
   readonly city: string;
   readonly countryCode: string;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly addressType: AddressType | null;
   readonly primary: boolean;
@@ -851,9 +542,6 @@ export interface MembershipDetailsFragment_profile_primaryAddress {
 export interface MembershipDetailsFragment_profile_addresses_edges_node {
   readonly __typename: "AddressNode";
   readonly primary: boolean;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly address: string;
   readonly postalCode: string;
@@ -864,35 +552,23 @@ export interface MembershipDetailsFragment_profile_addresses_edges_node {
 
 export interface MembershipDetailsFragment_profile_addresses_edges {
   readonly __typename: "AddressNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
   readonly node: MembershipDetailsFragment_profile_addresses_edges_node | null;
 }
 
 export interface MembershipDetailsFragment_profile_addresses {
   readonly __typename: "AddressNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
   readonly edges: ReadonlyArray<(MembershipDetailsFragment_profile_addresses_edges | null)>;
 }
 
 export interface MembershipDetailsFragment_profile_primaryEmail {
   readonly __typename: "EmailNode";
   readonly email: string;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
 }
 
 export interface MembershipDetailsFragment_profile_primaryPhone {
   readonly __typename: "PhoneNode";
   readonly phone: string | null;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
 }
 
@@ -901,33 +577,15 @@ export interface MembershipDetailsFragment_profile {
   readonly firstName: string;
   readonly lastName: string;
   readonly language: Language | null;
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
-  /**
-   * Convenience field for the address which is marked as primary.
-   */
   readonly primaryAddress: MembershipDetailsFragment_profile_primaryAddress | null;
-  /**
-   * List of addresses of the profile.
-   */
   readonly addresses: MembershipDetailsFragment_profile_addresses | null;
-  /**
-   * Convenience field for the email which is marked as primary.
-   */
   readonly primaryEmail: MembershipDetailsFragment_profile_primaryEmail | null;
-  /**
-   * Convenience field for the phone which is marked as primary.
-   */
   readonly primaryPhone: MembershipDetailsFragment_profile_primaryPhone | null;
 }
 
 export interface MembershipDetailsFragment_additionalContactPersons_edges_node {
   readonly __typename: "AdditionalContactPersonNode";
-  /**
-   * The ID of the object.
-   */
   readonly id: string;
   readonly firstName: string;
   readonly lastName: string;
@@ -937,39 +595,27 @@ export interface MembershipDetailsFragment_additionalContactPersons_edges_node {
 
 export interface MembershipDetailsFragment_additionalContactPersons_edges {
   readonly __typename: "AdditionalContactPersonNodeEdge";
-  /**
-   * The item at the end of the edge
-   */
   readonly node: MembershipDetailsFragment_additionalContactPersons_edges_node | null;
 }
 
 export interface MembershipDetailsFragment_additionalContactPersons {
   readonly __typename: "AdditionalContactPersonNodeConnection";
-  /**
-   * Contains the nodes in this connection.
-   */
   readonly edges: ReadonlyArray<(MembershipDetailsFragment_additionalContactPersons_edges | null)>;
 }
 
 export interface MembershipDetailsFragment {
-  readonly __typename: "YouthProfileType";
-  readonly profile: MembershipDetailsFragment_profile;
+  readonly __typename: "YouthProfileNode";
+  readonly profile: MembershipDetailsFragment_profile | null;
   readonly birthDate: any;
   readonly schoolName: string;
   readonly schoolClass: string;
-  /**
-   * The language which is spoken in the youth's home.
-   */
-  readonly languageAtHome: YouthLanguage | null;
+  readonly languageAtHome: YouthLanguage;
   readonly photoUsageApproved: boolean | null;
   readonly approverFirstName: string;
   readonly approverLastName: string;
   readonly approverEmail: string;
   readonly approverPhone: string;
-  /**
-   * Youth's membership number
-   */
-  readonly membershipNumber: string | null;
+  readonly membershipNumber: string;
   readonly additionalContactPersons: MembershipDetailsFragment_additionalContactPersons;
 }
 
@@ -988,9 +634,6 @@ export enum AddressType {
   WORK = "WORK",
 }
 
-/**
- * An enumeration.
- */
 export enum ContactMethod {
   EMAIL = "EMAIL",
   SMS = "SMS",
@@ -1003,9 +646,6 @@ export enum EmailType {
   WORK = "WORK",
 }
 
-/**
- * An enumeration.
- */
 export enum Language {
   ENGLISH = "ENGLISH",
   FINNISH = "FINNISH",
@@ -1105,7 +745,6 @@ export interface ProfileInput {
   readonly updateAddresses?: ReadonlyArray<(UpdateAddressInput | null)> | null;
   readonly removeAddresses?: ReadonlyArray<(string | null)> | null;
   readonly subscriptions?: ReadonlyArray<(SubscriptionInputType | null)> | null;
-  readonly youthProfile?: YouthProfileFields | null;
   readonly sensitivedata?: SensitiveDataFields | null;
 }
 

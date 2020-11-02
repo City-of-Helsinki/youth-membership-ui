@@ -15,11 +15,11 @@ const getEditMutationVariables = (
         language: formValues.profileLanguage,
         ...getAddress(formValues, 'membership', profile),
         updatePhones: [
-          profile?.youthProfile?.profile?.primaryPhone?.id
+          profile?.myYouthProfile?.profile?.primaryPhone?.id
             ? {
                 phone: formValues.phone,
                 phoneType: PhoneType.OTHER,
-                id: profile.youthProfile.profile.primaryPhone.id,
+                id: profile?.myYouthProfile.profile.primaryPhone.id,
               }
             : null,
         ],

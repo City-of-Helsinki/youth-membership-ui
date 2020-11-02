@@ -5,7 +5,7 @@ import countries from 'i18n-iso-countries';
 // eslint-disable-next-line max-len
 import {
   MembershipDetails,
-  MembershipDetails_youthProfile_profile_addresses_edges_node as Address,
+  MembershipDetails_myYouthProfile_profile_addresses_edges_node as Address,
 } from '../../../graphql/generatedTypes';
 import LinkButton from '../../../common/components/linkButton/LinkButton';
 import LabeledValue from '../../../common/components/labeledValue/LabeledValue';
@@ -43,7 +43,7 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
 
   return (
     <PageSection>
-      {membershipDetailsData?.youthProfile && (
+      {membershipDetailsData?.myYouthProfile && (
         <Stack space="xl">
           <div>
             <Text variant="h1">{t('membershipDetails.title')}</Text>
@@ -57,20 +57,24 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
               name={getFullName(membershipDetailsData)}
               addresses={[
                 getAddress(membershipDetailsData, i18n.languages[0]),
-                ...addresses.map(address => getAdditionalAddresses(address)),
+                ...addresses.map((address: Address) =>
+                  getAdditionalAddresses(address)
+                ),
               ]}
               email={
-                membershipDetailsData.youthProfile.profile.primaryEmail
+                membershipDetailsData?.myYouthProfile?.profile?.primaryEmail
                   ?.email || null
               }
               phone={
-                membershipDetailsData.youthProfile.profile.primaryPhone
+                membershipDetailsData?.myYouthProfile?.profile?.primaryPhone
                   ?.phone || null
               }
               birthDate={formatDate(
-                membershipDetailsData.youthProfile.birthDate
+                membershipDetailsData.myYouthProfile.birthDate
               )}
-              language={membershipDetailsData?.youthProfile?.profile?.language}
+              language={
+                membershipDetailsData?.myYouthProfile?.profile?.language || null
+              }
             />
           </div>
           <div>
@@ -86,14 +90,14 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
               <LabeledValue
                 label={t('youthProfile.homeLanguages')}
                 value={t(
-                  `LANGUAGE_OPTIONS.${membershipDetailsData.youthProfile.languageAtHome}`
+                  `LANGUAGE_OPTIONS.${membershipDetailsData.myYouthProfile.languageAtHome}`
                 )}
                 noMargin
               />
               <LabeledValue
                 label={t('registration.photoUsageApproved')}
                 value={
-                  membershipDetailsData?.youthProfile?.photoUsageApproved
+                  membershipDetailsData?.myYouthProfile?.photoUsageApproved
                     ? t('approval.photoUsageApprovedYes')
                     : t('approval.photoUsageApprovedNo')
                 }
@@ -107,19 +111,19 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
               <LabeledValue
                 label={t('youthProfile.approverName')}
                 // eslint-disable-next-line max-len
-                value={`${membershipDetailsData.youthProfile.approverFirstName} ${membershipDetailsData.youthProfile.approverLastName}`}
+                value={`${membershipDetailsData.myYouthProfile.approverFirstName} ${membershipDetailsData.myYouthProfile.approverLastName}`}
               />
               <LabeledValue
                 label={t('youthProfile.approverEmail')}
-                value={membershipDetailsData.youthProfile.approverEmail}
+                value={membershipDetailsData.myYouthProfile.approverEmail}
               />
               <LabeledValue
                 label={t('youthProfile.approverPhone')}
-                value={membershipDetailsData.youthProfile.approverPhone}
+                value={membershipDetailsData.myYouthProfile.approverPhone}
               />
             </div>
             {getAdditionalContactPersons(
-              membershipDetailsData.youthProfile
+              membershipDetailsData.myYouthProfile
             ).map(additionalContact => (
               <div
                 key={Object.values(additionalContact).join('')}

@@ -22,7 +22,7 @@ function useIsMembershipPending({ onError }: Props) {
     },
   });
 
-  const membershipStatus = data?.myProfile?.youthProfile?.membershipStatus;
+  const membershipStatus = data?.myYouthProfile?.membershipStatus;
   const isMembershipPending = membershipStatus === MembershipStatus.PENDING;
 
   return [isMembershipPending, loading];

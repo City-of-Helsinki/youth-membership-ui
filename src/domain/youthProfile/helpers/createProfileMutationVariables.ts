@@ -17,7 +17,7 @@ const getPrimaryAddress = (
 ) => {
   switch (profileType) {
     case 'membership':
-      return (profile as MembershipDetails).youthProfile?.profile
+      return (profile as MembershipDetails).myYouthProfile?.profile
         ?.primaryAddress;
     case 'prefill':
       return (profile as PrefillRegistartion).myProfile?.primaryAddress;

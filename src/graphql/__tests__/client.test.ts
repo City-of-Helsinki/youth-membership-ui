@@ -2,9 +2,12 @@ import { gql } from 'apollo-boost';
 
 import client from '../client';
 
+const apiTokens = {};
+
 jest.mock('../../domain/auth/redux', () => {
   return {
-    profileApiTokenSelector: () => 'foo.bar.baz',
+    apiTokensSelector: () =>
+      "{'https://api.hel.fi/auth/jassariapi': 'jassari-token-1234', 'https://api.hel.fi/auth/helsinkiprofile': 'profile-token-1234'}",
   };
 });
 
@@ -34,8 +37,8 @@ describe('graphql client', () => {
 
     const fetchOptions = global.fetch.mock.calls[0][1];
     expect(fetchOptions.headers).toHaveProperty(
-      'Authorization',
-      'Bearer foo.bar.baz'
+      'Api-Tokens',
+      "\"{'https://api.hel.fi/auth/jassariapi': 'jassari-token-1234', 'https://api.hel.fi/auth/helsinkiprofile': 'profile-token-1234'}\""
     );
   });
 });

@@ -1,6 +1,6 @@
 import {
   PrefillRegistartion_myProfile_addresses_edges_node as PrefillAddress,
-  MembershipDetails_youthProfile_profile_addresses_edges_node as MembershipAddress,
+  MembershipDetails_myYouthProfile_profile_addresses_edges_node as MembershipAddress,
   PrefillRegistartion,
   MembershipDetails,
 } from '../../../graphql/generatedTypes';
@@ -14,8 +14,8 @@ const getEdge = (
       return (data as PrefillRegistartion)?.myProfile?.addresses?.edges || [];
     case 'membership':
       return (
-        (data as MembershipDetails)?.youthProfile?.profile?.addresses?.edges ||
-        []
+        (data as MembershipDetails)?.myYouthProfile?.profile?.addresses
+          ?.edges || []
       );
     default:
       return [];

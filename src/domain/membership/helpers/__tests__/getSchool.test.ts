@@ -3,7 +3,7 @@ import { MembershipDetails } from '../../../../graphql/generatedTypes';
 
 it('concatenates schoolName and schoolClass', () => {
   const data = {
-    youthProfile: {
+    myYouthProfile: {
       schoolClass: '44Ä',
       schoolName: 'Hogwarts',
     },
@@ -14,7 +14,7 @@ it('concatenates schoolName and schoolClass', () => {
 
 it('schoolClass missing', () => {
   const data = {
-    youthProfile: {
+    myYouthProfile: {
       schoolName: 'Hogwarts',
     },
   } as MembershipDetails;
@@ -24,7 +24,7 @@ it('schoolClass missing', () => {
 
 it('schoolName missing', () => {
   const data = {
-    youthProfile: {
+    myYouthProfile: {
       schoolClass: '4B',
     },
   } as MembershipDetails;
