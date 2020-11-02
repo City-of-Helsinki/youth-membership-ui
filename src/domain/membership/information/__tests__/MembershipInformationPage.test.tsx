@@ -19,7 +19,7 @@ const mocks = [
     },
     result: {
       data: {
-        youthProfile: {
+        myYouthProfile: {
           profile: {
             id: '123',
             firstName: 'Teemu',
@@ -55,7 +55,7 @@ it('mocked data is found', async () => {
 });
 
 it('renew button is shown', async () => {
-  mocks[0].result.data.youthProfile.renewable = true;
+  mocks[0].result.data.myYouthProfile.renewable = true;
 
   const wrapper = mount(
     <MemoryRouter>
