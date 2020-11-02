@@ -49,11 +49,12 @@ const formValues: FormValues = {
 };
 
 const profileData: MembershipDetails = {
-  youthProfile: {
+  myYouthProfile: {
     profile: {
       firstName: 'Teemu',
       lastName: 'Testaaja',
       language: Language.FINNISH,
+      id: '1234',
       primaryAddress: {
         city: 'Helsinki',
         postalCode: '00100',
@@ -94,7 +95,7 @@ const profileData: MembershipDetails = {
       edges: [],
       __typename: 'AdditionalContactPersonNodeConnection',
     },
-    __typename: 'YouthProfileType',
+    __typename: 'YouthProfileNode',
   },
 };
 

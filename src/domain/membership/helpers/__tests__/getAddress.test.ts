@@ -52,7 +52,7 @@ it('test function with all values', () => {
 
 it('can get address from MembershipDetails', () => {
   const data = {
-    youthProfile: {
+    myYouthProfile: {
       profile: {
         primaryAddress: {
           address: 'Teststreet Ö 44',

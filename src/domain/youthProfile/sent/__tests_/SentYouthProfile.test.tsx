@@ -19,7 +19,7 @@ const mocks = [
     },
     result: {
       data: {
-        youthProfile: {
+        myYouthProfile: {
           approverEmail: 'ville.vanhempi@test.fi',
           __typename: 'YouthProfileType',
         },
