@@ -62,7 +62,7 @@ function ViewYouthProfile(props: Props) {
         {emailReSent
           ? t('confirmSendingProfile.sendAgainHelpText')
           : t('confirmSendingProfile.helpText')}{' '}
-        {data?.youthProfile?.approverEmail}.
+        {data?.myYouthProfile?.approverEmail}.
       </p>
       <Button
         className={styles.button}

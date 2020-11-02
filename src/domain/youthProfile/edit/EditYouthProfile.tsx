@@ -10,7 +10,7 @@ import {
   UpdateMyProfile as UpdateMyProfileData,
   UpdateMyProfileVariables,
   YouthLanguage,
-  MembershipDetails_youthProfile_profile_primaryAddress as PrimaryAddress,
+  MembershipDetails_myYouthProfile_profile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import { getEditMutationVariables } from '../helpers/updateProfileMutationVariables';
@@ -49,7 +49,7 @@ function EditYouthProfile(props: Props) {
   >(UPDATE_PROFILE);
 
   const history = useHistory();
-  const youthProfile = data?.youthProfile;
+  const youthProfile = data?.myYouthProfile;
 
   const handleOnValues = (formValues: FormValues) => {
     const variables: UpdateMyProfileVariables = getEditMutationVariables(
@@ -72,13 +72,13 @@ function EditYouthProfile(props: Props) {
       {!loadingProfile && (
         <YouthProfileForm
           profile={{
-            firstName: youthProfile?.profile.firstName || '',
-            lastName: youthProfile?.profile.lastName || '',
+            firstName: youthProfile?.profile?.firstName || '',
+            lastName: youthProfile?.profile?.lastName || '',
             primaryAddress:
               youthProfile?.profile?.primaryAddress || ({} as PrimaryAddress),
-            email: youthProfile?.profile.primaryEmail?.email || '',
+            email: youthProfile?.profile?.primaryEmail?.email || '',
             addresses: getAddressesFromNode('membership', data),
-            phone: youthProfile?.profile.primaryPhone?.phone || '',
+            phone: youthProfile?.profile?.primaryPhone?.phone || '',
             birthDate: youthProfile?.birthDate,
             schoolName: youthProfile?.schoolName || '',
             schoolClass: youthProfile?.schoolClass || '',
@@ -93,7 +93,7 @@ function EditYouthProfile(props: Props) {
             photoUsageApproved:
               youthProfile?.photoUsageApproved?.toString() || 'false',
             additionalContactPersons: getAdditionalContactPersons(
-              data?.youthProfile
+              data?.myYouthProfile
             ),
           }}
           isEditing={true}

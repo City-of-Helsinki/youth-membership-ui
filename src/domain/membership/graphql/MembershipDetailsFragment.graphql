@@ -1,4 +1,4 @@
-fragment MembershipDetailsFragment on YouthProfileType {
+fragment MembershipDetailsFragment on YouthProfileNode {
   profile {
     firstName
     lastName

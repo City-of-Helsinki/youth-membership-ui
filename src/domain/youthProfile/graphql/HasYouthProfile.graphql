@@ -1,7 +1,5 @@
 query HasYouthProfile {
-  myProfile {
-    youthProfile {
-      membershipStatus
-    }
+  myYouthProfile {
+    membershipStatus
   }
 }

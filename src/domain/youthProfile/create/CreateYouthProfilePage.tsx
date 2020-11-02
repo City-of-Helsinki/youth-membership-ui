@@ -33,7 +33,8 @@ function CreateYouthProfilePage() {
     isMembershipPending,
     loadingIsMembershipPending,
   ] = useIsMembershipPending({
-    onError: () => {
+    onError: error => {
+      console.log('SomeRandomAssError', error.graphQLErrors);
       history.push('/login');
     },
   });
@@ -50,7 +51,7 @@ function CreateYouthProfilePage() {
   if (isMembershipPending) {
     return <Redirect to="/" />;
   }
-  console.log(data);
+  console.log('myProfile', data);
   return (
     <PageContent
       isReady={
