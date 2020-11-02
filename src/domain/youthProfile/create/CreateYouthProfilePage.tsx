@@ -23,8 +23,7 @@ function CreateYouthProfilePage() {
   const { data, loading: loadingPrefillData } = useQuery<PrefillRegistartion>(
     PREFILL_REGISTRATION,
     {
-      onError: error => {
-        console.log(error.graphQLErrors);
+      onError: () => {
         setShowNotification(true);
       },
     }
@@ -33,8 +32,7 @@ function CreateYouthProfilePage() {
     isMembershipPending,
     loadingIsMembershipPending,
   ] = useIsMembershipPending({
-    onError: error => {
-      console.log('SomeRandomAssError', error.graphQLErrors);
+    onError: () => {
       history.push('/login');
     },
   });
@@ -51,7 +49,7 @@ function CreateYouthProfilePage() {
   if (isMembershipPending) {
     return <Redirect to="/" />;
   }
-  console.log('myProfile', data);
+
   return (
     <PageContent
       isReady={

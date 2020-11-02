@@ -40,6 +40,7 @@ function MembershipInformation({
           </p>
           <QRCode
             size={175}
+            // eslint-disable-next-line max-len
             value={`${process.env.REACT_APP_ADMIN_URL}youthProfiles/${membershipInformationTypes.myYouthProfile?.profile?.id}/show`}
           />
            

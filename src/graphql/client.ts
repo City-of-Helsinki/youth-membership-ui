@@ -26,7 +26,7 @@ const getTokens = async () => {
 export default new ApolloClient({
   request: async operation => {
     const tokens = await getTokens();
-    console.log(JSON.stringify(tokens));
+
     if (tokens) {
       operation.setContext({
         headers: {
