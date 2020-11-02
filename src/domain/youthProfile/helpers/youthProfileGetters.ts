@@ -50,7 +50,7 @@ function getContactPersons(
     return [];
   }
 
-  return getAdditionalContactPersons(profile.youthProfile);
+  return getAdditionalContactPersons(profile.myYouthProfile);
 }
 
 export function getCreateYouthProfile(formValues: FormValues) {

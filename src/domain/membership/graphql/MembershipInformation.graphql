@@ -1,5 +1,5 @@
 query MembershipInformation {
-    youthProfile {
+    myYouthProfile {
         profile {
             id
             firstName

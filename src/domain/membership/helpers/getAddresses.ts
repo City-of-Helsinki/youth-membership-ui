@@ -4,8 +4,8 @@ import getLanguageCode from '../../../common/helpers/getLanguageCode';
 import {
   YouthProfileByApprovalToken,
   MembershipDetails,
-  MembershipDetails_youthProfile_profile_addresses_edges as AddressEdges,
-  MembershipDetails_youthProfile_profile_addresses_edges_node as Address,
+  MembershipDetails_myYouthProfile_profile_addresses_edges as AddressEdges,
+  MembershipDetails_myYouthProfile_profile_addresses_edges_node as Address,
 } from '../../../graphql/generatedTypes';
 
 function formatAddress(address: Address, lang: string) {
@@ -22,12 +22,12 @@ function formatAddress(address: Address, lang: string) {
 function findAddressesEdges(
   data: YouthProfileByApprovalToken | MembershipDetails
 ): Readonly<Array<AddressEdges | null> | undefined> {
-  if ('youthProfile' in data) {
+  if ('myYouthProfile' in data) {
     // MembershipDetails
-    return data.youthProfile?.profile.addresses?.edges;
+    return data.myYouthProfile?.profile?.addresses?.edges;
   } else if ('youthProfileByApprovalToken' in data) {
     // YouthProfileByApprovalToken
-    return data.youthProfileByApprovalToken?.profile.addresses?.edges;
+    return data.youthProfileByApprovalToken?.profile?.addresses?.edges;
   }
 
   return;

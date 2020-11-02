@@ -26,7 +26,7 @@ function AppYouthProfileRoute(props: Props) {
     },
   });
 
-  const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
+  const isYouthProfileFound = Boolean(data?.myYouthProfile?.membershipStatus);
   const birthDate = getCookie('birthDate');
   const isBirthDateValid = isValid(parseISO(birthDate));
 

@@ -8,8 +8,8 @@ import { differenceInYears } from 'date-fns';
 import {
   AddressType,
   Language,
-  MembershipDetails_youthProfile_profile_addresses_edges_node as EditAddress,
-  MembershipDetails_youthProfile_profile_primaryAddress as EditPrimaryAddress,
+  MembershipDetails_myYouthProfile_profile_addresses_edges_node as EditAddress,
+  MembershipDetails_myYouthProfile_profile_primaryAddress as EditPrimaryAddress,
   PrefillRegistartion_myProfile_addresses_edges_node as CreateAddress,
   PrefillRegistartion_myProfile_primaryAddress as CreatePrimaryAddress,
   YouthLanguage,
