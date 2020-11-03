@@ -8,12 +8,15 @@ import { useTranslation } from 'react-i18next';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 import { Redirect, useHistory } from 'react-router';
 import { isValid, parseISO } from 'date-fns';
+import { useSelector } from 'react-redux';
 
 import {
   AddServiceConnection as AddServiceConnectionData,
   AddServiceConnectionVariables,
   CreateMyProfile as CreateMyProfileData,
   CreateMyProfileVariables,
+  CreateMyYouthProfile as CreateMyYouthProfileData,
+  CreateMyYouthProfileVariables,
   Language,
   PrefillRegistartion,
   ServiceType,
@@ -27,12 +30,15 @@ import getCookie from '../../../common/helpers/getCookie';
 import { getMutationVariables } from '../helpers/createProfileMutationVariables';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
+import { getCreateYouthProfile } from '../helpers/youthProfileGetters';
+import { profileApiTokenSelector } from '../../auth/redux';
 import YouthProfileForm, {
   Values as FormValues,
 } from '../form/YouthProfileForm';
 import styles from './createYouthProfile.module.css';
 
 const CREATE_PROFILE = loader('../graphql/CreateMyProfile.graphql');
+const CREATE_YOUTH_PROFILE = loader('../graphql/CreateMyYouthProfile.graphql');
 const ADD_SERVICE_CONNECTION = loader(
   '../graphql/AddServiceConnection.graphql'
 );
@@ -51,11 +57,17 @@ function CreateYouthProfile({
   const { i18n } = useTranslation();
   const { trackEvent } = useMatomo();
   const history = useHistory();
+  const profileApiToken = useSelector(profileApiTokenSelector);
 
-  const [createProfile, { loading }] = useMutation<
+  const [createProfile, { loading: creatingProfile }] = useMutation<
     CreateMyProfileData,
     CreateMyProfileVariables
   >(CREATE_PROFILE);
+
+  const [createMyYouthProfile, { loading: creatingYouthProfile }] = useMutation<
+    CreateMyYouthProfileData,
+    CreateMyYouthProfileVariables
+  >(CREATE_YOUTH_PROFILE);
 
   const [addServiceConnection] = useMutation<
     AddServiceConnectionData,
@@ -96,36 +108,52 @@ function CreateYouthProfile({
       });
   };
 
+  const createYouthProfile = (formValues: FormValues) => {
+    const youthProfileVariables: CreateMyYouthProfileVariables = {
+      input: {
+        youthProfile: getCreateYouthProfile(formValues),
+        profileApiToken: profileApiToken,
+      },
+    };
+
+    createMyYouthProfile({ variables: youthProfileVariables })
+      .then(res => {
+        if (!!res.data) {
+          trackEvent({
+            category: 'action',
+            action: 'Register youth membership',
+          });
+          connectService();
+        }
+      })
+      .catch(error => {
+        Sentry.captureException(error);
+        setShowNotification(true);
+      });
+  };
+
   const handleOnValues = (formValues: FormValues) => {
-    const variables: CreateMyProfileVariables = getMutationVariables(
+    const profileVariables: CreateMyProfileVariables = getMutationVariables(
       formValues,
       prefillRegistrationData
     );
 
     if (prefillRegistrationData?.myProfile) {
-      updateProfile({ variables })
+      updateProfile({ variables: profileVariables })
         .then(result => {
           if (!!result.data) {
-            trackEvent({
-              category: 'action',
-              action: 'Update youth profile',
-            });
-            connectService();
+            createYouthProfile(formValues);
           }
         })
-        .catch((error: Error) => {
+        .catch(error => {
           Sentry.captureException(error);
           setShowNotification(true);
         });
     } else {
-      createProfile({ variables })
+      createProfile({ variables: profileVariables })
         .then(result => {
           if (!!result.data) {
-            trackEvent({
-              category: 'action',
-              action: 'Register youth membership',
-            });
-            connectService();
+            createYouthProfile(formValues);
           }
         })
         .catch((error: Error) => {
@@ -186,7 +214,7 @@ function CreateYouthProfile({
           photoUsageApproved: 'false',
           additionalContactPersons: [],
         }}
-        isSubmitting={loading}
+        isSubmitting={creatingProfile || creatingYouthProfile}
         onValues={handleOnValues}
       />
       <NotificationComponent

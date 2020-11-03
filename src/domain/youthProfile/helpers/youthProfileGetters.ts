@@ -2,10 +2,10 @@ import { differenceInYears, format } from 'date-fns';
 
 import {
   PrefillRegistartion,
-  YouthProfileFields,
   MembershipDetails,
   CreateAdditionalContactPersonInput,
   UpdateAdditionalContactPersonInput,
+  CreateYouthProfileInput,
 } from '../../../graphql/generatedTypes';
 import { Values as FormValues } from '../form/YouthProfileForm';
 import ageConstants from '../constants/ageConstants';
@@ -13,9 +13,9 @@ import prepareArrayFieldChanges from './prepareArrayFieldChanges';
 import getAdditionalContactPersons from './getAdditionalContactPersons';
 
 function handleAge(
-  variables: YouthProfileFields,
+  variables: CreateYouthProfileInput,
   formValues: FormValues
-): YouthProfileFields {
+): CreateYouthProfileInput {
   const age = differenceInYears(new Date(), new Date(formValues.birthDate));
   const isOldEnough = age >= ageConstants.PHOTO_PERMISSION_MIN;
   const photoUsageApproved = formValues.photoUsageApproved === 'true';
@@ -30,7 +30,7 @@ function handleAge(
 
 function getCommonProfileFields(
   formValues: FormValues
-): Partial<YouthProfileFields> {
+): CreateYouthProfileInput {
   return {
     birthDate: format(new Date(formValues.birthDate), 'yyyy-MM-dd'),
     schoolName: formValues.schoolName,

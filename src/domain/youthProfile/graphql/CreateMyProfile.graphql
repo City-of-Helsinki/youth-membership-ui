@@ -1,9 +1,7 @@
 mutation CreateMyProfile($input: CreateMyProfileMutationInput!) {
   createMyProfile(input: $input) {
     profile {
-      youthProfile {
-        birthDate
-      }
+      id
     }
   }
 }

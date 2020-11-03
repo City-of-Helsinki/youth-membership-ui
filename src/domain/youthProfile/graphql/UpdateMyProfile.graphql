@@ -1,9 +1,7 @@
 mutation UpdateMyProfile($input: UpdateMyProfileMutationInput!) {
   updateMyProfile(input: $input) {
     profile {
-      youthProfile {
-        approverEmail
-      }
+      id
     }
   }
 }
