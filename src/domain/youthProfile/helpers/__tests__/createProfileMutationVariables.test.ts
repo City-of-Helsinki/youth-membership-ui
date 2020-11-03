@@ -131,6 +131,18 @@ describe('getYouthProfile tests', () => {
   it('user is over ageConstants.PHOTO_PERMISSION_MIN', () => {
     const youthVariables = getCreateYouthProfile(formValues);
     expect(youthVariables.photoUsageApproved).toEqual(false);
+    expect(youthVariables).toEqual({
+      birthDate: '2000-01-01',
+      languageAtHome: 'FINNISH',
+      schoolClass: '1S',
+      schoolName: 'Smooth School',
+      approverPhone: '0501234567',
+      approverEmail: 'gee@guardian.com',
+      approverLastName: 'Guardian',
+      approverFirstName: 'Gee',
+      photoUsageApproved: false,
+      addAdditionalContactPersons: additionalContactPersons,
+    });
   });
 
   it('user is younger than ageConstants.PHOTO_PERMISSION_MIN', () => {
@@ -272,18 +284,6 @@ it('getMutationVariables returns correct object', () => {
             id: 'id',
           },
         ],
-        youthProfile: {
-          birthDate: '2000-01-01',
-          languageAtHome: 'FINNISH',
-          schoolClass: '1S',
-          schoolName: 'Smooth School',
-          approverPhone: '0501234567',
-          approverEmail: 'gee@guardian.com',
-          approverLastName: 'Guardian',
-          approverFirstName: 'Gee',
-          photoUsageApproved: false,
-          addAdditionalContactPersons: additionalContactPersons,
-        },
       },
     },
   });
