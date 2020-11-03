@@ -4,6 +4,7 @@ import { User } from 'oidc-client';
 import { loader } from 'graphql.macro';
 import { act } from 'react-dom/test-utils';
 import { MemoryRouter } from 'react-router';
+import { Provider } from 'react-redux';
 
 import {
   mountWithApolloProvider,
@@ -16,6 +17,7 @@ import {
   Language,
   PrefillRegistartion,
 } from '../../../../graphql/generatedTypes';
+import store from '../../../../redux/store';
 
 /* eslint-disable @typescript-eslint/camelcase */
 const mockTunnistamoUser: User = {
@@ -101,9 +103,11 @@ const getMocks = (myProfile: MyProfile) => {
 
 const getWrapper = (mocks?: MockedResponse[]) => {
   return mountWithApolloProvider(
-    <MemoryRouter>
-      <CreateYouthProfilePage />
-    </MemoryRouter>,
+    <Provider store={store}>
+      <MemoryRouter>
+        <CreateYouthProfilePage />
+      </MemoryRouter>
+    </Provider>,
     mocks
   );
 };
