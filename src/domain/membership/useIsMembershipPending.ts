@@ -1,6 +1,5 @@
 import { useQuery, QueryHookOptions } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
-import * as Sentry from '@sentry/browser';
 import { ApolloError } from 'apollo-boost';
 
 import {
@@ -17,8 +16,6 @@ type Props = QueryHookOptions<HasYouthProfile, Record<string, unknown>>;
 function useIsMembershipPending({ onError }: Props) {
   const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
     onError: (error: ApolloError) => {
-      Sentry.captureException(error);
-
       if (onError) {
         onError(error);
       }

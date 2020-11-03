@@ -19,6 +19,8 @@ import prepareArrayFieldChanges from '../helpers/prepareArrayFieldChanges';
 import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';
 import { FormValues } from './ApproveYouthProfileForm';
 import ApproveYouthProfile from './ApproveYouthProfile';
+import styles from './approveYouthProfilePage.module.css';
+import Text from '../../../common/components/text/Text';
 
 const PROFILE_BY_TOKEN = loader(
   '../graphql/YouthProfileByApprovalToken.graphql'
@@ -39,8 +41,7 @@ function ApproveYouthProfilePage() {
     PROFILE_BY_TOKEN,
     {
       variables: { token: params.token },
-      onError: (error: Error) => {
-        Sentry.captureException(error);
+      onError: () => {
         setShowNotification(true);
       },
       fetchPolicy: 'network-only',
@@ -90,16 +91,18 @@ function ApproveYouthProfilePage() {
 
   return (
     <PageContent isReady={!loading} title="approval.title">
-      {data && (
+      {data?.youthProfileByApprovalToken && (
         <ApproveYouthProfile
           data={data}
           onSubmit={handleOnSubmit}
           isApprovalSuccessful={approvalSuccessful}
         />
       )}
-      {!approvalSuccessful && !data && (
-        <PageSection>
-          <h2>{t('approval.approvedLink')}</h2>
+      {!approvalSuccessful && !data?.youthProfileByApprovalToken && (
+        <PageSection className={styles.explanationContainer}>
+          <Text variant="h1">{t('approval.approvedLink')}</Text>
+          <Text variant="info">{t('approval.explanationError')}</Text>
+          <Text variant="info">{t('approval.explanationCheckStatus')}</Text>
         </PageSection>
       )}
       <NotificationComponent

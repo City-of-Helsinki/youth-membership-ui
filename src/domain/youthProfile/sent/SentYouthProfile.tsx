@@ -23,8 +23,7 @@ function ViewYouthProfile(props: Props) {
   const [showNotification, setShowNotification] = useState(false);
   const [emailReSent, setEmailReSent] = useState(false);
   const { data } = useQuery<ApproverEmail>(APPROVER_EMAIL, {
-    onError: (error: Error) => {
-      Sentry.captureException(error);
+    onError: () => {
       setShowNotification(true);
     },
   });

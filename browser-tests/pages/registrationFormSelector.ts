@@ -47,6 +47,7 @@ export const registrationFormSelector = {
   additionalApproverPhone: Selector(
     'input[name="additionalContactPersons.0.phone"]'
   ),
+  textInputErrors: Selector('div[class^="TextInput-module_helperText"]'),
   terms: Selector('input[type="checkbox"]'),
   submitButton: Selector('button[type="submit"]'),
 };

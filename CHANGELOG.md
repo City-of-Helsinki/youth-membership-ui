@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [1.2.0] - 2020-11-03
+### Added
+- E2E tests for emails and approval view
+- E2E tests for modifying own information
+
+### Changed
+- Using an expired or non-existing approval token now displays a nice message to the user.
+
+### Fixed
+- Logging uninteresting error messages to Sentry
+
 ## [1.1.1] - 2020-10-07
 ### Added
 - e2e - tests for viewing own information

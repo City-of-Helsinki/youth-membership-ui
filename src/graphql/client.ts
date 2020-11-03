@@ -5,6 +5,7 @@ import { profileApiTokenSelector } from '../domain/auth/redux';
 import getAuthenticatedUser from '../domain/auth/getAuthenticatedUser';
 import fetchApiToken from '../domain/auth/fetchApiToken';
 import pickProfileApiToken from '../domain/auth/pickProfileApiToken';
+import handleError from './handleError';
 
 const getToken = async () => {
   try {
@@ -34,4 +35,5 @@ export default new ApolloClient({
     }
   },
   uri: process.env.REACT_APP_PROFILE_GRAPHQL,
+  onError: handleError,
 });

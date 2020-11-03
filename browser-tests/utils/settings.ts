@@ -36,3 +36,18 @@ export const testURL = () => {
       return LOCAL_URL;
   }
 };
+
+export const mailosaurApiKey = (): string => {
+  if (!process.env.REACT_APP_MAILOSAUR_API) {
+    throw new Error('No REACT_APP_MAILOSAUR_API specified');
+  }
+
+  return process.env.REACT_APP_MAILOSAUR_API;
+};
+export const mailosaurServerId = (): string => {
+  if (!process.env.REACT_APP_MAILOSAUR_SERVER_ID) {
+    throw new Error('No REACT_APP_MAILOSAUR_SERVER_ID specified');
+  }
+
+  return process.env.REACT_APP_MAILOSAUR_SERVER_ID;
+};
