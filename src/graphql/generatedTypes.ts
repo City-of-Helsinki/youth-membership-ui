@@ -231,14 +231,9 @@ export interface ApproveYouthProfileVariables {
 // GraphQL mutation operation: CreateMyProfile
 // ====================================================
 
-export interface CreateMyProfile_createMyProfile_profile_youthProfile {
-  readonly __typename: "YouthProfileNode";
-  readonly birthDate: any;
-}
-
 export interface CreateMyProfile_createMyProfile_profile {
   readonly __typename: "ProfileNode";
-  readonly youthProfile: CreateMyProfile_createMyProfile_profile_youthProfile | null;
+  readonly id: string;
 }
 
 export interface CreateMyProfile_createMyProfile {
@@ -252,6 +247,32 @@ export interface CreateMyProfile {
 
 export interface CreateMyProfileVariables {
   readonly input: CreateMyProfileMutationInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: CreateMyYouthProfile
+// ====================================================
+
+export interface CreateMyYouthProfile_createMyYouthProfile_youthProfile {
+  readonly __typename: "YouthProfileNode";
+  readonly birthDate: any;
+}
+
+export interface CreateMyYouthProfile_createMyYouthProfile {
+  readonly __typename: "CreateMyYouthProfileMutationPayload";
+  readonly youthProfile: CreateMyYouthProfile_createMyYouthProfile_youthProfile | null;
+}
+
+export interface CreateMyYouthProfile {
+  readonly createMyYouthProfile: CreateMyYouthProfile_createMyYouthProfile | null;
+}
+
+export interface CreateMyYouthProfileVariables {
+  readonly input: CreateMyYouthProfileMutationInput;
 }
 
 /* tslint:disable */
@@ -364,14 +385,9 @@ export interface PrefillRegistartion {
 // GraphQL mutation operation: UpdateMyProfile
 // ====================================================
 
-export interface UpdateMyProfile_updateMyProfile_profile_youthProfile {
-  readonly __typename: "YouthProfileNode";
-  readonly approverEmail: string;
-}
-
 export interface UpdateMyProfile_updateMyProfile_profile {
   readonly __typename: "ProfileNode";
-  readonly youthProfile: UpdateMyProfile_updateMyProfile_profile_youthProfile | null;
+  readonly id: string;
 }
 
 export interface UpdateMyProfile_updateMyProfile {
@@ -722,10 +738,31 @@ export interface CreateMyProfileMutationInput {
   readonly clientMutationId?: string | null;
 }
 
+export interface CreateMyYouthProfileMutationInput {
+  readonly youthProfile: CreateYouthProfileInput;
+  readonly profileApiToken: string;
+  readonly clientMutationId?: string | null;
+}
+
 export interface CreatePhoneInput {
   readonly primary?: boolean | null;
   readonly phone: string;
   readonly phoneType: PhoneType;
+}
+
+export interface CreateYouthProfileInput {
+  readonly schoolName?: string | null;
+  readonly schoolClass?: string | null;
+  readonly languageAtHome?: YouthLanguage | null;
+  readonly approverFirstName?: string | null;
+  readonly approverLastName?: string | null;
+  readonly approverPhone?: string | null;
+  readonly approverEmail?: string | null;
+  readonly birthDate: any;
+  readonly photoUsageApproved?: boolean | null;
+  readonly addAdditionalContactPersons?: ReadonlyArray<(CreateAdditionalContactPersonInput | null)> | null;
+  readonly updateAdditionalContactPersons?: ReadonlyArray<(UpdateAdditionalContactPersonInput | null)> | null;
+  readonly removeAdditionalContactPersons?: ReadonlyArray<(string | null)> | null;
 }
 
 export interface ProfileInput {
