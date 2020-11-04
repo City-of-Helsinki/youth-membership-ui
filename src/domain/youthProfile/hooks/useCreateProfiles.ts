@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { useSelector } from 'react-redux';
@@ -32,8 +31,11 @@ const CREATE_MY_YOUTH_PROFILE = loader(
 );
 const UPDATE_MY_PROFILE = loader('../graphql/UpdateMyProfile.graphql');
 
-const useCreateProfiles = () => {
-  const [error, setError] = useState<Error | null>(null);
+type CreateProfileVariables = {
+  loading: boolean;
+};
+
+const useCreateProfiles = (errorCB: (value: boolean) => void) => {
   const history = useHistory();
   const profileApiToken = useSelector(profileApiTokenSelector);
   const { trackEvent } = useMatomo();
@@ -66,7 +68,7 @@ const useCreateProfiles = () => {
     UpdateMyProfileVariables
   >(UPDATE_MY_PROFILE);
 
-  const isLoading =
+  const loading =
     addingServiceConnection ||
     creatingMyProfile ||
     creatingMyYouthProfile ||
@@ -89,8 +91,8 @@ const useCreateProfiles = () => {
         history.push('/');
       })
       .catch((error: Error) => {
+        errorCB(true);
         Sentry.captureException(error);
-        setError(error);
       });
   };
 
@@ -113,8 +115,8 @@ const useCreateProfiles = () => {
         }
       })
       .catch((error: Error) => {
+        errorCB(true);
         Sentry.captureException(error);
-        setError(error);
       });
   };
 
@@ -133,8 +135,8 @@ const useCreateProfiles = () => {
           if (result.data) createYouthProfile(formValues);
         })
         .catch((error: Error) => {
+          errorCB(true);
           Sentry.captureException(error);
-          setError(error);
         });
     } else {
       createMyProfile({ variables: myProfileVariables })
@@ -142,13 +144,16 @@ const useCreateProfiles = () => {
           if (result.data) createYouthProfile(formValues);
         })
         .catch((error: Error) => {
+          errorCB(true);
           Sentry.captureException(error);
-          setError(error);
         });
     }
   };
 
-  return { createProfiles, isLoading, error, setError };
+  return [createProfiles, { loading }] as [
+    (formValues: FormValues, prefillRegistartion: PrefillRegistartion) => void,
+    CreateProfileVariables
+  ];
 };
 
 export default useCreateProfiles;

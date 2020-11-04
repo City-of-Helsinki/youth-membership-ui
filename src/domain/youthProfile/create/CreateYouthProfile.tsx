@@ -1,5 +1,5 @@
 /* eslint-disable sort-keys */
-import React from 'react';
+import React, { useState } from 'react';
 import { User } from 'oidc-client';
 import { useTranslation } from 'react-i18next';
 import { Redirect } from 'react-router';
@@ -30,8 +30,9 @@ function CreateYouthProfile({
   tunnistamoUser,
   prefillRegistrationData,
 }: Props) {
+  const [showNotification, setShowNotification] = useState<boolean>(false);
   const { i18n } = useTranslation();
-  const { createProfiles, isLoading, error, setError } = useCreateProfiles();
+  const [createProfiles, { loading }] = useCreateProfiles(setShowNotification);
 
   const birthDate = getCookie('birthDate');
   const isBirthDateValid = isValid(parseISO(birthDate));
@@ -91,12 +92,12 @@ function CreateYouthProfile({
           photoUsageApproved: 'false',
           additionalContactPersons: [],
         }}
-        isSubmitting={isLoading}
+        isSubmitting={loading}
         onValues={handleOnValues}
       />
       <NotificationComponent
-        show={Boolean(error)}
-        onClose={() => setError(null)}
+        show={showNotification}
+        onClose={() => setShowNotification(false)}
       />
     </div>
   );
