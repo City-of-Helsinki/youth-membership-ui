@@ -32,7 +32,9 @@ function CreateYouthProfile({
 }: Props) {
   const [showNotification, setShowNotification] = useState<boolean>(false);
   const { i18n } = useTranslation();
-  const [createProfiles, { loading }] = useCreateProfiles(setShowNotification);
+  const [createProfiles, { loading }] = useCreateProfiles({
+    onError: () => setShowNotification(true),
+  });
 
   const birthDate = getCookie('birthDate');
   const isBirthDateValid = isValid(parseISO(birthDate));
