@@ -1,48 +1,25 @@
 /* eslint-disable sort-keys */
-import React, { useState } from 'react';
+import React from 'react';
 import { User } from 'oidc-client';
-import { useMutation } from '@apollo/react-hooks';
-import { loader } from 'graphql.macro';
-import * as Sentry from '@sentry/browser';
 import { useTranslation } from 'react-i18next';
-import { useMatomo } from '@datapunt/matomo-tracker-react';
-import { Redirect, useHistory } from 'react-router';
+import { Redirect } from 'react-router';
 import { isValid, parseISO } from 'date-fns';
-import { useSelector } from 'react-redux';
 
 import {
-  AddServiceConnection as AddServiceConnectionData,
-  AddServiceConnectionVariables,
-  CreateMyProfile as CreateMyProfileData,
-  CreateMyProfileVariables,
-  CreateMyYouthProfile as CreateMyYouthProfileData,
-  CreateMyYouthProfileVariables,
   Language,
   PrefillRegistartion,
-  ServiceType,
-  UpdateMyProfile as UpdateMyProfileData,
-  UpdateMyProfileVariables,
   YouthLanguage,
   PrefillRegistartion_myProfile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import getCookie from '../../../common/helpers/getCookie';
-import { getMutationVariables } from '../helpers/createProfileMutationVariables';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
-import { getCreateYouthProfile } from '../helpers/youthProfileGetters';
-import { profileApiTokenSelector } from '../../auth/redux';
 import YouthProfileForm, {
   Values as FormValues,
 } from '../form/YouthProfileForm';
 import styles from './createYouthProfile.module.css';
-
-const CREATE_PROFILE = loader('../graphql/CreateMyProfile.graphql');
-const CREATE_YOUTH_PROFILE = loader('../graphql/CreateMyYouthProfile.graphql');
-const ADD_SERVICE_CONNECTION = loader(
-  '../graphql/AddServiceConnection.graphql'
-);
-const UPDATE_PROFILE = loader('../graphql/UpdateMyProfile.graphql');
+import useCreateProfiles from '../hooks/useCreateProfiles';
 
 type Props = {
   tunnistamoUser: User;
@@ -53,114 +30,14 @@ function CreateYouthProfile({
   tunnistamoUser,
   prefillRegistrationData,
 }: Props) {
-  const [showNotification, setShowNotification] = useState(false);
   const { i18n } = useTranslation();
-  const { trackEvent } = useMatomo();
-  const history = useHistory();
-  const profileApiToken = useSelector(profileApiTokenSelector);
-
-  const [createProfile, { loading: creatingProfile }] = useMutation<
-    CreateMyProfileData,
-    CreateMyProfileVariables
-  >(CREATE_PROFILE);
-
-  const [createMyYouthProfile, { loading: creatingYouthProfile }] = useMutation<
-    CreateMyYouthProfileData,
-    CreateMyYouthProfileVariables
-  >(CREATE_YOUTH_PROFILE);
-
-  const [addServiceConnection] = useMutation<
-    AddServiceConnectionData,
-    AddServiceConnectionVariables
-  >(ADD_SERVICE_CONNECTION, {
-    refetchQueries: ['HasYouthProfile'],
-    awaitRefetchQueries: true,
-  });
-
-  const [updateProfile] = useMutation<
-    UpdateMyProfileData,
-    UpdateMyProfileVariables
-  >(UPDATE_PROFILE);
+  const { createProfiles, isLoading, error, setError } = useCreateProfiles();
 
   const birthDate = getCookie('birthDate');
   const isBirthDateValid = isValid(parseISO(birthDate));
 
-  const connectService = () => {
-    // TODO after back end supports editing serviceConnections change enabled from true to false
-    const connectionVariables: AddServiceConnectionVariables = {
-      input: {
-        serviceConnection: {
-          service: {
-            type: ServiceType.YOUTH_MEMBERSHIP,
-          },
-          enabled: true,
-        },
-      },
-    };
-
-    addServiceConnection({ variables: connectionVariables })
-      .then(() => {
-        history.push('/');
-      })
-      .catch((error: Error) => {
-        Sentry.captureException(error);
-        setShowNotification(true);
-      });
-  };
-
-  const createYouthProfile = (formValues: FormValues) => {
-    const youthProfileVariables: CreateMyYouthProfileVariables = {
-      input: {
-        youthProfile: getCreateYouthProfile(formValues),
-        profileApiToken: profileApiToken,
-      },
-    };
-
-    createMyYouthProfile({ variables: youthProfileVariables })
-      .then(res => {
-        if (!!res.data) {
-          trackEvent({
-            category: 'action',
-            action: 'Register youth membership',
-          });
-          connectService();
-        }
-      })
-      .catch(error => {
-        Sentry.captureException(error);
-        setShowNotification(true);
-      });
-  };
-
   const handleOnValues = (formValues: FormValues) => {
-    const profileVariables: CreateMyProfileVariables = getMutationVariables(
-      formValues,
-      prefillRegistrationData
-    );
-
-    if (prefillRegistrationData?.myProfile) {
-      updateProfile({ variables: profileVariables })
-        .then(result => {
-          if (!!result.data) {
-            createYouthProfile(formValues);
-          }
-        })
-        .catch(error => {
-          Sentry.captureException(error);
-          setShowNotification(true);
-        });
-    } else {
-      createProfile({ variables: profileVariables })
-        .then(result => {
-          if (!!result.data) {
-            createYouthProfile(formValues);
-          }
-        })
-        .catch((error: Error) => {
-          Sentry.captureException(error);
-          setShowNotification(true);
-        });
-    }
+    createProfiles(formValues, prefillRegistrationData);
   };
 
   const formatLocale = (locale: string) => {
@@ -214,12 +91,12 @@ function CreateYouthProfile({
           photoUsageApproved: 'false',
           additionalContactPersons: [],
         }}
-        isSubmitting={creatingProfile || creatingYouthProfile}
+        isSubmitting={isLoading}
         onValues={handleOnValues}
       />
       <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
+        show={Boolean(error)}
+        onClose={() => setError(null)}
       />
     </div>
   );
