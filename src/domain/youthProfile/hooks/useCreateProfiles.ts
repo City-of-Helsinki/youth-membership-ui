@@ -35,7 +35,11 @@ type CreateProfileVariables = {
   loading: boolean;
 };
 
-const useCreateProfiles = (errorCB: (value: boolean) => void) => {
+type Options = {
+  onError: (e: Error) => void;
+};
+
+const useCreateProfiles = ({ onError }: Options) => {
   const history = useHistory();
   const profileApiToken = useSelector(profileApiTokenSelector);
   const { trackEvent } = useMatomo();
@@ -74,7 +78,22 @@ const useCreateProfiles = (errorCB: (value: boolean) => void) => {
     creatingMyYouthProfile ||
     updatingMyProfile;
 
-  const connectService = () => {
+  const createProfiles = async (
+    formValues: FormValues,
+    prefillRegistration: PrefillRegistartion
+  ) => {
+    const myProfileVariables: CreateMyProfileVariables = getMutationVariables(
+      formValues,
+      prefillRegistration
+    );
+
+    const myYouthProfileVariables: CreateMyYouthProfileVariables = {
+      input: {
+        youthProfile: getCreateYouthProfile(formValues),
+        profileApiToken: profileApiToken,
+      },
+    };
+
     const serviceConnectionVariables: AddServiceConnectionVariables = {
       input: {
         serviceConnection: {
@@ -86,67 +105,22 @@ const useCreateProfiles = (errorCB: (value: boolean) => void) => {
       },
     };
 
-    addServiceConnection({ variables: serviceConnectionVariables })
-      .then(() => {
-        history.push('/');
-      })
-      .catch((error: Error) => {
-        errorCB(true);
-        Sentry.captureException(error);
+    try {
+      if (prefillRegistration.myProfile) {
+        await updateMyYouthProfile({ variables: myProfileVariables });
+      } else {
+        await createMyProfile({ variables: myProfileVariables });
+      }
+      await createMyYouthProfile({ variables: myYouthProfileVariables });
+      await trackEvent({
+        category: 'action',
+        action: 'Register youth membership',
       });
-  };
-
-  const createYouthProfile = (formValues: FormValues) => {
-    const myYouthProfileVariables: CreateMyYouthProfileVariables = {
-      input: {
-        youthProfile: getCreateYouthProfile(formValues),
-        profileApiToken: profileApiToken,
-      },
-    };
-
-    createMyYouthProfile({ variables: myYouthProfileVariables })
-      .then(result => {
-        if (result.data) {
-          trackEvent({
-            category: 'action',
-            action: 'Register youth membership',
-          });
-          connectService();
-        }
-      })
-      .catch((error: Error) => {
-        errorCB(true);
-        Sentry.captureException(error);
-      });
-  };
-
-  const createProfiles = (
-    formValues: FormValues,
-    prefillRegistration: PrefillRegistartion
-  ) => {
-    const myProfileVariables: CreateMyProfileVariables = getMutationVariables(
-      formValues,
-      prefillRegistration
-    );
-
-    if (prefillRegistration?.myProfile) {
-      updateMyYouthProfile({ variables: myProfileVariables })
-        .then(result => {
-          if (result.data) createYouthProfile(formValues);
-        })
-        .catch((error: Error) => {
-          errorCB(true);
-          Sentry.captureException(error);
-        });
-    } else {
-      createMyProfile({ variables: myProfileVariables })
-        .then(result => {
-          if (result.data) createYouthProfile(formValues);
-        })
-        .catch((error: Error) => {
-          errorCB(true);
-          Sentry.captureException(error);
-        });
+      await addServiceConnection({ variables: serviceConnectionVariables });
+      history.push('/');
+    } catch (e) {
+      Sentry.captureException(e);
+      onError(e);
     }
   };
 
