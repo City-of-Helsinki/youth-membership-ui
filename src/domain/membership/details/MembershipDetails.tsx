@@ -56,7 +56,10 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
             <BasicInformationGrid
               name={getFullName(membershipDetailsData)}
               addresses={[
-                getAddress(membershipDetailsData, i18n.languages[0]),
+                getAddress(
+                  membershipDetailsData.myYouthProfile.profile,
+                  i18n.languages[0]
+                ),
                 ...addresses.map((address: Address) =>
                   getAdditionalAddresses(address)
                 ),

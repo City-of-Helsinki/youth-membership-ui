@@ -382,6 +382,78 @@ export interface PrefillRegistartion {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: ProfileWithAccessToken
+// ====================================================
+
+export interface ProfileWithAccessToken_profileWithAccessToken_primaryAddress {
+  readonly __typename: "AddressNode";
+  readonly address: string;
+  readonly postalCode: string;
+  readonly city: string;
+  readonly countryCode: string;
+  readonly id: string;
+  readonly addressType: AddressType | null;
+  readonly primary: boolean;
+}
+
+export interface ProfileWithAccessToken_profileWithAccessToken_addresses_edges_node {
+  readonly __typename: "AddressNode";
+  readonly primary: boolean;
+  readonly id: string;
+  readonly address: string;
+  readonly postalCode: string;
+  readonly city: string;
+  readonly countryCode: string;
+  readonly addressType: AddressType | null;
+}
+
+export interface ProfileWithAccessToken_profileWithAccessToken_addresses_edges {
+  readonly __typename: "AddressNodeEdge";
+  readonly node: ProfileWithAccessToken_profileWithAccessToken_addresses_edges_node | null;
+}
+
+export interface ProfileWithAccessToken_profileWithAccessToken_addresses {
+  readonly __typename: "AddressNodeConnection";
+  readonly edges: ReadonlyArray<(ProfileWithAccessToken_profileWithAccessToken_addresses_edges | null)>;
+}
+
+export interface ProfileWithAccessToken_profileWithAccessToken_primaryEmail {
+  readonly __typename: "EmailNode";
+  readonly email: string;
+  readonly id: string;
+}
+
+export interface ProfileWithAccessToken_profileWithAccessToken_primaryPhone {
+  readonly __typename: "PhoneNode";
+  readonly phone: string | null;
+  readonly id: string;
+}
+
+export interface ProfileWithAccessToken_profileWithAccessToken {
+  readonly __typename: "RestrictedProfileNode";
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly language: Language | null;
+  readonly id: string;
+  readonly primaryAddress: ProfileWithAccessToken_profileWithAccessToken_primaryAddress | null;
+  readonly addresses: ProfileWithAccessToken_profileWithAccessToken_addresses | null;
+  readonly primaryEmail: ProfileWithAccessToken_profileWithAccessToken_primaryEmail | null;
+  readonly primaryPhone: ProfileWithAccessToken_profileWithAccessToken_primaryPhone | null;
+}
+
+export interface ProfileWithAccessToken {
+  readonly profileWithAccessToken: ProfileWithAccessToken_profileWithAccessToken | null;
+}
+
+export interface ProfileWithAccessTokenVariables {
+  readonly token: any;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: UpdateMyProfile
 // ====================================================
 
@@ -437,62 +509,6 @@ export interface UpdateMyYouthProfileVariables {
 // GraphQL query operation: YouthProfileByApprovalToken
 // ====================================================
 
-export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryAddress {
-  readonly __typename: "AddressNode";
-  readonly address: string;
-  readonly postalCode: string;
-  readonly city: string;
-  readonly countryCode: string;
-  readonly id: string;
-  readonly addressType: AddressType | null;
-  readonly primary: boolean;
-}
-
-export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges_node {
-  readonly __typename: "AddressNode";
-  readonly primary: boolean;
-  readonly id: string;
-  readonly address: string;
-  readonly postalCode: string;
-  readonly city: string;
-  readonly countryCode: string;
-  readonly addressType: AddressType | null;
-}
-
-export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges {
-  readonly __typename: "AddressNodeEdge";
-  readonly node: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges_node | null;
-}
-
-export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses {
-  readonly __typename: "AddressNodeConnection";
-  readonly edges: ReadonlyArray<(YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses_edges | null)>;
-}
-
-export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail {
-  readonly __typename: "EmailNode";
-  readonly email: string;
-  readonly id: string;
-}
-
-export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryPhone {
-  readonly __typename: "PhoneNode";
-  readonly phone: string | null;
-  readonly id: string;
-}
-
-export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_profile {
-  readonly __typename: "ProfileNode";
-  readonly firstName: string;
-  readonly lastName: string;
-  readonly language: Language | null;
-  readonly id: string;
-  readonly primaryAddress: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryAddress | null;
-  readonly addresses: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_addresses | null;
-  readonly primaryEmail: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryEmail | null;
-  readonly primaryPhone: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile_primaryPhone | null;
-}
-
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_additionalContactPersons_edges_node {
   readonly __typename: "AdditionalContactPersonNode";
   readonly id: string;
@@ -514,7 +530,6 @@ export interface YouthProfileByApprovalToken_youthProfileByApprovalToken_additio
 
 export interface YouthProfileByApprovalToken_youthProfileByApprovalToken {
   readonly __typename: "YouthProfileNode";
-  readonly profile: YouthProfileByApprovalToken_youthProfileByApprovalToken_profile | null;
   readonly birthDate: any;
   readonly schoolName: string;
   readonly schoolClass: string;

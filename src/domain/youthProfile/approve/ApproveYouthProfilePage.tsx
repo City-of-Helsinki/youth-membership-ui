@@ -1,114 +1,130 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { loader } from 'graphql.macro';
-import * as Sentry from '@sentry/browser';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { GraphQLError } from 'graphql';
 
 import {
-  YouthProfileByApprovalToken,
   ApproveYouthProfile as ApproveYourProfileData,
   ApproveYouthProfileVariables,
   CreateAdditionalContactPersonInput,
   UpdateAdditionalContactPersonInput,
+  YouthProfileByApprovalToken_youthProfileByApprovalToken as YouthProfileByApprovalTokenNode,
 } from '../../../graphql/generatedTypes';
-import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import PageContent from '../../../common/components/layout/PageContent';
 import PageSection from '../../../common/components/layout/PageSection';
+import Text from '../../../common/components/text/Text';
 import prepareArrayFieldChanges from '../helpers/prepareArrayFieldChanges';
 import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';
+import useProfileByTokens from './useProfileByTokens';
 import { FormValues } from './ApproveYouthProfileForm';
 import ApproveYouthProfile from './ApproveYouthProfile';
 import styles from './approveYouthProfilePage.module.css';
-import Text from '../../../common/components/text/Text';
 
-const PROFILE_BY_TOKEN = loader(
-  '../graphql/YouthProfileByApprovalToken.graphql'
-);
 const APPROVE_PROFILE = loader('../graphql/ApproveYouthProfile.graphql');
 
+function getApprovalData(
+  values: FormValues,
+  currentYouthProfile?: YouthProfileByApprovalTokenNode
+) {
+  const previousAdditionalContactPersons = getAdditionalContactPersons(
+    currentYouthProfile
+  );
+  const { add, update, remove } = prepareArrayFieldChanges<
+    CreateAdditionalContactPersonInput,
+    UpdateAdditionalContactPersonInput
+  >(previousAdditionalContactPersons, values.additionalContactPersons);
+
+  return {
+    approverFirstName: values.approverFirstName,
+    approverLastName: values.approverLastName,
+    approverEmail: values.approverEmail,
+    approverPhone: values.approverPhone,
+    birthDate: currentYouthProfile?.birthDate,
+    photoUsageApproved: Boolean(values.photoUsageApproved),
+    addAdditionalContactPersons: add,
+    updateAdditionalContactPersons: update,
+    removeAdditionalContactPersons: remove,
+  };
+}
+
+function isError(graphQLErrors?: GraphQLError[], errorCode?: string): boolean {
+  if (!graphQLErrors) {
+    return false;
+  }
+
+  return graphQLErrors.reduce<boolean>(
+    (previousValue, graphqlError) =>
+      graphqlError.extensions?.code === errorCode || previousValue,
+    false
+  );
+}
+
+function isProfileDoesNotExistError(graphQLErrors?: GraphQLError[]) {
+  return isError(graphQLErrors, 'PROFILE_DOES_NOT_EXIST_ERROR');
+}
+
+function isTokenExpiredError(graphQLErrors?: GraphQLError[]) {
+  return isError(graphQLErrors, 'TOKEN_EXPIRED_ERROR');
+}
+
 type Params = {
-  token: string;
+  approvalToken: string;
+  readToken: string;
 };
 
 function ApproveYouthProfilePage() {
   const { t } = useTranslation();
-  const [approvalSuccessful, setApprovalSuccessful] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
+  const { approvalToken, readToken } = useParams<Params>();
 
-  const params = useParams<Params>();
-  const { data, loading } = useQuery<YouthProfileByApprovalToken>(
-    PROFILE_BY_TOKEN,
-    {
-      variables: { token: params.token },
-      onError: () => {
-        setShowNotification(true);
-      },
-      fetchPolicy: 'network-only',
-    }
-  );
-  const [approveProfile] = useMutation<
+  const { data, loading, error: queryProfileError } = useProfileByTokens({
+    tokens: { approvalToken, readToken },
+    fetchPolicy: 'network-only',
+  });
+  const [approveProfile, { error: approveProfileError }] = useMutation<
     ApproveYourProfileData,
     ApproveYouthProfileVariables
   >(APPROVE_PROFILE);
 
-  const handleOnSubmit = async (values: FormValues) => {
-    const previousAdditionalContactPersons = getAdditionalContactPersons(
-      data?.youthProfileByApprovalToken
-    );
-    const { add, update, remove } = prepareArrayFieldChanges<
-      CreateAdditionalContactPersonInput,
-      UpdateAdditionalContactPersonInput
-    >(previousAdditionalContactPersons, values.additionalContactPersons);
-    const variables = {
-      input: {
-        approvalData: {
-          approverFirstName: values.approverFirstName,
-          approverLastName: values.approverLastName,
-          approverEmail: values.approverEmail,
-          approverPhone: values.approverPhone,
-          birthDate: data?.youthProfileByApprovalToken?.birthDate,
-          photoUsageApproved: Boolean(values.photoUsageApproved),
-          addAdditionalContactPersons: add,
-          updateAdditionalContactPersons: update,
-          removeAdditionalContactPersons: remove,
+  const handleOnSubmit = (values: FormValues) => {
+    return approveProfile({
+      variables: {
+        input: {
+          approvalData: getApprovalData(
+            values,
+            data?.youthProfileByApprovalToken
+          ),
+          approvalToken,
         },
-        approvalToken: params.token,
       },
-    };
-
-    try {
-      const result = await approveProfile({ variables });
-
-      if (result.data) {
-        setApprovalSuccessful(true);
-      }
-    } catch (error) {
-      Sentry.captureException(error);
-      setShowNotification(true);
-    }
+    });
   };
+
+  const isApprovalSuccessful = Boolean(approveProfileError);
+  const isProfileError =
+    isProfileDoesNotExistError(queryProfileError?.graphQLErrors) ||
+    isTokenExpiredError(queryProfileError?.graphQLErrors);
+  const isApprovalError =
+    !isApprovalSuccessful && !data?.youthProfileByApprovalToken;
+  const isError = isProfileError || isApprovalError;
 
   return (
     <PageContent isReady={!loading} title="approval.title">
-      {data?.youthProfileByApprovalToken && (
+      {!isError && data?.youthProfileByApprovalToken && (
         <ApproveYouthProfile
           data={data}
           onSubmit={handleOnSubmit}
-          isApprovalSuccessful={approvalSuccessful}
+          isApprovalSuccessful={isApprovalSuccessful}
         />
       )}
-      {!approvalSuccessful && !data?.youthProfileByApprovalToken && (
+      {isError && (
         <PageSection className={styles.explanationContainer}>
           <Text variant="h1">{t('approval.approvedLink')}</Text>
           <Text variant="info">{t('approval.explanationError')}</Text>
           <Text variant="info">{t('approval.explanationCheckStatus')}</Text>
         </PageSection>
       )}
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
-      />
     </PageContent>
   );
 }
