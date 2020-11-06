@@ -47,6 +47,12 @@ Generate static types for GraphQL queries by using the schema from the backend s
 
 Creates new translation message files based on current version of translation source and overwrites existing files with them.
 
+### `yarn browser-test:ci`
+
+The `ci` variant of `browser-test` is ran against a headless browser, making it suitable for CI environments.
+
+Browser tests are configured to run in Travis against the cron event with the `browser-test:ci` command. Cron is configured to run once a day.
+
 ## Setting up development environment locally with docker
 
 ### Set tunnistamo hostname
