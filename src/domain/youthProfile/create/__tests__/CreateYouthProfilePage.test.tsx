@@ -3,11 +3,9 @@ import { MockedResponse } from '@apollo/react-testing';
 import { User } from 'oidc-client';
 import { loader } from 'graphql.macro';
 import { act } from 'react-dom/test-utils';
-import { MemoryRouter } from 'react-router';
-import { Provider } from 'react-redux';
 
 import {
-  mountWithApolloProvider,
+  mountWithProviders,
   updateWrapper,
 } from '../../../../common/test/testUtils';
 import i18n from '../../../../common/test/testi18nInit';
@@ -17,7 +15,6 @@ import {
   Language,
   PrefillRegistartion,
 } from '../../../../graphql/generatedTypes';
-import store from '../../../../redux/store';
 
 /* eslint-disable @typescript-eslint/camelcase */
 const mockTunnistamoUser: User = {
@@ -102,14 +99,7 @@ const getMocks = (myProfile: MyProfile) => {
 };
 
 const getWrapper = (mocks?: MockedResponse[]) => {
-  return mountWithApolloProvider(
-    <Provider store={store}>
-      <MemoryRouter>
-        <CreateYouthProfilePage />
-      </MemoryRouter>
-    </Provider>,
-    mocks
-  );
+  return mountWithProviders(<CreateYouthProfilePage />, mocks);
 };
 
 Object.defineProperty(window.document, 'cookie', {

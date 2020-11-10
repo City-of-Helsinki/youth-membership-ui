@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 
 import ViewYouthProfile from '../SentYouthProfile';
 import {
-  mountWithApolloAndReduxProviders,
+  mountWithProviders,
   updateWrapper,
 } from '../../../../common/test/testUtils';
 
@@ -30,7 +30,7 @@ const mocks = [
 ];
 
 const getWrapper = () => {
-  return mountWithApolloAndReduxProviders(
+  return mountWithProviders(
     <MemoryRouter>
       <ViewYouthProfile />
     </MemoryRouter>,
