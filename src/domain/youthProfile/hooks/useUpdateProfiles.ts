@@ -1,5 +1,4 @@
 import { useMutation } from '@apollo/react-hooks';
-import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
 import * as Sentry from '@sentry/browser';
 import { loader } from 'graphql.macro';
@@ -23,14 +22,14 @@ const UPDATE_MY_YOUTH_PROFILE = loader(
 
 type Options = {
   onError: (e: Error) => void;
+  onCompleted: () => void;
 };
 
 type UpdateProfileVariables = {
   loading: boolean;
 };
 
-const useUpdateProfiles = ({ onError }: Options) => {
-  const history = useHistory();
+const useUpdateProfiles = ({ onError, onCompleted }: Options) => {
   const profileApiToken = useSelector(profileApiTokenSelector);
 
   const [updateMyProfile, { loading: updatingMyProfile }] = useMutation<
@@ -64,7 +63,7 @@ const useUpdateProfiles = ({ onError }: Options) => {
     try {
       await updateMyProfile({ variables: myProfileVariables });
       await updateMyYouthProfile({ variables: myYouthProfileVariables });
-      history.push('/membership-details');
+      onCompleted();
     } catch (e) {
       Sentry.captureException(e);
       onError(e);
