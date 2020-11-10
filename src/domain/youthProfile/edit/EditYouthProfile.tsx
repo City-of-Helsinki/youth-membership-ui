@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
+import { useHistory } from 'react-router';
 
 import {
   Language,
@@ -38,8 +39,11 @@ function EditYouthProfile(props: Props) {
     }
   );
 
+  const history = useHistory();
+
   const [updateProfiles, { loading }] = useUpdateProfiles({
     onError: () => setShowNotification(true),
+    onCompleted: () => history.push('/membership-details'),
   });
 
   const youthProfile = data?.myYouthProfile;
