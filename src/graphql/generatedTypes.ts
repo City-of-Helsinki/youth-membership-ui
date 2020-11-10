@@ -707,7 +707,7 @@ export interface AddServiceConnectionMutationInput {
 
 export interface ApproveYouthProfileMutationInput {
   readonly approvalToken: string;
-  readonly approvalData: YouthProfileFields;
+  readonly approvalData: YouthProfileInput;
   readonly clientMutationId?: string | null;
 }
 
@@ -773,19 +773,20 @@ export interface ProfileInput {
   readonly language?: Language | null;
   readonly contactMethod?: ContactMethod | null;
   readonly addEmails?: ReadonlyArray<(CreateEmailInput | null)> | null;
-  readonly updateEmails?: ReadonlyArray<(UpdateEmailInput | null)> | null;
-  readonly removeEmails?: ReadonlyArray<(string | null)> | null;
   readonly addPhones?: ReadonlyArray<(CreatePhoneInput | null)> | null;
-  readonly updatePhones?: ReadonlyArray<(UpdatePhoneInput | null)> | null;
-  readonly removePhones?: ReadonlyArray<(string | null)> | null;
   readonly addAddresses?: ReadonlyArray<(CreateAddressInput | null)> | null;
-  readonly updateAddresses?: ReadonlyArray<(UpdateAddressInput | null)> | null;
-  readonly removeAddresses?: ReadonlyArray<(string | null)> | null;
   readonly subscriptions?: ReadonlyArray<(SubscriptionInputType | null)> | null;
   readonly sensitivedata?: SensitiveDataFields | null;
+  readonly updateEmails?: ReadonlyArray<(UpdateEmailInput | null)> | null;
+  readonly removeEmails?: ReadonlyArray<(string | null)> | null;
+  readonly updatePhones?: ReadonlyArray<(UpdatePhoneInput | null)> | null;
+  readonly removePhones?: ReadonlyArray<(string | null)> | null;
+  readonly updateAddresses?: ReadonlyArray<(UpdateAddressInput | null)> | null;
+  readonly removeAddresses?: ReadonlyArray<(string | null)> | null;
 }
 
 export interface RenewMyYouthProfileMutationInput {
+  readonly profileApiToken: string;
   readonly clientMutationId?: string | null;
 }
 
@@ -837,19 +838,7 @@ export interface UpdateMyProfileMutationInput {
   readonly clientMutationId?: string | null;
 }
 
-export interface UpdateMyYouthProfileMutationInput {
-  readonly youthProfile: UpdateYouthProfileInput;
-  readonly clientMutationId?: string | null;
-}
-
-export interface UpdatePhoneInput {
-  readonly primary?: boolean | null;
-  readonly id: string;
-  readonly phone?: string | null;
-  readonly phoneType?: PhoneType | null;
-}
-
-export interface UpdateYouthProfileInput {
+export interface UpdateMyYouthProfileInput {
   readonly schoolName?: string | null;
   readonly schoolClass?: string | null;
   readonly languageAtHome?: YouthLanguage | null;
@@ -865,7 +854,20 @@ export interface UpdateYouthProfileInput {
   readonly resendRequestNotification?: boolean | null;
 }
 
-export interface YouthProfileFields {
+export interface UpdateMyYouthProfileMutationInput {
+  readonly youthProfile: UpdateMyYouthProfileInput;
+  readonly profileApiToken: string;
+  readonly clientMutationId?: string | null;
+}
+
+export interface UpdatePhoneInput {
+  readonly primary?: boolean | null;
+  readonly id: string;
+  readonly phone?: string | null;
+  readonly phoneType?: PhoneType | null;
+}
+
+export interface YouthProfileInput {
   readonly schoolName?: string | null;
   readonly schoolClass?: string | null;
   readonly languageAtHome?: YouthLanguage | null;

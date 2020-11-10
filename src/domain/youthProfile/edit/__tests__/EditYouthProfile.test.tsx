@@ -5,7 +5,7 @@ import { loader } from 'graphql.macro';
 import EditYouthProfile from '../EditYouthProfile';
 import { membershipDetailsData } from '../../../../common/test/membershipDetailsData';
 import {
-  mountWithApolloProvider,
+  mountWithApolloAndReduxProviders,
   updateWrapper,
 } from '../../../../common/test/testUtils';
 
@@ -27,7 +27,7 @@ const mocks = [
 ];
 
 const getWrapper = () => {
-  return mountWithApolloProvider(
+  return mountWithApolloAndReduxProviders(
     <MemoryRouter>
       <EditYouthProfile />
     </MemoryRouter>,

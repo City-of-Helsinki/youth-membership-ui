@@ -21,6 +21,18 @@ export const mountWithApolloProvider = (
       {children}
     </MockedProvider>
   );
+
+export const mountWithApolloAndReduxProviders = (
+  children: ReactElement,
+  mocks?: MockedResponse[]
+) =>
+  mount(
+    <Provider store={store}>
+      <MockedProvider mocks={mocks} addTypename={true}>
+        {children}
+      </MockedProvider>
+    </Provider>
+  );
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 export const updateWrapper = async (wrapper: any) => {
   await act(async () => {

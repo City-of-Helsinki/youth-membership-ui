@@ -1,30 +1,25 @@
 import React, { useState } from 'react';
-import { useMutation, useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
-import { useHistory } from 'react-router';
-import * as Sentry from '@sentry/browser';
 
 import {
   Language,
   MembershipDetails as MembershipDetailsData,
-  UpdateMyProfile as UpdateMyProfileData,
-  UpdateMyProfileVariables,
   YouthLanguage,
   MembershipDetails_myYouthProfile_profile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
-import { getEditMutationVariables } from '../helpers/updateProfileMutationVariables';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
 import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';
 import YouthProfileForm, {
   Values as FormValues,
 } from '../form/YouthProfileForm';
+import useUpdateProfiles from '../hooks/useUpdateProfiles';
 import styles from './editYouthProfile.module.css';
 
 const MEMBERSHIP_DETAILS = loader(
   '../../membership/graphql/MembershipDetails.graphql'
 );
-const UPDATE_PROFILE = loader('../graphql/UpdateMyProfile.graphql');
 
 type Props = {};
 
@@ -43,28 +38,14 @@ function EditYouthProfile(props: Props) {
     }
   );
 
-  const [updateProfile, { loading: saveLoading }] = useMutation<
-    UpdateMyProfileData,
-    UpdateMyProfileVariables
-  >(UPDATE_PROFILE);
+  const [updateProfiles, { loading }] = useUpdateProfiles({
+    onError: () => setShowNotification(true),
+  });
 
-  const history = useHistory();
   const youthProfile = data?.myYouthProfile;
 
   const handleOnValues = (formValues: FormValues) => {
-    const variables: UpdateMyProfileVariables = getEditMutationVariables(
-      formValues,
-      data
-    );
-
-    updateProfile({ variables })
-      .then(() => {
-        history.push('/membership-details');
-      })
-      .catch((error: Error) => {
-        Sentry.captureException(error);
-        setShowNotification(true);
-      });
+    updateProfiles(formValues, data);
   };
 
   return (
@@ -97,7 +78,7 @@ function EditYouthProfile(props: Props) {
             ),
           }}
           isEditing={true}
-          isSubmitting={saveLoading}
+          isSubmitting={loading}
           onValues={handleOnValues}
         />
       )}
