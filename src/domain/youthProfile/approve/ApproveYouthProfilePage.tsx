@@ -82,10 +82,16 @@ function ApproveYouthProfilePage() {
     tokens: { approvalToken, readToken },
     fetchPolicy: 'network-only',
   });
-  const [approveProfile, { error: approveProfileError }] = useMutation<
-    ApproveYourProfileData,
-    ApproveYouthProfileVariables
-  >(APPROVE_PROFILE);
+  const [
+    approveProfile,
+    {
+      error: approveProfileError,
+      called: approveProfileCalled,
+      loading: approveProfileLoading,
+    },
+  ] = useMutation<ApproveYourProfileData, ApproveYouthProfileVariables>(
+    APPROVE_PROFILE
+  );
 
   const handleOnSubmit = (values: FormValues) => {
     return approveProfile({
@@ -101,7 +107,10 @@ function ApproveYouthProfilePage() {
     });
   };
 
-  const isApprovalSuccessful = Boolean(approveProfileError);
+  const isApprovalSuccessful =
+    approveProfileCalled &&
+    !approveProfileLoading &&
+    !Boolean(approveProfileError);
   const isProfileError =
     isProfileDoesNotExistError(queryProfileError?.graphQLErrors) ||
     isTokenExpiredError(queryProfileError?.graphQLErrors);
