@@ -1,11 +1,10 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router';
 import { loader } from 'graphql.macro';
 
 import { membershipDetailsData } from '../../../../common/test/membershipDetailsData';
 import MembershipDetailsPage from '../MembershipDetailsPage';
 import {
-  mountWithApolloProvider,
+  mountWithProviders,
   updateWrapper,
 } from '../../../../common/test/testUtils';
 
@@ -44,12 +43,7 @@ const expectedValues = [
 ];
 
 const getWrapper = () => {
-  return mountWithApolloProvider(
-    <MemoryRouter>
-      <MembershipDetailsPage />
-    </MemoryRouter>,
-    mocks
-  );
+  return mountWithProviders(<MembershipDetailsPage />, mocks);
 };
 
 type ComponentValues = {

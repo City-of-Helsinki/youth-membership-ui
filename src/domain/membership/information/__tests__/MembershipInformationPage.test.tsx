@@ -3,7 +3,7 @@ import { loader } from 'graphql.macro';
 import { MemoryRouter } from 'react-router-dom';
 
 import {
-  mountWithApolloAndReduxProviders,
+  mountWithProviders,
   updateWrapper,
 } from '../../../../common/test/testUtils';
 import MembershipInformationPage from '../MembershipInformationPage';
@@ -38,7 +38,7 @@ const mocks = [
 ];
 
 it('mocked data is found', async () => {
-  const wrapper = mountWithApolloAndReduxProviders(
+  const wrapper = mountWithProviders(
     <MemoryRouter>
       <MembershipInformationPage />
     </MemoryRouter>,
@@ -59,7 +59,7 @@ it('mocked data is found', async () => {
 it('renew button is shown', async () => {
   mocks[0].result.data.myYouthProfile.renewable = true;
 
-  const wrapper = mountWithApolloAndReduxProviders(
+  const wrapper = mountWithProviders(
     <MemoryRouter>
       <MembershipInformationPage />
     </MemoryRouter>,
