@@ -9,7 +9,7 @@ import { membershipInformationSelector } from './pages/membershipInformationSele
 
 const serverId = mailosaurServerId();
 const client = new MailosaurClient(mailosaurApiKey());
-const approverEmail = `unique-user.${serverId}@mailosaur.io`;
+const approverEmail = `unique-user@${serverId}.mailosaur.io`;
 
 // Skip for now because we do not have valid mailosaurus credentials
 // anymore.
