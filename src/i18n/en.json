@@ -20,7 +20,7 @@
     "basicInfo": "Basic info",
     "birthDate": "Birthdate",
     "explanationError": "You have either already approved the application submitted by your youth or an error has occurred in our service.",
-    "explanationCheckStatus": "The youth can check his application status by logging in to Jässäri. Ask him to resend the confirmation message if his membership has not yet been approved.",
+    "explanationCheckStatus": "The youth can check his application status by logging in to Jässäri. Ask them to resend the confirmation message if their membership has not yet been approved.",
     "formExplanationText_1": "has sent a membership application for the City of Helsinki’s Youth Services for your approval. The membership is free of charge. If you approve the application,",
     "formExplanationText_2": "may visit Youth Centres and participate in fun activities. The activities at Youth Centres are instructed by trained youth workers.  If the information is incorrect, ask the young person to change it and send a new verification message to you.",
     "languagesAtHome": "Languages at home",
@@ -228,5 +228,9 @@
   "emailRenew": {
     "heading": "Hi {{ youth_profile.profile.first_name }}! Your Youth Services membership is about to expire You can easily renew your membership here https://jassari.hel.fi/ <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>"
   },
-  "": "Hei {{ youth_profile.approver_first_name }},<br /><br />{{ youth_profile.profile.first_name }} on pyytänyt sinua vahvistamaan nuorisojäsenyytensä. Käy antamassa vahvistus Jässäri-palvelussa käyttäen tätä linkkiä:<br /><br /><a href=\"https://jassari.test.kuva.hel.ninja/approve/{{ youth_profile.approval_token }}\">https://jassari.test.kuva.hel.ninja/approve/{{ youth_profile.approval_token }}</a><br /><br /><i>Tämä viesti on lähetetty järjestelmistä automaattisesti. Älä vastaa tähän viestiin, sillä vastauksia ei käsitellä.</i>"
+  "feedback": {
+    "giveFeedback": {
+      "label": "Give feedback of the Jässäri service"
+    }
+  }
 }
