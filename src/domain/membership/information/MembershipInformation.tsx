@@ -9,10 +9,6 @@ import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import getFullName from '../helpers/getFullName';
 import styles from './membershipInformation.module.css';
 
-const feedbackFormLink =
-  // eslint-disable-next-line max-len
-  'https://docs.google.com/forms/d/e/1FAIpQLSdqw2Lq3qooEeRdgr0sV0-Wv-4XcV7IZVzq1HuWoLRa2M7tEg/viewform?usp=pp_url&entry.1982410290=Nuorten+j%C3%A4senkortti';
-
 interface Props {
   onRenewMembership: () => void;
   membershipInformationTypes: MembershipInformationTypes;
@@ -67,7 +63,7 @@ function MembershipInformation({
           />
           <LinkButton
             className={styles.button}
-            path={feedbackFormLink}
+            path={t('feedback.giveFeedback.link')}
             component="a"
             buttonText={t('feedback.giveFeedback.label')}
             variant="secondary"
