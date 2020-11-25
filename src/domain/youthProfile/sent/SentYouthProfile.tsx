@@ -4,12 +4,14 @@ import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 import * as Sentry from '@sentry/browser';
 import { Button } from 'hds-react';
+import { useSelector } from 'react-redux';
 
 import {
   ApproverEmail,
   UpdateMyYouthProfile as UpdateMyYouthProfileData,
   UpdateMyYouthProfileVariables,
 } from '../../../graphql/generatedTypes';
+import { profileApiTokenSelector } from '../../auth/redux';
 import LinkButton from '../../../common/components/linkButton/LinkButton';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import styles from './sentYouthProfile.module.css';
@@ -28,6 +30,7 @@ function ViewYouthProfile(props: Props) {
     },
   });
   const { t } = useTranslation();
+  const profileApiToken = useSelector(profileApiTokenSelector);
 
   const [resendConfirmationEmail] = useMutation<
     UpdateMyYouthProfileData,
@@ -40,6 +43,7 @@ function ViewYouthProfile(props: Props) {
         youthProfile: {
           resendRequestNotification: true,
         },
+        profileApiToken,
       },
     };
     resendConfirmationEmail({ variables })
@@ -62,7 +66,7 @@ function ViewYouthProfile(props: Props) {
         {emailReSent
           ? t('confirmSendingProfile.sendAgainHelpText')
           : t('confirmSendingProfile.helpText')}{' '}
-        {data?.youthProfile?.approverEmail}.
+        {data?.myYouthProfile?.approverEmail}.
       </p>
       <Button
         className={styles.button}

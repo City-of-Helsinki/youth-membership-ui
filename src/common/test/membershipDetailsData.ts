@@ -6,7 +6,7 @@ import {
 } from '../../graphql/generatedTypes';
 
 export const membershipDetailsData: MembershipDetails = {
-  youthProfile: {
+  myYouthProfile: {
     profile: {
       firstName: 'Teemu',
       lastName: 'Testaaja',
@@ -78,6 +78,6 @@ export const membershipDetailsData: MembershipDetails = {
       ],
       __typename: 'AdditionalContactPersonNodeConnection',
     },
-    __typename: 'YouthProfileType',
+    __typename: 'YouthProfileNode',
   },
 };

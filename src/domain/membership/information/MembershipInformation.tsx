@@ -21,7 +21,7 @@ function MembershipInformation({
   const { t } = useTranslation();
 
   const validUntil = convertDateToLocale(
-    membershipInformationTypes?.youthProfile?.expiration
+    membershipInformationTypes?.myYouthProfile?.expiration
   );
 
   return (
@@ -32,7 +32,7 @@ function MembershipInformation({
           <h3>
             {t('membershipInformation.title', {
               number:
-                membershipInformationTypes?.youthProfile?.membershipNumber,
+                membershipInformationTypes?.myYouthProfile?.membershipNumber,
             })}
           </h3>
           <p className={styles.validUntil}>
@@ -41,10 +41,10 @@ function MembershipInformation({
           <QRCode
             size={175}
             // eslint-disable-next-line max-len
-            value={`${process.env.REACT_APP_ADMIN_URL}youthProfiles/${membershipInformationTypes.youthProfile?.profile.id}/show`}
+            value={`${process.env.REACT_APP_ADMIN_URL}youthProfiles/${membershipInformationTypes.myYouthProfile?.profile?.id}/show`}
           />
            
-          {membershipInformationTypes?.youthProfile?.renewable && (
+          {membershipInformationTypes?.myYouthProfile?.renewable && (
             <Button
               type="button"
               onClick={onRenewMembership}

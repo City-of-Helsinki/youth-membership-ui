@@ -1,5 +1,5 @@
-fragment MembershipDetailsFragment on YouthProfileNode {
-  profile {
+query ProfileWithAccessToken($token: UUID!) {
+  profileWithAccessToken(token: $token) {
     firstName
     lastName
     language
@@ -33,27 +33,6 @@ fragment MembershipDetailsFragment on YouthProfileNode {
     primaryPhone {
       phone
       id
-    }
-  }
-  birthDate
-  schoolName
-  schoolClass
-  languageAtHome
-  photoUsageApproved
-  approverFirstName
-  approverLastName
-  approverEmail
-  approverPhone
-  membershipNumber
-  additionalContactPersons {
-    edges {
-      node {
-        id
-        firstName
-        lastName
-        phone
-        email
-      }
     }
   }
 }

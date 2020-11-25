@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { YouthProfileByApprovalToken } from '../../../graphql/generatedTypes';
 import convertBooleanToString from '../../../common/helpers/convertBooleanToString';
 import PageSection from '../../../common/components/layout/PageSection';
 import getAddress from '../../membership/helpers/getAddress';
@@ -9,14 +8,12 @@ import getAddresses from '../../membership/helpers/getAddresses';
 import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';
 import ConfirmApprovingYouthProfile from './ConfirmApprovingYouthProfile';
 import ApproveYouthProfileForm, { FormValues } from './ApproveYouthProfileForm';
+import { MergedProfile } from './useProfileByTokens';
 
 type Props = {
   isApprovalSuccessful?: boolean;
-  data: YouthProfileByApprovalToken;
+  data: MergedProfile;
   onSubmit: (values: FormValues) => Promise<unknown>;
-};
-type Params = {
-  token: string;
 };
 
 function ApproveYouthProfile({ isApprovalSuccessful, data, onSubmit }: Props) {
@@ -31,8 +28,14 @@ function ApproveYouthProfile({ isApprovalSuccessful, data, onSubmit }: Props) {
               data?.youthProfileByApprovalToken?.profile?.firstName || '',
             lastName:
               data?.youthProfileByApprovalToken?.profile?.lastName || '',
-            address: getAddress(data, i18n.languages[0]),
-            addresses: getAddresses(data, i18n.languages[0]),
+            address: getAddress(
+              data?.youthProfileByApprovalToken?.profile,
+              i18n.languages[0]
+            ),
+            addresses: getAddresses(
+              data?.youthProfileByApprovalToken?.profile,
+              i18n.languages[0]
+            ),
             email:
               data?.youthProfileByApprovalToken?.profile?.primaryEmail?.email ||
               '',

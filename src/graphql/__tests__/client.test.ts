@@ -4,7 +4,9 @@ import client from '../client';
 
 jest.mock('../../domain/auth/redux', () => {
   return {
-    profileApiTokenSelector: () => 'foo.bar.baz',
+    apiTokensSelector: () =>
+      //eslint-disable-next-line max-len
+      "{'https://api.hel.fi/auth/jassariapi': 'jassari-token-1234', 'https://api.hel.fi/auth/helsinkiprofile': 'profile-token-1234'}",
   };
 });
 
@@ -34,8 +36,9 @@ describe('graphql client', () => {
 
     const fetchOptions = global.fetch.mock.calls[0][1];
     expect(fetchOptions.headers).toHaveProperty(
-      'Authorization',
-      'Bearer foo.bar.baz'
+      'Api-Tokens',
+      //eslint-disable-next-line max-len
+      "\"{'https://api.hel.fi/auth/jassariapi': 'jassari-token-1234', 'https://api.hel.fi/auth/helsinkiprofile': 'profile-token-1234'}\""
     );
   });
 });

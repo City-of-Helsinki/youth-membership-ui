@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import * as Sentry from '@sentry/browser';
 
 import {
@@ -9,6 +10,7 @@ import {
   RenewMyYouthProfileVariables,
   MembershipInformation as MembershipInformationTypes,
 } from '../../../graphql/generatedTypes';
+import { profileApiTokenSelector } from '../../auth/redux';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import MembershipInformation from './MembershipInformation';
@@ -22,6 +24,7 @@ function MembershipInformationPage() {
   const [showNotification, setShowNotification] = useState(false);
   const [successNotification, setSuccessNotification] = useState(false);
   const { t } = useTranslation();
+  const profileApiToken = useSelector(profileApiTokenSelector);
 
   const { data, loading } = useQuery<MembershipInformationTypes>(
     MEMBERSHIP_INFORMATION,
@@ -38,7 +41,9 @@ function MembershipInformationPage() {
 
   const handleRenewMembership = () => {
     const variables: RenewMyYouthProfileVariables = {
-      input: {},
+      input: {
+        profileApiToken,
+      },
     };
 
     renewMembership({ variables })

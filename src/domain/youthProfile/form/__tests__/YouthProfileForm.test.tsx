@@ -8,7 +8,7 @@ import {
   AddressType,
   Language,
   YouthLanguage,
-  MembershipDetails_youthProfile_profile_primaryAddress as PrimaryAddress,
+  MembershipDetails_myYouthProfile_profile_primaryAddress as PrimaryAddress,
 } from '../../../../graphql/generatedTypes';
 import { updateWrapper } from '../../../../common/test/testUtils';
 

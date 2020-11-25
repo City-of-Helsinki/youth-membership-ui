@@ -6,7 +6,7 @@ import {
 export default function getFullName(
   data?: MembershipDetails | MembershipInformation | null
 ) {
-  return data?.youthProfile?.profile
-    ? `${data.youthProfile.profile.firstName} ${data.youthProfile.profile.lastName}`.trim()
+  return data?.myYouthProfile?.profile
+    ? `${data.myYouthProfile.profile.firstName} ${data.myYouthProfile.profile.lastName}`.trim()
     : '';
 }

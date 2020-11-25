@@ -3,10 +3,9 @@ import { MockedResponse } from '@apollo/react-testing';
 import { User } from 'oidc-client';
 import { loader } from 'graphql.macro';
 import { act } from 'react-dom/test-utils';
-import { MemoryRouter } from 'react-router';
 
 import {
-  mountWithApolloProvider,
+  mountWithProviders,
   updateWrapper,
 } from '../../../../common/test/testUtils';
 import i18n from '../../../../common/test/testi18nInit';
@@ -100,12 +99,7 @@ const getMocks = (myProfile: MyProfile) => {
 };
 
 const getWrapper = (mocks?: MockedResponse[]) => {
-  return mountWithApolloProvider(
-    <MemoryRouter>
-      <CreateYouthProfilePage />
-    </MemoryRouter>,
-    mocks
-  );
+  return mountWithProviders(<CreateYouthProfilePage />, mocks);
 };
 
 Object.defineProperty(window.document, 'cookie', {

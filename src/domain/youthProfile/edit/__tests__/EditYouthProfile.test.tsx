@@ -1,11 +1,10 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router';
 import { loader } from 'graphql.macro';
 
 import EditYouthProfile from '../EditYouthProfile';
 import { membershipDetailsData } from '../../../../common/test/membershipDetailsData';
 import {
-  mountWithApolloProvider,
+  mountWithProviders,
   updateWrapper,
 } from '../../../../common/test/testUtils';
 
@@ -27,12 +26,7 @@ const mocks = [
 ];
 
 const getWrapper = () => {
-  return mountWithApolloProvider(
-    <MemoryRouter>
-      <EditYouthProfile />
-    </MemoryRouter>,
-    mocks
-  );
+  return mountWithProviders(<EditYouthProfile />, mocks);
 };
 
 test('form has values', async () => {

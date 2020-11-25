@@ -1,11 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { MockedProvider } from '@apollo/react-testing';
 import { loader } from 'graphql.macro';
 import { MemoryRouter } from 'react-router-dom';
 
+import {
+  mountWithProviders,
+  updateWrapper,
+} from '../../../../common/test/testUtils';
 import MembershipInformationPage from '../MembershipInformationPage';
-import { updateWrapper } from '../../../../common/test/testUtils';
 
 const MEMBERSHIP_INFORMATION = loader(
   '../../graphql/MembershipInformation.graphql'
@@ -19,15 +20,17 @@ const mocks = [
     },
     result: {
       data: {
-        youthProfile: {
+        myYouthProfile: {
           profile: {
             id: '123',
             firstName: 'Teemu',
             lastName: 'Testaaja',
+            __typename: 'ProfileNode',
           },
           expiration: '2020-02-02',
           renewable: false,
           membershipNumber: '01234',
+          __typename: 'YouthProfileNode',
         },
       },
     },
@@ -35,12 +38,11 @@ const mocks = [
 ];
 
 it('mocked data is found', async () => {
-  const wrapper = mount(
+  const wrapper = mountWithProviders(
     <MemoryRouter>
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <MembershipInformationPage />
-      </MockedProvider>
-    </MemoryRouter>
+      <MembershipInformationPage />
+    </MemoryRouter>,
+    mocks
   );
 
   await updateWrapper(wrapper);
@@ -55,14 +57,13 @@ it('mocked data is found', async () => {
 });
 
 it('renew button is shown', async () => {
-  mocks[0].result.data.youthProfile.renewable = true;
+  mocks[0].result.data.myYouthProfile.renewable = true;
 
-  const wrapper = mount(
+  const wrapper = mountWithProviders(
     <MemoryRouter>
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <MembershipInformationPage />
-      </MockedProvider>
-    </MemoryRouter>
+      <MembershipInformationPage />
+    </MemoryRouter>,
+    mocks
   );
 
   await updateWrapper(wrapper);

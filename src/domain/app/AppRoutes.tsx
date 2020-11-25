@@ -17,11 +17,11 @@ import NotFoundPage from '../notFoundPage/NotFoundPage';
 function AppRoutes() {
   return (
     <Switch>
-      <Route path={['/approve/:token']}>
+      <Route path={['/approve/:approvalToken/:readToken']}>
         <PageLayout variant="approver">
           <Switch>
             <Route
-              path="/approve/:token"
+              path="/approve/:approvalToken/:readToken"
               exact
               component={ApproveYouthProfilePage}
             />
