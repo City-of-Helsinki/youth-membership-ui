@@ -1,3 +1,7 @@
+[![codecov](https://codecov.io/gh/City-of-Helsinki/youth-membership-ui/branch/develop/graph/badge.svg)](https://codecov.io/gh/City-of-Helsinki/youth-membership-ui)
+![Build status](https://github.com/City-of-Helsinki/youth-membership-ui/workflows/CI/badge.svg)
+![Browser tests](https://github.com/City-of-Helsinki/youth-membership-ui/workflows/Browser%20tests/badge.svg)
+
 # Jässäri / youth-membership-ui
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -6,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Test: https://jassari.test.kuva.hel.ninja/
 
-Production: -
+Production: https://jassari.hel.fi
 
 ### Issues board
 
@@ -46,6 +50,12 @@ Generate static types for GraphQL queries by using the schema from the backend s
 ### `yarn update-translations`
 
 Creates new translation message files based on current version of translation source and overwrites existing files with them.
+
+### `yarn browser-test:ci`
+
+The `ci` variant of `browser-test` is ran against a headless browser, making it suitable for CI environments.
+
+Browser tests are configured to run with GitHub actions during each weekday with the `browser-test:ci` command.
 
 ## Setting up development environment locally with docker
 

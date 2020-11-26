@@ -227,5 +227,11 @@
   },
   "emailRenew": {
     "heading": "Tevehdys {{ youth_profile.profile.first_name }}! Nuorisopalveluiden jäsenyytesi on vanhentumassa. Uusi jäsenyytesi helposti täällä https://jassari.hel.fi/  Lisätietoa nuorisopalveluiden jäsenyydestä ja sen eduista voit lukea osoitteesta http://jassari.munstadi.fi/ <br /><br />Lisätietoa nuorisopalveluiden jäsenyydestä ja sen eduista voit lukea osoitteesta http://jassari.munstadi.fi/<br /><br /> <i>Tämä viesti on lähetetty järjestelmästä automaattisesti. Älä vastaa tähän viestiin, sillä vastauksia ei käsitellä.</i>"
+  },
+  "feedback": {
+    "giveFeedback": {
+      "label": "Anna palautetta Jässäri verkkopalvelusta",
+      "link": "https://docs.google.com/forms/d/e/1FAIpQLSdqw2Lq3qooEeRdgr0sV0-Wv-4XcV7IZVzq1HuWoLRa2M7tEg/viewform?usp=pp_url&entry.1982410290=Nuorten+j%C3%A4senkortti"
+    }
   }
 }

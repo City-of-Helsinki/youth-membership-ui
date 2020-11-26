@@ -1,6 +1,6 @@
 {
   "name": "youth-membership-ui",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -65,7 +65,8 @@
     "lint": "eslint --ext js,ts,tsx src",
     "codegen": "apollo client:codegen ./src/graphql/generatedTypes.ts --outputFlat --includes=./src/**/*.graphql --target=typescript --endpoint=https://profiili-api.test.kuva.hel.ninja/graphql/ --useReadOnlyTypes --addTypename",
     "update-translations": "fetch-translations 14aAzZeJ0HijXy7LklBtvOr0LKNy8PrpR2Gf_4ryv668 -l fi,en,sv -o ./src/i18n",
-    "browser-test": "testcafe \"chrome --window-size='1920,1080'\" browser-tests/"
+    "browser-test": "testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
+    "browser-test:ci": "testcafe \"chrome:headless --disable-gpu --window-size='1920,1080'\" browser-tests/ -s takeOnFails=true"
   },
   "eslintConfig": {
     "extends": "react-app"

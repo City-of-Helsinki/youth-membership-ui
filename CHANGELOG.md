@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## Unreleased
+
+## [1.2.1] - 2020-11-25
+### Added
+- Temporary feedback link button in membership information page
+
+### Changed
+- Use GitHub actions instead of Travis
+
 ## [1.2.0] - 2020-11-03
 ### Added
 - E2E tests for emails and approval view
