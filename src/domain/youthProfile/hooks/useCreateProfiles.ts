@@ -50,7 +50,7 @@ const useCreateProfiles = ({ onError }: Options) => {
   ] = useMutation<AddServiceConnectionData, AddServiceConnectionVariables>(
     ADD_SERVICE_CONNECTION,
     {
-      refetchQueries: ['HasYouthProfile'],
+      refetchQueries: ['HasYouthProfile', 'NameQuery'],
       awaitRefetchQueries: true,
     }
   );
