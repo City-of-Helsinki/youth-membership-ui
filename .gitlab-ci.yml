@@ -63,8 +63,13 @@ review:
     DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-review"
     POSTGRES_ENABLED: 0
   script:
+    - export
+    - kubectl cluster-info
     - echo "review client \"review-$TF_PROJECT_NAME_SLUG-$CI_COMMIT_REF_SLUG\""
-    - NAMESPACE=tunnistamo-qa kubectl get pod -l "track=staging" --namespace=$NAMESPACE -o jsonpath='\{.items[0].metadata.name\}' | xargs -I\{\} kubectl exec --namespace=$NAMESPACE \{\} -- uname -a
+    - kubectl get po -n tunnistamo-qa
+    - NAMESPACE=tunnistamo-qa kubectl get po -n $NAMESPACE
+    - NAMESPACE=tunnistamo-qa kubectl get pod -l "track=staging" --namespace=$NAMESPACE -o jsonpath='{.items[0].metadata.name}'
+    - NAMESPACE=tunnistamo-qa kubectl get pod -l "track=staging" --namespace=$NAMESPACE -o jsonpath='{.items[0].metadata.name}' | xargs -I{} kubectl exec --namespace=$NAMESPACE {} -- uname -a
   
 # This will enable staging ci-pipeline
 staging:
