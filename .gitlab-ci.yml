@@ -14,7 +14,7 @@ build-review:
     DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'review'
     DOCKER_BUILD_ARG_REACT_APP_PROFILE_LINK: "https://profiili.test.kuva.hel.ninja/loginsso"
     DOCKER_BUILD_ARG_REACT_APP_OIDC_AUTHORITY: "https://tunnistamo.test.kuva.hel.ninja"
-    DOCKER_BUILD_ARG_REACT_APP_OIDC_CLIENT_ID: "https://$TF_PROJECT_NAME_SLUG-$CI_ENVIRONMENT_SLUG.$KUBE_INGRESS_BASE_DOMAIN"
+    DOCKER_BUILD_ARG_REACT_APP_OIDC_CLIENT_ID: "review-$TF_PROJECT_NAME_SLUG-$CI_COMMIT_REF_SLUG"
     DOCKER_BUILD_ARG_REACT_APP_OIDC_SCOPE: "openid https://api.hel.fi/auth/jassariapi https://api.hel.fi/auth/helsinkiprofile"
     DOCKER_BUILD_ARG_REACT_APP_PROFILE_GRAPHQL: "https://jassari-federation.test.kuva.hel.ninja/"
     DOCKER_BUILD_ARG_REACT_APP_BASE_URL: "https://$TF_PROJECT_NAME_SLUG-$CI_ENVIRONMENT_SLUG.$KUBE_INGRESS_BASE_DOMAIN"
@@ -62,7 +62,10 @@ review:
   variables:
     DOCKER_IMAGE_NAME: "$CI_PROJECT_NAME-review"
     POSTGRES_ENABLED: 0
-
+  script:
+    - echo "review client \"review-$TF_PROJECT_NAME_SLUG-$CI_COMMIT_REF_SLUG\""
+    - NAMESPACE=tunnistamo-qa kubectl get pod -l "track=staging" --namespace=$NAMESPACE -o jsonpath='{.items[0].metadata.name}' | xargs -I{} kubectl exec --namespace=$NAMESPACE {} -- uname -a
+  
 # This will enable staging ci-pipeline
 staging:
   variables:
