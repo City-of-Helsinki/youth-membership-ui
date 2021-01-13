@@ -1,7 +1,8 @@
+import { format, subYears } from 'date-fns';
+
 import { loginSelector } from './pages/loginSelector';
 import { hasLength } from './utils/valueUtils';
 import { testURL } from './utils/settings';
-import { format, subYears } from 'date-fns';
 
 fixture('Open login page').page(testURL());
 
@@ -40,7 +41,7 @@ test('Test age restrictions', async t => {
 
   // User age is > 29
   // Note: Use selectText in between, this results previous values to be overwritten
-  await (await fillForm(t, '15', '03', AGE_US_OVER_MAX))
+  await (await fillForm(t, '01', '01', AGE_US_OVER_MAX))
     .expect(loginSelector.errorText.innerText)
     .eql('Jässäri is only for youths between 8-29 years.');
 
