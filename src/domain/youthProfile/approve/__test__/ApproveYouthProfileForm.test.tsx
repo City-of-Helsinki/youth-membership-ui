@@ -12,7 +12,7 @@ const defaultProps = {
   profile: {
     firstName: 'Teemu',
     lastName: 'Testaaja',
-    birthDate: '2006-01-01',
+    birthDate: `${format(subYears(new Date(), 14), 'yyyy')}-01-01`,
     address: 'Testikuja 55, 00100 Helsinki',
     addresses: ['Kymintie 43, 00100 Helsinki'],
     email: 'teemu.testaaja@test.fi',
