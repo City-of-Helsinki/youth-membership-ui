@@ -21,13 +21,13 @@ exports[`match snapshot 1`] = `
     onClick={[Function]}
   >
     <button
-      className="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO button"
+      className="Button-module_button__1msFE button_hds-button__2A0je Button-module_primary__2LfKB button_hds-button--primary__2NVvO button"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       <span
-        className="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        className="Button-module_label__a4np1 button_hds-button__label__2EQa-"
       >
         Lähetä uusi varmistusviesti
       </span>

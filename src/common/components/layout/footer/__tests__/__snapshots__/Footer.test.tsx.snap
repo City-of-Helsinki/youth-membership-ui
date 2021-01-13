@@ -4,7 +4,7 @@ exports[`matches snapshot 1`] = `
 <div
   className="wrapper"
 >
-  <Koros
+  <Zn
     className="koros"
   />
   <footer

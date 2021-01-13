@@ -737,6 +737,7 @@ exports[`matches snapshot 1`] = `
                           as={
                             Object {
                               "$$typeof": Symbol(react.forward_ref),
+                              "displayName": "RadioButton",
                               "render": [Function],
                             }
                           }
@@ -746,7 +747,7 @@ exports[`matches snapshot 1`] = `
                           name="photoUsageApproved"
                           value="true"
                         >
-                          <ForwardRef
+                          <RadioButton
                             checked={false}
                             id="photoUsageApprovedYes"
                             labelText="Kyllä"
@@ -756,12 +757,11 @@ exports[`matches snapshot 1`] = `
                             value="true"
                           >
                             <div
-                              className="RadioButton-module_radioButton__cl9Gp radio-button_hds-radio-button__qM8AJ"
+                              className="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
                             >
                               <input
-                                aria-checked={false}
                                 checked={false}
-                                className="RadioButton-module_input__3Jcdf radio-button_hds-radio-button__input__ztS8g"
+                                className="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
                                 disabled={false}
                                 id="photoUsageApprovedYes"
                                 name="photoUsageApproved"
@@ -771,13 +771,13 @@ exports[`matches snapshot 1`] = `
                                 value="true"
                               />
                               <label
-                                className="RadioButton-module_label__g_pgE radio-button_hds-radio-button__label__1e-Rr"
+                                className="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
                                 htmlFor="photoUsageApprovedYes"
                               >
                                 Kyllä
                               </label>
                             </div>
-                          </ForwardRef>
+                          </RadioButton>
                         </Field>
                       </li>
                       <li
@@ -787,6 +787,7 @@ exports[`matches snapshot 1`] = `
                           as={
                             Object {
                               "$$typeof": Symbol(react.forward_ref),
+                              "displayName": "RadioButton",
                               "render": [Function],
                             }
                           }
@@ -796,7 +797,7 @@ exports[`matches snapshot 1`] = `
                           name="photoUsageApproved"
                           value="false"
                         >
-                          <ForwardRef
+                          <RadioButton
                             checked={true}
                             id="photoUsageApprovedNo"
                             labelText="Ei"
@@ -806,12 +807,11 @@ exports[`matches snapshot 1`] = `
                             value="false"
                           >
                             <div
-                              className="RadioButton-module_radioButton__cl9Gp radio-button_hds-radio-button__qM8AJ"
+                              className="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
                             >
                               <input
-                                aria-checked={true}
                                 checked={true}
-                                className="RadioButton-module_input__3Jcdf radio-button_hds-radio-button__input__ztS8g"
+                                className="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
                                 disabled={false}
                                 id="photoUsageApprovedNo"
                                 name="photoUsageApproved"
@@ -821,13 +821,13 @@ exports[`matches snapshot 1`] = `
                                 value="false"
                               />
                               <label
-                                className="RadioButton-module_label__g_pgE radio-button_hds-radio-button__label__1e-Rr"
+                                className="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
                                 htmlFor="photoUsageApprovedNo"
                               >
                                 Ei
                               </label>
                             </div>
-                          </ForwardRef>
+                          </RadioButton>
                         </Field>
                       </li>
                     </ul>
@@ -882,33 +882,34 @@ exports[`matches snapshot 1`] = `
                                   onChange={[Function]}
                                   value="Ville"
                                 >
-                                  <InputWrapper
+                                  <kl
                                     className=""
                                     id="approverFirstName"
                                     invalid={false}
                                     labelText="Etunimi *"
                                   >
                                     <div
-                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
+                                      className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
                                     >
-                                      <FieldLabel
+                                      <un
                                         hidden={false}
                                         inputId="approverFirstName"
                                         label="Etunimi *"
                                         required={false}
                                       >
                                         <label
-                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                          className="FieldLabel-module_label__1zrXK "
                                           htmlFor="approverFirstName"
                                         >
                                           Etunimi *
                                         </label>
-                                      </FieldLabel>
+                                      </un>
                                       <div
-                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                        className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
                                       >
                                         <input
-                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                          aria-describedby={null}
+                                          className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                                           disabled={false}
                                           id="approverFirstName"
                                           name="approverFirstName"
@@ -919,7 +920,7 @@ exports[`matches snapshot 1`] = `
                                         />
                                       </div>
                                     </div>
-                                  </InputWrapper>
+                                  </kl>
                                 </ForwardRef>
                               </Field>
                             </FormikTestInput>
@@ -940,33 +941,34 @@ exports[`matches snapshot 1`] = `
                                   onChange={[Function]}
                                   value="Vanhempi"
                                 >
-                                  <InputWrapper
+                                  <kl
                                     className=""
                                     id="approverLastName"
                                     invalid={false}
                                     labelText="Sukunimi *"
                                   >
                                     <div
-                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
+                                      className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
                                     >
-                                      <FieldLabel
+                                      <un
                                         hidden={false}
                                         inputId="approverLastName"
                                         label="Sukunimi *"
                                         required={false}
                                       >
                                         <label
-                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                          className="FieldLabel-module_label__1zrXK "
                                           htmlFor="approverLastName"
                                         >
                                           Sukunimi *
                                         </label>
-                                      </FieldLabel>
+                                      </un>
                                       <div
-                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                        className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
                                       >
                                         <input
-                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                          aria-describedby={null}
+                                          className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                                           disabled={false}
                                           id="approverLastName"
                                           name="approverLastName"
@@ -977,7 +979,7 @@ exports[`matches snapshot 1`] = `
                                         />
                                       </div>
                                     </div>
-                                  </InputWrapper>
+                                  </kl>
                                 </ForwardRef>
                               </Field>
                             </FormikTestInput>
@@ -1000,33 +1002,34 @@ exports[`matches snapshot 1`] = `
                                   type="email"
                                   value="ville.vanhempi@test.fi"
                                 >
-                                  <InputWrapper
+                                  <kl
                                     className=""
                                     id="approverEmail"
                                     invalid={false}
                                     labelText="Sähköpostiosoite *"
                                   >
                                     <div
-                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
+                                      className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
                                     >
-                                      <FieldLabel
+                                      <un
                                         hidden={false}
                                         inputId="approverEmail"
                                         label="Sähköpostiosoite *"
                                         required={false}
                                       >
                                         <label
-                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                          className="FieldLabel-module_label__1zrXK "
                                           htmlFor="approverEmail"
                                         >
                                           Sähköpostiosoite *
                                         </label>
-                                      </FieldLabel>
+                                      </un>
                                       <div
-                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                        className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
                                       >
                                         <input
-                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                          aria-describedby={null}
+                                          className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                                           disabled={false}
                                           id="approverEmail"
                                           name="approverEmail"
@@ -1037,7 +1040,7 @@ exports[`matches snapshot 1`] = `
                                         />
                                       </div>
                                     </div>
-                                  </InputWrapper>
+                                  </kl>
                                 </ForwardRef>
                               </Field>
                             </FormikTestInput>
@@ -1060,33 +1063,34 @@ exports[`matches snapshot 1`] = `
                                   type="tel"
                                   value="05012345567"
                                 >
-                                  <InputWrapper
+                                  <kl
                                     className=""
                                     id="approverPhone"
                                     invalid={false}
                                     labelText="Puhelinnumero *"
                                   >
                                     <div
-                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
+                                      className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
                                     >
-                                      <FieldLabel
+                                      <un
                                         hidden={false}
                                         inputId="approverPhone"
                                         label="Puhelinnumero *"
                                         required={false}
                                       >
                                         <label
-                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
+                                          className="FieldLabel-module_label__1zrXK "
                                           htmlFor="approverPhone"
                                         >
                                           Puhelinnumero *
                                         </label>
-                                      </FieldLabel>
+                                      </un>
                                       <div
-                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
+                                        className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
                                       >
                                         <input
-                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
+                                          aria-describedby={null}
+                                          className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                                           disabled={false}
                                           id="approverPhone"
                                           name="approverPhone"
@@ -1097,7 +1101,7 @@ exports[`matches snapshot 1`] = `
                                         />
                                       </div>
                                     </div>
-                                  </InputWrapper>
+                                  </kl>
                                 </ForwardRef>
                               </Field>
                             </FormikTestInput>
@@ -1214,24 +1218,25 @@ exports[`matches snapshot 1`] = `
                                 >
                                   <ForwardRef
                                     className="addItemButton"
-                                    iconLeft={<IconPlusCircle />}
+                                    iconLeft={<Unknown />}
                                     onClick={[Function]}
                                     type="button"
                                     variant="supplementary"
                                   >
                                     <button
-                                      className="Button-module_button__3wgee button_hds-button__2A0je Button-module_supplementary__3Epn- button_hds-button--supplementary__GcHcV addItemButton"
+                                      className="Button-module_button__1msFE button_hds-button__2A0je Button-module_supplementary__3YKiS button_hds-button--supplementary__GcHcV addItemButton"
                                       disabled={false}
                                       onClick={[Function]}
                                       type="button"
                                     >
                                       <div
                                         aria-hidden="true"
-                                        className="Button-module_icon__3Wlc6 button_hds-icon__17j8Z"
+                                        className="Button-module_icon__O-h7R button_hds-icon__17j8Z"
                                       >
-                                        <IconPlusCircle>
+                                        <Component>
                                           <svg
                                             className="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                                            role="img"
                                             style={Object {}}
                                             viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg"
@@ -1249,10 +1254,10 @@ exports[`matches snapshot 1`] = `
                                               />
                                             </g>
                                           </svg>
-                                        </IconPlusCircle>
+                                        </Component>
                                       </div>
                                       <span
-                                        className="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+                                        className="Button-module_label__a4np1 button_hds-button__label__2EQa-"
                                       >
                                         Lisää toisen huoltajan yhteystiedot
                                       </span>
@@ -1313,7 +1318,7 @@ exports[`matches snapshot 1`] = `
                         className="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
                       >
                         <input
-                          aria-checked={false}
+                          aria-describedby={null}
                           checked={false}
                           className="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
                           disabled={false}
@@ -1393,12 +1398,12 @@ exports[`matches snapshot 1`] = `
                   type="submit"
                 >
                   <button
-                    className="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO button"
+                    className="Button-module_button__1msFE button_hds-button__2A0je Button-module_primary__2LfKB button_hds-button--primary__2NVvO button"
                     disabled={false}
                     type="submit"
                   >
                     <span
-                      className="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+                      className="Button-module_label__a4np1 button_hds-button__label__2EQa-"
                     >
                       Hyväksy jäsenyys
                     </span>

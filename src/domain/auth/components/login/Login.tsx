@@ -61,6 +61,7 @@ function Login(props: Props) {
                     onClick={authenticate}
                     variant="supplementary"
                     className={styles.button}
+                    iconRight={null}
                   >
                     {t('nav.signin')}
                   </Button>
