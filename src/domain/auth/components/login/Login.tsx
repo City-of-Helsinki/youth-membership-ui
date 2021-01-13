@@ -6,6 +6,7 @@ import { useMatomo } from '@datapunt/matomo-tracker-react';
 import { Button } from 'hds-react';
 
 import LinkButton from '../../../../common/components/linkButton/LinkButton';
+import Text from '../../../../common/components/text/Text';
 import { AuthState, resetError, isAuthenticatedSelector } from '../../redux';
 import { RootState } from '../../../../redux/rootReducer';
 import authenticate from '../../authenticate';
@@ -45,7 +46,7 @@ function Login(props: Props) {
     <PageWrapper>
       <PageContentWithHostingBox title={'login.pageTitle'}>
         <div className={styles.hostingBox}>
-          <h1 className={styles.title}>{t('login.title')}</h1>
+          <Text variant="h1">{t('login.title')}</Text>
 
           {!showManualRegistration && (
             <React.Fragment>

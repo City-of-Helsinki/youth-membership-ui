@@ -4,9 +4,15 @@ exports[`match snapshot 1`] = `
 <div
   className="hostingBox"
 >
-  <h1>
-    Hakemus on lähetetty huoltajallesi!
-  </h1>
+  <Text
+    variant="h1"
+  >
+    <h1
+      className="text h1 "
+    >
+      Hakemus on lähetetty huoltajallesi!
+    </h1>
+  </Text>
   <p
     className="helpText"
   >
