@@ -15,7 +15,7 @@ exports[`matches snapshot 1`] = `
       "approverFirstName": "Ville",
       "approverLastName": "Vanhempi",
       "approverPhone": "05012345567",
-      "birthDate": "2006-01-01",
+      "birthDate": "2007-01-01",
       "email": "teemu.testaaja@test.fi",
       "firstName": "Teemu",
       "language": "FINNISH",
@@ -41,7 +41,7 @@ exports[`matches snapshot 1`] = `
         "approverFirstName": "Ville",
         "approverLastName": "Vanhempi",
         "approverPhone": "05012345567",
-        "birthDate": "2006-01-01",
+        "birthDate": "2007-01-01",
         "email": "teemu.testaaja@test.fi",
         "firstName": "Teemu",
         "language": "FINNISH",
@@ -465,7 +465,7 @@ exports[`matches snapshot 1`] = `
                 "Kymintie 43, 00100 Helsinki",
               ]
             }
-            birthDate="01.01.2006"
+            birthDate="01.01.2007"
             email="teemu.testaaja@test.fi"
             language="FINNISH"
             name="Teemu Testaaja"
@@ -498,7 +498,7 @@ exports[`matches snapshot 1`] = `
                 <LabeledValue
                   label="Syntymäpäivä"
                   noMargin={true}
-                  value="01.01.2006"
+                  value="01.01.2007"
                 >
                   <div
                     className="wrapper noMargin"
@@ -511,7 +511,7 @@ exports[`matches snapshot 1`] = `
                     <span
                       className="value"
                     >
-                      01.01.2006
+                      01.01.2007
                     </span>
                   </div>
                 </LabeledValue>
@@ -1142,7 +1142,7 @@ exports[`matches snapshot 1`] = `
                                     "approverFirstName": "Ville",
                                     "approverLastName": "Vanhempi",
                                     "approverPhone": "05012345567",
-                                    "birthDate": "2006-01-01",
+                                    "birthDate": "2007-01-01",
                                     "email": "teemu.testaaja@test.fi",
                                     "firstName": "Teemu",
                                     "language": "FINNISH",
@@ -1188,7 +1188,7 @@ exports[`matches snapshot 1`] = `
                                     "approverFirstName": "Ville",
                                     "approverLastName": "Vanhempi",
                                     "approverPhone": "05012345567",
-                                    "birthDate": "2006-01-01",
+                                    "birthDate": "2007-01-01",
                                     "email": "teemu.testaaja@test.fi",
                                     "firstName": "Teemu",
                                     "language": "FINNISH",
