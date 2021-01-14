@@ -5,6 +5,7 @@ import { Button } from 'hds-react';
 
 import { MembershipInformation as MembershipInformationTypes } from '../../../graphql/generatedTypes';
 import LinkButton from '../../../common/components/linkButton/LinkButton';
+import Text from '../../../common/components/text/Text';
 import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import getFullName from '../helpers/getFullName';
 import styles from './membershipInformation.module.css';
@@ -28,13 +29,13 @@ function MembershipInformation({
     <div className={styles.container}>
       {membershipInformationTypes && (
         <React.Fragment>
-          <h1>{getFullName(membershipInformationTypes)}</h1>
-          <h3>
+          <Text variant="h1">{getFullName(membershipInformationTypes)}</Text>
+          <Text variant="h3">
             {t('membershipInformation.title', {
               number:
                 membershipInformationTypes?.myYouthProfile?.membershipNumber,
             })}
-          </h3>
+          </Text>
           <p className={styles.validUntil}>
             {t('membershipInformation.validUntil', { date: validUntil })}
           </p>

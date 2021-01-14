@@ -13,6 +13,7 @@ import {
 } from '../../../graphql/generatedTypes';
 import { profileApiTokenSelector } from '../../auth/redux';
 import LinkButton from '../../../common/components/linkButton/LinkButton';
+import Text from '../../../common/components/text/Text';
 import NotificationComponent from '../../../common/components/notification/NotificationComponent';
 import styles from './sentYouthProfile.module.css';
 
@@ -60,7 +61,7 @@ function ViewYouthProfile(props: Props) {
 
   return (
     <div className={styles.hostingBox}>
-      <h1>{t('confirmSendingProfile.title')}</h1>
+      <Text variant="h1">{t('confirmSendingProfile.title')}</Text>
 
       <p className={styles.helpText}>
         {emailReSent
