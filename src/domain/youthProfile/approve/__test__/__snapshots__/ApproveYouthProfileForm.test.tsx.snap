@@ -873,7 +873,7 @@ exports[`matches snapshot 1`] = `
                               <Field
                                 name="approverFirstName"
                               >
-                                <TextInput
+                                <ForwardRef
                                   id="approverFirstName"
                                   invalid={false}
                                   labelText="Etunimi *"
@@ -932,7 +932,7 @@ exports[`matches snapshot 1`] = `
                                       </div>
                                     </kl>
                                   </ForwardRef>
-                                </TextInput>
+                                </ForwardRef>
                               </Field>
                             </FormikTestInput>
                             <FormikTestInput
@@ -943,7 +943,7 @@ exports[`matches snapshot 1`] = `
                               <Field
                                 name="approverLastName"
                               >
-                                <TextInput
+                                <ForwardRef
                                   id="approverLastName"
                                   invalid={false}
                                   labelText="Sukunimi *"
@@ -1002,7 +1002,7 @@ exports[`matches snapshot 1`] = `
                                       </div>
                                     </kl>
                                   </ForwardRef>
-                                </TextInput>
+                                </ForwardRef>
                               </Field>
                             </FormikTestInput>
                             <FormikTestInput
@@ -1014,7 +1014,7 @@ exports[`matches snapshot 1`] = `
                               <Field
                                 name="approverEmail"
                               >
-                                <TextInput
+                                <ForwardRef
                                   id="approverEmail"
                                   invalid={false}
                                   labelText="Sähköpostiosoite *"
@@ -1075,7 +1075,7 @@ exports[`matches snapshot 1`] = `
                                       </div>
                                     </kl>
                                   </ForwardRef>
-                                </TextInput>
+                                </ForwardRef>
                               </Field>
                             </FormikTestInput>
                             <FormikTestInput
@@ -1087,7 +1087,7 @@ exports[`matches snapshot 1`] = `
                               <Field
                                 name="approverPhone"
                               >
-                                <TextInput
+                                <ForwardRef
                                   id="approverPhone"
                                   invalid={false}
                                   labelText="Puhelinnumero *"
@@ -1148,7 +1148,7 @@ exports[`matches snapshot 1`] = `
                                       </div>
                                     </kl>
                                   </ForwardRef>
-                                </TextInput>
+                                </ForwardRef>
                               </Field>
                             </FormikTestInput>
                           </div>
