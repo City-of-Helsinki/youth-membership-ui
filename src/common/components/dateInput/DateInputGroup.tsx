@@ -15,11 +15,13 @@ interface Props {
 
 function DateGroup({ children, id = INPUT_GROUP_ID, label, error }: Props) {
   const isInvalid = Boolean(error);
+  const errorId = `${id}-error`;
 
   return (
     <div
       role="group"
       aria-labelledby={id}
+      aria-describedby={errorId}
       className={className({
         'hds-text-input': true,
         'hds-text-input--invalid': isInvalid,
@@ -27,7 +29,11 @@ function DateGroup({ children, id = INPUT_GROUP_ID, label, error }: Props) {
     >
       <DateInputLabel id={id}>{label}</DateInputLabel>
       {children}
-      <span className="hds-text-input__helper-text">{error}</span>
+      {isInvalid && (
+        <span id={errorId} className="hds-text-input__error-text">
+          {error}
+        </span>
+      )}
     </div>
   );
 }
