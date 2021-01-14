@@ -1,9 +1,10 @@
 import React from 'react';
 import { Field, FieldProps } from 'formik';
-import { TextInput, TextInputProps } from 'hds-react';
+import { TextInputProps } from 'hds-react';
 import get from 'lodash/get';
 import { useTranslation } from 'react-i18next';
 
+import TextInput from '../../../common/components/textInput/TextInput';
 type Props = TextInputProps;
 
 function FormikTestInput(props: Props) {

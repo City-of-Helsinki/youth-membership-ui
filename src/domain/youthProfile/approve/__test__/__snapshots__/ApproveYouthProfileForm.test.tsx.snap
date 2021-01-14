@@ -873,7 +873,7 @@ exports[`matches snapshot 1`] = `
                               <Field
                                 name="approverFirstName"
                               >
-                                <ForwardRef
+                                <TextInput
                                   id="approverFirstName"
                                   invalid={false}
                                   labelText="Etunimi *"
@@ -882,46 +882,57 @@ exports[`matches snapshot 1`] = `
                                   onChange={[Function]}
                                   value="Ville"
                                 >
-                                  <kl
-                                    className=""
+                                  <ForwardRef
+                                    className="input"
                                     id="approverFirstName"
                                     invalid={false}
                                     labelText="Etunimi *"
+                                    name="approverFirstName"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    value="Ville"
                                   >
-                                    <div
-                                      className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+                                    <kl
+                                      className="input"
+                                      id="approverFirstName"
+                                      invalid={false}
+                                      labelText="Etunimi *"
                                     >
-                                      <un
-                                        hidden={false}
-                                        inputId="approverFirstName"
-                                        label="Etunimi *"
-                                        required={false}
-                                      >
-                                        <label
-                                          className="FieldLabel-module_label__1zrXK "
-                                          htmlFor="approverFirstName"
-                                        >
-                                          Etunimi *
-                                        </label>
-                                      </un>
                                       <div
-                                        className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                                        className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input"
                                       >
-                                        <input
-                                          aria-describedby={null}
-                                          className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                                          disabled={false}
-                                          id="approverFirstName"
-                                          name="approverFirstName"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          type="text"
-                                          value="Ville"
-                                        />
+                                        <un
+                                          hidden={false}
+                                          inputId="approverFirstName"
+                                          label="Etunimi *"
+                                          required={false}
+                                        >
+                                          <label
+                                            className="FieldLabel-module_label__1zrXK "
+                                            htmlFor="approverFirstName"
+                                          >
+                                            Etunimi *
+                                          </label>
+                                        </un>
+                                        <div
+                                          className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                                        >
+                                          <input
+                                            aria-describedby={null}
+                                            className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                                            disabled={false}
+                                            id="approverFirstName"
+                                            name="approverFirstName"
+                                            onBlur={[Function]}
+                                            onChange={[Function]}
+                                            type="text"
+                                            value="Ville"
+                                          />
+                                        </div>
                                       </div>
-                                    </div>
-                                  </kl>
-                                </ForwardRef>
+                                    </kl>
+                                  </ForwardRef>
+                                </TextInput>
                               </Field>
                             </FormikTestInput>
                             <FormikTestInput
@@ -932,7 +943,7 @@ exports[`matches snapshot 1`] = `
                               <Field
                                 name="approverLastName"
                               >
-                                <ForwardRef
+                                <TextInput
                                   id="approverLastName"
                                   invalid={false}
                                   labelText="Sukunimi *"
@@ -941,46 +952,57 @@ exports[`matches snapshot 1`] = `
                                   onChange={[Function]}
                                   value="Vanhempi"
                                 >
-                                  <kl
-                                    className=""
+                                  <ForwardRef
+                                    className="input"
                                     id="approverLastName"
                                     invalid={false}
                                     labelText="Sukunimi *"
+                                    name="approverLastName"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    value="Vanhempi"
                                   >
-                                    <div
-                                      className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+                                    <kl
+                                      className="input"
+                                      id="approverLastName"
+                                      invalid={false}
+                                      labelText="Sukunimi *"
                                     >
-                                      <un
-                                        hidden={false}
-                                        inputId="approverLastName"
-                                        label="Sukunimi *"
-                                        required={false}
-                                      >
-                                        <label
-                                          className="FieldLabel-module_label__1zrXK "
-                                          htmlFor="approverLastName"
-                                        >
-                                          Sukunimi *
-                                        </label>
-                                      </un>
                                       <div
-                                        className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                                        className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input"
                                       >
-                                        <input
-                                          aria-describedby={null}
-                                          className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                                          disabled={false}
-                                          id="approverLastName"
-                                          name="approverLastName"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          type="text"
-                                          value="Vanhempi"
-                                        />
+                                        <un
+                                          hidden={false}
+                                          inputId="approverLastName"
+                                          label="Sukunimi *"
+                                          required={false}
+                                        >
+                                          <label
+                                            className="FieldLabel-module_label__1zrXK "
+                                            htmlFor="approverLastName"
+                                          >
+                                            Sukunimi *
+                                          </label>
+                                        </un>
+                                        <div
+                                          className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                                        >
+                                          <input
+                                            aria-describedby={null}
+                                            className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                                            disabled={false}
+                                            id="approverLastName"
+                                            name="approverLastName"
+                                            onBlur={[Function]}
+                                            onChange={[Function]}
+                                            type="text"
+                                            value="Vanhempi"
+                                          />
+                                        </div>
                                       </div>
-                                    </div>
-                                  </kl>
-                                </ForwardRef>
+                                    </kl>
+                                  </ForwardRef>
+                                </TextInput>
                               </Field>
                             </FormikTestInput>
                             <FormikTestInput
@@ -992,7 +1014,7 @@ exports[`matches snapshot 1`] = `
                               <Field
                                 name="approverEmail"
                               >
-                                <ForwardRef
+                                <TextInput
                                   id="approverEmail"
                                   invalid={false}
                                   labelText="Sähköpostiosoite *"
@@ -1002,46 +1024,58 @@ exports[`matches snapshot 1`] = `
                                   type="email"
                                   value="ville.vanhempi@test.fi"
                                 >
-                                  <kl
-                                    className=""
+                                  <ForwardRef
+                                    className="input"
                                     id="approverEmail"
                                     invalid={false}
                                     labelText="Sähköpostiosoite *"
+                                    name="approverEmail"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    type="email"
+                                    value="ville.vanhempi@test.fi"
                                   >
-                                    <div
-                                      className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+                                    <kl
+                                      className="input"
+                                      id="approverEmail"
+                                      invalid={false}
+                                      labelText="Sähköpostiosoite *"
                                     >
-                                      <un
-                                        hidden={false}
-                                        inputId="approverEmail"
-                                        label="Sähköpostiosoite *"
-                                        required={false}
-                                      >
-                                        <label
-                                          className="FieldLabel-module_label__1zrXK "
-                                          htmlFor="approverEmail"
-                                        >
-                                          Sähköpostiosoite *
-                                        </label>
-                                      </un>
                                       <div
-                                        className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                                        className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input"
                                       >
-                                        <input
-                                          aria-describedby={null}
-                                          className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                                          disabled={false}
-                                          id="approverEmail"
-                                          name="approverEmail"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          type="email"
-                                          value="ville.vanhempi@test.fi"
-                                        />
+                                        <un
+                                          hidden={false}
+                                          inputId="approverEmail"
+                                          label="Sähköpostiosoite *"
+                                          required={false}
+                                        >
+                                          <label
+                                            className="FieldLabel-module_label__1zrXK "
+                                            htmlFor="approverEmail"
+                                          >
+                                            Sähköpostiosoite *
+                                          </label>
+                                        </un>
+                                        <div
+                                          className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                                        >
+                                          <input
+                                            aria-describedby={null}
+                                            className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                                            disabled={false}
+                                            id="approverEmail"
+                                            name="approverEmail"
+                                            onBlur={[Function]}
+                                            onChange={[Function]}
+                                            type="email"
+                                            value="ville.vanhempi@test.fi"
+                                          />
+                                        </div>
                                       </div>
-                                    </div>
-                                  </kl>
-                                </ForwardRef>
+                                    </kl>
+                                  </ForwardRef>
+                                </TextInput>
                               </Field>
                             </FormikTestInput>
                             <FormikTestInput
@@ -1053,7 +1087,7 @@ exports[`matches snapshot 1`] = `
                               <Field
                                 name="approverPhone"
                               >
-                                <ForwardRef
+                                <TextInput
                                   id="approverPhone"
                                   invalid={false}
                                   labelText="Puhelinnumero *"
@@ -1063,46 +1097,58 @@ exports[`matches snapshot 1`] = `
                                   type="tel"
                                   value="05012345567"
                                 >
-                                  <kl
-                                    className=""
+                                  <ForwardRef
+                                    className="input"
                                     id="approverPhone"
                                     invalid={false}
                                     labelText="Puhelinnumero *"
+                                    name="approverPhone"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    type="tel"
+                                    value="05012345567"
                                   >
-                                    <div
-                                      className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+                                    <kl
+                                      className="input"
+                                      id="approverPhone"
+                                      invalid={false}
+                                      labelText="Puhelinnumero *"
                                     >
-                                      <un
-                                        hidden={false}
-                                        inputId="approverPhone"
-                                        label="Puhelinnumero *"
-                                        required={false}
-                                      >
-                                        <label
-                                          className="FieldLabel-module_label__1zrXK "
-                                          htmlFor="approverPhone"
-                                        >
-                                          Puhelinnumero *
-                                        </label>
-                                      </un>
                                       <div
-                                        className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                                        className="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input"
                                       >
-                                        <input
-                                          aria-describedby={null}
-                                          className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                                          disabled={false}
-                                          id="approverPhone"
-                                          name="approverPhone"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          type="tel"
-                                          value="05012345567"
-                                        />
+                                        <un
+                                          hidden={false}
+                                          inputId="approverPhone"
+                                          label="Puhelinnumero *"
+                                          required={false}
+                                        >
+                                          <label
+                                            className="FieldLabel-module_label__1zrXK "
+                                            htmlFor="approverPhone"
+                                          >
+                                            Puhelinnumero *
+                                          </label>
+                                        </un>
+                                        <div
+                                          className="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                                        >
+                                          <input
+                                            aria-describedby={null}
+                                            className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                                            disabled={false}
+                                            id="approverPhone"
+                                            name="approverPhone"
+                                            onBlur={[Function]}
+                                            onChange={[Function]}
+                                            type="tel"
+                                            value="05012345567"
+                                          />
+                                        </div>
                                       </div>
-                                    </div>
-                                  </kl>
-                                </ForwardRef>
+                                    </kl>
+                                  </ForwardRef>
+                                </TextInput>
                               </Field>
                             </FormikTestInput>
                           </div>
