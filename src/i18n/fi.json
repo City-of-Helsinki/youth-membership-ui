@@ -51,6 +51,9 @@
     "sendAgainHelpText": "Varmistusviesti on lähetetty uudestaan osoitteeseen",
     "title": "Hakemus on lähetetty huoltajallesi!"
   },
+  "edit": {
+    "pageTitle": "Muokkaa omia tietoja"
+  },
   "footer": {
     "accessibility": "Saavutettavuusseloste",
     "copyright": "Helsingin kaupunki",
@@ -80,6 +83,7 @@
     "registrationForm": "http://jassari.munstadi.fi/files/2020/07/Jasenkorttikaavake_2020_suomi.pdf",
     "registrationFormText": "Lataa hakemus",
     "return": "Palaa takaisin",
+    "pageTitle": "Nuorisotoimien jäsenkortti",
     "title": "Hanki Jässäri!"
   },
   "Täytä hakemus huoltajasi kanssa ja palauta se nuorisotilalle, niin saat oman jäsenkortin. ": "",
@@ -94,6 +98,7 @@
     "title": "Omat tiedot"
   },
   "membershipInformation": {
+    "pageTitle": "Jäsenyyden tiedot",
     "renew": "Uusi jäsenyys",
     "renewSuccessMessage": "Jäsenyys uusittu onnistuneesti!",
     "renewSuccessTitle": "Onnistui",
@@ -156,6 +161,7 @@
     "lastName": "Sukunimi",
     "membershipInfoText": "Jäsenyys on ilmainen, eikä se velvoita sinua mihinkään, mutta jäsenyyden hankinta on edellytys nuorisotilojen toimintaan osallistumiselle. Emme luovuta antamiasi yhteystietoja eteenpäin. Sinulla on myös oikeus tarkistaa ja poistaa itseäsi koskevat tiedot. Muistathan, että nuorisopalvelujen toiminta on päihteetöntä. ",
     "month": "Kuukausi",
+    "pageTitle": "Luo profiili",
     "phoneNumber": "Puhelinnumero",
     "photoUsageApproved": "Kuvauslupa",
     "photoUsageApprovedNo": "Ei",

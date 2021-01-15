@@ -60,7 +60,7 @@ function CreateYouthProfilePage() {
         )
       }
       loadingText={t('profile.loading')}
-      title=""
+      title="registration.pageTitle"
     >
       {data && tunnistamoUser && (
         <CreateYouthProfile

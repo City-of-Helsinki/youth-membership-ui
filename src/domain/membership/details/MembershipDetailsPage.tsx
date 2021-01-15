@@ -29,7 +29,7 @@ function MembershipDetailsPage() {
   );
 
   return (
-    <PageContent isReady={!loading} title="membershipInformation.pageTitle">
+    <PageContent isReady={!loading} title="membershipDetails.title">
       {data && <MembershipDetails membershipDetailsData={data} />}
       <NotificationComponent
         show={showNotification}

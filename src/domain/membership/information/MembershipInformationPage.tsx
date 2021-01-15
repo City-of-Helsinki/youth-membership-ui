@@ -57,7 +57,7 @@ function MembershipInformationPage() {
   return (
     <PageContentWithHostingBox
       isReady={!loading}
-      title="membershipDetails.title"
+      title="membershipInformation.pageTitle"
     >
       {data && (
         <MembershipInformation

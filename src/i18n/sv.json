@@ -51,6 +51,9 @@
     "sendAgainHelpText": "Verifieringsmeddelandet har skickats på nytt till",
     "title": "Din ansökan har skickats till din vårdnadshavare för att godkännas!"
   },
+  "edit": {
+    "pageTitle": "Redigera egen information"
+  },
   "footer": {
     "accessibility": "Tillgänglighetsdokument",
     "copyright": "Helsingfors stad",
@@ -80,6 +83,7 @@
     "registrationForm": "http://jassari.munstadi.fi/files/2020/07/Jasenkorttikaavake_2020_ruotsi.pdf",
     "registrationFormText": "Ladda ner ansökningsblanketten ",
     "return": "Gå tillbaka",
+    "pageTitle": "Ungdomskort",
     "title": "Skaffa Jässäri!"
   },
   "membershipDetails": {
@@ -93,6 +97,7 @@
     "title": "Egna uppgifter"
   },
   "membershipInformation": {
+    "pageTitle": "Medlemskapsinformation",
     "renew": "Förnya medlemskapet",
     "renewSuccessMessage": "Medlemskapet förnyades framgångsrikt!",
     "renewSuccessTitle": "Framgång",
@@ -155,6 +160,7 @@
     "lastName": "Efternamn",
     "membershipInfoText": "Medlemskapet är avgiftsfritt och förpliktar inte till något. För att delta i ungdomsgårdarnas verksamhet måste du ha ett medlemsskap. Vi överlåter inte dina kontaktuppgifter till utomstående. Du har också rätt att kontrollera och radera dina uppgifter. Kom ihåg att ungdomsverksamheten är drogfri.",
     "month": "Månad",
+    "pageTitle": "Skapa profil",
     "phoneNumber": "Telefon",
     "photoUsageApproved": "Fotograferingstillstånd",
     "photoUsageApprovedNo": "Nej",

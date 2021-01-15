@@ -5,7 +5,7 @@ import EditYouthProfile from './EditYouthProfile';
 
 function EditYouthProfilePage() {
   return (
-    <PageContent title="edit.title">
+    <PageContent title="edit.pageTitle">
       <EditYouthProfile />
     </PageContent>
   );

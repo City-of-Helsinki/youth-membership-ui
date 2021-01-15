@@ -51,6 +51,9 @@
     "sendAgainHelpText": "Approval email has been re-sent to",
     "title": "The application has been sent to your guardian for approval!"
   },
+  "edit": {
+    "pageTitle": "Edit own information"
+  },
   "footer": {
     "accessibility": "Accessibility document",
     "copyright": "City of Helsinki",
@@ -80,6 +83,7 @@
     "registrationForm": "http://jassari.munstadi.fi/files/2020/07/Jasenkorttikaavake_2020_englanti-1.pdf",
     "registrationFormText": "Download application form",
     "return": "Go back",
+    "pageTitle": "Youth membership card",
     "title": "Get your Jässäri!"
   },
   "Fill in the application form with your guardian and take it back to the Youth Centre to get your own membership card. ": "",
@@ -94,6 +98,7 @@
     "title": "Own information"
   },
   "membershipInformation": {
+    "pageTitle": "Membership information",
     "renew": "Renew membership",
     "renewSuccessMessage": "Membership renewed successfully!",
     "renewSuccessTitle": "Success",
@@ -156,6 +161,7 @@
     "lastName": "Lastname",
     "membershipInfoText": "Membership is free and does not require anything of you, but you do need a membership to be able to participate in activities at Youth Centres. We will not disclose your information to third parties. You have the right to check and remove the information we have stored concerning you. Please remember that intoxicants are not allowed at Youth Centre activities. ",
     "month": "Month",
+    "pageTitle": "Create profile",
     "phoneNumber": "Phone",
     "photoUsageApproved": "Photo usage approved",
     "photoUsageApprovedNo": "No",

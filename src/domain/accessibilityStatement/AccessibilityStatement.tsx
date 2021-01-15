@@ -9,7 +9,7 @@ import AccessibilityStatementEn from './AccessibilityStatementEn';
 import AccessibilityStatementSv from './AccessibilityStatementSv';
 
 function AccessibilityStatement() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const selectStatement = () => {
     const lang = getLanguageCode(i18n.languages[0]);
 
@@ -27,7 +27,7 @@ function AccessibilityStatement() {
   return (
     <>
       <div className={styles.background} />
-      <PageContent>
+      <PageContent title={t('footer.accessibility')}>
         <div className={styles.innerWrapper}>{selectStatement()}</div>
       </PageContent>
     </>
