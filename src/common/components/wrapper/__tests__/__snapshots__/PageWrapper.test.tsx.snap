@@ -1,26 +1,360 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<Fragment>
-  <Helmet
-    defer={true}
-    encodeSpecialCharacters={true}
+<HelmetProvider
+  context={
+    Object {
+      "helmet": null,
+    }
+  }
+>
+  <Provider
+    store={
+      Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      }
+    }
   >
-    <title>
-      Jässäri
-    </title>
-    <meta
-      content="Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat."
-      name="description"
-    />
-    <meta
-      content="Jässäri"
-      property="og:title"
-    />
-    <meta
-      content="Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat."
-      property="og:description"
-    />
-  </Helmet>
-</Fragment>
+    <MemoryRouter>
+      <Router
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "canGo": [Function],
+            "createHref": [Function],
+            "entries": Array [
+              Object {
+                "hash": "",
+                "key": "2x6ho9",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+            ],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "index": 0,
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "key": "2x6ho9",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+      >
+        <MockedProvider
+          addTypename={true}
+        >
+          <ApolloProvider
+            client={
+              ApolloClient {
+                "cache": InMemoryCache {
+                  "addTypename": true,
+                  "cacheKeyRoot": KeyTrie {
+                    "weakness": true,
+                  },
+                  "config": Object {
+                    "addTypename": true,
+                    "dataIdFromObject": [Function],
+                    "fragmentMatcher": HeuristicFragmentMatcher {},
+                    "freezeResults": false,
+                    "resultCaching": true,
+                  },
+                  "data": DepTrackingCache {
+                    "data": Object {},
+                    "depend": [Function],
+                  },
+                  "maybeBroadcastWatch": [Function],
+                  "optimisticData": DepTrackingCache {
+                    "data": Object {},
+                    "depend": [Function],
+                  },
+                  "silenceBroadcast": false,
+                  "storeReader": StoreReader {
+                    "executeSelectionSet": [Function],
+                    "executeStoreQuery": [Function],
+                    "executeSubSelectedArray": [Function],
+                    "freezeResults": false,
+                  },
+                  "storeWriter": StoreWriter {},
+                  "typenameDocumentCache": Map {},
+                  "watches": Set {},
+                },
+                "clearStoreCallbacks": Array [],
+                "defaultOptions": Object {},
+                "disableNetworkFetches": false,
+                "link": MockLink {
+                  "addTypename": true,
+                  "mockedResponsesByKey": Object {},
+                },
+                "localState": LocalState {
+                  "cache": InMemoryCache {
+                    "addTypename": true,
+                    "cacheKeyRoot": KeyTrie {
+                      "weakness": true,
+                    },
+                    "config": Object {
+                      "addTypename": true,
+                      "dataIdFromObject": [Function],
+                      "fragmentMatcher": HeuristicFragmentMatcher {},
+                      "freezeResults": false,
+                      "resultCaching": true,
+                    },
+                    "data": DepTrackingCache {
+                      "data": Object {},
+                      "depend": [Function],
+                    },
+                    "maybeBroadcastWatch": [Function],
+                    "optimisticData": DepTrackingCache {
+                      "data": Object {},
+                      "depend": [Function],
+                    },
+                    "silenceBroadcast": false,
+                    "storeReader": StoreReader {
+                      "executeSelectionSet": [Function],
+                      "executeStoreQuery": [Function],
+                      "executeSubSelectedArray": [Function],
+                      "freezeResults": false,
+                    },
+                    "storeWriter": StoreWriter {},
+                    "typenameDocumentCache": Map {},
+                    "watches": Set {},
+                  },
+                  "client": [Circular],
+                },
+                "mutate": [Function],
+                "query": [Function],
+                "queryDeduplication": true,
+                "queryManager": QueryManager {
+                  "assumeImmutableResults": false,
+                  "clientAwareness": Object {
+                    "name": undefined,
+                    "version": undefined,
+                  },
+                  "dataStore": DataStore {
+                    "cache": InMemoryCache {
+                      "addTypename": true,
+                      "cacheKeyRoot": KeyTrie {
+                        "weakness": true,
+                      },
+                      "config": Object {
+                        "addTypename": true,
+                        "dataIdFromObject": [Function],
+                        "fragmentMatcher": HeuristicFragmentMatcher {},
+                        "freezeResults": false,
+                        "resultCaching": true,
+                      },
+                      "data": DepTrackingCache {
+                        "data": Object {},
+                        "depend": [Function],
+                      },
+                      "maybeBroadcastWatch": [Function],
+                      "optimisticData": DepTrackingCache {
+                        "data": Object {},
+                        "depend": [Function],
+                      },
+                      "silenceBroadcast": false,
+                      "storeReader": StoreReader {
+                        "executeSelectionSet": [Function],
+                        "executeStoreQuery": [Function],
+                        "executeSubSelectedArray": [Function],
+                        "freezeResults": false,
+                      },
+                      "storeWriter": StoreWriter {},
+                      "typenameDocumentCache": Map {},
+                      "watches": Set {},
+                    },
+                  },
+                  "fetchQueryRejectFns": Map {},
+                  "idCounter": 1,
+                  "inFlightLinkObservables": Map {},
+                  "link": MockLink {
+                    "addTypename": true,
+                    "mockedResponsesByKey": Object {},
+                  },
+                  "localState": LocalState {
+                    "cache": InMemoryCache {
+                      "addTypename": true,
+                      "cacheKeyRoot": KeyTrie {
+                        "weakness": true,
+                      },
+                      "config": Object {
+                        "addTypename": true,
+                        "dataIdFromObject": [Function],
+                        "fragmentMatcher": HeuristicFragmentMatcher {},
+                        "freezeResults": false,
+                        "resultCaching": true,
+                      },
+                      "data": DepTrackingCache {
+                        "data": Object {},
+                        "depend": [Function],
+                      },
+                      "maybeBroadcastWatch": [Function],
+                      "optimisticData": DepTrackingCache {
+                        "data": Object {},
+                        "depend": [Function],
+                      },
+                      "silenceBroadcast": false,
+                      "storeReader": StoreReader {
+                        "executeSelectionSet": [Function],
+                        "executeStoreQuery": [Function],
+                        "executeSubSelectedArray": [Function],
+                        "freezeResults": false,
+                      },
+                      "storeWriter": StoreWriter {},
+                      "typenameDocumentCache": Map {},
+                      "watches": Set {},
+                    },
+                    "client": [Circular],
+                  },
+                  "mutationStore": MutationStore {
+                    "store": Object {},
+                  },
+                  "onBroadcast": [Function],
+                  "pollingInfoByQueryId": Map {},
+                  "queries": Map {},
+                  "queryDeduplication": true,
+                  "queryStore": QueryStore {
+                    "store": Object {},
+                  },
+                  "ssrMode": false,
+                  "transformCache": WeakMap {},
+                },
+                "reFetchObservableQueries": [Function],
+                "resetStore": [Function],
+                "resetStoreCallbacks": Array [],
+                "store": DataStore {
+                  "cache": InMemoryCache {
+                    "addTypename": true,
+                    "cacheKeyRoot": KeyTrie {
+                      "weakness": true,
+                    },
+                    "config": Object {
+                      "addTypename": true,
+                      "dataIdFromObject": [Function],
+                      "fragmentMatcher": HeuristicFragmentMatcher {},
+                      "freezeResults": false,
+                      "resultCaching": true,
+                    },
+                    "data": DepTrackingCache {
+                      "data": Object {},
+                      "depend": [Function],
+                    },
+                    "maybeBroadcastWatch": [Function],
+                    "optimisticData": DepTrackingCache {
+                      "data": Object {},
+                      "depend": [Function],
+                    },
+                    "silenceBroadcast": false,
+                    "storeReader": StoreReader {
+                      "executeSelectionSet": [Function],
+                      "executeStoreQuery": [Function],
+                      "executeSubSelectedArray": [Function],
+                      "freezeResults": false,
+                    },
+                    "storeWriter": StoreWriter {},
+                    "typenameDocumentCache": Map {},
+                    "watches": Set {},
+                  },
+                },
+                "typeDefs": undefined,
+                "version": "2.6.4",
+                "watchQuery": [Function],
+              }
+            }
+          >
+            <MemoryRouter>
+              <Router
+                history={
+                  Object {
+                    "action": "POP",
+                    "block": [Function],
+                    "canGo": [Function],
+                    "createHref": [Function],
+                    "entries": Array [
+                      Object {
+                        "hash": "",
+                        "key": "uf6053",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      },
+                    ],
+                    "go": [Function],
+                    "goBack": [Function],
+                    "goForward": [Function],
+                    "index": 0,
+                    "length": 1,
+                    "listen": [Function],
+                    "location": Object {
+                      "hash": "",
+                      "key": "uf6053",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    },
+                    "push": [Function],
+                    "replace": [Function],
+                  }
+                }
+              >
+                <PageWrapper>
+                  <Helmet
+                    defer={true}
+                    encodeSpecialCharacters={true}
+                  >
+                    <HelmetDispatcher
+                      context={
+                        Object {
+                          "helmetInstances": Object {
+                            "add": [Function],
+                            "get": [Function],
+                            "remove": [Function],
+                          },
+                          "setHelmet": [Function],
+                        }
+                      }
+                      defer={true}
+                      encodeSpecialCharacters={true}
+                      meta={
+                        Array [
+                          Object {
+                            "content": "Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat.",
+                            "name": "description",
+                          },
+                          Object {
+                            "content": "Nuorisotoimien jäsenkortti",
+                            "property": "og:title",
+                          },
+                          Object {
+                            "content": "Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat.",
+                            "property": "og:description",
+                          },
+                        ]
+                      }
+                      title="Nuorisotoimien jäsenkortti"
+                      titleAttributes={Object {}}
+                    />
+                  </Helmet>
+                </PageWrapper>
+              </Router>
+            </MemoryRouter>
+          </ApolloProvider>
+        </MockedProvider>
+      </Router>
+    </MemoryRouter>
+  </Provider>
+</HelmetProvider>
 `;

@@ -24,7 +24,7 @@ function PageWrapper(props: Props) {
       case '/edit':
         return 'edit.pageTitle';
       default:
-        return 'Pöö';
+        return 'appName';
     }
   };
 
