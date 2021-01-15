@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Year dependent failing snapshot test
 - Browser test that would always fail until march
+- Duplicate cancel button in information editing view
 
 ## [1.2.1] - 2020-11-25
 
