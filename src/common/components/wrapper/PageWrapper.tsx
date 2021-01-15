@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 import { useSelector } from 'react-redux';
+
 import { isAuthenticatedSelector } from '../../../domain/auth/redux';
 
 type Props = PropsWithChildren<{}>;

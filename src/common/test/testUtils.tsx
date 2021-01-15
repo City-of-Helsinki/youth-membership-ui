@@ -4,7 +4,7 @@ import { mount, shallow } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { MockedProvider, MockedResponse } from '@apollo/react-testing';
 import { MemoryRouter } from 'react-router';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 
 import store from '../../redux/store';
 
