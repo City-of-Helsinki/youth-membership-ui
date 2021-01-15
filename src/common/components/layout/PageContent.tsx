@@ -1,7 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
-import { Helmet } from 'react-helmet-async';
 
 import LoadingContent from '../loading/LoadingContent';
 import styles from './pageContent.module.css';
@@ -24,7 +23,6 @@ function PageContent({
 
   const pageTitle =
     title !== 'appName' ? `${t(title)} - ${t('appName')}` : t('appName');
-  console.log('Title + ', t(title));
 
   useEffect(() => {
     trackPageView({
@@ -41,14 +39,9 @@ function PageContent({
   }, []);
 
   return (
-    <>
-      <Helmet>
-        <title>{t(title)}</title>
-      </Helmet>
-      <LoadingContent isLoading={!isReady} loadingText={loadingText}>
-        <main className={styles.wrapper}>{children}</main>
-      </LoadingContent>
-    </>
+    <LoadingContent isLoading={!isReady} loadingText={loadingText}>
+      <main className={styles.wrapper}>{children}</main>
+    </LoadingContent>
   );
 }
 
