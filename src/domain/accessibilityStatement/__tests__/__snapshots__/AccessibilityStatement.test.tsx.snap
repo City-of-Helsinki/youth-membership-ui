@@ -5,7 +5,9 @@ exports[`matches snapshot 1`] = `
   <div
     className="background"
   />
-  <PageContent>
+  <PageContent
+    title="Saavutettavuusseloste"
+  >
     <div
       className="innerWrapper"
     >

@@ -4,6 +4,7 @@ import { mount, shallow } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { MockedProvider, MockedResponse } from '@apollo/react-testing';
 import { MemoryRouter } from 'react-router';
+import { HelmetProvider } from 'react-helmet-async';
 
 import store from '../../redux/store';
 
@@ -18,13 +19,15 @@ export const mountWithProviders = (
   mocks?: MockedResponse[]
 ) =>
   mount(
-    <Provider store={store}>
-      <MemoryRouter>
-        <MockedProvider mocks={mocks} addTypename={true}>
-          {children}
-        </MockedProvider>
-      </MemoryRouter>
-    </Provider>
+    <HelmetProvider>
+      <Provider store={store}>
+        <MemoryRouter>
+          <MockedProvider mocks={mocks} addTypename={true}>
+            {children}
+          </MockedProvider>
+        </MemoryRouter>
+      </Provider>
+    </HelmetProvider>
   );
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 export const updateWrapper = async (wrapper: any) => {

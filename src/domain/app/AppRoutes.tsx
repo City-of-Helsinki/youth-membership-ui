@@ -5,6 +5,7 @@ import PageLayout from '../../common/components/layout/PageLayout';
 import userManager from '../auth/userManager';
 import Login from '../auth/components/login/Login';
 import OidcCallback from '../auth/components/oidcCallback/OidcCallback';
+import AppPageTitleRoute from './AppPageTitleRoute';
 import AppYouthProfileRoute from './AppYouthProfileRoute';
 import ApproveYouthProfilePage from '../youthProfile/approve/ApproveYouthProfilePage';
 import AccessibilityStatement from '../accessibilityStatement/AccessibilityStatement';
@@ -20,10 +21,11 @@ function AppRoutes() {
       <Route path={['/approve/:approvalToken/:readToken']}>
         <PageLayout variant="approver">
           <Switch>
-            <Route
+            <AppYouthProfileRoute
               path="/approve/:approvalToken/:readToken"
               exact
               component={ApproveYouthProfilePage}
+              pageTitle="approval.title"
             />
           </Switch>
         </PageLayout>
@@ -31,23 +33,41 @@ function AppRoutes() {
       <Route>
         <PageLayout>
           <Switch>
-            <Route path="/login" exact component={Login} />
-            <AppYouthProfileRoute path="/" exact component={LandingPage} />
+            <AppPageTitleRoute
+              path="/login"
+              exact
+              component={Login}
+              pageTitle="login.pageTitle"
+            />
+            <AppYouthProfileRoute
+              path="/"
+              exact
+              component={LandingPage}
+              pageTitle="membershipInformation.pageTitle"
+            />
             <AppYouthProfileRoute
               path="/membership-details"
               exact
               component={MembershipDetailsPage}
+              pageTitle="membershipDetails.title"
             />
             <AppYouthProfileRoute
               path="/edit"
               exact
               component={EditYouthProfilePage}
+              pageTitle="edit.pageTitle"
             />
-            <Route path="/create" exact component={CreateYouthProfilePage} />
-            <Route
+            <AppPageTitleRoute
+              path="/create"
+              exact
+              component={CreateYouthProfilePage}
+              pageTitle="registration.pageTitle"
+            />
+            <AppPageTitleRoute
               path="/accessibility"
               exact
               component={AccessibilityStatement}
+              pageTitle="footer.accessibility"
             />
             <Route
               path="/silent_renew"

@@ -6,16 +6,9 @@ exports[`matches snapshot 1`] = `
     defer={true}
     encodeSpecialCharacters={true}
   >
-    <title>
-      Jässäri
-    </title>
     <meta
       content="Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat."
       name="description"
-    />
-    <meta
-      content="Jässäri"
-      property="og:title"
     />
     <meta
       content="Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat."

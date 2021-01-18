@@ -9,6 +9,7 @@ import { updateWrapper } from '../../../../common/test/testUtils';
 import ApproveYouthProfilePage from '../ApproveYouthProfilePage';
 import { Language, YouthLanguage } from '../../../../graphql/generatedTypes';
 import useProfileByTokens from '../useProfileByTokens';
+import { mountWithProviders } from '../../../../common/test/testUtils';
 
 jest.mock('../useProfileByTokens');
 
@@ -56,14 +57,8 @@ const data = {
 };
 
 const getWrapper = () => {
-  return mount(
-    <ReduxProvider store={store}>
-      <MemoryRouter>
-        <MockedProvider mocks={[]} addTypename={true}>
-          <ApproveYouthProfilePage />
-        </MockedProvider>
-      </MemoryRouter>
-    </ReduxProvider>
+  return mountWithProviders(
+    <ApproveYouthProfilePage />
   );
 };
 

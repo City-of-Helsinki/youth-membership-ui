@@ -6,12 +6,11 @@ type Props = PropsWithChildren<{}>;
 
 function PageWrapper(props: Props) {
   const { t } = useTranslation();
+
   return (
     <>
       <Helmet>
-        <title>{t('appName')}</title>
         <meta name="description" content={t('meta.description')} />
-        <meta property="og:title" content={t('appName')} />
         <meta property="og:description" content={t('meta.description')} />
       </Helmet>
       {props.children}
