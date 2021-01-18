@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'hds-react';
 import { Form, Formik, FormikProps } from 'formik';
-import { Link } from 'react-router-dom';
 import { differenceInYears } from 'date-fns';
 
 import {
@@ -26,6 +25,7 @@ import YouthProfileBasicInformationFields from './YouthProfileBasicInformationFi
 import YouthProfileAdditionalInformationFields from './YouthProfileAdditionalInformationFields';
 import YouthProfileApproverFields from './YouthProfileApproverFields';
 import FormikFocusError from './FormikFocusError';
+import LinkButton from '../../../common/components/linkButton/LinkButton';
 import styles from './youthProfileForm.module.css';
 
 export type Values = {
@@ -165,11 +165,13 @@ function YouthProfileForm(componentProps: Props) {
                 </Button>
 
                 {componentProps.isEditing && (
-                  <Link to="/membership-details">
-                    <Button variant="secondary" className={styles.button}>
-                      {t('registration.cancel')}
-                    </Button>
-                  </Link>
+                  <LinkButton
+                    className={styles.button}
+                    path="/membership-details"
+                    component="Link"
+                    buttonText={t('registration.cancel')}
+                    variant="secondary"
+                  />
                 )}
               </div>
             </PageSection>
