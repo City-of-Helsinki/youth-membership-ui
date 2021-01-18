@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 import { isValid, parseISO } from 'date-fns';
+import { Helmet } from 'react-helmet-async';
 
 import { HasYouthProfile } from '../../graphql/generatedTypes';
 import getCookie from '../../common/helpers/getCookie';
@@ -14,7 +15,9 @@ const HAS_YOUTH_PROFILE = loader(
   '../youthProfile/graphql/HasYouthProfile.graphql'
 );
 
-type Props = RouteProps;
+type Props = RouteProps & {
+  pageTitle: string;
+};
 
 function AppYouthProfileRoute(props: Props) {
   const { t } = useTranslation();
@@ -32,6 +35,14 @@ function AppYouthProfileRoute(props: Props) {
 
   return (
     <>
+      <Helmet>
+        <title>{t(props.pageTitle)}</title>
+        <meta property="og:title" content={t(props.pageTitle)} />
+      </Helmet>
+
+      {['/login', '/create', '/accessibility'].indexOf(props.path as string) +
+        1 && <Route {...props} />}
+
       <LoadingContent isLoading={loading} loadingText={t('profile.verifying')}>
         {isYouthProfileFound ? (
           <Route {...props} />

@@ -79,17 +79,11 @@ exports[`matches snapshot 1`] = `
                     "name": "description",
                   },
                   Object {
-                    "content": "Nuorisotoimien jäsenkortti",
-                    "property": "og:title",
-                  },
-                  Object {
                     "content": "Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat.",
                     "property": "og:description",
                   },
                 ]
               }
-              title="Nuorisotoimien jäsenkortti"
-              titleAttributes={Object {}}
             />
           </Helmet>
         </PageWrapper>
