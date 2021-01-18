@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Route, Redirect, RouteProps } from 'react-router';
+import { Redirect, RouteProps, RouteComponentProps } from 'react-router';
 import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 import { isValid, parseISO } from 'date-fns';
-import { Helmet } from 'react-helmet-async';
 
+import AppPageTitleRoute from './AppPageTitleRoute';
 import { HasYouthProfile } from '../../graphql/generatedTypes';
 import getCookie from '../../common/helpers/getCookie';
 import LoadingContent from '../../common/components/loading/LoadingContent';
@@ -15,11 +15,18 @@ const HAS_YOUTH_PROFILE = loader(
   '../youthProfile/graphql/HasYouthProfile.graphql'
 );
 
-type Props = RouteProps & {
+interface Props extends RouteProps {
+  component:
+    | React.ComponentType<RouteComponentProps<any>>
+    | React.ComponentType<any>;
   pageTitle: string;
-};
+}
 
-function AppYouthProfileRoute(props: Props) {
+function AppYouthProfileRoute({
+  component: Component,
+  pageTitle,
+  ...rest
+}: Props) {
   const { t } = useTranslation();
   const [showNotification, setShowNotification] = useState<boolean>(false);
 
@@ -35,23 +42,26 @@ function AppYouthProfileRoute(props: Props) {
 
   return (
     <>
-      <Helmet>
-        <title>{t(props.pageTitle)}</title>
-        <meta property="og:title" content={t(props.pageTitle)} />
-      </Helmet>
-
-      {['/login', '/create', '/accessibility'].indexOf(props.path as string) +
-        1 && <Route {...props} />}
-
-      <LoadingContent isLoading={loading} loadingText={t('profile.verifying')}>
-        {isYouthProfileFound ? (
-          <Route {...props} />
-        ) : !isBirthDateValid ? (
-          <Redirect to="/login" />
-        ) : (
-          <Redirect to="/create" />
-        )}
-      </LoadingContent>
+      <AppPageTitleRoute
+        pageTitle={pageTitle}
+        {...rest}
+        render={(routeComponentProps: RouteComponentProps) => {
+          return (
+            <LoadingContent
+              isLoading={loading}
+              loadingText={t('profile.verifying')}
+            >
+              {isYouthProfileFound ? (
+                <Component {...routeComponentProps} />
+              ) : !isBirthDateValid ? (
+                <Redirect to="/login" />
+              ) : (
+                <Redirect to="/create" />
+              )}
+            </LoadingContent>
+          );
+        }}
+      />
       <NotificationComponent
         show={showNotification}
         onClose={() => setShowNotification(false)}
