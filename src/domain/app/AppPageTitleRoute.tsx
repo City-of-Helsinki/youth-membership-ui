@@ -7,16 +7,16 @@ type Props = RouteProps & {
   pageTitle: string;
 };
 
-const AppPageTitleRoute = (props: Props) => {
+const AppPageTitleRoute = ({ pageTitle, ...rest }: Props) => {
   const { t } = useTranslation();
 
   return (
     <>
       <Helmet>
-        <title>{t(props.pageTitle)}</title>
-        <meta property="og:title" content={t(props.pageTitle)} />
+        <title>{t(pageTitle)}</title>
+        <meta property="og:title" content={t(pageTitle)} />
       </Helmet>
-      <Route {...props} />
+      <Route {...rest} />
     </>
   );
 };
