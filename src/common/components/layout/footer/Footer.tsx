@@ -3,6 +3,7 @@ import { Koros } from 'hds-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import ExternalLink from '../../externalLink/ExternalLink';
 import HelsinkiLogo from '../../helsinkiLogo/HelsinkiLogo';
 import styles from './Footer.module.css';
 
@@ -28,14 +29,12 @@ function Footer() {
                 {t('footer.accessibility')}
               </Link>
             </span>
-            <a
+            <ExternalLink
               href={t('footer.feedbackLink')}
-              target="_blank"
-              rel="noopener noreferrer"
               className={styles.feedback}
             >
               {t('footer.feedback')}
-            </a>
+            </ExternalLink>
           </div>
         </div>
       </footer>

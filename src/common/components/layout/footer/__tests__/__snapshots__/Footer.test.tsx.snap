@@ -43,14 +43,12 @@ exports[`matches snapshot 1`] = `
             Saavutettavuusseloste
           </Link>
         </span>
-        <a
+        <ExternalLink
           className="feedback"
           href="https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/yhteystiedot-ja-palaute/Anna+palautetta/"
-          rel="noopener noreferrer"
-          target="_blank"
         >
           Anna palautetta
-        </a>
+        </ExternalLink>
       </div>
     </div>
   </footer>
