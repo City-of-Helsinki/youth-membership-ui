@@ -25,7 +25,7 @@ function LinkButton({
   rel,
   iconRight,
 }: Props) {
-  const iconRightWithPadding = iconRight ? ` ${iconRight}` : '';
+  const iconRightWithPadding = iconRight ? <> {iconRight}</> : '';
 
   if (component === 'Link') {
     return (
