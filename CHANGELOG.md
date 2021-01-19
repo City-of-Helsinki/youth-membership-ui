@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Browser test that would always fail until march
 - Duplicate cancel button in information editing view
 - Fixed issue where pages didn't have unique titles.
+- Fixed the inconsistent use of HTML headings.
 
 ## [1.2.1] - 2020-11-25
 

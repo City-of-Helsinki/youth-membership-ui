@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.membershipNumber {
+    font-size: var(--fontsize-heading-m);
+}
+
 .validUntil {
     margin-bottom: var(--spacing-m);
 }

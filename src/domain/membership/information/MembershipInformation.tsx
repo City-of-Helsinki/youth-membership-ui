@@ -30,7 +30,7 @@ function MembershipInformation({
       {membershipInformationTypes && (
         <React.Fragment>
           <Text variant="h1">{getFullName(membershipInformationTypes)}</Text>
-          <Text variant="h3">
+          <Text variant="h2" className={styles.membershipNumber}>
             {t('membershipInformation.title', {
               number:
                 membershipInformationTypes?.myYouthProfile?.membershipNumber,
