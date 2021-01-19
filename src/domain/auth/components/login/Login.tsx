@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
 import { connect, useSelector } from 'react-redux';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
-import { Button } from 'hds-react';
+import { Button, IconLinkExternal } from 'hds-react';
 
 import LinkButton from '../../../../common/components/linkButton/LinkButton';
 import Text from '../../../../common/components/text/Text';
@@ -82,6 +82,11 @@ function Login(props: Props) {
                 variant="primary"
                 target="_blank"
                 rel="noopener noreferrer"
+                iconRight={
+                  <IconLinkExternal
+                    aria-label={t('externalLink.description')}
+                  />
+                }
               />
               <LinkButton
                 className={styles.linkButtons}
@@ -89,6 +94,11 @@ function Login(props: Props) {
                 component="a"
                 buttonText={t('login.findNearestService')}
                 variant="primary"
+                iconRight={
+                  <IconLinkExternal
+                    aria-label={t('externalLink.description')}
+                  />
+                }
               />
 
               <Button

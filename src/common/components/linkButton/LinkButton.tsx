@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ type Props = {
   variant: 'primary' | 'secondary' | 'supplementary';
   rel?: string;
   className?: string;
+  iconRight?: ReactNode;
 };
 
 function LinkButton({
@@ -22,7 +23,10 @@ function LinkButton({
   component,
   variant,
   rel,
+  iconRight,
 }: Props) {
+  const iconRightWithPadding = iconRight ? ` ${iconRight}` : '';
+
   if (component === 'Link') {
     return (
       <Link
@@ -30,6 +34,7 @@ function LinkButton({
         className={classNames(`hds-button hds-button--${variant}`, className)}
       >
         <span className="hds-button__label">{buttonText}</span>
+        {iconRightWithPadding}
       </Link>
     );
   }
@@ -42,6 +47,7 @@ function LinkButton({
       rel={rel}
     >
       <span className="hds-button__label">{buttonText}</span>
+      {iconRightWithPadding}
     </a>
   );
 }
