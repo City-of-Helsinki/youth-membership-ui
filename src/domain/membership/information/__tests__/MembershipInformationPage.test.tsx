@@ -48,7 +48,7 @@ it('mocked data is found', async () => {
   await updateWrapper(wrapper);
 
   const name = wrapper.find('h1').text();
-  const membershipNumber = wrapper.find('h3').text();
+  const membershipNumber = wrapper.find('h2').text();
   const validUntil = wrapper.find('.validUntil').text();
 
   expect(name).toEqual('Teemu Testaaja');
