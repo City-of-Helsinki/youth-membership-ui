@@ -54,6 +54,9 @@
   "edit": {
     "pageTitle": "Edit own information"
   },
+  "externalLink": {
+    "description": "Opens in a new window"
+  },
   "footer": {
     "accessibility": "Accessibility document",
     "copyright": "City of Helsinki",

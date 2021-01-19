@@ -1333,20 +1333,14 @@ exports[`matches snapshot 1`] = `
                           <Trans
                             components={
                               Array [
-                                <a
+                                <ExternalLink
                                   href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
-                                  rel="noopener noreferrer"
-                                  target="_blank"
                                 />,
-                                <a
+                                <ExternalLink
                                   href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
-                                  rel="noopener noreferrer"
-                                  target="_blank"
                                 />,
-                                <a
+                                <ExternalLink
                                   href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
-                                  rel="noopener noreferrer"
-                                  target="_blank"
                                 />,
                               ]
                             }
@@ -1385,52 +1379,139 @@ exports[`matches snapshot 1`] = `
                             <Trans
                               components={
                                 Array [
-                                  <a
+                                  <ExternalLink
                                     href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
                                   />,
-                                  <a
+                                  <ExternalLink
                                     href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
                                   />,
-                                  <a
+                                  <ExternalLink
                                     href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
                                   />,
                                 ]
                               }
                               i18nKey="approval.approveTerms"
                             >
                               Olen tutustunut 
-                              <a
+                              <ExternalLink
                                 href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
                                 key="1"
-                                rel="noopener noreferrer"
-                                target="_blank"
                               >
-                                tämän palvelun rekisteriselosteeseen
-                              </a>
+                                <a
+                                  className="externalLink "
+                                  href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  tämän palvelun rekisteriselosteeseen
+                                   
+                                  <Component
+                                    aria-label="Aukeaa uuteen ikkunaan"
+                                  >
+                                    <svg
+                                      aria-label="Aukeaa uuteen ikkunaan"
+                                      className="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                                      role="img"
+                                      style={Object {}}
+                                      viewBox="0 0 24 24"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g
+                                        fill="none"
+                                        fillRule="evenodd"
+                                      >
+                                        <path
+                                          d="M0 0h24v24H0z"
+                                        />
+                                        <path
+                                          d="M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z"
+                                          fill="currentColor"
+                                        />
+                                      </g>
+                                    </svg>
+                                  </Component>
+                                </a>
+                              </ExternalLink>
                               , 
-                              <a
+                              <ExternalLink
                                 href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
                                 key="3"
-                                rel="noopener noreferrer"
-                                target="_blank"
                               >
-                                Helsinki-profiilin rekisteriselosteeseen
-                              </a>
+                                <a
+                                  className="externalLink "
+                                  href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  Helsinki-profiilin rekisteriselosteeseen
+                                   
+                                  <Component
+                                    aria-label="Aukeaa uuteen ikkunaan"
+                                  >
+                                    <svg
+                                      aria-label="Aukeaa uuteen ikkunaan"
+                                      className="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                                      role="img"
+                                      style={Object {}}
+                                      viewBox="0 0 24 24"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g
+                                        fill="none"
+                                        fillRule="evenodd"
+                                      >
+                                        <path
+                                          d="M0 0h24v24H0z"
+                                        />
+                                        <path
+                                          d="M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z"
+                                          fill="currentColor"
+                                        />
+                                      </g>
+                                    </svg>
+                                  </Component>
+                                </a>
+                              </ExternalLink>
                                ja 
-                              <a
+                              <ExternalLink
                                 href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
                                 key="5"
-                                rel="noopener noreferrer"
-                                target="_blank"
                               >
-                                kaupungin tietosuojakäytäntöön
-                              </a>
+                                <a
+                                  className="externalLink "
+                                  href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+                                  rel="noopener noreferrer"
+                                  target="_blank"
+                                >
+                                  kaupungin tietosuojakäytäntöön
+                                   
+                                  <Component
+                                    aria-label="Aukeaa uuteen ikkunaan"
+                                  >
+                                    <svg
+                                      aria-label="Aukeaa uuteen ikkunaan"
+                                      className="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                                      role="img"
+                                      style={Object {}}
+                                      viewBox="0 0 24 24"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g
+                                        fill="none"
+                                        fillRule="evenodd"
+                                      >
+                                        <path
+                                          d="M0 0h24v24H0z"
+                                        />
+                                        <path
+                                          d="M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z"
+                                          fill="currentColor"
+                                        />
+                                      </g>
+                                    </svg>
+                                  </Component>
+                                </a>
+                              </ExternalLink>
                               . Minuun voidaan olla yhteydessä antamieni tietojen avulla.
                             </Trans>
                           </span>

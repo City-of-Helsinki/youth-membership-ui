@@ -54,6 +54,9 @@
   "edit": {
     "pageTitle": "Muokkaa omia tietoja"
   },
+  "externalLink": {
+    "description": "Aukeaa uuteen ikkunaan"
+  },
   "footer": {
     "accessibility": "Saavutettavuusseloste",
     "copyright": "Helsingin kaupunki",
