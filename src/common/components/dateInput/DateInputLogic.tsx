@@ -14,12 +14,10 @@ const DATE_INPUT_ALLOWED_CHARACTERS = [
   '9',
 ];
 const INPUT_CONFIGS = {
-  // We are invoking type number in order to allow platforms invoke
-  // behavior that allows more convenient  number input.
-  type: 'number',
-  // Sets the minimum allowed number as 0 for chrome controls. The user
-  // is still able to input a negative number by hand if they choose.
-  min: 0,
+  // We are invoking type text in order to discourage platforms from
+  // applying spinners which may increase the cognitive load of the
+  // input.
+  type: 'text',
   // Forces the number keyboard on mobile devices
   inputMode: 'numeric',
   // 1) Ensures that a number pad is shown on iOS instead of the regular
@@ -40,7 +38,6 @@ export interface InputComponentProps {
   onChange: (event: React.FormEvent<HTMLInputElement>) => void;
   value?: string;
   innerRef?: React.RefObject<HTMLInputElement>;
-  min: number;
   pattern: string;
   type: string;
   isInvalid: boolean;

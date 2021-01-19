@@ -54,6 +54,9 @@
   "edit": {
     "pageTitle": "Redigera egen information"
   },
+  "externalLink": {
+    "description": "Öppnas i nytt fönster"
+  },
   "footer": {
     "accessibility": "Tillgänglighetsdokument",
     "copyright": "Helsingfors stad",
