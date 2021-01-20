@@ -854,6 +854,7 @@ exports[`matches snapshot 1`] = `
                   </Text>
                   <YouthProfileApproverFields
                     additionalContactPersonHelperText="Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa."
+                    viewer="approver"
                   >
                     <Stack
                       space="xl"
@@ -866,6 +867,7 @@ exports[`matches snapshot 1`] = `
                             className="formGrid vertical-default"
                           >
                             <FormikTestInput
+                              autoComplete="given-name"
                               id="approverFirstName"
                               labelText="Etunimi *"
                               name="approverFirstName"
@@ -874,6 +876,7 @@ exports[`matches snapshot 1`] = `
                                 name="approverFirstName"
                               >
                                 <ForwardRef
+                                  autoComplete="given-name"
                                   id="approverFirstName"
                                   invalid={false}
                                   labelText="Etunimi *"
@@ -883,6 +886,7 @@ exports[`matches snapshot 1`] = `
                                   value="Ville"
                                 >
                                   <ForwardRef
+                                    autoComplete="given-name"
                                     className="input"
                                     id="approverFirstName"
                                     invalid={false}
@@ -919,6 +923,7 @@ exports[`matches snapshot 1`] = `
                                         >
                                           <input
                                             aria-describedby={null}
+                                            autoComplete="given-name"
                                             className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                                             disabled={false}
                                             id="approverFirstName"
@@ -936,6 +941,7 @@ exports[`matches snapshot 1`] = `
                               </Field>
                             </FormikTestInput>
                             <FormikTestInput
+                              autoComplete="family-name"
                               id="approverLastName"
                               labelText="Sukunimi *"
                               name="approverLastName"
@@ -944,6 +950,7 @@ exports[`matches snapshot 1`] = `
                                 name="approverLastName"
                               >
                                 <ForwardRef
+                                  autoComplete="family-name"
                                   id="approverLastName"
                                   invalid={false}
                                   labelText="Sukunimi *"
@@ -953,6 +960,7 @@ exports[`matches snapshot 1`] = `
                                   value="Vanhempi"
                                 >
                                   <ForwardRef
+                                    autoComplete="family-name"
                                     className="input"
                                     id="approverLastName"
                                     invalid={false}
@@ -989,6 +997,7 @@ exports[`matches snapshot 1`] = `
                                         >
                                           <input
                                             aria-describedby={null}
+                                            autoComplete="family-name"
                                             className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                                             disabled={false}
                                             id="approverLastName"
@@ -1006,6 +1015,7 @@ exports[`matches snapshot 1`] = `
                               </Field>
                             </FormikTestInput>
                             <FormikTestInput
+                              autoComplete="email"
                               id="approverEmail"
                               labelText="Sähköpostiosoite *"
                               name="approverEmail"
@@ -1015,6 +1025,7 @@ exports[`matches snapshot 1`] = `
                                 name="approverEmail"
                               >
                                 <ForwardRef
+                                  autoComplete="email"
                                   id="approverEmail"
                                   invalid={false}
                                   labelText="Sähköpostiosoite *"
@@ -1025,6 +1036,7 @@ exports[`matches snapshot 1`] = `
                                   value="ville.vanhempi@test.fi"
                                 >
                                   <ForwardRef
+                                    autoComplete="email"
                                     className="input"
                                     id="approverEmail"
                                     invalid={false}
@@ -1062,6 +1074,7 @@ exports[`matches snapshot 1`] = `
                                         >
                                           <input
                                             aria-describedby={null}
+                                            autoComplete="email"
                                             className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                                             disabled={false}
                                             id="approverEmail"
@@ -1079,6 +1092,7 @@ exports[`matches snapshot 1`] = `
                               </Field>
                             </FormikTestInput>
                             <FormikTestInput
+                              autoComplete="tel"
                               id="approverPhone"
                               labelText="Puhelinnumero *"
                               name="approverPhone"
@@ -1088,6 +1102,7 @@ exports[`matches snapshot 1`] = `
                                 name="approverPhone"
                               >
                                 <ForwardRef
+                                  autoComplete="tel"
                                   id="approverPhone"
                                   invalid={false}
                                   labelText="Puhelinnumero *"
@@ -1098,6 +1113,7 @@ exports[`matches snapshot 1`] = `
                                   value="05012345567"
                                 >
                                   <ForwardRef
+                                    autoComplete="tel"
                                     className="input"
                                     id="approverPhone"
                                     invalid={false}
@@ -1135,6 +1151,7 @@ exports[`matches snapshot 1`] = `
                                         >
                                           <input
                                             aria-describedby={null}
+                                            autoComplete="tel"
                                             className="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                                             disabled={false}
                                             id="approverPhone"
