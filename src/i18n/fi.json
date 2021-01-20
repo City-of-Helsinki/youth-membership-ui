@@ -212,12 +212,12 @@
     "updated": "Pävitetty viimeksi 20.1.2020"
   },
   "validation": {
-    "email": "Virheellinen sähköpostiosoite",
-    "invalidValue": "Virheellinen arvo",
-    "phoneMin": "Vähimmäispituus kuusi merkkiä",
-    "required": "Vaadittu",
-    "tooLong": "Liian pitkä",
-    "tooShort": "Liian lyhyt"
+    "email": "Täytyä toimiva sähköpostiosoite",
+    "invalidPostalCode": "Täytä oikea postinumero",
+    "requiredTerms": "Hyväksy ehdot",
+    "required": "Täytä {{label}}",
+    "tooLong": "Täytä {{label}}, joka on korkeintaan {{max}} merkkiä",
+    "tooShort": "Täytä {{label}}, joka on vähintään {{min}} merkkiä"
   },
   "youthProfile": {
     "approverEmail": "Sähköposti",
@@ -245,5 +245,17 @@
       "label": "Anna palautetta Jässäri verkkopalvelusta",
       "link": "https://docs.google.com/forms/d/e/1FAIpQLSdqw2Lq3qooEeRdgr0sV0-Wv-4XcV7IZVzq1HuWoLRa2M7tEg/viewform?usp=pp_url&entry.1982410290=Nuorten+j%C3%A4senkortti"
     }
+  },
+  "fields": {
+    "firstName": "etunimi",
+    "lastName": "sukunimi",
+    "streetAddress": "katuosoite",
+    "postalCode": "postinumero",
+    "city": "kaupunki",
+    "phoneNumber": "puhelinnumero",
+    "email": "sähköpostiosoite",
+    "schoolName": "koulun nimi",
+    "schoolClass": "luokka",
+    "photoUsageApproved": "kuvauslupa"
   }
 }

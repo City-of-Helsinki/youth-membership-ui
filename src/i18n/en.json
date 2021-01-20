@@ -212,12 +212,11 @@
     "updated": "Updated 20.1.2020"
   },
   "validation": {
-    "email": "Invalid email",
-    "invalidValue": "Invalid value",
-    "phoneMin": "Min length six characters",
-    "required": "Required",
-    "tooLong": "Too long",
-    "tooShort": "Too short"
+    "email": "Please enter a valid email address",
+    "invalidPostalCode": "Please enter a valid postal code",
+    "required": "Please enter {{label}}",
+    "tooLong": "Please enter {{label}} that's less than {{max}} characters long",
+    "tooShort": "Please enter {{label}} that's more than {{min}} characters long"
   },
   "youthProfile": {
     "approverEmail": "Email",
@@ -245,5 +244,17 @@
       "label": "Give feedback of the Jässäri service",
       "link": "https://docs.google.com/forms/d/e/1FAIpQLSfpPCeAdiT9pcMRazxqA9DW-mbqoN2kNwaV53XydjzHWdyFKw/viewform?usp=pp_url&entry.1982410290=J%C3%A4ss%C3%A4ri"
     }
+  },
+  "fields": {
+    "firstName": "a first name",
+    "lastName": "a last name",
+    "streetAddress": "a streer address",
+    "postalCode": "a postal code",
+    "city": "a city",
+    "phoneNumber": "a phone number",
+    "email": "an email",
+    "schoolName": "a school name",
+    "schoolClass": "a school class",
+    "photoUsageApproved": "photo usage approval"
   }
 }
