@@ -1,8 +1,5 @@
 import getAddress from '../getAddress';
-import {
-  MembershipDetails_myYouthProfile_profile as Profile,
-  MembershipDetails,
-} from '../../../../graphql/generatedTypes';
+import { MembershipDetails_myYouthProfile_profile as Profile } from '../../../../graphql/generatedTypes';
 
 it('test function with empty undefined', () => {
   const profile = {} as Profile;
