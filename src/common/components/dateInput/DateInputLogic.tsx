@@ -42,6 +42,7 @@ export interface InputComponentProps {
   type: string;
   isInvalid: boolean;
   label: string;
+  autoComplete?: string;
 }
 
 export interface WrapperComponentProps {
@@ -74,6 +75,9 @@ interface Props {
   dateInputLabel: string;
   monthInputLabel: string;
   yearInputLabel: string;
+  dateInputAutoComplete?: string;
+  monthInputAutoComplete?: string;
+  yearInputAutoComplete?: string;
 }
 
 function formatDateComponent(dateComponent: string): string {
@@ -186,6 +190,9 @@ function DateInputLogic({
   dateInputLabel,
   monthInputLabel,
   yearInputLabel,
+  dateInputAutoComplete,
+  monthInputAutoComplete,
+  yearInputAutoComplete,
 }: Props) {
   const externalDate = getDateComponents(value);
   const [internalDate, setInternalDate] = React.useState<DateObject>(
@@ -269,6 +276,7 @@ function DateInputLogic({
       onChange: handleDayOfMonthChange,
       isInvalid,
       label: dateInputLabel,
+      autoComplete: dateInputAutoComplete,
       ...INPUT_CONFIGS,
     }),
     React.createElement(monthComponent, {
@@ -280,6 +288,7 @@ function DateInputLogic({
       innerRef: monthInputRef,
       isInvalid,
       label: monthInputLabel,
+      autoComplete: monthInputAutoComplete,
       ...INPUT_CONFIGS,
     }),
     React.createElement(yearComponent, {
@@ -291,6 +300,7 @@ function DateInputLogic({
       innerRef: yearInputRef,
       isInvalid,
       label: yearInputLabel,
+      autoComplete: yearInputAutoComplete,
       ...INPUT_CONFIGS,
     }),
   ]);

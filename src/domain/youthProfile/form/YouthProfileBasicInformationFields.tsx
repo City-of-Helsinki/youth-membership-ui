@@ -41,11 +41,13 @@ function YouthProfileFormBasicInformationFields({
           id="firstName"
           name="firstName"
           labelText={t('registration.firstName') + ' *'}
+          autoComplete="given-name"
         />
         <TextInput
           id="lastName"
           name="lastName"
           labelText={t('registration.lastName') + ' *'}
+          autoComplete="family-name"
         />
       </YouthProfileFormGrid>
       <Stack space="s">
@@ -58,6 +60,7 @@ function YouthProfileFormBasicInformationFields({
             type="select"
             options={countryOptions}
             labelText={t('registration.country')}
+            autoComplete="country-name"
           />
         </YouthProfileFormGrid>
         <YouthProfileAddressTemplate
@@ -66,6 +69,7 @@ function YouthProfileFormBasicInformationFields({
               id="primaryAddress.address"
               name="primaryAddress.address"
               labelText={t('registration.address') + ' *'}
+              autoComplete="address-line1"
             />
           }
           postalCode={
@@ -78,6 +82,7 @@ function YouthProfileFormBasicInformationFields({
                   : 'text'
               }
               labelText={t('registration.postalCode') + ' *'}
+              autoComplete="postal-code"
             />
           }
           city={
@@ -85,6 +90,7 @@ function YouthProfileFormBasicInformationFields({
               id="primaryAddress.city"
               name="primaryAddress.city"
               labelText={t('registration.city') + ' *'}
+              autoComplete="address-level2"
             />
           }
         />
@@ -174,6 +180,7 @@ function YouthProfileFormBasicInformationFields({
             { value: 'SWEDISH', label: t('LANGUAGE_OPTIONS.SWEDISH') },
           ]}
           labelText={t('registration.profileLanguage')}
+          autoComplete="language"
         />
         <Field
           as={TextInput}
@@ -182,12 +189,14 @@ function YouthProfileFormBasicInformationFields({
           type="text"
           labelText={t('registration.email')}
           readOnly
+          autoComplete="email"
         />
         <TextInput
           id="phone"
           name="phone"
           type="tel"
           labelText={t('registration.phoneNumber') + ' *'}
+          autoComplete="tel"
         />
       </YouthProfileFormGrid>
     </Stack>
