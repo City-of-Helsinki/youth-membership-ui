@@ -214,6 +214,7 @@
   "validation": {
     "email": "Please enter a valid email address",
     "invalidPostalCode": "Please enter a valid postal code",
+    "requiredTerms": "Please accept the terms",
     "required": "Please enter {{label}}",
     "tooLong": "Please enter {{label}} that's less than {{max}} characters long",
     "tooShort": "Please enter {{label}} that's more than {{min}} characters long"
