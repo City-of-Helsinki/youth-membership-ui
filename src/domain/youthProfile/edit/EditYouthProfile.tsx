@@ -22,9 +22,7 @@ const MEMBERSHIP_DETAILS = loader(
   '../../membership/graphql/MembershipDetails.graphql'
 );
 
-type Props = {};
-
-function EditYouthProfile(props: Props) {
+function EditYouthProfile() {
   const [showNotification, setShowNotification] = useState<boolean>(false);
   const { data, loading: loadingProfile } = useQuery<MembershipDetailsData>(
     MEMBERSHIP_DETAILS,

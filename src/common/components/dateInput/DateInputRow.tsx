@@ -16,7 +16,7 @@ function DateInputRow({ isInvalid, onBlur, ...rest }: WrapperComponentProps) {
         // between inputs, bubble to this handler. For that purpose we
         // have to apply logic to ensure that we only call onBlur when
         // the focus leaves this wrapping component.
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         if (e && !e.currentTarget.contains(e.relatedTarget) && onBlur) {
           onBlur();

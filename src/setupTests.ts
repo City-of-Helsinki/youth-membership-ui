@@ -4,9 +4,6 @@ import { GlobalWithFetchMock } from 'jest-fetch-mock';
 import '@testing-library/jest-dom/extend-expect';
 import './common/test/testi18nInit';
 
-// Jest canvas mock is for testing component with QR code
-import 'jest-canvas-mock';
-
 const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock;
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 customGlobal.fetch = require('jest-fetch-mock');
@@ -21,6 +18,6 @@ jest.mock('react-router', () => ({
   }),
 }));
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 global.scrollTo = jest.fn();

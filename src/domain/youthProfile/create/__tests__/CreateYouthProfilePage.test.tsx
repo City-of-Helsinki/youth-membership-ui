@@ -16,7 +16,6 @@ import {
   PrefillRegistartion,
 } from '../../../../graphql/generatedTypes';
 
-/* eslint-disable @typescript-eslint/camelcase */
 const mockTunnistamoUser: User = {
   profile: {
     iss: '',
@@ -38,7 +37,6 @@ const mockTunnistamoUser: User = {
     return '';
   },
 };
-/* eslint-enable @typescript-eslint/camelcase */
 
 jest.mock('../../../auth/getAuthenticatedUser', () => () =>
   Promise.resolve(mockTunnistamoUser)

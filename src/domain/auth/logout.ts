@@ -5,7 +5,7 @@ import store from '../../redux/store';
 import { apiError } from './redux';
 import authConstants from './constants/authConstants';
 
-export default function(): void {
+function logout(): void {
   // Reset birthDate cookie here. This way we will never run to a problem
   // where user is redirected to registration from without or with wrong birthDate
   document.cookie = 'birthDate=';
@@ -16,3 +16,5 @@ export default function(): void {
     store.dispatch(apiError(e.toString()));
   });
 }
+
+export default logout;

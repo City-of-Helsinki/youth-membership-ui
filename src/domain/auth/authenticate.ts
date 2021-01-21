@@ -4,7 +4,7 @@ import userManager from './userManager';
 import store from '../../redux/store';
 import { apiError } from './redux';
 
-export default function(): void {
+function authenticate(): void {
   userManager.signinRedirect().catch(error => {
     if (error.message !== 'Network Error') {
       Sentry.captureException(error);
@@ -12,3 +12,5 @@ export default function(): void {
     store.dispatch(apiError(error.toString()));
   });
 }
+
+export default authenticate;

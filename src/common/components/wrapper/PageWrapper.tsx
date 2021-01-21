@@ -1,8 +1,10 @@
-import React, { PropsWithChildren } from 'react';
+import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 
-type Props = PropsWithChildren<{}>;
+type Props = {
+  children?: ReactNode;
+};
 
 function PageWrapper(props: Props) {
   const { t } = useTranslation();

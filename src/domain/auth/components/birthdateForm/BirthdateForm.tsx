@@ -55,10 +55,10 @@ function BirthdateForm(props: Props) {
     fieldName = 'birthDate'
   ) => {
     const { errors, touched } = props;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const isTouched = touched[fieldName];
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const isYupError = Boolean(errors[fieldName]);
 
@@ -67,7 +67,7 @@ function BirthdateForm(props: Props) {
     }
 
     if (isTouched && isYupError) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return t(errors[fieldName]);
     }
