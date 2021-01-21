@@ -1,11 +1,4 @@
-import {
-  AddressType,
-  Language,
-  MembershipDetails,
-  MembershipDetails_myYouthProfile as MyYouthProfile,
-  YouthLanguage,
-  YouthProfileByApprovalToken,
-} from '../../../../graphql/generatedTypes';
+import { AddressType, Language } from '../../../../graphql/generatedTypes';
 import getAddresses from '../getAddresses';
 
 const mockAddresses = [

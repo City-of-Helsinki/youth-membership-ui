@@ -16,8 +16,9 @@ const HAS_YOUTH_PROFILE = loader(
 );
 
 interface Props extends RouteProps {
-  component:
-    | React.ComponentType<RouteComponentProps<any>>
+  component: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  | React.ComponentType<RouteComponentProps<any>>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     | React.ComponentType<any>;
   pageTitle: string;
 }
