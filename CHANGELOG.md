@@ -21,6 +21,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - [Accessibility] Cognitively challenging date input
 - [Accessibility] Fixed the inconsistent use of HTML headings.
 - [Accessibility] Add support for autocomplete to form fields
+- [Accessibility] Mobile menu that was unusable on mobile
+- [Accessibility] Misleading labels on logo and application name links
+- [Accessibility] Missing jump to content link
 
 ## [1.2.1] - 2020-11-25
 
