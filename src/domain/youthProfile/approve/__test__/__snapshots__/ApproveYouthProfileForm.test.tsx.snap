@@ -137,6 +137,7 @@ exports[`matches snapshot 1`] = `
                   "_exclusive": Object {
                     "required": true,
                   },
+                  "_label": "fields.email",
                   "_mutate": undefined,
                   "_options": Object {
                     "abortEarly": true,
@@ -165,6 +166,7 @@ exports[`matches snapshot 1`] = `
                   "_exclusive": Object {
                     "required": true,
                   },
+                  "_label": "fields.firstName",
                   "_mutate": undefined,
                   "_options": Object {
                     "abortEarly": true,
@@ -193,6 +195,7 @@ exports[`matches snapshot 1`] = `
                   "_exclusive": Object {
                     "required": true,
                   },
+                  "_label": "fields.lastName",
                   "_mutate": undefined,
                   "_options": Object {
                     "abortEarly": true,
@@ -221,6 +224,7 @@ exports[`matches snapshot 1`] = `
                   "_exclusive": Object {
                     "required": true,
                   },
+                  "_label": "fields.phoneNumber",
                   "_mutate": undefined,
                   "_options": Object {
                     "abortEarly": true,
@@ -267,6 +271,7 @@ exports[`matches snapshot 1`] = `
               "required": true,
               "undefined": false,
             },
+            "_label": "fields.approverEmail",
             "_mutate": undefined,
             "_options": Object {
               "abortEarly": true,
@@ -298,6 +303,7 @@ exports[`matches snapshot 1`] = `
               "min": true,
               "required": true,
             },
+            "_label": "fields.firstName",
             "_mutate": undefined,
             "_options": Object {
               "abortEarly": true,
@@ -330,6 +336,7 @@ exports[`matches snapshot 1`] = `
               "min": true,
               "required": true,
             },
+            "_label": "fields.lastName",
             "_mutate": undefined,
             "_options": Object {
               "abortEarly": true,
@@ -361,6 +368,7 @@ exports[`matches snapshot 1`] = `
               "min": true,
               "required": true,
             },
+            "_label": "fields.phoneNumber",
             "_mutate": undefined,
             "_options": Object {
               "abortEarly": true,

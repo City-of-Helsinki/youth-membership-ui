@@ -212,12 +212,12 @@
     "updated": "Uppdaterad 20.1.2020"
   },
   "validation": {
-    "email": "Ogiltig e-postadress",
-    "invalidValue": "Ogiltigt värde",
-    "phoneMin": "Minst sex tecken",
-    "required": "Nödvändig",
-    "tooLong": "För lång",
-    "tooShort": "För kort"
+    "email": "Ange en giltig e-postadress",
+    "invalidPostalCode": "Fyll i ett giltigt postnummer",
+    "requiredTerms": "Godkänn villkoren",
+    "required": "Fyll i {{label}}",
+    "tooLong": "Fyll i {{label}} som är mindre än {{max}} tecken långt",
+    "tooShort": "Fyll i {{label}} som är mer än {{min}} tecken långt"
   },
   "youthProfile": {
     "approverEmail": "Epost",
@@ -244,5 +244,17 @@
       "label": "Ge respons om Jässäri tjänsten",
       "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0mf1gIUZ-k768RkOdBQm3bjp6TCDWQa1Wc1r_3WiYbDXLAA/viewform?usp=pp_url&entry.1982410290=J%C3%A4ss%C3%A4ri"
     }
+  },
+  "fields": {
+    "firstName": "ett förnamn",
+    "lastName": "ett efternamn",
+    "streetAddress": "en gatuadress",
+    "postalCode": "ett postnummer",
+    "city": "en stad",
+    "phoneNumber": "ett telefonnummer",
+    "email": "en e-postadress",
+    "schoolName": "ett skolnamn",
+    "schoolClass": "en skolklass",
+    "photoUsageApproved": "tillstånd för fotografering"
   }
 }
