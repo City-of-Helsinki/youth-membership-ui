@@ -116,7 +116,10 @@
     "menuButtonLabel": "Profiili valikko",
     "profile": "Helsinki-profiili",
     "signin": "Kirjaudu sisään",
-    "signout": "Kirjaudu ulos"
+    "signout": "Kirjaudu ulos",
+    "menu": "Valikko",
+    "skipToContent": "Siirry sivun pääsisältöön",
+    "helsinki": "Helsinki"
   },
   "notification": {
     "closeButtonText": "Sulje",

@@ -5,6 +5,8 @@ import { useMatomo } from '@datapunt/matomo-tracker-react';
 import LoadingContent from '../loading/LoadingContent';
 import styles from './pageContent.module.css';
 
+export const MAIN_CONTENT_ID = 'main-content';
+
 interface Props {
   children: ReactNode;
   title?: string;
@@ -40,7 +42,9 @@ function PageContent({
 
   return (
     <LoadingContent isLoading={!isReady} loadingText={loadingText}>
-      <main className={styles.wrapper}>{children}</main>
+      <main id={MAIN_CONTENT_ID} className={styles.wrapper}>
+        {children}
+      </main>
     </LoadingContent>
   );
 }

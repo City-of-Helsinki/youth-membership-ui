@@ -1,0 +1,23 @@
+{
+  "clientScripts": [
+    {
+      // The string here is a json5 multiline string.
+
+      // This code ignores benign ResizeObserver related errors which
+      // are caused by the HDS navigation component.
+
+      // If you can find a better way to apply this logic feel free
+      // to refactor. I was not able to reference the window object with
+      // the other avaibale approaches.
+      "content": "window.addEventListener('error', e => {\
+      if (\
+        e.message ===\
+          'ResizeObserver loop completed with undelivered notifications.' ||\
+        e.message === 'ResizeObserver loop limit exceeded'\
+      ) {\
+        e.stopImmediatePropagation();\
+      }\
+    });"
+    }
+  ]
+}

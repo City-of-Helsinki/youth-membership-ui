@@ -116,7 +116,10 @@
     "menuButtonLabel": "Profile menu",
     "profile": "Helsinki Profile",
     "signin": "Log in",
-    "signout": "Log out"
+    "signout": "Log out",
+    "menu": "Menu",
+    "skipToContent": "Skip to main content",
+    "helsinki": "Helsinki"
   },
   "notification": {
     "closeButtonText": "Close",

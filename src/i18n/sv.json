@@ -115,7 +115,10 @@
     "menuButtonLabel": "Profilmeny",
     "profile": "Helsingfors profil",
     "signin": "Logga in",
-    "signout": "Logga ut"
+    "signout": "Logga ut",
+    "menu": "Meny",
+    "skipToContent": "Gå till huvudinnehåll",
+    "helsinki": "Helsingfors"
   },
   "notification": {
     "closeButtonText": "Stäng",

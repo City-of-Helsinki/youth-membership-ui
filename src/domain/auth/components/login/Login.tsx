@@ -59,7 +59,7 @@ function Login(props: Props) {
                     {t('login.linkForMembersText')}
                   </span>
                   <Button
-                    onClick={authenticate}
+                    onClick={() => authenticate()}
                     variant="supplementary"
                     className={styles.button}
                     iconRight={null}
