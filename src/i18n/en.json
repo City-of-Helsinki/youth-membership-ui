@@ -249,7 +249,7 @@
   "fields": {
     "firstName": "a first name",
     "lastName": "a last name",
-    "streetAddress": "a streer address",
+    "streetAddress": "a street address",
     "postalCode": "a postal code",
     "city": "a city",
     "phoneNumber": "a phone number",
