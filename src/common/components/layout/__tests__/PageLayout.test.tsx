@@ -1,15 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
 
+import { render } from '../../../test/testing-library';
 import PageLayout from '../PageLayout';
 
 test('matches snapshot', () => {
-  const wrapper = shallow(
+  const wrapper = render(
     <PageLayout background="youth">
       <div />
     </PageLayout>
   );
 
-  expect(toJson(wrapper)).toMatchSnapshot();
+  expect(wrapper.container).toMatchSnapshot();
 });

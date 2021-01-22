@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 
 import AccessibilityStatement from '../AccessibilityStatement';
 import i18n from '../../../common/test/testi18nInit';
 
 test('matches snapshot', () => {
-  const wrapper = shallow(<AccessibilityStatement />);
-  expect(toJson(wrapper)).toMatchSnapshot();
+  const wrapper = render(<AccessibilityStatement />);
+  expect(wrapper.container).toMatchSnapshot();
 });
 
 describe('renders correct component based on language', () => {

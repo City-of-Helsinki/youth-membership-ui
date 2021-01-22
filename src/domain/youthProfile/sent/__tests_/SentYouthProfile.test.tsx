@@ -1,13 +1,13 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router';
 import { loader } from 'graphql.macro';
-import toJson from 'enzyme-to-json';
 
 import ViewYouthProfile from '../SentYouthProfile';
 import {
   mountWithProviders,
   updateWrapper,
 } from '../../../../common/test/testUtils';
+import { render } from '../../../../common/test/testing-library';
 
 const APPROVER_EMAIL = loader('../../graphql/ApproverEmail.graphql');
 
@@ -39,10 +39,8 @@ const getWrapper = () => {
 };
 
 test('match snapshot', async () => {
-  const wrapper = getWrapper();
-  await updateWrapper(wrapper);
-  const hostingBox = wrapper.find('.hostingBox');
-  expect(toJson(hostingBox)).toMatchSnapshot();
+  const wrapper = render(<ViewYouthProfile />, mocks);
+  expect(wrapper.container).toMatchSnapshot();
 });
 
 test('renders view with approver email', async () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { subYears, format } from 'date-fns';
+import { render } from '@testing-library/react';
 
 import ApproveYouthProfileForm, {
   FormValues,
@@ -48,8 +48,8 @@ const getWrapper = (props: Props) => {
 };
 
 test('matches snapshot', () => {
-  const wrapper = mount(<ApproveYouthProfileForm {...defaultProps} />);
-  expect(toJson(wrapper)).toMatchSnapshot();
+  const wrapper = render(<ApproveYouthProfileForm {...defaultProps} />);
+  expect(wrapper.container).toMatchSnapshot();
 });
 
 test('input fields are pre-filled', () => {

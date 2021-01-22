@@ -1,11 +1,10 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
-import { mountWithProvider } from '../../../../test/testUtils';
+import { render } from '../../../../test/testing-library';
 import Header from '../Header';
 
-test.skip('matches snapshot', () => {
-  const wrapper = mountWithProvider(<Header />);
+test('matches snapshot', () => {
+  const wrapper = render(<Header />);
 
-  expect(toJson(wrapper)).toMatchSnapshot();
+  expect(wrapper.container).toMatchSnapshot();
 });
