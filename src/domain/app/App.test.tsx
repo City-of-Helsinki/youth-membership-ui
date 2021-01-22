@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 
+import { render } from '../../common/test/testing-library';
 import App from './App';
 
 it('renders without crashing', () => {
-  shallow(<App />);
+  render(<App />);
 });
