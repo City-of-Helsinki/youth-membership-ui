@@ -1,13 +1,12 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router';
 import { loader } from 'graphql.macro';
 
-import ViewYouthProfile from '../SentYouthProfile';
 import {
-  mountWithProviders,
-  updateWrapper,
-} from '../../../../common/test/testUtils';
-import { render } from '../../../../common/test/testing-library';
+  render,
+  waitFor,
+  screen,
+} from '../../../../common/test/testing-library';
+import ViewYouthProfile from '../SentYouthProfile';
 
 const APPROVER_EMAIL = loader('../../graphql/ApproverEmail.graphql');
 
@@ -30,12 +29,7 @@ const mocks = [
 ];
 
 const getWrapper = () => {
-  return mountWithProviders(
-    <MemoryRouter>
-      <ViewYouthProfile />
-    </MemoryRouter>,
-    mocks
-  );
+  return render(<ViewYouthProfile />, mocks);
 };
 
 test('match snapshot', async () => {
@@ -45,10 +39,10 @@ test('match snapshot', async () => {
 
 test('renders view with approver email', async () => {
   const wrapper = getWrapper();
-  await updateWrapper(wrapper);
 
-  const helpText = wrapper.find('.helpText').text();
-  expect(helpText).toEqual(
-    'Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen ville.vanhempi@test.fi.'
+  await waitFor(() =>
+    screen.getByText(
+      'Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen ville.vanhempi@test.fi.'
+    )
   );
 });
