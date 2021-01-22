@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Navigation, IconSignout } from 'hds-react';
 import { useSelector } from 'react-redux';
 import { loader } from 'graphql.macro';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 import { NameQuery } from '../../../../graphql/generatedTypes';

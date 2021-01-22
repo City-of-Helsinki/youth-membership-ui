@@ -1,7 +1,10 @@
 import { loader } from 'graphql.macro';
-import { useQuery, QueryHookOptions } from '@apollo/react-hooks';
-import { QueryResult } from '@apollo/react-common';
-import { ApolloError } from 'apollo-boost';
+import {
+  useQuery,
+  QueryHookOptions,
+  ApolloError,
+  QueryResult,
+} from '@apollo/client';
 import { GraphQLError } from 'graphql';
 
 import {

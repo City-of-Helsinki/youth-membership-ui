@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Redirect } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { User } from 'oidc-client';
 

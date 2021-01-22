@@ -1,6 +1,5 @@
-import { useQuery, QueryHookOptions } from '@apollo/react-hooks';
+import { useQuery, QueryHookOptions, ApolloError } from '@apollo/client';
 import { loader } from 'graphql.macro';
-import { ApolloError } from 'apollo-boost';
 
 import {
   MembershipStatus,

@@ -1,4 +1,4 @@
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';

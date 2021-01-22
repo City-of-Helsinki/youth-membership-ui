@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect, RouteProps, RouteComponentProps } from 'react-router';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 import { isValid, parseISO } from 'date-fns';

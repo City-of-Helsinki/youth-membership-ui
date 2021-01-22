@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { loader } from 'graphql.macro';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import * as Sentry from '@sentry/browser';
 
 import { MembershipDetails as MembershipDetailsData } from '../../../graphql/generatedTypes';
