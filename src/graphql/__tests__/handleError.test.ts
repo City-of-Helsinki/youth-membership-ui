@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { GraphQLError } from 'graphql';
 import { Operation } from 'apollo-boost';
 import * as Sentry from '@sentry/browser';

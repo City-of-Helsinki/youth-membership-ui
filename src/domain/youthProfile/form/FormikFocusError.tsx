@@ -35,7 +35,9 @@ const FIELD_ORDER = [
 const getErrorElement = (errors: FormikErrors<FormValues>, key: string) => {
   switch (key) {
     case 'primaryAddress':
-      const primaryKeys = Object.keys(errors.primaryAddress as {});
+      const primaryKeys = Object.keys(
+        errors.primaryAddress as Record<string, never>
+      );
       return document.querySelector(`[name="primaryAddress.${primaryKeys[0]}"`);
     case 'addresses':
       const firstIndex = (errors.addresses as []).findIndex(error => error);
@@ -44,9 +46,9 @@ const getErrorElement = (errors: FormikErrors<FormValues>, key: string) => {
         `[name="addresses.${firstIndex}.postalCode"`
       );
     case 'additionalContactPersons':
-      const firstContactPerson = (errors.additionalContactPersons as object[]).findIndex(
-        error => error
-      );
+      const firstContactPerson = (errors.additionalContactPersons as Array<
+        Record<string, never>
+      >).findIndex(error => error);
       const additionalPersonsKeys: string[] =
         (errors.additionalContactPersons &&
           Object.keys(errors.additionalContactPersons[firstContactPerson])) ||

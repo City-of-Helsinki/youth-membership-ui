@@ -46,9 +46,7 @@ if (process.env.REACT_APP_ENVIRONMENT !== 'production') {
   window._paq.push(['requireConsent']);
 }
 
-type Props = {};
-
-function App(props: Props) {
+function App() {
   window.addEventListener('storage', event => {
     if (
       event.key === authConstants.OIDC_KEY &&

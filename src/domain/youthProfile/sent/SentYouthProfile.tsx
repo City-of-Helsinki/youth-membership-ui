@@ -20,9 +20,7 @@ import styles from './sentYouthProfile.module.css';
 const APPROVER_EMAIL = loader('../graphql/ApproverEmail.graphql');
 const RESEND_EMAIL = loader('../graphql/UpdateMyYouthProfile.graphql');
 
-type Props = {};
-
-function ViewYouthProfile(props: Props) {
+function ViewYouthProfile() {
   const [showNotification, setShowNotification] = useState(false);
   const [emailReSent, setEmailReSent] = useState(false);
   const { data } = useQuery<ApproverEmail>(APPROVER_EMAIL, {

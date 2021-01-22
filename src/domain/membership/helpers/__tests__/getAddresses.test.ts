@@ -11,9 +11,9 @@ const mockAddresses = [
       primary: true,
       id: '1234',
       addressType: 'OTHER' as AddressType,
-      __typename: 'AddressNode' as 'AddressNode',
+      __typename: 'AddressNode' as const,
     },
-    __typename: 'AddressNodeEdge' as 'AddressNodeEdge',
+    __typename: 'AddressNodeEdge' as const,
   },
   {
     node: {
@@ -24,9 +24,9 @@ const mockAddresses = [
       primary: false,
       id: '1234',
       addressType: 'OTHER' as AddressType,
-      __typename: 'AddressNode' as 'AddressNode',
+      __typename: 'AddressNode' as const,
     },
-    __typename: 'AddressNodeEdge' as 'AddressNodeEdge',
+    __typename: 'AddressNodeEdge' as const,
   },
 ];
 
@@ -47,19 +47,19 @@ const profile = {
     primary: false,
     id: '1234',
     addressType: 'OTHER' as AddressType,
-    __typename: 'AddressNode' as 'AddressNode',
+    __typename: 'AddressNode' as const,
   },
   primaryEmail: {
     id: '1234',
     email: 'georde123@email.com',
-    __typename: 'EmailNode' as 'EmailNode',
+    __typename: 'EmailNode' as const,
   },
   primaryPhone: {
     id: '1234',
     phone: '+358000000',
-    __typename: 'PhoneNode' as 'PhoneNode',
+    __typename: 'PhoneNode' as const,
   },
-  __typename: 'ProfileNode' as 'ProfileNode',
+  __typename: 'ProfileNode' as const,
 };
 
 describe('getAddresses', () => {
