@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - [Accessibility] Misleading labels on logo and application name links
 - [Accessibility] Missing jump to content link
 - [Accessibility] Use more description error messages on forms
+- Fixed inaccessible approver route
 
 ## [1.2.1] - 2020-11-25
 

@@ -21,7 +21,7 @@ function AppRoutes() {
       <Route path={['/approve/:approvalToken/:readToken']}>
         <PageLayout variant="approver">
           <Switch>
-            <AppYouthProfileRoute
+            <AppPageTitleRoute
               path="/approve/:approvalToken/:readToken"
               exact
               component={ApproveYouthProfilePage}
