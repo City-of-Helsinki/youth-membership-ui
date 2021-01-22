@@ -1,12 +1,13 @@
 import React from 'react';
 import { loader } from 'graphql.macro';
 
-import EditYouthProfile from '../EditYouthProfile';
 import { membershipDetailsData } from '../../../../common/test/membershipDetailsData';
 import {
-  mountWithProviders,
-  updateWrapper,
-} from '../../../../common/test/testUtils';
+  render,
+  screen,
+  waitFor,
+} from '../../../../common/test/testing-library';
+import EditYouthProfile from '../EditYouthProfile';
 
 const MEMBERSHIP_DETAILS = loader(
   '../../../membership/graphql/MembershipDetails.graphql'
@@ -26,27 +27,27 @@ const mocks = [
 ];
 
 const getWrapper = () => {
-  return mountWithProviders(<EditYouthProfile />, mocks);
+  return render(<EditYouthProfile />, mocks);
 };
 
 test('form has values', async () => {
-  const wrapper = getWrapper();
-  await updateWrapper(wrapper);
+  expect.assertions(2);
+  getWrapper();
 
-  const firstName = wrapper.find('input[name="firstName"]');
-  const approverFirstName = wrapper.find('input[name="approverFirstName"]');
+  await waitFor(() => screen.getByText('Täytä tietosi'));
 
-  expect(firstName.props().value).toEqual('Teemu');
-  expect(approverFirstName.props().value).toEqual('Ville');
+  expect(screen.getByDisplayValue('Teemu')).toBeInTheDocument();
+  expect(screen.getByDisplayValue('Ville')).toBeInTheDocument();
+
+  return;
 });
 
 test('editing flag is true', async () => {
-  const wrapper = getWrapper();
-  await updateWrapper(wrapper);
+  expect.assertions(2);
+  getWrapper();
 
-  const terms = wrapper.find('input[name="terms"]');
-  const cancelButton = wrapper.find('a[href="/membership-details"]');
+  await waitFor(() => screen.getByText('Täytä tietosi'));
 
-  expect(terms.length).toEqual(0);
-  expect(cancelButton.length).toEqual(1);
+  expect(screen.queryByLabelText(/Ole hyvä/)).toEqual(null);
+  expect(screen.getByRole('button', { name: 'Peruuta' })).toBeInTheDocument();
 });
