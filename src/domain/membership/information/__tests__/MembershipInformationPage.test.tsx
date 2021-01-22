@@ -1,11 +1,11 @@
 import React from 'react';
 import { loader } from 'graphql.macro';
-import { MemoryRouter } from 'react-router-dom';
 
 import {
-  mountWithProviders,
-  updateWrapper,
-} from '../../../../common/test/testUtils';
+  render,
+  screen,
+  waitFor,
+} from '../../../../common/test/testing-library';
 import MembershipInformationPage from '../MembershipInformationPage';
 
 const MEMBERSHIP_INFORMATION = loader(
@@ -38,35 +38,26 @@ const mocks = [
 ];
 
 it('mocked data is found', async () => {
-  const wrapper = mountWithProviders(
-    <MemoryRouter>
-      <MembershipInformationPage />
-    </MemoryRouter>,
-    mocks
+  render(<MembershipInformationPage />, mocks);
+
+  await waitFor(() =>
+    expect(screen.getByText('Teemu Testaaja')).toBeInTheDocument()
   );
 
-  await updateWrapper(wrapper);
-
-  const name = wrapper.find('h1').text();
-  const membershipNumber = wrapper.find('h2').text();
-  const validUntil = wrapper.find('.validUntil').text();
-
-  expect(name).toEqual('Teemu Testaaja');
-  expect(membershipNumber).toEqual('Jäsenkortin numero 01234');
-  expect(validUntil).toEqual('Voimassa 02.02.2020 asti');
+  expect(screen.getByText('Jäsenkortin numero 01234')).toBeInTheDocument();
+  expect(screen.getByText('Voimassa 02.02.2020 asti')).toBeInTheDocument();
 });
 
 it('renew button is shown', async () => {
   mocks[0].result.data.myYouthProfile.renewable = true;
 
-  const wrapper = mountWithProviders(
-    <MemoryRouter>
-      <MembershipInformationPage />
-    </MemoryRouter>,
-    mocks
+  render(<MembershipInformationPage />, mocks);
+
+  await waitFor(() =>
+    expect(screen.getByText('Teemu Testaaja')).toBeInTheDocument()
   );
 
-  await updateWrapper(wrapper);
-
-  expect(wrapper.find('button[data-cy="renew"]')).toHaveLength(1);
+  expect(
+    screen.getByRole('button', { name: 'Uusi jäsenyys' })
+  ).toBeInTheDocument();
 });
