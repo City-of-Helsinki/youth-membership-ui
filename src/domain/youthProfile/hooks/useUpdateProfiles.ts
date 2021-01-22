@@ -1,4 +1,4 @@
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import { useSelector } from 'react-redux';
 import * as Sentry from '@sentry/browser';
 import { loader } from 'graphql.macro';

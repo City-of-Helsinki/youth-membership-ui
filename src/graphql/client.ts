@@ -1,4 +1,7 @@
-import ApolloClient from 'apollo-boost';
+import { ApolloClient, ApolloLink, InMemoryCache } from '@apollo/client';
+import { onError } from '@apollo/client/link/error';
+import { setContext } from '@apollo/client/link/context';
+import { HttpLink } from '@apollo/client/link/http';
 
 import store from '../redux/store';
 import { apiTokensSelector } from '../domain/auth/redux';
@@ -23,18 +26,26 @@ const getTokens = async () => {
   }
 };
 
-export default new ApolloClient({
-  request: async operation => {
-    const tokens = await getTokens();
-
-    if (tokens) {
-      operation.setContext({
-        headers: {
-          'Api-Tokens': JSON.stringify(tokens),
-        },
-      });
-    }
-  },
+const httpLink = new HttpLink({
   uri: process.env.REACT_APP_PROFILE_GRAPHQL,
-  onError: handleError,
+});
+
+const errorLink = onError(handleError);
+
+const authLink = setContext(async (_, { headers }) => {
+  const tokens = await getTokens();
+
+  if (tokens) {
+    return {
+      headers: {
+        ...headers,
+        'Api-Tokens': JSON.stringify(tokens),
+      },
+    };
+  }
+});
+
+export default new ApolloClient({
+  link: ApolloLink.from([authLink, errorLink, httpLink]),
+  cache: new InMemoryCache(),
 });

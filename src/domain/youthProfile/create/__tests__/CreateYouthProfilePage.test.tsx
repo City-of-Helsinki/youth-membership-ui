@@ -1,5 +1,5 @@
 import React from 'react';
-import { MockedResponse } from '@apollo/react-testing';
+import { MockedResponse } from '@apollo/client/testing';
 import { User } from 'oidc-client';
 import { loader } from 'graphql.macro';
 import { act } from 'react-dom/test-utils';

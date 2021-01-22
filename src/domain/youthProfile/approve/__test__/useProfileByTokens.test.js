@@ -1,4 +1,4 @@
-import * as apolloHooks from '@apollo/react-hooks';
+import * as apolloHooks from '@apollo/client';
 
 import useProfileByTokens from '../useProfileByTokens';
 

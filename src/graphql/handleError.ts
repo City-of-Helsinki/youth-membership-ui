@@ -1,7 +1,7 @@
-import { ErrorLink } from 'apollo-link-error';
+import { Operation } from '@apollo/client';
+import { ErrorHandler } from '@apollo/client/link/error';
 import * as Sentry from '@sentry/browser';
-import { GraphQLError, OperationDefinitionNode } from 'graphql';
-import { Operation } from 'apollo-boost';
+import { OperationDefinitionNode, GraphQLError } from 'graphql';
 
 import { ignoreErrorRules } from './config';
 
@@ -25,12 +25,12 @@ function getShouldIgnore(
   return [true, ignoreRule[2]];
 }
 
-function handleError({
+const handleError: ErrorHandler = ({
   networkError,
   graphQLErrors,
   operation,
   response,
-}: Parameters<ErrorLink.ErrorHandler>[0]): ReturnType<ErrorLink.ErrorHandler> {
+}) => {
   // Remember to not log variables or queries unless you are sure that
   // they don't contain any personal information!
   if (graphQLErrors) {
@@ -103,6 +103,6 @@ function handleError({
       Sentry.captureException(networkError);
     });
   }
-}
+};
 
 export default handleError;

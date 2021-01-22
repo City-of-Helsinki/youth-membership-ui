@@ -1,6 +1,6 @@
 import React from 'react';
 import { loader } from 'graphql.macro';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { GraphQLError } from 'graphql';
