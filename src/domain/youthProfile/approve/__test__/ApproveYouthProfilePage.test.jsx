@@ -1,15 +1,13 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { MockedProvider } from '@apollo/client/testing';
-import { MemoryRouter } from 'react-router';
-import { Provider as ReduxProvider } from 'react-redux';
 
-import store from '../../../../redux/store';
-import { updateWrapper } from '../../../../common/test/testUtils';
-import ApproveYouthProfilePage from '../ApproveYouthProfilePage';
+import {
+  render,
+  cleanup,
+  screen,
+} from '../../../../common/test/testing-library';
 import { Language, YouthLanguage } from '../../../../graphql/generatedTypes';
+import ApproveYouthProfilePage from '../ApproveYouthProfilePage';
 import useProfileByTokens from '../useProfileByTokens';
-import { mountWithProviders } from '../../../../common/test/testUtils';
 
 jest.mock('../useProfileByTokens');
 
@@ -57,46 +55,31 @@ const data = {
 };
 
 const getWrapper = () => {
-  return mountWithProviders(
-    <ApproveYouthProfilePage />
-  );
+  return render(<ApproveYouthProfilePage />);
 };
 
 describe('<ApproveYouthProfilePage />', () => {
-  const expectError = wrapper => {
-    const content = wrapper.find('main[className="wrapper"]');
-    const title = content.find('h1');
-
-    expect(title.text()).toEqual('Linkki on vanhentunut');
-  };
-
-  test('data exists, form gets rendered', async () => {
+  test('data exists, form gets rendered', () => {
     useProfileByTokens.mockImplementation(() => ({
       loading: false,
       error: null,
       data,
     }));
 
-    const wrapper = getWrapper();
+    getWrapper();
 
-    await updateWrapper(wrapper);
-
-    const formData = wrapper.find('div[className="formData"]');
-    expect(formData).toBeTruthy();
+    expect(screen.getAllByText('Hyväksy jäsenyys')[0]).toBeInTheDocument();
   });
 
-  test('there is no user data / profile has already been approved', async () => {
+  test('there is no user data / profile has already been approved', () => {
     useProfileByTokens.mockImplementation(() => ({
       loading: false,
       error: null,
       data: null,
     }));
+    getWrapper();
 
-    const wrapper = getWrapper([]);
-
-    await updateWrapper(wrapper);
-
-    expectError(wrapper);
+    expect(screen.getByText('Linkki on vanhentunut')).toBeInTheDocument();
   });
 
   describe('errors', () => {
@@ -114,7 +97,7 @@ describe('<ApproveYouthProfilePage />', () => {
       data: null,
     });
 
-    it('should show approved link error when useProfileByTokens returns one of the supported errors', async () => {
+    it('should show approved link error when useProfileByTokens returns one of the supported errors', () => {
       const errorCodes = [
         'PROFILE_DOES_NOT_EXIST_ERROR',
         'TOKEN_EXPIRED_ERROR',
@@ -123,12 +106,11 @@ describe('<ApproveYouthProfilePage />', () => {
 
       for (const code of errorCodes) {
         useProfileByTokens.mockReturnValueOnce(getMockError(code));
-
-        const wrapper = getWrapper();
-
-        await updateWrapper(wrapper);
-
-        expectError(wrapper);
+        getWrapper();
+        expect(
+          screen.getAllByText('Linkki on vanhentunut')[0]
+        ).toBeInTheDocument();
+        cleanup();
       }
     });
   });

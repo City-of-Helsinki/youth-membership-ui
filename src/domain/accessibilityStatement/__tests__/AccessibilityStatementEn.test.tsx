@@ -1,10 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 
 import AccessibilityStatementEn from '../AccessibilityStatementEn';
 
 test('matches snapshot', () => {
-  const wrapper = shallow(<AccessibilityStatementEn />);
-  expect(toJson(wrapper)).toMatchSnapshot();
+  const wrapper = render(<AccessibilityStatementEn />);
+  expect(wrapper.container).toMatchSnapshot();
 });

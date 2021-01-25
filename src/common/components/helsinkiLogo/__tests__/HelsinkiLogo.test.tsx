@@ -1,7 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 
 import i18n from '../../../test/testi18nInit';
+import { render } from '../../../test/testing-library';
 import HelsinkiLogo from '../HelsinkiLogo';
 
 type Props = {
@@ -9,28 +9,36 @@ type Props = {
 };
 
 const getWrapper = (props?: Props) => {
-  return shallow(<HelsinkiLogo {...props} />);
+  return render(<HelsinkiLogo {...props} />);
 };
+
+afterEach(() => {
+  i18n.changeLanguage('fi');
+});
 
 describe('renders correct logo based on language', () => {
   test('finnish logo', () => {
-    const wrapper = getWrapper();
-    expect(wrapper.find('.logoFi').length).toEqual(1);
+    const { getByLabelText } = getWrapper();
+
+    expect(getByLabelText('Helsinki-logo')).toBeInTheDocument();
   });
 
   test('swedish logo', () => {
     i18n.changeLanguage('sv');
-    const wrapper = getWrapper();
-    expect(wrapper.find('.logoSv').length).toEqual(1);
+    const { getByLabelText } = getWrapper();
+
+    expect(getByLabelText('Helsingfors logotyp')).toBeInTheDocument();
   });
 });
 
 test('renders link', () => {
-  const wrapper = getWrapper({ isLinkToFrontPage: true });
-  expect(wrapper.props().to).toEqual('/');
+  const { getByRole } = getWrapper({ isLinkToFrontPage: true });
+
+  expect(getByRole('link', { name: 'Helsinki-logo' })).toBeInTheDocument();
 });
 
 test('renders span', () => {
-  const wrapper = getWrapper();
-  expect(wrapper.props().to).toBeFalsy();
+  const { getByLabelText } = getWrapper();
+
+  expect(getByLabelText('Helsinki-logo')).toBeInTheDocument();
 });

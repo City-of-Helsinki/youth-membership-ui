@@ -5,9 +5,10 @@ import { loader } from 'graphql.macro';
 import { act } from 'react-dom/test-utils';
 
 import {
-  mountWithProviders,
-  updateWrapper,
-} from '../../../../common/test/testUtils';
+  render,
+  screen,
+  waitFor,
+} from '../../../../common/test/testing-library';
 import i18n from '../../../../common/test/testi18nInit';
 import CreateYouthProfilePage from '../CreateYouthProfilePage';
 import {
@@ -97,7 +98,7 @@ const getMocks = (myProfile: MyProfile) => {
 };
 
 const getWrapper = (mocks?: MockedResponse[]) => {
-  return mountWithProviders(<CreateYouthProfilePage />, mocks);
+  return render(<CreateYouthProfilePage />, mocks);
 };
 
 Object.defineProperty(window.document, 'cookie', {
@@ -106,27 +107,23 @@ Object.defineProperty(window.document, 'cookie', {
 });
 
 test('renders form with pre-filled values', async () => {
-  const wrapper = getWrapper(getMocks({}));
-  await updateWrapper(wrapper);
+  getWrapper(getMocks({}));
 
-  const firstName = wrapper.find('input[name="firstName"]');
-  const lastName = wrapper.find('input[name="lastName"]');
-  const address = wrapper.find('input[name="primaryAddress.address"]');
-  const profileLanguage = wrapper.find('select[name="profileLanguage"]');
+  await waitFor(() => screen.getByText('Täytä tietosi'));
 
-  expect(firstName.props().value).toEqual('Teemu');
-  expect(lastName.props().value).toEqual('Testaaja');
-  expect(address.props().value).toEqual('Testikuja 55');
-  expect(profileLanguage.props().value).toEqual('FINNISH');
+  expect(screen.getAllByLabelText('Etunimi *')[0].value).toEqual('Teemu');
+  expect(screen.getAllByLabelText('Sukunimi *')[0].value).toEqual('Testaaja');
+  expect(screen.getByLabelText('Katuosoite *').value).toEqual('Testikuja 55');
+  expect(screen.getByLabelText('Profiilin kieli').value).toEqual('FINNISH');
 });
 
 describe('language pre-fill', () => {
   test('language is finnish', async () => {
-    const wrapper = getWrapper(getMocks({ language: '' }));
-    await updateWrapper(wrapper);
-    const profileLanguage = wrapper.find('select[name="profileLanguage"]');
+    getWrapper(getMocks({ language: '' }));
 
-    expect(profileLanguage.props().value).toEqual('FINNISH');
+    await waitFor(() => screen.getByText('Täytä tietosi'));
+
+    expect(screen.getByLabelText('Profiilin kieli').value).toEqual('FINNISH');
   });
 
   test('language is english', async () => {
@@ -134,11 +131,11 @@ describe('language pre-fill', () => {
       await i18n.changeLanguage('en');
     });
 
-    const wrapper = getWrapper(getMocks({ language: '' }));
-    await updateWrapper(wrapper);
-    const profileLanguage = wrapper.find('select[name="profileLanguage"]');
+    getWrapper(getMocks({ language: '' }));
 
-    expect(profileLanguage.props().value).toEqual('ENGLISH');
+    await waitFor(() => screen.getByText('Please fill in your information'));
+
+    expect(screen.getByLabelText('Profile language').value).toEqual('ENGLISH');
   });
 
   test('language is swedish', async () => {
@@ -146,10 +143,10 @@ describe('language pre-fill', () => {
       await i18n.changeLanguage('sv');
     });
 
-    const wrapper = getWrapper(getMocks({ language: '' }));
-    await updateWrapper(wrapper);
-    const profileLanguage = wrapper.find('select[name="profileLanguage"]');
+    getWrapper(getMocks({ language: '' }));
 
-    expect(profileLanguage.props().value).toEqual('SWEDISH');
+    await waitFor(() => screen.getByText('Vänligen fyll i din information'));
+
+    expect(screen.getByLabelText('Profilspråk').value).toEqual('SWEDISH');
   });
 });
