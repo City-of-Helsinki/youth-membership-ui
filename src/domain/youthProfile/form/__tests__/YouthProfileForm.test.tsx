@@ -87,6 +87,7 @@ describe('Form fields & texts based on user age', () => {
     ).toEqual(true);
     expect(
       screen.getByText(
+        // eslint-disable-next-line max-len
         'Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.'
       )
     ).toBeInTheDocument();
@@ -104,6 +105,7 @@ describe('Form fields & texts based on user age', () => {
     ).toEqual(false);
     expect(
       screen.getByText(
+        // eslint-disable-next-line max-len
         'Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.'
       )
     ).toBeInTheDocument();
@@ -116,6 +118,7 @@ describe('Form fields & texts based on user age', () => {
     // Show guardian info text for adults
     expect(
       screen.getByText(
+        // eslint-disable-next-line max-len
         'Yli 18-vuotiaalta emme edellytä vanhemman yhteystietojen lisäämistä. Mutta mikäli syystä tai toisesta koet tarpeelliseksi, että voimme tarvittaessa olla yhteydessä huoltajaasi, voit lisätä yhteystiedon tähän.'
       )
     ).toBeInTheDocument();

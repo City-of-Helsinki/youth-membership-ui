@@ -52,7 +52,7 @@ test('all data is present', async () => {
 
   await waitFor(() => screen.getByText('Omat tiedot'));
 
-  expectedValues.map(({ label, value }) => {
+  expectedValues.forEach(({ label, value }) => {
     expect(screen.getAllByText(label)[0]).toBeInTheDocument();
     expect(screen.getAllByText(value)[0]).toBeInTheDocument();
   });

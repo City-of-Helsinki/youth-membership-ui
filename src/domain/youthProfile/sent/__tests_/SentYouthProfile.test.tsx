@@ -38,7 +38,7 @@ test('match snapshot', async () => {
 });
 
 test('renders view with approver email', async () => {
-  const wrapper = getWrapper();
+  getWrapper();
 
   await waitFor(() =>
     screen.getByText(
