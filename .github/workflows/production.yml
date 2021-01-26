@@ -29,13 +29,13 @@ jobs:
         env:
           DOCKER_IMAGE_NAME: ${{ env.REPO_NAME }}-production
           DOCKER_BUILD_ARG_REACT_APP_ENVIRONMENT: 'production'
-          DOCKER_BUILD_ARG_REACT_APP_PROFILE_LINK: "https://profiili.hel.fi/loginsso"
-          DOCKER_BUILD_ARG_REACT_APP_OIDC_AUTHORITY: "https://api.hel.fi/sso/"
-          DOCKER_BUILD_ARG_REACT_APP_OIDC_CLIENT_ID: "https://id.hel.fi/auth/clients/jassariui-prod"
-          DOCKER_BUILD_ARG_REACT_APP_OIDC_SCOPE: "openid https://api.hel.fi/auth/jassariapi https://api.hel.fi/auth/helsinkiprofile"
-          DOCKER_BUILD_ARG_REACT_APP_PROFILE_GRAPHQL: "https://jassari-federation.prod.kuva.hel.ninja/"
-          DOCKER_BUILD_ARG_REACT_APP_BASE_URL: "https://jassari.hel.fi"
-          DOCKER_BUILD_ARG_REACT_APP_ADMIN_URL: "https://jassari-admin.hel.fi/"
+          DOCKER_BUILD_ARG_REACT_APP_PROFILE_LINK: 'https://profiili.hel.fi/loginsso'
+          DOCKER_BUILD_ARG_REACT_APP_OIDC_AUTHORITY: 'https://api.hel.fi/sso/'
+          DOCKER_BUILD_ARG_REACT_APP_OIDC_CLIENT_ID: 'https://id.hel.fi/auth/clients/jassariui-prod'
+          DOCKER_BUILD_ARG_REACT_APP_OIDC_SCOPE: 'openid https://api.hel.fi/auth/jassariapi https://api.hel.fi/auth/helsinkiprofile'
+          DOCKER_BUILD_ARG_REACT_APP_PROFILE_GRAPHQL: 'https://jassari.api.hel.fi'
+          DOCKER_BUILD_ARG_REACT_APP_BASE_URL: 'https://jassari.hel.fi'
+          DOCKER_BUILD_ARG_REACT_APP_ADMIN_URL: 'https://jassari-admin.hel.fi/'
 
   production:
     if: startsWith(github.ref, 'refs/tags')
@@ -55,4 +55,3 @@ jobs:
           ENVIRONMENT_URL: https://${{ secrets.ENVIRONMENT_URL_STABLE }}
           DOCKER_IMAGE_NAME: ${{ env.REPO_NAME }}-production
           K8S_ADDITIONAL_HOSTNAMES: ${{ secrets.ADDITIONAL_HOSTNAMES }}
-
