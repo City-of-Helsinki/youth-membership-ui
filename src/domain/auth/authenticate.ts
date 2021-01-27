@@ -1,7 +1,6 @@
 import * as Sentry from '@sentry/browser';
 
 import toastNotification from '../../common/helpers/toastNotification/toastNotification';
-
 import userManager from './userManager';
 import store from '../../redux/store';
 import { apiError } from './redux';
