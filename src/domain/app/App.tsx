@@ -8,6 +8,8 @@ import fi from 'i18n-iso-countries/langs/fi.json';
 import en from 'i18n-iso-countries/langs/en.json';
 import sv from 'i18n-iso-countries/langs/sv.json';
 import { HelmetProvider } from 'react-helmet-async';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import graphqlClient from '../../graphql/client';
 import store from '../../redux/store';
@@ -19,7 +21,7 @@ import authConstants from '../../domain/auth/constants/authConstants';
 import authenticate from '../../domain/auth/authenticate';
 import AppMeta from './AppMeta';
 import AppRoutes from './AppRoutes';
-
+import styles from './app.module.css';
 countries.registerLocale(fi);
 countries.registerLocale(en);
 countries.registerLocale(sv);
@@ -75,6 +77,7 @@ function App() {
           </MatomoProvider>
         </ApolloProvider>
       </OidcProvider>
+      <ToastContainer closeButton={false} className={styles.toastContainer} />
     </ReduxProvider>
   );
 }

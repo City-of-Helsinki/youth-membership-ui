@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigation, IconSignout } from 'hds-react';
 import { useSelector } from 'react-redux';
@@ -6,12 +6,12 @@ import { loader } from 'graphql.macro';
 import { useQuery } from '@apollo/client';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 
+import toastNotification from '../../notification/toastNotification';
 import { NameQuery } from '../../../../graphql/generatedTypes';
 import authenticate from '../../../../domain/auth/authenticate';
 import logout from '../../../../domain/auth/logout';
 import { isAuthenticatedSelector } from '../../../../domain/auth/redux';
 import getLanguageCode from '../../../helpers/getLanguageCode';
-import NotificationComponent from '../../notification/NotificationComponent';
 import { MAIN_CONTENT_ID } from '../PageContent';
 import styles from './Header.module.css';
 
@@ -37,10 +37,9 @@ type Props = {
 function Header({ variant = 'default' }: Props) {
   const { t, i18n } = useTranslation();
   const { trackEvent } = useMatomo();
-  const [showNotification, setShowNotification] = useState<boolean>(false);
   const isAuthenticated = useSelector(isAuthenticatedSelector);
   const { data } = useQuery<NameQuery>(NAME_QUERY, {
-    onError: () => setShowNotification(true),
+    onError: () => toastNotification({}),
     skip: !isAuthenticated,
   });
 
@@ -138,10 +137,6 @@ function Header({ variant = 'default' }: Props) {
           )}
         </Navigation.Actions>
       </Navigation>
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
-      />
     </>
   );
 }

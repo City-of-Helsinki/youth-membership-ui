@@ -5,6 +5,7 @@ import { connect, useSelector } from 'react-redux';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 import { Button, IconLinkExternal } from 'hds-react';
 
+import toastNotification from '../../../../common/components/notification/toastNotification';
 import LinkButton from '../../../../common/components/linkButton/LinkButton';
 import Text from '../../../../common/components/text/Text';
 import { AuthState, resetError, isAuthenticatedSelector } from '../../redux';
@@ -13,7 +14,6 @@ import authenticate from '../../authenticate';
 import PageContentWithHostingBox from '../../../../common/components/layout/PageContentWithHostingBox';
 import styles from './Login.module.css';
 import BirthdateForm from '../birthdateForm/BirthdateForm';
-import NotificationComponent from '../../../../common/components/notification/NotificationComponent';
 import authConstants from '../../constants/authConstants';
 import ageConstants from '../../../youthProfile/constants/ageConstants';
 import PageWrapper from '../../../../common/components/wrapper/PageWrapper';
@@ -42,6 +42,10 @@ function Login(props: Props) {
 
   const isAuthenticated = useSelector(isAuthenticatedSelector);
 
+  if (Boolean(props.auth.error)) {
+    toastNotification({ onClose: () => props.resetError() });
+  }
+
   return (
     <PageWrapper>
       <PageContentWithHostingBox title={'login.pageTitle'}>
@@ -65,6 +69,10 @@ function Login(props: Props) {
                     iconRight={null}
                   >
                     {t('nav.signin')}
+                  </Button>
+
+                  <Button onClick={() => toastNotification({})}>
+                    ToastTest
                   </Button>
                 </div>
               )}
@@ -112,11 +120,6 @@ function Login(props: Props) {
             </div>
           )}
         </div>
-
-        <NotificationComponent
-          show={Boolean(props.auth.error)}
-          onClose={() => props.resetError()}
-        />
       </PageContentWithHostingBox>
     </PageWrapper>
   );
