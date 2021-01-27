@@ -36,6 +36,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - Use GitHub actions instead of Travis
+- centralize notification with react-toastify.
 
 ## [1.2.0] - 2020-11-03
 
