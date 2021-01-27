@@ -70,10 +70,6 @@ function Login(props: Props) {
                   >
                     {t('nav.signin')}
                   </Button>
-
-                  <Button onClick={() => toastNotification({})}>
-                    ToastTest
-                  </Button>
                 </div>
               )}
             </React.Fragment>
