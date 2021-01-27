@@ -8472,27 +8472,27 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
-hds-core@0.20.0:
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/hds-core/-/hds-core-0.20.0.tgz#08fa258cccd2311e06ddf68a1e7ab0c664133915"
-  integrity sha512-BjUDOMowluxOMI5zzFcK3GQbQDfAJeLc0Y4f7CMSqYupnUQAJkECKFl0mftEwU1bL/MHsndXWplMHahEuvxI3Q==
+hds-core@0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/hds-core/-/hds-core-0.21.0.tgz#5c88c783ce4a4f04c9dec81eac89c3047e7b6753"
+  integrity sha512-il5MxtaRY2Exa8rS4mRhjimIWxXzPra6vRcZ1r7KmUo3aJm69B1ZYF0OXHuWeVSJewOzgyfEZahCT+Mzxq0MVw==
 
-hds-design-tokens@0.20.0:
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/hds-design-tokens/-/hds-design-tokens-0.20.0.tgz#f12fe06a902ff6fb85b81d35d7ea131a2e778609"
-  integrity sha512-GvMjsssGTD79mgGPDqqUTrU/LPtnNOgz44I1dS0pQs7pYJ9LOAsSdP1RbnXQiTV7p4xrdRfnCT/FQrRgDM2TAw==
+hds-design-tokens@0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/hds-design-tokens/-/hds-design-tokens-0.21.0.tgz#4930ad28a797200f9409ac5169311f13ad7aa607"
+  integrity sha512-ko6db9pjbNyxQsuQCOQUKW+N+QBC3Jc8j+XL5NoY3WqR/bovI4lp1TI88FZcsx6rmG/4aPhU7kWhxwEPaGz4+A==
 
-hds-react@0.20.0:
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/hds-react/-/hds-react-0.20.0.tgz#bc16e7cb42784bc94eb2af7fe59521b45d9ecea4"
-  integrity sha512-2YGAaGQTd+JtwtniTNk0VKpp2Z1lkALAg4jB4ZUVkIA1Jd2moQpbpv1l4v9e6lwon7V3BBX1jxeCtH3Ppy6QlA==
+hds-react@0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/hds-react/-/hds-react-0.21.0.tgz#13a4124253a314e218f1caf8f556d906223ff3ec"
+  integrity sha512-u6GdIWqqV4va+4Wy4xrzhNKTMzf5Z81icAWHwoaB/nXBCVtw2V4nEHXTC7eCeFEplk1LH/dyvfPPN6b6auyorQ==
   dependencies:
     "@babel/runtime" "7.11.2"
     "@juggle/resize-observer" "3.2.0"
     "@popperjs/core" "2.5.3"
     "@react-aria/visually-hidden" "3.2.0"
     downshift "6.0.6"
-    hds-core "0.20.0"
+    hds-core "0.21.0"
     lodash.isequal "4.5.0"
     lodash.uniqueid "4.0.1"
     react-merge-refs "1.1.0"
