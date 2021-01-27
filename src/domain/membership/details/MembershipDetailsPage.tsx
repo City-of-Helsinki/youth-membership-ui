@@ -5,7 +5,7 @@ import * as Sentry from '@sentry/browser';
 
 import { MembershipDetails as MembershipDetailsData } from '../../../graphql/generatedTypes';
 import PageContent from '../../../common/components/layout/PageContent';
-import toastNotification from '../../../common/components/notification/toastNotification';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import MembershipDetails from './MembershipDetails';
 
 const MEMBERSHIP_DETAILS = loader('../graphql/MembershipDetails.graphql');
@@ -21,7 +21,7 @@ function MembershipDetailsPage() {
         // eslint-disable-next-line no-console
         console.log(error);
         Sentry.captureException(error);
-        toastNotification({});
+        toastNotification();
       },
       fetchPolicy: 'network-only',
     }

@@ -9,7 +9,7 @@ import {
   YouthLanguage,
   MembershipDetails_myYouthProfile_profile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
-import toastNotification from '../../../common/components/notification/toastNotification';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
 import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';
 import YouthProfileForm, {
@@ -39,7 +39,7 @@ function EditYouthProfile() {
   const history = useHistory();
 
   const [updateProfiles, { loading }] = useUpdateProfiles({
-    onError: () => toastNotification({}),
+    onError: () => toastNotification(),
     onCompleted: () => history.push('/membership-details'),
   });
 

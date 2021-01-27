@@ -11,7 +11,7 @@ import {
   YouthLanguage,
   PrefillRegistartion_myProfile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
-import toastNotification from '../../../common/components/notification/toastNotification';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getCookie from '../../../common/helpers/getCookie';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
@@ -32,7 +32,7 @@ function CreateYouthProfile({
 }: Props) {
   const { i18n } = useTranslation();
   const [createProfiles, { loading }] = useCreateProfiles({
-    onError: () => toastNotification({}),
+    onError: () => toastNotification(),
   });
 
   const birthDate = getCookie('birthDate');

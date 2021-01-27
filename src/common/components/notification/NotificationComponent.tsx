@@ -2,7 +2,7 @@ import React from 'react';
 import { Notification } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
-import { NotificationOptions as Props } from './toastNotification';
+import { NotificationOptions as Props } from '../../helpers/toastNotification/toastNotification';
 import styles from './NotificationComponent.module.css';
 
 function NotificationComponent(props: Props) {

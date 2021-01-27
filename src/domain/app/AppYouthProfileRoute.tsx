@@ -9,7 +9,7 @@ import AppPageTitleRoute from './AppPageTitleRoute';
 import { HasYouthProfile } from '../../graphql/generatedTypes';
 import getCookie from '../../common/helpers/getCookie';
 import LoadingContent from '../../common/components/loading/LoadingContent';
-import toastNotification from '../../common/components/notification/toastNotification';
+import toastNotification from '../../common/helpers/toastNotification/toastNotification';
 
 const HAS_YOUTH_PROFILE = loader(
   '../youthProfile/graphql/HasYouthProfile.graphql'
@@ -31,7 +31,7 @@ function AppYouthProfileRoute({
   const { t } = useTranslation();
 
   const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
-    onError: () => toastNotification({}),
+    onError: () => toastNotification(),
   });
 
   const isYouthProfileFound = Boolean(data?.myYouthProfile?.membershipStatus);

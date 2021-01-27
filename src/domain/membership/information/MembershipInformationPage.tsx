@@ -11,7 +11,7 @@ import {
   MembershipInformation as MembershipInformationTypes,
 } from '../../../graphql/generatedTypes';
 import { profileApiTokenSelector } from '../../auth/redux';
-import toastNotification from '../../../common/components/notification/toastNotification';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import MembershipInformation from './MembershipInformation';
 
@@ -28,7 +28,7 @@ function MembershipInformationPage() {
     MEMBERSHIP_INFORMATION,
     {
       onError: () => {
-        toastNotification({});
+        toastNotification();
       },
     }
   );
@@ -55,7 +55,7 @@ function MembershipInformationPage() {
       })
       .catch((error: Error) => {
         Sentry.captureException(error);
-        toastNotification({});
+        toastNotification();
       });
   };
 

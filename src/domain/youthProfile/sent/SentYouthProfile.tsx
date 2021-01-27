@@ -14,7 +14,7 @@ import {
 import { profileApiTokenSelector } from '../../auth/redux';
 import LinkButton from '../../../common/components/linkButton/LinkButton';
 import Text from '../../../common/components/text/Text';
-import toastNotification from '../../../common/components/notification/toastNotification';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import styles from './sentYouthProfile.module.css';
 
 const APPROVER_EMAIL = loader('../graphql/ApproverEmail.graphql');
@@ -24,7 +24,7 @@ function ViewYouthProfile() {
   const [emailReSent, setEmailReSent] = useState(false);
   const { data } = useQuery<ApproverEmail>(APPROVER_EMAIL, {
     onError: () => {
-      toastNotification({});
+      toastNotification();
     },
   });
   const { t } = useTranslation();
@@ -52,7 +52,7 @@ function ViewYouthProfile() {
       })
       .catch((error: Error) => {
         Sentry.captureException(error);
-        toastNotification({});
+        toastNotification();
       });
   };
 

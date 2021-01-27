@@ -2,7 +2,7 @@ import React from 'react';
 import { toast, ToastOptions } from 'react-toastify';
 
 import styles from './toastNotification.module.css';
-import NotificationComponent from './NotificationComponent';
+import NotificationComponent from '../../components/notification/NotificationComponent';
 
 const options: ToastOptions = {
   autoClose: false,
@@ -17,7 +17,7 @@ export type NotificationOptions = {
   onClose?: () => void;
 };
 
-const toastNotification = (notificationOptions: NotificationOptions) => {
+const toastNotification = (notificationOptions?: NotificationOptions) => {
   toast(<NotificationComponent {...notificationOptions} />, options);
 };
 export default toastNotification;

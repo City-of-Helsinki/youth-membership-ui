@@ -6,7 +6,7 @@ import { loader } from 'graphql.macro';
 import { useQuery } from '@apollo/client';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 
-import toastNotification from '../../notification/toastNotification';
+import toastNotification from '../../../helpers/toastNotification/toastNotification';
 import { NameQuery } from '../../../../graphql/generatedTypes';
 import authenticate from '../../../../domain/auth/authenticate';
 import logout from '../../../../domain/auth/logout';
@@ -39,7 +39,7 @@ function Header({ variant = 'default' }: Props) {
   const { trackEvent } = useMatomo();
   const isAuthenticated = useSelector(isAuthenticatedSelector);
   const { data } = useQuery<NameQuery>(NAME_QUERY, {
-    onError: () => toastNotification({}),
+    onError: () => toastNotification(),
     skip: !isAuthenticated,
   });
 

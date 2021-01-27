@@ -22,6 +22,7 @@ import authenticate from '../../domain/auth/authenticate';
 import AppMeta from './AppMeta';
 import AppRoutes from './AppRoutes';
 import styles from './app.module.css';
+
 countries.registerLocale(fi);
 countries.registerLocale(en);
 countries.registerLocale(sv);

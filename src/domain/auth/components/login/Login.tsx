@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 import { Button, IconLinkExternal } from 'hds-react';
 
-import toastNotification from '../../../../common/components/notification/toastNotification';
 import LinkButton from '../../../../common/components/linkButton/LinkButton';
 import Text from '../../../../common/components/text/Text';
-import { AuthState, resetError, isAuthenticatedSelector } from '../../redux';
-import { RootState } from '../../../../redux/rootReducer';
+import { isAuthenticatedSelector } from '../../redux';
 import authenticate from '../../authenticate';
 import PageContentWithHostingBox from '../../../../common/components/layout/PageContentWithHostingBox';
 import styles from './Login.module.css';
@@ -18,12 +16,7 @@ import authConstants from '../../constants/authConstants';
 import ageConstants from '../../../youthProfile/constants/ageConstants';
 import PageWrapper from '../../../../common/components/wrapper/PageWrapper';
 
-type Props = {
-  resetError: () => void;
-  auth: AuthState;
-};
-
-function Login(props: Props) {
+function Login() {
   const [showManualRegistration, setShowManualRegistration] = useState(false);
   const { t } = useTranslation();
   const { trackEvent } = useMatomo();
@@ -41,10 +34,6 @@ function Login(props: Props) {
   };
 
   const isAuthenticated = useSelector(isAuthenticatedSelector);
-
-  if (Boolean(props.auth.error)) {
-    toastNotification({ onClose: () => props.resetError() });
-  }
 
   return (
     <PageWrapper>
@@ -121,10 +110,4 @@ function Login(props: Props) {
   );
 }
 
-const mapStateToProps = (state: RootState) => {
-  return {
-    auth: state.auth,
-  };
-};
-
-export default connect(mapStateToProps, { resetError })(Login);
+export default Login;

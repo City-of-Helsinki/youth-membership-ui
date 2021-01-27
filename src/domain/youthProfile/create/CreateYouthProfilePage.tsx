@@ -7,7 +7,7 @@ import { User } from 'oidc-client';
 
 import { PrefillRegistartion } from '../../../graphql/generatedTypes';
 import PageContent from '../../../common/components/layout/PageContent';
-import toastNotification from '../../../common/components/notification/toastNotification';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getAuthenticatedUser from '../../auth/getAuthenticatedUser';
 import useIsMembershipPending from '../../membership/useIsMembershipPending';
 import CreateYouthProfile from './CreateYouthProfile';
@@ -23,7 +23,7 @@ function CreateYouthProfilePage() {
     PREFILL_REGISTRATION,
     {
       onError: () => {
-        toastNotification({});
+        toastNotification();
       },
     }
   );
