@@ -111,6 +111,7 @@ export interface MembershipDetails {
 
 export interface MembershipInformation_myYouthProfile_profile {
   readonly __typename: "ProfileNode";
+  readonly id: string;
   readonly firstName: string;
   readonly lastName: string;
 }

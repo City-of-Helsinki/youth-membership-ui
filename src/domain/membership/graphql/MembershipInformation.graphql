@@ -2,6 +2,7 @@ query MembershipInformation {
     myYouthProfile {
         id
         profile {
+            id
             firstName
             lastName
         }
