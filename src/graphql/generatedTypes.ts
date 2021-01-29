@@ -111,13 +111,13 @@ export interface MembershipDetails {
 
 export interface MembershipInformation_myYouthProfile_profile {
   readonly __typename: "ProfileNode";
-  readonly id: string;
   readonly firstName: string;
   readonly lastName: string;
 }
 
 export interface MembershipInformation_myYouthProfile {
   readonly __typename: "YouthProfileNode";
+  readonly id: string;
   readonly profile: MembershipInformation_myYouthProfile_profile | null;
   readonly expiration: any;
   readonly renewable: boolean;
@@ -285,6 +285,7 @@ export interface CreateMyYouthProfileVariables {
 
 export interface HasYouthProfile_myYouthProfile {
   readonly __typename: "YouthProfileNode";
+  readonly id: string;
   readonly membershipStatus: MembershipStatus;
 }
 
