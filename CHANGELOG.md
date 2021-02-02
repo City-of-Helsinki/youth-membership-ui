@@ -49,6 +49,7 @@ Re-release of v1.2.1 using GitHub actions workflow.
 ### Changed
 
 - Use GitHub actions instead of Travis
+- Centralize notification with react-toastify.
 
 ## [1.2.0] - 2020-11-03
 

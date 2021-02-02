@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +11,7 @@ import {
   MembershipInformation as MembershipInformationTypes,
 } from '../../../graphql/generatedTypes';
 import { profileApiTokenSelector } from '../../auth/redux';
-import NotificationComponent from '../../../common/components/notification/NotificationComponent';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import MembershipInformation from './MembershipInformation';
 
@@ -21,8 +21,6 @@ const MEMBERSHIP_INFORMATION = loader(
 const RENEW_MEMBERSHIP = loader('../graphql/RenewMyYouthProfile.graphql');
 
 function MembershipInformationPage() {
-  const [showNotification, setShowNotification] = useState(false);
-  const [successNotification, setSuccessNotification] = useState(false);
   const { t } = useTranslation();
   const profileApiToken = useSelector(profileApiTokenSelector);
 
@@ -30,7 +28,7 @@ function MembershipInformationPage() {
     MEMBERSHIP_INFORMATION,
     {
       onError: () => {
-        setShowNotification(true);
+        toastNotification();
       },
     }
   );
@@ -47,10 +45,17 @@ function MembershipInformationPage() {
     };
 
     renewMembership({ variables })
-      .then(result => setSuccessNotification(!!result.data))
+      .then(result => {
+        if (!!result.data)
+          toastNotification({
+            type: 'success',
+            labelText: t('membershipInformation.renewSuccessTitle'),
+            notificationMessage: t('membershipInformation.renewSuccessMessage'),
+          });
+      })
       .catch((error: Error) => {
         Sentry.captureException(error);
-        setShowNotification(true);
+        toastNotification();
       });
   };
 
@@ -65,18 +70,6 @@ function MembershipInformationPage() {
           membershipInformationTypes={data}
         />
       )}
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
-      />
-      <NotificationComponent
-        show={successNotification}
-        onClose={() => setSuccessNotification(false)}
-        type="success"
-        labelText={t('membershipInformation.renewSuccessTitle')}
-      >
-        {t('membershipInformation.renewSuccessMessage')}
-      </NotificationComponent>
     </PageContentWithHostingBox>
   );
 }

@@ -1,5 +1,5 @@
 /* eslint-disable sort-keys */
-import React, { useState } from 'react';
+import React from 'react';
 import { User } from 'oidc-client';
 import { useTranslation } from 'react-i18next';
 import { Redirect } from 'react-router';
@@ -11,7 +11,7 @@ import {
   YouthLanguage,
   PrefillRegistartion_myProfile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
-import NotificationComponent from '../../../common/components/notification/NotificationComponent';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getCookie from '../../../common/helpers/getCookie';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
@@ -30,10 +30,9 @@ function CreateYouthProfile({
   tunnistamoUser,
   prefillRegistrationData,
 }: Props) {
-  const [showNotification, setShowNotification] = useState<boolean>(false);
   const { i18n } = useTranslation();
   const [createProfiles, { loading }] = useCreateProfiles({
-    onError: () => setShowNotification(true),
+    onError: () => toastNotification(),
   });
 
   const birthDate = getCookie('birthDate');
@@ -96,10 +95,6 @@ function CreateYouthProfile({
         }}
         isSubmitting={loading}
         onValues={handleOnValues}
-      />
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
       />
     </div>
   );

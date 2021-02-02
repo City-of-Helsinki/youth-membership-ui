@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { useHistory } from 'react-router';
@@ -9,7 +9,7 @@ import {
   YouthLanguage,
   MembershipDetails_myYouthProfile_profile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
-import NotificationComponent from '../../../common/components/notification/NotificationComponent';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
 import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';
 import YouthProfileForm, {
@@ -23,7 +23,6 @@ const MEMBERSHIP_DETAILS = loader(
 );
 
 function EditYouthProfile() {
-  const [showNotification, setShowNotification] = useState<boolean>(false);
   const { data, loading: loadingProfile } = useQuery<MembershipDetailsData>(
     MEMBERSHIP_DETAILS,
     {
@@ -40,7 +39,7 @@ function EditYouthProfile() {
   const history = useHistory();
 
   const [updateProfiles, { loading }] = useUpdateProfiles({
-    onError: () => setShowNotification(true),
+    onError: () => toastNotification(),
     onCompleted: () => history.push('/membership-details'),
   });
 
@@ -84,11 +83,6 @@ function EditYouthProfile() {
           onValues={handleOnValues}
         />
       )}
-
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
-      />
     </div>
   );
 }

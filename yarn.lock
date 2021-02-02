@@ -13428,6 +13428,13 @@ react-spring@9.0.0-rc.3:
     "@react-spring/web" "9.0.0-rc.3"
     "@react-spring/zdog" "9.0.0-rc.3"
 
+react-toastify@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-7.0.0.tgz#378976937d44911366fcb9cdeb83a9ed6c6b0ae7"
+  integrity sha512-Ff1JzfWNlxaB6FSAbNnRdXpg5HSTDzTaaddXS85lj2U7pYw4Sw/hTlL3qS7fuA5P6WwXk9Lyute2jr7SBW+qUA==
+  dependencies:
+    clsx "^1.1.1"
+
 react-use-measure@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/react-use-measure/-/react-use-measure-2.0.1.tgz#4f23f94c832cd4512da55acb300d1915dcbf3ae8"

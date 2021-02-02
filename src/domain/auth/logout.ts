@@ -1,5 +1,6 @@
 import * as Sentry from '@sentry/browser';
 
+import toastNotification from '../../common/helpers/toastNotification/toastNotification';
 import userManager from './userManager';
 import store from '../../redux/store';
 import { apiError } from './redux';
@@ -12,6 +13,7 @@ function logout(): void {
   // Clear oidc.user from localStorage
   window.localStorage.removeItem(authConstants.OIDC_KEY);
   userManager.signoutRedirect().catch(e => {
+    toastNotification();
     Sentry.captureException(e);
     store.dispatch(apiError(e.toString()));
   });

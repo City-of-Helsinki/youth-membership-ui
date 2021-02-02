@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Redirect, RouteProps, RouteComponentProps } from 'react-router';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
@@ -9,7 +9,7 @@ import AppPageTitleRoute from './AppPageTitleRoute';
 import { HasYouthProfile } from '../../graphql/generatedTypes';
 import getCookie from '../../common/helpers/getCookie';
 import LoadingContent from '../../common/components/loading/LoadingContent';
-import NotificationComponent from '../../common/components/notification/NotificationComponent';
+import toastNotification from '../../common/helpers/toastNotification/toastNotification';
 
 const HAS_YOUTH_PROFILE = loader(
   '../youthProfile/graphql/HasYouthProfile.graphql'
@@ -29,12 +29,9 @@ function AppYouthProfileRoute({
   ...rest
 }: Props) {
   const { t } = useTranslation();
-  const [showNotification, setShowNotification] = useState<boolean>(false);
 
   const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
-    onError: () => {
-      setShowNotification(true);
-    },
+    onError: () => toastNotification(),
   });
 
   const isYouthProfileFound = Boolean(data?.myYouthProfile?.membershipStatus);
@@ -62,10 +59,6 @@ function AppYouthProfileRoute({
             </LoadingContent>
           );
         }}
-      />
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
       />
     </>
   );
