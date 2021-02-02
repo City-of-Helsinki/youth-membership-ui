@@ -145,7 +145,9 @@ function YouthProfileForm(componentProps: Props) {
             <PageSection>
               {!componentProps.isEditing && (
                 <React.Fragment>
-                  <Text variant="h3">{t('registration.confirmSend')}</Text>
+                  <Text variant="h2" className={styles.termsTitle}>
+                    {t('registration.confirmSend')}
+                  </Text>
                   {userAge < ageConstants.ADULT && (
                     <Text variant="info">
                       {t('registration.processInfoText')}
