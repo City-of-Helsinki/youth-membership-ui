@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - User menu data is now updated after profile creation so that it will correctly show the name of the newly created profile
 - Upgrade HDS from version 0.11.3 to 0.20.0
 - Use public address for Jassari API
+- Run browser tests against PR environments
 
 ### Fixed
 

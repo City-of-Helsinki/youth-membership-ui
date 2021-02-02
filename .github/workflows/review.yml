@@ -36,7 +36,7 @@ jobs:
   review:
     runs-on: ubuntu-latest
     needs: build
-    name: Review
+    name: Review and Accept
     steps:
       - uses: actions/checkout@v2
       - uses: andersinno/kolga-setup-action@v2
@@ -60,3 +60,48 @@ jobs:
           kubeconfig_raw: ${{ env.KUBECONFIG_RAW}}
           review_namespace: ${{ env.K8S_NAMESPACE }}
           api_scope: https://api.hel.fi/auth/helsinkiprofile
+
+      - name: Setup kubectl
+        run: |
+          echo "${{ env.KUBECONFIG_RAW }}" > $(pwd)/kubeconfig
+          echo "KUBECONFIG=$(pwd)/kubeconfig" >> $GITHUB_ENV
+        shell: bash
+      - name: Get Review Deploy URL
+        id: deploy-url
+        run: |
+          DEPLOY_URL=$(kubectl get ingress -n "${{ env.K8S_NAMESPACE }}" -o jsonpath='{.items[0].spec.rules[0].host}')
+          echo "BROWSER_TESTING_URL=https://$DEPLOY_URL" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 12.x
+      - name: Create yarn cache directory path
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn --prefer-offline --frozen-lockfile --check-files
+
+      - name: Run Acceptance Tests
+        run: yarn browser-test:ci
+        env:
+          BROWSER_TESTING_MAILOSAUR_API: ${{ secrets.BROWSER_TESTING_MAILOSAUR_API }}
+          BROWSER_TESTING_MAILOSAUR_SERVER_ID: ${{ secrets.BROWSER_TESTING_MAILOSAUR_SERVER_ID }}
+          BROWSER_TESTING_USERNAME: ${{ secrets.BROWSER_TESTING_USERNAME }}
+          BROWSER_TESTING_USERNAME_WITH_PROFILE: ${{ secrets.BROWSER_TESTING_USERNAME_WITH_PROFILE }}
+          BROWSER_TESTING_USERNAME_NO_ACCESS: ${{ secrets.BROWSER_TESTING_USERNAME_NO_ACCESS }}
+          BROWSER_TESTING_PASSWORD: ${{ secrets.BROWSER_TESTING_PASSWORD }}
+      - name: Upload screenshots of failed tests
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: screenshots
+          path: screenshots/
