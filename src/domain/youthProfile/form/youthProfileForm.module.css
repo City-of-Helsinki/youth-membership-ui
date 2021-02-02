@@ -135,6 +135,10 @@ a {
   margin-bottom: var(--spacing-m);
 }
 
+.termsTitle {
+  font-size: var(--fontsize-heading-m);
+}
+
 @media (min-width: 400px) {
   .terms {
     margin-top: 20px;
