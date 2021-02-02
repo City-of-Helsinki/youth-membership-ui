@@ -53,6 +53,7 @@ jobs:
           kubeconfig_raw: ${{ env.KUBECONFIG_RAW}}
           review_namespace: ${{ env.K8S_NAMESPACE }}
           api_scope: https://api.hel.fi/auth/jassariapi
+          login_methods: github helusername
 
       - name: Setup Tunnistamo
         uses: City-of-Helsinki/setup-tunnistamo-action@main
@@ -60,6 +61,7 @@ jobs:
           kubeconfig_raw: ${{ env.KUBECONFIG_RAW}}
           review_namespace: ${{ env.K8S_NAMESPACE }}
           api_scope: https://api.hel.fi/auth/helsinkiprofile
+          login_methods: github helusername
 
       - name: Setup kubectl
         run: |
