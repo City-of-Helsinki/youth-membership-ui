@@ -11,4 +11,6 @@ export const loginSelector = {
   helUsername: Selector('#username'),
   helPassword: Selector('#password'),
   helLogin: Selector('#kc-login'),
+  permissionPage: Selector('h2').withText('Permission request'),
+  givePermissionButton: Selector('input[type="submit"][value="Allow"]'),
 };

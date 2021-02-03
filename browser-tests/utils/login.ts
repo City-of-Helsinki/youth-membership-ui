@@ -1,10 +1,19 @@
+import { format, subYears } from 'date-fns';
+
 import { loginSelector } from '../pages/loginSelector';
 import { username, password, usernameWithExistingProfile } from './settings';
-import { format, subYears } from 'date-fns';
 
 type UserAge = 'minor' | 'adult';
 const MINOR_YEAR = format(subYears(new Date(), 15), 'yyyy');
 const ADULT_YEAR = format(subYears(new Date(), 20), 'yyyy');
+
+const givePermission = async (t: TestController) => {
+  // If the user is show a permission request page
+  if (await loginSelector.permissionPage.exists) {
+    // Give permission
+    await t.click(loginSelector.givePermissionButton);
+  }
+};
 
 export const login = async (t: TestController, userAge: UserAge) => {
   await t
@@ -16,6 +25,8 @@ export const login = async (t: TestController, userAge: UserAge) => {
     .typeText(loginSelector.helUsername, username())
     .typeText(loginSelector.helPassword, password())
     .click(loginSelector.helLogin);
+
+  await givePermission(t);
 };
 
 export const loginStraight = async (t: TestController) => {
@@ -25,4 +36,6 @@ export const loginStraight = async (t: TestController) => {
     .typeText(loginSelector.helUsername, usernameWithExistingProfile())
     .typeText(loginSelector.helPassword, password())
     .click(loginSelector.helLogin);
+
+  await givePermission(t);
 };
