@@ -416,7 +416,7 @@ exports[`matches snapshot 1`] = `
                 Olen tutustunut 
                 <a
                   class="externalLink "
-                  href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
+                  href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Nuorisopalvelujen%20j%C3%A4senrekisteri.pdf"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -446,7 +446,7 @@ exports[`matches snapshot 1`] = `
                 , 
                 <a
                   class="externalLink "
-                  href="https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
+                  href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/S%C3%A4hk%C3%B6isten%20asiointipalveluiden%20rekisteri.pdf"
                   rel="noopener noreferrer"
                   target="_blank"
                 >

@@ -131,7 +131,7 @@
   },
   "privacyPolicy": {
     "descriptionLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/",
-    "helsinkiProfileLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Keha/Kanslia-EU-Sahkoisten-asiointipalveluiden-rekisteri.pdf"
+    "helsinkiProfileLink": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/S%C3%A4hk%C3%B6isten%20asiointipalveluiden%20rekisteri.pdf"
   },
   "profile": {
     "address": "Osoite",
@@ -188,7 +188,7 @@
     "remove": "Poista"
   },
   "registry": {
-    "descriptionLink": "https://www.hel.fi/static/liitteet/kanslia/rekisteriselosteet/Kuva/Kuva-EU-Nuorisopalvelujen-jasenrekisteri.pdf"
+    "descriptionLink": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Nuorisopalvelujen%20j%C3%A4senrekisteri.pdf"
   },
   "sanityCheck": "youth-profile.fi",
   "tos": {
