@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [1.2.5] - 2021-02-03
+### Changed
+- Fix privacy policy links
+
 ## [1.2.1] - 2020-11-25
 ### Added
 - Temporary feedback link button in membership information page
