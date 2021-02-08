@@ -29,6 +29,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - [Accessibility] Use more description error messages on forms
 - Fixed inaccessible approver route
 
+## [1.2.5] - 2021-02-03
+
+### Changed
+- Fix privacy policy links
+
 ## [1.2.4] - 2021-02-01
 
 Re-release of v1.2.1 using fixed GitHub actions workflow.
