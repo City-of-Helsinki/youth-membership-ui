@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - [Accessibility] Missing jump to content link
 - [Accessibility] Use more description error messages on forms
 - Fixed inaccessible approver route
+- Translation script running within docker development image
 
 ## [1.2.5] - 2021-02-03
 
