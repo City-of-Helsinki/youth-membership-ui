@@ -186,7 +186,6 @@
     "addGuardianText": "Vid behov kan andra vårdnadshavare kontaktas i frågor som rör ditt ungdomsmedlemskap.",
     "remove": "Radera"
   },
-  "En begäran om dataverifiering skickas till föräldern och efter att dina uppgifter är granskade och godkända träder ditt medlemskap i kraft.": "",
   "registry": {
     "descriptionLink": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Medlemsregister%20f%C3%B6r%20ungdomstj%C3%A4nsterna.pdf"
   },
@@ -237,7 +236,8 @@
     "content": "Välkommen som medlem i Helsingfors stads ungdomstjänster! {{ youth_profile.approver_first_name }} har godkänt ditt edlemskap i Helsingfors stads ungdomstjänster. Ditt digitala medlemskort kan hittas här: <a href=\"https://jassari.hel.fi\">https://jassari.hel.fi</a><br /><br />Mer information om medlemskapet i ungdomstjänsterna och förmånerna finns på adressen <a href=\"http://jassari.munstadi.fi/sv/\">http://jassari.munstadi.fi/sv/<a/><br /><br /> <i>Det här meddelandet skickades automatiskt från våra system. Svara inte på det här meddelandet eftersom svaren inte kommer att behandlas. </i>"
   },
   "emailRenew": {
-    "heading": "Hejsan {{ youth_profile.profile.first_name }}! Ditt medlemskap i ungdomstjänsterna håller på att gå ut. Det är enkelt att förnya medlemskapet här https://jassari.hel.fi/ <br /><br />Mer information om medlemskapet i ungdomstjänsterna och förmånerna finns på adressen <a href=\"http://jassari.munstadi.fi/sv/\">http://jassari.munstadi.fi/sv/<a/><br /><br /> <i>Det här meddelandet skickades automatiskt från våra system. Svara inte på det här meddelandet eftersom svaren inte kommer att behandlas. </i>"
+    "heading": "{{ youth_profile.profile.first_name }} ditt medlemskap i ungdomstjänsterna håller på att gå ut",
+    "content": "Hejsan {{ youth_profile.profile.first_name }}! Ditt medlemskap i ungdomstjänsterna håller på att gå ut. Det är enkelt att förnya medlemskapet här https://jassari.hel.fi/ <br /><br />Mer information om medlemskapet i ungdomstjänsterna och förmånerna finns på adressen <a href=\"http://jassari.munstadi.fi/sv/\">http://jassari.munstadi.fi/sv/<a/><br /><br /> <i>Det här meddelandet skickades automatiskt från våra system. Svara inte på det här meddelandet eftersom svaren inte kommer att behandlas. </i>"
   },
   "feedback": {
     "giveFeedback": {
