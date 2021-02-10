@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Fixed inaccessible approver route
 - Translation script running within docker development image
 - Gendered pronoun in approval confirmation view
+- Non-compound words written as compound words in English translation
 
 ## [1.2.5] - 2021-02-03
 
