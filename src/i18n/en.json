@@ -81,7 +81,7 @@
     "buttonText": "Get membership",
     "findNearestService": "Find the nearest youth centre on the service map",
     "helpText": "Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers.",
-    "helpTextUnderAge": "Unfortunately, you need to be at least 13 years old to get a digital Jässäri. You can download an application form from here. ",
+    "helpTextUnderAge": "Unfortunately, you need to be at least 13 years old to get a digital Jässäri. You can download an application form from here.  Fill in the application form with your guardian and take it back to the Youth Centre to get your own membership card. ",
     "linkForMembersText": "Do you have membership? Log in",
     "registrationForm": "http://jassari.munstadi.fi/files/2020/07/Jasenkorttikaavake_2020_englanti-1.pdf",
     "registrationFormText": "Download application form",
@@ -89,7 +89,6 @@
     "pageTitle": "Youth membership card",
     "title": "Get your Jässäri!"
   },
-  "Fill in the application form with your guardian and take it back to the Youth Centre to get your own membership card. ": "",
   "membershipDetails": {
     "additionalInformation": "Additional information",
     "edit": "Edit information",
@@ -234,11 +233,11 @@
   },
   "emailApproved": {
     "heading": "{{ youth_profile.approver_first_name }} has approved your Youth Services membership",
-    "content": "Welcome to the Youth Services of the City of Helsinki! {{ youth_profile.approver_first_name }} has approved your membership. Your digital membersip card can be found here: <br /><br /><a href=\"https://jassari.hel.fi\">https://jassari.hel.fi</a>"
+    "content": "Welcome to the Youth Services of the City of Helsinki! {{ youth_profile.approver_first_name }} has approved your membership. Your digital membersip card can be found here: <br /><br /><a href=\"https://jassari.hel.fi\">https://jassari.hel.fi</a> <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>"
   },
-  " <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>": "",
   "emailRenew": {
-    "heading": "Hi {{ youth_profile.profile.first_name }}! Your Youth Services membership is about to expire You can easily renew your membership here https://jassari.hel.fi/ <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>"
+    "heading": "{{ youth_profile.profile.first_name }} your Youth Services membership is about to expire",
+    "content": "Hi {{ youth_profile.profile.first_name }}! Your Youth Services membership is about to expire You can easily renew your membership here https://jassari.hel.fi/ <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>"
   },
   "feedback": {
     "giveFeedback": {
