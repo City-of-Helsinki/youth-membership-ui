@@ -1,10 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 
 import ConfirmApprovingYouthProfile from '../ConfirmApprovingYouthProfile';
 
 test('matches snapshot', () => {
-  const wrapper = shallow(<ConfirmApprovingYouthProfile />);
-  expect(toJson(wrapper)).toMatchSnapshot();
+  const wrapper = render(<ConfirmApprovingYouthProfile />);
+  expect(wrapper.container).toMatchSnapshot();
 });

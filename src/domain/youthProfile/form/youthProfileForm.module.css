@@ -1,154 +1,157 @@
 .formRow {
-    grid-column: 1 / -1;
-    display: flex;
-    margin-bottom: var(--spacing-s);
-    flex-direction: column;
+  grid-column: 1 / -1;
+  display: flex;
+  margin-bottom: var(--spacing-s);
+  flex-direction: column;
 }
 
 .formInputRow {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .formRow > *:not(:last-child),
 .formInputRow > *:not(:last-child) {
-    margin-bottom: var(--spacing-s);
+  margin-bottom: var(--spacing-s);
 }
 
 .formInputColumn {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .formInput {
-    width: 100%;
+  width: 100%;
 }
 
 .formInputPostal {
-    width: 100%;
+  width: 100%;
 }
 
 .formInputCity {
-    width: 100%;
-
+  width: 100%;
 }
 
 .addAdditional {
-    margin: var(--spacing-layout-2-xs) 0;
-}
-
-@media (min-width: 768px){
-    .formRow {
-        flex-direction: row;
-    }
-
-    .formInputRow {
-        width: 320px;
-        flex-direction: row;
-    }
-
-    .formRow > *:not(:last-child),
-    .formInputRow > *:not(:last-child) {
-        margin-bottom: 0;
-    }
-
-    .formInput {
-        width: 320px;
-        margin-right: 20px;
-    }
-
-    .formInputPostal {
-        width: 110px;
-        margin-right: 20px;
-    }
-
-    .formInputCity {
-        width: 190px;
-    }
-}
-
-.list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.languageRadioBtnRow {
-    margin-bottom: 10px;
-}
-
-.radioButtonRow {
-    float: left;
-    margin-right: 50px;
-    margin-top: 20px;
-}
-
-.listLabel {
-    margin-left: 10px;
-}
-
-.hidePhotoUsageApproved {
-    display:none;
-}
-
-a {
-    text-decoration: none;
-}
-
-.buttonAlign {
-    text-align: center;
+  margin: var(--spacing-layout-2-xs) 0;
 }
 
 @media (min-width: 768px) {
-    .buttonAlign {
-        text-align: left;
-    }
+  .formRow {
+    flex-direction: row;
+  }
+
+  .formInputRow {
+    width: 320px;
+    flex-direction: row;
+  }
+
+  .formRow > *:not(:last-child),
+  .formInputRow > *:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .formInput {
+    width: 320px;
+    margin-right: 20px;
+  }
+
+  .formInputPostal {
+    width: 110px;
+    margin-right: 20px;
+  }
+
+  .formInputCity {
+    width: 190px;
+  }
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.languageRadioBtnRow {
+  margin-bottom: 10px;
+}
+
+.radioButtonRow {
+  float: left;
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
+.listLabel {
+  margin-left: 10px;
+}
+
+.hidePhotoUsageApproved {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.buttonAlign {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .buttonAlign {
+    text-align: left;
+  }
 }
 
 .formWrapper h3:not:first-child {
-    margin-top: 60px;
-    margin-bottom: 20px;
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 
 .approverInfoText {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .radioLabel {
-    font-weight: 700;
-    font-size: 0.9em;
-    margin-top: var(--spacing-l);
-    margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 0.9em;
+  margin-top: var(--spacing-l);
+  margin-bottom: 5px;
 }
 
 .button {
-    min-width: 230px;
-    width: 100%;
-    margin-right: 20px;
-    margin-top: 20px;
+  min-width: 230px;
+  width: 100%;
+  margin-right: 20px;
+  margin-top: 20px;
 }
 
 .additionalContactGroup {
-    margin-top: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
 }
 .additionalContactGroup:last-of-type {
-    margin-bottom: var(--spacing-m);
+  margin-bottom: var(--spacing-m);
+}
+
+.termsTitle {
+  font-size: var(--fontsize-heading-m);
 }
 
 @media (min-width: 400px) {
-    .terms {
-        margin-top: 20px;
-    }
+  .terms {
+    margin-top: 20px;
+  }
 }
 
 @media (min-width: 540px) {
-    .button {
-        min-width: 230px;
-        width: auto;
-    }
+  .button {
+    min-width: 230px;
+    width: auto;
+  }
 
-    .formTitleText h1 {
-        font-size: var(--fontsize-h-1);
-    }
+  .formTitleText h1 {
+    font-size: var(--fontsize-heading-xl);
+  }
 }

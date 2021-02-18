@@ -2,13 +2,9 @@
   text-align: left;
 }
 
-.title {
-  font-size: var(--fontsize-h-2);
-}
-
 .helpText {
   margin: 20px 0 50px;
-  font-size: var(--fontsize-body-medium);
+  font-size: var(--fontsize-body-l);
   line-height: var(--lineheight-m);
   text-align: left;
 }
@@ -33,10 +29,9 @@
   width: 100%;
 }
 
-
 @media (min-width: 400px) {
   .title {
-    font-size: var(--fontsize-h-1);
+    font-size: var(--fontsize-heading-xl);
   }
 
   .button {
@@ -44,7 +39,7 @@
   }
 
   .linkButtons {
-    width: 340px;
+    width: 360px;
   }
 }
 

@@ -9,10 +9,10 @@ header {
         [viewport-start] minmax(10px, auto)
         [container] minmax(auto, 1200px)
         minmax(10px, auto) [viewport-end];
-    grid-template-rows: [navigation] 72px [content] 1fr [footer] auto;
     grid-template-areas: "bg bg bg"
                          "bg bg bg"
                          "bg bg bg";
+  grid-template-rows: [navigation] auto [content] 1fr [footer] auto;
 }
 
 .background {

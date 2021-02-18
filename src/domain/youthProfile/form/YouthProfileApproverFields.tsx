@@ -11,11 +11,13 @@ import TextInput from './FormikTextInput';
 type Props = {
   isApproverFieldsRequired?: boolean;
   additionalContactPersonHelperText: string;
+  viewer?: 'youth' | 'approver';
 };
 
 function YouthProfileApproverFields({
   isApproverFieldsRequired = true,
   additionalContactPersonHelperText,
+  viewer = 'youth',
 }: Props) {
   const { t } = useTranslation();
 
@@ -32,6 +34,14 @@ function YouthProfileApproverFields({
     return t(translationPath);
   };
 
+  const getAutoComplete = (value: string): string | undefined => {
+    const isViewedByApprover = viewer === 'approver';
+
+    if (isViewedByApprover) {
+      return value;
+    }
+  };
+
   return (
     <Stack space="xl">
       <YouthProfileFormGrid>
@@ -39,23 +49,27 @@ function YouthProfileApproverFields({
           id="approverFirstName"
           name="approverFirstName"
           labelText={labelRequired('registration.firstName')}
+          autoComplete={getAutoComplete('given-name')}
         />
         <TextInput
           id="approverLastName"
           name="approverLastName"
           labelText={labelRequired('registration.lastName')}
+          autoComplete={getAutoComplete('family-name')}
         />
         <TextInput
           id="approverEmail"
           name="approverEmail"
           type="email"
           labelText={labelRequired('registration.email')}
+          autoComplete={getAutoComplete('email')}
         />
         <TextInput
           id="approverPhone"
           name="approverPhone"
           type="tel"
           labelText={labelRequired('registration.phoneNumber')}
+          autoComplete={getAutoComplete('tel')}
         />
       </YouthProfileFormGrid>
       <FormGroupDescription

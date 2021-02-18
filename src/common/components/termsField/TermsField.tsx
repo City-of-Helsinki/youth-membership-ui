@@ -3,6 +3,7 @@ import { Checkbox, CheckboxProps } from 'hds-react';
 import { useField } from 'formik';
 import { Trans, useTranslation } from 'react-i18next';
 
+import ExternalLink from '../externalLink/ExternalLink';
 import styles from './termsField.module.css';
 
 type Props = {
@@ -26,26 +27,9 @@ function TermsField(props: Props) {
             <Trans
               i18nKey="approval.approveTerms"
               components={[
-                // These components receive content  in the
-                // translation definition.
-                // eslint-disable-next-line jsx-a11y/anchor-has-content
-                <a
-                  href={t('registry.descriptionLink')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                />,
-                // eslint-disable-next-line jsx-a11y/anchor-has-content
-                <a
-                  href={t('privacyPolicy.helsinkiProfileLink')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                />,
-                // eslint-disable-next-line jsx-a11y/anchor-has-content
-                <a
-                  href={t('privacyPolicy.descriptionLink')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                />,
+                <ExternalLink href={t('registry.descriptionLink')} />,
+                <ExternalLink href={t('privacyPolicy.helsinkiProfileLink')} />,
+                <ExternalLink href={t('privacyPolicy.descriptionLink')} />,
               ]}
             />
           </span>

@@ -1,0 +1,38 @@
+query ProfileWithAccessToken($token: UUID!) {
+  profileWithAccessToken(token: $token) {
+    firstName
+    lastName
+    language
+    id
+    primaryAddress {
+      address
+      postalCode
+      city
+      countryCode
+      id
+      addressType
+      primary
+    }
+    addresses {
+      edges {
+        node {
+          primary
+          id
+          address
+          postalCode
+          city
+          countryCode
+          addressType
+        }
+      }
+    }
+    primaryEmail {
+      email
+      id
+    }
+    primaryPhone {
+      phone
+      id
+    }
+  }
+}

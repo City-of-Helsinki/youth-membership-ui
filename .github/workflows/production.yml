@@ -16,6 +16,11 @@ env:
   BUILD_ARTIFACT_FOLDER: 'build_artifacts'
   SERVICE_ARTIFACT_FOLDER: 'service_artifacts'
   SERVICE_PORT: 80
+  K8S_REQUEST_CPU: 1m
+  K8S_REQUEST_RAM: 10Mi
+  K8S_LIMIT_CPU: 5m
+  K8S_LIMIT_RAM: 20Mi
+  K8S_REPLICACOUNT: 2
 
 jobs:
   build:
@@ -32,7 +37,8 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_PROFILE_LINK: 'https://profiili.hel.fi/loginsso'
           DOCKER_BUILD_ARG_REACT_APP_OIDC_AUTHORITY: 'https://api.hel.fi/sso/'
           DOCKER_BUILD_ARG_REACT_APP_OIDC_CLIENT_ID: 'https://id.hel.fi/auth/clients/jassariui-prod'
-          DOCKER_BUILD_ARG_REACT_APP_PROFILE_GRAPHQL: 'https://api.hel.fi/profiili/graphql/'
+          DOCKER_BUILD_ARG_REACT_APP_OIDC_SCOPE: 'openid https://api.hel.fi/auth/jassariapi https://api.hel.fi/auth/helsinkiprofile'
+          DOCKER_BUILD_ARG_REACT_APP_PROFILE_GRAPHQL: 'https://jassari.api.hel.fi'
           DOCKER_BUILD_ARG_REACT_APP_BASE_URL: 'https://jassari.hel.fi'
           DOCKER_BUILD_ARG_REACT_APP_ADMIN_URL: 'https://jassari-admin.hel.fi/'
 

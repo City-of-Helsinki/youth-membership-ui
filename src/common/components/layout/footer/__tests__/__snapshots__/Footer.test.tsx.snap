@@ -1,58 +1,110 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<div
-  className="wrapper"
->
-  <Koros
-    className="koros"
-  />
-  <footer
-    className="footer"
+<div>
+  <div
+    class="wrapper"
   >
     <div
-      className="content"
+      class="Koros-module_koros__1r3rg koros"
     >
-      <HelsinkiLogo
-        className="logo"
-      />
-      <hr />
-      <div
-        className="textContainer"
+      <svg
+        aria-hidden="true"
+        height="85"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <span>
-          © 
-          Helsingin kaupunki
-           •
-           
-          Kaikki oikeudet pidätetään
-           •
-           
-          <a
-            className="links"
-            href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Nuorisopalvelujen%20j%C3%A4senrekisteri.pdf"
+        <defs>
+          <pattern
+            height="85"
+            id="koros_basic-1"
+            patternUnits="userSpaceOnUse"
+            width="106"
+            x="0"
+            y="0"
           >
-            Rekisteriseloste
-          </a>
-           
-          | 
-          <Link
-            className="links"
-            to="/accessibility"
-          >
-            Saavutettavuusseloste
-          </Link>
-        </span>
-        <a
-          className="feedback"
-          href="https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/yhteystiedot-ja-palaute/Anna+palautetta/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Anna palautetta
-        </a>
-      </div>
+            <path
+              d="M0,800h20V0c-4.9,0-5,2.6-9.9,2.6S5,0,0,0V800z"
+              transform="scale(5.3)"
+            />
+          </pattern>
+        </defs>
+        <rect
+          fill="url(#koros_basic-1)"
+          height="85"
+          width="100%"
+        />
+      </svg>
     </div>
-  </footer>
+    <footer
+      class="footer"
+    >
+      <div
+        class="content"
+      >
+        <span
+          aria-label="Helsinki-logo"
+          class="logoFi logo"
+        />
+        <hr />
+        <div
+          class="textContainer"
+        >
+          <span>
+            © 
+            Helsingin kaupunki
+             •
+             
+            Kaikki oikeudet pidätetään
+             •
+             
+            <a
+              class="links"
+              href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Nuorisopalvelujen%20j%C3%A4senrekisteri.pdf"
+            >
+              Rekisteriseloste
+            </a>
+             
+            | 
+            <a
+              class="links"
+              href="/accessibility"
+            >
+              Saavutettavuusseloste
+            </a>
+          </span>
+          <a
+            class="externalLink feedback"
+            href="https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/yhteystiedot-ja-palaute/Anna+palautetta/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Anna palautetta
+             
+            <svg
+              aria-label="Aukeaa uuteen ikkunaan"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
 </div>
 `;

@@ -1,14 +1,6 @@
 .notification {
-    width: 300px;
-    position: fixed;
-    top: 100px;
-    right: 0;
+    width: 312px;
 }
-
-.notification p {
-    margin: 0;
-}
-
 /*
     Use messageWrapper to increase margin between notification title and message and
     prevent button appearing on top of the title text.

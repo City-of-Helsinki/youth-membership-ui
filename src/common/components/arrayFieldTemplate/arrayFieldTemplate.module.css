@@ -3,7 +3,7 @@
   width: fit-content;
 
   color: var(--color-bus);
-  font-size: var(--fontsize-body-small);
+  font-size: var(--fontsize-body-s);
 }
 
 .addItemButton {
@@ -12,6 +12,6 @@
 
 @media (min-width: 540px) {
   .addItemButton {
-      margin-left: calc(-1 * var(--spacing-m));
+    margin-left: calc(-1 * var(--spacing-m));
   }
 }

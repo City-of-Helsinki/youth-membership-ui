@@ -9,9 +9,7 @@ import ageConstants from './constants/ageConstants';
 
 const isConsentRequired = (birthDate: string, schema: Yup.StringSchema) => {
   const userAge = differenceInYears(new Date(), new Date(birthDate));
-  return userAge < ageConstants.ADULT
-    ? schema.required('validation.required')
-    : schema;
+  return userAge < ageConstants.ADULT ? schema.required() : schema;
 };
 
 const requireIfNotAdult = (extendedSchema: Yup.StringSchema) => {
@@ -23,40 +21,58 @@ const requireIfNotAdult = (extendedSchema: Yup.StringSchema) => {
 };
 
 const approverFirstNameSchema = Yup.string()
-  .min(2, 'validation.tooShort')
-  .max(255, 'validation.tooLong');
+  .min(2)
+  .max(255)
+  .label('fields.firstName');
 const approverLastNameSchema = Yup.string()
-  .min(2, 'validation.tooShort')
-  .max(255, 'validation.tooLong');
-const approverEmailSchema = Yup.string().email('validation.email');
-const approverPhoneSchema = Yup.string().min(6, 'validation.phoneMin');
+  .min(2)
+  .max(255)
+  .label('fields.lastName');
+const approverEmailSchema = Yup.string()
+  .email()
+  .label('fields.email');
+const approverPhoneSchema = Yup.string()
+  .min(6)
+  .label('fields.phoneNumber');
 
 const additionalContactPersonsSchema = Yup.array(
   Yup.object({
-    firstName: Yup.string().required('validation.required'),
-    lastName: Yup.string().required('validation.required'),
-    phone: Yup.string().required('validation.required'),
-    email: Yup.string().required('validation.required'),
+    firstName: Yup.string()
+      .required()
+      .label('fields.firstName'),
+    lastName: Yup.string()
+      .required()
+      .label('fields.lastName'),
+    phone: Yup.string()
+      .required()
+      .label('fields.phoneNumber'),
+    email: Yup.string()
+      .required()
+      .label('fields.email'),
   })
 );
 
 const basicInformationSchema = Yup.object().shape({
   firstName: Yup.string()
-    .min(2, 'validation.tooShort')
-    .max(255, 'validation.tooLong')
-    .required('validation.required'),
+    .min(2)
+    .max(255)
+    .required()
+    .label('fields.firstName'),
   lastName: Yup.string()
-    .min(2, 'validation.tooShort')
-    .max(255, 'validation.tooLong')
-    .required('validation.required'),
+    .min(2)
+    .max(255)
+    .required()
+    .label('fields.lastName'),
   primaryAddress: Yup.object().shape({
     address: Yup.string()
-      .min(2, 'validation.tooShort')
-      .max(255, 'validation.tooLong')
-      .required('validation.required'),
+      .min(2)
+      .max(255)
+      .required()
+      .label('fields.streetAddress'),
     postalCode: Yup.mixed()
-      .required('validation.required')
-      .test('isValidPostalCode', 'validation.invalidValue', function() {
+      .required()
+      .label('fields.postalCode')
+      .test('isValidPostalCode', 'validation.invalidPostalCode', function() {
         if (postcodeValidatorExistsForCountry(this.parent.countryCode)) {
           return postcodeValidator(
             this.parent.postalCode,
@@ -66,18 +82,19 @@ const basicInformationSchema = Yup.object().shape({
         return this.parent?.postalCode?.length < 32;
       }),
     city: Yup.string()
-      .min(2, 'validation.tooShort')
-      .max(255, 'validation.tooLong')
-      .required('validation.required'),
+      .min(2)
+      .max(255)
+      .required()
+      .label('fields.city'),
   }),
   addresses: Yup.array().of(
     Yup.object().shape({
       address: Yup.string()
-        .min(2, 'validation.tooShort')
-        .max(255, 'validation.tooLong'),
+        .min(2)
+        .max(255),
       postalCode: Yup.mixed().test(
         'isValidPostalCode',
-        'validation.invalidValue',
+        'validation.invalidPostalCode',
         function() {
           if (postcodeValidatorExistsForCountry(this.parent.countryCode)) {
             return postcodeValidator(
@@ -89,19 +106,26 @@ const basicInformationSchema = Yup.object().shape({
         }
       ),
       city: Yup.string()
-        .min(2, 'validation.tooShort')
-        .max(255, 'validation.tooLong'),
+        .min(2)
+        .max(255),
     })
   ),
   phone: Yup.string()
-    .min(6, 'validation.phoneMin')
-    .required('validation.required'),
+    .min(6)
+    .required()
+    .label('fields.phoneNumber'),
 });
 
 const additionalInformationSchema = Yup.object().shape({
-  schoolName: Yup.string().max(128, 'validation.tooLong'),
-  schoolClass: Yup.string().max(10, 'validation.tooLong'),
-  photoUsageApproved: Yup.string().required('validation.required'),
+  schoolName: Yup.string()
+    .max(128)
+    .label('fields.schoolName'),
+  schoolClass: Yup.string()
+    .max(10)
+    .label('fields.schoolClass'),
+  photoUsageApproved: Yup.string()
+    .required()
+    .label('fields.photoUsageApproved'),
 });
 
 const youthApproverSchema = Yup.object().shape({
@@ -113,15 +137,17 @@ const youthApproverSchema = Yup.object().shape({
 });
 
 const guardianApproverSchema = Yup.object().shape({
-  approverFirstName: approverFirstNameSchema.required('validation.required'),
-  approverLastName: approverLastNameSchema.required('validation.required'),
-  approverEmail: approverEmailSchema.required('validation.required'),
-  phone: approverPhoneSchema.required('validation.required'),
+  approverFirstName: approverFirstNameSchema
+    .required()
+    .label('fields.firstName'),
+  approverLastName: approverLastNameSchema.required().label('fields.lastName'),
+  approverEmail: approverEmailSchema.required().label('fields.approverEmail'),
+  phone: approverPhoneSchema.required().label('fields.phoneNumber'),
   additionalContactPersons: additionalContactPersonsSchema,
 });
 
 const termsSchema = Yup.object().shape({
-  terms: Yup.boolean().oneOf([true], 'validation.required'),
+  terms: Yup.boolean().oneOf([true], 'validation.requiredTerms'),
 });
 
 export const approveYouthProfileFormSchema = guardianApproverSchema.concat(

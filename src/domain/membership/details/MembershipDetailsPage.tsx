@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { loader } from 'graphql.macro';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import * as Sentry from '@sentry/browser';
 
 import { MembershipDetails as MembershipDetailsData } from '../../../graphql/generatedTypes';
 import PageContent from '../../../common/components/layout/PageContent';
-import NotificationComponent from '../../../common/components/notification/NotificationComponent';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import MembershipDetails from './MembershipDetails';
 
 const MEMBERSHIP_DETAILS = loader('../graphql/MembershipDetails.graphql');
 
 function MembershipDetailsPage() {
-  const [showNotification, setShowNotification] = useState(false);
   const { data, loading } = useQuery<MembershipDetailsData>(
     MEMBERSHIP_DETAILS,
     {
@@ -22,19 +21,15 @@ function MembershipDetailsPage() {
         // eslint-disable-next-line no-console
         console.log(error);
         Sentry.captureException(error);
-        setShowNotification(true);
+        toastNotification();
       },
       fetchPolicy: 'network-only',
     }
   );
 
   return (
-    <PageContent isReady={!loading} title="membershipInformation.pageTitle">
+    <PageContent isReady={!loading} title="membershipDetails.title">
       {data && <MembershipDetails membershipDetailsData={data} />}
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
-      />
     </PageContent>
   );
 }

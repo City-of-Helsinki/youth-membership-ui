@@ -2,8 +2,10 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 
-import App from './App';
+// i18n should be loaded before the application so that yup schemas are
+// ready before schemas are created
 import i18n from '../../i18n/i18nInit';
+import App from './App';
 
 function BrowserApp() {
   return (

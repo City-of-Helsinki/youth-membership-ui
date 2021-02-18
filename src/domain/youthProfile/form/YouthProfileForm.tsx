@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'hds-react';
 import { Form, Formik, FormikProps } from 'formik';
-import { Link } from 'react-router-dom';
 import { differenceInYears } from 'date-fns';
 
 import {
   AddressType,
   Language,
-  MembershipDetails_youthProfile_profile_addresses_edges_node as EditAddress,
-  MembershipDetails_youthProfile_profile_primaryAddress as EditPrimaryAddress,
+  MembershipDetails_myYouthProfile_profile_addresses_edges_node as EditAddress,
+  MembershipDetails_myYouthProfile_profile_primaryAddress as EditPrimaryAddress,
   PrefillRegistartion_myProfile_addresses_edges_node as CreateAddress,
   PrefillRegistartion_myProfile_primaryAddress as CreatePrimaryAddress,
   YouthLanguage,
@@ -26,6 +25,7 @@ import YouthProfileBasicInformationFields from './YouthProfileBasicInformationFi
 import YouthProfileAdditionalInformationFields from './YouthProfileAdditionalInformationFields';
 import YouthProfileApproverFields from './YouthProfileApproverFields';
 import FormikFocusError from './FormikFocusError';
+import LinkButton from '../../../common/components/linkButton/LinkButton';
 import styles from './youthProfileForm.module.css';
 
 export type Values = {
@@ -145,7 +145,9 @@ function YouthProfileForm(componentProps: Props) {
             <PageSection>
               {!componentProps.isEditing && (
                 <React.Fragment>
-                  <Text variant="h3">{t('registration.confirmSend')}</Text>
+                  <Text variant="h2" className={styles.termsTitle}>
+                    {t('registration.confirmSend')}
+                  </Text>
                   {userAge < ageConstants.ADULT && (
                     <Text variant="info">
                       {t('registration.processInfoText')}
@@ -165,11 +167,13 @@ function YouthProfileForm(componentProps: Props) {
                 </Button>
 
                 {componentProps.isEditing && (
-                  <Link to="/membership-details">
-                    <Button variant="secondary" className={styles.button}>
-                      {t('registration.cancel')}
-                    </Button>
-                  </Link>
+                  <LinkButton
+                    className={styles.button}
+                    path="/membership-details"
+                    component="Link"
+                    buttonText={t('registration.cancel')}
+                    variant="secondary"
+                  />
                 )}
               </div>
             </PageSection>

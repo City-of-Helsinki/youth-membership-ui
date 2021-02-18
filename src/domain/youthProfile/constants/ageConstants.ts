@@ -1,7 +1,9 @@
-export default {
+const ageConstants = {
   PHOTO_PERMISSION_MIN: 15,
   REGISTRATION_AGE_MIN: 8,
   REGISTRATION_AGE_MAX: 29,
   REGISTRATION_AGE_DIGITALLY_MIN: 13,
   ADULT: 18,
 };
+
+export default ageConstants;

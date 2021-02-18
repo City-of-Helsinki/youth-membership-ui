@@ -1,72 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`match snapshot 1`] = `
-<div
-  className="hostingBox"
->
-  <h1>
-    Hakemus on lähetetty huoltajallesi!
-  </h1>
-  <p
-    className="helpText"
+<div>
+  <div
+    class="hostingBox"
   >
-    Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen
-     
-    ville.vanhempi@test.fi
-    .
-  </p>
-  <ForwardRef
-    className="button"
-    disabled={false}
-    onClick={[Function]}
-  >
+    <h1
+      class="text h1 "
+    >
+      Hakemus on lähetetty huoltajallesi!
+    </h1>
+    <p
+      class="helpText"
+    >
+      Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen
+       
+      .
+    </p>
     <button
-      className="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO button"
-      disabled={false}
-      onClick={[Function]}
+      class="Button-module_button__1msFE button_hds-button__2A0je Button-module_primary__2LfKB button_hds-button--primary__2NVvO button"
       type="button"
     >
       <span
-        className="Button-module_label__2zMLC button_hds-button__label__2EQa-"
+        class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
       >
         Lähetä uusi varmistusviesti
       </span>
     </button>
-  </ForwardRef>
-  <br />
-  <LinkButton
-    buttonText="Näytä hakemuksen tiedot"
-    className="button"
-    component="Link"
-    path="/membership-details"
-    variant="secondary"
-  >
-    <Link
-      className="hds-button hds-button--secondary button"
-      to="/membership-details"
+    <br />
+    <a
+      class="hds-button hds-button--secondary button"
+      href="/membership-details"
     >
-      <LinkAnchor
-        className="hds-button hds-button--secondary button"
-        href="/membership-details"
-        navigate={[Function]}
+      <span
+        class="hds-button__label"
       >
-        <a
-          className="hds-button hds-button--secondary button"
-          href="/membership-details"
-          onClick={[Function]}
-        >
-          <span
-            className="hds-button__label"
-          >
-            Näytä hakemuksen tiedot
-          </span>
-        </a>
-      </LinkAnchor>
-    </Link>
-  </LinkButton>
-  <NotificationComponent
-    onClose={[Function]}
-    show={false}
-  />
+        Näytä hakemuksen tiedot
+      </span>
+      
+    </a>
+  </div>
 </div>
 `;

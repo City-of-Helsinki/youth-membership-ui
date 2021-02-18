@@ -148,6 +148,7 @@ function ApproveYouthProfileForm(props: Props) {
                   additionalContactPersonHelperText={t(
                     'approval.addGuardianText'
                   )}
+                  viewer="approver"
                 />
               </div>
               <TermsField id="terms" name="terms" />

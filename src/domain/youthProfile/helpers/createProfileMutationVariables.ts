@@ -9,7 +9,6 @@ import {
 } from '../../../graphql/generatedTypes';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
 import { Values as FormValues } from '../form/YouthProfileForm';
-import { getCreateYouthProfile } from './youthProfileGetters';
 
 const getPrimaryAddress = (
   profileType: 'prefill' | 'membership',
@@ -17,7 +16,7 @@ const getPrimaryAddress = (
 ) => {
   switch (profileType) {
     case 'membership':
-      return (profile as MembershipDetails).youthProfile?.profile
+      return (profile as MembershipDetails).myYouthProfile?.profile
         ?.primaryAddress;
     case 'prefill':
       return (profile as PrefillRegistartion).myProfile?.primaryAddress;
@@ -130,7 +129,6 @@ const getMutationVariables = (
         ...getAddress(formValues, 'prefill', profile),
         ...getPhone(formValues, profile),
         ...getEmail(formValues, profile),
-        youthProfile: getCreateYouthProfile(formValues),
       },
     },
   };

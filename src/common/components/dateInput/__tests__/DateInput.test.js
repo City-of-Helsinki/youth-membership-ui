@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 
 import {
   render,
@@ -32,7 +31,7 @@ describe('<DateInput />', () => {
     getByLabelText(container, yearInputLabel);
 
   it('should render expectedly', () => {
-    expect(toJson(getWrapper())).toMatchSnapshot();
+    expect(getWrapper().container).toMatchSnapshot();
   });
 
   it('should yield expected dates', () => {
