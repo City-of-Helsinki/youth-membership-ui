@@ -1,5 +1,6 @@
 import {
   YouthProfileByApprovalToken_youthProfileByApprovalToken as YouthProfile,
+  // eslint-disable-next-line max-len
   YouthProfileByApprovalToken_youthProfileByApprovalToken_additionalContactPersons_edges_node as YouthProfileAdditionalContactPersonNode,
   UpdateAdditionalContactPersonInput,
 } from '../../../graphql/generatedTypes';

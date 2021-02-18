@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import React from 'react';
+import { useQuery, useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import * as Sentry from '@sentry/browser';
 
 import {
@@ -9,7 +10,8 @@ import {
   RenewMyYouthProfileVariables,
   MembershipInformation as MembershipInformationTypes,
 } from '../../../graphql/generatedTypes';
-import NotificationComponent from '../../../common/components/notification/NotificationComponent';
+import { profileApiTokenSelector } from '../../auth/redux';
+import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import MembershipInformation from './MembershipInformation';
 
@@ -19,15 +21,14 @@ const MEMBERSHIP_INFORMATION = loader(
 const RENEW_MEMBERSHIP = loader('../graphql/RenewMyYouthProfile.graphql');
 
 function MembershipInformationPage() {
-  const [showNotification, setShowNotification] = useState(false);
-  const [successNotification, setSuccessNotification] = useState(false);
   const { t } = useTranslation();
+  const profileApiToken = useSelector(profileApiTokenSelector);
 
   const { data, loading } = useQuery<MembershipInformationTypes>(
     MEMBERSHIP_INFORMATION,
     {
       onError: () => {
-        setShowNotification(true);
+        toastNotification();
       },
     }
   );
@@ -38,21 +39,30 @@ function MembershipInformationPage() {
 
   const handleRenewMembership = () => {
     const variables: RenewMyYouthProfileVariables = {
-      input: {},
+      input: {
+        profileApiToken,
+      },
     };
 
     renewMembership({ variables })
-      .then(result => setSuccessNotification(!!result.data))
+      .then(result => {
+        if (!!result.data)
+          toastNotification({
+            type: 'success',
+            labelText: t('membershipInformation.renewSuccessTitle'),
+            notificationMessage: t('membershipInformation.renewSuccessMessage'),
+          });
+      })
       .catch((error: Error) => {
         Sentry.captureException(error);
-        setShowNotification(true);
+        toastNotification();
       });
   };
 
   return (
     <PageContentWithHostingBox
       isReady={!loading}
-      title="membershipDetails.title"
+      title="membershipInformation.pageTitle"
     >
       {data && (
         <MembershipInformation
@@ -60,18 +70,6 @@ function MembershipInformationPage() {
           membershipInformationTypes={data}
         />
       )}
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
-      />
-      <NotificationComponent
-        show={successNotification}
-        onClose={() => setSuccessNotification(false)}
-        type="success"
-        labelText={t('membershipInformation.renewSuccessTitle')}
-      >
-        {t('membershipInformation.renewSuccessMessage')}
-      </NotificationComponent>
     </PageContentWithHostingBox>
   );
 }

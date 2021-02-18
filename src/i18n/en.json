@@ -20,7 +20,7 @@
     "basicInfo": "Basic info",
     "birthDate": "Birthdate",
     "explanationError": "You have either already approved the application submitted by your youth or an error has occurred in our service.",
-    "explanationCheckStatus": "The youth can check his application status by logging in to Jässäri. Ask them to resend the confirmation message if their membership has not yet been approved.",
+    "explanationCheckStatus": "The youth can check their application's status by logging in to Jässäri. Ask them to resend the confirmation message if their membership has not yet been approved.",
     "formExplanationText_1": "has sent a membership application for the City of Helsinki’s Youth Services for your approval. The membership is free of charge. If you approve the application,",
     "formExplanationText_2": "may visit Youth Centres and participate in fun activities. The activities at Youth Centres are instructed by trained youth workers.  If the information is incorrect, ask the young person to change it and send a new verification message to you.",
     "languagesAtHome": "Languages at home",
@@ -51,6 +51,12 @@
     "sendAgainHelpText": "Approval email has been re-sent to",
     "title": "The application has been sent to your guardian for approval!"
   },
+  "edit": {
+    "pageTitle": "Edit own information"
+  },
+  "externalLink": {
+    "description": "Opens in a new window"
+  },
   "footer": {
     "accessibility": "Accessibility document",
     "copyright": "City of Helsinki",
@@ -75,14 +81,14 @@
     "buttonText": "Get membership",
     "findNearestService": "Find the nearest youth centre on the service map",
     "helpText": "Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers.",
-    "helpTextUnderAge": "Unfortunately, you need to be at least 13 years old to get a digital Jässäri. You can download an application form from here. ",
+    "helpTextUnderAge": "Unfortunately, you need to be at least 13 years old to get a digital Jässäri. You can download an application form from here.  Fill in the application form with your guardian and take it back to the Youth Centre to get your own membership card. ",
     "linkForMembersText": "Do you have membership? Log in",
     "registrationForm": "http://jassari.munstadi.fi/files/2020/07/Jasenkorttikaavake_2020_englanti-1.pdf",
     "registrationFormText": "Download application form",
     "return": "Go back",
+    "pageTitle": "Youth membership card",
     "title": "Get your Jässäri!"
   },
-  "Fill in the application form with your guardian and take it back to the Youth Centre to get your own membership card. ": "",
   "membershipDetails": {
     "additionalInformation": "Additional information",
     "edit": "Edit information",
@@ -94,6 +100,7 @@
     "title": "Own information"
   },
   "membershipInformation": {
+    "pageTitle": "Membership information",
     "renew": "Renew membership",
     "renewSuccessMessage": "Membership renewed successfully!",
     "renewSuccessTitle": "Success",
@@ -108,7 +115,10 @@
     "menuButtonLabel": "Profile menu",
     "profile": "Helsinki Profile",
     "signin": "Log in",
-    "signout": "Log out"
+    "signout": "Log out",
+    "menu": "Menu",
+    "skipToContent": "Skip to main content",
+    "helsinki": "Helsinki"
   },
   "notification": {
     "closeButtonText": "Close",
@@ -151,17 +161,18 @@
     "date": "Date",
     "dateInvalid": "Invalid date",
     "email": "Email",
-    "firstName": "Firstname",
+    "firstName": "First name",
     "languageAtHome": "Language at home",
-    "lastName": "Lastname",
+    "lastName": "Last name",
     "membershipInfoText": "Membership is free and does not require anything of you, but you do need a membership to be able to participate in activities at Youth Centres. We will not disclose your information to third parties. You have the right to check and remove the information we have stored concerning you. Please remember that intoxicants are not allowed at Youth Centre activities. ",
     "month": "Month",
+    "pageTitle": "Create profile",
     "phoneNumber": "Phone",
     "photoUsageApproved": "Photo usage approved",
     "photoUsageApprovedNo": "No",
     "photoUsageApprovedText": "I can be photographed and the photos may be used in the printed and electronic communications and marketing of the City of Helsinki. The City will not pay compensation for photographing and using the photos. The right to use the photos will remain in effect until further notice, and it concerns all communications and marketing communications of the City of Helsinki.",
     "photoUsageApprovedYes": "Yes",
-    "postalCode": "Postalcode",
+    "postalCode": "Postal code",
     "processInfoText": "A data verification request will be sent to the parent and once they have reviewed and approved the information, your membership will take effect.",
     "profileLanguage": "Profile language",
     "save": "Save information",
@@ -200,12 +211,12 @@
     "updated": "Updated 20.1.2020"
   },
   "validation": {
-    "email": "Invalid email",
-    "invalidValue": "Invalid value",
-    "phoneMin": "Min length six characters",
-    "required": "Required",
-    "tooLong": "Too long",
-    "tooShort": "Too short"
+    "email": "Please enter a valid email address",
+    "invalidPostalCode": "Please enter a valid postal code",
+    "requiredTerms": "Please accept the terms",
+    "required": "Please enter {{label}}",
+    "tooLong": "Please enter {{label}} that's less than {{max}} characters long",
+    "tooShort": "Please enter {{label}} that's more than {{min}} characters long"
   },
   "youthProfile": {
     "approverEmail": "Email",
@@ -222,16 +233,28 @@
   },
   "emailApproved": {
     "heading": "{{ youth_profile.approver_first_name }} has approved your Youth Services membership",
-    "content": "Welcome to the Youth Services of the City of Helsinki! {{ youth_profile.approver_first_name }} has approved your membership. Your digital membersip card can be found here: <br /><br /><a href=\"https://jassari.hel.fi\">https://jassari.hel.fi</a>"
+    "content": "Welcome to the Youth Services of the City of Helsinki! {{ youth_profile.approver_first_name }} has approved your membership. Your digital membersip card can be found here: <br /><br /><a href=\"https://jassari.hel.fi\">https://jassari.hel.fi</a> <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>"
   },
-  " <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>": "",
   "emailRenew": {
-    "heading": "Hi {{ youth_profile.profile.first_name }}! Your Youth Services membership is about to expire You can easily renew your membership here https://jassari.hel.fi/ <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>"
+    "heading": "{{ youth_profile.profile.first_name }} your Youth Services membership is about to expire",
+    "content": "Hi {{ youth_profile.profile.first_name }}! Your Youth Services membership is about to expire You can easily renew your membership here https://jassari.hel.fi/ <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>"
   },
   "feedback": {
     "giveFeedback": {
       "label": "Give feedback of the Jässäri service",
       "link": "https://docs.google.com/forms/d/e/1FAIpQLSfpPCeAdiT9pcMRazxqA9DW-mbqoN2kNwaV53XydjzHWdyFKw/viewform?usp=pp_url&entry.1982410290=J%C3%A4ss%C3%A4ri"
     }
+  },
+  "fields": {
+    "firstName": "a first name",
+    "lastName": "a last name",
+    "streetAddress": "a street address",
+    "postalCode": "a postal code",
+    "city": "a city",
+    "phoneNumber": "a phone number",
+    "email": "an email",
+    "schoolName": "a school name",
+    "schoolClass": "a school class",
+    "photoUsageApproved": "photo usage approval"
   }
 }

@@ -55,10 +55,10 @@ function BirthdateForm(props: Props) {
     fieldName = 'birthDate'
   ) => {
     const { errors, touched } = props;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const isTouched = touched[fieldName];
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const isYupError = Boolean(errors[fieldName]);
 
@@ -67,7 +67,7 @@ function BirthdateForm(props: Props) {
     }
 
     if (isTouched && isYupError) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return t(errors[fieldName]);
     }
@@ -110,9 +110,11 @@ function BirthdateForm(props: Props) {
             dateInputLabel={t('registration.date')}
             monthInputLabel={t('registration.month')}
             yearInputLabel={t('registration.year')}
-            // Sets name in a way which allows auto-fill to set these
-            // values in case they are available. This makes the form
-            // more accessible.
+            // Allows for auto-fill to set these values in case they
+            // are available. This makes the form more accessible.
+            dateInputAutoComplete="bday-day"
+            monthInputAutoComplete="bday-month"
+            yearInputAutoComplete="bday-year"
             dateInputName="bday-day"
             monthInputName="bday-month"
             yearInputName="bday-year"

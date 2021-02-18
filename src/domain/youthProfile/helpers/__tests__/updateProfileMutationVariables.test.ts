@@ -7,6 +7,7 @@ import {
   YouthLanguage,
 } from '../../../../graphql/generatedTypes';
 import { getEditMutationVariables } from '../updateProfileMutationVariables';
+import { getEditYouthProfile } from '../youthProfileGetters';
 
 const formValues: FormValues = {
   firstName: 'Tina',
@@ -49,11 +50,12 @@ const formValues: FormValues = {
 };
 
 const profileData: MembershipDetails = {
-  youthProfile: {
+  myYouthProfile: {
     profile: {
       firstName: 'Teemu',
       lastName: 'Testaaja',
       language: Language.FINNISH,
+      id: '1234',
       primaryAddress: {
         city: 'Helsinki',
         postalCode: '00100',
@@ -94,14 +96,15 @@ const profileData: MembershipDetails = {
       edges: [],
       __typename: 'AdditionalContactPersonNodeConnection',
     },
-    __typename: 'YouthProfileType',
+    __typename: 'YouthProfileNode',
   },
 };
 
 test('test object is correct and all fields are present', () => {
-  const variables = getEditMutationVariables(formValues, profileData);
+  const profileVariables = getEditMutationVariables(formValues, profileData);
+  const youthProfileVariables = getEditYouthProfile(formValues, profileData);
 
-  const expectedResult = {
+  const expectedResultProfile = {
     input: {
       profile: {
         firstName: 'Tina',
@@ -117,23 +120,25 @@ test('test object is correct and all fields are present', () => {
             phoneType: PhoneType.OTHER,
           },
         ],
-        youthProfile: {
-          photoUsageApproved: false,
-          birthDate: '2000-01-01',
-          languageAtHome: YouthLanguage.FINNISH,
-          approverPhone: '0501234567',
-          approverEmail: 'gee@guardian.com',
-          approverLastName: 'Guardian',
-          approverFirstName: 'Gee',
-          schoolClass: '1S',
-          schoolName: 'Smooth School',
-          addAdditionalContactPersons: [],
-          updateAdditionalContactPersons: [],
-          removeAdditionalContactPersons: [],
-        },
       },
     },
   };
 
-  expect(variables).toEqual(expectedResult);
+  const expectedResultYouthProfile = {
+    photoUsageApproved: false,
+    birthDate: '2000-01-01',
+    languageAtHome: YouthLanguage.FINNISH,
+    approverPhone: '0501234567',
+    approverEmail: 'gee@guardian.com',
+    approverLastName: 'Guardian',
+    approverFirstName: 'Gee',
+    schoolClass: '1S',
+    schoolName: 'Smooth School',
+    addAdditionalContactPersons: [],
+    updateAdditionalContactPersons: [],
+    removeAdditionalContactPersons: [],
+  };
+
+  expect(profileVariables).toEqual(expectedResultProfile);
+  expect(youthProfileVariables).toEqual(expectedResultYouthProfile);
 });

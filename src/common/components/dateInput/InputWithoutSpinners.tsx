@@ -1,6 +1,7 @@
 import React from 'react';
-import { TextInput, TextInputProps } from 'hds-react';
+import { TextInputProps } from 'hds-react';
 
+import TextInput from '../textInput/TextInput';
 import styles from './inputWithoutSpinners.module.css';
 
 type Props = TextInputProps;

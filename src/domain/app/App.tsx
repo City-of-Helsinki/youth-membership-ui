@@ -1,5 +1,5 @@
 import React from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/client';
 import { Provider as ReduxProvider } from 'react-redux';
 import { OidcProvider, loadUser } from 'redux-oidc';
 import { MatomoProvider, createInstance } from '@datapunt/matomo-tracker-react';
@@ -8,6 +8,8 @@ import fi from 'i18n-iso-countries/langs/fi.json';
 import en from 'i18n-iso-countries/langs/en.json';
 import sv from 'i18n-iso-countries/langs/sv.json';
 import { HelmetProvider } from 'react-helmet-async';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import graphqlClient from '../../graphql/client';
 import store from '../../redux/store';
@@ -19,6 +21,7 @@ import authConstants from '../../domain/auth/constants/authConstants';
 import authenticate from '../../domain/auth/authenticate';
 import AppMeta from './AppMeta';
 import AppRoutes from './AppRoutes';
+import styles from './app.module.css';
 
 countries.registerLocale(fi);
 countries.registerLocale(en);
@@ -46,9 +49,7 @@ if (process.env.REACT_APP_ENVIRONMENT !== 'production') {
   window._paq.push(['requireConsent']);
 }
 
-type Props = {};
-
-function App(props: Props) {
+function App() {
   window.addEventListener('storage', event => {
     if (
       event.key === authConstants.OIDC_KEY &&
@@ -77,6 +78,7 @@ function App(props: Props) {
           </MatomoProvider>
         </ApolloProvider>
       </OidcProvider>
+      <ToastContainer closeButton={false} className={styles.toastContainer} />
     </ReduxProvider>
   );
 }

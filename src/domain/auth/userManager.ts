@@ -9,7 +9,6 @@ const location = `${window.location.protocol}//${window.location.hostname}${
   window.location.port ? `:${window.location.port}` : ''
 }`;
 
-/* eslint-disable @typescript-eslint/camelcase */
 const settings: UserManagerSettings = {
   userStore: new WebStorageStateStore({ store: window.localStorage }),
   authority: process.env.REACT_APP_OIDC_AUTHORITY,
@@ -21,7 +20,6 @@ const settings: UserManagerSettings = {
   silent_redirect_uri: `${location}/silent_renew`,
   post_logout_redirect_uri: `${location}/`,
 };
-/* eslint-enable @typescript-eslint/camelcase */
 
 const userManager = createUserManager(settings);
 

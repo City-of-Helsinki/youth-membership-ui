@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import MembershipInformationPage from '../membership/information/MembershipInformationPage';
 import useIsMembershipPending from '../membership/useIsMembershipPending';
 import SentYouthProfilePage from '../youthProfile/sent/SentYouthProfilePage';
-import NotificationComponent from '../../common/components/notification/NotificationComponent';
+import toastNotification from '../../common/helpers/toastNotification/toastNotification';
 
 function LandingPage() {
-  const [showNotification, setShowNotification] = useState(false);
   const [isMembershipPending, loading] = useIsMembershipPending({
     onError: () => {
-      setShowNotification(true);
+      toastNotification();
     },
   });
 
@@ -24,10 +23,6 @@ function LandingPage() {
       ) : (
         <MembershipInformationPage />
       )}
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
-      />
     </>
   );
 }

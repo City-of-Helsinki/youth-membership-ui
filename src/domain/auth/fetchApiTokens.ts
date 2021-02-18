@@ -1,6 +1,6 @@
 const url = `${process.env.REACT_APP_OIDC_AUTHORITY}api-tokens/`;
 
-export default async function(accessToken: string) {
+async function fetchApiTokens(accessToken: string) {
   const response = await fetch(url, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -8,3 +8,5 @@ export default async function(accessToken: string) {
   });
   return response.json();
 }
+
+export default fetchApiTokens;

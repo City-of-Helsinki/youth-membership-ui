@@ -1,3 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DateInput /> should render expectedly 1`] = `undefined`;
+exports[`<DateInput /> should render expectedly 1`] = `
+<div>
+  <div
+    aria-describedby="ym-date-picker-group-error"
+    aria-labelledby="ym-date-picker-group"
+    class="hds-text-input"
+    role="group"
+  >
+    <span
+      class="hds-text-input__label"
+      id="ym-date-picker-group"
+    />
+    <div
+      class="row"
+    >
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input noSpinner"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK FieldLabel-module_hidden__3UWxI"
+          for="ym-date-input-date-id"
+        >
+          date-input
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="ym-date-input-date-id"
+            inputmode="numeric"
+            name="ym-date-input-date-name"
+            pattern="\\\\d*"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <span
+        class="dot"
+      >
+        .
+      </span>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input noSpinner"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK FieldLabel-module_hidden__3UWxI"
+          for="ym-date-input-month-id"
+        >
+          month-input
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="ym-date-input-month-id"
+            inputmode="numeric"
+            name="ym-date-input-month-name"
+            pattern="\\\\d*"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <span
+        class="dot"
+      >
+        .
+      </span>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input noSpinner"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK FieldLabel-module_hidden__3UWxI"
+          for="ym-date-input-year-id"
+        >
+          year-input
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="ym-date-input-year-id"
+            inputmode="numeric"
+            name="ym-date-input-year-name"
+            pattern="\\\\d*"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

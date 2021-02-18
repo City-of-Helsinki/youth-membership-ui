@@ -5,6 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import en from './en.json';
 import fi from './fi.json';
 import sv from './sv.json';
+import setYupLocale from './setYupLocale';
 
 i18n
   .use(LanguageDetector)
@@ -30,5 +31,7 @@ i18n
       caches: ['localStorage', 'cookie'],
     },
   });
+
+setYupLocale();
 
 export default i18n;

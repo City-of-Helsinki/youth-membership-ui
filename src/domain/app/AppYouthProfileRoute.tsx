@@ -1,49 +1,64 @@
-import React, { useState } from 'react';
-import { Route, Redirect, RouteProps } from 'react-router';
-import { useQuery } from '@apollo/react-hooks';
+import React from 'react';
+import { Redirect, RouteProps, RouteComponentProps } from 'react-router';
+import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 import { isValid, parseISO } from 'date-fns';
 
+import AppPageTitleRoute from './AppPageTitleRoute';
 import { HasYouthProfile } from '../../graphql/generatedTypes';
 import getCookie from '../../common/helpers/getCookie';
 import LoadingContent from '../../common/components/loading/LoadingContent';
-import NotificationComponent from '../../common/components/notification/NotificationComponent';
+import toastNotification from '../../common/helpers/toastNotification/toastNotification';
 
 const HAS_YOUTH_PROFILE = loader(
   '../youthProfile/graphql/HasYouthProfile.graphql'
 );
 
-type Props = RouteProps;
+interface Props extends RouteProps {
+  component: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  | React.ComponentType<RouteComponentProps<any>>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    | React.ComponentType<any>;
+  pageTitle: string;
+}
 
-function AppYouthProfileRoute(props: Props) {
+function AppYouthProfileRoute({
+  component: Component,
+  pageTitle,
+  ...rest
+}: Props) {
   const { t } = useTranslation();
-  const [showNotification, setShowNotification] = useState<boolean>(false);
 
   const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
-    onError: () => {
-      setShowNotification(true);
-    },
+    onError: () => toastNotification(),
   });
 
-  const isYouthProfileFound = Boolean(data?.myProfile?.youthProfile);
+  const isYouthProfileFound = Boolean(data?.myYouthProfile?.membershipStatus);
   const birthDate = getCookie('birthDate');
   const isBirthDateValid = isValid(parseISO(birthDate));
 
   return (
     <>
-      <LoadingContent isLoading={loading} loadingText={t('profile.verifying')}>
-        {isYouthProfileFound ? (
-          <Route {...props} />
-        ) : !isBirthDateValid ? (
-          <Redirect to="/login" />
-        ) : (
-          <Redirect to="/create" />
-        )}
-      </LoadingContent>
-      <NotificationComponent
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
+      <AppPageTitleRoute
+        pageTitle={pageTitle}
+        {...rest}
+        render={(routeComponentProps: RouteComponentProps) => {
+          return (
+            <LoadingContent
+              isLoading={loading}
+              loadingText={t('profile.verifying')}
+            >
+              {isYouthProfileFound ? (
+                <Component {...routeComponentProps} />
+              ) : !isBirthDateValid ? (
+                <Redirect to="/login" />
+              ) : (
+                <Redirect to="/create" />
+              )}
+            </LoadingContent>
+          );
+        }}
       />
     </>
   );

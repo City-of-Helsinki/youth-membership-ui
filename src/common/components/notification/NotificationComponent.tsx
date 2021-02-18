@@ -1,32 +1,25 @@
-import React, { PropsWithChildren } from 'react';
-import { DismissableNotification } from 'hds-react';
+import React from 'react';
+import { Notification } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
+import { NotificationOptions as Props } from '../../helpers/toastNotification/toastNotification';
 import styles from './NotificationComponent.module.css';
-
-type Props = PropsWithChildren<{
-  show: boolean;
-  labelText?: string;
-  type?: 'error' | 'success' | 'warning' | 'notification';
-  onClose?: () => void;
-}>;
 
 function NotificationComponent(props: Props) {
   const { t } = useTranslation();
-  if (!props.show) return null;
   return (
-    <div className={styles.notification}>
-      <DismissableNotification
-        type={props.type || 'error'}
-        labelText={props.labelText || t('notification.defaultErrorTitle')}
-        closeButtonLabelText={t('notification.closeButtonText')}
-        onClose={props.onClose}
-      >
-        <div className={styles.messageWrapper}>
-          {props.children || t('notification.defaultErrorText')}
-        </div>
-      </DismissableNotification>
-    </div>
+    <Notification
+      dismissible
+      type={props.type || 'error'}
+      label={props.labelText || t('notification.defaultErrorTitle')}
+      closeButtonLabelText={t('notification.closeButtonText') as string}
+      className={styles.notification}
+      onClose={props.onClose}
+    >
+      <div className={styles.messageWrapper}>
+        {props.notificationMessage || t('notification.defaultErrorText')}
+      </div>
+    </Notification>
   );
 }
 

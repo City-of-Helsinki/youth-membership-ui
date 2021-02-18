@@ -1,13 +1,13 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router';
 import { loader } from 'graphql.macro';
 
 import { membershipDetailsData } from '../../../../common/test/membershipDetailsData';
-import MembershipDetailsPage from '../MembershipDetailsPage';
 import {
-  mountWithApolloProvider,
-  updateWrapper,
-} from '../../../../common/test/testUtils';
+  render,
+  screen,
+  waitFor,
+} from '../../../../common/test/testing-library';
+import MembershipDetailsPage from '../MembershipDetailsPage';
 
 const MEMBERSHIP_DETAILS = loader('../../graphql/MembershipDetails.graphql');
 
@@ -44,32 +44,16 @@ const expectedValues = [
 ];
 
 const getWrapper = () => {
-  return mountWithApolloProvider(
-    <MemoryRouter>
-      <MembershipDetailsPage />
-    </MemoryRouter>,
-    mocks
-  );
-};
-
-type ComponentValues = {
-  label: string;
-  value: string;
+  return render(<MembershipDetailsPage />, mocks);
 };
 
 test('all data is present', async () => {
-  const wrapper = getWrapper();
-  await updateWrapper(wrapper);
+  getWrapper();
 
-  const labeledValues = wrapper.find('LabeledValue .wrapper');
-  const componentValues: ComponentValues[] = labeledValues.map(subWrapper => {
-    const label = subWrapper.find('.label');
-    const value = subWrapper.find('.value');
-    return {
-      label: label.text(),
-      value: value.text(),
-    };
+  await waitFor(() => screen.getByText('Omat tiedot'));
+
+  expectedValues.forEach(({ label, value }) => {
+    expect(screen.getAllByText(label)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(value)[0]).toBeInTheDocument();
   });
-
-  expect(componentValues).toEqual(expectedValues);
 });

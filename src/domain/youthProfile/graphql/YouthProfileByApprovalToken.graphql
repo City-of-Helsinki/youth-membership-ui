@@ -1,6 +1,25 @@
-#import "../../membership/graphql/MembershipDetailsFragment.graphql
 query YouthProfileByApprovalToken($token: String!) {
   youthProfileByApprovalToken(token: $token) {
-    ...MembershipDetailsFragment
+    birthDate
+    schoolName
+    schoolClass
+    languageAtHome
+    photoUsageApproved
+    approverFirstName
+    approverLastName
+    approverEmail
+    approverPhone
+    membershipNumber
+    additionalContactPersons {
+      edges {
+        node {
+          id
+          firstName
+          lastName
+          phone
+          email
+        }
+      }
+    }
   }
 }

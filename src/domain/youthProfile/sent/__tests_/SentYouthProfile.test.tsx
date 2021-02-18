@@ -1,13 +1,12 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router';
 import { loader } from 'graphql.macro';
-import toJson from 'enzyme-to-json';
 
-import ViewYouthProfile from '../SentYouthProfile';
 import {
-  mountWithApolloProvider,
-  updateWrapper,
-} from '../../../../common/test/testUtils';
+  render,
+  waitFor,
+  screen,
+} from '../../../../common/test/testing-library';
+import ViewYouthProfile from '../SentYouthProfile';
 
 const APPROVER_EMAIL = loader('../../graphql/ApproverEmail.graphql');
 
@@ -19,7 +18,7 @@ const mocks = [
     },
     result: {
       data: {
-        youthProfile: {
+        myYouthProfile: {
           approverEmail: 'ville.vanhempi@test.fi',
           __typename: 'YouthProfileType',
         },
@@ -30,27 +29,20 @@ const mocks = [
 ];
 
 const getWrapper = () => {
-  return mountWithApolloProvider(
-    <MemoryRouter>
-      <ViewYouthProfile />
-    </MemoryRouter>,
-    mocks
-  );
+  return render(<ViewYouthProfile />, mocks);
 };
 
 test('match snapshot', async () => {
-  const wrapper = getWrapper();
-  await updateWrapper(wrapper);
-  const hostingBox = wrapper.find('.hostingBox');
-  expect(toJson(hostingBox)).toMatchSnapshot();
+  const wrapper = render(<ViewYouthProfile />, mocks);
+  expect(wrapper.container).toMatchSnapshot();
 });
 
 test('renders view with approver email', async () => {
-  const wrapper = getWrapper();
-  await updateWrapper(wrapper);
+  getWrapper();
 
-  const helpText = wrapper.find('.helpText').text();
-  expect(helpText).toEqual(
-    'Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen ville.vanhempi@test.fi.'
+  await waitFor(() =>
+    screen.getByText(
+      'Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen ville.vanhempi@test.fi.'
+    )
   );
 });

@@ -1,11 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
 
+import { render } from '../../../../test/testing-library';
 import Header from '../Header';
 
 test('matches snapshot', () => {
-  const wrapper = shallow(<Header />);
+  const wrapper = render(<Header />);
 
-  expect(toJson(wrapper)).toMatchSnapshot();
+  expect(wrapper.container).toMatchSnapshot();
 });

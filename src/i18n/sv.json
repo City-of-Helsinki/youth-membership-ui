@@ -51,6 +51,12 @@
     "sendAgainHelpText": "Verifieringsmeddelandet har skickats på nytt till",
     "title": "Din ansökan har skickats till din vårdnadshavare för att godkännas!"
   },
+  "edit": {
+    "pageTitle": "Redigera egen information"
+  },
+  "externalLink": {
+    "description": "Öppnas i nytt fönster"
+  },
   "footer": {
     "accessibility": "Tillgänglighetsdokument",
     "copyright": "Helsingfors stad",
@@ -80,6 +86,7 @@
     "registrationForm": "http://jassari.munstadi.fi/files/2020/07/Jasenkorttikaavake_2020_ruotsi.pdf",
     "registrationFormText": "Ladda ner ansökningsblanketten ",
     "return": "Gå tillbaka",
+    "pageTitle": "Ungdomskort",
     "title": "Skaffa Jässäri!"
   },
   "membershipDetails": {
@@ -93,6 +100,7 @@
     "title": "Egna uppgifter"
   },
   "membershipInformation": {
+    "pageTitle": "Medlemskapsinformation",
     "renew": "Förnya medlemskapet",
     "renewSuccessMessage": "Medlemskapet förnyades framgångsrikt!",
     "renewSuccessTitle": "Framgång",
@@ -107,7 +115,10 @@
     "menuButtonLabel": "Profilmeny",
     "profile": "Helsingfors profil",
     "signin": "Logga in",
-    "signout": "Logga ut"
+    "signout": "Logga ut",
+    "menu": "Meny",
+    "skipToContent": "Gå till huvudinnehåll",
+    "helsinki": "Helsingfors"
   },
   "notification": {
     "closeButtonText": "Stäng",
@@ -155,6 +166,7 @@
     "lastName": "Efternamn",
     "membershipInfoText": "Medlemskapet är avgiftsfritt och förpliktar inte till något. För att delta i ungdomsgårdarnas verksamhet måste du ha ett medlemsskap. Vi överlåter inte dina kontaktuppgifter till utomstående. Du har också rätt att kontrollera och radera dina uppgifter. Kom ihåg att ungdomsverksamheten är drogfri.",
     "month": "Månad",
+    "pageTitle": "Skapa profil",
     "phoneNumber": "Telefon",
     "photoUsageApproved": "Fotograferingstillstånd",
     "photoUsageApprovedNo": "Nej",
@@ -174,7 +186,6 @@
     "addGuardianText": "Vid behov kan andra vårdnadshavare kontaktas i frågor som rör ditt ungdomsmedlemskap.",
     "remove": "Radera"
   },
-  "En begäran om dataverifiering skickas till föräldern och efter att dina uppgifter är granskade och godkända träder ditt medlemskap i kraft.": "",
   "registry": {
     "descriptionLink": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Medlemsregister%20f%C3%B6r%20ungdomstj%C3%A4nsterna.pdf"
   },
@@ -200,12 +211,12 @@
     "updated": "Uppdaterad 20.1.2020"
   },
   "validation": {
-    "email": "Ogiltig e-postadress",
-    "invalidValue": "Ogiltigt värde",
-    "phoneMin": "Minst sex tecken",
-    "required": "Nödvändig",
-    "tooLong": "För lång",
-    "tooShort": "För kort"
+    "email": "Ange en giltig e-postadress",
+    "invalidPostalCode": "Fyll i ett giltigt postnummer",
+    "requiredTerms": "Godkänn villkoren",
+    "required": "Fyll i {{label}}",
+    "tooLong": "Fyll i {{label}} som är mindre än {{max}} tecken långt",
+    "tooShort": "Fyll i {{label}} som är mer än {{min}} tecken långt"
   },
   "youthProfile": {
     "approverEmail": "Epost",
@@ -225,12 +236,25 @@
     "content": "Välkommen som medlem i Helsingfors stads ungdomstjänster! {{ youth_profile.approver_first_name }} har godkänt ditt edlemskap i Helsingfors stads ungdomstjänster. Ditt digitala medlemskort kan hittas här: <a href=\"https://jassari.hel.fi\">https://jassari.hel.fi</a><br /><br />Mer information om medlemskapet i ungdomstjänsterna och förmånerna finns på adressen <a href=\"http://jassari.munstadi.fi/sv/\">http://jassari.munstadi.fi/sv/<a/><br /><br /> <i>Det här meddelandet skickades automatiskt från våra system. Svara inte på det här meddelandet eftersom svaren inte kommer att behandlas. </i>"
   },
   "emailRenew": {
-    "heading": "Hejsan {{ youth_profile.profile.first_name }}! Ditt medlemskap i ungdomstjänsterna håller på att gå ut. Det är enkelt att förnya medlemskapet här https://jassari.hel.fi/ <br /><br />Mer information om medlemskapet i ungdomstjänsterna och förmånerna finns på adressen <a href=\"http://jassari.munstadi.fi/sv/\">http://jassari.munstadi.fi/sv/<a/><br /><br /> <i>Det här meddelandet skickades automatiskt från våra system. Svara inte på det här meddelandet eftersom svaren inte kommer att behandlas. </i>"
+    "heading": "{{ youth_profile.profile.first_name }} ditt medlemskap i ungdomstjänsterna håller på att gå ut",
+    "content": "Hejsan {{ youth_profile.profile.first_name }}! Ditt medlemskap i ungdomstjänsterna håller på att gå ut. Det är enkelt att förnya medlemskapet här https://jassari.hel.fi/ <br /><br />Mer information om medlemskapet i ungdomstjänsterna och förmånerna finns på adressen <a href=\"http://jassari.munstadi.fi/sv/\">http://jassari.munstadi.fi/sv/<a/><br /><br /> <i>Det här meddelandet skickades automatiskt från våra system. Svara inte på det här meddelandet eftersom svaren inte kommer att behandlas. </i>"
   },
   "feedback": {
     "giveFeedback": {
       "label": "Ge respons om Jässäri tjänsten",
       "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0mf1gIUZ-k768RkOdBQm3bjp6TCDWQa1Wc1r_3WiYbDXLAA/viewform?usp=pp_url&entry.1982410290=J%C3%A4ss%C3%A4ri"
     }
+  },
+  "fields": {
+    "firstName": "ett förnamn",
+    "lastName": "ett efternamn",
+    "streetAddress": "en gatuadress",
+    "postalCode": "ett postnummer",
+    "city": "en stad",
+    "phoneNumber": "ett telefonnummer",
+    "email": "en e-postadress",
+    "schoolName": "ett skolnamn",
+    "schoolClass": "en skolklass",
+    "photoUsageApproved": "tillstånd för fotografering"
   }
 }

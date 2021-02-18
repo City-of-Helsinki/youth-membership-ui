@@ -1,1279 +1,525 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<ApproveYouthProfileForm
-  isSubmitting={false}
-  onSubmit={[MockFunction]}
-  profile={
-    Object {
-      "additionalContactPersons": Array [],
-      "address": "Testikuja 55, 00100 Helsinki",
-      "addresses": Array [
-        "Kymintie 43, 00100 Helsinki",
-      ],
-      "approverEmail": "ville.vanhempi@test.fi",
-      "approverFirstName": "Ville",
-      "approverLastName": "Vanhempi",
-      "approverPhone": "05012345567",
-      "birthDate": "2006-01-01",
-      "email": "teemu.testaaja@test.fi",
-      "firstName": "Teemu",
-      "language": "FINNISH",
-      "languageAtHome": "FINNISH",
-      "lastName": "Testaaja",
-      "phone": "050123467",
-      "photoUsageApproved": "false",
-      "schoolClass": "Luokka",
-      "schoolName": "Koulu",
-    }
-  }
->
-  <Formik
-    enableReinitialize={true}
-    initialValues={
-      Object {
-        "additionalContactPersons": Array [],
-        "address": "Testikuja 55, 00100 Helsinki",
-        "addresses": Array [
-          "Kymintie 43, 00100 Helsinki",
-        ],
-        "approverEmail": "ville.vanhempi@test.fi",
-        "approverFirstName": "Ville",
-        "approverLastName": "Vanhempi",
-        "approverPhone": "05012345567",
-        "birthDate": "2006-01-01",
-        "email": "teemu.testaaja@test.fi",
-        "firstName": "Teemu",
-        "language": "FINNISH",
-        "languageAtHome": "FINNISH",
-        "lastName": "Testaaja",
-        "phone": "050123467",
-        "photoUsageApproved": "false",
-        "schoolClass": "Luokka",
-        "schoolName": "Koulu",
-        "terms": false,
-      }
-    }
-    onSubmit={[Function]}
-    validationSchema={
-      ObjectSchema {
-        "_blacklist": RefSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "_conditions": Array [],
-        "_defaultDefault": [Function],
-        "_deps": Array [],
-        "_excludedEdges": Array [],
-        "_exclusive": Object {},
-        "_mutate": undefined,
-        "_nodes": Array [
-          "additionalContactPersons",
-          "phone",
-          "approverEmail",
-          "approverLastName",
-          "approverFirstName",
-          "terms",
-        ],
-        "_options": Object {
-          "abortEarly": true,
-          "recursive": true,
-        },
-        "_type": "object",
-        "_typeError": [Function],
-        "_whitelist": RefSet {
-          "list": Set {},
-          "refs": Map {},
-        },
-        "fields": Object {
-          "additionalContactPersons": ArraySchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {},
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_subType": ObjectSchema {
-              "_blacklist": RefSet {
-                "list": Set {},
-                "refs": Map {},
-              },
-              "_conditions": Array [],
-              "_defaultDefault": [Function],
-              "_deps": Array [],
-              "_excludedEdges": Array [],
-              "_exclusive": Object {},
-              "_mutate": undefined,
-              "_nodes": Array [
-                "email",
-                "phone",
-                "lastName",
-                "firstName",
-              ],
-              "_options": Object {
-                "abortEarly": true,
-                "recursive": true,
-              },
-              "_type": "object",
-              "_typeError": [Function],
-              "_whitelist": RefSet {
-                "list": Set {},
-                "refs": Map {},
-              },
-              "fields": Object {
-                "email": StringSchema {
-                  "_blacklist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "_conditions": Array [],
-                  "_deps": Array [],
-                  "_exclusive": Object {
-                    "required": true,
-                  },
-                  "_mutate": undefined,
-                  "_options": Object {
-                    "abortEarly": true,
-                    "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "tests": Array [
-                    [Function],
-                  ],
-                  "transforms": Array [
-                    [Function],
-                  ],
-                },
-                "firstName": StringSchema {
-                  "_blacklist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "_conditions": Array [],
-                  "_deps": Array [],
-                  "_exclusive": Object {
-                    "required": true,
-                  },
-                  "_mutate": undefined,
-                  "_options": Object {
-                    "abortEarly": true,
-                    "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "tests": Array [
-                    [Function],
-                  ],
-                  "transforms": Array [
-                    [Function],
-                  ],
-                },
-                "lastName": StringSchema {
-                  "_blacklist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "_conditions": Array [],
-                  "_deps": Array [],
-                  "_exclusive": Object {
-                    "required": true,
-                  },
-                  "_mutate": undefined,
-                  "_options": Object {
-                    "abortEarly": true,
-                    "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "tests": Array [
-                    [Function],
-                  ],
-                  "transforms": Array [
-                    [Function],
-                  ],
-                },
-                "phone": StringSchema {
-                  "_blacklist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "_conditions": Array [],
-                  "_deps": Array [],
-                  "_exclusive": Object {
-                    "required": true,
-                  },
-                  "_mutate": undefined,
-                  "_options": Object {
-                    "abortEarly": true,
-                    "recursive": true,
-                  },
-                  "_type": "string",
-                  "_typeError": [Function],
-                  "_whitelist": RefSet {
-                    "list": Set {},
-                    "refs": Map {},
-                  },
-                  "tests": Array [
-                    [Function],
-                  ],
-                  "transforms": Array [
-                    [Function],
-                  ],
-                },
-              },
-              "tests": Array [],
-              "transforms": Array [
-                [Function],
-              ],
-            },
-            "_type": "array",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "tests": Array [],
-            "transforms": Array [
-              [Function],
-            ],
-          },
-          "approverEmail": StringSchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
-              "required": true,
-              "undefined": false,
-            },
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-            ],
-          },
-          "approverFirstName": StringSchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
-              "max": true,
-              "min": true,
-              "required": true,
-            },
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-            ],
-          },
-          "approverLastName": StringSchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
-              "max": true,
-              "min": true,
-              "required": true,
-            },
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-            ],
-          },
-          "phone": StringSchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {
-              "min": true,
-              "required": true,
-            },
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_type": "string",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "tests": Array [
-              [Function],
-              [Function],
-            ],
-            "transforms": Array [
-              [Function],
-            ],
-          },
-          "terms": BooleanSchema {
-            "_blacklist": RefSet {
-              "list": Set {},
-              "refs": Map {},
-            },
-            "_conditions": Array [],
-            "_deps": Array [],
-            "_exclusive": Object {},
-            "_mutate": undefined,
-            "_options": Object {
-              "abortEarly": true,
-              "recursive": true,
-            },
-            "_type": "boolean",
-            "_typeError": [Function],
-            "_whitelist": RefSet {
-              "list": Set {
-                true,
-              },
-              "refs": Map {},
-            },
-            "_whitelistError": [Function],
-            "tests": Array [],
-            "transforms": Array [
-              [Function],
-            ],
-          },
-        },
-        "tests": Array [],
-        "transforms": Array [
-          [Function],
-          [Function],
-        ],
-      }
-    }
+<div>
+  <div
+    class="stack xl"
   >
-    <Stack
-      space="xl"
+    <div>
+      <h1
+        class="text h1 "
+      >
+        Hyväksy jäsenyys
+      </h1>
+      <p
+        class="text info "
+      >
+        Teemu
+         
+        on lähettänyt hyväksyttäväksesi Helsingin kaupungin nuorisopalvelujen jäsenyyshakemuksen. Jäsenyys on maksuton. Hyväksymällä hakemuksen,
+         
+        Teemu
+         
+        voi viettää aikaa nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uusi varmistusviesti.
+      </p>
+    </div>
+    <div>
+      <h2
+        class="text h2 "
+      >
+        Perustiedot
+      </h2>
+      <div
+        class="grid"
+      >
+        <div
+          class="wrapper noMargin"
+        >
+          <strong
+            class="label"
+          >
+            Nimi
+          </strong>
+          <span
+            class="value"
+          >
+            Teemu Testaaja
+          </span>
+        </div>
+        <div
+          class="wrapper noMargin"
+        >
+          <strong
+            class="label"
+          >
+            Syntymäpäivä
+          </strong>
+          <span
+            class="value"
+          >
+            01.01.2007
+          </span>
+        </div>
+        <div
+          class="wrapper noMargin"
+        >
+          <strong
+            class="label"
+          >
+            Sähköposti
+          </strong>
+          <span
+            class="value"
+          >
+            teemu.testaaja@test.fi
+          </span>
+        </div>
+        <div
+          class="wrapper noMargin"
+        >
+          <strong
+            class="label"
+          >
+            Puhelinnumero
+          </strong>
+          <span
+            class="value"
+          >
+            050123467
+          </span>
+        </div>
+        <div
+          class="wrapper noMargin"
+        >
+          <strong
+            class="label"
+          >
+            Profiilin kieli
+          </strong>
+          <span
+            class="value"
+          >
+            Suomi
+          </span>
+        </div>
+        <div
+          class="gridRow"
+        >
+          <div
+            class="wrapper noMargin"
+          >
+            <strong
+              class="label"
+            >
+              Osoite
+            </strong>
+            <span
+              class="value"
+            >
+              Testikuja 55, 00100 Helsinki
+            </span>
+          </div>
+          <div
+            class="wrapper noMargin"
+          >
+            <strong
+              class="label"
+            >
+              Osoite 2
+            </strong>
+            <span
+              class="value"
+            >
+              Kymintie 43, 00100 Helsinki
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2
+        class="text h2 "
+      >
+        Lisätiedot
+      </h2>
+      <div
+        class="grid"
+      >
+        <div
+          class="wrapper noMargin"
+        >
+          <strong
+            class="label"
+          >
+            Koulu ja luokka
+          </strong>
+          <span
+            class="value"
+          >
+            Koulu, Luokka
+          </span>
+        </div>
+        <div
+          class="wrapper noMargin"
+        >
+          <strong
+            class="label"
+          >
+            Kotona puhutut kielet
+          </strong>
+          <span
+            class="value"
+          >
+            Suomi
+          </span>
+        </div>
+      </div>
+    </div>
+    <form
+      action="#"
     >
       <div
-        className="stack xl"
+        class="stack xl"
       >
         <div>
-          <Text
-            variant="h1"
+          <h2
+            class="text h2 "
           >
-            <h1
-              className="text h1 "
+            Huoltajalta vaadittavat luvat
+          </h2>
+          <h3
+            class="text h3 "
+          >
+            Kuvauslupa
+          </h3>
+          <p
+            class="text info "
+          >
+            Lapsesta voi ottaa kuvia ja niitä saa käyttää Helsingin kaupungin viestinnässä ja markkinoinnissa painetussa ja sähköisessä mediassa. Kuvaamisesta ja kuvien käytöstä ei makseta korvausta. Oikeus kuvien käyttöön on aina voimassa ja koskee koko Helsingin kaupungin viestintää ja markkinointiviestintää.
+          </p>
+          <div
+            class="formFields"
+          >
+            <ul
+              class="list"
             >
-              Hyväksy jäsenyys
-            </h1>
-          </Text>
-          <Text
-            variant="info"
-          >
-            <p
-              className="text info "
-            >
-              Teemu
-               
-              on lähettänyt hyväksyttäväksesi Helsingin kaupungin nuorisopalvelujen jäsenyyshakemuksen. Jäsenyys on maksuton. Hyväksymällä hakemuksen,
-               
-              Teemu
-               
-              voi viettää aikaa nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uusi varmistusviesti.
-            </p>
-          </Text>
-        </div>
-        <div>
-          <Text
-            variant="h2"
-          >
-            <h2
-              className="text h2 "
-            >
-              Perustiedot
-            </h2>
-          </Text>
-          <BasicInformationGrid
-            addresses={
-              Array [
-                "Testikuja 55, 00100 Helsinki",
-                "Kymintie 43, 00100 Helsinki",
-              ]
-            }
-            birthDate="01.01.2006"
-            email="teemu.testaaja@test.fi"
-            language="FINNISH"
-            name="Teemu Testaaja"
-            phone="050123467"
-          >
-            <InfoGrid>
-              <div
-                className="grid"
+              <li
+                class="radioButtonRow"
               >
-                <LabeledValue
-                  label="Nimi"
-                  noMargin={true}
-                  value="Teemu Testaaja"
+                <div
+                  class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
                 >
-                  <div
-                    className="wrapper noMargin"
+                  <input
+                    class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                    id="photoUsageApprovedYes"
+                    name="photoUsageApproved"
+                    type="radio"
+                    value="true"
+                  />
+                  <label
+                    class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                    for="photoUsageApprovedYes"
                   >
-                    <strong
-                      className="label"
-                    >
-                      Nimi
-                    </strong>
-                    <span
-                      className="value"
-                    >
-                      Teemu Testaaja
-                    </span>
-                  </div>
-                </LabeledValue>
-                <LabeledValue
-                  label="Syntymäpäivä"
-                  noMargin={true}
-                  value="01.01.2006"
+                    Kyllä
+                  </label>
+                </div>
+              </li>
+              <li
+                class="radioButtonRow"
+              >
+                <div
+                  class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
                 >
-                  <div
-                    className="wrapper noMargin"
+                  <input
+                    checked=""
+                    class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                    id="photoUsageApprovedNo"
+                    name="photoUsageApproved"
+                    type="radio"
+                    value="false"
+                  />
+                  <label
+                    class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                    for="photoUsageApprovedNo"
                   >
-                    <strong
-                      className="label"
-                    >
-                      Syntymäpäivä
-                    </strong>
-                    <span
-                      className="value"
-                    >
-                      01.01.2006
-                    </span>
-                  </div>
-                </LabeledValue>
-                <LabeledValue
-                  label="Sähköposti"
-                  noMargin={true}
-                  value="teemu.testaaja@test.fi"
-                >
-                  <div
-                    className="wrapper noMargin"
-                  >
-                    <strong
-                      className="label"
-                    >
-                      Sähköposti
-                    </strong>
-                    <span
-                      className="value"
-                    >
-                      teemu.testaaja@test.fi
-                    </span>
-                  </div>
-                </LabeledValue>
-                <LabeledValue
-                  label="Puhelinnumero"
-                  noMargin={true}
-                  value="050123467"
-                >
-                  <div
-                    className="wrapper noMargin"
-                  >
-                    <strong
-                      className="label"
-                    >
-                      Puhelinnumero
-                    </strong>
-                    <span
-                      className="value"
-                    >
-                      050123467
-                    </span>
-                  </div>
-                </LabeledValue>
-                <LabeledValue
-                  label="Profiilin kieli"
-                  noMargin={true}
-                  value="Suomi"
-                >
-                  <div
-                    className="wrapper noMargin"
-                  >
-                    <strong
-                      className="label"
-                    >
-                      Profiilin kieli
-                    </strong>
-                    <span
-                      className="value"
-                    >
-                      Suomi
-                    </span>
-                  </div>
-                </LabeledValue>
-                <InfoGridRow>
-                  <div
-                    className="gridRow"
-                  >
-                    <LabeledValue
-                      key="Testikuja 55, 00100 Helsinki"
-                      label="Osoite"
-                      noMargin={true}
-                      value="Testikuja 55, 00100 Helsinki"
-                    >
-                      <div
-                        className="wrapper noMargin"
-                      >
-                        <strong
-                          className="label"
-                        >
-                          Osoite
-                        </strong>
-                        <span
-                          className="value"
-                        >
-                          Testikuja 55, 00100 Helsinki
-                        </span>
-                      </div>
-                    </LabeledValue>
-                    <LabeledValue
-                      key="Kymintie 43, 00100 Helsinki"
-                      label="Osoite 2"
-                      noMargin={true}
-                      value="Kymintie 43, 00100 Helsinki"
-                    >
-                      <div
-                        className="wrapper noMargin"
-                      >
-                        <strong
-                          className="label"
-                        >
-                          Osoite 2
-                        </strong>
-                        <span
-                          className="value"
-                        >
-                          Kymintie 43, 00100 Helsinki
-                        </span>
-                      </div>
-                    </LabeledValue>
-                  </div>
-                </InfoGridRow>
-              </div>
-            </InfoGrid>
-          </BasicInformationGrid>
+                    Ei
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
         <div>
-          <Text
-            variant="h2"
+          <h2
+            class="text h2 "
           >
-            <h2
-              className="text h2 "
-            >
-              Lisätiedot
-            </h2>
-          </Text>
-          <InfoGrid>
+            Huoltajan tiedot
+          </h2>
+          <p
+            class="text info "
+          >
+            Huoltajaan voidaan olla yhteydessä lasta koskevissa asioissa.
+          </p>
+          <div
+            class="stack xl"
+          >
             <div
-              className="grid"
-            >
-              <LabeledValue
-                label="Koulu ja luokka"
-                noMargin={true}
-                value="Koulu, Luokka"
-              >
-                <div
-                  className="wrapper noMargin"
-                >
-                  <strong
-                    className="label"
-                  >
-                    Koulu ja luokka
-                  </strong>
-                  <span
-                    className="value"
-                  >
-                    Koulu, Luokka
-                  </span>
-                </div>
-              </LabeledValue>
-              <LabeledValue
-                label="Kotona puhutut kielet"
-                noMargin={true}
-                value="Suomi"
-              >
-                <div
-                  className="wrapper noMargin"
-                >
-                  <strong
-                    className="label"
-                  >
-                    Kotona puhutut kielet
-                  </strong>
-                  <span
-                    className="value"
-                  >
-                    Suomi
-                  </span>
-                </div>
-              </LabeledValue>
-            </div>
-          </InfoGrid>
-        </div>
-        <Form>
-          <form
-            action="#"
-            onReset={[Function]}
-            onSubmit={[Function]}
-          >
-            <Stack
-              space="xl"
+              class="formGrid vertical-default"
             >
               <div
-                className="stack xl"
+                class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input"
               >
-                <div />
-                <div>
-                  <Text
-                    variant="h2"
-                  >
-                    <h2
-                      className="text h2 "
-                    >
-                      Huoltajan tiedot
-                    </h2>
-                  </Text>
-                  <Text
-                    variant="info"
-                  >
-                    <p
-                      className="text info "
-                    >
-                      Huoltajaan voidaan olla yhteydessä lasta koskevissa asioissa.
-                    </p>
-                  </Text>
-                  <YouthProfileApproverFields
-                    additionalContactPersonHelperText="Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa."
-                  >
-                    <Stack
-                      space="xl"
-                    >
-                      <div
-                        className="stack xl"
-                      >
-                        <YouthProfileFormGrid>
-                          <div
-                            className="formGrid vertical-default"
-                          >
-                            <FormikTestInput
-                              id="approverFirstName"
-                              labelText="Etunimi *"
-                              name="approverFirstName"
-                            >
-                              <Field
-                                name="approverFirstName"
-                              >
-                                <ForwardRef
-                                  id="approverFirstName"
-                                  invalid={false}
-                                  labelText="Etunimi *"
-                                  name="approverFirstName"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  value="Ville"
-                                >
-                                  <InputWrapper
-                                    className=""
-                                    id="approverFirstName"
-                                    invalid={false}
-                                    labelText="Etunimi *"
-                                  >
-                                    <div
-                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
-                                    >
-                                      <FieldLabel
-                                        hidden={false}
-                                        inputId="approverFirstName"
-                                        label="Etunimi *"
-                                        required={false}
-                                      >
-                                        <label
-                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                                          htmlFor="approverFirstName"
-                                        >
-                                          Etunimi *
-                                        </label>
-                                      </FieldLabel>
-                                      <div
-                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
-                                      >
-                                        <input
-                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                                          disabled={false}
-                                          id="approverFirstName"
-                                          name="approverFirstName"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          type="text"
-                                          value="Ville"
-                                        />
-                                      </div>
-                                    </div>
-                                  </InputWrapper>
-                                </ForwardRef>
-                              </Field>
-                            </FormikTestInput>
-                            <FormikTestInput
-                              id="approverLastName"
-                              labelText="Sukunimi *"
-                              name="approverLastName"
-                            >
-                              <Field
-                                name="approverLastName"
-                              >
-                                <ForwardRef
-                                  id="approverLastName"
-                                  invalid={false}
-                                  labelText="Sukunimi *"
-                                  name="approverLastName"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  value="Vanhempi"
-                                >
-                                  <InputWrapper
-                                    className=""
-                                    id="approverLastName"
-                                    invalid={false}
-                                    labelText="Sukunimi *"
-                                  >
-                                    <div
-                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
-                                    >
-                                      <FieldLabel
-                                        hidden={false}
-                                        inputId="approverLastName"
-                                        label="Sukunimi *"
-                                        required={false}
-                                      >
-                                        <label
-                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                                          htmlFor="approverLastName"
-                                        >
-                                          Sukunimi *
-                                        </label>
-                                      </FieldLabel>
-                                      <div
-                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
-                                      >
-                                        <input
-                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                                          disabled={false}
-                                          id="approverLastName"
-                                          name="approverLastName"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          type="text"
-                                          value="Vanhempi"
-                                        />
-                                      </div>
-                                    </div>
-                                  </InputWrapper>
-                                </ForwardRef>
-                              </Field>
-                            </FormikTestInput>
-                            <FormikTestInput
-                              id="approverEmail"
-                              labelText="Sähköpostiosoite *"
-                              name="approverEmail"
-                              type="email"
-                            >
-                              <Field
-                                name="approverEmail"
-                              >
-                                <ForwardRef
-                                  id="approverEmail"
-                                  invalid={false}
-                                  labelText="Sähköpostiosoite *"
-                                  name="approverEmail"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  type="email"
-                                  value="ville.vanhempi@test.fi"
-                                >
-                                  <InputWrapper
-                                    className=""
-                                    id="approverEmail"
-                                    invalid={false}
-                                    labelText="Sähköpostiosoite *"
-                                  >
-                                    <div
-                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
-                                    >
-                                      <FieldLabel
-                                        hidden={false}
-                                        inputId="approverEmail"
-                                        label="Sähköpostiosoite *"
-                                        required={false}
-                                      >
-                                        <label
-                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                                          htmlFor="approverEmail"
-                                        >
-                                          Sähköpostiosoite *
-                                        </label>
-                                      </FieldLabel>
-                                      <div
-                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
-                                      >
-                                        <input
-                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                                          disabled={false}
-                                          id="approverEmail"
-                                          name="approverEmail"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          type="email"
-                                          value="ville.vanhempi@test.fi"
-                                        />
-                                      </div>
-                                    </div>
-                                  </InputWrapper>
-                                </ForwardRef>
-                              </Field>
-                            </FormikTestInput>
-                            <FormikTestInput
-                              id="approverPhone"
-                              labelText="Puhelinnumero *"
-                              name="approverPhone"
-                              type="tel"
-                            >
-                              <Field
-                                name="approverPhone"
-                              >
-                                <ForwardRef
-                                  id="approverPhone"
-                                  invalid={false}
-                                  labelText="Puhelinnumero *"
-                                  name="approverPhone"
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  type="tel"
-                                  value="05012345567"
-                                >
-                                  <InputWrapper
-                                    className=""
-                                    id="approverPhone"
-                                    invalid={false}
-                                    labelText="Puhelinnumero *"
-                                  >
-                                    <div
-                                      className="TextInput-module_root__1ceal text-input_hds-text-input__24bl6"
-                                    >
-                                      <FieldLabel
-                                        hidden={false}
-                                        inputId="approverPhone"
-                                        label="Puhelinnumero *"
-                                        required={false}
-                                      >
-                                        <label
-                                          className="FieldLabel-module_label__2tl-4 text-input_hds-text-input__label__pDw_W "
-                                          htmlFor="approverPhone"
-                                        >
-                                          Puhelinnumero *
-                                        </label>
-                                      </FieldLabel>
-                                      <div
-                                        className="TextInput-module_inputWrapper__1ru3h text-input_hds-text-input__input-wrapper__2p7Uy"
-                                      >
-                                        <input
-                                          className="TextInput-module_input__35GDy text-input_hds-text-input__input__2XAyI"
-                                          disabled={false}
-                                          id="approverPhone"
-                                          name="approverPhone"
-                                          onBlur={[Function]}
-                                          onChange={[Function]}
-                                          type="tel"
-                                          value="05012345567"
-                                        />
-                                      </div>
-                                    </div>
-                                  </InputWrapper>
-                                </ForwardRef>
-                              </Field>
-                            </FormikTestInput>
-                          </div>
-                        </YouthProfileFormGrid>
-                        <FormGroupDescription
-                          className="additionalApproverDescription"
-                          description="Muihin ilmoitettuihin huoltajiin voidaan olla yhteydessä lasta koskevissa asioissa."
-                          name="additionalContactPersons"
-                        />
-                        <ArrayFieldTemplate
-                          addItemLabel="Lisää toisen huoltajan yhteystiedot"
-                          name="additionalContactPersons"
-                          onPushItem={[Function]}
-                          renderField={[Function]}
-                        >
-                          <FormikConnect(FieldArrayInner)
-                            name="additionalContactPersons"
-                            render={[Function]}
-                          >
-                            <FieldArrayInner
-                              formik={
-                                Object {
-                                  "dirty": false,
-                                  "errors": Object {},
-                                  "getFieldMeta": [Function],
-                                  "getFieldProps": [Function],
-                                  "handleBlur": [Function],
-                                  "handleChange": [Function],
-                                  "handleReset": [Function],
-                                  "handleSubmit": [Function],
-                                  "initialErrors": Object {},
-                                  "initialStatus": undefined,
-                                  "initialTouched": Object {},
-                                  "initialValues": Object {
-                                    "additionalContactPersons": Array [],
-                                    "address": "Testikuja 55, 00100 Helsinki",
-                                    "addresses": Array [
-                                      "Kymintie 43, 00100 Helsinki",
-                                    ],
-                                    "approverEmail": "ville.vanhempi@test.fi",
-                                    "approverFirstName": "Ville",
-                                    "approverLastName": "Vanhempi",
-                                    "approverPhone": "05012345567",
-                                    "birthDate": "2006-01-01",
-                                    "email": "teemu.testaaja@test.fi",
-                                    "firstName": "Teemu",
-                                    "language": "FINNISH",
-                                    "languageAtHome": "FINNISH",
-                                    "lastName": "Testaaja",
-                                    "phone": "050123467",
-                                    "photoUsageApproved": "false",
-                                    "schoolClass": "Luokka",
-                                    "schoolName": "Koulu",
-                                    "terms": false,
-                                  },
-                                  "isSubmitting": false,
-                                  "isValid": true,
-                                  "isValidating": false,
-                                  "registerField": [Function],
-                                  "resetForm": [Function],
-                                  "setErrors": [Function],
-                                  "setFieldError": [Function],
-                                  "setFieldTouched": [Function],
-                                  "setFieldValue": [Function],
-                                  "setFormikState": [Function],
-                                  "setStatus": [Function],
-                                  "setSubmitting": [Function],
-                                  "setTouched": [Function],
-                                  "setValues": [Function],
-                                  "status": undefined,
-                                  "submitCount": 0,
-                                  "submitForm": [Function],
-                                  "touched": Object {},
-                                  "unregisterField": [Function],
-                                  "validateField": [Function],
-                                  "validateForm": [Function],
-                                  "validateOnBlur": true,
-                                  "validateOnChange": true,
-                                  "validateOnMount": false,
-                                  "values": Object {
-                                    "additionalContactPersons": Array [],
-                                    "address": "Testikuja 55, 00100 Helsinki",
-                                    "addresses": Array [
-                                      "Kymintie 43, 00100 Helsinki",
-                                    ],
-                                    "approverEmail": "ville.vanhempi@test.fi",
-                                    "approverFirstName": "Ville",
-                                    "approverLastName": "Vanhempi",
-                                    "approverPhone": "05012345567",
-                                    "birthDate": "2006-01-01",
-                                    "email": "teemu.testaaja@test.fi",
-                                    "firstName": "Teemu",
-                                    "language": "FINNISH",
-                                    "languageAtHome": "FINNISH",
-                                    "lastName": "Testaaja",
-                                    "phone": "050123467",
-                                    "photoUsageApproved": "false",
-                                    "schoolClass": "Luokka",
-                                    "schoolName": "Koulu",
-                                    "terms": false,
-                                  },
-                                }
-                              }
-                              name="additionalContactPersons"
-                              render={[Function]}
-                              validateOnChange={true}
-                            >
-                              <Stack
-                                space="m"
-                              >
-                                <div
-                                  className="stack m"
-                                >
-                                  <ForwardRef
-                                    className="addItemButton"
-                                    iconLeft={<IconPlusCircle />}
-                                    onClick={[Function]}
-                                    type="button"
-                                    variant="supplementary"
-                                  >
-                                    <button
-                                      className="Button-module_button__3wgee button_hds-button__2A0je Button-module_supplementary__3Epn- button_hds-button--supplementary__GcHcV addItemButton"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      <div
-                                        aria-hidden="true"
-                                        className="Button-module_icon__3Wlc6 button_hds-icon__17j8Z"
-                                      >
-                                        <IconPlusCircle>
-                                          <svg
-                                            className="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
-                                            style={Object {}}
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                            <g
-                                              fill="none"
-                                              fillRule="evenodd"
-                                            >
-                                              <path
-                                                d="M0 0h24v24H0z"
-                                              />
-                                              <path
-                                                d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm1 3v4h4v2h-4v4h-2v-4H7v-2h4V7h2z"
-                                                fill="currentColor"
-                                              />
-                                            </g>
-                                          </svg>
-                                        </IconPlusCircle>
-                                      </div>
-                                      <span
-                                        className="Button-module_label__2zMLC button_hds-button__label__2EQa-"
-                                      >
-                                        Lisää toisen huoltajan yhteystiedot
-                                      </span>
-                                    </button>
-                                  </ForwardRef>
-                                </div>
-                              </Stack>
-                            </FieldArrayInner>
-                          </FormikConnect(FieldArrayInner)>
-                        </ArrayFieldTemplate>
-                      </div>
-                    </Stack>
-                  </YouthProfileApproverFields>
+                <label
+                  class="FieldLabel-module_label__1zrXK "
+                  for="approverFirstName"
+                >
+                  Etunimi *
+                </label>
+                <div
+                  class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                >
+                  <input
+                    autocomplete="given-name"
+                    class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                    id="approverFirstName"
+                    name="approverFirstName"
+                    type="text"
+                    value="Ville"
+                  />
                 </div>
-                <TermsField
-                  id="terms"
-                  name="terms"
-                >
-                  <div>
-                    <ForwardRef
-                      checked={false}
-                      id="terms"
-                      label={
-                        <span
-                          className="listLabel"
-                        >
-                          <Trans
-                            components={
-                              Array [
-                                <a
-                                  href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Nuorisopalvelujen%20j%C3%A4senrekisteri.pdf"
-                                  rel="noopener noreferrer"
-                                  target="_blank"
-                                />,
-                                <a
-                                  href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/S%C3%A4hk%C3%B6isten%20asiointipalveluiden%20rekisteri.pdf"
-                                  rel="noopener noreferrer"
-                                  target="_blank"
-                                />,
-                                <a
-                                  href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
-                                  rel="noopener noreferrer"
-                                  target="_blank"
-                                />,
-                              ]
-                            }
-                            i18nKey="approval.approveTerms"
-                          />
-                        </span>
-                      }
-                      name="terms"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      type="checkbox"
-                      value={false}
-                    >
-                      <div
-                        className="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
-                      >
-                        <input
-                          aria-checked={false}
-                          checked={false}
-                          className="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
-                          disabled={false}
-                          id="terms"
-                          name="terms"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          type="checkbox"
-                          value={false}
-                        />
-                        <label
-                          className="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
-                          htmlFor="terms"
-                        >
-                          <span
-                            className="listLabel"
-                          >
-                            <Trans
-                              components={
-                                Array [
-                                  <a
-                                    href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Nuorisopalvelujen%20j%C3%A4senrekisteri.pdf"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                  />,
-                                  <a
-                                    href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/S%C3%A4hk%C3%B6isten%20asiointipalveluiden%20rekisteri.pdf"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                  />,
-                                  <a
-                                    href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                  />,
-                                ]
-                              }
-                              i18nKey="approval.approveTerms"
-                            >
-                              Olen tutustunut 
-                              <a
-                                href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Nuorisopalvelujen%20j%C3%A4senrekisteri.pdf"
-                                key="1"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                tämän palvelun rekisteriselosteeseen
-                              </a>
-                              , 
-                              <a
-                                href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/S%C3%A4hk%C3%B6isten%20asiointipalveluiden%20rekisteri.pdf"
-                                key="3"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                Helsinki-profiilin rekisteriselosteeseen
-                              </a>
-                               ja 
-                              <a
-                                href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
-                                key="5"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                              >
-                                kaupungin tietosuojakäytäntöön
-                              </a>
-                              . Minuun voidaan olla yhteydessä antamieni tietojen avulla.
-                            </Trans>
-                          </span>
-                        </label>
-                      </div>
-                    </ForwardRef>
-                  </div>
-                </TermsField>
-                <ForwardRef
-                  className="button"
-                  type="submit"
-                >
-                  <button
-                    className="Button-module_button__3wgee button_hds-button__2A0je Button-module_primary__3bo_T button_hds-button--primary__2NVvO button"
-                    disabled={false}
-                    type="submit"
-                  >
-                    <span
-                      className="Button-module_label__2zMLC button_hds-button__label__2EQa-"
-                    >
-                      Hyväksy jäsenyys
-                    </span>
-                  </button>
-                </ForwardRef>
               </div>
-            </Stack>
-          </form>
-        </Form>
+              <div
+                class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input"
+              >
+                <label
+                  class="FieldLabel-module_label__1zrXK "
+                  for="approverLastName"
+                >
+                  Sukunimi *
+                </label>
+                <div
+                  class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                >
+                  <input
+                    autocomplete="family-name"
+                    class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                    id="approverLastName"
+                    name="approverLastName"
+                    type="text"
+                    value="Vanhempi"
+                  />
+                </div>
+              </div>
+              <div
+                class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input"
+              >
+                <label
+                  class="FieldLabel-module_label__1zrXK "
+                  for="approverEmail"
+                >
+                  Sähköpostiosoite *
+                </label>
+                <div
+                  class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                >
+                  <input
+                    autocomplete="email"
+                    class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                    id="approverEmail"
+                    name="approverEmail"
+                    type="email"
+                    value="ville.vanhempi@test.fi"
+                  />
+                </div>
+              </div>
+              <div
+                class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq input"
+              >
+                <label
+                  class="FieldLabel-module_label__1zrXK "
+                  for="approverPhone"
+                >
+                  Puhelinnumero *
+                </label>
+                <div
+                  class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+                >
+                  <input
+                    autocomplete="tel"
+                    class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                    id="approverPhone"
+                    name="approverPhone"
+                    type="tel"
+                    value="05012345567"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="stack m"
+            >
+              <button
+                class="Button-module_button__1msFE button_hds-button__2A0je Button-module_supplementary__3YKiS button_hds-button--supplementary__GcHcV addItemButton"
+                type="button"
+              >
+                <div
+                  aria-hidden="true"
+                  class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+                >
+                  <svg
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm1 3v4h4v2h-4v4h-2v-4H7v-2h4V7h2z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <span
+                  class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+                >
+                  Lisää toisen huoltajan yhteystiedot
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
+          >
+            <input
+              class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
+              id="terms"
+              name="terms"
+              type="checkbox"
+              value="false"
+            />
+            <label
+              class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
+              for="terms"
+            >
+              <span
+                class="listLabel"
+              >
+                Olen tutustunut 
+                <a
+                  class="externalLink "
+                  href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Nuorisopalvelujen%20j%C3%A4senrekisteri.pdf"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  tämän palvelun rekisteriselosteeseen
+                   
+                  <svg
+                    aria-label="Aukeaa uuteen ikkunaan"
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </a>
+                , 
+                <a
+                  class="externalLink "
+                  href="https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/S%C3%A4hk%C3%B6isten%20asiointipalveluiden%20rekisteri.pdf"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Helsinki-profiilin rekisteriselosteeseen
+                   
+                  <svg
+                    aria-label="Aukeaa uuteen ikkunaan"
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </a>
+                 ja 
+                <a
+                  class="externalLink "
+                  href="https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  kaupungin tietosuojakäytäntöön
+                   
+                  <svg
+                    aria-label="Aukeaa uuteen ikkunaan"
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </a>
+                . Minuun voidaan olla yhteydessä antamieni tietojen avulla.
+              </span>
+            </label>
+          </div>
+        </div>
+        <button
+          class="Button-module_button__1msFE button_hds-button__2A0je Button-module_primary__2LfKB button_hds-button--primary__2NVvO button"
+          type="submit"
+        >
+          <span
+            class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+          >
+            Hyväksy jäsenyys
+          </span>
+        </button>
       </div>
-    </Stack>
-  </Formik>
-</ApproveYouthProfileForm>
+    </form>
+  </div>
+</div>
 `;

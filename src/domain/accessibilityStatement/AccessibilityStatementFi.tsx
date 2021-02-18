@@ -1,44 +1,46 @@
 import React, { Fragment } from 'react';
 
+import Text from '../../common/components/text/Text';
+
 function AccessibilityStatementFi() {
   return (
     <Fragment>
-      <h1>Saavutettavuusseloste</h1>
+      <Text variant="h1">Saavutettavuusseloste</Text>
       <p>
         Tämä saavutettavuusseloste koskee Helsingin kaupungin Nuorisopalveluisen
         jäsenhakemus-verkkosivustoa. Sivuston osoite on https://jassari.hel.fi.
       </p>
 
-      <h2>Sivustoa koskevat lain säädökset</h2>
+      <Text variant="h2">Sivustoa koskevat lain säädökset</Text>
       <p>
         Tämä sivusto on julkaistu 23.9.2018 jälkeen. Sivuston tulee täyttää lain
         edellyttämät saavutettavuuden vaatimukset.
       </p>
 
-      <h2>Kaupungin tavoite</h2>
+      <Text variant="h2">Kaupungin tavoite</Text>
       <p>
         Digitaalisten palveluiden saavutettavuudessa Helsingin tavoitteena on
         pyrkiä vähintään WCAG ohjeiston mukaiseen AA- tai sitä parempaan tasoon,
         mikäli se on kohtuudella mahdollista.
       </p>
 
-      <h2>Vaatimustenmukaisuustilanne</h2>
+      <Text variant="h2">Vaatimustenmukaisuustilanne</Text>
       <p>
         Tämän verkkosivuston saavutettavuuden vaatimustenmukaisuutta ei ole
         vielä arvioitu.
       </p>
 
-      <h2>Saavutettavuusselosteen laatiminen</h2>
+      <Text variant="h2">Saavutettavuusselosteen laatiminen</Text>
       <p>Tämä seloste on laadittu 6.4.2020</p>
 
-      <h2>Saavutettavuusselosteen päivittäminen </h2>
+      <Text variant="h2">Saavutettavuusselosteen päivittäminen </Text>
       <p>
         Saavutettavuusseloste päivitetään vastaamaan saavutettavuuden
         vaatimustenmukaisuudesta tehtyjä havaintoja suoritetun tarkastuksen
         jälkeen.
       </p>
 
-      <h2>Tietojen pyytäminen saavutettavassa muodossa </h2>
+      <Text variant="h2">Tietojen pyytäminen saavutettavassa muodossa </Text>
       <p>
         Mikäli käyttäjä ei koe saavansa sivuston sisältöä saavutettavassa
         muodossa, voi käyttäjä pyytää näitä tietoja sähköpostilla{' '}
@@ -48,7 +50,7 @@ function AccessibilityStatementFi() {
         Tiedusteluun pyritään vastaamaan kohtuullisessa ajassa.
       </p>
 
-      <h2>Palaute ja yhteystiedot</h2>
+      <Text variant="h2">Palaute ja yhteystiedot</Text>
       <p>
         Helsingin kaupunki, Kulttuuri ja vapaa-aika
         <br />
@@ -57,7 +59,7 @@ function AccessibilityStatementFi() {
         <a href="mailto:nuorisopalvelut@hel.fi">nuorisopalvelut@hel.fi</a>
       </p>
 
-      <h2>Helsingin kaupunki ja saavutettavuus</h2>
+      <Text variant="h2">Helsingin kaupunki ja saavutettavuus</Text>
       <p>
         Helsingin kaupungin tavoitteena on olla kaikille esteetön ja
         saavutettava kaupunki. Kaupungin tavoitteena on, että Helsingissä on
@@ -81,7 +83,7 @@ function AccessibilityStatementFi() {
         sekä puhelinneuvonnasta.
       </p>
 
-      <h2>Saavutettavuusselosteen hyväksyntä</h2>
+      <Text variant="h2">Saavutettavuusselosteen hyväksyntä</Text>
       <p>Tämän selosteen on hyväksynyt 6.4.2020</p>
       <p>
         Kulttuurin ja vapaa-ajan toimiala

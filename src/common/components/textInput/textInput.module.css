@@ -1,0 +1,9 @@
+/* Targets the div that wraps the input element. */
+/* This changes the height from 100% into auto. A 100% height will
+   result in weird behavior with grid layouts. */
+/* More specifically, when the input adopts an error state, the error
+   message and the input will be separated by more whitespace than is
+   meant, close to 30px. */
+.input > div:first-of-type {
+  height: auto;
+}

@@ -1,23 +1,13 @@
 import countries from 'i18n-iso-countries';
 
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
-import {
-  YouthProfileByApprovalToken,
-  MembershipDetails,
-} from '../../../graphql/generatedTypes';
+import { MembershipDetails_myYouthProfile_profile as Profile } from '../../../graphql/generatedTypes';
 
 export default function getAddress(
-  data: YouthProfileByApprovalToken | MembershipDetails,
+  profile: Omit<Profile, '__typename'> | null,
   lang: string
 ) {
-  let address = null;
-  if ('youthProfile' in data) {
-    // MembershipDetails
-    address = data.youthProfile?.profile.primaryAddress;
-  } else if ('youthProfileByApprovalToken' in data) {
-    // YouthProfileByApprovalToken
-    address = data.youthProfileByApprovalToken?.profile.primaryAddress;
-  }
+  const address = profile?.primaryAddress;
 
   if (address) {
     const country = countries.getName(

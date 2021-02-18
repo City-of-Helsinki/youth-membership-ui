@@ -1,0 +1,7 @@
+mutation CreateMyYouthProfile($input: CreateMyYouthProfileMutationInput!) {
+  createMyYouthProfile(input: $input) {
+    youthProfile {
+      birthDate
+    }
+  }
+}

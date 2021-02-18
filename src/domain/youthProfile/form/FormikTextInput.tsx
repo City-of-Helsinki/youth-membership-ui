@@ -1,8 +1,11 @@
 import React from 'react';
 import { Field, FieldProps } from 'formik';
-import { TextInput, TextInputProps } from 'hds-react';
+import { TextInputProps } from 'hds-react';
 import get from 'lodash/get';
 import { useTranslation } from 'react-i18next';
+
+import yupErrorReconciler from '../../../common/helpers/yupErrorReconciler';
+import TextInput from '../../../common/components/textInput/TextInput';
 
 type Props = TextInputProps;
 
@@ -12,7 +15,10 @@ function FormikTestInput(props: Props) {
   const getError = ({
     field,
     form,
-  }: FieldProps<string>): string | undefined => {
+  }: FieldProps<string>):
+    | string
+    | { key: string; values: Record<string, string> }
+    | undefined => {
     const fieldName = field.name;
 
     return get(form.errors, fieldName);
@@ -27,17 +33,15 @@ function FormikTestInput(props: Props) {
     return isTouched && isError;
   };
 
-  const getHelperText = (
-    fieldProps: FieldProps<string>
-  ): string | undefined => {
+  const getErrorText = (fieldProps: FieldProps<string>) => {
     const isInvalid = getIsInvalid(fieldProps);
     const error = getError(fieldProps);
 
     if (!isInvalid || !error) {
-      return props.helperText;
+      return;
     }
 
-    return t(error);
+    return t(...yupErrorReconciler(error));
   };
 
   return (
@@ -46,7 +50,7 @@ function FormikTestInput(props: Props) {
         <TextInput
           {...fieldProps.field}
           invalid={getIsInvalid(fieldProps)}
-          helperText={getHelperText(fieldProps)}
+          errorText={getErrorText(fieldProps)}
           {...props}
         />
       )}

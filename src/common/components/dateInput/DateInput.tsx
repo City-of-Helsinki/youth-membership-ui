@@ -81,6 +81,9 @@ interface Props {
   dateInputLabel: string;
   monthInputLabel: string;
   yearInputLabel: string;
+  dateInputAutoComplete?: string;
+  monthInputAutoComplete?: string;
+  yearInputAutoComplete?: string;
 }
 
 function DateInput({
@@ -102,6 +105,9 @@ function DateInput({
   dateInputLabel,
   monthInputLabel,
   yearInputLabel,
+  dateInputAutoComplete,
+  monthInputAutoComplete,
+  yearInputAutoComplete,
 }: Props) {
   return (
     <DateInputGroup label={label} error={error}>
@@ -124,6 +130,9 @@ function DateInput({
         dateInputLabel={dateInputLabel}
         monthInputLabel={monthInputLabel}
         yearInputLabel={yearInputLabel}
+        dateInputAutoComplete={dateInputAutoComplete}
+        monthInputAutoComplete={monthInputAutoComplete}
+        yearInputAutoComplete={yearInputAutoComplete}
       />
     </DateInputGroup>
   );

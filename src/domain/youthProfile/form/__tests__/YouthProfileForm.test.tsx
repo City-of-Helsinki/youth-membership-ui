@@ -1,16 +1,14 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { MemoryRouter } from 'react-router';
 import { subYears, format } from 'date-fns';
 
-import YouthProfileForm, { Values as FormValues } from '../YouthProfileForm';
+import { render, screen } from '../../../../common/test/testing-library';
 import {
   AddressType,
   Language,
   YouthLanguage,
-  MembershipDetails_youthProfile_profile_primaryAddress as PrimaryAddress,
+  MembershipDetails_myYouthProfile_profile_primaryAddress as PrimaryAddress,
 } from '../../../../graphql/generatedTypes';
-import { updateWrapper } from '../../../../common/test/testUtils';
+import YouthProfileForm, { Values as FormValues } from '../YouthProfileForm';
 
 const getPrefilledProfile = (values?: Partial<FormValues>) => {
   return {
@@ -45,99 +43,97 @@ const getPrefilledProfile = (values?: Partial<FormValues>) => {
 };
 
 const getWrapper = (profile: FormValues, isEditing?: boolean) => {
-  return mount(
-    <MemoryRouter>
-      <YouthProfileForm
-        profile={profile}
-        onValues={jest.fn()}
-        isSubmitting={false}
-        isEditing={!!isEditing}
-      />
-    </MemoryRouter>
+  return render(
+    <YouthProfileForm
+      profile={profile}
+      onValues={jest.fn()}
+      isSubmitting={false}
+      isEditing={!!isEditing}
+    />
   );
 };
 
 test('Form is used for profile creation with pre-filled data ', async () => {
-  const wrapper = getWrapper(getPrefilledProfile());
-  await updateWrapper(wrapper);
+  getWrapper(getPrefilledProfile());
 
-  const firstName = wrapper.find('input[id="firstName"]');
-  const lastName = wrapper.find('input[id="lastName"]');
-  const terms = wrapper.find('input[type="checkbox"]');
-  const submitButton = wrapper.find('button[type="submit"]');
-
-  expect(firstName.props().value).toEqual('Test');
-  expect(lastName.props().value).toEqual('Person');
-  expect(terms).toBeTruthy();
-  expect(submitButton.text()).toEqual(
-    'Tallenna tiedot ja lähetä varmistuspyyntö'
-  );
+  expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
+  expect(screen.getByDisplayValue('Person')).toBeInTheDocument();
+  expect(screen.getByLabelText(/Olen tutustunut/).checked).toEqual(false);
+  expect(
+    screen.getByRole('button', { name: /Tallenna tiedot/ })
+  ).toBeInTheDocument();
 });
 
 test('Profile is used for profile editing', async () => {
-  const wrapper = getWrapper(getPrefilledProfile(), true);
+  getWrapper(getPrefilledProfile(), true);
 
-  await updateWrapper(wrapper);
-
-  const submitButton = wrapper.find('button[type="submit"]');
-  const buttonRow = wrapper.find('.buttonAlign');
-  const terms = wrapper.find('input[type="checkbox"]');
-
-  expect(submitButton.text()).toEqual('Tallenna tiedot');
-  expect(buttonRow.children().length).toEqual(2);
-  expect(terms.length).toEqual(0);
+  expect(
+    screen.getByRole('button', { name: 'Tallenna tiedot' })
+  ).toBeInTheDocument();
+  expect(screen.queryByLabelText('Terms')).toEqual(null);
 });
 
 describe('Form fields & texts based on user age', () => {
   test('user age is >= 13 < 15', () => {
     // Create birthDate that fits test criteria
     const userAge = format(subYears(new Date(), 14), 'yyyy-MM-dd');
-    const wrapper = getWrapper(getPrefilledProfile({ birthDate: userAge }));
-    const photoPermission = wrapper.find('.hidePhotoUsageApproved');
-    const approverInfoText = wrapper.find('p[data-testid="approverInfoText"]');
+    getWrapper(getPrefilledProfile({ birthDate: userAge }));
 
     // Photo permission is not shown
-    expect(photoPermission.length).toEqual(1);
-    expect(approverInfoText.text()).toEqual(
-      'Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.'
-    );
+    expect(
+      screen
+        .getByText('Kuvauslupa')
+        .parentElement?.classList.contains('hidePhotoUsageApproved')
+    ).toEqual(true);
+    expect(
+      screen.getByText(
+        // eslint-disable-next-line max-len
+        'Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.'
+      )
+    ).toBeInTheDocument();
   });
   test('user age is >= 15 < 18', () => {
     // Create birthDate that fits test criteria
     const userAge = format(subYears(new Date(), 16), 'yyyy-MM-dd');
-    const wrapper = getWrapper(getPrefilledProfile({ birthDate: userAge }));
-    const photoPermission = wrapper.find('.hidePhotoUsageApproved');
-    const approverInfoText = wrapper.find('p[data-testid="approverInfoText"]');
+    getWrapper(getPrefilledProfile({ birthDate: userAge }));
 
     // Photo permission is shown
-    expect(photoPermission.length).toEqual(0);
-    expect(approverInfoText.text()).toEqual(
-      'Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.'
-    );
+    expect(
+      screen
+        .getByText('Kuvauslupa')
+        .parentElement?.classList.contains('hidePhotoUsageApproved')
+    ).toEqual(false);
+    expect(
+      screen.getByText(
+        // eslint-disable-next-line max-len
+        'Vahvistuspyyntö jäsenyydestäsi lähetetään tähän osoitteeseen, huoltaja varmistaa tiedot ja hyväksyy jäsenyyden.'
+      )
+    ).toBeInTheDocument();
   });
   test('user is over 18', () => {
     // Create birthDate that fits test criteria
     const userAge = format(subYears(new Date(), 19), 'yyyy-MM-dd');
-    const wrapper = getWrapper(getPrefilledProfile({ birthDate: userAge }));
-    const approverInfoText = wrapper.find('p[data-testid="approverInfoText"]');
+    getWrapper(getPrefilledProfile({ birthDate: userAge }));
 
     // Show guardian info text for adults
-    expect(approverInfoText.text()).toEqual(
-      //eslint-disable-next-line max-len
-      'Yli 18-vuotiaalta emme edellytä vanhemman yhteystietojen lisäämistä. Mutta mikäli syystä tai toisesta koet tarpeelliseksi, että voimme tarvittaessa olla yhteydessä huoltajaasi, voit lisätä yhteystiedon tähän. '
-    );
+    expect(
+      screen.getByText(
+        // eslint-disable-next-line max-len
+        'Yli 18-vuotiaalta emme edellytä vanhemman yhteystietojen lisäämistä. Mutta mikäli syystä tai toisesta koet tarpeelliseksi, että voimme tarvittaessa olla yhteydessä huoltajaasi, voit lisätä yhteystiedon tähän.'
+      )
+    ).toBeInTheDocument();
   });
 });
 
 describe('postalCode inputMode changes based on selected country', () => {
   test('inputMode is numeric when countryCode === "FI" ', () => {
-    const wrapper = getWrapper(getPrefilledProfile());
-    const postalCode = wrapper.find('input[name="primaryAddress.postalCode"]');
-    expect(postalCode.props().inputMode).toEqual('numeric');
+    getWrapper(getPrefilledProfile());
+
+    expect(screen.getByLabelText('Postinumero *').inputMode).toEqual('numeric');
   });
 
   test('inputMode is text when countryCode !== "FI', () => {
-    const wrapper = getWrapper(
+    getWrapper(
       getPrefilledProfile({
         primaryAddress: {
           address: 'TestAddress',
@@ -151,7 +147,7 @@ describe('postalCode inputMode changes based on selected country', () => {
         },
       })
     );
-    const postalCode = wrapper.find('input[name="primaryAddress.postalCode"]');
-    expect(postalCode.props().inputMode).toEqual('text');
+
+    expect(screen.getByLabelText('Postinumero *').inputMode).toEqual('text');
   });
 });

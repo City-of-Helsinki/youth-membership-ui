@@ -1,28 +1,22 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { differenceInYears } from 'date-fns';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
-import { Button } from 'hds-react';
+import { Button, IconLinkExternal } from 'hds-react';
 
 import LinkButton from '../../../../common/components/linkButton/LinkButton';
-import { AuthState, resetError, isAuthenticatedSelector } from '../../redux';
-import { RootState } from '../../../../redux/rootReducer';
+import Text from '../../../../common/components/text/Text';
+import { isAuthenticatedSelector } from '../../redux';
 import authenticate from '../../authenticate';
 import PageContentWithHostingBox from '../../../../common/components/layout/PageContentWithHostingBox';
 import styles from './Login.module.css';
 import BirthdateForm from '../birthdateForm/BirthdateForm';
-import NotificationComponent from '../../../../common/components/notification/NotificationComponent';
 import authConstants from '../../constants/authConstants';
 import ageConstants from '../../../youthProfile/constants/ageConstants';
 import PageWrapper from '../../../../common/components/wrapper/PageWrapper';
 
-type Props = {
-  resetError: () => void;
-  auth: AuthState;
-};
-
-function Login(props: Props) {
+function Login() {
   const [showManualRegistration, setShowManualRegistration] = useState(false);
   const { t } = useTranslation();
   const { trackEvent } = useMatomo();
@@ -45,7 +39,7 @@ function Login(props: Props) {
     <PageWrapper>
       <PageContentWithHostingBox title={'login.pageTitle'}>
         <div className={styles.hostingBox}>
-          <h1 className={styles.title}>{t('login.title')}</h1>
+          <Text variant="h1">{t('login.title')}</Text>
 
           {!showManualRegistration && (
             <React.Fragment>
@@ -58,9 +52,10 @@ function Login(props: Props) {
                     {t('login.linkForMembersText')}
                   </span>
                   <Button
-                    onClick={authenticate}
+                    onClick={() => authenticate()}
                     variant="supplementary"
                     className={styles.button}
+                    iconRight={null}
                   >
                     {t('nav.signin')}
                   </Button>
@@ -80,6 +75,11 @@ function Login(props: Props) {
                 variant="primary"
                 target="_blank"
                 rel="noopener noreferrer"
+                iconRight={
+                  <IconLinkExternal
+                    aria-label={t('externalLink.description')}
+                  />
+                }
               />
               <LinkButton
                 className={styles.linkButtons}
@@ -87,6 +87,11 @@ function Login(props: Props) {
                 component="a"
                 buttonText={t('login.findNearestService')}
                 variant="primary"
+                iconRight={
+                  <IconLinkExternal
+                    aria-label={t('externalLink.description')}
+                  />
+                }
               />
 
               <Button
@@ -100,20 +105,9 @@ function Login(props: Props) {
             </div>
           )}
         </div>
-
-        <NotificationComponent
-          show={Boolean(props.auth.error)}
-          onClose={() => props.resetError()}
-        />
       </PageContentWithHostingBox>
     </PageWrapper>
   );
 }
 
-const mapStateToProps = (state: RootState) => {
-  return {
-    auth: state.auth,
-  };
-};
-
-export default connect(mapStateToProps, { resetError })(Login);
+export default Login;
