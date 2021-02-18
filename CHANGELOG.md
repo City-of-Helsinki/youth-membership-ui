@@ -8,29 +8,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- User menu data is now updated after profile creation so that it will correctly show the name of the newly created profile
-- Upgrade HDS from version 0.11.3 to 0.20.0
-- Use public address for Jassari API
-- Run browser tests against PR environments
+- [#194](https://github.com/City-of-Helsinki/youth-membership-ui/pull/194) User menu data is now updated after profile creation so that it will correctly show the name of the newly created profile
+- [#199](https://github.com/City-of-Helsinki/youth-membership-ui/pull/199) Upgrade HDS from version 0.11.3 to 0.20.0
+- [#219](https://github.com/City-of-Helsinki/youth-membership-ui/pull/219) Use public address for Jassari API
+- [#232](https://github.com/City-of-Helsinki/youth-membership-ui/pull/232) Run browser tests against PR environments
 
 ### Fixed
 
-- Year dependent failing snapshot test
-- Browser test that would always fail until march
-- Duplicate cancel button in information editing view
-- Fixed issue where pages didn't have unique titles.
-- [Accessibility] Links that did not warn when they opened in a new window
-- [Accessibility] Cognitively challenging date input
-- [Accessibility] Fixed the inconsistent use of HTML headings.
-- [Accessibility] Add support for autocomplete to form fields
-- [Accessibility] Mobile menu that was unusable on mobile
-- [Accessibility] Misleading labels on logo and application name links
-- [Accessibility] Missing jump to content link
-- [Accessibility] Use more description error messages on forms
-- Fixed inaccessible approver route
-- Translation script running within docker development image
-- Gendered pronoun in approval confirmation view
-- Non-compound words written as compound words in English translation
+- [#198](https://github.com/City-of-Helsinki/youth-membership-ui/pull/198) Year dependent failing snapshot test
+- [#197](https://github.com/City-of-Helsinki/youth-membership-ui/pull/197) Browser test that would always fail until march
+- [#203](https://github.com/City-of-Helsinki/youth-membership-ui/pull/203) [Accessibility] Duplicate cancel button in information editing view
+- [#204](https://github.com/City-of-Helsinki/youth-membership-ui/pull/204) [Accessibility] Fixed issue where pages didn't have unique titles.
+- [#205](https://github.com/City-of-Helsinki/youth-membership-ui/pull/205) [Accessibility] Links that did not warn when they opened in a new window
+- [#207](https://github.com/City-of-Helsinki/youth-membership-ui/pull/207) [Accessibility] Cognitively challenging date input
+- [#206](https://github.com/City-of-Helsinki/youth-membership-ui/pull/206) [Accessibility] Fixed the inconsistent use of HTML headings.
+- [#209](https://github.com/City-of-Helsinki/youth-membership-ui/pull/209) [Accessibility] Add support for autocomplete to form fields
+- [#201](https://github.com/City-of-Helsinki/youth-membership-ui/pull/201) [Accessibility] Mobile menu that was unusable on mobile
+- [#201](https://github.com/City-of-Helsinki/youth-membership-ui/pull/201) [Accessibility] Misleading labels on logo and application name links
+- [#201](https://github.com/City-of-Helsinki/youth-membership-ui/pull/201) [Accessibility] Missing jump to content link
+- [#208](https://github.com/City-of-Helsinki/youth-membership-ui/pull/208) [Accessibility] Use more description error messages on forms
+- [#214](https://github.com/City-of-Helsinki/youth-membership-ui/pull/214) [Accessibility] Fixed inaccessible approver route
+- [#237](https://github.com/City-of-Helsinki/youth-membership-ui/pull/237) Translation script running within docker development image
+- [#239](https://github.com/City-of-Helsinki/youth-membership-ui/pull/239) Gendered pronoun in approval confirmation view
+- [#240](https://github.com/City-of-Helsinki/youth-membership-ui/pull/240) Non-compound words written as compound words in English translation
 
 ## [1.2.5] - 2021-02-03
 
