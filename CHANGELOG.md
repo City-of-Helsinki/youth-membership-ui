@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+### Fixed
+
+- Approval process always allowing photo usage regardless of choice
+
 ## [1.3.1] - 2021-02-18
 
 ### Fixed
