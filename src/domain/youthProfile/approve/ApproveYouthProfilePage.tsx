@@ -42,7 +42,7 @@ function getApprovalData(
     approverEmail: values.approverEmail,
     approverPhone: values.approverPhone,
     birthDate: currentYouthProfile?.birthDate,
-    photoUsageApproved: Boolean(values.photoUsageApproved),
+    photoUsageApproved: values.photoUsageApproved === 'true',
     addAdditionalContactPersons: add,
     updateAdditionalContactPersons: update,
     removeAdditionalContactPersons: remove,
