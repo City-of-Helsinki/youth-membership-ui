@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 - Approval process always allowing photo usage regardless of choice
+- [Accessibility] Announce title changes with aria-live
 
 ## [1.3.1] - 2021-02-18
 
