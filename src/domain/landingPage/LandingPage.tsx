@@ -1,12 +1,13 @@
 import React from 'react';
 
-import MembershipInformationPage from '../membership/information/MembershipInformationPage';
-import useIsMembershipPending from '../membership/useIsMembershipPending';
-import SentYouthProfilePage from '../youthProfile/sent/SentYouthProfilePage';
+import { MembershipStatus } from '../../graphql/generatedTypes';
 import toastNotification from '../../common/helpers/toastNotification/toastNotification';
+import MembershipInformationPage from '../membership/information/MembershipInformationPage';
+import useMembershipStatus from '../membership/useMembershipStatus';
+import SentYouthProfilePage from '../youthProfile/sent/SentYouthProfilePage';
 
 function LandingPage() {
-  const [isMembershipPending, loading] = useIsMembershipPending({
+  const [membershipStatus, loading] = useMembershipStatus({
     onError: () => {
       toastNotification();
     },
@@ -18,9 +19,10 @@ function LandingPage() {
 
   return (
     <>
-      {isMembershipPending ? (
+      {membershipStatus === MembershipStatus.PENDING && (
         <SentYouthProfilePage />
-      ) : (
+      )}
+      {membershipStatus !== MembershipStatus.PENDING && (
         <MembershipInformationPage />
       )}
     </>
