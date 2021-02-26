@@ -1,7 +1,10 @@
 import { useQuery, QueryHookOptions, ApolloError } from '@apollo/client';
 import { loader } from 'graphql.macro';
 
-import { HasYouthProfile } from '../../graphql/generatedTypes';
+import {
+  HasYouthProfile,
+  MembershipStatus,
+} from '../../graphql/generatedTypes';
 
 const HAS_YOUTH_PROFILE = loader(
   '../youthProfile/graphql/HasYouthProfile.graphql'
@@ -9,7 +12,9 @@ const HAS_YOUTH_PROFILE = loader(
 
 type Props = QueryHookOptions<HasYouthProfile, Record<string, unknown>>;
 
-function useMembershipStatus({ onError }: Props) {
+function useMembershipStatus({
+  onError,
+}: Props): [MembershipStatus | undefined, boolean] {
   const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
     onError: (error: ApolloError) => {
       if (onError) {
