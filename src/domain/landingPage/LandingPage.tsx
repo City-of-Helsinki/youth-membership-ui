@@ -9,16 +9,28 @@ import SentYouthProfilePage from '../youthProfile/sent/SentYouthProfilePage';
 type MembershipStatusProps = {
   status: MembershipStatus;
   pending: ReactElement;
+  expired: ReactElement;
+  renewing: ReactElement;
   active: ReactElement;
 };
 
 function MemberShipStatusResolver({
   status,
   pending,
+  expired,
+  renewing,
   active,
 }: MembershipStatusProps) {
   if (status === MembershipStatus.PENDING) {
     return pending;
+  }
+
+  if (status === MembershipStatus.EXPIRED) {
+    return expired;
+  }
+
+  if (status === MembershipStatus.RENEWING) {
+    return renewing;
   }
 
   return active;
@@ -39,6 +51,8 @@ function LandingPage() {
     <MemberShipStatusResolver
       status={membershipStatus}
       pending={<SentYouthProfilePage />}
+      expired={<SentYouthProfilePage />}
+      renewing={<SentYouthProfilePage />}
       active={<MembershipInformationPage />}
     />
   );
