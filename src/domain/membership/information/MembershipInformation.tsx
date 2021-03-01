@@ -6,8 +6,8 @@ import { Button } from 'hds-react';
 import { MembershipInformation as MembershipInformationTypes } from '../../../graphql/generatedTypes';
 import LinkButton from '../../../common/components/linkButton/LinkButton';
 import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
-import getFullName from '../helpers/getFullName';
 import MembershipPageLayout from '../MembershipPageLayout';
+import Membership from '../MembershipUtility';
 import styles from './membershipInformation.module.css';
 
 interface Props {
@@ -21,27 +21,22 @@ function MembershipInformation({
 }: Props) {
   const { t } = useTranslation();
 
-  const validUntil = convertDateToLocale(
-    membershipInformationTypes?.myYouthProfile?.expiration
-  );
+  const youthProfile = membershipInformationTypes?.myYouthProfile;
+  const profile = membershipInformationTypes?.myYouthProfile?.profile;
 
-  if (!membershipInformationTypes?.myYouthProfile?.membershipNumber) {
+  if (!youthProfile || !profile) {
     return null;
   }
 
+  const validUntil = convertDateToLocale(youthProfile.expiration);
+  const adminUrl = Membership.getAdminUrl(profile.id);
+  const profileFullName = Membership.getFullName(profile);
+
   return (
     <MembershipPageLayout
-      profileFullName={getFullName(membershipInformationTypes)}
-      membershipNumber={
-        membershipInformationTypes.myYouthProfile.membershipNumber
-      }
-      qrCode={
-        <QRCode
-          size={175}
-          // eslint-disable-next-line max-len
-          value={`${process.env.REACT_APP_ADMIN_URL}youthProfiles/${membershipInformationTypes.myYouthProfile?.profile?.id}/show`}
-        />
-      }
+      profileFullName={profileFullName}
+      membershipNumber={youthProfile.membershipNumber}
+      qrCode={adminUrl ? <QRCode size={175} value={adminUrl} /> : undefined}
       membershipExpiryTitle={t('membershipInformation.validUntil', {
         date: validUntil,
       })}
