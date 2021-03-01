@@ -9,10 +9,10 @@ import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import MembershipPageLayout from '../MembershipPageLayout';
 import Membership from '../MembershipUtility';
 
-interface Props {
+type Props = {
   onRenewMembership: () => void;
   membershipInformationTypes: MembershipInformationTypes;
-}
+};
 
 function MembershipInformation({
   onRenewMembership,
