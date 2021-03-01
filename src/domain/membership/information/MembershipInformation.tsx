@@ -8,7 +8,6 @@ import LinkButton from '../../../common/components/linkButton/LinkButton';
 import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import MembershipPageLayout from '../MembershipPageLayout';
 import Membership from '../MembershipUtility';
-import styles from './membershipInformation.module.css';
 
 interface Props {
   onRenewMembership: () => void;
@@ -41,18 +40,12 @@ function MembershipInformation({
         date: validUntil,
       })}
       mainActionButton={
-        <Button
-          type="button"
-          onClick={onRenewMembership}
-          className={styles.button}
-          data-cy="renew"
-        >
+        <Button type="button" onClick={onRenewMembership} data-cy="renew">
           {t('membershipInformation.renew')}
         </Button>
       }
       secondaryActionButton={
         <LinkButton
-          className={styles.button}
           path="/membership-details"
           component="Link"
           buttonText={t('membershipInformation.showProfileInformation')}
