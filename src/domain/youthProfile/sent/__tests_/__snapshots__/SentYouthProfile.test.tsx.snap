@@ -24,7 +24,7 @@ exports[`match snapshot 1`] = `
       <span
         class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
       >
-        Lähetä uusi pyyntö huoltajallle
+        Lähetä uusi pyyntö huoltajalle
       </span>
     </button>
     <br />

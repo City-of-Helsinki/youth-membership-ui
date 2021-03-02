@@ -45,7 +45,7 @@
     "errorMessage": "Tapahtui virhe. Yritä uudestaan"
   },
   "confirmSendingProfile": {
-    "buttonText": "Lähetä uusi pyyntö huoltajallle",
+    "buttonText": "Lähetä uusi pyyntö huoltajalle",
     "helpText": "Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen",
     "linkToShowSentData": "Näytä hakemuksen tiedot",
     "sendAgainHelpText": "Varmistusviesti on lähetetty uudestaan osoitteeseen",

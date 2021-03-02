@@ -191,9 +191,10 @@ function MainActionButton({
   const isRenewable = membershipRenewable;
   const isPending = Membership.getIsPending(membershipStatus);
   const isRenewing = Membership.getIsRenewing(membershipStatus);
+  const isExpired = Membership.getIsExpired(membershipStatus);
   const isUnderage = Membership.getIsUnderage(birthday);
 
-  if (isRenewable && isUnderage) {
+  if ((isRenewable && isUnderage) || (isExpired && isUnderage)) {
     return (
       <RenewButton
         onRenewMembership={onRenewMembership}
@@ -202,7 +203,7 @@ function MainActionButton({
     );
   }
 
-  if (isRenewable) {
+  if (isRenewable || isExpired) {
     return (
       <RenewButton
         onRenewMembership={onRenewMembership}
