@@ -45,7 +45,7 @@
     "errorMessage": "Ett fel uppstod. Försök igen"
   },
   "confirmSendingProfile": {
-    "buttonText": "Skicka ett nytt verifieringsmeddelande",
+    "buttonText": "Skicka en ny begäran till vårdnadshavaren",
     "helpText": "Din medlemsansökan har skickats till",
     "linkToShowSentData": "Visa din ansökan",
     "sendAgainHelpText": "Verifieringsmeddelandet har skickats på nytt till",
@@ -102,11 +102,26 @@
   "membershipInformation": {
     "pageTitle": "Medlemskapsinformation",
     "renew": "Förnya medlemskapet",
+    "renewUnderage": "",
     "renewSuccessMessage": "Medlemskapet förnyades framgångsrikt!",
     "renewSuccessTitle": "Framgång",
     "showProfileInformation": "Visa profiluppifter",
     "title": "Medlemskortnummer {{number}}",
-    "validUntil": "Gäller till {{date}}"
+    "validUntil": "Gäller till {{date}}",
+    "status": {
+      "title": {
+        "membershipExpired": "Medlemskapet har löpt ut.",
+        "renewable": "Medlemskapet upphör att gälla den {{date}}.",
+        "pending": "Förnyelse av medlemskap väntar på vårdnadshavares godkännande.",
+        "renewing": "Medlemskapet upphör att gälla den {{date}}. Förnyelse väntar på vårdnadshavares godkännande."
+      },
+      "description": {
+        "renewable": "Skicka in ditt medlemskap igen till din vårdnadshavare för godkännande.",
+        "pending": "Din förnyelsebegäran har skickats till {{email}}",
+        "renewing": "Din förnyelsebegäran har skickats till {{email}}",
+        "expired": "Skicka in ditt medlemskap igen till din vårdnadshavare för godkännande."
+      }
+    }
   },
   "meta": {
     "description": "Jässäri är ditt medlemskort till ungdomsgårdarna. Medlemskapet garanterar trevliga aktiviteter: häng på ungdomsgårdarna, delta i hobbygrupper, ansök om projektunderstöd eller producera ett eget evenemang! Verksamheten leds av utbildade ungdomsledare."

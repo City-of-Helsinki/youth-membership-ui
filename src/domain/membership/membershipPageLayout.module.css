@@ -8,11 +8,10 @@
   font-size: var(--fontsize-heading-m);
 }
 
-.membershipExpiryTitle {
+.membershipStatus {
   margin-bottom: var(--spacing-m);
-
-  font-weight: 600;
 }
 
-.membershipExpiryDescription {
+.membershipExpiryTitle {
+  font-weight: 600;
 }

@@ -1,60 +1,30 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import { loader } from 'graphql.macro';
 
-import { MembershipStatus } from '../../graphql/generatedTypes';
 import toastNotification from '../../common/helpers/toastNotification/toastNotification';
 import MembershipInformationPage from '../membership/information/MembershipInformationPage';
-import useMembershipStatus from '../membership/useMembershipStatus';
 import SentYouthProfilePage from '../youthProfile/sent/SentYouthProfilePage';
 
-type MembershipStatusProps = {
-  status: MembershipStatus;
-  pending: ReactElement;
-  expired: ReactElement;
-  renewing: ReactElement;
-  active: ReactElement;
-};
-
-function MemberShipStatusResolver({
-  status,
-  pending,
-  expired,
-  renewing,
-  active,
-}: MembershipStatusProps) {
-  if (status === MembershipStatus.PENDING) {
-    return pending;
-  }
-
-  if (status === MembershipStatus.EXPIRED) {
-    return expired;
-  }
-
-  if (status === MembershipStatus.RENEWING) {
-    return renewing;
-  }
-
-  return active;
-}
+const APPROVED_TIME = loader('./YouthProfileApprovedTime.graphql');
 
 function LandingPage() {
-  const [membershipStatus, loading] = useMembershipStatus({
+  const { data, loading } = useQuery(APPROVED_TIME, {
     onError: () => {
       toastNotification();
     },
   });
 
-  if (loading || !membershipStatus) {
+  if (loading && !data) {
     return null;
   }
 
-  return (
-    <MemberShipStatusResolver
-      status={membershipStatus}
-      pending={<SentYouthProfilePage />}
-      expired={<SentYouthProfilePage />}
-      renewing={<SentYouthProfilePage />}
-      active={<MembershipInformationPage />}
-    />
+  const hasBeenApproved = data.myYouthProfile.approvedTime;
+
+  return hasBeenApproved ? (
+    <MembershipInformationPage />
+  ) : (
+    <SentYouthProfilePage />
   );
 }
 

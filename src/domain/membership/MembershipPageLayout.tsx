@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import LinkButton from '../../common/components/linkButton/LinkButton';
@@ -9,8 +9,8 @@ import styles from './membershipPageLayout.module.css';
 type Props = {
   profileFullName: string;
   membershipNumber: string;
-  membershipExpiryTitle: string;
-  membershipExpiryDescription?: string;
+  membershipExpiryTitle: ReactNode;
+  membershipExpiryDescription?: ReactNode;
   qrCode?: ReactElement;
   mainActionButton?: ReactElement;
   secondaryActionButton?: ReactElement;
@@ -36,12 +36,14 @@ function MembershipPageLayout({
         })}
       </Text>
       {qrCode && qrCode}
-      <p className={styles.membershipExpiryTitle}>{membershipExpiryTitle}</p>
-      {membershipExpiryDescription && (
-        <p className={styles.membershipExpiryDescription}>
-          {membershipExpiryDescription}
-        </p>
-      )}
+      <section className={styles.membershipStatus}>
+        <p className={styles.membershipExpiryTitle}>{membershipExpiryTitle}</p>
+        {membershipExpiryDescription && (
+          <p className={styles.membershipExpiryDescription}>
+            {membershipExpiryDescription}
+          </p>
+        )}
+      </section>
       <Stack space="m">
         {mainActionButton && mainActionButton}
         {secondaryActionButton && secondaryActionButton}

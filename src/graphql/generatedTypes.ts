@@ -123,6 +123,9 @@ export interface MembershipInformation_myYouthProfile {
   readonly expiration: any;
   readonly renewable: boolean;
   readonly membershipNumber: string;
+  readonly membershipStatus: MembershipStatus;
+  readonly birthDate: any;
+  readonly approverEmail: string;
 }
 
 export interface MembershipInformation {
@@ -303,7 +306,7 @@ export interface HasYouthProfile {
 // ====================================================
 
 export interface NameQuery_myProfile {
-  readonly __typename: "ProfileNode";
+  readonly __typename: "ProfileWithVerifiedPersonalInformationNode";
   readonly firstName: string;
   readonly lastName: string;
   readonly nickname: string;
@@ -365,7 +368,7 @@ export interface PrefillRegistartion_myProfile_primaryEmail {
 }
 
 export interface PrefillRegistartion_myProfile {
-  readonly __typename: "ProfileNode";
+  readonly __typename: "ProfileWithVerifiedPersonalInformationNode";
   readonly firstName: string;
   readonly lastName: string;
   readonly language: Language | null;
