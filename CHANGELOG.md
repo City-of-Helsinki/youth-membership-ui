@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+### Added
+
+- Logic to handle the renewing membership status
+
 ### Fixed
 
 - Approval process always allowing photo usage regardless of choice
