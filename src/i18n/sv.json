@@ -102,7 +102,7 @@
   "membershipInformation": {
     "pageTitle": "Medlemskapsinformation",
     "renew": "Förnya medlemskapet",
-    "renewUnderage": "",
+    "renewUnderage": "Skicka en förnyelsebegäran till vårdnadshavaren",
     "renewSuccessMessage": "Medlemskapet förnyades framgångsrikt!",
     "renewSuccessTitle": "Framgång",
     "showProfileInformation": "Visa profiluppifter",

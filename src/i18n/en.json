@@ -102,7 +102,7 @@
   "membershipInformation": {
     "pageTitle": "Membership information",
     "renew": "Renew membership",
-    "renewUnderage": "",
+    "renewUnderage": "Send a renewal request to the guardian",
     "renewSuccessMessage": "Membership renewed successfully!",
     "renewSuccessTitle": "Success",
     "showProfileInformation": "Show profile information",
