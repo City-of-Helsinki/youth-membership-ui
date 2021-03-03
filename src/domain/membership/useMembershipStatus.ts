@@ -2,8 +2,8 @@ import { useQuery, QueryHookOptions, ApolloError } from '@apollo/client';
 import { loader } from 'graphql.macro';
 
 import {
-  MembershipStatus,
   HasYouthProfile,
+  MembershipStatus,
 } from '../../graphql/generatedTypes';
 
 const HAS_YOUTH_PROFILE = loader(
@@ -12,7 +12,9 @@ const HAS_YOUTH_PROFILE = loader(
 
 type Props = QueryHookOptions<HasYouthProfile, Record<string, unknown>>;
 
-function useIsMembershipPending({ onError }: Props) {
+function useMembershipStatus({
+  onError,
+}: Props): [MembershipStatus | undefined, boolean] {
   const { data, loading } = useQuery<HasYouthProfile>(HAS_YOUTH_PROFILE, {
     onError: (error: ApolloError) => {
       if (onError) {
@@ -22,9 +24,8 @@ function useIsMembershipPending({ onError }: Props) {
   });
 
   const membershipStatus = data?.myYouthProfile?.membershipStatus;
-  const isMembershipPending = membershipStatus === MembershipStatus.PENDING;
 
-  return [isMembershipPending, loading];
+  return [membershipStatus, loading];
 }
 
-export default useIsMembershipPending;
+export default useMembershipStatus;

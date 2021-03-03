@@ -45,7 +45,7 @@
     "errorMessage": "An error occured while logging in. Please try again"
   },
   "confirmSendingProfile": {
-    "buttonText": "Resend the membership request",
+    "buttonText": "Send a new request to the guardian",
     "helpText": "Your membership application has been sent to",
     "linkToShowSentData": "Display your application",
     "sendAgainHelpText": "Approval email has been re-sent to",
@@ -102,11 +102,26 @@
   "membershipInformation": {
     "pageTitle": "Membership information",
     "renew": "Renew membership",
+    "renewUnderage": "Send a renewal request to the guardian",
     "renewSuccessMessage": "Membership renewed successfully!",
     "renewSuccessTitle": "Success",
     "showProfileInformation": "Show profile information",
     "title": "Membership card number {{number}}",
-    "validUntil": "Valid until {{date}}"
+    "validUntil": "Valid until {{date}}",
+    "status": {
+      "title": {
+        "membershipExpired": "Membership has expired.",
+        "renewable": "Membership expires on {{date}}.",
+        "pending": "Renewal of membership is awaiting for guardian approval.",
+        "renewing": "Membership expires on {{date}}. Renewal is awaiting guardian approval."
+      },
+      "description": {
+        "renewable": "Resubmit your membership to your guardian for approval.",
+        "pending": "Your renewal request has been sent to {{email}}",
+        "renewing": "Your renewal request has been sent to {{email}}",
+        "expired": "Resubmit your membership to your guardian for approval."
+      }
+    }
   },
   "meta": {
     "description": "Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers."

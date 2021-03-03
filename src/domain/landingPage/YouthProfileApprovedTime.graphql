@@ -1,0 +1,6 @@
+query YouthProfileApprovedTime {
+  myYouthProfile {
+    id
+    approvedTime
+  }
+}

@@ -45,7 +45,7 @@
     "errorMessage": "Tapahtui virhe. Yritä uudestaan"
   },
   "confirmSendingProfile": {
-    "buttonText": "Lähetä uusi varmistusviesti",
+    "buttonText": "Lähetä uusi pyyntö huoltajalle",
     "helpText": "Olet lähettänyt jäsenyyden hyväksyttäväksi osoitteeseen",
     "linkToShowSentData": "Näytä hakemuksen tiedot",
     "sendAgainHelpText": "Varmistusviesti on lähetetty uudestaan osoitteeseen",
@@ -102,11 +102,26 @@
   "membershipInformation": {
     "pageTitle": "Jäsenyyden tiedot",
     "renew": "Uusi jäsenyys",
+    "renewUnderage": "Lähetä uusimispyyntö huoltajalle",
     "renewSuccessMessage": "Jäsenyys uusittu onnistuneesti!",
     "renewSuccessTitle": "Onnistui",
     "showProfileInformation": "Näytä profiilin tiedot",
     "title": "Jäsenkortin numero {{number}}",
-    "validUntil": "Voimassa {{date}} asti"
+    "validUntil": "Voimassa {{date}} asti.",
+    "status": {
+      "title": {
+        "membershipExpired": "Jäsenyysaika on umpeutunut.",
+        "renewable": "Jäsenyysaika umpeutuu {{date}}.",
+        "pending": "Jäsenyyden uusiminen odottaa huoltajan hyväksyntää.",
+        "renewing": "Jäsenyysaika umpeutuu {{date}}. Uusiminen odottaa huoltajan hyväksyntää."
+      },
+      "description": {
+        "renewable": "Lähetä jäsenyys uudelleen hyväksyttäväksi huoltajallesi.",
+        "pending": "Pyyntö jäsenyyden uusimisesta on lähetetty osoitteeseen {{email}}",
+        "renewing": "Pyyntö jäsenyyden uusimisesta on lähetetty osoitteeseen {{email}}",
+        "expired": "Lähetä jäsenyys uudelleen hyväksyttäväksi huoltajallesi."
+      }
+    }
   },
   "meta": {
     "description": "Jässärillä pääset mukaan nuorisopalveluiden toimintaan. Jäsenyys takaa sinulle kivaa tekemistä, voit hengailla nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille, hakea projektiavustusta tai vaikka tuottaa oman tapahtuman! Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat."

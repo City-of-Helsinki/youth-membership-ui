@@ -9,6 +9,8 @@ import {
   RenewMyYouthProfile as RenewMyYouthProfileData,
   RenewMyYouthProfileVariables,
   MembershipInformation as MembershipInformationTypes,
+  UpdateMyYouthProfile as UpdateMyYouthProfileData,
+  UpdateMyYouthProfileVariables,
 } from '../../../graphql/generatedTypes';
 import { profileApiTokenSelector } from '../../auth/redux';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
@@ -19,6 +21,9 @@ const MEMBERSHIP_INFORMATION = loader(
   '../graphql/MembershipInformation.graphql'
 );
 const RENEW_MEMBERSHIP = loader('../graphql/RenewMyYouthProfile.graphql');
+const RESEND_EMAIL = loader(
+  '../../youthProfile/graphql/UpdateMyYouthProfile.graphql'
+);
 
 function MembershipInformationPage() {
   const { t } = useTranslation();
@@ -36,6 +41,11 @@ function MembershipInformationPage() {
     RenewMyYouthProfileData,
     RenewMyYouthProfileVariables
   >(RENEW_MEMBERSHIP, { refetchQueries: ['MembershipInformation'] });
+
+  const [resendConfirmationEmail] = useMutation<
+    UpdateMyYouthProfileData,
+    UpdateMyYouthProfileVariables
+  >(RESEND_EMAIL);
 
   const handleRenewMembership = () => {
     const variables: RenewMyYouthProfileVariables = {
@@ -59,15 +69,35 @@ function MembershipInformationPage() {
       });
   };
 
+  const handleResendEmail = () => {
+    const variables: UpdateMyYouthProfileVariables = {
+      input: {
+        youthProfile: {
+          resendRequestNotification: true,
+        },
+        profileApiToken,
+      },
+    };
+    resendConfirmationEmail({ variables }).catch((error: Error) => {
+      Sentry.captureException(error);
+      toastNotification();
+    });
+  };
+
+  const youthProfile = data?.myYouthProfile;
+  const profile = data?.myYouthProfile?.profile;
+
   return (
     <PageContentWithHostingBox
       isReady={!loading}
       title="membershipInformation.pageTitle"
     >
-      {data && (
+      {youthProfile && profile && (
         <MembershipInformation
           onRenewMembership={handleRenewMembership}
-          membershipInformationTypes={data}
+          onResendConfirmationEmail={handleResendEmail}
+          youthProfile={youthProfile}
+          profile={profile}
         />
       )}
     </PageContentWithHostingBox>
