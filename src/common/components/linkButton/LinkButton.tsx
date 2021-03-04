@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import Link from '../link/Link';
+import Link from '../../reactRouterWithLanguageSupport/Link';
 import 'hds-core/lib/components/button/button.css';
 
 type Props = {

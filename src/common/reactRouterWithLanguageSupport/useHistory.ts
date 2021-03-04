@@ -3,7 +3,7 @@ import { useHistory as useHistoryRR } from 'react-router-dom';
 import * as H from 'history';
 
 import I18nService from '../../i18n/I18nService';
-import * as PathUtils from '../helpers/pathUtils';
+import * as PathUtils from './pathUtils';
 
 function useHistory<S>() {
   const { push: pushRR, replace: replaceRR, ...rest } = useHistoryRR();

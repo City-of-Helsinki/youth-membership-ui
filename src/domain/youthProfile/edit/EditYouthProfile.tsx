@@ -8,7 +8,7 @@ import {
   YouthLanguage,
   MembershipDetails_myYouthProfile_profile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
-import useHistory from '../../../common/hooks/useHistory';
+import useHistory from '../../../common/reactRouterWithLanguageSupport/useHistory';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
 import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';

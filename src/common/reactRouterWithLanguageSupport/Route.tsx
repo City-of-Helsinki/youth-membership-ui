@@ -6,8 +6,8 @@ import {
   useHistory,
 } from 'react-router-dom';
 
-import I18nService from '../../../i18n/I18nService';
-import * as PathUtils from '../../helpers/pathUtils';
+import I18nService from '../../i18n/I18nService';
+import * as PathUtils from './pathUtils';
 
 // Redirects the user into the language aware url of the view in case
 // they try to access a language unaware url. The language is either

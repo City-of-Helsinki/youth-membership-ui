@@ -5,7 +5,7 @@ import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 import { isValid, parseISO } from 'date-fns';
 
-import Redirect from '../../common/components/redirect/Redirect';
+import Redirect from '../../common/reactRouterWithLanguageSupport/Redirect';
 import AppPageTitleRoute from './AppPageTitleRoute';
 import { HasYouthProfile } from '../../graphql/generatedTypes';
 import getCookie from '../../common/helpers/getCookie';

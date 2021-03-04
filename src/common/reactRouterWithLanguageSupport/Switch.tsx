@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch as RRSwitch, SwitchProps } from 'react-router-dom';
 
-import * as PathUtils from '../../helpers/pathUtils';
+import * as PathUtils from './pathUtils';
 
 function Switch({ children, ...rest }: SwitchProps) {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
-import Link from '../link/Link';
+import Link from '../../reactRouterWithLanguageSupport/Link';
 import getLanguageCode from '../../helpers/getLanguageCode';
 import styles from './HelsinkiLogo.module.css';
 

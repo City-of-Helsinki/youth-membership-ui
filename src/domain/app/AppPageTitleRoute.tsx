@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import Route, {
   Props as RouteProps,
-} from '../../common/components/route/Route';
+} from '../../common/reactRouterWithLanguageSupport/Route';
 
 type Props = RouteProps & {
   pageTitle: string;

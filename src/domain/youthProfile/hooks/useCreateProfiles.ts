@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import * as Sentry from '@sentry/browser';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 
-import useHistory from '../../../common/hooks/useHistory';
+import useHistory from '../../../common/reactRouterWithLanguageSupport/useHistory';
 import { profileApiTokenSelector } from '../../auth/redux';
 import { Values as FormValues } from '../form/YouthProfileForm';
 import {

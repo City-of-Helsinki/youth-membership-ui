@@ -1,8 +1,8 @@
 import React from 'react';
 
 import PageLayout from '../../common/components/layout/PageLayout';
-import Switch from '../../common/components/switch/Switch';
-import Route from '../../common/components/route/Route';
+import Switch from '../../common/reactRouterWithLanguageSupport/Switch';
+import Route from '../../common/reactRouterWithLanguageSupport/Route';
 import userManager from '../auth/userManager';
 import Login from '../auth/components/login/Login';
 import OidcCallback from '../auth/components/oidcCallback/OidcCallback';

@@ -10,7 +10,7 @@ import {
   YouthLanguage,
   PrefillRegistartion_myProfile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
-import Redirect from '../../../common/components/redirect/Redirect';
+import Redirect from '../../../common/reactRouterWithLanguageSupport/Redirect';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getCookie from '../../../common/helpers/getCookie';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';

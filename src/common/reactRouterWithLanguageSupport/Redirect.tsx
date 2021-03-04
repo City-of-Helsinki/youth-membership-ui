@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect as RRRedirect, RedirectProps } from 'react-router-dom';
 
-import I18nService, { Language } from '../../../i18n/I18nService';
-import * as PathUtils from '../../helpers/pathUtils';
+import I18nService, { Language } from '../../i18n/I18nService';
+import * as PathUtils from './pathUtils';
 
 export function getToWithLanguage(to: RedirectProps['to'], lang: Language) {
   if (typeof to === 'string') {

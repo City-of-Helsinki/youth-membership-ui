@@ -8,8 +8,8 @@ import {
   MembershipStatus,
   PrefillRegistartion,
 } from '../../../graphql/generatedTypes';
-import useHistory from '../../../common/hooks/useHistory';
-import Redirect from '../../../common/components/redirect/Redirect';
+import useHistory from '../../../common/reactRouterWithLanguageSupport/useHistory';
+import Redirect from '../../../common/reactRouterWithLanguageSupport/Redirect';
 import PageContent from '../../../common/components/layout/PageContent';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getAuthenticatedUser from '../../auth/getAuthenticatedUser';
