@@ -1,10 +1,11 @@
 import React from 'react';
-import { Redirect, RouteProps, RouteComponentProps } from 'react-router';
+import { RouteProps, RouteComponentProps } from 'react-router';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';
 import { isValid, parseISO } from 'date-fns';
 
+import Redirect from '../../common/components/redirect/Redirect';
 import AppPageTitleRoute from './AppPageTitleRoute';
 import { HasYouthProfile } from '../../graphql/generatedTypes';
 import getCookie from '../../common/helpers/getCookie';

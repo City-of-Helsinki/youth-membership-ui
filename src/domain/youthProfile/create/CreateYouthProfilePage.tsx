@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Redirect } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
@@ -9,6 +8,8 @@ import {
   MembershipStatus,
   PrefillRegistartion,
 } from '../../../graphql/generatedTypes';
+import useHistory from '../../../common/hooks/useHistory';
+import Redirect from '../../../common/components/redirect/Redirect';
 import PageContent from '../../../common/components/layout/PageContent';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getAuthenticatedUser from '../../auth/getAuthenticatedUser';

@@ -30,7 +30,7 @@ exports[`match snapshot 1`] = `
     <br />
     <a
       class="hds-button hds-button--secondary button"
-      href="/membership-details"
+      href="/fi/membership-details"
     >
       <span
         class="hds-button__label"
