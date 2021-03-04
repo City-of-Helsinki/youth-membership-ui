@@ -2,6 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+import * as PathUtils from '../common/reactRouterWithLanguageSupport/pathUtils';
 import history from '../domain/app/appHistory';
 import en from './en.json';
 import fi from './fi.json';
@@ -35,7 +36,9 @@ class I18nService {
         detection: {
           order: ['localStorage', 'path'],
           lookupFromPathIndex: 0,
-          checkWhitelist: true,
+          // Allow unsupported languages to be detected. The fallback
+          // language is used for unsupported languages.
+          checkWhitelist: false,
         },
         interpolation: {
           escapeValue: false,
@@ -52,11 +55,12 @@ class I18nService {
       );
 
       if (containsLanguage) {
-        const nextPathname = pathname.split('/');
-        // Replace language with next language
-        nextPathname.splice(1, 1, nextLanguage);
+        const nextPathname = PathUtils.replaceLanguageInPath(
+          pathname,
+          nextLanguage
+        );
 
-        history.replace(nextPathname.join('/'));
+        history.replace(nextPathname);
       }
     });
   }

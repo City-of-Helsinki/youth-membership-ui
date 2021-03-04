@@ -75,3 +75,11 @@ export function getPathWithLanguage(path?: string | string[]) {
 
   return [path, pathWithLanguage];
 }
+
+export function replaceLanguageInPath(pathname: string, language: Language) {
+  const nextPathname = pathname.split('/');
+  // Replace language that's at the root index in the path
+  nextPathname.splice(1, 1, language);
+
+  return nextPathname.join('/');
+}
