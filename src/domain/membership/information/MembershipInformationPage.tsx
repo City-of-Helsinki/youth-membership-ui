@@ -16,7 +16,7 @@ import { profileApiTokenSelector } from '../../auth/redux';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import MembershipInformation from './MembershipInformation';
-import Membership from '../MembershipUtility';
+import * as Membership from '../MembershipUtility';
 
 const MEMBERSHIP_INFORMATION = loader(
   '../graphql/MembershipInformation.graphql'
