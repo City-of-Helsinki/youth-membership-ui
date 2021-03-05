@@ -26,7 +26,9 @@ export const password = (): string => {
 };
 
 export const testURL = () => {
-  return process.env.BROWSER_TESTING_URL || LOCAL_URL;
+  const baseUrl = process.env.BROWSER_TESTING_URL || LOCAL_URL;
+
+  return `${baseUrl}/en/`;
 };
 
 export const mailosaurApiKey = (): string => {
