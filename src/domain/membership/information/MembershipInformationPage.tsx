@@ -16,6 +16,7 @@ import { profileApiTokenSelector } from '../../auth/redux';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import MembershipInformation from './MembershipInformation';
+import Membership from '../MembershipUtility';
 
 const MEMBERSHIP_INFORMATION = loader(
   '../graphql/MembershipInformation.graphql'
@@ -56,12 +57,30 @@ function MembershipInformationPage() {
 
     renewMembership({ variables })
       .then(result => {
-        if (!!result.data)
-          toastNotification({
-            type: 'success',
-            labelText: t('membershipInformation.renewSuccessTitle'),
-            notificationMessage: t('membershipInformation.renewSuccessMessage'),
-          });
+        if (!!result.data) {
+          const isMinor = Membership.getIsUnderage(
+            data?.myYouthProfile?.birthDate
+          );
+
+          // Minors receive a notification about a sent approval message
+          if (isMinor) {
+            toastNotification({
+              type: 'success',
+              labelText: t('membershipInformation.renewSuccessTitle'),
+              notificationMessage: t(
+                'membershipInformation.renewSuccessMessageMinor'
+              ),
+            });
+          } else {
+            toastNotification({
+              type: 'success',
+              labelText: t('membershipInformation.renewSuccessTitle'),
+              notificationMessage: t(
+                'membershipInformation.renewSuccessMessage'
+              ),
+            });
+          }
+        }
       })
       .catch((error: Error) => {
         Sentry.captureException(error);

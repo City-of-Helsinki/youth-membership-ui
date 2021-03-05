@@ -104,6 +104,7 @@
     "renew": "Förnya medlemskapet",
     "renewUnderage": "Skicka en förnyelsebegäran till vårdnadshavaren",
     "renewSuccessMessage": "Medlemskapet förnyades framgångsrikt!",
+    "renewSuccessMessageMinor": "Förnyelsebegäran skickades!",
     "renewSuccessTitle": "Framgång",
     "showProfileInformation": "Visa profiluppifter",
     "title": "Medlemskortnummer {{number}}",
