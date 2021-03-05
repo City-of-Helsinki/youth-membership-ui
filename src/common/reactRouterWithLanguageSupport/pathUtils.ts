@@ -95,6 +95,7 @@ export function getIsLanguageInPath(pathname?: string) {
   }
 
   const match = matchPath<Params>(pathname, `/:${LANGUAGE_ID}`);
+  const language = match?.params.language;
 
-  return Boolean(match?.params.language);
+  return language && language.length === 2;
 }

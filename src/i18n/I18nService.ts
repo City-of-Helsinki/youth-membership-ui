@@ -1,9 +1,9 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import * as H from 'history';
 
 import * as PathUtils from '../common/reactRouterWithLanguageSupport/pathUtils';
-import history from '../domain/app/appHistory';
 import en from './en.json';
 import fi from './fi.json';
 import sv from './sv.json';
@@ -15,7 +15,7 @@ export type Language = typeof supportedLanguages[number];
 class I18nService {
   static languages = supportedLanguages;
 
-  static init() {
+  static init(history: H.History) {
     i18n
       .use(LanguageDetector)
       .use(initReactI18next)
