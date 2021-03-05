@@ -254,12 +254,6 @@
     "heading": "{{ youth_profile.profile.first_name }} your Youth Services membership is about to expire",
     "content": "Hi {{ youth_profile.profile.first_name }}! Your Youth Services membership is about to expire You can easily renew your membership here https://jassari.hel.fi/ <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>"
   },
-  "feedback": {
-    "giveFeedback": {
-      "label": "Give feedback of the Jässäri service",
-      "link": "https://docs.google.com/forms/d/e/1FAIpQLSfpPCeAdiT9pcMRazxqA9DW-mbqoN2kNwaV53XydjzHWdyFKw/viewform?usp=pp_url&entry.1982410290=J%C3%A4ss%C3%A4ri"
-    }
-  },
   "fields": {
     "firstName": "a first name",
     "lastName": "a last name",
