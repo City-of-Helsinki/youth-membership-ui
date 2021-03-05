@@ -31,21 +31,23 @@ function AppRoutes() {
           </Switch>
         </PageLayout>
       </Route>
-      <Route>
+      <Route isLanguageAgnostic>
         <PageLayout>
           <Switch>
             <Route
               isLanguageAgnostic
+              exact
+              path="/callback"
+              component={OidcCallback}
+            />
+            <Route
+              isLanguageAgnostic
+              exact
               path="/silent_renew"
               render={() => {
                 userManager.signinSilentCallback();
                 return null;
               }}
-            />
-            <Route
-              isLanguageAgnostic
-              path="/callback"
-              component={OidcCallback}
             />
             <AppPageTitleRoute
               path="/login"

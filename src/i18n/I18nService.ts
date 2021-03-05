@@ -34,11 +34,13 @@ class I18nService {
         fallbackLng: 'fi',
         whitelist: I18nService.languages,
         detection: {
-          order: ['localStorage', 'path'],
+          order: ['path', 'localStorage'],
           lookupFromPathIndex: 0,
-          // Allow unsupported languages to be detected. The fallback
-          // language is used for unsupported languages.
-          checkWhitelist: false,
+          // Don't allow unsupported languages to be detected because
+          // the language parameter may be missing in some urls in which
+          // case i18next's language value will receive an insensible
+          // value such as "callback".
+          checkWhitelist: true,
         },
         interpolation: {
           escapeValue: false,
@@ -48,7 +50,7 @@ class I18nService {
     setYupLocale();
 
     i18n.on('languageChanged', (nextLanguage: Language) => {
-      const pathname = history.location.pathname;
+      const pathname = window.location.pathname;
       const containsLanguage = this.languages.reduce(
         (contains, language) => contains || pathname.includes(`/${language}/`),
         false

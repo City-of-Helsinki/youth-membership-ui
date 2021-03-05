@@ -1,4 +1,5 @@
 import * as H from 'history';
+import { matchPath } from 'react-router';
 
 import { Language } from '../../i18n/I18nService';
 
@@ -82,4 +83,18 @@ export function replaceLanguageInPath(pathname: string, language: Language) {
   nextPathname.splice(1, 1, language);
 
   return nextPathname.join('/');
+}
+
+type Params = {
+  language?: Language;
+};
+
+export function getIsLanguageInPath(pathname?: string) {
+  if (!pathname) {
+    return false;
+  }
+
+  const match = matchPath<Params>(pathname, `/:${LANGUAGE_ID}`);
+
+  return Boolean(match?.params.language);
 }

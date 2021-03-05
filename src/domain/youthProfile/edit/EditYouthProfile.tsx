@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
+import { useHistory } from 'react-router-dom';
 
 import {
   Language,
@@ -8,7 +9,6 @@ import {
   YouthLanguage,
   MembershipDetails_myYouthProfile_profile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
-import useHistory from '../../../common/reactRouterWithLanguageSupport/useHistory';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
 import getAdditionalContactPersons from '../helpers/getAdditionalContactPersons';

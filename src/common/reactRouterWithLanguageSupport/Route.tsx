@@ -24,9 +24,12 @@ function useRedirectToDefaultLanguage(disable?: boolean) {
   const match = useRouteMatch<Params>('/:language');
 
   const languageParam = match?.params.language;
-  const isMissingLanguage = !Boolean(languageParam);
+  const isMissingLanguage =
+    !Boolean(languageParam) || languageParam?.length !== 2;
   const isMissingSupportedLanguage =
-    languageParam && !I18nService.languages.includes(languageParam);
+    !isMissingLanguage &&
+    languageParam &&
+    !I18nService.languages.includes(languageParam);
 
   // If there's no language in the path, add one
   useEffect(() => {
@@ -35,7 +38,9 @@ function useRedirectToDefaultLanguage(disable?: boolean) {
         PathUtils.getPathnameWithLanguage(
           location.pathname,
           I18nService.language
-        )
+        ),
+        null,
+        false
       );
     }
   }, [isMissingLanguage, history, location.pathname, disable]);
@@ -44,7 +49,12 @@ function useRedirectToDefaultLanguage(disable?: boolean) {
   useEffect(() => {
     if (!disable && isMissingSupportedLanguage) {
       history.replace(
-        PathUtils.replaceLanguageInPath(location.pathname, I18nService.language)
+        PathUtils.replaceLanguageInPath(
+          location.pathname,
+          I18nService.language
+        ),
+        null,
+        false
       );
     }
   }, [isMissingSupportedLanguage, history, location.pathname, disable]);

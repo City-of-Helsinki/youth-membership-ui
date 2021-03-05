@@ -3,13 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { User } from 'oidc-client';
+import { useHistory, Redirect } from 'react-router-dom';
 
 import {
   MembershipStatus,
   PrefillRegistartion,
 } from '../../../graphql/generatedTypes';
-import useHistory from '../../../common/reactRouterWithLanguageSupport/useHistory';
-import Redirect from '../../../common/reactRouterWithLanguageSupport/Redirect';
 import PageContent from '../../../common/components/layout/PageContent';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getAuthenticatedUser from '../../auth/getAuthenticatedUser';

@@ -3,6 +3,7 @@ import React from 'react';
 import { User } from 'oidc-client';
 import { useTranslation } from 'react-i18next';
 import { isValid, parseISO } from 'date-fns';
+import { Redirect } from 'react-router-dom';
 
 import {
   Language,
@@ -10,7 +11,6 @@ import {
   YouthLanguage,
   PrefillRegistartion_myProfile_primaryAddress as PrimaryAddress,
 } from '../../../graphql/generatedTypes';
-import Redirect from '../../../common/reactRouterWithLanguageSupport/Redirect';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getCookie from '../../../common/helpers/getCookie';
 import getLanguageCode from '../../../common/helpers/getLanguageCode';
