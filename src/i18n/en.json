@@ -104,6 +104,7 @@
     "renew": "Renew membership",
     "renewUnderage": "Send a renewal request to the guardian",
     "renewSuccessMessage": "Membership renewed successfully!",
+    "renewSuccessMessageMinor": "Renewal request sent successfully!",
     "renewSuccessTitle": "Success",
     "showProfileInformation": "Show profile information",
     "title": "Membership card number {{number}}",

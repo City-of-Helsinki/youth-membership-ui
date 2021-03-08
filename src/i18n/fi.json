@@ -104,6 +104,7 @@
     "renew": "Uusi jäsenyys",
     "renewUnderage": "Lähetä uusimispyyntö huoltajalle",
     "renewSuccessMessage": "Jäsenyys uusittu onnistuneesti!",
+    "renewSuccessMessageMinor": "Uusimispyyntö lähetetty onnistuneesti!",
     "renewSuccessTitle": "Onnistui",
     "showProfileInformation": "Näytä profiilin tiedot",
     "title": "Jäsenkortin numero {{number}}",

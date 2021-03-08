@@ -11,7 +11,7 @@ import {
 import LinkButton from '../../../common/components/linkButton/LinkButton';
 import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import MembershipPageLayout from '../MembershipPageLayout';
-import Membership from '../MembershipUtility';
+import * as Membership from '../MembershipUtility';
 
 type MembershipExpiryTitleProps = {
   membershipExpirationDate: string;
