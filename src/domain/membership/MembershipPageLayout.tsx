@@ -1,7 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import LinkButton from '../../common/components/linkButton/LinkButton';
 import Text from '../../common/components/text/Text';
 import Stack from '../../common/components/stack/Stack';
 import styles from './membershipPageLayout.module.css';
@@ -47,12 +46,6 @@ function MembershipPageLayout({
       <Stack space="m">
         {mainActionButton && mainActionButton}
         {secondaryActionButton && secondaryActionButton}
-        <LinkButton
-          path={t('feedback.giveFeedback.link')}
-          component="a"
-          buttonText={t('feedback.giveFeedback.label')}
-          variant="secondary"
-        />
       </Stack>
     </div>
   );
