@@ -225,17 +225,14 @@ function DateInputLogic({
     month: string | null,
     year: string | null
   ) => {
-    setInternalDate(previousDate => {
-      const nextCachedDate = {
-        dayOfMonth: defaultTo(dayOfMonth, previousDate.dayOfMonth),
-        month: defaultTo(month, previousDate.month),
-        year: defaultTo(year, previousDate.year),
-      };
+    const nextCachedDate = {
+      dayOfMonth: defaultTo(dayOfMonth, internalDate.dayOfMonth),
+      month: defaultTo(month, internalDate.month),
+      year: defaultTo(year, internalDate.year),
+    };
 
-      setExternalDate(nextCachedDate);
-
-      return nextCachedDate;
-    });
+    setInternalDate(nextCachedDate);
+    setExternalDate(nextCachedDate);
   };
 
   const focusWhen = (
