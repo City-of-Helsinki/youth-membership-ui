@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
-import styles from './HelsinkiLogo.module.css';
+import Link from '../../reactRouterWithLanguageSupport/Link';
 import getLanguageCode from '../../helpers/getLanguageCode';
+import styles from './HelsinkiLogo.module.css';
 
 type Props = {
   className?: string;

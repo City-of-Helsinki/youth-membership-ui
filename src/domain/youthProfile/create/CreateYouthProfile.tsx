@@ -2,8 +2,8 @@
 import React from 'react';
 import { User } from 'oidc-client';
 import { useTranslation } from 'react-i18next';
-import { Redirect } from 'react-router';
 import { isValid, parseISO } from 'date-fns';
+import { Redirect } from 'react-router-dom';
 
 import {
   Language,

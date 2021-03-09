@@ -1,8 +1,8 @@
 import React from 'react';
 import { Koros } from 'hds-react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import Link from '../../../reactRouterWithLanguageSupport/Link';
 import ExternalLink from '../../externalLink/ExternalLink';
 import HelsinkiLogo from '../../helsinkiLogo/HelsinkiLogo';
 import styles from './Footer.module.css';

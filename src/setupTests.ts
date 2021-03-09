@@ -11,6 +11,7 @@ jest.mock('react-router', () => ({
   ...jest.requireActual('react-router'),
   useHistory: () => ({
     push: jest.fn(),
+    replace: jest.fn(),
   }),
 }));
 

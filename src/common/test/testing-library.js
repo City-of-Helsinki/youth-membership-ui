@@ -1,28 +1,30 @@
 // https://testing-library.com/docs/react-testing-library/setup
 import { render } from '@testing-library/react';
-import { StaticRouter as Router } from 'react-router';
+import { MemoryRouter as Router } from 'react-router';
 import { HelmetProvider } from 'react-helmet-async';
 import { Provider as ReduxProvider } from 'react-redux';
 import { MockedProvider } from '@apollo/client/testing';
 
 import store from '../../redux/store';
 
-const AllTheProviders = ({ children, mocks }) => {
+const AllTheProviders = ({ children, mocks, routerOptions = {} }) => {
   return (
     <MockedProvider mocks={mocks}>
       <ReduxProvider store={store}>
         <HelmetProvider>
-          <Router>{children}</Router>
+          <Router {...routerOptions}>{children}</Router>
         </HelmetProvider>
       </ReduxProvider>
     </MockedProvider>
   );
 };
 
-const customRender = (ui, mocks, options) =>
+const customRender = (ui, mocks, { routerOptions, ...options } = {}) =>
   render(ui, {
     wrapper: ({ children }) => (
-      <AllTheProviders mocks={mocks}>{children}</AllTheProviders>
+      <AllTheProviders mocks={mocks} routerOptions={routerOptions}>
+        {children}
+      </AllTheProviders>
     ),
     ...options,
   });

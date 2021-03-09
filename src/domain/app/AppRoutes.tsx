@@ -1,7 +1,8 @@
 import React from 'react';
-import { Switch, Route } from 'react-router';
 
 import PageLayout from '../../common/components/layout/PageLayout';
+import Switch from '../../common/reactRouterWithLanguageSupport/Switch';
+import Route from '../../common/reactRouterWithLanguageSupport/Route';
 import userManager from '../auth/userManager';
 import Login from '../auth/components/login/Login';
 import OidcCallback from '../auth/components/oidcCallback/OidcCallback';
@@ -18,7 +19,7 @@ import NotFoundPage from '../notFoundPage/NotFoundPage';
 function AppRoutes() {
   return (
     <Switch>
-      <Route path={['/approve/:approvalToken/:readToken']}>
+      <Route path="/approve/:approvalToken/:readToken">
         <PageLayout variant="approver">
           <Switch>
             <AppPageTitleRoute
@@ -30,9 +31,24 @@ function AppRoutes() {
           </Switch>
         </PageLayout>
       </Route>
-      <Route>
+      <Route isLanguageAgnostic>
         <PageLayout>
           <Switch>
+            <Route
+              isLanguageAgnostic
+              exact
+              path="/callback"
+              component={OidcCallback}
+            />
+            <Route
+              isLanguageAgnostic
+              exact
+              path="/silent_renew"
+              render={() => {
+                userManager.signinSilentCallback();
+                return null;
+              }}
+            />
             <AppPageTitleRoute
               path="/login"
               exact
@@ -69,14 +85,6 @@ function AppRoutes() {
               component={AccessibilityStatement}
               pageTitle="footer.accessibility"
             />
-            <Route
-              path="/silent_renew"
-              render={() => {
-                userManager.signinSilentCallback();
-                return null;
-              }}
-            />
-            <Route path="/callback" component={OidcCallback} />
             <Route path="*" component={NotFoundPage} />
           </Switch>
         </PageLayout>

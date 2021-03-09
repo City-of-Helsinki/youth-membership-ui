@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 import {
   Language,
