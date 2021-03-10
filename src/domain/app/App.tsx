@@ -35,6 +35,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 loadUser(store, userManager).then(async user => {
   if (user && !user.expired) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     store.dispatch(fetchApiTokenThunk(user.access_token));
   }
 });
