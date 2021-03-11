@@ -58,5 +58,7 @@ jobs:
       run: yarn --prefer-offline
     - name: Run tests
       run: yarn ci
+      env:
+        REACT_APP_PROFILE_AUDIENCE: "https://api.hel.fi/auth/helsinkiprofile"
     - name: Upload coverage report to Codecov
       uses: codecov/codecov-action@v1
