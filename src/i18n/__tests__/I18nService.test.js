@@ -97,9 +97,7 @@ describe('I18nService', () => {
 
       I18nService.init(fakeHistory);
 
-      // Somali is lacking support in the i18n-iso-countries library so
-      // it is not loaded
-      expect(registerLocaleSpy).toHaveBeenCalledTimes(7);
+      expect(registerLocaleSpy).toHaveBeenCalledTimes(8);
     });
 
     it('should configure i18next', () => {
