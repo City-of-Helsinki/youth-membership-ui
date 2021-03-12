@@ -53,23 +53,26 @@ describe('I18nService', () => {
       delete window.location;
       window.location = new URL('http://localhost/fi/');
 
-      const i18nOn = jest.spyOn(i18n, 'on');
-
       I18nService.init(fakeHistory);
-
-      expect(i18nOn).toHaveBeenCalledWith(
-        'languageChanged',
-        expect.any(Function)
-      );
-
-      const languageChangeCallbackFunction = i18nOn.mock.calls[0][1];
-
-      languageChangeCallbackFunction('sv');
+      I18nService.get().changeLanguage('sv');
 
       expect(replace).toHaveBeenCalledWith('/sv/');
 
       delete window.location;
       window.location = originalWindow;
+    });
+
+    // eslint-disable-next-line max-len
+    it('should extend the language change functionality by changing the language direction within the html document', () => {
+      const dirSpy = jest.spyOn(document, 'dir', 'set');
+
+      I18nService.init(fakeHistory);
+
+      expect(dirSpy).toHaveBeenCalledWith('ltr');
+
+      I18nService.get().changeLanguage('ar');
+
+      expect(dirSpy).toHaveBeenCalledWith('rtl');
     });
 
     it('should configure i18next', () => {

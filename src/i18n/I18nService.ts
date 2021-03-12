@@ -61,6 +61,15 @@ class I18nService {
   static init(history: H.History) {
     const resources = getResources(this.languages);
 
+    // Set languageChanged for direction event before initialization so
+    // that direction is set on first load
+    i18n.on('languageChanged', (nextLanguage: Language) => {
+      // Sync selected languages direction into HTML document
+      if (document) {
+        document.dir = this.get().dir(nextLanguage);
+      }
+    });
+
     i18n
       .use(LanguageDetector)
       .use(initReactI18next)
@@ -85,6 +94,7 @@ class I18nService {
     setYupLocale();
 
     i18n.on('languageChanged', (nextLanguage: Language) => {
+      // If necessary, change language in pathname
       const pathname = window.location.pathname;
       const containsLanguage = this.languages.reduce(
         (contains, language) => contains || pathname.includes(`/${language}/`),
