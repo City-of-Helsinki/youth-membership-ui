@@ -76,6 +76,11 @@
     "SOMALI": "Somali",
     "SWEDISH": "Swedish"
   },
+  "language": {
+    "fi": "Suomi",
+    "sv": "Svenska",
+    "en": "English"
+  },
   "loading": "Loading...",
   "login": {
     "buttonText": "Get membership",
