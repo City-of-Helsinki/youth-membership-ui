@@ -133,6 +133,61 @@ exports[`matches snapshot 1`] = `
                       English
                     </span>
                   </a>
+                  <a
+                    class="Menu-module_item__3yQdE "
+                    href="#"
+                    lang="fr"
+                  >
+                    <span
+                      class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
+                    >
+                      language.fr
+                    </span>
+                  </a>
+                  <a
+                    class="Menu-module_item__3yQdE "
+                    href="#"
+                    lang="ru"
+                  >
+                    <span
+                      class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
+                    >
+                      language.ru
+                    </span>
+                  </a>
+                  <a
+                    class="Menu-module_item__3yQdE "
+                    href="#"
+                    lang="et"
+                  >
+                    <span
+                      class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
+                    >
+                      language.et
+                    </span>
+                  </a>
+                  <a
+                    class="Menu-module_item__3yQdE "
+                    href="#"
+                    lang="so"
+                  >
+                    <span
+                      class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
+                    >
+                      language.so
+                    </span>
+                  </a>
+                  <a
+                    class="Menu-module_item__3yQdE "
+                    href="#"
+                    lang="ar"
+                  >
+                    <span
+                      class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
+                    >
+                      language.ar
+                    </span>
+                  </a>
                 </div>
               </div>
               <div

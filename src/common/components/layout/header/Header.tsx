@@ -6,6 +6,7 @@ import { loader } from 'graphql.macro';
 import { useQuery } from '@apollo/client';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 
+import I18nService from '../../../../i18n/I18nService';
 import toastNotification from '../../../helpers/toastNotification/toastNotification';
 import { NameQuery } from '../../../../graphql/generatedTypes';
 import authenticate from '../../../../domain/auth/authenticate';
@@ -18,8 +19,6 @@ import styles from './Header.module.css';
 const NAME_QUERY = loader(
   '../../../../domain/youthProfile/graphql/NameQuery.graphql'
 );
-
-const languages = ['fi', 'sv', 'en'];
 
 // Approver variant is shown for approver view. The approver should not
 // be shown the user menu, nor should the header contain links for
@@ -83,7 +82,7 @@ function Header({ variant = 'default' }: Props) {
             label={normalizedLanguageCode.toUpperCase()}
             buttonAriaLabel={t(`language.${normalizedLanguageCode}`)}
           >
-            {languages.map(normalizedLanguageCode => (
+            {I18nService.languages.map(normalizedLanguageCode => (
               <Navigation.Item
                 key={normalizedLanguageCode}
                 href="#"
