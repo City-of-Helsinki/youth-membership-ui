@@ -7,9 +7,6 @@ import countries from 'i18n-iso-countries';
 import * as PathUtils from '../common/reactRouterWithLanguageSupport/pathUtils';
 import Config from '../config';
 import Logger from '../logger';
-import en from './en.json';
-import fi from './fi.json';
-import sv from './sv.json';
 import setYupLocale from './setYupLocale';
 
 const defaultLanguages = ['fi', 'sv', 'en'];
@@ -29,29 +26,18 @@ function getLanguage(languageCode: string) {
 }
 
 function getResources(locales: string[]) {
-  const defaultResources = {
-    en: {
-      translation: en,
-    },
-    fi: {
-      translation: fi,
-    },
-    sv: {
-      translation: sv,
-    },
-  };
-  const additionalResources = locales.reduce((additionalResources, locale) => {
+  const resources = locales.reduce((resources, locale) => {
     const resource = getLanguage(locale);
 
     return {
-      ...additionalResources,
+      ...resources,
       [locale]: {
         translation: resource,
       },
     };
   }, {});
 
-  return { ...defaultResources, ...additionalResources };
+  return resources;
 }
 
 function registerLocale(languageCode: string) {
