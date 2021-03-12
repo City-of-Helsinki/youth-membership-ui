@@ -141,7 +141,7 @@ exports[`matches snapshot 1`] = `
                     <span
                       class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
                     >
-                      language.fr
+                      français
                     </span>
                   </a>
                   <a
@@ -152,7 +152,7 @@ exports[`matches snapshot 1`] = `
                     <span
                       class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
                     >
-                      language.ru
+                      Русский язык
                     </span>
                   </a>
                   <a
@@ -163,7 +163,7 @@ exports[`matches snapshot 1`] = `
                     <span
                       class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
                     >
-                      language.et
+                      eesti keel
                     </span>
                   </a>
                   <a
@@ -174,7 +174,7 @@ exports[`matches snapshot 1`] = `
                     <span
                       class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
                     >
-                      language.so
+                      af Soomaali
                     </span>
                   </a>
                   <a
@@ -185,7 +185,7 @@ exports[`matches snapshot 1`] = `
                     <span
                       class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
                     >
-                      language.ar
+                      العربية
                     </span>
                   </a>
                 </div>

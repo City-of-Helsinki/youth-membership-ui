@@ -79,7 +79,12 @@
   "language": {
     "fi": "Suomi",
     "sv": "Svenska",
-    "en": "English"
+    "en": "English",
+    "fr": "français",
+    "ru": "Русский язык",
+    "et": "eesti keel",
+    "so": "af Soomaali",
+    "ar": "العربية"
   },
   "loading": "Ladataan...",
   "login": {
