@@ -12,6 +12,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Option to define additional locales with environment variables
 - Support for language direction detection based on locale
 
+### Changed
+
+- Country select to dynamically find supported languages from the I18nService
+
 ### Fixed
 
 - Approval process always allowing photo usage regardless of choice
