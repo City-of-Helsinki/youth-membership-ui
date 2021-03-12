@@ -4,35 +4,70 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import * as H from 'history';
 
 import * as PathUtils from '../common/reactRouterWithLanguageSupport/pathUtils';
+import Config from '../config';
+import Logger from '../logger';
 import en from './en.json';
 import fi from './fi.json';
 import sv from './sv.json';
 import setYupLocale from './setYupLocale';
 
-const supportedLanguages = ['fi', 'sv', 'en'];
-export type Language = typeof supportedLanguages[number];
+const defaultLanguages = ['fi', 'sv', 'en'];
+export type Language = string;
+
+function getLanguage(languageCode: string) {
+  let resource;
+
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
+    resource = require(`./${languageCode}.json`);
+  } catch (e) {
+    Logger.error(`Missing translations for locale ${languageCode}`);
+  } finally {
+    return resource;
+  }
+}
+
+function getResources(locales: string[]) {
+  const defaultResources = {
+    en: {
+      translation: en,
+    },
+    fi: {
+      translation: fi,
+    },
+    sv: {
+      translation: sv,
+    },
+  };
+  const additionalResources = locales.reduce((additionalResources, locale) => {
+    const resource = getLanguage(locale);
+
+    return {
+      ...additionalResources,
+      [locale]: {
+        translation: resource,
+      },
+    };
+  }, {});
+
+  return { ...defaultResources, ...additionalResources };
+}
 
 class I18nService {
-  static languages = supportedLanguages;
+  static get languages() {
+    return [...defaultLanguages, ...Config.additionalLocales];
+  }
 
   static init(history: H.History) {
+    const resources = getResources(this.languages);
+
     i18n
       .use(LanguageDetector)
       .use(initReactI18next)
       .init({
-        resources: {
-          en: {
-            translation: en,
-          },
-          fi: {
-            translation: fi,
-          },
-          sv: {
-            translation: sv,
-          },
-        },
+        resources,
         fallbackLng: 'fi',
-        whitelist: I18nService.languages,
+        whitelist: this.languages,
         detection: {
           order: ['path', 'localStorage'],
           lookupFromPathIndex: 0,

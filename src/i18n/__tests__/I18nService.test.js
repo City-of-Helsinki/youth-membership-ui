@@ -20,7 +20,16 @@ describe('I18nService', () => {
   });
 
   it('static languages getter should return supported languages', () => {
-    expect(I18nService.languages).toEqual(['fi', 'sv', 'en']);
+    expect(I18nService.languages).toEqual([
+      'fi',
+      'sv',
+      'en',
+      'fr',
+      'ru',
+      'et',
+      'so',
+      'ar',
+    ]);
   });
 
   it('static get should return the i18next instance', () => {
@@ -79,6 +88,11 @@ describe('I18nService', () => {
         fi: expect.any(Object),
         sv: expect.any(Object),
         en: expect.any(Object),
+        fr: expect.any(Object),
+        ru: expect.any(Object),
+        et: expect.any(Object),
+        so: expect.any(Object),
+        ar: expect.any(Object),
       });
       expect(initParams.fallbackLng).toEqual(['fi']);
       expect(initParams.whitelist).toEqual([
