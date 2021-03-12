@@ -1,0 +1,281 @@
+{
+  "appName": "FR_Jässäri",
+  "approval": {
+    "addGuardianText": "FR_Other added guardians may be contacted in matters concerning the child.",
+    "addInfo": "FR_Additional info",
+    "additionalAddresses": "FR_Additional addresses",
+    "address": "FR_Home address",
+    "approveButton": "FR_Approve membership",
+    "approvedLink": "FR_The link has expired",
+    "approvedMessage": "FR_Thank you for confirming youth service membership.",
+    "approvedTitle": "FR_Jässäri membership approved!",
+    "approverAcceptance": "FR_Permissions to be approved",
+    "approverEmail": "FR_Email",
+    "approverFirstName": "FR_Firstname",
+    "approverInfo": "FR_Approver info",
+    "approverInfoText": "FR_Guardian may be contacted concerning the child.",
+    "approverLastName": "FR_Lastname",
+    "approveTerms": "FR_I have read <0>the privacy policy of this service</0>, <1>the privacy policy of Helsinki profile</1> and <2>the city's data protection principles</2>. I can be contacted using the information I have given.",
+    "approveTermsText_link": "FR_service terms",
+    "basicInfo": "FR_Basic info",
+    "birthDate": "FR_Birthdate",
+    "explanationCheckStatus": "FR_The youth can check their application's status by logging in to Jässäri. Ask them to resend the confirmation message if their membership has not yet been approved.",
+    "explanationError": "FR_You have either already approved the application submitted by your youth or an error has occurred in our service.",
+    "formExplanationText_1": "FR_has sent a membership application for the City of Helsinki’s Youth Services for your approval. The membership is free of charge. If you approve the application,",
+    "formExplanationText_2": "FR_may visit Youth Centres and participate in fun activities. The activities at Youth Centres are instructed by trained youth workers.  If the information is incorrect, ask the young person to change it and send a new verification message to you.",
+    "languagesAtHome": "FR_Languages at home",
+    "name": "FR_Name",
+    "phone": "FR_Phone",
+    "photoUsageApproved": "FR_Photo usage approval",
+    "photoUsageApprovedNo": "FR_No",
+    "photoUsageApprovedText": "FR_The young person may be photographed and the photos may be used in the printed and electronic communications and marketing of the City of Helsinki. The City will not pay compensation for photographing and using the photos. The right to use the photos will remain in effect until further notice, and it concerns all communications and marketing communications of the City of Helsinki.",
+    "photoUsageApprovedYes": "FR_Yes",
+    "profile": "FR_Profile",
+    "schoolInfo": "FR_School and class",
+    "title": "FR_Please approve membership"
+  },
+  "authentication": {
+    "deviceTimeError": {
+      "message": "FR_Believe it or not, but we can’t allow you to log in because the clock on your device is off by more than five minutes. Please set the time and try again."
+    },
+    "errorMessage": "FR_An error occured while logging in. Please try again",
+    "errorTitle": "FR_Oops!",
+    "permRequestDenied": {
+      "message": "FR_You need to approve our request to access your Tunnistamo profile in order to use this service. Please try logging in again."
+    }
+  },
+  "confirmSendingProfile": {
+    "buttonText": "FR_Send a new request to the guardian",
+    "helpText": "FR_Your membership application has been sent to",
+    "linkToShowSentData": "FR_Display your application",
+    "sendAgainHelpText": "FR_Approval email has been re-sent to",
+    "title": "FR_The application has been sent to your guardian for approval!"
+  },
+  "edit": {
+    "pageTitle": "FR_Edit own information"
+  },
+  "emailApproval": {
+    "content": "FR_Hi {{ youth_profile.approver_first_name }},<br /><br />{{ youth_profile.profile.first_name }} has sent a membership application for the City of Helsinki’s Youth Services for your approval. The membership is free of charge. If you approve the application, {{ youth_profile.profile.first_name }} may visit Youth Centres and enjoy fun benefits. If the information is incorrect, ask the youth to change it and send a new approval request to you. You can give your approval using the Jässäri service via this link: <br /><br /><a href=\"https://jassari.hel.fi/approve/{{ youth_profile.approval_token }}\">https://jassari.hel.fi/approve/{{ youth_profile.approval_token }}</a><br /><br /><i> This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>",
+    "heading": "FR_{{ youth_profile.profile.first_name }} has sent a membership application for the City of Helsinki’s Youth Services for your approval."
+  },
+  "emailApproved": {
+    "content": "FR_Welcome to the Youth Services of the City of Helsinki! {{ youth_profile.approver_first_name }} has approved your membership. Your digital membersip card can be found here: <br /><br /><a href=\"https://jassari.hel.fi\">https://jassari.hel.fi</a> <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>",
+    "heading": "FR_{{ youth_profile.approver_first_name }} has approved your Youth Services membership"
+  },
+  "emailRenew": {
+    "content": "FR_Hi {{ youth_profile.profile.first_name }}! Your Youth Services membership is about to expire You can easily renew your membership here https://jassari.hel.fi/ <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>",
+    "heading": "FR_{{ youth_profile.profile.first_name }} your Youth Services membership is about to expire"
+  },
+  "externalLink": {
+    "description": "FR_Opens in a new window"
+  },
+  "fields": {
+    "city": "FR_a city",
+    "email": "FR_an email",
+    "firstName": "FR_a first name",
+    "lastName": "FR_a last name",
+    "phoneNumber": "FR_a phone number",
+    "photoUsageApproved": "FR_photo usage approval",
+    "postalCode": "FR_a postal code",
+    "schoolClass": "FR_a school class",
+    "schoolName": "FR_a school name",
+    "streetAddress": "FR_a street address"
+  },
+  "footer": {
+    "accessibility": "FR_Accessibility document",
+    "copyright": "FR_City of Helsinki",
+    "feedback": "FR_Give feedback",
+    "feedbackLink": "FR_https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/en/feedback/feedback/",
+    "privacy": "FR_Privacy policy",
+    "reserveRights": "FR_All rights reserved",
+    "terms": "FR_Terms of Service"
+  },
+  "helsinkiLogo": "FR_Helsinki logo",
+  "LANGUAGE_OPTIONS": {
+    "ARABIC": "FR_Arabic",
+    "ENGLISH": "FR_English",
+    "ESTONIAN": "FR_Estonian",
+    "FINNISH": "FR_Finnish",
+    "RUSSIAN": "FR_Russian",
+    "SOMALI": "FR_Somali",
+    "SWEDISH": "FR_Swedish"
+  },
+  "language": {
+    "ar": "FR_العربية",
+    "en": "FR_English",
+    "et": "FR_eesti keel",
+    "fi": "FR_Suomi",
+    "fr": "FR_français",
+    "ru": "FR_Русский язык",
+    "so": "FR_af Soomaali",
+    "sv": "FR_Svenska"
+  },
+  "loading": "FR_Loading...",
+  "login": {
+    "buttonText": "FR_Get membership",
+    "findNearestService": "FR_Find the nearest youth centre on the service map",
+    "helpText": "FR_Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers.",
+    "helpTextUnderAge": "FR_Unfortunately, you need to be at least 13 years old to get a digital Jässäri. You can download an application form from here.  Fill in the application form with your guardian and take it back to the Youth Centre to get your own membership card. ",
+    "linkForMembersText": "FR_Do you have membership? Log in",
+    "pageTitle": "FR_Youth membership card",
+    "registrationForm": "FR_http://jassari.munstadi.fi/files/2020/07/Jasenkorttikaavake_2020_englanti-1.pdf",
+    "registrationFormText": "FR_Download application form",
+    "return": "FR_Go back",
+    "title": "FR_Get your Jässäri!"
+  },
+  "membershipDetails": {
+    "additionalInformation": "FR_Additional information",
+    "edit": "FR_Edit information",
+    "photoUsageExplanation": "FR_I can be photographed and the photos may be used in the printed and electronic communications and marketing of the City of Helsinki. The City will not pay compensation for photographing and using the photos. The right to use the photos will remain in effect until further notice, and it concerns all communications and marketing communications of the City of Helsinki.",
+    "profileInformation": "FR_Basic information",
+    "requiredPermissionsFromParent": "FR_Required permissions from parent",
+    "returnToFront": "FR_Return to frontpage",
+    "text": "FR_Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers.",
+    "title": "FR_Own information"
+  },
+  "membershipInformation": {
+    "pageTitle": "FR_Membership information",
+    "renew": "FR_Renew membership",
+    "renewSuccessMessage": "FR_Membership renewed successfully!",
+    "renewSuccessMessageMinor": "FR_Renewal request sent successfully!",
+    "renewSuccessTitle": "FR_Success",
+    "renewUnderage": "FR_Send a renewal request to the guardian",
+    "showProfileInformation": "FR_Show profile information",
+    "status": {
+      "description": {
+        "expired": "FR_Resubmit your membership to your guardian for approval.",
+        "pending": "FR_Your renewal request has been sent to {{email}}",
+        "renewable": "FR_Resubmit your membership to your guardian for approval.",
+        "renewing": "FR_Your renewal request has been sent to {{email}}"
+      },
+      "title": {
+        "membershipExpired": "FR_Membership has expired.",
+        "pending": "FR_Renewal of membership is awaiting for guardian approval.",
+        "renewable": "FR_Membership expires on {{date}}.",
+        "renewing": "FR_Membership expires on {{date}}. Renewal is awaiting guardian approval."
+      }
+    },
+    "title": "FR_Membership card number {{number}}",
+    "validUntil": "FR_Valid until {{date}}"
+  },
+  "meta": {
+    "description": "FR_Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers."
+  },
+  "nav": {
+    "helsinki": "FR_Helsinki",
+    "menu": "FR_Menu",
+    "menuButtonLabel": "FR_Profile menu",
+    "profile": "FR_Helsinki Profile",
+    "signin": "FR_Log in",
+    "signout": "FR_Log out",
+    "skipToContent": "FR_Skip to main content"
+  },
+  "notification": {
+    "closeButtonText": "FR_Close",
+    "defaultErrorText": "FR_Something went wrong. Try again after a while.",
+    "defaultErrorTitle": "FR_Error"
+  },
+  "oidc": {
+    "authenticating": "FR_Authenticating..."
+  },
+  "privacyPolicy": {
+    "descriptionLink": "FR_https://www.hel.fi/helsinki/en/administration/information/data-protection",
+    "helsinkiProfileLink": "FR_https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/S%C3%A4hk%C3%B6isten%20asiointipalveluiden%20rekisteri.pdf"
+  },
+  "profile": {
+    "address": "FR_Address",
+    "email": "FR_Email",
+    "loading": "FR_Loading profile...",
+    "name": "FR_Name",
+    "phone": "FR_Phone",
+    "verifying": "FR_Checking profile..."
+  },
+  "registration": {
+    "addAddress": "FR_Add another address",
+    "addGuardian": "FR_Add another guardian's information ",
+    "addGuardianText": "FR_If necessary other guardians may be contacted in matters relating to your youth membership.",
+    "addInfo": "FR_Additional info",
+    "address": "FR_Street",
+    "ageRestriction": "FR_Jässäri is only for youths between 8-29 years.",
+    "approver": "FR_Approver",
+    "approverInfoOver18Text": "FR_For members over 18, we don't require providing custodian contact information. If for any reason you wish us to be able to contact them, you can add the information here.",
+    "approverInfoText": "FR_A confirmation request concerning your membership will be sent to this address, and your guardian must verify the information and approve your membership.",
+    "approveTerms": "FR_I have read <0>the privacy policy of this service</0>, <1>the privacy policy of Helsinki profile</1> and <2>the city's data protection principles</2>. I can be contacted using the information I have given.",
+    "basicInfo": "FR_Basic info",
+    "birthdayHelper": "FR_Birthdate (dd.mm.yyyy) *",
+    "birthdayInvalid": "FR_The birthday should be dd.mm.yyyy.",
+    "cancel": "FR_Cancel",
+    "childBirthDay": "FR_Birthdate",
+    "childBirthMonth": "FR_Birthmonth",
+    "childBirthYear": "FR_Birthyear",
+    "city": "FR_City",
+    "confirmSend": "FR_Accept the terms and send the application",
+    "country": "FR_Country",
+    "date": "FR_Date",
+    "dateInvalid": "FR_Invalid date",
+    "email": "FR_Email",
+    "firstName": "FR_First name",
+    "languageAtHome": "FR_Language at home",
+    "lastName": "FR_Last name",
+    "membershipInfoText": "FR_Membership is free and does not require anything of you, but you do need a membership to be able to participate in activities at Youth Centres. We will not disclose your information to third parties. You have the right to check and remove the information we have stored concerning you. Please remember that intoxicants are not allowed at Youth Centre activities. ",
+    "month": "FR_Month",
+    "pageTitle": "FR_Create profile",
+    "phoneNumber": "FR_Phone",
+    "photoUsageApproved": "FR_Photo usage approved",
+    "photoUsageApprovedNo": "FR_No",
+    "photoUsageApprovedText": "FR_I can be photographed and the photos may be used in the printed and electronic communications and marketing of the City of Helsinki. The City will not pay compensation for photographing and using the photos. The right to use the photos will remain in effect until further notice, and it concerns all communications and marketing communications of the City of Helsinki.",
+    "photoUsageApprovedYes": "FR_Yes",
+    "postalCode": "FR_Postal code",
+    "processInfoText": "FR_A data verification request will be sent to the parent and once they have reviewed and approved the information, your membership will take effect.",
+    "profileLanguage": "FR_Profile language",
+    "remove": "FR_Delete",
+    "save": "FR_Save information",
+    "schoolClass": "FR_School class",
+    "schoolName": "FR_School name",
+    "sendButton": "FR_Save and send approval request",
+    "title": "FR_Please fill in your information",
+    "year": "FR_Year"
+  },
+  "registry": {
+    "descriptionLink": "FR_https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Youth%20services%20membership%20data%20file.pdf"
+  },
+  "sanityCheck": "FR_youth-profile.en",
+  "tos": {
+    "message1": "FR_Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "message2": "FR_",
+    "message3": "FR_",
+    "message4": "FR_",
+    "message5": "FR_",
+    "message6": "FR_",
+    "message7": "FR_",
+    "message8": "FR_",
+    "title": "FR_Terms of Service",
+    "title1": "FR_1. Scope of application",
+    "title2": "FR_2. Create and disable a profile",
+    "title3": "FR_3. Using a profile",
+    "title4": "FR_4. Availability of the service",
+    "title5": "FR_5. Personal information",
+    "title6": "FR_6. Rights",
+    "title7": "FR_7. Limitation of Liability",
+    "title8": "FR_8. Other terms and conditions",
+    "updated": "FR_Updated 20.1.2020"
+  },
+  "validation": {
+    "email": "FR_Please enter a valid email address",
+    "invalidPostalCode": "FR_Please enter a valid postal code",
+    "required": "FR_Please enter {{label}}",
+    "requiredTerms": "FR_Please accept the terms",
+    "tooLong": "FR_Please enter {{label}} that's less than {{max}} characters long",
+    "tooShort": "FR_Please enter {{label}} that's more than {{min}} characters long"
+  },
+  "youthProfile": {
+    "approverEmail": "FR_Email",
+    "approverInfo": "FR_Approver information",
+    "approverName": "FR_Name",
+    "approverPhone": "FR_Phone",
+    "birthdate": "FR_Birthdate",
+    "homeLanguages": "FR_Language spoken at home",
+    "school": "FR_School"
+  },
+  "": "FR_"
+}
