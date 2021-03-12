@@ -106,6 +106,11 @@ Run `yarn` to install dependencies, start app with `yarn start`.
 
 The graphql-backend for development is located at https://profiili-api.test.kuva.hel.ninja/graphql/, it has graphiql installed so you can browse it in your browser!
 
+## Feature Flags
+
+**REACT_APP_FEATURE_FLAG_USE_ADDITIONAL_LOCALES**  
+Enables French, Russian, Estonian, Somali and Arabic as possible locales in the UI.
+
 ## Known issues
 https://github.com/City-of-Helsinki/youth-membership-ui/issues
 

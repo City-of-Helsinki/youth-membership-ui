@@ -60,6 +60,6 @@ jobs:
       run: yarn ci
       env:
         REACT_APP_PROFILE_AUDIENCE: "https://api.hel.fi/auth/helsinkiprofile"
-        REACT_APP_ADDITIONAL_LOCALES: "fr,ru,et,so,ar"
+        REACT_APP_FEATURE_FLAG_USE_ADDITIONAL_LOCALES: true
     - name: Upload coverage report to Codecov
       uses: codecov/codecov-action@v1
