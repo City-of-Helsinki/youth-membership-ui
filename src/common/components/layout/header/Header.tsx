@@ -91,6 +91,7 @@ function Header({ variant = 'default' }: Props) {
                 }
                 label={t(`language.${normalizedLanguageCode}`)}
                 lang={normalizedLanguageCode}
+                dir={I18nService.dir(normalizedLanguageCode)}
               />
             ))}
           </Navigation.LanguageSelector>

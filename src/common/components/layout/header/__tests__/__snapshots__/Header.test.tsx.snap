@@ -96,6 +96,7 @@ exports[`matches snapshot 1`] = `
               >
                 <a
                   class="Menu-module_item__3yQdE "
+                  dir="ltr"
                   href="#"
                   lang="fi"
                 >
@@ -107,6 +108,7 @@ exports[`matches snapshot 1`] = `
                 </a>
                 <a
                   class="Menu-module_item__3yQdE "
+                  dir="ltr"
                   href="#"
                   lang="sv"
                 >
@@ -118,6 +120,7 @@ exports[`matches snapshot 1`] = `
                 </a>
                 <a
                   class="Menu-module_item__3yQdE "
+                  dir="ltr"
                   href="#"
                   lang="en"
                 >
@@ -129,6 +132,7 @@ exports[`matches snapshot 1`] = `
                 </a>
                 <a
                   class="Menu-module_item__3yQdE "
+                  dir="ltr"
                   href="#"
                   lang="fr"
                 >
@@ -140,6 +144,7 @@ exports[`matches snapshot 1`] = `
                 </a>
                 <a
                   class="Menu-module_item__3yQdE "
+                  dir="ltr"
                   href="#"
                   lang="ru"
                 >
@@ -151,6 +156,7 @@ exports[`matches snapshot 1`] = `
                 </a>
                 <a
                   class="Menu-module_item__3yQdE "
+                  dir="ltr"
                   href="#"
                   lang="et"
                 >
@@ -162,6 +168,7 @@ exports[`matches snapshot 1`] = `
                 </a>
                 <a
                   class="Menu-module_item__3yQdE "
+                  dir="ltr"
                   href="#"
                   lang="so"
                 >
@@ -173,6 +180,7 @@ exports[`matches snapshot 1`] = `
                 </a>
                 <a
                   class="Menu-module_item__3yQdE "
+                  dir="rtl"
                   href="#"
                   lang="ar"
                 >
