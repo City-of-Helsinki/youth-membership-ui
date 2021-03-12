@@ -2,6 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import * as H from 'history';
+import countries from 'i18n-iso-countries';
 
 import * as PathUtils from '../common/reactRouterWithLanguageSupport/pathUtils';
 import Config from '../config';
@@ -53,12 +54,33 @@ function getResources(locales: string[]) {
   return { ...defaultResources, ...additionalResources };
 }
 
+function registerLocale(languageCode: string) {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
+    const language = require(`i18n-iso-countries/langs/${languageCode}.json`);
+
+    countries.registerLocale(language);
+  } catch (e) {
+    Logger.error(
+      `The i18n-iso-countries package does not have support for locale ${languageCode}`
+    );
+  }
+}
+
+function registerLocales(locales: string[]) {
+  locales.forEach(locale => {
+    registerLocale(locale);
+  });
+}
+
 class I18nService {
   static get languages() {
     return [...defaultLanguages, ...Config.additionalLocales];
   }
 
   static init(history: H.History) {
+    registerLocales(this.languages);
+
     const resources = getResources(this.languages);
 
     // Set languageChanged for direction event before initialization so
