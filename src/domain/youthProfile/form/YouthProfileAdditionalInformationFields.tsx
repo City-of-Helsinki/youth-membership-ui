@@ -6,7 +6,6 @@ import { Field } from 'formik';
 import Stack from '../../../common/components/stack/Stack';
 import ageConstants from '../constants/ageConstants';
 import TextInput from './FormikTextInput';
-import Select from './FormikSelect';
 import styles from './youthProfileForm.module.css';
 
 type Props = {
@@ -15,7 +14,6 @@ type Props = {
 
 function YouthProfileForm({ userAge }: Props) {
   const { t } = useTranslation();
-  const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
   return (
     <Stack space="m">
@@ -33,15 +31,6 @@ function YouthProfileForm({ userAge }: Props) {
           labelText={t('registration.schoolClass')}
         />
       </div>
-      <Select
-        className={styles.formInput}
-        name="languageAtHome"
-        label={t('registration.languageAtHome')}
-        options={languages.map(language => ({
-          label: t(`LANGUAGE_OPTIONS.${language}`),
-          value: language,
-        }))}
-      />
       <div
         className={
           userAge < ageConstants.PHOTO_PERMISSION_MIN
