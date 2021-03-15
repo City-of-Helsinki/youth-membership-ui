@@ -400,7 +400,7 @@ exports[`matches snapshot 1`] = `
                   </button>
                   <ul
                     aria-labelledby="hds-select-1-label"
-                    class="Select-module_menu__1H2aU"
+                    class="Select-module_menu__1H2aU Select-module_overflow__EZdsW"
                     id="hds-select-1-menu"
                     role="listbox"
                     style="max-height: 260px;"

@@ -22,7 +22,16 @@ function YouthProfileApproverFields({
 }: Props) {
   const { t } = useTranslation();
 
-  const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
+  const languages = [
+    'FINNISH',
+    'SWEDISH',
+    'ENGLISH',
+    'FRENCH',
+    'RUSSIAN',
+    'SOMALI',
+    'ARABIC',
+    'ESTONIAN',
+  ];
 
   // For now when using .when() in validation we can't use
   // schema.describe().fields[name].tests to determine if field is required or not.
