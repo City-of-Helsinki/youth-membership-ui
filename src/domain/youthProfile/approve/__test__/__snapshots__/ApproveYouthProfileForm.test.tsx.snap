@@ -159,20 +159,6 @@ exports[`matches snapshot 1`] = `
             Koulu, Luokka
           </span>
         </div>
-        <div
-          class="wrapper noMargin"
-        >
-          <strong
-            class="label"
-          >
-            Kotona puhutut kielet
-          </strong>
-          <span
-            class="value"
-          >
-            Suomi
-          </span>
-        </div>
       </div>
     </div>
     <form

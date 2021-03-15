@@ -95,11 +95,6 @@ function ApproveYouthProfileForm(props: Props) {
                 value={schoolInfo}
                 noMargin
               />
-              <LabeledValue
-                label={t('approval.languagesAtHome')}
-                value={t(`LANGUAGE_OPTIONS.${props.values.languageAtHome}`)}
-                noMargin
-              />
             </InfoGrid>
           </div>
           <Form>
