@@ -101,7 +101,7 @@ a {
 
 @media (min-width: 768px) {
   .buttonAlign {
-    text-align: left;
+    text-align: initial;
   }
 }
 

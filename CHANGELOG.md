@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Removed
 
 - Feedback link into user survey
+- Hardcoded right aligns with text in order to better support right-to-left languages
 
 ## [1.3.1] - 2021-02-18
 
