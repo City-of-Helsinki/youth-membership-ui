@@ -6,10 +6,10 @@ import useField from './useField';
 
 type Props = TextInputProps;
 
-function FormikTestInput(props: Props) {
+function FormikTextInput(props: Props) {
   const [field] = useField(props.name as string);
 
   return <TextInput {...field} {...props} />;
 }
 
-export default FormikTestInput;
+export default FormikTextInput;
