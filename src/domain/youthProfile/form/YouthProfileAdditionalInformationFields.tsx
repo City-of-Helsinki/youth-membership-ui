@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { RadioButton } from 'hds-react';
 import { Field } from 'formik';
 
+import Stack from '../../../common/components/stack/Stack';
 import ageConstants from '../constants/ageConstants';
 import TextInput from './FormikTextInput';
+import Select from './FormikSelect';
 import styles from './youthProfileForm.module.css';
 
 type Props = {
@@ -16,7 +18,7 @@ function YouthProfileForm({ userAge }: Props) {
   const languages = ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
   return (
-    <>
+    <Stack space="m">
       <div className={styles.formRow}>
         <TextInput
           className={styles.formInput}
@@ -31,21 +33,15 @@ function YouthProfileForm({ userAge }: Props) {
           labelText={t('registration.schoolClass')}
         />
       </div>
-      <p className={styles.radioLabel}>{t('registration.languageAtHome')}</p>
-      <ul className={styles.list}>
-        {languages.map(language => (
-          <li className={styles.languageRadioBtnRow} key={language}>
-            <Field
-              as={RadioButton}
-              name="languageAtHome"
-              id={language}
-              type="radio"
-              value={language}
-              labelText={t(`LANGUAGE_OPTIONS.${language}`)}
-            />
-          </li>
-        ))}
-      </ul>
+      <Select
+        className={styles.formInput}
+        name="languageAtHome"
+        label={t('registration.languageAtHome')}
+        options={languages.map(language => ({
+          label: t(`LANGUAGE_OPTIONS.${language}`),
+          value: language,
+        }))}
+      />
       <div
         className={
           userAge < ageConstants.PHOTO_PERMISSION_MIN
@@ -82,7 +78,7 @@ function YouthProfileForm({ userAge }: Props) {
           </ul>
         </div>
       </div>
-    </>
+    </Stack>
   );
 }
 

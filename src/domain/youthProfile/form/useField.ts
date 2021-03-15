@@ -2,6 +2,8 @@ import {
   useField as useFieldFormik,
   FieldAttributes,
   FieldMetaProps,
+  FieldInputProps as FFFieldInputProps,
+  FieldHelperProps,
 } from 'formik';
 import { useTranslation } from 'react-i18next';
 
@@ -15,10 +17,16 @@ function getIsInvalid<T>(fieldProps: FieldMetaProps<T>): boolean {
   return isTouched && isError;
 }
 
+type FieldInputProps<T> = FFFieldInputProps<T> & {
+  invalid: boolean;
+  errorText?: string;
+};
 type Config<T> = string | FieldAttributes<T>;
 
-function useField<T>(config: Config<T>) {
-  const [fieldProps, fieldMeta] = useFieldFormik(config);
+function useField<T>(
+  config: Config<T>
+): [FieldInputProps<T>, FieldMetaProps<T>, FieldHelperProps<T>] {
+  const [fieldProps, fieldMeta, fieldHelpers] = useFieldFormik<T>(config);
   const { t } = useTranslation();
 
   function getErrorText<A>(fieldProps: FieldMetaProps<A>) {
@@ -42,6 +50,7 @@ function useField<T>(config: Config<T>) {
       errorText,
     },
     fieldMeta,
+    fieldHelpers,
   ];
 }
 
