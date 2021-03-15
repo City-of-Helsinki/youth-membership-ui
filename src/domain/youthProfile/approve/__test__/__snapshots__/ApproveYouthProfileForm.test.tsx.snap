@@ -362,7 +362,7 @@ exports[`matches snapshot 1`] = `
                   for="hds-select-1-toggle-button"
                   id="hds-select-1-label"
                 >
-                  Kotona puhuttu kieli
+                  Ensisijainen yhteydenottokieli
                 </label>
                 <div
                   class="Select-module_wrapper__1WQXs"
