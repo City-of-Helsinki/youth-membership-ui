@@ -6,18 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [1.4.0] - 2021-03-16
+
 ### Added
 
-- Logic to handle the renewing membership status
+- [#249](https://github.com/City-of-Helsinki/youth-membership-ui/pull/249), [#251](https://github.com/City-of-Helsinki/youth-membership-ui/pull/251) Logic to handle the renewing membership status
+- [#250](https://github.com/City-of-Helsinki/youth-membership-ui/pull/250) Add language to page urls
 
 ### Fixed
 
-- Approval process always allowing photo usage regardless of choice
-- [Accessibility] Announce title changes with aria-live
+- [#247](https://github.com/City-of-Helsinki/youth-membership-ui/pull/247) Approval process always allowing photo usage regardless of choice
+- [#248](https://github.com/City-of-Helsinki/youth-membership-ui/pull/248) [Accessibility] Announce title changes with aria-live
 
 ### Removed
 
-- Feedback link into user survey
+- [#252](https://github.com/City-of-Helsinki/youth-membership-ui/pull/252) Feedback link into user survey
 
 ## [1.3.1] - 2021-02-18
 
