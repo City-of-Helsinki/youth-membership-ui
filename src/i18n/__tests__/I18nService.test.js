@@ -36,6 +36,18 @@ describe('I18nService', () => {
     expect(i18n).toEqual(I18nService.get());
   });
 
+  describe('static method dir', () => {
+    it('static dir should return direction of language', () => {
+      expect(I18nService.dir('fi')).toEqual('ltr');
+      expect(I18nService.dir('ar')).toEqual('rtl');
+    });
+
+    it('static dir should return direction of current language if there are no arguments', () => {
+      expect(I18nService.language).toEqual('fi');
+      expect(I18nService.dir()).toEqual('ltr');
+    });
+  });
+
   describe('static init', () => {
     const replace = jest.fn();
     const fakeHistory = {

@@ -119,6 +119,10 @@ class I18nService {
   static get language(): Language {
     return i18n.language as Language;
   }
+
+  static dir(language?: string) {
+    return i18n.dir(language);
+  }
 }
 
 export default I18nService;
