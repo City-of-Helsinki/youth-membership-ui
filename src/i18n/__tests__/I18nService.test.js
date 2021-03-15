@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import countries from 'i18n-iso-countries';
 
 import setYupLocale from '../setYupLocale';
 import I18nService from '../I18nService';
@@ -85,6 +86,18 @@ describe('I18nService', () => {
       I18nService.get().changeLanguage('ar');
 
       expect(dirSpy).toHaveBeenCalledWith('rtl');
+    });
+
+    it('should register locales for i18n-iso-countries', () => {
+      // Use a spy because the library behaves in the way it does when
+      // it is used in a NodeJS project instead of a browser project.
+      // In other words, the library is automatically configured to
+      // return all languages.
+      const registerLocaleSpy = jest.spyOn(countries, 'registerLocale');
+
+      I18nService.init(fakeHistory);
+
+      expect(registerLocaleSpy).toHaveBeenCalledTimes(8);
     });
 
     it('should configure i18next', () => {

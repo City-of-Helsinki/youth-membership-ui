@@ -2,13 +2,11 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import * as H from 'history';
+import countries from 'i18n-iso-countries';
 
 import * as PathUtils from '../common/reactRouterWithLanguageSupport/pathUtils';
 import Config from '../config';
 import Logger from '../logger';
-import en from './en.json';
-import fi from './fi.json';
-import sv from './sv.json';
 import setYupLocale from './setYupLocale';
 
 const defaultLanguages = ['fi', 'sv', 'en'];
@@ -28,29 +26,37 @@ function getLanguage(languageCode: string) {
 }
 
 function getResources(locales: string[]) {
-  const defaultResources = {
-    en: {
-      translation: en,
-    },
-    fi: {
-      translation: fi,
-    },
-    sv: {
-      translation: sv,
-    },
-  };
-  const additionalResources = locales.reduce((additionalResources, locale) => {
+  const resources = locales.reduce((resources, locale) => {
     const resource = getLanguage(locale);
 
     return {
-      ...additionalResources,
+      ...resources,
       [locale]: {
         translation: resource,
       },
     };
   }, {});
 
-  return { ...defaultResources, ...additionalResources };
+  return resources;
+}
+
+function registerLocale(languageCode: string) {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
+    const language = require(`i18n-iso-countries/langs/${languageCode}.json`);
+
+    countries.registerLocale(language);
+  } catch (e) {
+    Logger.error(
+      `The i18n-iso-countries package does not have support for locale ${languageCode}`
+    );
+  }
+}
+
+function registerLocales(locales: string[]) {
+  locales.forEach(locale => {
+    registerLocale(locale);
+  });
 }
 
 class I18nService {
@@ -59,6 +65,8 @@ class I18nService {
   }
 
   static init(history: H.History) {
+    registerLocales(this.languages);
+
     const resources = getResources(this.languages);
 
     // Set languageChanged for direction event before initialization so

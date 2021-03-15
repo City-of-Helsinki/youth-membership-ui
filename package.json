@@ -32,7 +32,7 @@
     "hds-design-tokens": "0.20.0",
     "hds-react": "0.20.0",
     "helsinki-utils": "City-of-Helsinki/helsinki-utils-js#0.1.0",
-    "i18n-iso-countries": "^5.3.0",
+    "i18n-iso-countries": "6.5.0",
     "i18next": "^17.3.0",
     "i18next-browser-languagedetector": "^4.0.1",
     "lodash": "^4.17.19",
