@@ -274,7 +274,7 @@
     "approverName": "FR_Name",
     "approverPhone": "FR_Phone",
     "birthdate": "FR_Birthdate",
-    "homeLanguages": "FR_Language spoken at home",
+    "homeLanguages": "FR_Preferred contact language",
     "school": "FR_School"
   },
   "": "FR_"

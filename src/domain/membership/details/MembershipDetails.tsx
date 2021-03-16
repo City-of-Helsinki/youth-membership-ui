@@ -91,13 +91,6 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
                 noMargin
               />
               <LabeledValue
-                label={t('youthProfile.homeLanguages')}
-                value={t(
-                  `LANGUAGE_OPTIONS.${membershipDetailsData.myYouthProfile.languageAtHome}`
-                )}
-                noMargin
-              />
-              <LabeledValue
                 label={t('registration.photoUsageApproved')}
                 value={
                   membershipDetailsData?.myYouthProfile?.photoUsageApproved
@@ -110,42 +103,54 @@ function RegistrationInformation({ membershipDetailsData }: Props) {
           </div>
           <div>
             <Text variant="h2">{t('youthProfile.approverInfo')}</Text>
-            <div className={[styles.fieldsGroup, styles.three].join(' ')}>
-              <LabeledValue
-                label={t('youthProfile.approverName')}
-                // eslint-disable-next-line max-len
-                value={`${membershipDetailsData.myYouthProfile.approverFirstName} ${membershipDetailsData.myYouthProfile.approverLastName}`}
-              />
-              <LabeledValue
-                label={t('youthProfile.approverEmail')}
-                value={membershipDetailsData.myYouthProfile.approverEmail}
-              />
-              <LabeledValue
-                label={t('youthProfile.approverPhone')}
-                value={membershipDetailsData.myYouthProfile.approverPhone}
-              />
-            </div>
-            {getAdditionalContactPersons(
-              membershipDetailsData.myYouthProfile
-            ).map(additionalContact => (
-              <div
-                key={Object.values(additionalContact).join('')}
-                className={[styles.fieldsGroup, styles.three].join(' ')}
-              >
+            <Stack space="l">
+              <InfoGrid>
                 <LabeledValue
                   label={t('youthProfile.approverName')}
-                  value={`${additionalContact.firstName} ${additionalContact.lastName}`}
+                  // eslint-disable-next-line max-len
+                  value={`${membershipDetailsData.myYouthProfile.approverFirstName} ${membershipDetailsData.myYouthProfile.approverLastName}`}
+                  noMargin
                 />
                 <LabeledValue
                   label={t('youthProfile.approverEmail')}
-                  value={additionalContact.email}
+                  value={membershipDetailsData.myYouthProfile.approverEmail}
+                  noMargin
                 />
                 <LabeledValue
                   label={t('youthProfile.approverPhone')}
-                  value={additionalContact.phone}
+                  value={membershipDetailsData.myYouthProfile.approverPhone}
+                  noMargin
                 />
-              </div>
-            ))}
+                <LabeledValue
+                  label={t('youthProfile.homeLanguages')}
+                  value={t(
+                    `LANGUAGE_OPTIONS.${membershipDetailsData.myYouthProfile.languageAtHome}`
+                  )}
+                  noMargin
+                />
+              </InfoGrid>
+              {getAdditionalContactPersons(
+                membershipDetailsData.myYouthProfile
+              ).map(additionalContact => (
+                <InfoGrid key={additionalContact.id}>
+                  <LabeledValue
+                    label={t('youthProfile.approverName')}
+                    value={`${additionalContact.firstName} ${additionalContact.lastName}`}
+                    noMargin
+                  />
+                  <LabeledValue
+                    label={t('youthProfile.approverEmail')}
+                    value={additionalContact.email}
+                    noMargin
+                  />
+                  <LabeledValue
+                    label={t('youthProfile.approverPhone')}
+                    value={additionalContact.phone}
+                    noMargin
+                  />
+                </InfoGrid>
+              ))}
+            </Stack>
           </div>
         </Stack>
       )}

@@ -274,7 +274,7 @@
     "approverName": "ET_Name",
     "approverPhone": "ET_Phone",
     "birthdate": "ET_Birthdate",
-    "homeLanguages": "ET_Language spoken at home",
+    "homeLanguages": "ET_Preferred contact language",
     "school": "ET_School"
   },
   "": "ET_"

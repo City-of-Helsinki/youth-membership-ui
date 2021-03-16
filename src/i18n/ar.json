@@ -274,7 +274,7 @@
     "approverName": "AR_Name",
     "approverPhone": "AR_Phone",
     "birthdate": "AR_Birthdate",
-    "homeLanguages": "AR_Language spoken at home",
+    "homeLanguages": "AR_Preferred contact language",
     "school": "AR_School"
   },
   "": "AR_"

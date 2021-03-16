@@ -1,22 +1,7 @@
-@media (min-width: 768px) {
-  .fieldsGroup {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: var(--spacing-m);
-  }
-  .fieldsGroup > * {
-    flex-basis: 50%;
-  }
-  .fieldsGroup.three > * {
-    flex-basis: calc(100% / 3);
-  }
-}
-
 .button {
   margin-right: 20px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: var(--spacing-l);
 }
 
 

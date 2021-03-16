@@ -274,7 +274,7 @@
     "approverName": "Name",
     "approverPhone": "Phone",
     "birthdate": "Birthdate",
-    "homeLanguages": "Language spoken at home",
+    "homeLanguages": "Preferred contact language",
     "school": "School"
   }
 }

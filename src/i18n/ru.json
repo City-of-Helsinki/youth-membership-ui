@@ -274,7 +274,7 @@
     "approverName": "RU_Name",
     "approverPhone": "RU_Phone",
     "birthdate": "RU_Birthdate",
-    "homeLanguages": "RU_Language spoken at home",
+    "homeLanguages": "RU_Preferred contact language",
     "school": "RU_School"
   },
   "": "RU_"

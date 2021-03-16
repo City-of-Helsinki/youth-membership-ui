@@ -274,7 +274,7 @@
     "approverName": "Nimi",
     "approverPhone": "Puhelin",
     "birthdate": "Syntymäpäivä",
-    "homeLanguages": "Kotona puhuttu kieli",
+    "homeLanguages": "Ensisijainen yhteydenottokieli",
     "school": "Koulu"
   }
 }
