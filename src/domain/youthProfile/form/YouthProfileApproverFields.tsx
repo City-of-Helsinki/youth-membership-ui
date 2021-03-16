@@ -86,7 +86,7 @@ function YouthProfileApproverFields({
         <Select
           className={styles.formInput}
           name="languageAtHome"
-          label={t('registration.languageAtHome')}
+          label={labelRequired('registration.languageAtHome')}
           options={languages.map(language => ({
             label: t(`LANGUAGE_OPTIONS.${language}`),
             value: language,

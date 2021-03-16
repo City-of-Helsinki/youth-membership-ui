@@ -34,6 +34,16 @@ const approverEmailSchema = Yup.string()
 const approverPhoneSchema = Yup.string()
   .min(6)
   .label('fields.phoneNumber');
+const languageAtHomeSchema = Yup.string().oneOf([
+  'FINNISH',
+  'SWEDISH',
+  'ENGLISH',
+  'FRENCH',
+  'RUSSIAN',
+  'SOMALI',
+  'ARABIC',
+  'ESTONIAN',
+]);
 
 const additionalContactPersonsSchema = Yup.array(
   Yup.object({
@@ -134,6 +144,14 @@ const youthApproverSchema = Yup.object().shape({
   approverPhone: requireIfNotAdult(approverPhoneSchema),
   approverEmail: requireIfNotAdult(approverEmailSchema),
   additionalContactPersons: additionalContactPersonsSchema,
+  // The API doesn't allow for this field to be unset, but according to
+  // the design it should be an optional field for adults and a required
+  // field for minors. Hence we apply the same logic to it.
+
+  // In the UI layer, only options that are valid as far as the API is
+  // concerned are provided, and one of them is always selected by
+  // default.
+  languageAtHome: requireIfNotAdult(languageAtHomeSchema),
 });
 
 const guardianApproverSchema = Yup.object().shape({

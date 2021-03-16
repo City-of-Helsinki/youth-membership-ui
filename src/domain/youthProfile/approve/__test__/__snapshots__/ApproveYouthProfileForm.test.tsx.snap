@@ -348,7 +348,7 @@ exports[`matches snapshot 1`] = `
                   for="hds-select-1-toggle-button"
                   id="hds-select-1-label"
                 >
-                  Ensisijainen yhteydenottokieli
+                  Ensisijainen yhteydenottokieli *
                 </label>
                 <div
                   class="Select-module_wrapper__1WQXs"
