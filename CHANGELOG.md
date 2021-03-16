@@ -22,6 +22,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - [#252](https://github.com/City-of-Helsinki/youth-membership-ui/pull/252) Feedback link into user survey
 
+## [1.3.2] - 2021-02-18
+
+### Fixed
+
+- Use correct API scope for youth membership
+
 ## [1.3.1] - 2021-02-18
 
 ### Fixed
