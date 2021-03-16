@@ -23,7 +23,6 @@
     "explanationError": "Olet joko jo hyväksynyt nuoresi lähettämän hakemuksen tai palvelussamme on tapahtunut virhe.",
     "formExplanationText_1": "on lähettänyt hyväksyttäväksesi Helsingin kaupungin nuorisopalvelujen jäsenyyshakemuksen. Jäsenyys on maksuton. Hyväksymällä hakemuksen,",
     "formExplanationText_2": "voi viettää aikaa nuorisotaloilla, osallistua harrastusryhmiin, kursseille ja leireille Nuorisotaloilla toimintaa ohjaavat koulutetut nuoriso-ohjaajat. Mikäli tiedoissa on virheitä, pyydä nuorta muuttamaan tiedot ja lähettämään sinulle uusi varmistusviesti.",
-    "languagesAtHome": "Kotona puhutut kielet",
     "name": "Nimi",
     "phone": "Puhelin",
     "photoUsageApproved": "Kuvauslupa",
@@ -96,6 +95,7 @@
     "ENGLISH": "Englanti",
     "ESTONIAN": "Eesti",
     "FINNISH": "Suomi",
+    "FRENCH": "Ranska",
     "RUSSIAN": "Venäjä",
     "SOMALI": "Somali",
     "SWEDISH": "Ruotsi"
@@ -215,7 +215,7 @@
     "dateInvalid": "Päivämäärä ei kelpaa",
     "email": "Sähköpostiosoite",
     "firstName": "Etunimi",
-    "languageAtHome": "Kotona puhuttu kieli",
+    "languageAtHome": "Ensisijainen yhteydenottokieli",
     "lastName": "Sukunimi",
     "membershipInfoText": "Jäsenyys on ilmainen, eikä se velvoita sinua mihinkään, mutta jäsenyyden hankinta on edellytys nuorisotilojen toimintaan osallistumiselle. Emme luovuta antamiasi yhteystietoja eteenpäin. Sinulla on myös oikeus tarkistaa ja poistaa itseäsi koskevat tiedot. Muistathan, että nuorisopalvelujen toiminta on päihteetöntä. ",
     "month": "Kuukausi",
@@ -274,7 +274,7 @@
     "approverName": "Nimi",
     "approverPhone": "Puhelin",
     "birthdate": "Syntymäpäivä",
-    "homeLanguages": "Kotona puhuttu kieli",
+    "homeLanguages": "Ensisijainen yhteydenottokieli",
     "school": "Koulu"
   }
 }

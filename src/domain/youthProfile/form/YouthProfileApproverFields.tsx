@@ -7,6 +7,7 @@ import Stack from '../../../common/components/stack/Stack';
 import YouthProfileFormGrid from './YouthProfileFormGrid';
 import FormGroupDescription from './FormGroupDescription';
 import TextInput from './FormikTextInput';
+import Select from './FormikSelect';
 
 type Props = {
   isApproverFieldsRequired?: boolean;
@@ -20,6 +21,17 @@ function YouthProfileApproverFields({
   viewer = 'youth',
 }: Props) {
   const { t } = useTranslation();
+
+  const languages = [
+    'FINNISH',
+    'SWEDISH',
+    'ENGLISH',
+    'FRENCH',
+    'RUSSIAN',
+    'SOMALI',
+    'ARABIC',
+    'ESTONIAN',
+  ];
 
   // For now when using .when() in validation we can't use
   // schema.describe().fields[name].tests to determine if field is required or not.
@@ -70,6 +82,15 @@ function YouthProfileApproverFields({
           type="tel"
           labelText={labelRequired('registration.phoneNumber')}
           autoComplete={getAutoComplete('tel')}
+        />
+        <Select
+          className={styles.formInput}
+          name="languageAtHome"
+          label={labelRequired('registration.languageAtHome')}
+          options={languages.map(language => ({
+            label: t(`LANGUAGE_OPTIONS.${language}`),
+            value: language,
+          }))}
         />
       </YouthProfileFormGrid>
       <FormGroupDescription

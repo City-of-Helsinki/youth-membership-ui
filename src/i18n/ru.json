@@ -23,7 +23,6 @@
     "explanationError": "RU_You have either already approved the application submitted by your youth or an error has occurred in our service.",
     "formExplanationText_1": "RU_has sent a membership application for the City of Helsinki’s Youth Services for your approval. The membership is free of charge. If you approve the application,",
     "formExplanationText_2": "RU_may visit Youth Centres and participate in fun activities. The activities at Youth Centres are instructed by trained youth workers.  If the information is incorrect, ask the young person to change it and send a new verification message to you.",
-    "languagesAtHome": "RU_Languages at home",
     "name": "RU_Name",
     "phone": "RU_Phone",
     "photoUsageApproved": "RU_Photo usage approval",
@@ -96,6 +95,7 @@
     "ENGLISH": "RU_English",
     "ESTONIAN": "RU_Estonian",
     "FINNISH": "RU_Finnish",
+    "FRENCH": "RU_French",
     "RUSSIAN": "RU_Russian",
     "SOMALI": "RU_Somali",
     "SWEDISH": "RU_Swedish"
@@ -215,7 +215,7 @@
     "dateInvalid": "RU_Invalid date",
     "email": "RU_Email",
     "firstName": "RU_First name",
-    "languageAtHome": "RU_Language at home",
+    "languageAtHome": "RU_Preferred contact language",
     "lastName": "RU_Last name",
     "membershipInfoText": "RU_Membership is free and does not require anything of you, but you do need a membership to be able to participate in activities at Youth Centres. We will not disclose your information to third parties. You have the right to check and remove the information we have stored concerning you. Please remember that intoxicants are not allowed at Youth Centre activities. ",
     "month": "RU_Month",
@@ -274,7 +274,7 @@
     "approverName": "RU_Name",
     "approverPhone": "RU_Phone",
     "birthdate": "RU_Birthdate",
-    "homeLanguages": "RU_Language spoken at home",
+    "homeLanguages": "RU_Preferred contact language",
     "school": "RU_School"
   },
   "": "RU_"

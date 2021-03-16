@@ -23,7 +23,6 @@
     "explanationError": "Du har antingen redan godkänt ansökan från din ungdom eller så har ett fel inträffat i vår tjänst.",
     "formExplanationText_1": "har skickat dig en ansökan om medlemskap i Helsingfors stads ungdomstjänster för att godkännas. Om du godkänner ansökan, får",
     "formExplanationText_2": "delta i ungdomsgårdarnas verksamhet och hobbygrupper. Verksamheten leds av utbildade ungdomsledare. Om det finns fel i uppgifterna, be den unga personen att korrigera dem och skicka ett nytt bekräftelsemeddelande till dig.",
-    "languagesAtHome": "Hemspråk",
     "name": "Namn",
     "phone": "Telefon",
     "photoUsageApproved": "Tillstånd för fotografering",
@@ -96,6 +95,7 @@
     "ENGLISH": "Engelska",
     "ESTONIAN": "Estniska",
     "FINNISH": "Finska",
+    "FRENCH": "Franska",
     "RUSSIAN": "Ryska",
     "SOMALI": "Somaliska",
     "SWEDISH": "Svenska"
@@ -215,7 +215,7 @@
     "dateInvalid": "Ogiltigt datum",
     "email": "E-post",
     "firstName": "Förnamn",
-    "languageAtHome": "Hemspråk",
+    "languageAtHome": "Prefererat kontaktspråk",
     "lastName": "Efternamn",
     "membershipInfoText": "Medlemskapet är avgiftsfritt och förpliktar inte till något. För att delta i ungdomsgårdarnas verksamhet måste du ha ett medlemsskap. Vi överlåter inte dina kontaktuppgifter till utomstående. Du har också rätt att kontrollera och radera dina uppgifter. Kom ihåg att ungdomsverksamheten är drogfri.",
     "month": "Månad",
@@ -274,7 +274,7 @@
     "approverName": "Namn",
     "approverPhone": "Telefon",
     "birthdate": "Födelsedatum",
-    "homeLanguages": "Ditt hemspråk",
+    "homeLanguages": "Prefererat kontaktspråk",
     "school": "Skola"
   }
 }
