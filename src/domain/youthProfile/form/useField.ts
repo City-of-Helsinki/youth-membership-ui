@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react';
 import {
   useField as useFieldFormik,
   FieldAttributes,
@@ -9,8 +10,7 @@ import { useTranslation } from 'react-i18next';
 
 import yupErrorReconciler from '../../../common/helpers/yupErrorReconciler';
 
-function getIsInvalid<T>(fieldProps: FieldMetaProps<T>): boolean {
-  const { error, touched } = fieldProps;
+function getIsInvalid(touched: boolean, error?: string): boolean {
   const isTouched = Boolean(touched);
   const isError = Boolean(error);
 
@@ -29,29 +29,36 @@ function useField<T>(
   const [fieldProps, fieldMeta, fieldHelpers] = useFieldFormik<T>(config);
   const { t } = useTranslation();
 
-  function getErrorText<A>(fieldProps: FieldMetaProps<A>) {
-    const isInvalid = getIsInvalid(fieldProps);
-    const error = fieldProps.error;
+  const getErrorText = useCallback(
+    (isInvalid: boolean, error?: string) => {
+      if (!isInvalid || !error) {
+        return;
+      }
 
-    if (!isInvalid || !error) {
-      return;
-    }
+      return t(...yupErrorReconciler(error));
+    },
+    [t]
+  );
 
-    return t(...yupErrorReconciler(error));
-  }
-
-  const isInvalid = getIsInvalid(fieldMeta);
-  const errorText = getErrorText(fieldMeta);
-
-  return [
-    {
+  const isInvalid = useMemo(
+    () => getIsInvalid(fieldMeta.touched, fieldMeta.error),
+    [fieldMeta.touched, fieldMeta.error]
+  );
+  const errorText = useMemo(() => getErrorText(isInvalid, fieldMeta.error), [
+    isInvalid,
+    fieldMeta.error,
+    getErrorText,
+  ]);
+  const extendedFieldProps = useMemo(
+    () => ({
       ...fieldProps,
       invalid: isInvalid,
       errorText,
-    },
-    fieldMeta,
-    fieldHelpers,
-  ];
+    }),
+    [isInvalid, errorText, fieldProps]
+  );
+
+  return [extendedFieldProps, fieldMeta, fieldHelpers];
 }
 
 export default useField;
