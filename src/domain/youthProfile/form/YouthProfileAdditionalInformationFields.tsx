@@ -4,6 +4,7 @@ import { RadioButton } from 'hds-react';
 import { Field } from 'formik';
 
 import Stack from '../../../common/components/stack/Stack';
+import Text from '../../../common/components/text/Text';
 import ageConstants from '../constants/ageConstants';
 import TextInput from './FormikTextInput';
 import styles from './youthProfileForm.module.css';
@@ -38,10 +39,8 @@ function YouthProfileForm({ userAge }: Props) {
             : styles.formInputColumn
         }
       >
-        <p className={styles.radioLabel}>
-          {t('registration.photoUsageApproved')}
-        </p>
-        <p>{t('registration.photoUsageApprovedText')}</p>
+        <Text variant="h3">{t('registration.photoUsageApproved')}</Text>
+        <Text variant="info">{t('registration.photoUsageApprovedText')}</Text>
         <div className={styles.resRow}>
           <ul className={styles.list}>
             <li className={styles.radioButtonRow}>
