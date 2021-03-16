@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Redirect } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { User } from 'oidc-client';
+import { useHistory, Redirect } from 'react-router-dom';
 
-import { PrefillRegistartion } from '../../../graphql/generatedTypes';
+import {
+  MembershipStatus,
+  PrefillRegistartion,
+} from '../../../graphql/generatedTypes';
 import PageContent from '../../../common/components/layout/PageContent';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import getAuthenticatedUser from '../../auth/getAuthenticatedUser';
-import useIsMembershipPending from '../../membership/useIsMembershipPending';
+import useMembershipStatus from '../../membership/useMembershipStatus';
 import CreateYouthProfile from './CreateYouthProfile';
 
 const PREFILL_REGISTRATION = loader('../graphql/PrefillRegistration.graphql');
@@ -27,10 +30,7 @@ function CreateYouthProfilePage() {
       },
     }
   );
-  const [
-    isMembershipPending,
-    loadingIsMembershipPending,
-  ] = useIsMembershipPending({
+  const [membershipStatus, loadingIsMembershipPending] = useMembershipStatus({
     onError: () => {
       history.push('/login');
     },
@@ -45,7 +45,7 @@ function CreateYouthProfilePage() {
       .catch(() => history.push('/login'));
   }, [history]);
 
-  if (isMembershipPending) {
+  if (membershipStatus === MembershipStatus.PENDING) {
     return <Redirect to="/" />;
   }
 

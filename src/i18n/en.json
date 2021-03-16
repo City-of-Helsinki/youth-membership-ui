@@ -45,7 +45,7 @@
     "errorMessage": "An error occured while logging in. Please try again"
   },
   "confirmSendingProfile": {
-    "buttonText": "Resend the membership request",
+    "buttonText": "Send a new request to the guardian",
     "helpText": "Your membership application has been sent to",
     "linkToShowSentData": "Display your application",
     "sendAgainHelpText": "Approval email has been re-sent to",
@@ -102,11 +102,27 @@
   "membershipInformation": {
     "pageTitle": "Membership information",
     "renew": "Renew membership",
+    "renewUnderage": "Send a renewal request to the guardian",
     "renewSuccessMessage": "Membership renewed successfully!",
+    "renewSuccessMessageMinor": "Renewal request sent successfully!",
     "renewSuccessTitle": "Success",
     "showProfileInformation": "Show profile information",
     "title": "Membership card number {{number}}",
-    "validUntil": "Valid until {{date}}"
+    "validUntil": "Valid until {{date}}",
+    "status": {
+      "title": {
+        "membershipExpired": "Membership has expired.",
+        "renewable": "Membership expires on {{date}}.",
+        "pending": "Renewal of membership is awaiting for guardian approval.",
+        "renewing": "Membership expires on {{date}}. Renewal is awaiting guardian approval."
+      },
+      "description": {
+        "renewable": "Resubmit your membership to your guardian for approval.",
+        "pending": "Your renewal request has been sent to {{email}}",
+        "renewing": "Your renewal request has been sent to {{email}}",
+        "expired": "Resubmit your membership to your guardian for approval."
+      }
+    }
   },
   "meta": {
     "description": "Jässäri gives you access to the Youth Services’ activities. With Jässäri membership, you can participate in fun activities, hang out at Youth Centres, join hobby groups, courses and camps, apply for project subsidies or even produce your own event! The activities at Youth Centres are instructed by trained youth workers."
@@ -238,12 +254,6 @@
   "emailRenew": {
     "heading": "{{ youth_profile.profile.first_name }} your Youth Services membership is about to expire",
     "content": "Hi {{ youth_profile.profile.first_name }}! Your Youth Services membership is about to expire You can easily renew your membership here https://jassari.hel.fi/ <br /><br />For more information on the Youth Services membership and its perks, please visit <a href=\"http://jassari.munstadi.fi/en/\">http://jassari.munstadi.fi/en/</a><br /><br /><i>This message was sent automatically from our system. Please do not reply to this message as the replies will not be processed.</i>"
-  },
-  "feedback": {
-    "giveFeedback": {
-      "label": "Give feedback of the Jässäri service",
-      "link": "https://docs.google.com/forms/d/e/1FAIpQLSfpPCeAdiT9pcMRazxqA9DW-mbqoN2kNwaV53XydjzHWdyFKw/viewform?usp=pp_url&entry.1982410290=J%C3%A4ss%C3%A4ri"
-    }
   },
   "fields": {
     "firstName": "a first name",

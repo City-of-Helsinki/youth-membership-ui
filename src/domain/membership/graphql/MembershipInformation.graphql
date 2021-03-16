@@ -9,6 +9,9 @@ query MembershipInformation {
         expiration
         renewable
         membershipNumber
+        membershipStatus
+        birthDate
+        approverEmail
     }
 
 }

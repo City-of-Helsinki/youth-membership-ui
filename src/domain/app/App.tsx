@@ -11,16 +11,18 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import AriaLiveProvider from '../../common/ariaLive/AriaLiveProvider';
 import graphqlClient from '../../graphql/client';
 import store from '../../redux/store';
-import userManager from '../../domain/auth/userManager';
-import enableOidcLogging from '../../domain/auth/enableOidcLogging';
-import { fetchApiTokenThunk } from '../../domain/auth/redux';
-import logout from '../../domain/auth/logout';
-import authConstants from '../../domain/auth/constants/authConstants';
-import authenticate from '../../domain/auth/authenticate';
+import userManager from '../auth/userManager';
+import enableOidcLogging from '../auth/enableOidcLogging';
+import { fetchApiTokenThunk } from '../auth/redux';
+import logout from '../auth/logout';
+import authConstants from '../auth/constants/authConstants';
+import authenticate from '../auth/authenticate';
 import AppMeta from './AppMeta';
 import AppRoutes from './AppRoutes';
+import AppTitleAnnouncer from './AppTitleAnnouncer';
 import styles from './app.module.css';
 
 countries.registerLocale(fi);
@@ -33,6 +35,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 loadUser(store, userManager).then(async user => {
   if (user && !user.expired) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     store.dispatch(fetchApiTokenThunk(user.access_token));
   }
 });
@@ -67,19 +71,22 @@ function App() {
   });
 
   return (
-    <ReduxProvider store={store}>
-      <OidcProvider store={store} userManager={userManager}>
-        <ApolloProvider client={graphqlClient}>
-          <MatomoProvider value={instance}>
-            <HelmetProvider>
-              <AppMeta />
-              <AppRoutes />
-            </HelmetProvider>
-          </MatomoProvider>
-        </ApolloProvider>
-      </OidcProvider>
-      <ToastContainer closeButton={false} className={styles.toastContainer} />
-    </ReduxProvider>
+    <AriaLiveProvider>
+      <ReduxProvider store={store}>
+        <OidcProvider store={store} userManager={userManager}>
+          <ApolloProvider client={graphqlClient}>
+            <MatomoProvider value={instance}>
+              <HelmetProvider>
+                <AppTitleAnnouncer />
+                <AppMeta />
+                <AppRoutes />
+              </HelmetProvider>
+            </MatomoProvider>
+          </ApolloProvider>
+        </OidcProvider>
+        <ToastContainer closeButton={false} className={styles.toastContainer} />
+      </ReduxProvider>
+    </AriaLiveProvider>
   );
 }
 

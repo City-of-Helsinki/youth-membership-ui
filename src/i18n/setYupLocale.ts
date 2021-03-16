@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
-function setYupLocale() {
-  yup.setLocale({
+function setYupLocale(localYup = yup) {
+  localYup.setLocale({
     mixed: {
       required: (options: Partial<yup.TestMessageParams>) => ({
         key: 'validation.required',

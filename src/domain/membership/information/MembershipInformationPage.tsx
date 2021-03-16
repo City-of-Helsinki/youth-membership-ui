@@ -9,16 +9,22 @@ import {
   RenewMyYouthProfile as RenewMyYouthProfileData,
   RenewMyYouthProfileVariables,
   MembershipInformation as MembershipInformationTypes,
+  UpdateMyYouthProfile as UpdateMyYouthProfileData,
+  UpdateMyYouthProfileVariables,
 } from '../../../graphql/generatedTypes';
 import { profileApiTokenSelector } from '../../auth/redux';
 import toastNotification from '../../../common/helpers/toastNotification/toastNotification';
 import PageContentWithHostingBox from '../../../common/components/layout/PageContentWithHostingBox';
 import MembershipInformation from './MembershipInformation';
+import * as Membership from '../MembershipUtility';
 
 const MEMBERSHIP_INFORMATION = loader(
   '../graphql/MembershipInformation.graphql'
 );
 const RENEW_MEMBERSHIP = loader('../graphql/RenewMyYouthProfile.graphql');
+const RESEND_EMAIL = loader(
+  '../../youthProfile/graphql/UpdateMyYouthProfile.graphql'
+);
 
 function MembershipInformationPage() {
   const { t } = useTranslation();
@@ -37,6 +43,11 @@ function MembershipInformationPage() {
     RenewMyYouthProfileVariables
   >(RENEW_MEMBERSHIP, { refetchQueries: ['MembershipInformation'] });
 
+  const [resendConfirmationEmail] = useMutation<
+    UpdateMyYouthProfileData,
+    UpdateMyYouthProfileVariables
+  >(RESEND_EMAIL);
+
   const handleRenewMembership = () => {
     const variables: RenewMyYouthProfileVariables = {
       input: {
@@ -46,12 +57,30 @@ function MembershipInformationPage() {
 
     renewMembership({ variables })
       .then(result => {
-        if (!!result.data)
-          toastNotification({
-            type: 'success',
-            labelText: t('membershipInformation.renewSuccessTitle'),
-            notificationMessage: t('membershipInformation.renewSuccessMessage'),
-          });
+        if (!!result.data) {
+          const isMinor = Membership.getIsUnderage(
+            data?.myYouthProfile?.birthDate
+          );
+
+          // Minors receive a notification about a sent approval message
+          if (isMinor) {
+            toastNotification({
+              type: 'success',
+              labelText: t('membershipInformation.renewSuccessTitle'),
+              notificationMessage: t(
+                'membershipInformation.renewSuccessMessageMinor'
+              ),
+            });
+          } else {
+            toastNotification({
+              type: 'success',
+              labelText: t('membershipInformation.renewSuccessTitle'),
+              notificationMessage: t(
+                'membershipInformation.renewSuccessMessage'
+              ),
+            });
+          }
+        }
       })
       .catch((error: Error) => {
         Sentry.captureException(error);
@@ -59,15 +88,35 @@ function MembershipInformationPage() {
       });
   };
 
+  const handleResendEmail = () => {
+    const variables: UpdateMyYouthProfileVariables = {
+      input: {
+        youthProfile: {
+          resendRequestNotification: true,
+        },
+        profileApiToken,
+      },
+    };
+    resendConfirmationEmail({ variables }).catch((error: Error) => {
+      Sentry.captureException(error);
+      toastNotification();
+    });
+  };
+
+  const youthProfile = data?.myYouthProfile;
+  const profile = data?.myYouthProfile?.profile;
+
   return (
     <PageContentWithHostingBox
       isReady={!loading}
       title="membershipInformation.pageTitle"
     >
-      {data && (
+      {youthProfile && profile && (
         <MembershipInformation
           onRenewMembership={handleRenewMembership}
-          membershipInformationTypes={data}
+          onResendConfirmationEmail={handleResendEmail}
+          youthProfile={youthProfile}
+          profile={profile}
         />
       )}
     </PageContentWithHostingBox>

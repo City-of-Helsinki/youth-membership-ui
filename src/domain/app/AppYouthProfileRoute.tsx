@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, RouteProps, RouteComponentProps } from 'react-router';
+import { RouteProps, RouteComponentProps, Redirect } from 'react-router';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { useTranslation } from 'react-i18next';

@@ -25,6 +25,8 @@ const userManager = createUserManager(settings);
 
 userManager.events.addUserLoaded(async () => {
   const user = await getAuthenticatedUser();
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   store.dispatch(fetchApiTokenThunk(user.access_token));
 });
 
