@@ -164,18 +164,6 @@ exports[`matches snapshot 1`] = `
                     class="Menu-module_item__3yQdE "
                     dir="ltr"
                     href="#"
-                    lang="et"
-                  >
-                    <span
-                      class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
-                    >
-                      eesti keel
-                    </span>
-                  </a>
-                  <a
-                    class="Menu-module_item__3yQdE "
-                    dir="ltr"
-                    href="#"
                     lang="so"
                   >
                     <span
@@ -194,6 +182,18 @@ exports[`matches snapshot 1`] = `
                       class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
                     >
                       العربية
+                    </span>
+                  </a>
+                  <a
+                    class="Menu-module_item__3yQdE "
+                    dir="ltr"
+                    href="#"
+                    lang="et"
+                  >
+                    <span
+                      class="NavigationItem-module_label__1UsXG button_hds-button__label__3r3Mi"
+                    >
+                      eesti keel
                     </span>
                   </a>
                 </div>

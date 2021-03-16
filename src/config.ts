@@ -14,7 +14,7 @@ class Config {
     }
 
     if (useAdditionalLocalesFlag) {
-      return ['fr', 'ru', 'et', 'so', 'ar'];
+      return ['fr', 'ru', 'so', 'ar', 'et'];
     }
 
     return [];
