@@ -27,9 +27,9 @@ describe('I18nService', () => {
       'en',
       'fr',
       'ru',
-      'et',
       'so',
       'ar',
+      'et',
     ]);
   });
 
