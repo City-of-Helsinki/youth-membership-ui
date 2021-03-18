@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import Config from '../../../config';
 import styles from './YouthProfileApproverFields.module.css';
 import ArrayFieldTemplate from '../../../common/components/arrayFieldTemplate/ArrayFieldTemplate';
 import Stack from '../../../common/components/stack/Stack';
@@ -8,6 +9,19 @@ import YouthProfileFormGrid from './YouthProfileFormGrid';
 import FormGroupDescription from './FormGroupDescription';
 import TextInput from './FormikTextInput';
 import Select from './FormikSelect';
+
+const languages = Config.showAdditionalContactLanguagesFeatureFlag
+  ? [
+      'FINNISH',
+      'SWEDISH',
+      'ENGLISH',
+      'FRENCH',
+      'RUSSIAN',
+      'SOMALI',
+      'ARABIC',
+      'ESTONIAN',
+    ]
+  : ['FINNISH', 'SWEDISH', 'ENGLISH'];
 
 type Props = {
   isApproverFieldsRequired?: boolean;
@@ -21,17 +35,6 @@ function YouthProfileApproverFields({
   viewer = 'youth',
 }: Props) {
   const { t } = useTranslation();
-
-  const languages = [
-    'FINNISH',
-    'SWEDISH',
-    'ENGLISH',
-    'FRENCH',
-    'RUSSIAN',
-    'SOMALI',
-    'ARABIC',
-    'ESTONIAN',
-  ];
 
   // For now when using .when() in validation we can't use
   // schema.describe().fields[name].tests to determine if field is required or not.

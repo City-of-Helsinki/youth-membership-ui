@@ -11,6 +11,21 @@ describe('Config service', () => {
     process.env = env;
   });
 
+  const testBooleanConfig = (name, flag) =>
+    it(name, () => {
+      delete process.env[flag];
+
+      expect(Config[name]).toEqual(false);
+
+      process.env[flag] = false;
+
+      expect(Config[name]).toEqual(false);
+
+      process.env[flag] = true;
+
+      expect(Config[name]).toEqual(true);
+    });
+
   describe('additionalLanguages', () => {
     // eslint-disable-next-line max-len
     it('should return an empty array when REACT_APP_ADDITIONAL_LOCALES and REACT_APP_FEATURE_FLAG_USE_ADDITIONAL_LOCALES are not defined', () => {
@@ -44,4 +59,14 @@ describe('Config service', () => {
       expect(Config.additionalLocales).toEqual(['fr', 'ru', 'et', 'so', 'ar']);
     });
   });
+
+  testBooleanConfig(
+    'useAdditionalLocalesFeatureFlag',
+    'REACT_APP_FEATURE_FLAG_USE_ADDITIONAL_LOCALES'
+  );
+
+  testBooleanConfig(
+    'showAdditionalContactLanguagesFeatureFlag',
+    'REACT_APP_FEATURE_FLAG_SHOW_ADDITIONAL_CONTACT_LANGUAGES'
+  );
 });
