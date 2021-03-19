@@ -61,5 +61,6 @@ jobs:
       env:
         REACT_APP_PROFILE_AUDIENCE: "https://api.hel.fi/auth/helsinkiprofile"
         REACT_APP_FEATURE_FLAG_USE_ADDITIONAL_LOCALES: true
+        REACT_APP_FEATURE_FLAG_SHOW_ADDITIONAL_CONTACT_LANGUAGES: true
     - name: Upload coverage report to Codecov
       uses: codecov/codecov-action@v1

@@ -7,6 +7,7 @@ import { Button, RadioButton } from 'hds-react';
 import {
   CreateAdditionalContactPersonInput,
   UpdateAdditionalContactPersonInput,
+  YouthLanguage,
 } from '../../../graphql/generatedTypes';
 import convertDateToLocale from '../../../common/helpers/convertDateToLocale';
 import LabeledValue from '../../../common/components/labeledValue/LabeledValue';
@@ -36,7 +37,7 @@ export type FormValues = {
   approverPhone: string;
   approverEmail: string;
   photoUsageApproved: string;
-  languageAtHome: string;
+  languageAtHome: YouthLanguage;
   additionalContactPersons: (
     | CreateAdditionalContactPersonInput
     | UpdateAdditionalContactPersonInput

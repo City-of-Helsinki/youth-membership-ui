@@ -42,6 +42,7 @@ jobs:
           DOCKER_BUILD_ARG_REACT_APP_SENTRY_DSN: "https://6a047934d0d0456f8dd6a8f39ac969bb@sentry.hel.ninja/59"
           DOCKER_BUILD_ARG_REACT_APP_PROFILE_AUDIENCE: "https://api.hel.fi/auth/helsinkiprofile"
           DOCKER_BUILD_ARG_REACT_APP_FEATURE_FLAG_USE_ADDITIONAL_LOCALES: true
+          DOCKER_BUILD_ARG_REACT_APP_FEATURE_FLAG_SHOW_ADDITIONAL_CONTACT_LANGUAGES: true
 
   staging:
     runs-on: ubuntu-latest
