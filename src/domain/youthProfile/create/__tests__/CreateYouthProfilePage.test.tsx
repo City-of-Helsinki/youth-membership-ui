@@ -114,7 +114,9 @@ test('renders form with pre-filled values', async () => {
   expect(screen.getAllByLabelText('Etunimi *')[0].value).toEqual('Teemu');
   expect(screen.getAllByLabelText('Sukunimi *')[0].value).toEqual('Testaaja');
   expect(screen.getByLabelText('Katuosoite *').value).toEqual('Testikuja 55');
-  expect(screen.getByLabelText('Profiilin kieli').value).toEqual('FINNISH');
+  expect(screen.getByLabelText('Ensisijainen asiointikieli').value).toEqual(
+    'FINNISH'
+  );
 });
 
 describe('language pre-fill', () => {
@@ -123,7 +125,9 @@ describe('language pre-fill', () => {
 
     await waitFor(() => screen.getByText('Täytä tietosi'));
 
-    expect(screen.getByLabelText('Profiilin kieli').value).toEqual('FINNISH');
+    expect(screen.getByLabelText('Ensisijainen asiointikieli').value).toEqual(
+      'FINNISH'
+    );
   });
 
   test('language is english', async () => {
@@ -135,7 +139,9 @@ describe('language pre-fill', () => {
 
     await waitFor(() => screen.getByText('Please fill in your information'));
 
-    expect(screen.getByLabelText('Profile language').value).toEqual('ENGLISH');
+    expect(screen.getByLabelText('Preferred service language').value).toEqual(
+      'ENGLISH'
+    );
   });
 
   test('language is swedish', async () => {
@@ -147,6 +153,8 @@ describe('language pre-fill', () => {
 
     await waitFor(() => screen.getByText('Vänligen fyll i din information'));
 
-    expect(screen.getByLabelText('Profilspråk').value).toEqual('SWEDISH');
+    expect(screen.getByLabelText('Prefererat servicespråk').value).toEqual(
+      'SWEDISH'
+    );
   });
 });

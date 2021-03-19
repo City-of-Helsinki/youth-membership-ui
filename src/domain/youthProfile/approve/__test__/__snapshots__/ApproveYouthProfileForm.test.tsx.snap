@@ -94,7 +94,7 @@ exports[`matches snapshot 1`] = `
           <strong
             class="label"
           >
-            Profiilin kieli
+            Ensisijainen asiointikieli
           </strong>
           <span
             class="value"
