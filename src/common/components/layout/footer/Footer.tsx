@@ -1,44 +1,34 @@
 import React from 'react';
-import { Koros } from 'hds-react';
+import { Footer as HDSFooter } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import Link from '../../../reactRouterWithLanguageSupport/Link';
 import ExternalLink from '../../externalLink/ExternalLink';
-import HelsinkiLogo from '../../helsinkiLogo/HelsinkiLogo';
 import styles from './Footer.module.css';
 
 function Footer() {
   const { t } = useTranslation();
-  const year = new Date().getFullYear();
+
   return (
-    <div className={styles.wrapper}>
-      <Koros className={styles.koros} />
-      <footer className={styles.footer}>
-        <div className={styles.content}>
-          <HelsinkiLogo className={styles.logo} />
-          <hr />
-          <div className={styles.textContainer}>
-            <span>
-              &copy; {t('footer.copyright', { year })} &bull;{' '}
-              {t('footer.reserveRights')} &bull;{' '}
-              <a href={t('registry.descriptionLink')} className={styles.links}>
-                {t('footer.privacy')}
-              </a>{' '}
-              | 
-              <Link to="/accessibility" className={styles.links}>
-                {t('footer.accessibility')}
-              </Link>
-            </span>
-            <ExternalLink
-              href={t('footer.feedbackLink')}
-              className={styles.feedback}
-            >
-              {t('footer.feedback')}
-            </ExternalLink>
-          </div>
-        </div>
-      </footer>
-    </div>
+    <HDSFooter className={styles.footer}>
+      <HDSFooter.Base
+        copyrightHolder={t('footer.copyright')}
+        copyrightText={t('footer.reserveRights')}
+      >
+        <HDSFooter.Item as={ExternalLink} href={t('registry.descriptionLink')}>
+          {t('footer.privacy')}
+        </HDSFooter.Item>
+        <HDSFooter.Item
+          as={Link}
+          to="/accessibility"
+          label={t('footer.accessibility')}
+          className={styles.centerHack}
+        />
+        <HDSFooter.Item as={ExternalLink} href={t('footer.feedbackLink')}>
+          {t('footer.feedback')}
+        </HDSFooter.Item>
+      </HDSFooter.Base>
+    </HDSFooter>
   );
 }
 

@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Country select to dynamically find supported languages from the I18nService
 - Language at home field into preferred language field
+- Use footer from HDS
 
 ### Removed
 
@@ -26,6 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [1.4.0] - 2021-03-16
 
 ### Changed
+
 - [#249](https://github.com/City-of-Helsinki/youth-membership-ui/pull/249), [#251](https://github.com/City-of-Helsinki/youth-membership-ui/pull/251) Logic to handle the renewing membership status
 - [#250](https://github.com/City-of-Helsinki/youth-membership-ui/pull/250) Add language to page urls
 
