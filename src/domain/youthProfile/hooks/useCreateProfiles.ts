@@ -48,11 +48,7 @@ const useCreateProfiles = ({ onError }: Options) => {
     addServiceConnection,
     { loading: addingServiceConnection },
   ] = useMutation<AddServiceConnectionData, AddServiceConnectionVariables>(
-    ADD_SERVICE_CONNECTION,
-    {
-      refetchQueries: ['HasYouthProfile', 'NameQuery'],
-      awaitRefetchQueries: true,
-    }
+    ADD_SERVICE_CONNECTION
   );
 
   const [createMyProfile, { loading: creatingMyProfile }] = useMutation<
@@ -64,7 +60,11 @@ const useCreateProfiles = ({ onError }: Options) => {
     createMyYouthProfile,
     { loading: creatingMyYouthProfile },
   ] = useMutation<CreateMyYouthProfileData, CreateMyYouthProfileVariables>(
-    CREATE_MY_YOUTH_PROFILE
+    CREATE_MY_YOUTH_PROFILE,
+    {
+      refetchQueries: ['HasYouthProfile', 'NameQuery'],
+      awaitRefetchQueries: true,
+    }
   );
 
   const [updateMyYouthProfile, { loading: updatingMyProfile }] = useMutation<
@@ -111,12 +111,12 @@ const useCreateProfiles = ({ onError }: Options) => {
       } else {
         await createMyProfile({ variables: myProfileVariables });
       }
+      await addServiceConnection({ variables: serviceConnectionVariables });
       await createMyYouthProfile({ variables: myYouthProfileVariables });
       await trackEvent({
         category: 'action',
         action: 'Register youth membership',
       });
-      await addServiceConnection({ variables: serviceConnectionVariables });
       history.push('/');
     } catch (e) {
       Sentry.captureException(e);
