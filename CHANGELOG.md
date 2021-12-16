@@ -6,6 +6,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+### Changed
+
+- [#279](https://github.com/City-of-Helsinki/youth-membership-ui/pull/279) Add and update translations
+- [#272](https://github.com/City-of-Helsinki/youth-membership-ui/pull/272) Add email template resource files
+- [#273](https://github.com/City-of-Helsinki/youth-membership-ui/pull/273) Fix additional contact languages feature flag
+- [#271](https://github.com/City-of-Helsinki/youth-membership-ui/pull/271) Change copy profile language to preferred language
+- [#270](https://github.com/City-of-Helsinki/youth-membership-ui/pull/270) Allow approver to change language at home value
+- [#269](https://github.com/City-of-Helsinki/youth-membership-ui/pull/269) Use same language order as is used in Mun Stadi page
+- [#267](https://github.com/City-of-Helsinki/youth-membership-ui/pull/267) Change language at home field to preferred contact language field
+- [#264](https://github.com/City-of-Helsinki/youth-membership-ui/pull/264) Add placeholder translations for fr, ru, et, so and ar
+- [#263](https://github.com/City-of-Helsinki/youth-membership-ui/pull/263) Register locales within I18nService
+- [#265](https://github.com/City-of-Helsinki/youth-membership-ui/pull/265) Control additional languages with a feature flag
+- [#262](https://github.com/City-of-Helsinki/youth-membership-ui/pull/262) Remove forced right aligns from text
+- [#261](https://github.com/City-of-Helsinki/youth-membership-ui/pull/261) Use i18n service to find options for language menu
+- [#260](https://github.com/City-of-Helsinki/youth-membership-ui/pull/260) Add support for language direction detection based on locale
+- [#259](https://github.com/City-of-Helsinki/youth-membership-ui/pull/259) Option to define additional locales with environment variables
+
+## [1.4.2] - 2021-12-09
+
+### Changed
+
+- [#288](https://github.com/City-of-Helsinki/youth-membership-ui/pull/288) Reorder GraphQL calls for creating youth membership
+
+## [1.4.1] - 2021-08-25
+
+### Changed
+
+- Updated links to youth membership application form.
+
+## [1.4.0] - 2021-03-16
+
 ### Added
 
 - Logic to handle the renewing membership status
