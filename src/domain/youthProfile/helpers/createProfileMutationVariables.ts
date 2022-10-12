@@ -1,120 +1,8 @@
-import { isEqual } from 'lodash';
+import omit from 'lodash/omit';
 
-import {
-  AddressType,
-  EmailType,
-  PhoneType,
-  PrefillRegistartion,
-  MembershipDetails,
-} from '../../../graphql/generatedTypes';
-import getAddressesFromNode from '../../membership/helpers/getAddressesFromNode';
+import { PrefillRegistartion } from '../../../graphql/generatedTypes';
 import { Values as FormValues } from '../form/YouthProfileForm';
-
-const getPrimaryAddress = (
-  profileType: 'prefill' | 'membership',
-  profile?: PrefillRegistartion | MembershipDetails
-) => {
-  switch (profileType) {
-    case 'membership':
-      return (profile as MembershipDetails).myYouthProfile?.profile
-        ?.primaryAddress;
-    case 'prefill':
-      return (profile as PrefillRegistartion).myProfile?.primaryAddress;
-    default:
-      return { id: '' };
-  }
-};
-
-const getAddress = (
-  formValues: FormValues,
-  profileType: 'prefill' | 'membership',
-  profile?: PrefillRegistartion | MembershipDetails
-) => {
-  const profileAddresses = [
-    ...getAddressesFromNode(profileType, profile),
-    getPrimaryAddress(profileType, profile),
-  ];
-
-  const addAddresses = formValues.addresses
-    .filter(addresss => !addresss.id)
-    .map(address => ({
-      address: address.address,
-      postalCode: address.postalCode,
-      city: address.city,
-      countryCode: address.countryCode,
-      primary: address.primary,
-      addressType: address.addressType || AddressType.OTHER,
-    }));
-
-  const updateAddresses = formValues.addresses
-    .filter(address => {
-      const profileAddress = profileAddresses.find(
-        value => value?.id === address.id
-      );
-
-      return address.id && !isEqual(address, profileAddress);
-    })
-    .map(address => ({
-      id: address.id,
-      address: address.address,
-      postalCode: address.postalCode,
-      city: address.city,
-      countryCode: address.countryCode,
-      primary: address.primary,
-      addressType: address.addressType || AddressType.OTHER,
-    }));
-
-  const formValueIDs = formValues.addresses.map(address => address.id);
-
-  const removeAddresses = profileAddresses
-    .filter(address => address?.id && !formValueIDs.includes(address.id))
-    .map(address => address?.id || null);
-
-  return {
-    addAddresses,
-    updateAddresses,
-    removeAddresses,
-  };
-};
-
-const getPhone = (formValues: FormValues, profile?: PrefillRegistartion) => {
-  if (profile?.myProfile?.primaryPhone?.id) {
-    return {
-      updatePhones: [
-        {
-          phone: formValues.phone,
-          phoneType: PhoneType.OTHER,
-          primary: true,
-          id: profile?.myProfile?.primaryPhone?.id,
-        },
-      ],
-    };
-  }
-
-  return {
-    addPhones: [
-      {
-        phone: formValues.phone,
-        phoneType: PhoneType.OTHER,
-        primary: true,
-      },
-    ],
-  };
-};
-
-const getEmail = (formValues: FormValues, profile?: PrefillRegistartion) => {
-  return {
-    addEmails: [
-      !profile?.myProfile?.primaryEmail
-        ? {
-            email: formValues.email,
-            primary: true,
-            emailType: EmailType.OTHER,
-          }
-        : null,
-    ],
-  };
-};
+import { getAddress, getEmail, getPhone } from './contactInformationUtils';
 
 const getMutationVariables = (
   formValues: FormValues,
@@ -128,7 +16,14 @@ const getMutationVariables = (
         language: formValues.profileLanguage,
         ...getAddress(formValues, 'prefill', profile),
         ...getPhone(formValues, profile),
-        ...getEmail(formValues, profile),
+        // NOTE: Omit updateAddresses and removeAddresses since YM-515.
+        // The fields could not be used in createProfileMutation
+        // and shouldn't even be needed yet,
+        // since the profile is just in creation stage
+        ...omit(getEmail(formValues, profile), [
+          'updateAddresses',
+          'removeAddresses',
+        ]),
       },
     },
   };
