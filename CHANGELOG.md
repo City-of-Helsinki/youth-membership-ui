@@ -6,8 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [1.4.3] - 2022-10-12
+
 ### Changed
 
+- [#305](https://github.com/City-of-Helsinki/youth-membership-ui/pull/305) Remove the update and remove addresses fields from the create profile mutation
+
+## [1.4.2] - 2021-12-09
+
+### Changed
+
+- [#288](https://github.com/City-of-Helsinki/youth-membership-ui/pull/288) Reorder GraphQL calls for creating youth membership
 - [#279](https://github.com/City-of-Helsinki/youth-membership-ui/pull/279) Add and update translations
 - [#272](https://github.com/City-of-Helsinki/youth-membership-ui/pull/272) Add email template resource files
 - [#273](https://github.com/City-of-Helsinki/youth-membership-ui/pull/273) Fix additional contact languages feature flag
@@ -22,12 +31,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - [#261](https://github.com/City-of-Helsinki/youth-membership-ui/pull/261) Use i18n service to find options for language menu
 - [#260](https://github.com/City-of-Helsinki/youth-membership-ui/pull/260) Add support for language direction detection based on locale
 - [#259](https://github.com/City-of-Helsinki/youth-membership-ui/pull/259) Option to define additional locales with environment variables
-
-## [1.4.2] - 2021-12-09
-
-### Changed
-
-- [#288](https://github.com/City-of-Helsinki/youth-membership-ui/pull/288) Reorder GraphQL calls for creating youth membership
 
 ## [1.4.1] - 2021-08-25
 
@@ -57,6 +60,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [1.4.0] - 2021-03-16
 
 ### Changed
+
 - [#249](https://github.com/City-of-Helsinki/youth-membership-ui/pull/249), [#251](https://github.com/City-of-Helsinki/youth-membership-ui/pull/251) Logic to handle the renewing membership status
 - [#250](https://github.com/City-of-Helsinki/youth-membership-ui/pull/250) Add language to page urls
 
