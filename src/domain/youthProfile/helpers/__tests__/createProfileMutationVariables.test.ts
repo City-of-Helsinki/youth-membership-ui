@@ -176,52 +176,6 @@ describe('getAddress tests', () => {
     );
     expect(variables.addAddresses).toEqual([]);
   });
-
-  it('Update array is formed correctly', () => {
-    const variables = getAddress(
-      {
-        ...formValues,
-        addresses: [
-          formValues.addresses[0],
-          formValues.addresses[1],
-          { ...formValues.addresses[2], address: 'Testgatan 55' },
-        ],
-      },
-      'prefill',
-      profileValues
-    );
-    expect(variables.updateAddresses).toEqual([
-      {
-        id: '234',
-        address: 'Testgatan 55',
-        postalCode: '00200',
-        city: 'Helsinki',
-        countryCode: 'FI',
-        primary: false,
-        addressType: 'OTHER',
-      },
-    ]);
-  });
-
-  it('Update array is empty', () => {
-    const variables = getAddress(formValues, 'prefill', profileValues);
-    //console.log(variables);
-    expect(variables.updateAddresses).toEqual([]);
-  });
-
-  it('Remove array is empty', () => {
-    const variables = getAddress(
-      { ...formValues, addresses: [formValues.addresses[1]] },
-      'prefill',
-      profileValues
-    );
-    expect(variables.removeAddresses).toEqual(['234', '123']);
-  });
-
-  it('Remove array is empty', () => {
-    const variables = getAddress(formValues, 'prefill', profileValues);
-    expect(variables.removeAddresses).toEqual([]);
-  });
 });
 
 describe('getPhone tests', () => {
@@ -274,8 +228,6 @@ it('getMutationVariables returns correct object', () => {
             addressType: AddressType.OTHER,
           },
         ],
-        updateAddresses: [],
-        removeAddresses: [],
         updatePhones: [
           {
             phone: '0501234567',
