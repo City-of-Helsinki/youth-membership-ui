@@ -14,16 +14,16 @@ const getMutationVariables = (
         firstName: formValues.firstName,
         lastName: formValues.lastName,
         language: formValues.profileLanguage,
-        ...getAddress(formValues, 'prefill', profile),
-        ...getPhone(formValues, profile),
         // NOTE: Omit updateAddresses and removeAddresses since YM-515.
         // The fields could not be used in createProfileMutation
         // and shouldn't even be needed yet,
         // since the profile is just in creation stage
-        ...omit(getEmail(formValues, profile), [
+        ...omit(getAddress(formValues, 'prefill', profile), [
           'updateAddresses',
           'removeAddresses',
         ]),
+        ...getPhone(formValues, profile),
+        ...getEmail(formValues, profile),
       },
     },
   };

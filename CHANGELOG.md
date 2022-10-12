@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [1.4.4] - 2022-10-12
+
+### Fixed
+
+- [#305](https://github.com/City-of-Helsinki/youth-membership-ui/pull/305) Remove the update and remove addresses fields from the create profile mutation
+
 ## [1.4.3] - 2022-10-12
 
 ### Changed
