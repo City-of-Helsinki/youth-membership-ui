@@ -1,12 +1,7 @@
-.hostingBox {
-  text-align: left;
-}
-
 .helpText {
   margin: 20px 0 50px;
   font-size: var(--fontsize-body-l);
   line-height: var(--lineheight-m);
-  text-align: left;
 }
 
 .loginContainer {

@@ -1,6 +1,6 @@
 {
   "name": "youth-membership-ui",
-  "version": "1.4.0",
+  "version": "1.4.4",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -25,14 +25,14 @@
     "date-fns": "^2.8.1",
     "eslint-config-prettier": "6.4.0",
     "eslint-plugin-prettier": "3.1.1",
-    "formik": "^2.0.3",
+    "formik": "2.2.6",
     "graphql": "^14.5.8",
     "graphql.macro": "^1.4.2",
     "hds-core": "0.20.0",
     "hds-design-tokens": "0.20.0",
     "hds-react": "0.20.0",
     "helsinki-utils": "City-of-Helsinki/helsinki-utils-js#0.1.0",
-    "i18n-iso-countries": "^5.3.0",
+    "i18n-iso-countries": "6.5.0",
     "i18next": "^17.3.0",
     "i18next-browser-languagedetector": "^4.0.1",
     "lodash": "^4.17.19",
@@ -61,7 +61,7 @@
     "ci": "yarn setPackageDetails CI=true yarn test --coverage",
     "lint": "eslint --ext js,ts,tsx src",
     "codegen": "apollo client:codegen ./src/graphql/generatedTypes.ts --outputFlat --includes=./src/**/*.graphql --target=typescript --endpoint=https://jassari-federation.test.kuva.hel.ninja/ --useReadOnlyTypes --addTypename",
-    "update-translations": "fetch-translations 14aAzZeJ0HijXy7LklBtvOr0LKNy8PrpR2Gf_4ryv668 -l fi,en,sv -o ./src/i18n",
+    "update-translations": "fetch-translations 14aAzZeJ0HijXy7LklBtvOr0LKNy8PrpR2Gf_4ryv668 -l fi,en,sv,fr,ru,et,so,ar -o ./src/i18n",
     "browser-test": "testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
     "browser-test:ci": "testcafe \"chrome:headless --disable-gpu --window-size='1920,1080'\" browser-tests/ -s takeOnFails=true",
     "setPackageDetails": "cross-env REACT_APP_VERSION=$npm_package_version REACT_APP_APPLICATION_NAME=$npm_package_name"

@@ -274,8 +274,6 @@ it('getMutationVariables returns correct object', () => {
             addressType: AddressType.OTHER,
           },
         ],
-        updateAddresses: [],
-        removeAddresses: [],
         updatePhones: [
           {
             phone: '0501234567',

@@ -46,6 +46,7 @@ function getApprovalData(
     addAdditionalContactPersons: add,
     updateAdditionalContactPersons: update,
     removeAdditionalContactPersons: remove,
+    languageAtHome: values.languageAtHome,
   };
 }
 

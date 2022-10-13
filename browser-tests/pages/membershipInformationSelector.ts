@@ -28,7 +28,8 @@ export const membershipInformationSelector = {
     .sibling('span'),
   approvers: Selector('h2')
     .withText('Approver information')
-    .sibling('div'),
+    .sibling('div')
+    .child(),
   editProfileButton: Selector('a[class^="hds-button"]').withText(
     'Edit information'
   ),

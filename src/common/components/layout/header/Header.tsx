@@ -6,6 +6,7 @@ import { loader } from 'graphql.macro';
 import { useQuery } from '@apollo/client';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 
+import I18nService from '../../../../i18n/I18nService';
 import toastNotification from '../../../helpers/toastNotification/toastNotification';
 import { NameQuery } from '../../../../graphql/generatedTypes';
 import authenticate from '../../../../domain/auth/authenticate';
@@ -18,12 +19,6 @@ import styles from './Header.module.css';
 const NAME_QUERY = loader(
   '../../../../domain/youthProfile/graphql/NameQuery.graphql'
 );
-
-const languages = {
-  fi: 'Suomi',
-  sv: 'Svenska',
-  en: 'English',
-};
 
 // Approver variant is shown for approver view. The approver should not
 // be shown the user menu, nor should the header contain links for
@@ -64,9 +59,7 @@ function Header({ variant = 'default' }: Props) {
 
   const isDefaultVariant = variant === 'default';
   const isApproverVariant = variant === 'approver';
-  const normalizedLanguageCode = getLanguageCode(
-    i18n.languages[0]
-  ) as keyof typeof languages;
+  const normalizedLanguageCode = getLanguageCode(i18n.languages[0]);
   const logoLanguage = normalizedLanguageCode === 'sv' ? 'sv' : 'fi';
   const userName = data?.myProfile?.firstName;
   const isCreatingProfile = isAuthenticated && !userName;
@@ -87,21 +80,20 @@ function Header({ variant = 'default' }: Props) {
         <Navigation.Actions>
           <Navigation.LanguageSelector
             label={normalizedLanguageCode.toUpperCase()}
-            buttonAriaLabel={languages[normalizedLanguageCode]}
+            buttonAriaLabel={t(`language.${normalizedLanguageCode}`)}
           >
-            {Object.entries(languages).map(
-              ([normalizedLanguageCode, label]) => (
-                <Navigation.Item
-                  key={normalizedLanguageCode}
-                  href="#"
-                  onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) =>
-                    handleSetLanguage(e, normalizedLanguageCode)
-                  }
-                  label={label}
-                  lang={normalizedLanguageCode}
-                />
-              )
-            )}
+            {I18nService.languages.map(normalizedLanguageCode => (
+              <Navigation.Item
+                key={normalizedLanguageCode}
+                href="#"
+                onClick={(e: React.SyntheticEvent<HTMLAnchorElement>) =>
+                  handleSetLanguage(e, normalizedLanguageCode)
+                }
+                label={t(`language.${normalizedLanguageCode}`)}
+                lang={normalizedLanguageCode}
+                dir={I18nService.dir(normalizedLanguageCode)}
+              />
+            ))}
           </Navigation.LanguageSelector>
           {isCreatingProfile && (
             <Navigation.Item

@@ -3,6 +3,24 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: YouthProfileApprovedTime
+// ====================================================
+
+export interface YouthProfileApprovedTime_myYouthProfile {
+  readonly __typename: "YouthProfileNode";
+  readonly id: string;
+  readonly approvedTime: any | null;
+}
+
+export interface YouthProfileApprovedTime {
+  readonly myYouthProfile: YouthProfileApprovedTime_myYouthProfile | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: MembershipDetails
 // ====================================================
 
@@ -46,7 +64,7 @@ export interface MembershipDetails_myYouthProfile_profile_primaryEmail {
 
 export interface MembershipDetails_myYouthProfile_profile_primaryPhone {
   readonly __typename: "PhoneNode";
-  readonly phone: string | null;
+  readonly phone: string;
   readonly id: string;
 }
 
@@ -306,7 +324,7 @@ export interface HasYouthProfile {
 // ====================================================
 
 export interface NameQuery_myProfile {
-  readonly __typename: "ProfileWithVerifiedPersonalInformationNode";
+  readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
   readonly nickname: string;
@@ -326,7 +344,7 @@ export interface NameQuery {
 
 export interface PrefillRegistartion_myProfile_primaryPhone {
   readonly __typename: "PhoneNode";
-  readonly phone: string | null;
+  readonly phone: string;
   readonly id: string;
 }
 
@@ -368,7 +386,7 @@ export interface PrefillRegistartion_myProfile_primaryEmail {
 }
 
 export interface PrefillRegistartion_myProfile {
-  readonly __typename: "ProfileWithVerifiedPersonalInformationNode";
+  readonly __typename: "ProfileNode";
   readonly firstName: string;
   readonly lastName: string;
   readonly language: Language | null;
@@ -430,7 +448,7 @@ export interface ProfileWithAccessToken_profileWithAccessToken_primaryEmail {
 
 export interface ProfileWithAccessToken_profileWithAccessToken_primaryPhone {
   readonly __typename: "PhoneNode";
-  readonly phone: string | null;
+  readonly phone: string;
   readonly id: string;
 }
 
@@ -604,7 +622,7 @@ export interface MembershipDetailsFragment_profile_primaryEmail {
 
 export interface MembershipDetailsFragment_profile_primaryPhone {
   readonly __typename: "PhoneNode";
-  readonly phone: string | null;
+  readonly phone: string;
   readonly id: string;
 }
 
@@ -715,6 +733,7 @@ export enum YouthLanguage {
   ENGLISH = "ENGLISH",
   ESTONIAN = "ESTONIAN",
   FINNISH = "FINNISH",
+  FRENCH = "FRENCH",
   RUSSIAN = "RUSSIAN",
   SOMALI = "SOMALI",
   SWEDISH = "SWEDISH",
@@ -795,7 +814,6 @@ export interface ProfileInput {
   readonly addEmails?: ReadonlyArray<(CreateEmailInput | null)> | null;
   readonly addPhones?: ReadonlyArray<(CreatePhoneInput | null)> | null;
   readonly addAddresses?: ReadonlyArray<(CreateAddressInput | null)> | null;
-  readonly subscriptions?: ReadonlyArray<(SubscriptionInputType | null)> | null;
   readonly sensitivedata?: SensitiveDataFields | null;
   readonly updateEmails?: ReadonlyArray<(UpdateEmailInput | null)> | null;
   readonly removeEmails?: ReadonlyArray<(string | null)> | null;
@@ -815,17 +833,12 @@ export interface SensitiveDataFields {
 }
 
 export interface ServiceConnectionInput {
-  readonly service: ServiceInput;
+  readonly service?: ServiceInput | null;
   readonly enabled?: boolean | null;
 }
 
 export interface ServiceInput {
   readonly type?: ServiceType | null;
-}
-
-export interface SubscriptionInputType {
-  readonly subscriptionTypeId: string;
-  readonly enabled: boolean;
 }
 
 export interface UpdateAdditionalContactPersonInput {

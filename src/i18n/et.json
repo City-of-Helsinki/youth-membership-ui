@@ -1,0 +1,280 @@
+{
+  "appName": "Jässäri",
+  "approval": {
+    "addGuardianText": "Last puudutavais asjus võib pöörduda teiste teatatud eestkostjate poole.",
+    "addInfo": "Lisateave",
+    "additionalAddresses": "Muud aadressid",
+    "address": "Kodune aadress",
+    "approveButton": "Kinnita liikmesus",
+    "approvedLink": "Link on aegunud",
+    "approvedMessage": "Aitäh, et kinnitasid noorsooteenuse liikmesuse!",
+    "approvedTitle": "Jässäri taotlus on kinnitatud!",
+    "approverAcceptance": "Eestkostjalt nõutud load",
+    "approverEmail": "Meiliaadress",
+    "approverFirstName": "Eesnimi",
+    "approverInfo": "Eestkostja andmed",
+    "approverInfoText": "Eestkostjaga võib last puudutavais asjus ühendust võtta.",
+    "approverLastName": "Perekonnanimi",
+    "approveTerms": "Olen tutvunud <0>selle teenuse registriandmete</0>, <1>Helsingi profiili registriandmete</1> ja <2>linna andmekaitse eeskirjadega</2>. Minuga võib esitatud andmete abil ühendust võtta.",
+    "approveTermsText_link": "teenusetingimused",
+    "basicInfo": "Taustandmed",
+    "birthDate": "Sünnipäev",
+    "explanationCheckStatus": "Noor saab kontrollida taotluse olekut Jässärisse sisse logides. Kui tema liikmesust ei ole veel kinnitatud, paluge tal kinnitussõnum uuesti saata.",
+    "explanationError": "Kas olete juba noore saadetud taotluse kinnitanud või on teenuses tekkinud tõrge.",
+    "formExplanationText_1": "on saatnud kinnitamiseks Helsingi linna noorsoosteenuste liikmesuse taotluse. Liikmesus on tasuta. Taotluse kinnitamisel",
+    "formExplanationText_2": "saad veeta aega noortekeskustes, osaleda harrastustegevustes, koolitustes ja laagrites. Noortekeskuste tegevust juhendavad noorsootöötajad. Juhul kui andmetes on vigu, paluge noorel neid muuta ja teile uus kinnitussõnum saata.",
+    "name": "Nimi",
+    "phone": "Telefoninumber",
+    "photoUsageApproved": "Pildistamisluba",
+    "photoUsageApprovedNo": "Ei",
+    "photoUsageApprovedText": "Lapsest võib teha fotosid ja kasutada neid Helsingi linna kommunikatsiooni- ja turundustegevustes nii trüki- kui ka elektroonilises meedias. Pildistamise ja fotode kasutamise eest ei maksta hüvitist. Piltide kasutamise õigus kehtib alaliselt ja puudutab kogu Helsingi linna kommunikatsiooni ning turundust.",
+    "photoUsageApprovedYes": "Jah",
+    "profile": "Profiil",
+    "schoolInfo": "Kool ja klass",
+    "title": "Kinnita liikmesus"
+  },
+  "authentication": {
+    "deviceTimeError": {
+      "message": "Usu või ära usu, aga sa ei saa sisse logida, sest su seadme kell on üle viie minuti vale. Pane kell õigeks ja proovi uuesti."
+    },
+    "errorMessage": "Tekkis tõrge. Proovi uuesti",
+    "errorTitle": "Ups!",
+    "permRequestDenied": {
+      "message": "Selle teenuse kasutamiseks pead nõustuma meile õiguste andmisega Tunnistamo-teenuses. Palun proovi uuesti sisse logida."
+    }
+  },
+  "confirmSendingProfile": {
+    "buttonText": "Saada eestkostjale uus palve",
+    "helpText": "Oled saatnud liikmesuse kinnitamiseks aadressile",
+    "linkToShowSentData": "Näita taotluse andmeid",
+    "sendAgainHelpText": "Kinnitussõnum saadeti uuesti aadressile",
+    "title": "Taotlus on eestkostjale edastatud!"
+  },
+  "edit": {
+    "pageTitle": "Muuda oma andmeid"
+  },
+  "emailApproval": {
+    "content": "Hei! {{ youth_profile.approver_first_name }}, <br /><br />{{ youth_profile.profile.first_name }} on saatnud kinnitamiseks Helsingi linna noorsoosteenuste liikmesuse taotluse. Liikmesus on tasuta. Kui kinnitate taoltuse, saab {{ youth_profile.profile.first_name }} käia noortekeskuses ja kasutada toredaid soodustusi. Juhul kui andmetes on vigu, paluge noorel neid muuta ja teile uus kinnitussõnum saata. Kinnita Jässäri-teenuses lingil: <br /><br /><a href=\"https://jassari.hel.fi/approve/{{ youth_profile.approval_token }}\">https://jassari.hel.fi/approve/{{ youth_profile.approval_token }}</a><br /><br /><i>Süsteem saatis selle sõnumi automaatselt. Palume sellele sõnumile mitte vastata, sest vastuseid ei loeta.</i>",
+    "heading": "{{ youth_profile.profile.first_name }} on saatnud kinnitamiseks Helsingi linna noorsoosteenuste liikmesuse taotluse"
+  },
+  "emailApproved": {
+    "content": "Tere tulemast Helsingi linna noorsooteenuste liikmeks! {{ youth_profile.approver_first_name }} on liikmesuse kinnitanud. Digitaalse liikmekaardi leiad siit: <a href=\"https://jassari.hel.fi\">https://jassari.hel.fi</a><br /><br />Lisateavet noorsooteenuste liikmesuse ja sellega kasanevate hüvede kohta saad lugeda aadressilt <a href=\"http://jassari.munstadi.fi/\">http://jassari.munstadi.fi/</a>.<br /><br /><i>Süsteem saatis selle sõnumi automaatselt. Palume sellele sõnumile mitte vastata, sest vastuseid ei loeta.</i>",
+    "heading": "{{ youth_profile.approver_first_name }} on kinnitanud noorsooteenuste liikmesuse"
+  },
+  "emailRenew": {
+    "content": "Tervitus, {{ youth_profile.profile.first_name }}! Sinu noorsooteenuste liikmesus on aegumas. Uuenda liikmesust mugavalt aadressil https://jassari.hel.fi/ Lisateavet noorsooteenuste liikmesuse ja sellega kasanevate hüvede kohta saad lugeda aadressile http://jassari.munstadi.fi/ <br /><br />Lisateavet noorsooteenuste liikmesuse ja sellega kasanevate hüvede kohta saad lugeda aadressile http://jassari.munstadi.fi/<br /><br /> <i>Süsteem saatis selle sõnumi automaatselt. Palume sellele sõnumile mitte vastata, sest vastuseid ei loeta.</i>",
+    "heading": "{{ youth_profile.profile.first_name }} noorsooteenuste liikmesus on aegumas"
+  },
+  "externalLink": {
+    "description": "Avaneb uues aknas"
+  },
+  "fields": {
+    "city": "linn",
+    "email": "meiliaadress",
+    "firstName": "eesnimi",
+    "lastName": "perekonnanimi",
+    "phoneNumber": "telefoninumber",
+    "photoUsageApproved": "pildistamisluba",
+    "postalCode": "sihtnumber",
+    "schoolClass": "klass",
+    "schoolName": "kooli nimi",
+    "streetAddress": "tänav, maja, korter"
+  },
+  "footer": {
+    "accessibility": "Kättesaadavuse teave",
+    "copyright": "Helsingi linn",
+    "feedback": "Anna tagasisidet",
+    "feedbackLink": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/yhteystiedot-ja-palaute/Anna+palautetta/",
+    "privacy": "Registriteave",
+    "reserveRights": "Kõik õigused kaitstud",
+    "terms": "Teenusetingimused"
+  },
+  "helsinkiLogo": "Helsingi logo",
+  "LANGUAGE_OPTIONS": {
+    "ARABIC": "Araabia",
+    "ENGLISH": "Inglise",
+    "ESTONIAN": "Eesti",
+    "FINNISH": "Soome",
+    "FRENCH": "Prantsuse",
+    "RUSSIAN": "Vene",
+    "SOMALI": "Somaali",
+    "SWEDISH": "Rootsi"
+  },
+  "language": {
+    "ar": "العربية",
+    "en": "Inglise",
+    "et": "eesti keel",
+    "fi": "Suomi",
+    "fr": "français",
+    "ru": "Русский язык",
+    "so": "af Soomaali",
+    "sv": "Svenska"
+  },
+  "loading": "Laadimine ...",
+  "login": {
+    "buttonText": "Taotle liikmesust",
+    "findNearestService": "Leia teenusekaardilt lähim noortekeskus",
+    "helpText": "Jässäriga pääsed noorsooteenuseid kasutama. Liikmesus tagab sulle huvitavat tegevust: saad noortekeskuses aega veeta, osaleda harrastustegevustes, koolitustel ja laagrites, taotleda projektitoetust või korraldada ise mõne ürituse! Noortekeskuses juhendavad tegevusi kvalifitseeritud noorsootöötajad.",
+    "helpTextUnderAge": "Kahjuks pead Jässäri digitaotlemiseks olema vähemalt 13-aastane. Jässäri taotluse saad laadida alla siit. Täida koos eestkostjaga taotlus ja too see noortekeskusesse – siis saadki liikmekaardi.",
+    "linkForMembersText": "Oled juba liige? Logi sisse",
+    "pageTitle": "Noorsootegevuste liikmekaart",
+    "registrationForm": "https://nuorten.helsinki/uploads/2021/08/eea833f3-jasenkorttikaavake_2021_suomi.pdf",
+    "registrationFormText": "Laadi taotlus",
+    "return": "Võta tagasi",
+    "title": "Hangi Jässäri!"
+  },
+  "membershipDetails": {
+    "additionalInformation": "Lisateave",
+    "edit": "Muuda andmeid",
+    "photoUsageExplanation": "Minust võib teha fotosid ja kasutada neid Helsingi linna kommunikatsiooni- ja turundustegevustes nii trüki- kui ka elektroonilises meedias. Pildistamise ja fotode kasutamise eest ei maksta hüvitist. Piltide kasutamise õigus kehtib alaliselt ja puudutab kogu Helsingi linna kommunikatsiooni ning turundust.",
+    "profileInformation": "Taustandmed",
+    "requiredPermissionsFromParent": "Lapsevanemalt nõutud load",
+    "returnToFront": "Tagasi esilehele",
+    "text": "Jässäriga pääsed noorsooteenuseid kasutama. Liikmesus tagab sulle huvitavat tegevust: saad noortekeskuses aega veeta, osaleda harrastustegevustes, koolitustel ja laagrites, taotleda projektitoetust või korraldada ise mõne ürituse! Noortekeskuses juhendavad tegevusi kvalifitseeritud noorsootöötajad.",
+    "title": "Minu andmed"
+  },
+  "membershipInformation": {
+    "pageTitle": "Liikmesuse andmed",
+    "renew": "Uus liikmesus",
+    "renewSuccessMessage": "Liikmesus edukalt uuendatud!",
+    "renewSuccessMessageMinor": "Uuendamispalve saatmine õnnestus!",
+    "renewSuccessTitle": "Õnnestus",
+    "renewUnderage": "Saada eestkostjale uuendamispalve",
+    "showProfileInformation": "Kuva profiili andmed",
+    "status": {
+      "description": {
+        "expired": "Saada liikmesus uuesti eestkostjale kinnitamiseks.",
+        "pending": "Liikmesuse uuendamispalve saadeti aadressile {{email}}",
+        "renewable": "Saada liikmesus uuesti eestkostjale kinnitamiseks.",
+        "renewing": "Liikmesuse uuendamispalve saadeti aadressile {{email}}"
+      },
+      "title": {
+        "membershipExpired": "Liikmesus on aegunud.",
+        "pending": "Liikmesuse uuendamine ootab eestkostja kinnitust.",
+        "renewable": "Liikmesus aegub {{date}}.",
+        "renewing": "Liikmesus aegub {{date}}. Uuendamine ootab eestkostja kinnitust."
+      }
+    },
+    "title": "Liikmekaardi number {{number}}",
+    "validUntil": "Kehtib kuni {{date}}."
+  },
+  "meta": {
+    "description": "Jässäriga pääsed noorsooteenuseid kasutama. Liikmesus tagab sulle huvitavat tegevust: saad noortekeskuses aega veeta, osaleda harrastustegevustes, koolitustel ja laagrites, taotleda projektitoetust või korraldada ise mõne ürituse! Noortekeskuses juhendavad tegevusi kvalifitseeritud noorsootöötajad."
+  },
+  "nav": {
+    "helsinki": "Helsingi",
+    "menu": "Menüü",
+    "menuButtonLabel": "Profiili menüü",
+    "profile": "Helsingi profiil",
+    "signin": "Logi sisse",
+    "signout": "Logi välja",
+    "skipToContent": "Mine lehe põhisisu juurde"
+  },
+  "notification": {
+    "closeButtonText": "Sulge",
+    "defaultErrorText": "Midagi läks valesti. Proovi mõne aja pärast uuesti.",
+    "defaultErrorTitle": "Viga"
+  },
+  "oidc": {
+    "authenticating": "Autoriseerimine ..."
+  },
+  "privacyPolicy": {
+    "descriptionLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/",
+    "helsinkiProfileLink": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/S%C3%A4hk%C3%B6isten%20asiointipalveluiden%20rekisteri.pdf"
+  },
+  "profile": {
+    "address": "Aadress",
+    "email": "Meiliaadress",
+    "loading": "Laadin profiili ...",
+    "name": "Nimi",
+    "phone": "Telefoninumber",
+    "verifying": "Kontrollin profiili ..."
+  },
+  "registration": {
+    "addAddress": "Lisa teine aadress",
+    "addGuardian": "Lisa teise eestkostja kontaktandmed",
+    "addGuardianText": "Vajaduse korral võib noorsoosliikmesust puudutavais asjus pöörduda teiste teatatud eestkostjate poole.",
+    "addInfo": "Lisateave",
+    "address": "Tänav, maja, korter",
+    "ageRestriction": "Jässäri on mõeldud 8–29-aastastele noortele.",
+    "approver": "Eestkostja andmed",
+    "approverInfoOver18Text": "Üle 18-aastastelt ei nõuta vanema kontaktandmete lisamist. Aga juhul, kui pead seda mingil põhjusel vajalikuks, et saaksime su eestkostjaga ühendust võtta, võid need siia kirja panna.",
+    "approverInfoText": "Liikmesuse kinnitamistaotlus saadetakse sellele aadressile, eestkostja kinnitab andmed ja liikmesus kinnitatakse.",
+    "approveTerms": "Olen tutvunud <0>selle teenuse registriandmete</0>, <1>Helsingi profiili registriandmete</1> ja <2>linna andmekaitse eeskirjadega</2>. Minuga võib esitatud andmete abil ühendust võtta.",
+    "basicInfo": "Taustandmed",
+    "birthdayHelper": "Sünnipäev (pp.kk.aaaa)*",
+    "birthdayInvalid": "Sünnipäev peab olema kujul pp.kk.aaaa.",
+    "cancel": "Tühista",
+    "childBirthDay": "Sünnipäev",
+    "childBirthMonth": "Sünnikuu",
+    "childBirthYear": "Sünniaasta",
+    "city": "Linn",
+    "confirmSend": "Kinnita tingimused ja esita taotlus",
+    "country": "Riik",
+    "date": "Päev",
+    "dateInvalid": "Kuupäev ei sobi",
+    "email": "Meiliaadress",
+    "firstName": "Eesnimi",
+    "languageAtHome": "Esmane kontaktivõtu keel",
+    "lastName": "Perekonnanimi",
+    "membershipInfoText": "Liikmesus on tasuta ega kohusta sind millekski, kuid selle hankimine on noortekeskuste tegevustes osalemise eeldus. Me ei edasta sinu kontaktandmeid kellelegi. Sul on õigus enda andmeid kontrollida ja need kustutada. Pea meeles, et noorsooteenused on uimastivabad.",
+    "month": "Kuu",
+    "pageTitle": "Loo profiil",
+    "phoneNumber": "Telefoninumber",
+    "photoUsageApproved": "Pildistamisluba",
+    "photoUsageApprovedNo": "Ei",
+    "photoUsageApprovedText": "Minust võib teha fotosid ja kasutada neid Helsingi linna kommunikatsiooni- ja turundustegevustes nii trüki- kui ka elektroonilises meedias. Pildistamise ja fotode kasutamise eest ei maksta hüvitist. Piltide kasutamise õigus kehtib alaliselt ja puudutab kogu Helsingi linna kommunikatsiooni ning turundust.",
+    "photoUsageApprovedYes": "Jah",
+    "postalCode": "Sihtnumber",
+    "processInfoText": "Andmete kinnituspalve saadetakse vanemale ja kui ta on need üle vaadanud ja kinnitanud, hakkab liikmesus kehtima.",
+    "profileLanguage": "Esmane asjaajamiskeel",
+    "remove": "Kustuta",
+    "save": "Salvesta andmed",
+    "schoolClass": "Klass",
+    "schoolName": "Kool",
+    "sendButton": "Salvesta andmed ja saada kinnituspalve",
+    "title": "Sisesta andmed",
+    "year": "Vuosi"
+  },
+  "registry": {
+    "descriptionLink": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Nuorisopalvelujen%20j%C3%A4senrekisteri.pdf"
+  },
+  "sanityCheck": "youth-profile.fi",
+  "tos": {
+    "message1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "message2": "",
+    "message3": "",
+    "message4": "",
+    "message5": "",
+    "message6": "",
+    "message7": "",
+    "message8": "",
+    "title": "Kasutustingimused",
+    "title1": "1. Kohaldamisala",
+    "title2": "2. Profiili loomine ja kasutusest kõrvaldamine",
+    "title3": "3. Profiili kasutamine",
+    "title4": "4. Teenuse kättesaadavus",
+    "title5": "5. Isikuandmed",
+    "title6": "6. Õigused",
+    "title7": "7. Vastutuse piiramine",
+    "title8": "8. Muud tingimused",
+    "updated": "Ajakohastatud viimati 20.01.2020"
+  },
+  "validation": {
+    "email": "Sisesta toimiv meiliaadress",
+    "invalidPostalCode": "Sisesta õige sihtnumber",
+    "required": "Sisesta {{label}}",
+    "requiredTerms": "Kinnita tingimused",
+    "tooLong": "Sisesta {{label}}, mis on kuni {{max}} tähemärki pikk",
+    "tooShort": "Sisesta {{label}}, mis on vähemalt {{min}} tähemärki pikk"
+  },
+  "youthProfile": {
+    "approverEmail": "Meiliaadress",
+    "approverInfo": "Eestkostja andmed",
+    "approverName": "Nimi",
+    "approverPhone": "Telefoninumber",
+    "birthdate": "Sünnipäev",
+    "homeLanguages": "Esmane kontaktivõtu keel",
+    "school": "Kool"
+  }
+}

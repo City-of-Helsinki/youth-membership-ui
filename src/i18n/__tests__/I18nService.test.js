@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import countries from 'i18n-iso-countries';
 
 import setYupLocale from '../setYupLocale';
 import I18nService from '../I18nService';
@@ -20,11 +21,32 @@ describe('I18nService', () => {
   });
 
   it('static languages getter should return supported languages', () => {
-    expect(I18nService.languages).toEqual(['fi', 'sv', 'en']);
+    expect(I18nService.languages).toEqual([
+      'fi',
+      'sv',
+      'en',
+      'fr',
+      'ru',
+      'so',
+      'ar',
+      'et',
+    ]);
   });
 
   it('static get should return the i18next instance', () => {
     expect(i18n).toEqual(I18nService.get());
+  });
+
+  describe('static method dir', () => {
+    it('static dir should return direction of language', () => {
+      expect(I18nService.dir('fi')).toEqual('ltr');
+      expect(I18nService.dir('ar')).toEqual('rtl');
+    });
+
+    it('static dir should return direction of current language if there are no arguments', () => {
+      expect(I18nService.language).toEqual('fi');
+      expect(I18nService.dir()).toEqual('ltr');
+    });
   });
 
   describe('static init', () => {
@@ -44,23 +66,38 @@ describe('I18nService', () => {
       delete window.location;
       window.location = new URL('http://localhost/fi/');
 
-      const i18nOn = jest.spyOn(i18n, 'on');
-
       I18nService.init(fakeHistory);
-
-      expect(i18nOn).toHaveBeenCalledWith(
-        'languageChanged',
-        expect.any(Function)
-      );
-
-      const languageChangeCallbackFunction = i18nOn.mock.calls[0][1];
-
-      languageChangeCallbackFunction('sv');
+      I18nService.get().changeLanguage('sv');
 
       expect(replace).toHaveBeenCalledWith('/sv/');
 
       delete window.location;
       window.location = originalWindow;
+    });
+
+    // eslint-disable-next-line max-len
+    it('should extend the language change functionality by changing the language direction within the html document', () => {
+      const dirSpy = jest.spyOn(document, 'dir', 'set');
+
+      I18nService.init(fakeHistory);
+
+      expect(dirSpy).toHaveBeenCalledWith('ltr');
+
+      I18nService.get().changeLanguage('ar');
+
+      expect(dirSpy).toHaveBeenCalledWith('rtl');
+    });
+
+    it('should register locales for i18n-iso-countries', () => {
+      // Use a spy because the library behaves in the way it does when
+      // it is used in a NodeJS project instead of a browser project.
+      // In other words, the library is automatically configured to
+      // return all languages.
+      const registerLocaleSpy = jest.spyOn(countries, 'registerLocale');
+
+      I18nService.init(fakeHistory);
+
+      expect(registerLocaleSpy).toHaveBeenCalledTimes(8);
     });
 
     it('should configure i18next', () => {
@@ -79,6 +116,11 @@ describe('I18nService', () => {
         fi: expect.any(Object),
         sv: expect.any(Object),
         en: expect.any(Object),
+        fr: expect.any(Object),
+        ru: expect.any(Object),
+        et: expect.any(Object),
+        so: expect.any(Object),
+        ar: expect.any(Object),
       });
       expect(initParams.fallbackLng).toEqual(['fi']);
       expect(initParams.whitelist).toEqual([

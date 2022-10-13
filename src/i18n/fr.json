@@ -1,0 +1,280 @@
+{
+  "appName": "Le service « Jässäri »",
+  "approval": {
+    "addGuardianText": "D'autres titulaires d'autorité parentale renseigné(e)s peuvent être contacté(e)s pour toute question concernant l'enfant.",
+    "addInfo": "Info complémentaire",
+    "additionalAddresses": "D'autres adresses",
+    "address": "Adresse du domicile",
+    "approveButton": "Accepter l'adhésion",
+    "approvedLink": "Le lien est périmé.",
+    "approvedMessage": "Merci d'avoir confirmé l'adhésion aux services pour la jeunesse.",
+    "approvedTitle": "La demande d'adhésion pour Jässäri a été acceptée !",
+    "approverAcceptance": "Autorisations parentales indispensables",
+    "approverEmail": "Courriel",
+    "approverFirstName": "Prénom",
+    "approverInfo": "Données du/de la titulaire d'autorité parentale",
+    "approverInfoText": "Le/la titulaire d'autorité parentale peut être contacté(e) pour toute question concernant l'enfant.",
+    "approverLastName": "Nom de famille",
+    "approveTerms": "J'ai pris connaissance de <0>la fiche d'info de ce registre</0>, de <1>celle du profil Helsinki</1> et de <2>la déclaration de protection de données de la municipalité</2>. On peut me contacter en se servant des informations que j'ai fournies.",
+    "approveTermsText_link": "conditions de fourniture du service",
+    "basicInfo": "Données basiques",
+    "birthDate": "Date de naissance",
+    "explanationCheckStatus": "La jeune personne peut vérifier le statut de sa demande en se connectant sur le site Jässäri. Si l'adhésion n'a pas encore été acceptée, veuillez demander à la personne jeune d'envoyer le message de confirmation de nouveau.",
+    "explanationError": "Soit vous avez accepté la demande d'une jeune personne ou bien il y a eu une erreur dans notre service.",
+    "formExplanationText_1": "a envoyé une demande d'adhésion aux services pour la jeunesse de la ville de Helsinki pour la soumettre à votre acceptation. L'adhésion est gratuite. En acceptant la demande,",
+    "formExplanationText_2": "peut passer ses loisirs aux MJC, participer aux clubs dédiés aux différentes activités, aux cours et aux camps de jeunes. L'animation à la Maison des Jeunes est assurée par des animateurs socioéducatifs compétents. En cas de données erronées, veuillez demander à la jeune personne de les modifier et de vous adresser un nouveau message de confirmation.",
+    "name": "Nom complet",
+    "phone": "Téléphone",
+    "photoUsageApproved": "Autorisation de prise de vues",
+    "photoUsageApprovedNo": "Non",
+    "photoUsageApprovedText": "Le/la jeune peut-être photographié(e) ou filmé(e) et ces prises de vue peuvent être utilisées aux fins de communication et de marketing de la ville dans la presse écrite et électronique. La prise de vues et la publication de celles-ci ne donne lieu à aucune rémunération. Le droit à l'utilisation des prises de vues est toujours valable et applicable à toute la communication (commerciale) de la ville de Helsinki.",
+    "photoUsageApprovedYes": "Oui",
+    "profile": "Profil",
+    "schoolInfo": "École et classe",
+    "title": "Accepter l'adhésion"
+  },
+  "authentication": {
+    "deviceTimeError": {
+      "message": "Croyez-le ou pas, mais vous ne pouvez pas vous connecter au service puisque l'horloge de votre appareil dévie de plus de 5 minutes de l'heure exacte. Veuillez régler l'horloge et réessayer, s.v.p. !"
+    },
+    "errorMessage": "Une erreur est survenue. Veuillez réessayer, s.v.p. !",
+    "errorTitle": "Oups !",
+    "permRequestDenied": {
+      "message": "Afin d'utiliser ce service, vous devez accepter les droits que nous avons sollicités auprès de Tunnistamo. Veuillez essayer de vous reconnecter, s.v.p."
+    }
+  },
+  "confirmSendingProfile": {
+    "buttonText": "Envoyer un nouveau message au/à la titulaire d'autorité parentale",
+    "helpText": "Vous avez envoyé votre demande d'adhésion pour acceptation au courriel",
+    "linkToShowSentData": "Montrer les données de la demande",
+    "sendAgainHelpText": "Le message de confirmation a été envoyé de nouveau au courriel",
+    "title": "La demande a été envoyée au/à la titulaire de l'autorité parentale qui vous concerne"
+  },
+  "edit": {
+    "pageTitle": "Modifier vos données"
+  },
+  "emailApproval": {
+    "content": "Salut {{ youth_profile.approver_first_name }}, <br /><br />{{ youth_profile.profile.first_name }} vous a envoyé une demande d'adhésion aux services pour la jeunesse de la ville de Helsinki et vous prie de l'accepter. L'adhésion est gratuite. En acceptant la demande {{ youth_profile.profile.first_name }} peut visiter les MJC et profiter d'avantages utiles. En cas de données erronées, veuillez demander à la jeune personne de les modifier et de vous adresser un nouveau message de confirmation. Veuillez donner votre acceptation pour l'adhésion au service Jässäri en cliquant sur ce lien : <br /><br /><a href=\"https://jassari.hel.fi/approve/{{ youth_profile.approval_token }}\">https://jassari.hel.fi/approve/{{ youth_profile.approval_token }}</a><br /><br /><i>Ceci est un message automatique envoyé par le système. Vous ne pouvez pas y répondre, les réponses ne seront pas traitées.</i>",
+    "heading": "{{ youth_profile.profile.first_name }} a envoyé une demande d'adhésion aux services pour la jeunesse de la ville de Helsinki pour la soumettre à votre acceptation."
+  },
+  "emailApproved": {
+    "content": "Bienvenue ! Vous êtes désormais membre des services pour la jeunesse de la ville de Helsinki ! {{ youth_profile.approver_first_name }} a accepté votre adhésion. Votre carte de membre numérique est ici : <a href=\"https://jassari.hel.fi\">https://jassari.hel.fi</a><br /><br />Pour plus d'infos sur l'adhésion des services pour la jeunesse et les avantages, veuillez visiter le site <a href=\"http://jassari.munstadi.fi/\">http://jassari.munstadi.fi/</a>.<br /><br /><i>Ceci est un message automatique envoyé par le système. Vous ne pouvez pas y répondre, les réponses ne seront pas traitées.</i>",
+    "heading": "{{ youth_profile.approver_first_name }} a accepté votre adhésion aux services pour la jeunesse"
+  },
+  "emailRenew": {
+    "content": "Bonjour {{ youth_profile.profile.first_name }} ! Votre adhésion aux services pour la jeunesse prendra fin sous peu. Vous pouvez facilement renouveler votre adhésion ici https://jassari.hel.fi/ Pour plus d'info sur l'adhésion des services pour la jeunesse et les avantages, veuillez visiter le site http://jassari.munstadi.fi/ <br /><br />Pour plus d'info sur l'adhésion des services pour la jeunesse et les avantages, veuillez visiter le site http://jassari.munstadi.fi/<br /><br /> <i>Ceci est un message automatique envoyé par le système. Vous ne pouvez pas y répondre, les réponses ne seront pas traitées.</i>",
+    "heading": "{{ youth_profile.profile.first_name }} votre adhésion aux services pour la jeunesse prendra fin sous peu."
+  },
+  "externalLink": {
+    "description": "S'ouvre dans une nouvelle fenêtre"
+  },
+  "fields": {
+    "city": "ville",
+    "email": "courriel",
+    "firstName": "prénom",
+    "lastName": "nom de famille",
+    "phoneNumber": "numéro de téléphone",
+    "photoUsageApproved": "autorisation de prise de vues",
+    "postalCode": "code postal",
+    "schoolClass": "classe",
+    "schoolName": "nom de l'école",
+    "streetAddress": "rue"
+  },
+  "footer": {
+    "accessibility": "Notice d'accessibilité",
+    "copyright": "Ville de Helsinki",
+    "feedback": "Commenter s.v.p.",
+    "feedbackLink": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/fi/yhteystiedot-ja-palaute/Anna+palautetta/",
+    "privacy": "Fiche de registre",
+    "reserveRights": "Tous droits réservés",
+    "terms": "Conditions d'utilisation du service"
+  },
+  "helsinkiLogo": "Logo Helsinki",
+  "LANGUAGE_OPTIONS": {
+    "ARABIC": "Arabe",
+    "ENGLISH": "Anglais",
+    "ESTONIAN": "Estonien",
+    "FINNISH": "Finnois",
+    "FRENCH": "Français",
+    "RUSSIAN": "Russe",
+    "SOMALI": "Somalien",
+    "SWEDISH": "Suédois"
+  },
+  "language": {
+    "ar": "العربية",
+    "en": "English",
+    "et": "eesti keel",
+    "fi": "Suomi",
+    "fr": "français",
+    "ru": "Русский язык",
+    "so": "af Soomaali",
+    "sv": "Svenska"
+  },
+  "loading": "En chargement...",
+  "login": {
+    "buttonText": "Adhérez-vous",
+    "findNearestService": "Trouvez l'Espace Jeunes le plus proche sur le plan de services",
+    "helpText": "« Jässäri » vous donne accès aux services pour la jeunesse. L'adhésion vous garantit énormément d'activités, vous pouvez passer du temps aux MJC, participer aux clubs dédiés aux différentes activités, aux cours et aux camps de jeunes, demander une subvention pour votre projet ou créer vous-même votre évènement ! Aux MJC, l'animation est assurée par des animateurs socioéducatifs compétents.",
+    "helpTextUnderAge": "Malheureusement, l'adhésion numérique au service « Jässäri » nécessite d'avoir au moins 13 ans révolus. Vous pouvez charger votre demande d'adhésion ici. Remplir la demande ensemble avec le/la titulaire de l'autorité parentale et la retourner à la MJC pour recevoir votre carte d'adhérant.",
+    "linkForMembersText": "Déjà membre ? Pour vous connecter",
+    "pageTitle": "Carte d'adhérence aux services pour la jeunesse",
+    "registrationForm": "https://nuorten.helsinki/uploads/2021/08/eea833f3-jasenkorttikaavake_2021_suomi.pdf",
+    "registrationFormText": "Charger la demande",
+    "return": "Retour",
+    "title": "Pour accéder au service Jässäri !"
+  },
+  "membershipDetails": {
+    "additionalInformation": "Info complémentaire",
+    "edit": "Modifier vos données",
+    "photoUsageExplanation": "J'autorise qu'on me photographie ou filme et que ces prises de vue soient utilisées aux fins de communication et de marketing de la ville dans la presse écrite et électronique. La prise de vues et la publication de celles-ci ne donne lieu à aucune rémunération. Le droit à l'utilisation des prises de vues est toujours valable et applicable à toute la communication (commerciale) de la ville de Helsinki.",
+    "profileInformation": "Données basiques",
+    "requiredPermissionsFromParent": "Autorisations parentales indispensables",
+    "returnToFront": "Retour à la Page d'accueil",
+    "text": "« Jässäri » vous donne accès aux services pour la jeunesse. L'adhésion vous garantit énormément d'activités, vous pouvez passer du temps aux MJC, participer aux clubs dédiés aux différentes activités, aux cours et aux camps de jeunes, demander une subvention pour votre projet ou créer vous-même votre évènement ! Aux MJC, l'animation est assurée par des animateurs socioéducatifs compétents.",
+    "title": "Mes données"
+  },
+  "membershipInformation": {
+    "pageTitle": "Données concernant l'adhésion",
+    "renew": "Pour renouveler votre adhésion",
+    "renewSuccessMessage": "Votre adhésion a été renouvelée avec succès !",
+    "renewSuccessMessageMinor": "La demande de renouvellement a été envoyée avec succès !",
+    "renewSuccessTitle": "Réussite",
+    "renewUnderage": "Envoyer la demande de renouvellement au/à la titulaire d'autorité parentale",
+    "showProfileInformation": "Afficher les données du profil",
+    "status": {
+      "description": {
+        "expired": "Envoyer l'adhésion de nouveau pour acceptation au/à la titulaire d'autorité parentale.",
+        "pending": "La demande de renouvellement d'adhésion a été envoyée au courriel {{email}}",
+        "renewable": "Envoyer l'adhésion de nouveau pour acceptation au/à la titulaire d'autorité parentale.",
+        "renewing": "La demande de renouvellement d'adhésion a été envoyée au courriel {{email}}"
+      },
+      "title": {
+        "membershipExpired": "Votre période d'adhésion est terminé.",
+        "pending": "Le renouvellement de l'adhésion attend l'acceptation du/de la titulaire d'autorité parentale.",
+        "renewable": "Votre période d'adhésion se termine le {{date}}.",
+        "renewing": "Votre période d'adhésion se termine le {{date}}. Le renouvellement attend l'acceptation du/de la titulaire d'autorité parentale."
+      }
+    },
+    "title": "Le numéro de la carte d'adhésion {{number}}",
+    "validUntil": "Valide jusqu'au {{date}}."
+  },
+  "meta": {
+    "description": "« Jässäri » vous donne accès aux services pour la jeunesse. L'adhésion vous garantit énormément d'activités, vous pouvez passer du temps aux MJC, participer aux clubs dédiés aux différentes activités, aux cours et aux camps de jeunes, demander une subvention pour votre projet ou créer vous-même votre évènement ! Aux MJC, l'animation est assurée par des animateurs socioéducatifs compétents."
+  },
+  "nav": {
+    "helsinki": "Helsinki",
+    "menu": "Menu",
+    "menuButtonLabel": "Menu profil",
+    "profile": "Profil Helsinki",
+    "signin": "Pour vous connecter",
+    "signout": "Pour vous déconnecter",
+    "skipToContent": "Pour accéder aux contenus"
+  },
+  "notification": {
+    "closeButtonText": "Fermer",
+    "defaultErrorText": "Il y a eu un problème. Veuillez réessayer dans un instant.",
+    "defaultErrorTitle": "Erreur"
+  },
+  "oidc": {
+    "authenticating": "Identification en cours..."
+  },
+  "privacyPolicy": {
+    "descriptionLink": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/",
+    "helsinkiProfileLink": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Keha/S%C3%A4hk%C3%B6isten%20asiointipalveluiden%20rekisteri.pdf"
+  },
+  "profile": {
+    "address": "Adresse",
+    "email": "Courriel",
+    "loading": "Chargement du profil en cours...",
+    "name": "Nom complet",
+    "phone": "Numéro de téléphone",
+    "verifying": "Vérification du profil en cours..."
+  },
+  "registration": {
+    "addAddress": "Ajouter une autre adresse",
+    "addGuardian": "Ajouter les coordonnées d'un(e) autre titulaire d'autorité parentale",
+    "addGuardianText": "Les autres titulaires d'autorité parentale que vous avez renseigné(e)s peuvent être contacté(e)s pour toute question concernant votre adhésion aux services pour la jeunesse.",
+    "addInfo": "Info complémentaire",
+    "address": "Rue",
+    "ageRestriction": "Jässäri est destiné aux jeunes entre 8 et 29 ans.",
+    "approver": "Données du/de la titulaire d'autorité parentale",
+    "approverInfoOver18Text": "Les personnes ayant plus de 18 ans ne sont pas tenues d'ajouter les coordonnées d'un(e) parent. Si vous considérez pour une raison quelconque que nous pouvons contacter le/la titulaire de votre autorité parentale, vous pouvez renseigner ses coordonnées ici.",
+    "approverInfoText": "La demande de confirmation de l'adhésion sera envoyée à ce courriel, le/la titulaire d'autorité parentale confirmera les informations et acceptera l'adhésion aux services.",
+    "approveTerms": "J'ai pris connaissance de <0>la fiche d'info de ce registre</0>, de <1>celle du profil Helsinki</1> et de <2>la déclaration de protection de données de la municipalité</2>. On peut me contacter en se servant des informations que j'ai fournies.",
+    "basicInfo": "Données basiques",
+    "birthdayHelper": "Date de naissance (jj.mm.aaaa) *",
+    "birthdayInvalid": "Le date de naissance doit avoir le format jj.mm.aaaa.",
+    "cancel": "Annuler",
+    "childBirthDay": "Jour de naissance",
+    "childBirthMonth": "Mois de naissance",
+    "childBirthYear": "Année de naissance",
+    "city": "Ville",
+    "confirmSend": "Accepter les conditions et envoyer la demande",
+    "country": "Pays",
+    "date": "Date",
+    "dateInvalid": "La date renseignée n'est pas valide",
+    "email": "Courriel",
+    "firstName": "Prénom",
+    "languageAtHome": "Langue prioritaire pour le contact",
+    "lastName": "Nom de famille",
+    "membershipInfoText": "L'adhésion est gratuite et sans obligation quelconque, mais la participation aux activités des MJC est conditionnelle à l'adhésion. Nous ne divulguons aucune information renseignée aux tiers. Vous avez également le droit d'accéder et d'effacer vos données. N'oubliez pas que les stupéfiants sont interdits dans les activités des services pour la jeunesse.",
+    "month": "Mois",
+    "pageTitle": "Créer votre profil",
+    "phoneNumber": "Numéro de téléphone",
+    "photoUsageApproved": "Autorisation de prise de vues",
+    "photoUsageApprovedNo": "Non",
+    "photoUsageApprovedText": "J'autorise qu'on me photographie ou filme et que ces prises de vue soient utilisées aux fins de communication et de marketing de la ville dans la presse écrite et électronique. La prise de vues et la publication de celles-ci ne donne lieu à aucune rémunération. Le droit à l'utilisation des prises de vues est toujours valable et applicable à toute la communication (commerciale) de la ville de Helsinki.",
+    "photoUsageApprovedYes": "Oui",
+    "postalCode": "Code postal",
+    "processInfoText": "La demande de confirmation des informations sera envoyée au/à la titulaire d'autorité parentale, dont la vérification et l'acceptation vous permettre de vous adhérer.",
+    "profileLanguage": "Langue prioritaire pour la communication",
+    "remove": "Effacer",
+    "save": "Sauvegarder les informations",
+    "schoolClass": "Classe",
+    "schoolName": "École",
+    "sendButton": "Sauvegarder les informations et envoyer la demande de confirmation",
+    "title": "Insérer vos informations",
+    "year": "An"
+  },
+  "registry": {
+    "descriptionLink": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kuva/Nuorisopalvelujen%20j%C3%A4senrekisteri.pdf"
+  },
+  "sanityCheck": "youth-profile.fi",
+  "tos": {
+    "message1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "message2": "",
+    "message3": "",
+    "message4": "",
+    "message5": "",
+    "message6": "",
+    "message7": "",
+    "message8": "",
+    "title": "Conditions d'utilisation",
+    "title1": "1. Domaine d'application",
+    "title2": "2. Création et effacement du profil",
+    "title3": "3. Utilisation du profil",
+    "title4": "4. Disponibilité du service",
+    "title5": "5. Données personnelles",
+    "title6": "6. Vos droits",
+    "title7": "7. Limitation de responsabilité",
+    "title8": "8. Autres conditions",
+    "updated": "Dernière mise à jour le 20/01/2020"
+  },
+  "validation": {
+    "email": "Renseigner un courriel valide",
+    "invalidPostalCode": "Renseigner un code postal correct",
+    "required": "Renseigner {{label}}",
+    "requiredTerms": "Accepter les conditions",
+    "tooLong": "Renseigner {{label {{label}} {{max}} caractères maximum",
+    "tooShort": "Renseigner {{label {{label}} {{max}} caractères minimum"
+  },
+  "youthProfile": {
+    "approverEmail": "Courriel",
+    "approverInfo": "Données du/de la titulaire d'autorité parentale",
+    "approverName": "Nom complet",
+    "approverPhone": "Téléphone",
+    "birthdate": "Jour de naissance",
+    "homeLanguages": "Langue prioritaire pour le contact",
+    "school": "École"
+  }
+}

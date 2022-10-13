@@ -80,7 +80,6 @@
 .radioButtonRow {
   float: left;
   margin-right: 50px;
-  margin-top: 20px;
 }
 
 .listLabel {
@@ -101,7 +100,7 @@ a {
 
 @media (min-width: 768px) {
   .buttonAlign {
-    text-align: left;
+    text-align: initial;
   }
 }
 
@@ -112,13 +111,6 @@ a {
 
 .approverInfoText {
   margin-bottom: 10px;
-}
-
-.radioLabel {
-  font-weight: 700;
-  font-size: 0.9em;
-  margin-top: var(--spacing-l);
-  margin-bottom: 5px;
 }
 
 .button {

@@ -38,73 +38,67 @@ function Login() {
   return (
     <PageWrapper>
       <PageContentWithHostingBox title={'login.pageTitle'}>
-        <div className={styles.hostingBox}>
-          <Text variant="h1">{t('login.title')}</Text>
+        <Text variant="h1">{t('login.title')}</Text>
 
-          {!showManualRegistration && (
-            <React.Fragment>
-              <p className={styles.helpText}>{t('login.helpText')}</p>
-              <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
+        {!showManualRegistration && (
+          <React.Fragment>
+            <p className={styles.helpText}>{t('login.helpText')}</p>
+            <BirthdateForm redirectBasedOnAge={redirectBasedOnAge} />
 
-              {!isAuthenticated && (
-                <div className={styles.loginContainer}>
-                  <span className={styles.linkForMembers}>
-                    {t('login.linkForMembersText')}
-                  </span>
-                  <Button
-                    onClick={() => authenticate()}
-                    variant="supplementary"
-                    className={styles.button}
-                    iconRight={null}
-                  >
-                    {t('nav.signin')}
-                  </Button>
-                </div>
-              )}
-            </React.Fragment>
-          )}
+            {!isAuthenticated && (
+              <div className={styles.loginContainer}>
+                <span className={styles.linkForMembers}>
+                  {t('login.linkForMembersText')}
+                </span>
+                <Button
+                  onClick={() => authenticate()}
+                  variant="supplementary"
+                  className={styles.button}
+                  iconRight={null}
+                >
+                  {t('nav.signin')}
+                </Button>
+              </div>
+            )}
+          </React.Fragment>
+        )}
 
-          {showManualRegistration && (
-            <div className={styles.loginContainer}>
-              <p className={styles.helpText}>{t('login.helpTextUnderAge')}</p>
-              <LinkButton
-                className={styles.linkButtons}
-                path={t('login.registrationForm')}
-                component="a"
-                buttonText={t('login.registrationFormText')}
-                variant="primary"
-                target="_blank"
-                rel="noopener noreferrer"
-                iconRight={
-                  <IconLinkExternal
-                    aria-label={t('externalLink.description')}
-                  />
-                }
-              />
-              <LinkButton
-                className={styles.linkButtons}
-                path={authConstants.URLS.YOUTH_CENTERS}
-                component="a"
-                buttonText={t('login.findNearestService')}
-                variant="primary"
-                iconRight={
-                  <IconLinkExternal
-                    aria-label={t('externalLink.description')}
-                  />
-                }
-              />
+        {showManualRegistration && (
+          <div className={styles.loginContainer}>
+            <p className={styles.helpText}>{t('login.helpTextUnderAge')}</p>
+            <LinkButton
+              className={styles.linkButtons}
+              path={t('login.registrationForm')}
+              component="a"
+              buttonText={t('login.registrationFormText')}
+              variant="primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              iconRight={
+                <IconLinkExternal aria-label={t('externalLink.description')} />
+              }
+            />
+            <LinkButton
+              className={styles.linkButtons}
+              path={authConstants.URLS.YOUTH_CENTERS}
+              component="a"
+              buttonText={t('login.findNearestService')}
+              variant="primary"
+              iconRight={
+                <IconLinkExternal aria-label={t('externalLink.description')} />
+              }
+            />
 
-              <Button
-                test-id="goBack"
-                onClick={() => setShowManualRegistration(false)}
-                className={styles.linkButtons}
-                variant="secondary"
-              >
-                {t('login.return')}
-              </Button>
-            </div>
-          )}
-        </div>
+            <Button
+              test-id="goBack"
+              onClick={() => setShowManualRegistration(false)}
+              className={styles.linkButtons}
+              variant="secondary"
+            >
+              {t('login.return')}
+            </Button>
+          </div>
+        )}
       </PageContentWithHostingBox>
     </PageWrapper>
   );
