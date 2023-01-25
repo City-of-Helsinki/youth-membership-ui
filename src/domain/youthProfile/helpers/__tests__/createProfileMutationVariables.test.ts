@@ -1,3 +1,5 @@
+import { format, subYears } from 'date-fns';
+
 import { Values as FormValues } from '../../form/YouthProfileForm';
 import {
   AddressType,
@@ -12,6 +14,7 @@ import {
   getPhone,
 } from '../createProfileMutationVariables';
 import { getCreateYouthProfile } from '../youthProfileGetters';
+import ageConstants from '../../constants/ageConstants';
 
 const additionalContactPersons = [
   {
@@ -146,7 +149,11 @@ describe('getYouthProfile tests', () => {
   });
 
   it('user is younger than ageConstants.PHOTO_PERMISSION_MIN', () => {
-    const formVariables = { ...formValues, birthDate: '2008-01-01' };
+    const birthDate = format(
+      subYears(new Date(), ageConstants.PHOTO_PERMISSION_MIN - 1),
+      'yyyy-MM-dd'
+    );
+    const formVariables = { ...formValues, birthDate };
     const youthVariables = getCreateYouthProfile(formVariables);
     expect(youthVariables.photoUsageApproved).toBeUndefined();
   });
