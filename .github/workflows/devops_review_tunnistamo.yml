@@ -14,7 +14,8 @@ env:
   RESPONSE_TYPES: '"id_token token"'
   LOGIN_METHODS: 'github helusername'
   # review name and url should match to review name on DevOps pipeline
-  REVIEW_NAMESPACE: youth-membership-ui-pr${{github.event.pull_request.number}}
+  CLIENT_NAME: youth-membership-ui-pr${{github.event.pull_request.number}}
+  CLIENT_ID: https://api.hel.fi/auth/youth-membership-ui-dev-hel-ninja-pr${{github.event.pull_request.number}}
   ENVIRONMENT_URL: https://youth-membership-ui-pr${{github.event.pull_request.number}}.dev.hel.ninja
 
   API_SCOPE_JASSARI: https://api.hel.fi/auth/jassariapi
@@ -42,18 +43,18 @@ jobs:
 
       - name: Add new client
         run: |
-          kubectl exec -n "${{ env.TUNNISTAMO_NAMESPACE }}" "${TUNNISTAMO_POD}" -- ./manage.py add_oidc_client --name "${{ env.REVIEW_NAMESPACE }}" --response_types ${{ env.RESPONSE_TYPES }} --redirect_uris "${{ env.ENVIRONMENT_URL }}${{ env.CALLBACK_PATH }}" --client_id "${{ env.REVIEW_NAMESPACE }}" --site_type dev --login_methods ${{ env.LOGIN_METHODS }}
-          echo "Added client ${{ env.REVIEW_NAMESPACE }} to Tunnistamo"
+          kubectl exec -n "${{ env.TUNNISTAMO_NAMESPACE }}" "${TUNNISTAMO_POD}" -- ./manage.py add_oidc_client --name "${{ env.CLIENT_NAME }}" --response_types ${{ env.RESPONSE_TYPES }} --redirect_uris "${{ env.ENVIRONMENT_URL }}${{ env.CALLBACK_PATH }}" --client_id "${{ env.CLIENT_ID }}" --site_type dev --login_methods ${{ env.LOGIN_METHODS }}
+          echo "Added client ${{ env.CLIENT_NAME }} to Tunnistamo"
         shell: bash
       
       - name: Map client to Jassari API scope
         run: | 
-          kubectl exec -n "${{ env.TUNNISTAMO_NAMESPACE }}" "${TUNNISTAMO_POD}" -- ./manage.py add_oidc_client_to_api_scope --api_scope_identifier "${{ env.API_SCOPE_JASSARI }}" --client_id "${{ env.REVIEW_NAMESPACE }}" 
-          echo "Mapped client ${{ env.REVIEW_NAMESPACE }} to API Scope ${{ env.API_SCOPE_JASSARI }}"
+          kubectl exec -n "${{ env.TUNNISTAMO_NAMESPACE }}" "${TUNNISTAMO_POD}" -- ./manage.py add_oidc_client_to_api_scope --api_scope_identifier "${{ env.API_SCOPE_JASSARI }}" --client_id "${{ env.CLIENT_ID }}" 
+          echo "Mapped client ${{ env.CLIENT_NAME }} to API Scope ${{ env.API_SCOPE_JASSARI }}"
         shell: bash
 
       - name: Map client to Helösinkiprofile API scope
         run: | 
-          kubectl exec -n "${{ env.TUNNISTAMO_NAMESPACE }}" "${TUNNISTAMO_POD}" -- ./manage.py add_oidc_client_to_api_scope --api_scope_identifier "${{ env.API_SCOPE_HELSINKIPROFILE }}" --client_id "${{ env.REVIEW_NAMESPACE }}" 
-          echo "Mapped client ${{ env.REVIEW_NAMESPACE }} to API Scope ${{ env.API_SCOPE_HELSINKIPROFILE }}"
+          kubectl exec -n "${{ env.TUNNISTAMO_NAMESPACE }}" "${TUNNISTAMO_POD}" -- ./manage.py add_oidc_client_to_api_scope --api_scope_identifier "${{ env.API_SCOPE_HELSINKIPROFILE }}" --client_id "${{ env.CLIENT_ID }}" 
+          echo "Mapped client ${{ env.CLIENT_NAME }} to API Scope ${{ env.API_SCOPE_HELSINKIPROFILE }}"
         shell: bash
