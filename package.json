@@ -63,7 +63,8 @@
     "codegen": "apollo client:codegen ./src/graphql/generatedTypes.ts --outputFlat --includes=./src/**/*.graphql --target=typescript --endpoint=https://jassari-federation.test.kuva.hel.ninja/ --useReadOnlyTypes --addTypename",
     "update-translations": "fetch-translations 14aAzZeJ0HijXy7LklBtvOr0LKNy8PrpR2Gf_4ryv668 -l fi,en,sv,fr,ru,et,so,ar -o ./src/i18n",
     "browser-test": "testcafe \"chrome --window-size='1920,1080'\" browser-tests/",
-    "browser-test:ci": "testcafe \"chrome:headless --disable-gpu --window-size='1920,1080'\" browser-tests/ -s takeOnFails=true",
+    "browser-test:ci": "testcafe \"chrome:headless --disable-gpu --window-size='1920,1080'\" browser-tests/ -s takeOnFails=true --video screenshots",
+    "browser-test:wsl2win": "testcafe 'path:`/mnt/c/Program Files/Google/Chrome/Application/chrome.exe`' browser-tests/ --live --dev",
     "setPackageDetails": "cross-env REACT_APP_VERSION=$npm_package_version REACT_APP_APPLICATION_NAME=$npm_package_name"
   },
   "eslintConfig": {
@@ -82,6 +83,7 @@
     ]
   },
   "devDependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
     "@testing-library/jest-dom": "^5.7.0",
     "@testing-library/react": "^10.0.4",
     "apollo": "^2.21.1",
