@@ -19,7 +19,7 @@ env:
   ENVIRONMENT_URL: https://youth-membership-ui-pr${{github.event.pull_request.number}}.dev.hel.ninja
 
   API_SCOPE_JASSARI: https://api.hel.fi/auth/jassariapi
-  API_SCOPE_JASSARI_GDPRQUERY: https://api.hel.fi/auth/jassariapi.gdprquery
+  # API_SCOPE_JASSARI_GDPRQUERY: https://api.hel.fi/auth/jassariapi.gdprquery
   API_SCOPE_HELSINKIPROFILE: https://api.hel.fi/auth/helsinkiprofile
 
 jobs:
@@ -53,14 +53,14 @@ jobs:
           kubectl exec -n "${{ env.TUNNISTAMO_NAMESPACE }}" "${TUNNISTAMO_POD}" -- ./manage.py add_oidc_client_to_api_scope --api_scope_identifier "${{ env.API_SCOPE_JASSARI }}" --client_id "${{ env.CLIENT_ID }}" 
           echo "Mapped client ${{ env.CLIENT_NAME }} to API Scope ${{ env.API_SCOPE_JASSARI }}"
         shell: bash
-# is this needed ?
-      - name: Map client to Jassari gdprquery API scope
-        run: | 
-          kubectl exec -n "${{ env.TUNNISTAMO_NAMESPACE }}" "${TUNNISTAMO_POD}" -- ./manage.py add_oidc_client_to_api_scope --api_scope_identifier "${{ env.API_SCOPE_JASSARI_GDPRQUERY }}" --client_id "${{ env.CLIENT_ID }}" 
-          echo "Mapped client ${{ env.CLIENT_NAME }} to API Scope ${{ env.API_SCOPE_JASSARI_GDPRQUERY }}"
-        shell: bash
+      # is this needed ?
+      # - name: Map client to Jassari gdprquery API scope
+      #   run: | 
+      #     kubectl exec -n "${{ env.TUNNISTAMO_NAMESPACE }}" "${TUNNISTAMO_POD}" -- ./manage.py add_oidc_client_to_api_scope --api_scope_identifier "${{ env.API_SCOPE_JASSARI_GDPRQUERY }}" --client_id "${{ env.CLIENT_ID }}" 
+      #     echo "Mapped client ${{ env.CLIENT_NAME }} to API Scope ${{ env.API_SCOPE_JASSARI_GDPRQUERY }}"
+      #   shell: bash
 
-      - name: Map client to Helösinkiprofile API scope
+      - name: Map client to Helsinkiprofile API scope
         run: | 
           kubectl exec -n "${{ env.TUNNISTAMO_NAMESPACE }}" "${TUNNISTAMO_POD}" -- ./manage.py add_oidc_client_to_api_scope --api_scope_identifier "${{ env.API_SCOPE_HELSINKIPROFILE }}" --client_id "${{ env.CLIENT_ID }}" 
           echo "Mapped client ${{ env.CLIENT_NAME }} to API Scope ${{ env.API_SCOPE_HELSINKIPROFILE }}"
