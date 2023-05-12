@@ -7,10 +7,7 @@ trigger:
   batch: true
   tags:
     include:
-      - release-*
-  paths:
-    exclude:
-    - README.md
+      - youth-membership-ui-v*
 
 # Pull request (PR) triggers cause a pipeline to run whenever a pull request is 
 # opened with one of the specified target branches, or when updates are made to 
