@@ -1,0 +1,11 @@
+{
+  "bootstrap-sha": "d0763526745eda5074cf5140295d9fdc0eee0e3f",
+  "sequential-calls": true,
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "youth-membership-ui"
+    }
+  },
+  "plugins": ["sentence-case"]
+}
