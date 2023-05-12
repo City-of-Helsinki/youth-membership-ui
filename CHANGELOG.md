@@ -4,21 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
-## Unreleased
-
-## [1.4.4](https://github.com/City-of-Helsinki/youth-membership-ui/compare/youth-membership-ui-v1.4.3...youth-membership-ui-v1.4.4) (2023-05-12)
+## [1.4.4](https://github.com/City-of-Helsinki/youth-membership-ui/compare/release-1.4.3...youth-membership-ui-v1.4.4) (2023-05-12)
 
 
 ### Bug Fixes
 
 * Release please configuration ([4315a84](https://github.com/City-of-Helsinki/youth-membership-ui/commit/4315a8461a140e5875db390319fd89474f0aafb0))
 * Upgrade to node14 [YM-517](https://helsinkisolutionoffice.atlassian.net/browse/YM-517) ([f7e5d95](https://github.com/City-of-Helsinki/youth-membership-ui/commit/f7e5d95dc1b88ceb986f50c9ccba20d7729eb23a))
-
-## [1.4.4] - 2022-10-12
-
-### Fixed
-
-- [#305](https://github.com/City-of-Helsinki/youth-membership-ui/pull/305) Remove the update and remove addresses fields from the create profile mutation
 
 ## [1.4.3] - 2022-10-12
 
