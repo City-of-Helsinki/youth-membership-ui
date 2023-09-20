@@ -13,6 +13,8 @@ const fillAddressAndPhone = async (
   phone: string
 ) => {
   await t
+    .click(registrationFormSelector.primaryCountry)
+    .click(registrationFormSelector.countrySv)
     .selectText(registrationFormSelector.primaryAddress)
     .typeText(registrationFormSelector.primaryAddress, address)
     .selectText(registrationFormSelector.primaryPostalCode)
@@ -58,8 +60,8 @@ test('Edit profile information', async t => {
   );
   await t
     .click(registrationFormSelector.photoUsageYes)
-    .typeText(registrationFormSelector.schoolName, 'Solution office')
-    .typeText(registrationFormSelector.schoolClass, 'Team-C')
+    .typeText(registrationFormSelector.schoolName, 'Solution office', { replace: true })
+    .typeText(registrationFormSelector.schoolClass, 'Team-C', { replace: true })
     .click(registrationFormSelector.submitButton);
 
   // Make sure information was changed

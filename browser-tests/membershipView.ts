@@ -11,6 +11,7 @@ test('Enter profile information page', async t => {
     .click(membershipInformationSelector.linkToProfile)
     .expect(membershipInformationSelector.name.exists)
     .ok()
+    .wait(5000)
     .expect(membershipInformationSelector.mainAddress.exists)
     .ok()
     .expect(membershipInformationSelector.secondAddress.exists)

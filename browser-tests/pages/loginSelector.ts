@@ -1,4 +1,6 @@
+import { screen } from '@testing-library/testcafe';
 import { Selector } from 'testcafe';
+
 export const loginSelector = {
   submitButton: Selector('button[type="submit"]'),
   straightLogin: Selector('button').withText('Log in'),
@@ -11,6 +13,6 @@ export const loginSelector = {
   helUsername: Selector('#username'),
   helPassword: Selector('#password'),
   helLogin: Selector('#kc-login'),
-  permissionPage: Selector('h2').withText('Permission request'),
-  givePermissionButton: Selector('input[type="submit"][value="Allow"]'),
+  permissionPage: Selector('h2').withText(/Permission request|Lupapyyntö/i),
+  givePermissionButton: Selector('input[type="submit"][value="Anna lupa"]'),
 };

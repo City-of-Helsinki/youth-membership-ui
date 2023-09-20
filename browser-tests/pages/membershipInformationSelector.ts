@@ -9,7 +9,7 @@ export const membershipInformationSelector = {
     'Resend the membership request'
   ),
   displayApplication: Selector('a[class^="hds-button"]'),
-  linkToProfile: Selector('a').withText('Show profile information'),
+  linkToProfile: Selector('a').withText(/Show profile information|Näytä profiilin tiedot/i),
   name: Selector('span').withText('Existing TestProfile'),
   mainAddress: Selector('strong')
     .withText('Address')
