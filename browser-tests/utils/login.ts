@@ -39,3 +39,12 @@ export const loginStraight = async (t: TestController) => {
 
   await givePermission(t);
 };
+
+// login as child when already logged in 
+export const loginChild = async ( t: TestController ) => {
+  await t
+    .typeText(loginSelector.day, '01')
+    .typeText(loginSelector.month, '01')
+    .typeText(loginSelector.year, MINOR_YEAR)
+    .click(loginSelector.submitButton);
+}

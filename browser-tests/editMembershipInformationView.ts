@@ -1,7 +1,9 @@
 import { testURL } from './utils/settings';
-import { loginStraight } from './utils/login';
+import { loginStraight, loginChild, login } from './utils/login';
 import { membershipInformationSelector } from './pages/membershipInformationSelector';
 import { registrationFormSelector } from './pages/registrationFormSelector';
+import { loginSelector } from './pages/loginSelector';
+import { fillChild } from './registrationView';
 
 fixture('Edit profile information').page(testURL());
 
@@ -42,6 +44,23 @@ const expectedValues = async (
     .expect(membershipInformationSelector.school.innerText)
     .eql(school);
 };
+
+
+const registerProfile = async (t: TestController)  => {
+  console.log("Register new profile for user");
+
+  await loginChild(t);
+
+  await fillChild(t);
+}
+
+test('Ensure profile exists', async t => {
+  await loginStraight(t);
+
+  if (await loginSelector.header.exists) {
+    await registerProfile(t);
+  };
+});
 
 test('Edit profile information', async t => {
   await loginStraight(t);

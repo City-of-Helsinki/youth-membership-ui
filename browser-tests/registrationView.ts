@@ -11,6 +11,67 @@ const serverId = mailosaurServerId();
 const client = new MailosaurClient(mailosaurApiKey());
 const approverEmail = `unique-user@${serverId}.mailosaur.io`;
 
+export const fillChild = async ( t: TestController ) => {
+  await t
+      // All normal fields
+      .typeText(registrationFormSelector.firstName, 'Uno')
+      .typeText(registrationFormSelector.lastName, 'User')
+      .click(registrationFormSelector.primaryCountry)
+      .click(registrationFormSelector.countrySv)
+      .typeText(registrationFormSelector.primaryAddress, 'Test street 101')
+      .typeText(registrationFormSelector.primaryPostalCode, '00200')
+      .typeText(registrationFormSelector.primaryCity, 'Helsinki')
+      .typeText(registrationFormSelector.phone, '0501234567')
+      .typeText(registrationFormSelector.schoolName, 'Best school')
+      .typeText(registrationFormSelector.schoolClass, '1C')
+      .click(registrationFormSelector.languageSwedish)
+      .click(registrationFormSelector.languageEnglish)
+      .click(registrationFormSelector.languageFinnish)
+      .click(registrationFormSelector.photoUsageYes)
+      .click(registrationFormSelector.photoUsageNo)
+      .typeText(registrationFormSelector.approverFirstName, 'Unique')
+      .typeText(registrationFormSelector.approverLastName, 'User')
+      .typeText(registrationFormSelector.approverEmail, approverEmail)
+      .typeText(registrationFormSelector.approverPhone, '0501234567');
+  
+    // Extra fields -> Address
+    await t
+      .click(registrationFormSelector.addAddress)
+      .expect(registrationFormSelector.addressAddress.exists)
+      .ok()
+      .click(registrationFormSelector.removeAddress)
+      .expect(registrationFormSelector.addressAddress.exists)
+      .notOk()
+      .click(registrationFormSelector.addAddress)
+      .typeText(registrationFormSelector.addressAddress, 'Test street 202')
+      .typeText(registrationFormSelector.addressPostalCode, '00100')
+      .typeText(registrationFormSelector.addressCity, 'Helsinki');
+  
+    // Extra fields -> Guardian
+    await t
+      .click(registrationFormSelector.addGuardian)
+      .expect(registrationFormSelector.additionalApproverFirstName.exists)
+      .ok()
+      .click(registrationFormSelector.removeGuardian)
+      .expect(registrationFormSelector.additionalApproverFirstName.exists)
+      .notOk()
+      .click(registrationFormSelector.addGuardian)
+      .typeText(registrationFormSelector.additionalApproverFirstName, 'Ursula')
+      .typeText(registrationFormSelector.additionalApproverLastName, 'User')
+      .typeText(
+        registrationFormSelector.additionalApproverEmail,
+        'ursula@user.fi'
+      )
+      .typeText(registrationFormSelector.additionalApproverPhone, '0501234567');
+  
+    // Accept terms and submit form
+    await t
+      .click(registrationFormSelector.terms)
+      .click(registrationFormSelector.submitButton)
+      .expect(membershipInformationSelector.approverEmailSent.exists)
+      .ok();
+};
+
 // Skip for now because we do not have valid mailosaurus credentials
 // anymore.
 fixture

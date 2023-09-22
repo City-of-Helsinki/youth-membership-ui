@@ -13,7 +13,8 @@ export const youthService = {
 };
 
 // try to find client_id from input fields. Some reason Selector cannot find it directly
-async function clientIdExists(t: TestController, clientid: string)  {
+
+const clientIdExists = async (t: TestController, clientid: string) => {
     let found = false;
 
     let clientIdsCount= await (Selector('.field-client_id').count);

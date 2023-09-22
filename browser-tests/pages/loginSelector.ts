@@ -2,6 +2,7 @@ import { screen } from '@testing-library/testcafe';
 import { Selector } from 'testcafe';
 
 export const loginSelector = {
+  header: Selector('h1').withText(/Get your Jässäri!|Hanki Jässäri!/i),
   submitButton: Selector('button[type="submit"]'),
   straightLogin: Selector('button').withText('Log in'),
   errorText: Selector('span[class="hds-text-input__error-text"]'),
