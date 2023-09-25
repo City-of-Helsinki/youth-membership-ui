@@ -24,18 +24,13 @@ export const fillChild = async ( t: TestController ) => {
       .typeText(registrationFormSelector.phone, '0501234567', { replace: true })
       .typeText(registrationFormSelector.schoolName, 'Best school', { replace: true })
       .typeText(registrationFormSelector.schoolClass, '1C', { replace: true })
-      // .click(registrationFormSelector.languageSwedish)
-      // .click(registrationFormSelector.languageEnglish)
-      // .click(registrationFormSelector.languageFinnish)
-      // .click(registrationFormSelector.photoUsageYes)
-      // .click(registrationFormSelector.photoUsageNo)
       .typeText(registrationFormSelector.approverFirstName, 'Unique', { replace: true })
       .typeText(registrationFormSelector.approverLastName, 'User', { replace: true })
       .typeText(registrationFormSelector.approverEmail, approverEmail, { replace: true })
       .typeText(registrationFormSelector.approverPhone, '0501234567', { replace: true });
   
     // Extra fields -> Address
-    if (! registrationFormSelector.addressAddress.exists) {
+    if (! await registrationFormSelector.addressAddress.exists) {
       await t.click(registrationFormSelector.addAddress)
     }
     await t
@@ -44,7 +39,7 @@ export const fillChild = async ( t: TestController ) => {
       .typeText(registrationFormSelector.addressCity, 'Helsinki', { replace: true });
   
     // Extra fields -> Guardian
-    if (! registrationFormSelector.additionalApproverFirstName.exists) {
+    if (! await registrationFormSelector.additionalApproverFirstName.exists) {
       await t.click(registrationFormSelector.addGuardian)
     }
     await t
@@ -60,8 +55,6 @@ export const fillChild = async ( t: TestController ) => {
     await t
       .click(registrationFormSelector.terms)
       .click(registrationFormSelector.submitButton);
-      // .expect(membershipInformationSelector.approverEmailSent.exists)
-      // .ok();
 };
 
 // Skip for now because we do not have valid mailosaurus credentials
