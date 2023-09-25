@@ -47,11 +47,16 @@ const expectedValues = async (
 
 test('Ensure profile exists', async t => {
   await loginStraight(t);
+  
+  if (await loginSelector.header.exists) {
+    console.log("Register new profile for user first time");
+    await loginChild(t);
+  };
 
   if (await registrationFormSelector.header.exists) {
     console.log("Register new profile for user");
-//    await loginChild(t);
     await fillChild(t);
+    await membershipInformationSelector.linkToProfile.exists;
   };
 }).clientScripts({
   content: "document.cookie='birthDate=2002-01-01; path=/;'",
