@@ -1,5 +1,5 @@
 import { testURL } from './utils/settings';
-import { loginStraight, loginChild, login } from './utils/login';
+import { loginStraight, login, loginChild } from './utils/login';
 import { membershipInformationSelector } from './pages/membershipInformationSelector';
 import { registrationFormSelector } from './pages/registrationFormSelector';
 import { loginSelector } from './pages/loginSelector';
@@ -45,21 +45,18 @@ const expectedValues = async (
     .eql(school);
 };
 
-
-const registerProfile = async (t: TestController)  => {
-  console.log("Register new profile for user");
-
-  await loginChild(t);
-
-  await fillChild(t);
-}
-
 test('Ensure profile exists', async t => {
   await loginStraight(t);
 
-  if (await loginSelector.header.exists) {
-    await registerProfile(t);
+  await t.wait(5000);
+
+  if (await registrationFormSelector.header.exists) {
+    console.log("Register new profile for user");
+    await loginChild(t);
+    await fillChild(t);
   };
+}).clientScripts({
+  content: "document.cookie='birthDate=2002-01-01; path=/;'",
 });
 
 test('Edit profile information', async t => {
@@ -118,4 +115,6 @@ test('Edit profile information', async t => {
     'No',
     '–'
   );
+}).clientScripts({
+  content: "document.cookie='birthDate=2002-01-01; path=/;'",
 });

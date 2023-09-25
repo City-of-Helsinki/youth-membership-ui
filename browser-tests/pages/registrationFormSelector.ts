@@ -1,6 +1,7 @@
 import { Selector } from 'testcafe';
 
 export const registrationFormSelector = {
+  header: Selector('h1').withText(/Please fill in your information|Täytä tietosi/i),
   firstName: Selector('input[name="firstName"]'),
   lastName: Selector('input[name="lastName"]'),
   primaryCountry: Selector('select[name="primaryAddress.countryCode"]'),
