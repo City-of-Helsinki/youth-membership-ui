@@ -14,43 +14,43 @@ const approverEmail = `unique-user@${serverId}.mailosaur.io`;
 export const fillChild = async ( t: TestController ) => {
   await t
       // All normal fields
-      .typeText(registrationFormSelector.firstName, 'Uno')
-      .typeText(registrationFormSelector.lastName, 'User')
+      .typeText(registrationFormSelector.firstName, 'Uno', { replace: true })
+      .typeText(registrationFormSelector.lastName, 'User', { replace: true })
       .click(registrationFormSelector.primaryCountry)
       .click(registrationFormSelector.countrySv)
-      .typeText(registrationFormSelector.primaryAddress, 'Test street 101')
-      .typeText(registrationFormSelector.primaryPostalCode, '00200')
-      .typeText(registrationFormSelector.primaryCity, 'Helsinki')
-      .typeText(registrationFormSelector.phone, '0501234567')
-      .typeText(registrationFormSelector.schoolName, 'Best school')
-      .typeText(registrationFormSelector.schoolClass, '1C')
+      .typeText(registrationFormSelector.primaryAddress, 'Test street 101', { replace: true })
+      .typeText(registrationFormSelector.primaryPostalCode, '00200', { replace: true })
+      .typeText(registrationFormSelector.primaryCity, 'Helsinki', { replace: true })
+      .typeText(registrationFormSelector.phone, '0501234567', { replace: true })
+      .typeText(registrationFormSelector.schoolName, 'Best school', { replace: true })
+      .typeText(registrationFormSelector.schoolClass, '1C', { replace: true })
       // .click(registrationFormSelector.languageSwedish)
       // .click(registrationFormSelector.languageEnglish)
       // .click(registrationFormSelector.languageFinnish)
       // .click(registrationFormSelector.photoUsageYes)
       // .click(registrationFormSelector.photoUsageNo)
-      .typeText(registrationFormSelector.approverFirstName, 'Unique')
-      .typeText(registrationFormSelector.approverLastName, 'User')
-      .typeText(registrationFormSelector.approverEmail, approverEmail)
-      .typeText(registrationFormSelector.approverPhone, '0501234567');
+      .typeText(registrationFormSelector.approverFirstName, 'Unique', { replace: true })
+      .typeText(registrationFormSelector.approverLastName, 'User', { replace: true })
+      .typeText(registrationFormSelector.approverEmail, approverEmail, { replace: true })
+      .typeText(registrationFormSelector.approverPhone, '0501234567', { replace: true });
   
     // Extra fields -> Address
     await t
       .click(registrationFormSelector.addAddress)
-      .typeText(registrationFormSelector.addressAddress, 'Test street 202')
-      .typeText(registrationFormSelector.addressPostalCode, '00100')
-      .typeText(registrationFormSelector.addressCity, 'Helsinki');
+      .typeText(registrationFormSelector.addressAddress, 'Test street 202', { replace: true })
+      .typeText(registrationFormSelector.addressPostalCode, '00100', { replace: true })
+      .typeText(registrationFormSelector.addressCity, 'Helsinki', { replace: true });
   
     // Extra fields -> Guardian
     await t
       .click(registrationFormSelector.addGuardian)
-      .typeText(registrationFormSelector.additionalApproverFirstName, 'Ursula')
-      .typeText(registrationFormSelector.additionalApproverLastName, 'User')
+      .typeText(registrationFormSelector.additionalApproverFirstName, 'Ursula', { replace: true })
+      .typeText(registrationFormSelector.additionalApproverLastName, 'User', { replace: true })
       .typeText(
         registrationFormSelector.additionalApproverEmail,
         'ursula@user.fi'
       )
-      .typeText(registrationFormSelector.additionalApproverPhone, '0501234567');
+      .typeText(registrationFormSelector.additionalApproverPhone, '0501234567', { replace: true });
   
     // Accept terms and submit form
     await t

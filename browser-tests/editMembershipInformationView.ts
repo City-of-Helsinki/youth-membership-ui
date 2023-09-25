@@ -52,8 +52,10 @@ test('Ensure profile exists', async t => {
 
   if (await registrationFormSelector.header.exists) {
     console.log("Register new profile for user");
-    await loginChild(t);
+//    await loginChild(t);
     await fillChild(t);
+
+    await t.wait(15000);
   };
 }).clientScripts({
   content: "document.cookie='birthDate=2002-01-01; path=/;'",
