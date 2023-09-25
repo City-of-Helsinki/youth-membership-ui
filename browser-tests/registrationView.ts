@@ -35,15 +35,19 @@ export const fillChild = async ( t: TestController ) => {
       .typeText(registrationFormSelector.approverPhone, '0501234567', { replace: true });
   
     // Extra fields -> Address
+    if (! registrationFormSelector.addressAddress.exists) {
+      await t.click(registrationFormSelector.addAddress)
+    }
     await t
-      .click(registrationFormSelector.addAddress)
       .typeText(registrationFormSelector.addressAddress, 'Test street 202', { replace: true })
       .typeText(registrationFormSelector.addressPostalCode, '00100', { replace: true })
       .typeText(registrationFormSelector.addressCity, 'Helsinki', { replace: true });
   
     // Extra fields -> Guardian
+    if (! registrationFormSelector.additionalApproverFirstName.exists) {
+      await t.click(registrationFormSelector.addGuardian)
+    }
     await t
-      .click(registrationFormSelector.addGuardian)
       .typeText(registrationFormSelector.additionalApproverFirstName, 'Ursula', { replace: true })
       .typeText(registrationFormSelector.additionalApproverLastName, 'User', { replace: true })
       .typeText(
