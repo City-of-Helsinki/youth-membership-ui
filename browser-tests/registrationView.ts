@@ -14,8 +14,8 @@ const approverEmail = `unique-user@${serverId}.mailosaur.io`;
 export const fillChild = async ( t: TestController ) => {
   await t
       // All normal fields
-      .typeText(registrationFormSelector.firstName, 'Uno', { replace: true })
-      .typeText(registrationFormSelector.lastName, 'User', { replace: true })
+      .typeText(registrationFormSelector.firstName, 'Existing', { replace: true })
+      .typeText(registrationFormSelector.lastName, 'TestProfile', { replace: true })
       .click(registrationFormSelector.primaryCountry)
       .click(registrationFormSelector.countrySv)
       .typeText(registrationFormSelector.primaryAddress, 'Test street 101', { replace: true })
