@@ -53,6 +53,7 @@ export const openCityProfileURL = (): string => {
 
   return `${baseUrl}`;
 };
+
 export const openCityProfileUsername = (): string => {
   if (!process.env.BROWSER_TESTING_OPEN_CITY_PROFILE_USERNAME) {
     throw new Error('No BROWSER_TESTING_OPEN_CITY_PROFILE_USERNAME specified');

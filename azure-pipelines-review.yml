@@ -35,7 +35,6 @@ resources:
   # Azure DevOps repository
   - repository: youth-membership-pipelines
     type: git
-    ref: refs/heads/review_tunnistamo
     # Azure DevOps project/repository
     name: youth-membership/youth-membership-pipelines
 
