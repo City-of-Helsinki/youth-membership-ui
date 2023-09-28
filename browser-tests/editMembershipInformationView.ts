@@ -1,7 +1,9 @@
 import { testURL } from './utils/settings';
-import { loginStraight } from './utils/login';
+import { loginStraight, login, loginChild } from './utils/login';
 import { membershipInformationSelector } from './pages/membershipInformationSelector';
 import { registrationFormSelector } from './pages/registrationFormSelector';
+import { loginSelector } from './pages/loginSelector';
+import { fillChild } from './registrationView';
 
 fixture('Edit profile information').page(testURL());
 
@@ -13,6 +15,8 @@ const fillAddressAndPhone = async (
   phone: string
 ) => {
   await t
+    .click(registrationFormSelector.primaryCountry)
+    .click(registrationFormSelector.countrySv)
     .selectText(registrationFormSelector.primaryAddress)
     .typeText(registrationFormSelector.primaryAddress, address)
     .selectText(registrationFormSelector.primaryPostalCode)
@@ -41,6 +45,25 @@ const expectedValues = async (
     .eql(school);
 };
 
+test('Ensure profile exists', async t => {
+  await loginStraight(t);
+  await t.wait(5000);
+
+  if (await loginSelector.header.exists) {
+    console.log("Register new profile for user first time");
+    await loginChild(t);
+    await t.wait(5000);
+  };
+
+  if (await registrationFormSelector.header.exists) {
+    console.log("Register new profile for user");
+    await fillChild(t);
+    await t.wait(5000);
+  };
+}).clientScripts({
+  content: "document.cookie='birthDate=2002-01-01; path=/;'",
+});
+
 test('Edit profile information', async t => {
   await loginStraight(t);
 
@@ -58,8 +81,8 @@ test('Edit profile information', async t => {
   );
   await t
     .click(registrationFormSelector.photoUsageYes)
-    .typeText(registrationFormSelector.schoolName, 'Solution office')
-    .typeText(registrationFormSelector.schoolClass, 'Team-C')
+    .typeText(registrationFormSelector.schoolName, 'Solution office', { replace: true })
+    .typeText(registrationFormSelector.schoolClass, 'Team-C', { replace: true })
     .click(registrationFormSelector.submitButton);
 
   // Make sure information was changed
@@ -97,4 +120,6 @@ test('Edit profile information', async t => {
     'No',
     '–'
   );
+}).clientScripts({
+  content: "document.cookie='birthDate=2002-01-01; path=/;'",
 });

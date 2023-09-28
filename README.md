@@ -57,6 +57,10 @@ The `ci` variant of `browser-test` is ran against a headless browser, making it 
 
 Browser tests are configured to run with GitHub actions during each weekday with the `browser-test:ci` command.
 
+### `yarn browser-test:wsl2win`
+
+Run browser tests with Wsl which uses the Windows Chrome browser.
+
 ## Setting up development environment locally with docker
 
 ### Set tunnistamo hostname
@@ -113,6 +117,33 @@ Enables French, Russian, Estonian, Somali and Arabic as possible locales in the 
 
 **REACT_APP_FEATURE_FLAG_SHOW_ADDITIONAL_CONTACT_LANGUAGES**  
 Emables French, Russian, Estonian, Somali and Arabic as options in contact languages.
+
+## Browser tests environment variables
+
+Proper values for browser tests environment variables can be found from youth-membership dev key vault and pipelines.
+
+### Required environment variables
+
+- BROWSER_TESTING_USERNAME
+- BROWSER_TESTING_USERNAME_WITH_PROFILE
+- BROWSER_TESTING_PASSWORD
+- BROWSER_TESTING_URL
+- BROWSER_TESTING_MAILOSAUR_API
+- BROWSER_TESTING_MAILOSAUR_SERVER_ID
+### Optional environment variables for local open-city-profile
+
+Browser tests are capable add tunnistamo client id for open-city-profile if it is missing. This is needed on DevOps review environments for example. 
+
+If BROWSER_TESTING_OPEN_CITY_PROFILE_URL is set the other OPEN_CITY_PROFILE -variables must also be set.
+
+The BROWSER_TESTING_OPEN_CITY_PROFILE_CLIENTID value should be the same as the value set on tunnistamo.
+
+These are optional variables
+
+- BROWSER_TESTING_OPEN_CITY_PROFILE_URL
+- BROWSER_TESTING_OPEN_CITY_PROFILE_USERNAME
+- BROWSER_TESTING_OPEN_CITY_PROFILE_PASSWORD
+- BROWSER_TESTING_OPEN_CITY_PROFILE_CLIENTID
 
 ## Known issues
 https://github.com/City-of-Helsinki/youth-membership-ui/issues

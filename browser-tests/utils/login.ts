@@ -1,4 +1,5 @@
 import { format, subYears } from 'date-fns';
+import { ClientFunction } from "testcafe";
 
 import { loginSelector } from '../pages/loginSelector';
 import { username, password, usernameWithExistingProfile } from './settings';
@@ -38,4 +39,17 @@ export const loginStraight = async (t: TestController) => {
     .click(loginSelector.helLogin);
 
   await givePermission(t);
+};
+
+// login as child when already logged in 
+export const loginChild = async ( t: TestController ) => {
+  await t
+    .typeText(loginSelector.day, '01')
+    .typeText(loginSelector.month, '01')
+    .typeText(loginSelector.year, MINOR_YEAR)
+    .click(loginSelector.submitButton);
+    // .click(loginSelector.helLoginLink)
+    // .typeText(loginSelector.helUsername, usernameWithExistingProfile())
+    // .typeText(loginSelector.helPassword, password())
+    // .click(loginSelector.helLogin);
 };

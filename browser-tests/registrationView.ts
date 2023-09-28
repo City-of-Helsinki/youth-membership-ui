@@ -11,6 +11,52 @@ const serverId = mailosaurServerId();
 const client = new MailosaurClient(mailosaurApiKey());
 const approverEmail = `unique-user@${serverId}.mailosaur.io`;
 
+export const fillChild = async ( t: TestController ) => {
+  await t
+      // All normal fields
+      .typeText(registrationFormSelector.firstName, 'Existing', { replace: true })
+      .typeText(registrationFormSelector.lastName, 'TestProfile', { replace: true })
+      .click(registrationFormSelector.primaryCountry)
+      .click(registrationFormSelector.countrySv)
+      .typeText(registrationFormSelector.primaryAddress, 'Test street 101', { replace: true })
+      .typeText(registrationFormSelector.primaryPostalCode, '00200', { replace: true })
+      .typeText(registrationFormSelector.primaryCity, 'Helsinki', { replace: true })
+      .typeText(registrationFormSelector.phone, '0501234567', { replace: true })
+      .typeText(registrationFormSelector.schoolName, 'Best school', { replace: true })
+      .typeText(registrationFormSelector.schoolClass, '1C', { replace: true })
+      .typeText(registrationFormSelector.approverFirstName, 'Unique', { replace: true })
+      .typeText(registrationFormSelector.approverLastName, 'User', { replace: true })
+      .typeText(registrationFormSelector.approverEmail, approverEmail, { replace: true })
+      .typeText(registrationFormSelector.approverPhone, '0501234567', { replace: true });
+  
+    // Extra fields -> Address
+    if (! await registrationFormSelector.addressAddress.exists) {
+      await t.click(registrationFormSelector.addAddress)
+    }
+    await t
+      .typeText(registrationFormSelector.addressAddress, 'Test street 202', { replace: true })
+      .typeText(registrationFormSelector.addressPostalCode, '00100', { replace: true })
+      .typeText(registrationFormSelector.addressCity, 'Helsinki', { replace: true });
+  
+    // Extra fields -> Guardian
+    if (! await registrationFormSelector.additionalApproverFirstName.exists) {
+      await t.click(registrationFormSelector.addGuardian)
+    }
+    await t
+      .typeText(registrationFormSelector.additionalApproverFirstName, 'Ursula', { replace: true })
+      .typeText(registrationFormSelector.additionalApproverLastName, 'User', { replace: true })
+      .typeText(
+        registrationFormSelector.additionalApproverEmail,
+        'ursula@user.fi'
+      )
+      .typeText(registrationFormSelector.additionalApproverPhone, '0501234567', { replace: true });
+  
+    // Accept terms and submit form
+    await t
+      .click(registrationFormSelector.terms)
+      .click(registrationFormSelector.submitButton);
+};
+
 // Skip for now because we do not have valid mailosaurus credentials
 // anymore.
 fixture
