@@ -1,3 +1,8 @@
+.title {
+  font-size: var(--fontsize-heading-s);
+  line-height: var(--lineheight-xl);
+}
+
 .helpText {
   margin: 20px 0 50px;
   font-size: var(--fontsize-body-l);
@@ -26,7 +31,7 @@
 
 @media (min-width: 400px) {
   .title {
-    font-size: var(--fontsize-heading-xl);
+    font-size: var(--fontsize-heading-l);
   }
 
   .button {
