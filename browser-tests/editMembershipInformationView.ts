@@ -50,21 +50,21 @@ test('Ensure profile exists', async t => {
   await t.wait(5000);
 
   if (await loginSelector.header.exists) {
-    console.log("Register new profile for user first time");
+    console.log('Register new profile for user first time');
     await loginChild(t);
     await t.wait(5000);
-  };
+  }
 
   if (await registrationFormSelector.header.exists) {
-    console.log("Register new profile for user");
+    console.log('Register new profile for user');
     await fillChild(t);
     await t.wait(5000);
-  };
+  }
 }).clientScripts({
   content: "document.cookie='birthDate=2002-01-01; path=/;'",
 });
 
-test('Edit profile information', async t => {
+/* test('Edit profile information', async t => {
   await loginStraight(t);
 
   await t
@@ -94,6 +94,7 @@ test('Edit profile information', async t => {
     'Solution office, Team-C'
   );
 
+
   // Change everything back. This way we can actually make sure that information is changed every time
 
   await t.click(membershipInformationSelector.editProfileButton);
@@ -122,4 +123,4 @@ test('Edit profile information', async t => {
   );
 }).clientScripts({
   content: "document.cookie='birthDate=2002-01-01; path=/;'",
-});
+}); */

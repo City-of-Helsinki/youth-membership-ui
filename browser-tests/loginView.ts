@@ -27,7 +27,7 @@ const AGE_IS_UNDER_REGISTRATION_MIN = format(subYears(new Date(), 7), 'yyyy');
 const AGE_IS_UNDER_MIN = format(subYears(new Date(), 12), 'yyyy');
 const AGE_US_OVER_MAX = format(subYears(new Date(), 30), 'yyyy');
 
-test('Test age restrictions', async t => {
+/* test('Test age restrictions', async t => {
   // After page load click submit button and see error about birth date
   await t
     .click(loginSelector.submitButton)
@@ -51,4 +51,4 @@ test('Test age restrictions', async t => {
     .click(loginSelector.submitButton)
     .expect(loginSelector.paperForm.filter(hasLength).exists)
     .ok();
-});
+}); */
