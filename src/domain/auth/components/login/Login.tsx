@@ -21,9 +21,6 @@ function Login() {
         <React.Fragment>
           {!isAuthenticated && (
             <div className={styles.loginContainer}>
-              <span className={styles.linkForMembers}>
-                {t('login.linkForMembersText')}
-              </span>
               <Button
                 onClick={() => authenticate()}
                 variant="supplementary"
