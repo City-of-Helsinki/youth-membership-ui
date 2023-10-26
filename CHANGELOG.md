@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
+## [1.5.0](https://github.com/City-of-Helsinki/youth-membership-ui/compare/youth-membership-ui-v1.4.4...youth-membership-ui-v1.5.0) (2023-10-25)
+
+
+### Features
+
+* Service not available UI ([2fcd559](https://github.com/City-of-Helsinki/youth-membership-ui/commit/2fcd5596c36e4ff6db92fca1452db2bbaae21049))
+* Setvice not available ([81f1930](https://github.com/City-of-Helsinki/youth-membership-ui/commit/81f1930659d81b5af7b06cdec0dd13863650ecfb))
+
+
+### Bug Fixes
+
+* Disable login browser test ([fc35274](https://github.com/City-of-Helsinki/youth-membership-ui/commit/fc352745a7bc6c1e67040e6e3a8b3eeca8d14817))
+* Disable login browser test ([ae07f25](https://github.com/City-of-Helsinki/youth-membership-ui/commit/ae07f25f53b16409fb9159de6eeef5123c438c7d))
+* Remove extra login text ([2584937](https://github.com/City-of-Helsinki/youth-membership-ui/commit/2584937aa6f221891d10530f4d2ef3e33f1ba211))
+
 ## [1.4.4](https://github.com/City-of-Helsinki/youth-membership-ui/compare/release-1.4.3...youth-membership-ui-v1.4.4) (2023-05-12)
 
 
