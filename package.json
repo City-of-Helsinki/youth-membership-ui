@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.3.7",
+    "@apollo/client": "^3.8.6",
     "@datapunt/matomo-tracker-react": "^0.1.1",
     "@reduxjs/toolkit": "^1.2.1",
     "@sentry/browser": "^5.14.1",
