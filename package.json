@@ -7,7 +7,7 @@
     "@apollo/client": "^3.3.7",
     "@datapunt/matomo-tracker-react": "^0.1.1",
     "@reduxjs/toolkit": "^1.2.1",
-    "@sentry/browser": "^5.14.1",
+    "@sentry/browser": "^5.30.0",
     "@types/classnames": "^2.2.9",
     "@types/jest": "24.0.18",
     "@types/lodash": "^4.14.151",
